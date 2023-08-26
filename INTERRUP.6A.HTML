@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._6A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 6A
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#6A"><b>6A</b> - INT 6A - OPTHELP.COM</a><br />
+<a href="#6A_0"><b>6A</b> - INT 6A - DECnet DOS - LOCAL AREA TRANSPORT PROGRAM - INSTALLATION CHECK</a><br />
+<a href="#6A_1"><b>6A</b> - INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6A0000"><b>6A0000</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - INSTALLATION CHECK</a><br />
+<a href="#6A0001"><b>6A0001</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???</a><br />
+<a href="#6A0002"><b>6A0002</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???</a><br />
+<a href="#6A0003"><b>6A0003</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - GET ??? DATA AREA</a><br />
+<a href="#6A0004"><b>6A0004</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ALLOCATE ???</a><br />
+<a href="#6A0005"><b>6A0005</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ???</a><br />
+<a href="#6A000F"><b>6A000F</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ALL ???</a><br />
+<a href="#6A0010"><b>6A0010</b> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - UNINSTALL</a><br />
+<a href="#6A01--DHFF"><b>6A01--DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BYTE</a><br />
+<a href="#6A02--DHFF"><b>6A02--DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - READ BYTE</a><br />
+<a href="#6A03--DHFF"><b>6A03--DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - STATUS</a><br />
+<a href="#6AD0--DHFF"><b>6AD0--DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - OPEN SESSION</a><br />
+<a href="#6AD000DHFF"><b>6AD000DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - CLOSE SESSION</a><br />
+<a href="#6AD100DHFF"><b>6AD100DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BREAK</a><br />
+<a href="#6AD300DHFF"><b>6AD300DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - RESET LAT COUNTERS</a><br />
+<a href="#6AD400DHFF"><b>6AD400DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - COPY LAT COUNTERS</a><br />
+<a href="#6AD500DHFF"><b>6AD500DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - GET NEXT LAT SERVICE NAME</a><br />
+<a href="#6AD600DHFF"><b>6AD600DHFF</b> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - LAT SERVICE TABLE RESET</a><br />
+
+<hr />
+
+<a href="#6A" name="6A"><b>6A</b></a> - INT 6A - OPTHELP.COM<br />
+<pre>
+INT 6A - OPTHELP.COM
+Program: OPTHELP is an optionally-resident help system for SLR Systems's OPTASM
+	  assembler
+Range:	INT 60h to INT 7Fh, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A_0" name="6A_0"><b>6A</b></a> - INT 6A - DECnet DOS - LOCAL AREA TRANSPORT PROGRAM - INSTALLATION CHECK<br />
+<pre>
+INT 6A - DECnet DOS - LOCAL AREA TRANSPORT PROGRAM - INSTALLATION CHECK
+InstallCheck:	test for a signature area immediately preceding the interrupt
+	  handler (see #03715)
+SeeAlso: AH=01h/DH=FFh,INT 6B"DECnet",INT 6D"DECnet"
+Index:	installation check;DECnet DOS Local Area Transport
+
+Format of DECnet DOS signature area:
+Offset	Size	Description	(Table 03715)
+ -5	BYTE	major version number
+ -4	BYTE	minor version number
+ -3   3 BYTEs	signature (ASCII "LAT")
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A_1" name="6A_1"><b>6A</b></a> - INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0A"IRQ2",INT 69"HP Vectra",INT 6B"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0000" name="6A0000"><b>6A0000</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - INSTALLATION CHECK<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - INSTALLATION CHECK
+	AX = 0000h
+Return: AX = 4357h ('CW')
+Program: Super-TCP is a TCP/IP protocol stack by Frontier Technologies Corp.
+Note:	an alternate installation check is to test for the ASCIZ signature
+	  "FTC Super-TCP" three bytes past the interrupt handler
+SeeAlso: AX=0001h,AX=0002h,AX=000Fh,AX=0010h,INT 21/AH=3Fh"BW-TCP"
+SeeAlso: INT 61"FTP Software",INT 62/AH=00h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0001" name="6A0001"><b>6A0001</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???
+	AX = 0001h
+	BH = function number
+	    01h ???
+		DS:SI -&gt; ??? 24-byte record1 (see #03717)
+		ES:DI -&gt; buffer containing ???
+	    02h ???
+		DS:SI -&gt; ??? 18-byte record2 (see #03718)
+		ES:DI -&gt; buffer containing ???
+	    04h ???
+		BL = subfunction
+		    01h
+			DS:SI -&gt; ??? 28-byte record3 (see #03719)
+			ES:DI -&gt; buffer containing ???
+		    02h
+			DS:SI -&gt; ??? 28-byte record3 (see #03719)
+			ES:DI -&gt; buffer containing ???
+		    03h
+			DS:SI -&gt; ??? 28-byte record3 (see #03719)
+		    else Return: AX = 0005h
+	    05h ???
+		DS:SI -&gt; ??? 20-byte record4 (see #03720)
+		ES:DI -&gt; buffer containing ???
+	    06h ???
+		BL = subfunction
+		    01h
+			DS:SI -&gt; ??? 40-byte record5 (see #03721)
+		    02h
+			DS:SI -&gt; ??? 20-byte record6 (see #03722)
+			ES:DI -&gt; ???
+		    03h
+			DS:SI -&gt; ??? 20-byte record6 (see #03722)
+		    04h
+			DS:SI -&gt; ??? 46-byte record7 (see #03723)
+		    else Return: AX = 0005h
+	    11h ???
+		DS:SI -&gt; ??? 28-byte record8 (see #03724)
+		ES:DI -&gt; ???
+Return: AX = function status (see #03716)
+SeeAlso: AX=0000h
+
+(Table 03716)
+Values for Super-TCP function status:
+ 0000h	successful
+ 0005h	unsupported function
+ 000Ah	out of memory
+
+Format of record1:
+Offset	Size	Description	(Table 03717)
+ 00h  4 BYTEs	???
+ 04h	WORD	size of ES:DI buffer
+ 06h 18 BYTEs	???
+
+Format of record2:
+Offset	Size	Description	(Table 03718)
+ 00h  4 BYTEs	???
+ 04h	WORD	size of ES:DI buffer
+ 06h 12 BYTEs	???
+
+Format of record3:
+Offset	Size	Description	(Table 03719)
+ 00h  2 BYTEs	???
+ 02h	WORD	???
+ 04h	WORD	size of ES:DI buffer
+ 06h	WORD	???
+ 08h	WORD	operation number (for function 0401h)
+ 0Ah	DWORD	-&gt; ???
+ 0Eh	WORD	(ret) ???
+ 10h 12 BYTEs	???
+
+Format of record4:
+Offset	Size	Description	(Table 03720)
+ 00h  4 BYTEs	???
+ 04h	WORD	size of ES:DI buffer
+ 06h 14 BYTEs	???
+
+Format of record5:
+Offset	Size	Description	(Table 03721)
+ 00h	BYTE	operation??? (00h-07h)
+ 01h	BYTE	???
+ 02h	WORD	(ret) ???
+ 04h	DWORD	-&gt; ???
+ 08h  4 BYTEs	???
+ 0Ch	DWORD	-&gt; ??? or 0000h:0000h
+ 10h 16 BYTEs	???
+ 20h	DWORD	???
+ 24h  4 BYTEs	???
+
+Format of record6:
+Offset	Size	Description	(Table 03722)
+ 00h  4 BYTEs	???
+ 04h	WORD	size of ES:DI buffer
+ 06h 14 BYTEs	???
+
+Format of record7:
+Offset	Size	Description	(Table 03723)
+ 00h	WORD	???
+ 02h	WORD	???
+ 04h	WORD	???
+ 06h 40 BYTEs	???
+
+Format of record8:
+Offset	Size	Description	(Table 03724)
+ 00h  4 BYTEs	???
+ 04h	WORD	size of ES:DI buffer
+ 06h  6 BYTEs	???
+ 0Ch	WORD	(ret) ???
+ 0Eh	WORD	operation??? (01h-03h)
+ 10h 12 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0002" name="6A0002"><b>6A0002</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ???
+	AX = 0002h
+	BX = ??? (zero/nonzero)
+	CX = ??? identifier (see AX=0004h)
+	DS:SI -&gt; 40-byte buffer for ??? or 0000h:0000h
+	ES:DI -&gt; buffer for ??? or 0000h:0000h
+Return: AX = 0000h (successful) ???
+	BL = ???
+	BH = ???
+	CX = ???
+	DX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0003" name="6A0003"><b>6A0003</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - GET ??? DATA AREA<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - GET ??? DATA AREA
+	AX = 0003h
+Return: CX:DX -&gt; data area (see #03725)
+
+Format of Super-TCP data area:
+Offset	Size	Description	(Table 03725)
+ 00h  2 BYTEs	???
+ 02h	DWORD	original INT 6A vector
+ 06h  2 BYTEs	???
+ 08h 96 BYTEs	array of 16 6-byte ???
+ 68h	WORD	number of elements of above array in use
+ 6Ah	WORD	???
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0004" name="6A0004"><b>6A0004</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ALLOCATE ???<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - ALLOCATE ???
+	AX = 0004h
+	CX = size in ???
+Return: AX = 0000h (successful)
+	CX = DX = ???
+SeeAlso: AX=0005h,AX=000Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0005" name="6A0005"><b>6A0005</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ???<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ???
+	AX = 0005h
+	CX = ??? identifier (from AX=0004h)
+Return: AX = status (0000h successful, FFFFh failed)
+SeeAlso: AX=0004h,AX=000Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A000F" name="6A000F"><b>6A000F</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ALL ???<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - FREE/CLOSE ALL ???
+	AX = 000Fh
+Return: AX = 0000h (successful)
+SeeAlso: AX=0000h,AX=0004h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A0010" name="6A0010"><b>6A0010</b></a> - INT 6A U - Super-TCP DOS TSR Kernel v3.57 - UNINSTALL<br />
+<pre>
+INT 6A U - Super-TCP DOS TSR Kernel v3.57 - UNINSTALL
+	AX = 0010h
+Return: AX = status
+	    0000h successful
+	    0002h can't uninstall, interrupt vector hooked by another program
+Program: Super-TCP is a TCP/IP protocol stack by Frontier Technologies Corp.
+Note:	if AX is not one of the values listed here on entry, Super-TCP
+	  returns AX=FFFEh
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A01--DHFF" name="6A01--DHFF"><b>6A01--DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BYTE<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BYTE
+	AH = 01h
+	DH = FFh
+	AL = character
+	DL = handle
+Return: AH &gt;= 80h on error
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A02--DHFF" name="6A02--DHFF"><b>6A02--DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - READ BYTE<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - READ BYTE
+	AH = 02h
+	DH = FFh
+	DL = handle
+Return: AH &lt; 80h if successful
+	    AL = character
+	AH &gt;= 80h on error
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A03--DHFF" name="6A03--DHFF"><b>6A03--DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - STATUS<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - STATUS
+	AH = 03h
+	DH = FFh
+	DL = handle
+Return: AH = status flags (see #03726)
+
+Bitfields for DECnet DOS LAT status flags:
+Bit(s)	Description	(Table 03726)
+ 5	transmit buffer empty
+ 3	session in start state
+ 2	session not active
+ 1	unable to queue transmit data
+ 0	receive data available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD0--DHFF" name="6AD0--DHFF"><b>6AD0--DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - OPEN SESSION<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - OPEN SESSION
+	AH = D0h
+	DH = FFh
+	AL = password flag
+	    FFh no password
+	    0Fh password at ES:DI
+	ES:BX -&gt; LAT session control block (see #03727)
+	ES:DI -&gt; 16-byte blank-padded password (optional)
+Return: AH = 00h success
+	    DL = handle
+SeeAlso: AX=D000h
+
+Format of LAT Session Control Block:
+Offset	Size	Description	(Table 03727)
+ 00h 18 BYTEs	service name
+ 12h 18 BYTEs	node name (future use)
+ 24h 18 BYTEs	port name (future use)
+ 36h	DWORD	-&gt; session stopped post routine
+ 3Ah	DWORD	-&gt; service table overflow post routine
+ 3Eh	DWORD	-&gt; transmit post routine
+ 42h	DWORD	-&gt; receive post routine
+ 46h	WORD	session status
+		04h circuit failure
+		08h stop slot received
+---LAT v???---
+ 48h	WORD	slot state (LAT driver use)
+ 4Ah	WORD	local credits (LAT driver use)
+ 4Ch	DWORD	-&gt; VCB (LAT driver use)
+ 50h	WORD	backward slot (LAT driver use)
+ 52h	WORD	forward slot (LAT driver use)
+ 54h	WORD	remote slot ID (LAT driver use)
+ 56h	WORD	local slot ID (LAT driver use)
+ 58h	WORD	slot byte count (LAT driver use)
+ 5Ah	BYTE	remote credits (LAT driver use)
+ 5Bh 255 BYTEs	transmitted data slot
+15Ah	BYTE	number of receive data slots (4 recommended)
+15Bh	BYTE	number of occupied slots
+15Ch	BYTE	index of next receive slot to use
+15Dh	BYTE	index of current receive slot
+15Eh	WORD	pointer to first received character
+160h  N WORDs	pointers to receive slots (buffers); each is 259 bytes
+     259N BYTEs	buffers
+Note:	set post routines to 0000h:0000h if polled operation will be used
+---LAT v4.1.17---
+ 48h	WORD	session state (LAT driver use)
+ 4Ah	BYTE	local credits (LAT driver use)
+ 4Bh	DWORD	-&gt; VCB (LAT driver use)
+ 4Fh	WORD	backward slot (LAT driver use)
+ 51h	WORD	forward slot (LAT driver use)
+ 53h	BYTE	remote slot ID (LAT driver use)
+ 54h	BYTE	local slot ID (LAT driver use)
+ 55h	BYTE	slot byte count (LAT driver use)
+ 56h	BYTE	remote credits (LAT driver use)
+ 57h 255 BYTEs	transmitted data slot
+156h	BYTE	number of receive data slots (4 recommended)
+157h	BYTE	number of occupied slots
+158h	BYTE	index of next receive slot to use
+159h	BYTE	index of current receive slot
+15Ah	WORD	pointer to first received character
+15Ch  N WORDs	pointers to receive slots (buffers); each is 259 bytes
+     259N BYTEs	buffers
+Note:	set post routines to 0000h:0000h if polled operation will be used
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD000DHFF" name="6AD000DHFF"><b>6AD000DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - CLOSE SESSION<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - CLOSE SESSION
+	AX = D000h
+	DH = FFh
+	DL = handle
+Return: AX = status (see #03728)
+SeeAlso: AH=D0h
+
+(Table 03728)
+Values for DECnet DOS LAT function status:
+ 0000h	successful
+ 0001h	no such session
+ 0002h	session not running, try again later
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD100DHFF" name="6AD100DHFF"><b>6AD100DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BREAK<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - SEND BREAK
+	AX = D100h
+	DH = FFh
+	DL = handle
+Return: AX = 0000h if successful
+	AH bit 7 set if unable to send break
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD300DHFF" name="6AD300DHFF"><b>6AD300DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - RESET LAT COUNTERS<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - RESET LAT COUNTERS
+	AX = D300h
+	DH = FFh
+SeeAlso: AX=D400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD400DHFF" name="6AD400DHFF"><b>6AD400DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - COPY LAT COUNTERS<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - COPY LAT COUNTERS
+	AX = D400h
+	DH = FFh
+	CX = buffer size
+	ES:BX -&gt; buffer for LAT counters
+Return: AX = status
+	    0000h counters copied into buffer
+	    FFFFh buffer too small
+SeeAlso: AX=D300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD500DHFF" name="6AD500DHFF"><b>6AD500DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - GET NEXT LAT SERVICE NAME<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - GET NEXT LAT SERVICE NAME
+	AX = D500h
+	DH = FFh
+	ES:BX -&gt; 17-byte buffer for name
+Return: AH = 00h if successful
+	   ES:BX buffer filled
+	AX = FFFFh if end of table or no name available
+Notes:	use this function to get the names of the hosts on the network
+	successive calls are necessary to get all names
+SeeAlso: AX=D600h/DH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6AD600DHFF" name="6AD600DHFF"><b>6AD600DHFF</b></a> - INT 6A - DECnet DOS LOCAL AREA TRANSPORT - LAT SERVICE TABLE RESET<br />
+<pre>
+INT 6A - DECnet DOS LOCAL AREA TRANSPORT - LAT SERVICE TABLE RESET
+	AX = D600h
+	DH = FFh
+Return: AX = number of service table entries
+	BX = status
+	    0000h service table has not overflowed
+	    FFFFh service table has overflowed
+SeeAlso: AX=D500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

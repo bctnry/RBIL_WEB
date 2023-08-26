@@ -1,0 +1,1662 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._7A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 7A
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#7A"><b>7A</b> - INT 7A U - Topware Network Operating System - ???</a><br />
+<a href="#7A_0"><b>7A</b> - INT 7A - X.PC Packet software interface</a><br />
+<a href="#7A_1"><b>7A</b> - INT 7A - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ2</a><br />
+<a href="#7A_2"><b>7A</b> - INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)</a><br />
+<a href="#7A_3"><b>7A</b> - INT 7A - Novell NetWare - LOW-LEVEL API - Notes</a><br />
+<a href="#7A----BX0000"><b>7A----BX0000</b> - INT 7A - Novell NetWare - IPX Driver - OPEN SOCKET</a><br />
+<a href="#7A----BX0001"><b>7A----BX0001</b> - INT 7A - Novell NetWare - IPX Driver - CLOSE SOCKET</a><br />
+<a href="#7A----BX0002"><b>7A----BX0002</b> - INT 7A - Novell NetWare - IPX Driver - GET LOCAL TARGET</a><br />
+<a href="#7A----BX0003"><b>7A----BX0003</b> - INT 7A - Novell NetWare - IPX Driver - SEND PACKET</a><br />
+<a href="#7A----BX0004"><b>7A----BX0004</b> - INT 7A - Novell NetWare - IPX Driver - LISTEN FOR PACKET</a><br />
+<a href="#7A----BX0005"><b>7A----BX0005</b> - INT 7A - Novell NetWare - IPX Driver - SCHEDULE IPX EVENT</a><br />
+<a href="#7A----BX0006"><b>7A----BX0006</b> - INT 7A - Novell NetWare - IPX Driver - CANCEL EVENT</a><br />
+<a href="#7A----BX0007"><b>7A----BX0007</b> - INT 7A - Novell NetWare - IPX Driver - SCHEDULE SPECIAL EVENT</a><br />
+<a href="#7A----BX0008"><b>7A----BX0008</b> - INT 7A - Novell NetWare - IPX Driver - GET INTERVAL MARKER</a><br />
+<a href="#7A----BX0009"><b>7A----BX0009</b> - INT 7A - Novell NetWare - IPX Driver - GET INTERNETWORK ADDRESS</a><br />
+<a href="#7A----BX000A"><b>7A----BX000A</b> - INT 7A - Novell NetWare - IPX Driver - RELINQUISH CONTROL</a><br />
+<a href="#7A----BX000B"><b>7A----BX000B</b> - INT 7A - Novell NetWare - IPX Driver - DISCONNECT FROM TARGET</a><br />
+<a href="#7A----BX000C"><b>7A----BX000C</b> - INT 7A U - Novell NetWare - IPX Driver - internal - INITIALIZE NETWORK ADDRESS</a><br />
+<a href="#7A----BX000D"><b>7A----BX000D</b> - INT 7A U - Novell NetWare - IPX Driver - internal - IPX GET PACKET SIZE</a><br />
+<a href="#7A----BX000E"><b>7A----BX000E</b> - INT 7A U - Novell NetWare - IPX Driver - internal - TERMINATE SOCKETS</a><br />
+<a href="#7A----BX000F"><b>7A----BX000F</b> - INT 7A - Novell NetWare - IPX Driver - INTERNAL - SEND PACKET</a><br />
+<a href="#7A----BX0010"><b>7A----BX0010</b> - INT 7A - Novell NetWare - SPX Driver - INSTALLATION CHECK</a><br />
+<a href="#7A----BX0011"><b>7A----BX0011</b> - INT 7A - Novell NetWare - SPX Driver - ESTABLISH SPX CONNECTION</a><br />
+<a href="#7A----BX0012"><b>7A----BX0012</b> - INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX CONNECTION</a><br />
+<a href="#7A----BX0013"><b>7A----BX0013</b> - INT 7A - Novell NetWare - SPX Driver - TERMINATE SPX CONNECTION</a><br />
+<a href="#7A----BX0014"><b>7A----BX0014</b> - INT 7A - Novell NetWare - SPX Driver - ABORT SPX CONNECTION</a><br />
+<a href="#7A----BX0015"><b>7A----BX0015</b> - INT 7A - Novell NetWare - SPX Driver - GET SPX CONNECTION STATUS</a><br />
+<a href="#7A----BX0016"><b>7A----BX0016</b> - INT 7A - Novell NetWare - SPX Driver - SEND SPX PACKET</a><br />
+<a href="#7A----BX0017"><b>7A----BX0017</b> - INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX PACKET</a><br />
+<a href="#7A----BX0018"><b>7A----BX0018</b> - INT 7A U - Novell NetWare - IPX Driver - internal - ADD DIAGNOSTIC ELEMENT</a><br />
+<a href="#7A----BX0019"><b>7A----BX0019</b> - INT 7A U - Novell NetWare - IPX Driver - internal - CANCEL DIAGNOSTIC ELEMENT</a><br />
+<a href="#7A----BX001A"><b>7A----BX001A</b> - INT 7A - Novell NetWare - IPX Driver - GET DRIVER MAXIMUM PACKET SIZE</a><br />
+<a href="#7A----BX001B"><b>7A----BX001B</b> - INT 7A U - Novell NetWare - IPX Driver - INTERNAL</a><br />
+<a href="#7A----BX001C"><b>7A----BX001C</b> - INT 7A U - Novell NetWare - NetWare Access Server - GET ???</a><br />
+<a href="#7A----BX001D"><b>7A----BX001D</b> - INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB AND SOCKET</a><br />
+<a href="#7A----BX001E"><b>7A----BX001E</b> - INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB</a><br />
+<a href="#7A----BX001F"><b>7A----BX001F</b> - INT 7A - Novell NetWare - IPXODI v2.12+ - GET IPX INFORMATION</a><br />
+<a href="#7A----BX0020"><b>7A----BX0020</b> - INT 7A - Novell NetWare - IPXODI v2.12+ - SEND WITH CHECKSUM</a><br />
+<a href="#7A----BX0021"><b>7A----BX0021</b> - INT 7A - Novell NetWare - IPXODI v2.12+ - IPX GENERATE CHECKSUM</a><br />
+<a href="#7A----BX0022"><b>7A----BX0022</b> - INT 7A - Novell NetWare - IPXODI v2.12+ - IPX VERIFY CHECKSUM</a><br />
+<a href="#7A----BX0023"><b>7A----BX0023</b> - INT 7A - Novell NetWare - IPXODI v2.12+ - OPEN LOOK-AHEAD SOCKET</a><br />
+<a href="#7A----BX0024"><b>7A----BX0024</b> - INT 7A U - Novell NetWare - IPXODI v2.20+ - SET INTERNETWORK ADDRESS</a><br />
+<a href="#7A0001"><b>7A0001</b> - INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)</a><br />
+<a href="#7A0200BX0000"><b>7A0200BX0000</b> - INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)</a><br />
+<a href="#7A04"><b>7A04</b> - INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE</a><br />
+<a href="#7A06"><b>7A06</b> - INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE</a><br />
+<a href="#7A07D0"><b>7A07D0</b> - INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT</a><br />
+<a href="#7A09--BX8020"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES</a><br />
+<a href="#7A09--BX8020_0"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES</a><br />
+<a href="#7A09--BX8020_1"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES</a><br />
+<a href="#7A09--BX8020_2"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES</a><br />
+<a href="#7A09--BX8020_3"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION</a><br />
+<a href="#7A09--BX8020_4"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA</a><br />
+<a href="#7A09--BX8020_5"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA</a><br />
+<a href="#7A09--BX8020_6"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - COPY SERVICE</a><br />
+<a href="#7A09--BX8020_7"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - Multi-DOS</a><br />
+<a href="#7A09"><b>7A09</b> - INT 7A - IBM 3270 Workstation Program API - HOST SERVICES</a><br />
+<a href="#7A13"><b>7A13</b> - INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE</a><br />
+<a href="#7A7A"><b>7A7A</b> - INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE</a><br />
+<a href="#7A81"><b>7A81</b> - INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME</a><br />
+<a href="#7A83"><b>7A83</b> - INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS</a><br />
+<a href="#7AFDCB"><b>7AFDCB</b> - INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK</a><br />
+<a href="#7AFE01"><b>7AFE01</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION</a><br />
+<a href="#7AFE02"><b>7AFE02</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION</a><br />
+<a href="#7AFF01"><b>7AFF01</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION</a><br />
+<a href="#7AFF02"><b>7AFF02</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION</a><br />
+<a href="#7AFF03"><b>7AFF03</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION</a><br />
+<a href="#7AFF04"><b>7AFF04</b> - INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???</a><br />
+
+<hr />
+
+<a href="#7A" name="7A"><b>7A</b></a> - INT 7A U - Topware Network Operating System - ???<br />
+<pre>
+INT 7A U - Topware Network Operating System - ???
+	AL = ???
+	???
+Return: ???
+SeeAlso: INT 21/AX=FF00h"Topware",INT 2F/AX=FF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A_0" name="7A_0"><b>7A</b></a> - INT 7A - X.PC Packet software interface<br />
+<pre>
+INT 7A - X.PC Packet software interface
+	ES:BX -&gt; parameter block
+SeeAlso: INT 60/AX=01FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A_1" name="7A_1"><b>7A</b></a> - INT 7A - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ2<br />
+<pre>
+INT 7A - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ2
+Program: GO32.EXE is a DOS extender included as part of the 80386 port of the
+	  GNU C/C++ compiler by DJ Delorie and distributed as DJGPP
+Notes:	this vector is overwritten when GO32 starts but is not restored by
+	  early versions of the extender
+	the newest versions of GO32 dynamically allocate the vectors used
+	  for the relocated IRQs, much as DESQview does (see INT 50"DESQview")
+SeeAlso: INT 0A"IRQ2",INT 79"GO32",INT 7B"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A_2" name="7A_2"><b>7A</b></a> - INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)<br />
+<pre>
+INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)
+SeeAlso: INT 7C"PRINDIR",INT 2F/AX=7F00h"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A_3" name="7A_3"><b>7A</b></a> - INT 7A - Novell NetWare - LOW-LEVEL API - Notes<br />
+<pre>
+INT 7A - Novell NetWare - LOW-LEVEL API - Notes
+Note:	this interrupt is used for IPX/SPX access in NetWare versions through
+	  2.0a; in later versions, you should use INT 2F/AX=7A00h to get an
+	  entry point even though INT 7A still exists.	For both INT 7A and
+	  the FAR entry point, BX contains the function number; IPX is
+	  sometimes called internally with BX bit 15 set, which causes the
+	  handler to bypass some initial checks and an optional call to the
+	  IPX Windows support handler set with INT 2F/AX=7AFFh/BX=0000h
+	  (see #02926)
+SeeAlso: INT 2F/AX=7A00h,INT 64"Novell",INT 7A/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0000" name="7A----BX0000"><b>7A----BX0000</b></a> - INT 7A - Novell NetWare - IPX Driver - OPEN SOCKET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - OPEN SOCKET
+	BX = 0000h
+	AL = socket longevity
+	    00h open until close or terminate
+	    FFh open until close
+	DX = socket number (high byte in DL)
+	    0000h dynamic allocation
+	    else  socket to open (see #03809)
+Return: AL = return code
+	    00h success
+		DX = socket number
+	    FEh socket table full
+	    FFh socket already open
+Notes:	TSRs which need to use sockets should set AL to FFh, non-resident
+	  programs should normally use AL=00h
+	IPX can be configured to support up to 150 open sockets on a
+	  workstation, and defaults to 20
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: INT 7A/BX=0001h,INT 7A/BX=0004h,INT 7A/BX=0023h
+
+(Table 03809)
+Values for IPX socket number:
+ 0451h	File Service (NetWare Core Protocol)
+ 0452h	Service Advertising Protocol (SAP) (see #03817)
+ 0453h	Routing Information Packet (see #03820)
+ 0455h	NetBIOS Packet
+ 0456h	diagnostics
+ 0457h	server serial numbers (labeled "Copy Protection" by Lanalyzer)
+ 2222h	NetWare Core Protocol
+ 4000h-7FFFh used for dynamic allocation
+ 4000h \ seem to be used by IPX internally
+ 4001h /
+ 4444h	Brightwork Development's SiteLock server
+ 5555h	Brightwork Development's SiteLock client (workstation)
+ 8000h-FFFFh assigned by Novell
+ 869Ch	ID Software's DOOM
+ 901Fh	Lancheck
+ 9023h	Server info (NetWare "Slurpee", NetWare Lite, Personal NetWare)
+ 9024h	Client info (NetWare "Slurpee", NetWare Lite, Personal NetWare)
+ 9025h	Serial socket (NetWare "Slurpee", NetWare Lite, Personal NetWare)
+ 9026h	Extension info (NetWare Lite, Personal NetWare???)
+Notes:	SiteLock is an application metering product using IPX to communicate
+	  between the application and the license server
+	IPX socket numbers should be registered with the Novell Development
+	  Products Division
+SeeAlso: INT 7A/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0001" name="7A----BX0001"><b>7A----BX0001</b></a> - INT 7A - Novell NetWare - IPX Driver - CLOSE SOCKET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - CLOSE SOCKET
+	BX = 0001h
+	DX = socket number (high byte in DL) (see #03809)
+Notes:	also cancels events set by any Event Control Blocks for the socket
+	the program must close all open sockets before terminating
+	this function is supported by Advanced NetWare 1.02+
+	When the NetWare-specific release of the DR DOS command processor does
+	  a NetWare shutdown sequence on exit, it will close all user sockets
+	  except for socket numbers 4000 and 4001, which seem to be used by IPX
+	  internally.
+SeeAlso: BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0002" name="7A----BX0002"><b>7A----BX0002</b></a> - INT 7A - Novell NetWare - IPX Driver - GET LOCAL TARGET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - GET LOCAL TARGET
+	BX = 0002h
+	ES:SI -&gt; target internetwork address (see #03824 at INT 7A/BX=000Bh)
+	ES:DI -&gt; 6-byte buffer for local target
+Return: AL = return code
+	    00h success
+	       CX = expected one-way transfer time (clock ticks) for a 576-byte
+		      packet
+	       ES:DI -&gt; local target
+	    FAh unsuccessful (no path to destination)
+Notes:	the internetwork address consists of a 4-byte network address followed
+	  by a 6-byte node address.  The local target is only a 6-byte node
+	  address.  If the target is in the same network, the local target is
+	  just the node address of target; otherwise, the local target is the
+	  node address of the bridge that leads to the target.
+	this function may be called from inside IPX and AES Event Service
+	  Routines, but not from other interrupt handlers
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0003" name="7A----BX0003"><b>7A----BX0003</b></a> - INT 7A - Novell NetWare - IPX Driver - SEND PACKET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - SEND PACKET
+	BX = 0003h
+	ES:SI -&gt; Event Control Block (see #03810,#03811)
+Notes:	returns immediately; IPX attempts to send the packet in the background
+	this function is supported by Advanced NetWare 1.02+
+	this function is nearly identical to BX=000Fh, except that it always
+	  copies the source address into the IPX header assumed to be at the
+	  beginning of the first fragment
+SeeAlso: BX=0004h,BX=000Fh,INT 21/AH=EEh"Novell"
+
+Format of IPX Event Control Block:
+Offset	Size	Description	(Table 03810)
+ 00h	DWORD	Link
+ 04h	DWORD	-&gt; Event Service Routine (00000000h if none) (see #03814)
+ 08h	BYTE	in use flag (see #03812)
+ 09h	BYTE	completion code (see #03813)
+ 0Ah	WORD	(big-endian) socket number (see #03809)
+ 0Ch  4 BYTEs	IPX workspace
+ 10h 12 BYTEs	driver workspace
+ 1Ch  6 BYTEs	immediate local node address
+ 22h	WORD	fragment count
+ 24h	var	fragment descriptors
+		Offset	Size	Description
+		 00h	DWORD	-&gt; fragment data
+		 04h	WORD	size of fragment in bytes.
+Notes:	ESR is a far procedure that is called when the ECB has been handled.
+	  On call, the in use flag is zero if the ECB has been handled,
+	  non-zero otherwise. If the flag is zero, the completion code holds
+	  the result of the event.
+	the first fragment should start with an IPX header (see #03815)
+	all fragments are concatenated and sent in one piece
+	node address FFh FFh FFh FFh FFh FFh broadcasts to all nodes
+SeeAlso: #03811
+
+Format of AES-ECB:
+Offset	Size	Description	(Table 03811)
+ 00h	DWORD	Link
+ 04h	DWORD	ESR (Event Service Routine) address (see #03814)
+ 08h	BYTE	in use flag (see #03812)
+ 09h  5 BYTEs	AES workspace
+SeeAlso: #03810
+
+(Table 03812)
+Values for ECB in use flag:
+ 00h	available
+ E0h	AES temporary
+ F6h	\ special IPX/SPX processing for v3.02+
+ F7h	/
+ F8h	IPX in critical section
+ F9h	SPX listening
+ FAh	processing
+ FBh	holding
+ FCh	AES waiting
+ FDh	AES couting down delay time
+ FEh	awaiting packet reception
+ FFh	sending packet
+SeeAlso: #03810,#03811,#03813
+
+(Table 03813)
+Values for ECB completion code:
+ 00h	success
+ ECh	remote terminated connection without acknowledging packet
+ EDh	abnormal connection termination
+ EEh	invalid connection ID
+ EFh	SPX connection table full
+ F9h	event should not be cancelled
+ FAh	cannot establish connection with specified destination
+ FCh	cancelled
+ FDh	malformed packet
+ FEh	packet undeliverable
+ FFh	physical error
+SeeAlso: #03810,#03812
+
+(Table 03814)
+Values Event Service Routine is called with:
+	AL = caller's identity (00h = AES, FFh = IPX)
+	ES:SI -&gt; event control block
+	interrupts disabled
+Return: all registers preserved
+SeeAlso: #03810,#03815
+
+Format of IPX header:
+Offset	Size	Description	(Table 03815)
+ 00h	WORD	(big-endian) checksum
+ 02h	WORD	(big-endian) length in bytes of total packet
+ 04h	BYTE	transport control
+ 05h	BYTE	packet type (see #03816)
+ 06h 10 BYTEs	destination internetwork address
+ 10h	WORD	(big-endian) destination socket
+ 12h 10 BYTEs	source internetwork address
+ 1Ch	WORD	(big-endian) source socket
+Notes:	an IPX packet has the identical format as a Xerox Network Standard
+	  (XNS) packet
+	the application must set packet type, destination address, and
+	  destination socket; IPX/SPX set the remaining fields
+SeeAlso: #03810,#03826
+
+(Table 03816)
+Values for IPX packet type:
+ 00h	unknown packet type
+ 01h	routing information packet
+ 02h	echo packet
+ 03h	error packet
+ 04h	packet exchange packet (always use this one for data)
+ 05h	SPX packet (see #03826)
+ 11h	NetWare Core Protocol (also used by Service Advertising Protocol)
+ 14h	Propagated Packet (for NetWare), NetBIOS name packet
+ 15h-1Eh experimental protocols
+Note:	undocumented packet type 14h will cross up to 16 networks deep in
+	  all directions; as Aaron Martin of Origin Systems discovered, the
+	  first 64 bytes of the IPX data in such packets should be considered
+	  reserved, as IPX places the traversed server nodes there.
+
+Format of Service Advertising Protocol Service Query Packet:
+Offset	Size	Description	(Table 03817)
+ 00h 30 BYTEs	IPX header
+ 1Eh	WORD	(big-endian) query type
+		0001h general find service
+		0003h find nearest server
+ 20h	WORD	(big-endian) server type
+		(see #01890 at INT 21/AH=E3h"CONNECTION CONTROL")
+SeeAlso: #03818
+
+Format of Service Advertising Protocol Server Identification Packet:
+Offset	Size	Description	(Table 03818)
+ 00h 30 BYTEs	IPX header
+ 1Eh	WORD	(big-endian) response type
+		0002h general service
+		0004h nearest service
+ 20h 64N BYTEs	server entries (1-7) (see #03819)
+SeeAlso: #03817,#03820
+
+Format of SAP server entry:
+Offset	Size	Description	(Table 03819)
+ 00h	WORD	(big-endian) server type
+		(see #01890 at INT 21/AH=E3h"CONNECTION CONTROL")
+ 02h 48 BYTEs	ASCIZ server name
+ 32h  2 WORDs	(big-endian) network number
+ 34h  3 WORDs	(big-endian) node number
+ 3Ch	WORD	(big-endian) socket number
+ 3Eh	WORD	(big-endian) number of hops between caller and server
+		10h = Server Shutdown Advertising Packet
+SeeAlso: #03818
+
+Format of IPX Routing Information packet:
+Offset	Size	Description	(Table 03820)
+ 00h 30 BYTEs	IPX header
+ 1Eh	WORD	operation (0001h request, 0002h response)
+ 20h 8N BYTEs	network entries (1-50) (see #03821)
+SeeAlso: #03818
+
+Format of RIP network entry:
+Offset	Size	Description	(Table 03821)
+ 00h	DWORD	network number (FFFFFFFFh = general request)
+ 04h	WORD	(response) number of hops
+ 06h	WORD	(response) number of clock ticks to reach destination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0004" name="7A----BX0004"><b>7A----BX0004</b></a> - INT 7A - Novell NetWare - IPX Driver - LISTEN FOR PACKET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - LISTEN FOR PACKET
+	BX = 0004h
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Return: AL = status
+	    00h successful
+	    FFh no listening socket for packet
+Desc:	this function provides IPX with an ECB for receiving an IPX packet, but
+	  does not wait for a packet to arrive
+Notes:	the application must open a socket and initialize the ECB's ESR
+	  address, socket number, fragment count, and fragment descriptor
+	  fields before invoking this function
+	there is no limit on the number of ECBs which may simultaneously be
+	  listening on a socket
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0000h,BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0005" name="7A----BX0005"><b>7A----BX0005</b></a> - INT 7A - Novell NetWare - IPX Driver - SCHEDULE IPX EVENT<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - SCHEDULE IPX EVENT
+	BX = 0005h
+	AX = delay time in clock ticks
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Note:	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0006h,BX=0007h,BX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0006" name="7A----BX0006"><b>7A----BX0006</b></a> - INT 7A - Novell NetWare - IPX Driver - CANCEL EVENT<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - CANCEL EVENT
+	BX = 0006h
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Return: AL = return code (see #03822)
+Notes:	cannot cancel packets which the node's driver has already sent
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0005h
+
+(Table 03822)
+Values for IPX return code:
+ 00h	success
+ F9h	event in use
+ FCh	event cancelled
+ FFh	unsuccessful, event not in use, or unrecognized ECB flag
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0007" name="7A----BX0007"><b>7A----BX0007</b></a> - INT 7A - Novell NetWare - IPX Driver - SCHEDULE SPECIAL EVENT<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - SCHEDULE SPECIAL EVENT
+	BX = 0007h
+	AX = delay time
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Note:	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0008" name="7A----BX0008"><b>7A----BX0008</b></a> - INT 7A - Novell NetWare - IPX Driver - GET INTERVAL MARKER<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - GET INTERVAL MARKER
+	BX = 0008h
+Return: AX = interval marker in clock ticks (big-endian???)
+Notes:	may be used to measure the time elapsed between two events, up to one
+	  hour
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0009" name="7A----BX0009"><b>7A----BX0009</b></a> - INT 7A - Novell NetWare - IPX Driver - GET INTERNETWORK ADDRESS<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - GET INTERNETWORK ADDRESS
+	BX = 0009h
+	ES:SI -&gt; buffer for own internetwork address (see #03823)
+Return: ES:SI buffer filled
+	SI destroyed
+Note:	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0002h,BX=000Bh
+
+Format of IPX internetwork address:
+Offset	Size	Description	(Table 03823)
+ 00h  4 BYTEs	(big-endian) network number
+ 04h  6 BYTEs	(big-endian) node number within network
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000A" name="7A----BX000A"><b>7A----BX000A</b></a> - INT 7A - Novell NetWare - IPX Driver - RELINQUISH CONTROL<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - RELINQUISH CONTROL
+	BX = 000Ah
+Desc:	this call indicates that the application is idle and permits the IPX
+	  driver to do some work
+Note:	this function is supported by Advanced NetWare 1.02+
+SeeAlso: INT 15/AX=1000h,INT 21/AH=89h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000B" name="7A----BX000B"><b>7A----BX000B</b></a> - INT 7A - Novell NetWare - IPX Driver - DISCONNECT FROM TARGET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - DISCONNECT FROM TARGET
+	BX = 000Bh
+	ES:SI -&gt; internetwork address (see #03824)
+Return: nothing
+Notes:	this function permits the network software on the remote machine to
+	  remove any virtual connection with the calling machine
+	only use in point-to-point networks
+	should never be called from within an Event Service Routine
+	this function is supported by Advanced NetWare 1.02+
+SeeAlso: BX=0002h,BX=0009h
+
+Format of IPX internetwork address:
+Offset	Size	Description	(Table 03824)
+ 00h  4 BYTEs	(big-endian) destination network
+ 04h  6 BYTEs	(big-endian) destination node
+ 0Ah  2 BYTEs	(big-endian) destination socket
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000C" name="7A----BX000C"><b>7A----BX000C</b></a> - INT 7A U - Novell NetWare - IPX Driver - internal - INITIALIZE NETWORK ADDRESS<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - internal - INITIALIZE NETWORK ADDRESS
+	BX = 000Ch
+	CX:DX = global network address (see INT 7A/BX=0002h)
+	ES:DI -&gt; "OSINCRITICALSECTION" flag
+	DS:SI -&gt; current mode for socket
+Note:	the address cannot be changed once it has been initialized
+SeeAlso: INT 7A/BX=0024h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000D" name="7A----BX000D"><b>7A----BX000D</b></a> - INT 7A U - Novell NetWare - IPX Driver - internal - IPX GET PACKET SIZE<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - internal - IPX GET PACKET SIZE
+	BX = 000Dh
+Return: AX = maximum packet size
+	CX = retry count
+SeeAlso: BX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000E" name="7A----BX000E"><b>7A----BX000E</b></a> - INT 7A U - Novell NetWare - IPX Driver - internal - TERMINATE SOCKETS<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - internal - TERMINATE SOCKETS
+	BX = 000Eh
+Return: nothing
+Notes:	this function terminates all sockets opened with the current mode; this
+	  may be intended for future enhancements as the socket mode never
+	  changes in v2.15
+	called by the NetWare shell if a program terminates
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX000F" name="7A----BX000F"><b>7A----BX000F</b></a> - INT 7A - Novell NetWare - IPX Driver - INTERNAL - SEND PACKET<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - INTERNAL - SEND PACKET
+	BX = 000Fh
+	ES:SI -&gt; Event Control Block (see #03810 at BX=0003h)
+		IPX header's checksum field must be set to FFFFh (see #03815)
+		IPX header's total-length field must be set
+Note:	nearly identical to function 0003h, but does not copy address into
+	  the first fragment, and bypasses normal error checking
+SeeAlso: BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0010" name="7A----BX0010"><b>7A----BX0010</b></a> - INT 7A - Novell NetWare - SPX Driver - INSTALLATION CHECK<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - INSTALLATION CHECK
+	BX = 0010h
+	AL = 00h
+Return: AL = status
+	    00h if SPX not installed
+	    F0h if IPX not installed
+	    FFh if SPX loaded
+		BH = SPX major version
+		BL = SPX minor version
+		CX = maximum SPX connections
+		DX = SPX connections available
+Notes:	this function is supported by Advanced NetWare 2.1+
+	this interrupt is used for IPX/SPX access in NetWare versions through
+	  2.0a; in later versions, you should use INT 2F/AX=7A00h to get an
+	  entry point even though INT 7A still exists.	For both INT 7A and
+	  the FAR entry point, BX contains the function number
+	IPX is sometimes called internally with BX bit 15 set, which causes the
+	  entry point handler to bypass some checks and an optional call to
+	  the IPX Windows support handler set with INT 2F/AX=7AFFh/BX=0000h
+	  (see #02926)
+SeeAlso: BX=0015h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0011" name="7A----BX0011"><b>7A----BX0011</b></a> - INT 7A - Novell NetWare - SPX Driver - ESTABLISH SPX CONNECTION<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - ESTABLISH SPX CONNECTION
+	BX = 0011h
+	AL = retry count
+	AH = watchdog flag
+	ES:SI -&gt; Event Control Block (see #03810 at BX=0003h)
+Return: AL = status (00h,EFh,FDh,FFh) (see #03825)
+	DX = assigned connection ID number
+Desc:	attempt to establish a connection with a listening socket
+Notes:	there should always be at least two SPX ECB's listening to a socket, so
+	  that NetWare can perform its internal packet exchanges
+	the first fragment should start with a SPX header (see #03826).	Fill
+	  in all destination addresses.
+	this function is supported by Advanced NetWare 2.1+
+SeeAlso: BX=0000h,BX=0012h,BX=0013h,BX=0014h,BX=0015h
+
+(Table 03825)
+Values for SPX function status:
+ 00h	attempting to contact destination socket
+ EEh	no such connection
+ EFh	local connection table full
+ FDh	buffer size not 42 or fragment count not 1
+ FFh	sending socket not open
+
+Format of SPX header:
+Offset	Size	Description	(Table 03826)
+ 00h	WORD	(big-endian) checksum
+ 02h	WORD	(big-endian) length in bytes of total packet
+ 04h	BYTE	transport control
+ 05h	BYTE	packet type (see #03816 at INT 7A/BX=0003h)
+ 06h 10 BYTEs	destination internet address
+ 10h	WORD	(big-endian) destination socket
+ 12h 10 BYTEs	source internet address
+ 1Ch	WORD	(big-endian) source socket
+ 1Eh	BYTE	connection control (see #03827)
+ 1Fh	BYTE	datastream type
+		FEh terminate connection request packet
+		FFh terminate connection acknowledgement packet
+		other user-defined, ignored by SPX
+ 20h	WORD	(big-endian) source connection ID
+ 22h	WORD	(big-endian) destination connection ID
+ 24h	WORD	(big-endian) sequence number
+ 26h	WORD	(big-endian) acknowledge number
+ 28h	WORD	(big-endian) allocation number
+SeeAlso: #03815
+
+Bitfields for SPX connection control:
+Bit(s)	Description	(Table 03827)
+ 3-0	unused???
+ 4	end of message
+ 5	reserved
+ 6	acknowledgement required
+ 7	system packet
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0012" name="7A----BX0012"><b>7A----BX0012</b></a> - INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX CONNECTION<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX CONNECTION
+	BX = 0012h
+	AH = watchdog flag (00h disabled, 01h enabled)
+	AL = retry count (00h = default)
+	ES:SI -&gt; Event Control Block (see #03810 at BX=0003h)
+Return: nothing
+Notes:	there should always be at least two SPX ECB's listening to a socket, so
+	  that NetWare can perform its internal packet exchanges
+	this function is supported by Advanced NetWare 2.1+
+SeeAlso: BX=0011h,BX=0013h,BX=0014h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0013" name="7A----BX0013"><b>7A----BX0013</b></a> - INT 7A - Novell NetWare - SPX Driver - TERMINATE SPX CONNECTION<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - TERMINATE SPX CONNECTION
+	BX = 0013h
+	DX = connection ID to terminate
+	ES:SI -&gt; Event Control Block (see #03810 at BX=0003h)
+Note:	this function is supported by Advanced NetWare 2.1+
+SeeAlso: BX=0011h,BX=0012h,BX=0014h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0014" name="7A----BX0014"><b>7A----BX0014</b></a> - INT 7A - Novell NetWare - SPX Driver - ABORT SPX CONNECTION<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - ABORT SPX CONNECTION
+	BX = 0014h
+	DX = connection ID to terminate
+Return: nothing
+Notes:	this function is supported by Advanced NetWare 2.1+
+	this function does not tell the other side that the connection has been
+	  terminated
+	also aborts any outstanding Establish Connection, Terminate Connection,
+	  and Send Sequenced Packet commands
+SeeAlso: BX=0011h,BX=0013h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0015" name="7A----BX0015"><b>7A----BX0015</b></a> - INT 7A - Novell NetWare - SPX Driver - GET SPX CONNECTION STATUS<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - GET SPX CONNECTION STATUS
+	BX = 0015h
+	DX = connection ID
+	ES:SI -&gt; status buffer (see #03828)
+Return: AL = return code (00h,EEh) (see also #03825)
+	    00h connection still valid
+		ES:SI -&gt; status buffer filled
+Note:	this function is supported by Advanced NetWare 2.1+
+SeeAlso: BX=0010h,BX=0011h
+
+Format of SPX status buffer:
+Offset	Size	Description	(Table 03828)
+ 00h	BYTE	connection state
+		01h waiting to establish connection
+		02h starting (attempting to create connection)
+		03h connection established
+		04h terminating
+ 01h	BYTE	watchdog flag
+		bit 0: used internally by SPX
+		bit 1: SPX watchdog is monitoring connection
+		bits 2-7 used internally by SPX
+ 02h	WORD	(big-endian) source connection ID
+ 04h	WORD	(big-endian) destination connection ID
+ 06h	WORD	(big-endian) sequence number of next packet sent
+ 08h	WORD	(big-endian) acknowledge number, expected sequence number of
+		  next received packet
+ 0Ah	WORD	(big-endian) maximum sequence number remote SPX may send
+		  without ACK from local SPX
+ 0Ch	WORD	(big-endian) remote acknowledge number, next sequence number
+		  remote SPX expects to receive
+ 0Eh	WORD	(big-endian) remote allocation number, maximum sequence number
+		  local SPX may send
+ 10h	WORD	(big-endian) connection socket
+ 12h  6 BYTEs	immediate node address--bridge on local network to destination
+ 18h 10 BYTEs	destination internetwork address (see #03824 at INT 7A/BX=000Bh)
+ 22h	WORD	(big-endian) retransmit count
+ 24h	WORD	(big-endian) estimated roundtrip delay
+ 26h	WORD	(big-endian) retransmitted packets
+ 28h	WORD	(big-endian) suppressed packets
+ 2Ah 12 BYTEs	??? (v2.15)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0016" name="7A----BX0016"><b>7A----BX0016</b></a> - INT 7A - Novell NetWare - SPX Driver - SEND SPX PACKET<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - SEND SPX PACKET
+	BX = 0016h
+	DX = connection ID
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Notes:	this function is supported by Advanced NetWare 2.1+
+	CX may need to be 0001h ???
+SeeAlso: BX=0011h,BX=0017h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0017" name="7A----BX0017"><b>7A----BX0017</b></a> - INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX PACKET<br />
+<pre>
+INT 7A - Novell NetWare - SPX Driver - LISTEN FOR SPX PACKET
+	BX = 0017h
+	DX = connection ID (unused in v2.15)
+	ES:SI -&gt; Event Control Block (see BX=0003h)
+Notes:	this function is supported by Advanced NetWare 2.1+
+	CX may need to be 0001h ???
+SeeAlso: BX=0011h,BX=0016h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0018" name="7A----BX0018"><b>7A----BX0018</b></a> - INT 7A U - Novell NetWare - IPX Driver - internal - ADD DIAGNOSTIC ELEMENT<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - internal - ADD DIAGNOSTIC ELEMENT
+	BX = 0018h
+	ES:SI -&gt; diagnostic element (see #03829) to be added to Diagnostic Queue
+Note:	this function is supported on file servers only under v2.15; v3.02 also
+	  supports it on workstations
+SeeAlso: BX=0019h
+
+Format of IPX diagnostic element:
+Offset	Size	Description	(Table 03829)
+ 00h	DWORD	pointer to next diagnostic element
+ 04h	DWORD	pointer to function for ???
+ 08h	DWORD	pointer to function for ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0019" name="7A----BX0019"><b>7A----BX0019</b></a> - INT 7A U - Novell NetWare - IPX Driver - internal - CANCEL DIAGNOSTIC ELEMENT<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - internal - CANCEL DIAGNOSTIC ELEMENT
+	BX = 0019h
+	ES:SI -&gt; diagnostic element (see BX=0018h) to be removed
+Note:	this function is supported on file servers only under v2.15; v3.02 also
+	  supports it on workstations
+SeeAlso: BX=0018h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001A" name="7A----BX001A"><b>7A----BX001A</b></a> - INT 7A - Novell NetWare - IPX Driver - GET DRIVER MAXIMUM PACKET SIZE<br />
+<pre>
+INT 7A - Novell NetWare - IPX Driver - GET DRIVER MAXIMUM PACKET SIZE
+	BX = 001Ah
+Return: AX = maximum packet size with preamble (at least 576 bytes)
+	CX = IPX retry count
+	DS,FLAGS preserved
+SeeAlso: BX=000Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001B" name="7A----BX001B"><b>7A----BX001B</b></a> - INT 7A U - Novell NetWare - IPX Driver - INTERNAL<br />
+<pre>
+INT 7A U - Novell NetWare - IPX Driver - INTERNAL
+	BX = 001Bh
+	???
+Return: ???
+Notes:	this function is supported on file servers only under v2.15; v3.02 also
+	  supports it on workstations
+	used by NetWare Access Server, which may call INT 15/AX=1117h with
+	  BX=0000h in some cases (it uses a modified DESQview)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001C" name="7A----BX001C"><b>7A----BX001C</b></a> - INT 7A U - Novell NetWare - NetWare Access Server - GET ???<br />
+<pre>
+INT 7A U - Novell NetWare - NetWare Access Server - GET ???
+	BX = 001Ch
+Return: AX = length of ???
+	ES:BX -&gt; ???
+Notes:	these functions are NOPs for standard IPX drivers such as IPXODI v2.12
+SeeAlso: INT 2F/AX=7AF1h,INT 7A/BX=001Dh,INT 7A/BX=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001D" name="7A----BX001D"><b>7A----BX001D</b></a> - INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB AND SOCKET<br />
+<pre>
+INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB AND SOCKET
+	BX = 001Dh
+Return: DX = socket number chosen by IPX
+	ES:SI -&gt; ECB in IPX's code segment (will be listening)
+	BX corrupted
+Notes:	these functions are NOPs for standard IPX drivers such as IPXODI v2.12
+SeeAlso: INT 2F/AX=7AF1h,INT 7A/BX=001Ch,INT 7A/BX=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001E" name="7A----BX001E"><b>7A----BX001E</b></a> - INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB<br />
+<pre>
+INT 7A U - Novell NetWare - NetWare Access Server - GET ??? ECB
+	BX = 001Eh
+Return: ES:SI -&gt; ECB
+	BX corrupted
+Notes:	these functions are NOPs for standard IPX drivers such as IPXODI v2.12
+SeeAlso: INT 2F/AX=7AF1h,INT 7A/BX=001Ch,INT 7A/BX=001Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX001F" name="7A----BX001F"><b>7A----BX001F</b></a> - INT 7A - Novell NetWare - IPXODI v2.12+ - GET IPX INFORMATION<br />
+<pre>
+INT 7A - Novell NetWare - IPXODI v2.12+ - GET IPX INFORMATION
+	BX = 001Fh
+	DX = 0000h
+Return: AX = ???
+	BX:CX -&gt; ??? entry point (see #03830) (undocumented)
+	DX = feature flags
+	    bit 0: IPXODI rather than dedicated IPX
+	    bit 1: checksumming functions 0020h-0022h supported
+	ES:SI -&gt; array of words containing used socket number (undocumented);
+		0000h ends array
+	all other registers except DS and FLAGS may be destroyed
+Note:	IPXODI v2.12 is distributed as part of the Personal NetWare system
+	  bundled with Novell DOS 7
+SeeAlso: BX=0020h,INT 2F/AX=7A2Fh
+
+(Table 03830)
+Call IPXODI entry point with:
+	ES:SI -&gt; ECB??? (offset 24h is far pointer to ??? data)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0020" name="7A----BX0020"><b>7A----BX0020</b></a> - INT 7A - Novell NetWare - IPXODI v2.12+ - SEND WITH CHECKSUM<br />
+<pre>
+INT 7A - Novell NetWare - IPXODI v2.12+ - SEND WITH CHECKSUM
+	BX = 0020h
+	ES:SI -&gt; ECB (see #03810 at INT 7A/BX=0003h)
+Return: DS,FLAGS preserved
+	BX,BP corrupted (documented as potentially destroying all other regs)
+Desc:	generate a checksum for the packet data and store it in the IPX
+	  checksum field before transmitting the packet
+SeeAlso: BX=001Fh,BX=0021h,BX=0022h,INT 2F/AX=7A2Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0021" name="7A----BX0021"><b>7A----BX0021</b></a> - INT 7A - Novell NetWare - IPXODI v2.12+ - IPX GENERATE CHECKSUM<br />
+<pre>
+INT 7A - Novell NetWare - IPXODI v2.12+ - IPX GENERATE CHECKSUM
+	BX = 0021h
+	ES:SI -&gt; ECB data (see #03810 at INT 7A/BX=0003h)
+Return: ES,DS,SI preserved
+	BX,BP corrupted, all other registers potentially destroyed
+Notes:	the checksum and TransportControl fields of the IPX packet are updated
+	this function enables interrupts and is fully reentrant
+SeeAlso: BX=001Fh,BX=0020h,BX=0022h,INT 2F/AX=7A2Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0022" name="7A----BX0022"><b>7A----BX0022</b></a> - INT 7A - Novell NetWare - IPXODI v2.12+ - IPX VERIFY CHECKSUM<br />
+<pre>
+INT 7A - Novell NetWare - IPXODI v2.12+ - IPX VERIFY CHECKSUM
+	BX = 0022h
+	ES:SI -&gt; ECB data (see #03810 at INT 7A/BX=0003h)
+Return: AX = status (0000h checksum matches)
+	DS,ES,SI preserved
+	BX,BP corrupted, all other registers potentially destroyed
+Note:	this function enables interrupts and is fully reentrant
+SeeAlso: BX=001Fh,BX=0020h,BX=0021h,INT 2F/AX=7A2Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0023" name="7A----BX0023"><b>7A----BX0023</b></a> - INT 7A - Novell NetWare - IPXODI v2.12+ - OPEN LOOK-AHEAD SOCKET<br />
+<pre>
+INT 7A - Novell NetWare - IPXODI v2.12+ - OPEN LOOK-AHEAD SOCKET
+	BX = 0023h
+	DX = socket number (0000h for dynamic allocation)
+	ES:SI -&gt; Look Ahead handler (see #03831)
+	BP = desired lookahead size (0000h-0080h)
+Return: AL = status
+	    00h successful
+		DX = assigned socket number (big-endian)
+	    FEh maximum number of sockets already open
+	    FFh specific socket already opened by another application
+	DS,FLAGS preserved
+	all other registers may be destroyed
+Notes:	the socket will always be long-lived, and must thus be explicitly
+	  closed with INT 7A/BX=0001h before the Look Ahead handler code is
+	  removed from memory (i.e. the program terminates)
+	this function is only supported if INT 2F/AX=7A00h returns ES:BX
+	  pointing at an IPX version greater than 3.30
+	the desired lookahead size is the smallest-size packet (including IPX
+	  header) that should be passed to the lookahead handler when it
+	  arrives
+SeeAlso: INT 7A/BX=0000h,INT 7A/BX=0001h
+
+(Table 03831)
+Call IPX Look-Ahead handler with:
+	AX = packet's destination socket
+	DS:SI -&gt; look-ahead structure (see #03010 at INT 2F/AX=C000h"LSL")
+	DF clear
+	interrupt disabled (must remain disabled)
+Return: AX = packet use
+	    0000h application want packet
+		ES:SI -&gt; ODI ECB (see #03011 at INT 2F/AX=C000h"LSL")
+	    8001h application does not want packet
+	ZF set if AX=0000h
+	DS,DI,BP,SS,SP preserved
+	interrupts disabled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A----BX0024" name="7A----BX0024"><b>7A----BX0024</b></a> - INT 7A U - Novell NetWare - IPXODI v2.20+ - SET INTERNETWORK ADDRESS<br />
+<pre>
+INT 7A U - Novell NetWare - IPXODI v2.20+ - SET INTERNETWORK ADDRESS
+	BX = 0024h
+	ES:SI -&gt; buffer containing internetwork address (see #03824)
+Return: BX,CX,SI,DI,ES destroyed
+Note:	this function differs from INT 7A/BX=000Ch in that it unconditionally
+	  sets the address
+SeeAlso: INT 7A/BX=000Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A0001" name="7A0001"><b>7A0001</b></a> - INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)
+	AX = 0001h
+	BX = configuration
+	CX = interface level (0001h)
+Return: AX = status
+	    0000h initialization failed
+	    0001h pre-v4.0 driver initialized successfully
+	    0003h post-v3.1 driver initialized successfully (driver truncates
+		  excessivly long packets)
+	BX = width of graphics area in pixels, or 0000h if using packet
+		  communication
+	DX:CX -&gt; packet-mode entry point (see #03832)
+SeeAlso: AX=0001h,AX=0200h,AX=07D0h,INT 61/AX=0007h"OPTIMA",INT 78"AutoCAD"
+SeeAlso: INT 79/AX=0001h,INT 7B/AX=8001h"AutoCAD",INT 7C"AutoShade"
+
+(Table 03832)
+Call packet-mode entry point with:
+STACK:	DWORD	pointer to request packet (see #03833)
+	WORD	length of packet
+
+Format of request packet:
+Offset	Size	Description	(Table 03833)
+ 00h	WORD	function number (00h-45h for Compaq VGADI41.EXE)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A0200BX0000" name="7A0200BX0000"><b>7A0200BX0000</b></a> - INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)
+	AX = 0200h
+	BX = 0000h
+	CX = interface level (0001h)
+Return: BX = 0000h (driver uses packet communication)
+	DX:CX -&gt; packet-mode entry point (see #03832)
+SeeAlso: AX=0001h"AutoCAD",INT 79/AX=0001h,INT 7B/AX=8001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A04" name="7A04"><b>7A04</b></a> - INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE
+	AH = 04h
+	???
+Return: ???
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A06" name="7A06"><b>7A06</b></a> - INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE
+	AH = 06h
+	???
+Return: ???
+SeeAlso: AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A07D0" name="7A07D0"><b>7A07D0</b></a> - INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT
+	AX = 07D0h
+Return: AX = ??? (0003h)
+	BX = 0000h
+	DX:CX -&gt; ADI entry point (see AX=0001h)
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020" name="7A09--BX8020"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 0000h
+	DX = ID of session manager (SESSMGR)
+	AL = service (see #03834)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03834)
+Values for service:
+ 01h	get session ID
+ 02h	get session info
+ 04h	dettach from session
+ 05h	attach to session
+ 06h	get list of windows available
+ 07h	get environment of window
+ 08h	get 'PIF' (program information file) info
+ 0Ah	get base window ID
+ 0Bh	get cursor info
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_0" name="7A09--BX8020_0"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 0000h
+	DX = ID of keyboard manager
+	AL = service number (see #03835)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03835)
+Values for 3270 Workstation Program keyboard service:
+ 01h	connect to keyboard
+ 02h	disconnect from keyboard
+ 03h	read from keyboard
+ 04h	send keystroke to session
+ 05h	disable input
+ 06h	enable input
+ 07h	update status code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_1" name="7A09--BX8020_1"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 00FFh
+	DX = ID of window service controller (WSCTRL)
+	AL = service number (see #03836)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03836)
+Values for 3270 Workstation Program window service:
+ 01h	connect to WS control
+ 02h	disconnect from WS control
+ 03h	add a window
+ 04h	change window's position on screen
+ 05h	change window's size
+ 06h	change window's color
+ 07h	change window's position in the presentation space
+ 08h	hide/unhide toggle
+ 09h	enlarge/reduce toggle
+ 0Ah	change screen background color
+ 0Bh	get window's position on screen
+ 0Ch	get window's size
+ 0Dh	get window's color
+ 0Eh	get window's position in the presentation space
+ 0Fh	determine whether hidden
+ 10h	determine whether enlarged
+ 11h	get background color
+ 12h	get window names
+ 13h	delete all windows from profile
+ 14h	pick active window
+ 15h	redraw screen
+ 16h	redraw window
+ 17h	delete a window from profile
+ 18h	get active window
+ 19h	get active screen
+ 1Ah	get window data
+ 1Bh	change window data
+ 1Ch	select active screen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_2" name="7A09--BX8020_2"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of PCPSM
+	AL = service
+	    01h define presentation space
+	    02h delete presentation space
+	    03h display presentation space
+	    04h position cursor in presentation space
+	    05h change default presentation space
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_3" name="7A09--BX8020_3"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of 3270EML
+	AL = service
+	    01h connect
+	    02h disconnect
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_4" name="7A09--BX8020_4"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of OIAM
+	AL = service
+	    01h read Operator Information Area
+	    02h read OIA subset
+	ES:DI -&gt; control block
+Return: ???
+Note: the OIA is the 25th line on the Host session
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_5" name="7A09--BX8020_5"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of XLATE
+	AL = service
+	    01h translate from host characters to ASCII and vice versa
+		(determined by control block byte 11)
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_6" name="7A09--BX8020_6"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - COPY SERVICE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - COPY SERVICE
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of copy service
+	AL = service
+	    01h copy string from one presentation space to another
+	    02h copy block from one presentation space to another
+	    03h connect to PC session for copy
+	    04h disconnect PC session from copy
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_7" name="7A09--BX8020_7"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - Multi-DOS<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - Multi-DOS
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	ES:DI -&gt; control block
+	DX = ID of INDJQRY
+		get environment size
+	   = ID of INDJASY
+		request DOS functions from workstation
+	   = ID of MEMORY
+		AL = function
+		    01h allocate memory
+		    02h deallocate memory
+		    03h modify allocated size
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09" name="7A09"><b>7A09</b></a> - INT 7A - IBM 3270 Workstation Program API - HOST SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - HOST SERVICES
+	AH = 09h
+	BX = request type (4000h async, 8028h synchronous)
+	CX = 0000h
+	DX = ID of MFIC
+	AL = service (see #03837)
+	ES:DI -&gt; control block
+
+(Table 03837)
+Values for 3270 Workstation Program host service:
+ 01h	connect to host
+ 02h	disconnect from host
+ 03h	read DFT structured data from host
+ 04h	write DFT structured data to host
+ 05h	create a host buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A13" name="7A13"><b>7A13</b></a> - INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE
+	AH = 13h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A7A" name="7A7A"><b>7A7A</b></a> - INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE<br />
+<pre>
+INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE
+	AH = 7Ah
+	???
+Return: AX = status
+	    0000h success
+	    000Eh undefined function code
+Range:	unknown, selected by device driver commandline arguments
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A81" name="7A81"><b>7A81</b></a> - INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME
+	AH = 81h
+	ES:DI -&gt; 8-char blank-padded gate name (see #03838)
+Return: DX = gate ID
+
+(Table 03838)
+Values for 3270 Workstation Program gate name:
+ "SESSMGR "
+ "KEYBOARD"
+ "WSCTRL  "
+ "MFIC	  "
+ "PCPSM	  "
+ "3270EML "
+ "COPY	  "
+ "XLATE	  "
+ "OIAM	  "
+ "MEMORY  "
+ "INDJQRY "
+ "INDJASY "
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A83" name="7A83"><b>7A83</b></a> - INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS
+	AH = 83h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFDCB" name="7AFDCB"><b>7AFDCB</b></a> - INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK<br />
+<pre>
+INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK
+	AX = FDCBh
+Return: DX:AX -&gt; PCS/3270 signature block if loaded (see #03839)
+
+Format of Personal Communications/3270 signature block:
+Offset	Size	Description	(Table 03839)
+ 04h	WORD	PCS/3270 signature (5741h)
+ 06h	WORD	version (0501h = PCS/3270 v1.0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFE01" name="7AFE01"><b>7AFE01</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION
+	AX = FE01h
+	???
+Return: ???
+SeeAlso: AX=FE02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFE02" name="7AFE02"><b>7AFE02</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION
+	AX = FE02h
+	???
+Return: ???
+SeeAlso: AX=FE01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF01" name="7AFF01"><b>7AFF01</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION
+	AX = FF01h
+	ES:DI -&gt; API function handler routine
+Return: CX = 1200h
+SeeAlso: AX=FF02h,AX=FF03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF02" name="7AFF02"><b>7AFF02</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION
+	AX = FF02h
+Return: CX = 1200h
+SeeAlso: AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF03" name="7AFF03"><b>7AFF03</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION
+	AX = FF03h
+	ES:DI -&gt; send/receive function handler routine
+Return: CX = 1200h
+SeeAlso: AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF04" name="7AFF04"><b>7AFF04</b></a> - INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???<br />
+<pre>
+INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???
+	AX = FF04h
+	ES:DI -&gt; ???
+Return: CX = 1200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

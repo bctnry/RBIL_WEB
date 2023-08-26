@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._7B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 7B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#7B"><b>7B</b> - INT 7B - Btrieve API (single user)</a><br />
+<a href="#7B_0"><b>7B</b> - INT 7B - Eicon Access API (3270/5250 gateways)</a><br />
+<a href="#7B_1"><b>7B</b> - INT 7B - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ3</a><br />
+<a href="#7B_2"><b>7B</b> - INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA</a><br />
+<a href="#7B_3"><b>7B</b> - INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???</a><br />
+<a href="#7B_4"><b>7B</b> - INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API</a><br />
+<a href="#7B8001"><b>7B8001</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT</a><br />
+<a href="#7B8002"><b>7B8002</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT</a><br />
+<a href="#7B8003"><b>7B8003</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT</a><br />
+
+<hr />
+
+<a href="#7B" name="7B"><b>7B</b></a> - INT 7B - Btrieve API (single user)<br />
+<pre>
+INT 7B - Btrieve API (single user)
+	DS:DX -&gt; 38-byte parameter record (see #03840)
+Return: return code field set
+Note:	Btrieve sets low byte of vector to 33h; this serves as the installation
+	  check
+SeeAlso: INT 2F/AX=AB01h,INT 7F/AX=0200h
+
+Format of Btrieve parameter record:
+Offset	Size	Description	(Table 03840)
+ 00h	DWORD	pointer to data buffer
+ 04h	WORD	data buffer length
+ 06h	DWORD	pointer to 90-byte record containing positioning info
+		(should be same for all calls for same file)
+ 0Ah	DWORD	pointer to 38-byte FCB info buffer
+		(should be same for all calls for same file)
+ 0Eh	WORD	function code (see #03841)
+ 10h	DWORD	pointer to file name/key buffer
+ 14h	BYTE	key length
+ 15h	BYTE	key number
+ 16h	DWORD	pointer to status code (see #03842)
+ 1Ah	WORD	interface code (version specific)
+		6176h version 5.10
+
+(Table 03841)
+Values for function code:
+ 00h	open
+ 01h	close
+ 02h	insert
+ 03h	update
+ 04h	delete
+ 05h	get_equal
+ 06h	get_next
+ 07h	get_prev
+ 08h	get_greater
+ 09h	get_gr_eql
+ 0Ah	get_less
+ 0Bh	get_less_eq
+ 0Ch	get_first
+ 0Dh	get_last
+ 0Eh	create
+ 0Fh	stat
+ 10h	extend
+ 11h	set_dir: set directory information
+ 12h	get_dir: get directory information
+ 13h	begin_trans
+ 14h	end_trans
+ 15h	abort_trans
+ 16h	get_pos: get record position number
+ 17h	get_direct: get data by sending record position
+ 18h	step_next
+ 19h	stop
+ 1Ah	version
+ 1Bh	unlock
+ 1Ch	reset
+ 1Dh	set owner
+ 1Eh	clear owner
+ 1Fh	create supplemental index
+ 20h	drop supplemental index
+ 21h	step first
+ 22h	step last
+ 23h	step previous
+ 24h	get next extended: get multiple records using a filter
+ 25h	get previous extended: get multiple records using a filter
+ 26h	step next extended: get multiple records using a filter
+ 27h	step previous extended: get multiple records using a filter
+ 28h	insert extended: insert one or more records
+ 31h	???
+Notes:	add 50 (32h) to any "get" operation to just return the key data
+	add 100 (64h) for a single-record wait lock (automatically released
+	  on next get)
+	add 200 (C8h) for a single-record nowait lock (nowait lock returns
+	  error 54h or 55h if record already locked)
+	add 300 (12Ch) for a multiple-record wait lock (not released until
+	  unlock called)
+	add 400 (190h) for a multiple-record nowait lock (nowait lock returns
+	  error 54h or 55h if record already locked)
+
+(Table 03842)
+Values for Btrieve status code:
+ 00h	successful
+ 01h	invalid operation
+ 02h	I/O error
+ 03h	file not open
+ 04h	key value not found
+ 05h	duplicate key value
+ 06h	invalid key number
+ 07h	different key number
+ 08h	invalid positioning
+ 09h	end of file
+ 0Ah	modifiable key value error
+ 0Bh	invalid file name
+ 0Ch	file not found
+ 0Dh	extended file error
+ 0Eh	pre-image open error
+ 0Fh	pre-image I/O error
+ 10h	expansion error
+ 11h	close error
+ 12h	disk full
+ 13h	unrecoverable error
+ 14h	record manager inactive
+ 15h	key buffer too short
+ 16h	data buffer length overrun
+ 17h	position block length
+ 18h	page size error
+ 19h	create I/O error
+ 1Ah	number of keys
+ 1Bh	invalid key position
+ 1Ch	invalid record length
+ 1Dh	invalid key length
+ 1Eh	not a Btrieve file
+ 1Fh	file already extended
+ 20h	extended I/O error
+ 22h	invalid extension name
+ 23h	directory error
+ 24h	transaction error
+ 25h	transaction is active
+ 26h	transaction control file I/O error
+ 27h	end/abort transaction error
+ 28h	transaction max files
+ 29h	operation not allowed
+ 2Ah	incomplete accelerated access
+ 2Bh	invalid record address
+ 2Ch	null key path
+ 2Dh	inconsistent key flags
+ 2Eh	access to file denied
+ 2Fh	maximum open files
+ 30h	invalid alternate sequence definition
+ 31h	key type error
+ 32h	owner already set
+ 33h	invalid owner
+ 34h	error writing cache
+ 35h	invalid interface
+ 36h	variable page error
+ 37h	autoincrement error
+ 38h	incomplete index
+ 39h	expanded memory error
+ 3Ah	compression buffer too short
+ 3Bh	file already exists
+ 3Ch	reject count reached
+ 3Dh	work space too small
+ 3Eh	incorrect descriptor
+ 3Fh	invalid extended insert
+ 40h	filter limit reached
+ 41h	incorrect field offset
+ 4Ah	automatic transaction abort
+ 4Dh	Btrieve engine busy or resource locked by another user
+ 4Eh	deadlock detected
+ 50h	conflict
+ 51h	lock error
+ 52h	lost position
+ 53h	read outside transaction
+ 54h	record in use
+ 55h	file in use
+ 56h	file table full
+ 57h	handle table full
+ 58h	incompatible open mode
+ 5Ah	redirected device table full
+ 5Bh	server error
+ 5Ch	transaction table full
+ 5Dh	incompatible lock type
+ 5Eh	permission error
+ 5Fh	session no longer valid
+ 60h	communications environment error
+ 61h	data message too small
+ 62h	internal transaction error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_0" name="7B_0"><b>7B</b></a> - INT 7B - Eicon Access API (3270/5250 gateways)<br />
+<pre>
+INT 7B - Eicon Access API (3270/5250 gateways)
+SeeAlso: INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_1" name="7B_1"><b>7B</b></a> - INT 7B - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ3<br />
+<pre>
+INT 7B - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ3
+Notes:	this vector is overwritten when GO32 starts but is not restored by
+	  early versions of the extender
+	the newest versions of GO32 dynamically allocate the vectors used
+	  for the relocated IRQs, much as DESQview does (see INT 50"DESQview")
+SeeAlso: INT 0B,INT 10/AH=FFh"GO32",INT 7A"GO32",INT 7C"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_2" name="7B_2"><b>7B</b></a> - INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA<br />
+<pre>
+INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA
+	AX = data length (0000h-7FFFh)
+	CX:BX -&gt; data to be plotted
+	DX = vertical position of line on page
+Return: nothing
+Notes:	This interrupt is called by AutoCAD to perform its output
+	A data length of 0000h indicates that a blank line is to be output
+SeeAlso: AX=8001h,AX=8002h,INT 78"AutoCAD",INT 7A/AX=0001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_3" name="7B_3"><b>7B</b></a> - INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???<br />
+<pre>
+INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???
+Program: MCI Express is a front end to MCI Mail; DRIVER.EXE is its
+	  communication driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_4" name="7B_4"><b>7B</b></a> - INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API<br />
+<pre>
+INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API
+	DS:DX -&gt; parameter block (see #03844)
+Return: parameter block updated
+
+(Table 03843)
+Values for Novell XQL function number:
+ 00h	log in
+ 01h	log out
+ 02h	"tNewFcn"
+ 03h	"tFreeFcn"
+ 04h	"tMoveFldFcn"
+ 05h	"tFieldFcn"
+ 06h	"tDescribeFcn"
+ 07h	"tFetchFcn"
+ 08h	"tComputeFcn"
+ 09h	"tOrderFcn"
+ 0Ah	"tRestrictFcn"
+ 0Bh	"tJoinFcn"
+ 0Ch	"tInsertFcn"
+ 0Dh	"tUpdateFcn"
+ 0Eh	"tUpdallFcn"
+ 0Fh	"tRemoveFcn"
+ 10h	"tRemallFcn"
+ 11h	"tResetFcn"
+ 12h	"tTransFcn"
+ 13h	"tStatFcn"
+ 14h	"tDDCreFcn"
+ 15h	"tStoreFcn"
+ 16h	"tRecallFcn"
+ 17h	"tStopFcn"
+ 18h	"tDDFileFcn"
+ 19h	"tDDFieldFcn"
+ 1Ah	"tDDIndexFcn"
+ 1Bh	"tDDModFcn"
+ 1Ch	"tDDViewFcn"
+ 1Dh	"tDDDrpFcn"
+ 1Eh	"tDDPathFcn"
+ 1Fh	"tDDAttrFcn"
+ 20h	"tDDFcn"
+ 21h	"tSecurFcn"
+ 22h	"tUserFcn"
+ 23h	"tAccessFcn"
+ 24h	"tPswdFcn"
+ 25h	"tCharFcn"
+ 26h	"tVersionFcn"
+ 27h	"tCnvFcn"
+ 28h	"tValFcn"
+ 29h	"tMaskFcn"
+SeeAlso: #03844
+
+Format of XQL parameter block:
+Offset	Size	Description	(Table 03844)
+ 00h  4 BYTEs	signature "XQLP"
+ 04h	WORD	function number (see #03843)
+ 06h	WORD	handle
+ 08h	WORD	status
+ 0Ah	WORD	session ID
+ 0Ch	var	data record (varies by function)
+---function 00h---
+ 0Ch	DWORD	-&gt; user name
+ 10h	DWORD	-&gt; password
+ 14h	DWORD	-&gt; dictionary
+ 18h	DWORD	-&gt; filepath
+ 1Ch	DWORD	-&gt; machine name
+ 20h	WORD	process ID
+---function 01h---
+ no additional fields???
+---function 02h---
+ 0Ch	DWORD	-&gt; filename
+ 10h	DWORD	-&gt; owner name
+ 14h	WORD	open mode
+---function 03h---
+ no additional fields???
+---function 04h---
+ 0Ch	WORD	"frompos"
+ 0Eh	WORD	"topos"
+---function 05h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	position
+ 10h	WORD	count
+ 12h	DWORD	-&gt; field list
+---function 06h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	length of description
+ 10h	WORD	position
+ 12h	WORD	count
+ 14h	DWORD	pointer to description list
+---function 07h---
+ 0Ch	WORD	data length
+ 0Eh	WORD	"op"
+ 10h	DWORD	"select"
+ 14h	DWORD	"reject"
+ 18h	DWORD	pointer to data buffer
+---function 08h---
+ 0Ch	DWORD	-&gt; field name
+ 10h	WORD	field type
+ 12h	WORD	field size
+ 14h	WORD	"flddec"
+ 16h	WORD	"explen"
+ 18h	DWORD	pointer to "expbuf"
+---function 09h---
+ 0Ch	WORD	count
+ 0Eh	DWORD	-&gt; field list
+---function 0Ah---
+ 0Ch	WORD	"newexp"
+ 0Eh	WORD	"explen"
+ 10h	DWORD	-&gt; "expbuf"
+---function 0Bh---
+ 0Ch	DWORD	-&gt; filename
+ 10h	DWORD	-&gt; owner name
+ 14h	WORD	type of join
+ 16h	WORD	"pCount"
+ 18h	DWORD	-&gt; "pNames"
+ 1Ch	WORD	"sCount"
+ 1Eh	DWORD	-&gt; "sNames"
+---functions 0Ch, 0Dh, 0Fh---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	DWORD	count
+ 16h	DWORD	-&gt; buffer
+---function 0Eh---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	WORD	"op"
+ 14h	DWORD	"select"
+ 18h	DWORD	"reject"
+ 1Ch	WORD	count
+ 1Eh	DWORD	-&gt; "res"
+ 22h	DWORD	-&gt; "comp"
+---function 10h---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	WORD	"op"
+ 14h	DWORD	"select"
+ 18h	DWORD	"reject"
+---function 11h---
+ 0Ch	DWORD	machine name
+---function 12h---
+ 0Ch	WORD	option
+---function 13h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	length of buffer
+ 10h	DWORD	-&gt; buffer
+---function 14h---
+ 0Ch	WORD	subfunction
+ 0Eh	DWORD	-&gt; filename
+ 12h	WORD	"create"
+ 14h	DWORD	-&gt; pathname
+ 18h	DWORD	-&gt; owner name
+ 1Ch	WORD	owner access restrictions
+ 1Eh	WORD	number of fields
+ 20h	DWORD	-&gt; field list
+ 24h	WORD	number of keys
+ 28h	DWORD	-&gt; key list
+ 2Ch	WORD	"buflen"
+ 2Eh	DWORD	-&gt; create parameters
+---function 15h---
+ 0Ch	DWORD	-&gt; "StoreName"
+ 10h	WORD	length of buffer
+ 12h	DWORD	-&gt; buffer
+---function 16h---
+ 0Ch	DWORD	-&gt; "RecallName"
+ 10h	WORD	owner number
+ 12h	DWORD	-&gt; owner list
+ 16h	WORD	open mode
+ 18h	WORD	length of buffer
+ 1Ah	DWORD	-&gt; buffer
+---function 17h---
+ no additional fields???
+---function 18h---
+ 0Ch	WORD	"rtype"
+ 0Eh	WORD	count
+ 10h	DWORD	-&gt; "filebuf"
+ 14h	WORD	length of following buffer
+ 16h	DWORD	-&gt; output buffer
+---functions 19h, 1Ah---
+ 0Ch	WORD	"rtype"
+ 0Eh	WORD	count
+ 10h	DWORD	-&gt; field buffer
+ 14h	WORD	length of following buffer
+ 16h	DWORD	-&gt; output buffer
+---function 1Bh---
+ 0Ch	WORD	subfunction
+ 0Eh	DWORD	-&gt; filename
+ 12h	WORD	"create"
+ 14h	DWORD	-&gt; pathname
+ 18h	DWORD	-&gt; owner name
+ 1Ch	WORD	owner access restrictions
+ 1Eh	WORD	field count
+ 20h	DWORD	-&gt; field list
+ 24h	WORD	number of keys
+ 26h	DWORD	-&gt; list of keys
+---function 1Ch---
+ 0Ch	WORD	count
+ 0Eh	DWORD	-&gt; view name
+ 12h	WORD	length of following buffer
+ 14h	DWORD	-&gt; output buffer
+---function 1Dh---
+ 0Ch	DWORD	-&gt; filename
+ 10h	WORD	file type
+ 12h	WORD	"deletepath"
+---function 1Eh---
+ 0Ch	WORD	"dirtype"
+ 0Eh	DWORD	-&gt; pathname
+---function 1Fh---
+ 0Ch	WORD	function
+ 0Eh	DWORD	-&gt; field name
+ 12h	WORD	attribute
+ 14h	WORD	size of buffer
+ 16h	DWORD	-&gt; buffer for attributes
+---function 20h---
+ 0Ch	DWORD	-&gt; directory path
+ 10h	WORD	function
+---function 21h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	WORD	"securityflag"
+---function 22h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	WORD	function (add/modify/remove)
+ 12h	DWORD	-&gt; user name
+ 16h	DWORD	-&gt; password
+ 1Ah	WORD	global rights
+ 1Ch	WORD	count
+ 1Eh	WORD	length of following buffer
+ 20h	DWORD	-&gt; "userbuf"
+---function 23h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	DWORD	-&gt; user name
+ 14h	WORD	function (allow/deny/getrights)
+ 16h	WORD	rights
+ 18h	DWORD	-&gt; filename
+ 1Ch	WORD	number of field names in following buffer
+ 1Eh	DWORD	-&gt; field names
+ 22h	WORD	maximum buffer length
+ 24h	DWORD	-&gt; output buffer
+---function 24h---
+ 0Ch	DWORD	-&gt; user name
+ 10h	DWORD	-&gt; password
+---function 25h---
+ 0Ch	WORD	"charFcn"
+ 0Eh	WORD	"charType"
+ 10h	WORD	"charValue"
+---function 26h---
+ 0Ch	DWORD	-&gt; buffer
+---function 27h---
+ 0Ch	WORD	option
+ 0Eh	WORD	type
+ 10h	WORD	size
+ 12h	WORD	"dec"
+ 14h	WORD	"dsize"
+ 16h	DWORD	-&gt; value
+ 1Ah	DWORD	-&gt; "retval"
+ 1Eh	DWORD	-&gt; mask
+ 22h	WORD	"justify"
+---function 28h---
+ 0Ch	DWORD	-&gt; field name
+ 10h	WORD	length of buffer
+ 12h	DWORD	-&gt; buffer for data
+---function 29h---
+ 0Ch	WORD	option
+ 0Eh	WORD	type
+ 10h	WORD	size
+ 12h	WORD	"dec"
+ 14h	WORD	length of mask
+ 16h	DWORD	-&gt; mask
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8001" name="7B8001"><b>7B8001</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT
+	AX = 8001h
+	BX = file level
+	    0000h binary file
+	    0001h CAD/camera image file
+	    0002h installed ADI driver
+	CX = horizontal size in pixels
+	DX = vertical size in pixels
+Return: AX = status (0000h initialization failed, 0001h init successful)
+	BX = allowed output format
+	    0000h monochrome
+	    0001h color (4 bits per pixel)
+SeeAlso: AX=8002h,AX=8003h,INT 7B"AutoCAD",INT 7C"AutoShade"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8002" name="7B8002"><b>7B8002</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT
+	AX = 8002h
+SeeAlso: AX=8001h,AX=8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8003" name="7B8003"><b>7B8003</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT
+	AX = 8003h
+SeeAlso: AX=8001h,AX=8002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

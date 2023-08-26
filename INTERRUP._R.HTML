@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._R</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category R - remote control/file access
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#10FF00"><b>10FF00</b> - INT 10 - CARBON COPY PLUS v5.0 - CHECK IF CC CONNECTED TO CCHELP</a><br />
+<a href="#10FF01"><b>10FF01</b> - INT 10 - CARBON COPY PLUS v5.0 - DISCONNECT AND RESET LINE</a><br />
+<a href="#10FF02"><b>10FF02</b> - INT 10 - CARBON COPY PLUS v5.0 - GET LAST PHONE NUMBER DIALED</a><br />
+<a href="#1675"><b>1675</b> - INT 16 - pcANYWHERE III - SET TICK COUNT FOR SCANNING</a><br />
+<a href="#1676"><b>1676</b> - INT 16 - pcANYWHERE III - SET ERROR CHECKING TYPE</a><br />
+<a href="#1677"><b>1677</b> - INT 16 - pcANYWHERE III - LOG OFF</a><br />
+<a href="#1679"><b>1679</b> - INT 16 - pcANYWHERE III - CHECK STATUS</a><br />
+<a href="#167A"><b>167A</b> - INT 16 - pcANYWHERE III - CANCEL SESSION</a><br />
+<a href="#167B00"><b>167B00</b> - INT 16 - pcANYWHERE III - SUSPEND</a><br />
+<a href="#167B01"><b>167B01</b> - INT 16 - pcANYWHERE III - RESUME</a><br />
+<a href="#167C"><b>167C</b> - INT 16 - pcANYWHERE III - GET PORT CONFIGURATION</a><br />
+<a href="#167D"><b>167D</b> - INT 16 - pcANYWHERE III - GET/SET TERMINAL PARAMETERS</a><br />
+<a href="#167E"><b>167E</b> - INT 16 - pcANYWHERE III - COMMUNICATIONS I/O THROUGH PORT</a><br />
+<a href="#167F"><b>167F</b> - INT 16 - pcANYWHERE III - SET KEYBOARD/SCREEN MODE</a><br />
+<a href="#212B44BX4D41"><b>212B44BX4D41</b> - INT 21 - pcANYWHERE IV/LAN - INSTALLATION CHECK</a><br />
+<a href="#2F5600"><b>2F5600</b> - INT 2F - INTERLNK - INSTALLATION CHECK</a><br />
+<a href="#2F5601"><b>2F5601</b> - INT 2F - INTERLNK - CHECK IF REDIRECTED DRIVE</a><br />
+<a href="#2F5602"><b>2F5602</b> - INT 2F - INTERLNK - CHECK IF PORT IN USE</a><br />
+<a href="#2F9200"><b>2F9200</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - BUG</a><br />
+<a href="#2F9201"><b>2F9201</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - CHECK IF MAPPED DRIVE</a><br />
+<a href="#2F9202"><b>2F9202</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - UNINSTALL</a><br />
+<a href="#2F9203"><b>2F9203</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET VERSION</a><br />
+<a href="#2F9204"><b>2F9204</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - INSTALLATION CHECK</a><br />
+<a href="#2F9205"><b>2F9205</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET ???</a><br />
+<a href="#2F9206"><b>2F9206</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9207"><b>2F9207</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F9208"><b>2F9208</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9209"><b>2F9209</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F920A"><b>2F920A</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F920B"><b>2F920B</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET DRIVE MAPPING</a><br />
+<a href="#2F920C"><b>2F920C</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F920D"><b>2F920D</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET DRIVE TYPE</a><br />
+<a href="#2F920E"><b>2F920E</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET LPT MAPPING</a><br />
+<a href="#2F920F"><b>2F920F</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F9210"><b>2F9210</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9211"><b>2F9211</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F9212"><b>2F9212</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - CRITICAL SECTION???</a><br />
+<a href="#2F9213"><b>2F9213</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9214"><b>2F9214</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F9215"><b>2F9215</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F9216"><b>2F9216</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9217"><b>2F9217</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F9218"><b>2F9218</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET LPT TYPE???</a><br />
+<a href="#2F9219"><b>2F9219</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F921A"><b>2F921A</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F921B"><b>2F921B</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F921C"><b>2F921C</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2F921D"><b>2F921D</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???</a><br />
+<a href="#2F921E"><b>2F921E</b> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???</a><br />
+<a href="#2FD300BX4562"><b>2FD300BX4562</b> - INT 2F U - TeleReplica - INSTALLATION CHECK</a><br />
+<a href="#2FD3CB"><b>2FD3CB</b> - INT 2F U - LapLink Quick Connect v6 - API</a><br />
+<a href="#60_8"><b>60</b> - INT 60 - Tangram Arbiter - API</a><br />
+<a href="#6247"><b>6247</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#6248"><b>6248</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#6249"><b>6249</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#624A"><b>624A</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#624B--BX1234"><b>624B--BX1234</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#624C"><b>624C</b> - INT 62 - PC Tools v7 COMMUTE - ???</a><br />
+<a href="#626262"><b>626262</b> - INT 62 - PC Tools v7 COMMUTE - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#10FF00" name="10FF00"><b>10FF00</b></a> - INT 10 - CARBON COPY PLUS v5.0 - CHECK IF CC CONNECTED TO CCHELP<br />
+<pre>
+INT 10 - CARBON COPY PLUS v5.0 - CHECK IF CC CONNECTED TO CCHELP
+	AX = FF00h
+Return: BL = state
+	    00h not connected
+	    01h connected
+SeeAlso: AX=FF01h,AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10FF01" name="10FF01"><b>10FF01</b></a> - INT 10 - CARBON COPY PLUS v5.0 - DISCONNECT AND RESET LINE<br />
+<pre>
+INT 10 - CARBON COPY PLUS v5.0 - DISCONNECT AND RESET LINE
+	AX = FF01h
+Return: nothing
+SeeAlso: AX=FF00h,AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10FF02" name="10FF02"><b>10FF02</b></a> - INT 10 - CARBON COPY PLUS v5.0 - GET LAST PHONE NUMBER DIALED<br />
+<pre>
+INT 10 - CARBON COPY PLUS v5.0 - GET LAST PHONE NUMBER DIALED
+	AX = FF02h
+Return: ES:DI -&gt; ASCIZ phone number
+SeeAlso: AX=FF00h,AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1675" name="1675"><b>1675</b></a> - INT 16 - pcANYWHERE III - SET TICK COUNT FOR SCANNING<br />
+<pre>
+INT 16 - pcANYWHERE III - SET TICK COUNT FOR SCANNING
+	AH = 75h
+	AL = number of ticks between checks for new screen changes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1676" name="1676"><b>1676</b></a> - INT 16 - pcANYWHERE III - SET ERROR CHECKING TYPE<br />
+<pre>
+INT 16 - pcANYWHERE III - SET ERROR CHECKING TYPE
+	AH = 76h
+	AL = error checking type
+	    00h none
+	    01h fast
+	    02h slow
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1677" name="1677"><b>1677</b></a> - INT 16 - pcANYWHERE III - LOG OFF<br />
+<pre>
+INT 16 - pcANYWHERE III - LOG OFF
+	AH = 77h
+	AL = mode
+	    00h wait for another call
+	    01h leave in Memory Resident Mode
+	    02h leave in Automatic Mode
+	    FFh leave in current operating mode
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1679" name="1679"><b>1679</b></a> - INT 16 - pcANYWHERE III - CHECK STATUS<br />
+<pre>
+INT 16 - pcANYWHERE III - CHECK STATUS
+	AH = 79h
+Return: AX = status
+	    FFFFh if resident and active
+	    FFFEh if resident but not active
+	    FFFDh if in Memory Resident mode
+	    FFFCh if in Automatic mode
+	    other value if not resident
+SeeAlso: AX=7B00h,INT 21/AX=2B44h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167A" name="167A"><b>167A</b></a> - INT 16 - pcANYWHERE III - CANCEL SESSION<br />
+<pre>
+INT 16 - pcANYWHERE III - CANCEL SESSION
+	AH = 7Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167B00" name="167B00"><b>167B00</b></a> - INT 16 - pcANYWHERE III - SUSPEND<br />
+<pre>
+INT 16 - pcANYWHERE III - SUSPEND
+	AX = 7B00h
+SeeAlso: AH=79h,AX=7B01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167B01" name="167B01"><b>167B01</b></a> - INT 16 - pcANYWHERE III - RESUME<br />
+<pre>
+INT 16 - pcANYWHERE III - RESUME
+	AX = 7B01h
+SeeAlso: AH=79h,AX=7B00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167C" name="167C"><b>167C</b></a> - INT 16 - pcANYWHERE III - GET PORT CONFIGURATION<br />
+<pre>
+INT 16 - pcANYWHERE III - GET PORT CONFIGURATION
+	AH = 7Ch
+Return: AH = port number
+	AL = baud rate (see #00606)
+SeeAlso: AX=7B00h,AH=7Eh
+
+(Table 00606)
+Values for pcANYWHERE III baud rate:
+ 00h	50 baud
+ 01h	75 baud
+ 02h	110 baud
+ 03h	134.5 baud
+ 04h	150 baud
+ 05h	300 baud
+ 06h	600 baud
+ 07h	1200 baud
+ 08h	1800 baud
+ 09h	2000 baud
+ 0Ah	2400 baud
+ 0Bh	4800 baud
+ 0Ch	7200 baud
+ 0Dh	9600 baud
+ 0Eh	19200 baud
+SeeAlso: #00309
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167D" name="167D"><b>167D</b></a> - INT 16 - pcANYWHERE III - GET/SET TERMINAL PARAMETERS<br />
+<pre>
+INT 16 - pcANYWHERE III - GET/SET TERMINAL PARAMETERS
+	AH = 7Dh
+	AL = subfunction
+	    00h set terminal parameters
+	    01h get terminal parameters
+	    02h get configuration header and terminal parameters
+	DS:CX -&gt; terminal parameter block
+SeeAlso: AH=7Ch,AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167E" name="167E"><b>167E</b></a> - INT 16 - pcANYWHERE III - COMMUNICATIONS I/O THROUGH PORT<br />
+<pre>
+INT 16 - pcANYWHERE III - COMMUNICATIONS I/O THROUGH PORT
+	AH = 7Eh
+	AL = subfunction
+	    01h port input status
+		Return AX = 0 if no characer ready,
+		       AX = 1 if character ready
+	    02h port input character
+		Return AL = received character
+	    03h port output character in CX
+	    11h hang up phone
+SeeAlso: AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167F" name="167F"><b>167F</b></a> - INT 16 - pcANYWHERE III - SET KEYBOARD/SCREEN MODE<br />
+<pre>
+INT 16 - pcANYWHERE III - SET KEYBOARD/SCREEN MODE
+	AH = 7Fh
+	AL = subfunction
+	    00h enable remote keyboard only
+	    01h enable host keyboard only
+	    02h enable both keyboards
+	    08h display top 24 lines
+	    09h display bottom 24 lines
+	    10h Hayes modem
+	    11h other modem
+	    12h direct connect
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B44BX4D41" name="212B44BX4D41"><b>212B44BX4D41</b></a> - INT 21 - pcANYWHERE IV/LAN - INSTALLATION CHECK<br />
+<pre>
+INT 21 - pcANYWHERE IV/LAN - INSTALLATION CHECK
+	AX = 2B44h ('D')
+	BX = 4D41h ('MA')
+	CX = 7063h ('pc')
+	DX = 4157h ('AW')
+Return: AX = resident program
+	    4F4Bh ('OK') if large host resident
+	    6F6Bh ('ok') if small host resident
+	CX:DX -&gt; API entry point (see #01389)
+SeeAlso: INT 16/AH=79h
+
+(Table 01389)
+Call pcANYWHERE API entry point with:
+	AX = 0000h get pcANYWHERE IV version
+	    DS:SI -&gt; BYTE buffer for host type code
+	    Return: AH = version number
+		    AL = revision number
+		    DS:DI buffer byte filled with
+			00h full-featured host
+			01h limited-feature LAN host
+			other API may not be supported
+	AX = 0001h initialize operation
+	    DS:SI -&gt; initialization request structure (see #01390)
+	    Return: AX = function status (see #01393)
+	AX = 0002h get status
+	    Return: AH = current operating mode (see #01390)
+		    AL = current connection status (see #01392)
+	AX = 0003h suspend remote screen updates
+	    Return: AX = function status (see #01393)
+	AX = 0004h resume screen updates
+	    Return: AX = function status (see #01393)
+	AX = 0005h end current remote access session
+	    DS:SI -&gt; termination request structure (see #01391)
+	    Return: AX = function status (see #01393)
+	AX = 0006h remove pcANYWHERE IV from memory
+	    Return: AX = status (see #01393)
+	AX = 8000h read data from communications channel
+	    DS:BX -&gt; buffer
+	    CX = buffer size
+	    Return: AX &gt;= number of characters read/available
+		    AX &lt; 0 on error
+	AX = 8001h write data to communications channel
+	    DS:BX -&gt; buffer
+	    CX = buffer size
+	    Return: AX &gt;= number of characters written
+		    AX &lt; 0 on error
+	AX = 8002h get connection status
+	    Return: AX = status
+			&gt; 0000h if connection active
+			= 0000h if connection lost
+			&lt; 0000h on error
+
+Format of pcANYWHERE initialization request structure:
+Offset	Size	Description	(Table 01390)
+ 00h	BYTE	operating mode
+		00h wait for a call
+		01h hot key activates
+		02h incoming call activates
+		03h initiate a call
+ 01h  3 BYTEs	user ID to append to config file names
+ 04h	WORD	DS-relative pointer to path for config files
+ 06h	WORD	DS-relative pointer to path for program files
+
+Format of pcANYWHERE termination request structure:
+Offset	Size	Description	(Table 01391)
+ 00h	BYTE	operating mode after termination
+		00h wait for a call
+		01h hot key activates
+		02h incoming call activates
+		80h use current mode
+		FFh remove from memory
+
+Bitfields for current connection status:
+Bit(s)	Description	(Table 01392)
+ 0	a physical connection is active
+ 1	remove screen updating is active
+ 2	connection checking is active
+ 3	hot key detection is active
+ 4	background file transfer is active
+
+(Table 01393)
+Values for pcANYWHERE function status:
+ 0000h	function completed successfully
+ FFD1h	unable to release interrupt vectors
+ FFD2h	unable to release allocated memory
+ FFF2h	unable to establish a connection when operating mode is
+	  "Initiate a call"
+ FFF3h	modem configuration is invalid (corrupt config)
+ FFF4h	modem initialization failed (no modem response)
+ FFF5h	the communications device could not be initialized
+ FFF6h	the host operator aborted the function
+ FFF7h	the communications driver type specified in the configuration file is
+	  different than the one loaded when pcANYWHERE IV was started
+ FFF9h	the configuration file is invalid
+ FFFAh	the configuration file could not be found
+ FFFBh	no session is active
+ FFFCh	a remote access session is active
+ FFFDh	the specified operating mode is invalid
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5600" name="2F5600"><b>2F5600</b></a> - INT 2F - INTERLNK - INSTALLATION CHECK<br />
+<pre>
+INT 2F - INTERLNK - INSTALLATION CHECK
+	AX = 5600h
+	DX = magic value FFFFh
+	BL = instance number (00h = any, 01h = first loaded, etc.)
+	(BH = 00h and CX = 0000h, see note)
+Return: AL = FFh if installed
+	    BL = instance number
+	    CX = version number (CL = major, CH = minor)
+	    DX = resident CS of driver, DX:0000h -&gt; header (see #02845)
+Notes:	INTERLNK was derived from Sewell Development Corporation's FASTLYNX.
+	Some Microsoft software explicitly clears the BH and CX registers
+	  before calling this function.
+BUG:	reportedly, the MS-DOS INTERSRV program (though not INTERLNK) causes
+	  serious FAT corruption and data loss when run under Novell DOS 7.
+	  INTERSRV apparently checks for DR-DOS by testing the "OS"
+	  environment variable for the value "DRDOS", which is no longer
+	  correct for PalmDOS, Novell DOS, or OpenDOS.  A workaround may be
+	  to explicitly set the OS variable to "DRDOS".
+SeeAlso: AX=5601h,AX=5602h,INT 60/AX=0000h
+
+Format of Interlnk device driver header:
+Offset	Size	Description	(Table 02845)
+ 00h	DWORD	pointer to next driver, offset=FFFFh if last driver
+ 04h	WORD	device attributes (see #01647,#01648)
+ 06h	WORD	device strategy entry point
+ 08h	WORD	device interrupt entry point
+ 0Ah  8 BYTEs	character device name "NUL2    "
+ 12h 165 BYTEs	???
+ B7h 67 BYTEs	fully qualified Interlnk filename
+ FAh  6 BYTEs	???
+100h	DWORD	pointer back to Interlnk filename at offset B7h
+104h  8 BYTEs	???
+10Ch	BYTE	total number of redirected drives
+10Dh	BYTE	first local drive number (0=A:)
+10Eh	BYTE	printer redirection (0=no, 1=yes)
+10Fh	BYTE	???
+110h  3	BYTEs	LPT1...3 status (0FFh=invalid)
+113h 26 BYTEs	remote drive number (0=A:, 0FEh=unused) (refer to note below)
+12Dh 26 BYTEs	always 0FEh ???
+147h 26 BYTEs	always 0FFh ???
+Note:	to obtain the remote drive number, subtract the value at offset 10Ch
+	  from the local drive number before indexing into the table at 113h
+	  (example: if local drives F, G, H are remote drives C, F, E then
+	  the first three bytes at offset 113h are 02h, 05h, 04h)
+	for each instance of Interlnk, an extra device driver is loaded, but
+	  all have the same device name NUL2
+SeeAlso: #01646 at INT 21/AH=52h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5601" name="2F5601"><b>2F5601</b></a> - INT 2F - INTERLNK - CHECK IF REDIRECTED DRIVE<br />
+<pre>
+INT 2F - INTERLNK - CHECK IF REDIRECTED DRIVE
+	AX = 5601h
+	DX = magic value FFFFh
+	BH = drive number (0=A:)
+	BL = instance number (00h=any, 01h=first loaded, etc.)
+	(CX = 0000h, see note)
+Return: (as for AL=00h if redirected drive)
+Note:	some Microsoft software explicitly clears the CX register before
+	  calling this function.
+SeeAlso: AX=5600h,AX=5601h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5602" name="2F5602"><b>2F5602</b></a> - INT 2F - INTERLNK - CHECK IF PORT IN USE<br />
+<pre>
+INT 2F - INTERLNK - CHECK IF PORT IN USE
+	AX = 5602h
+	DX = magic value FFFFh
+	BL = instance number (00h=any, 01h=first loaded, etc.)
+	CX = base port address of COM / LPT port to check
+Return: (as for AL=00h if port in use for a redirected drive)
+SeeAlso: AX=5600h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9200" name="2F9200"><b>2F9200</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - BUG<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - BUG
+	AX = 9200h
+Program: DRIVEMAP is a redirector which allows drives on computers connected
+	  over the parallel or serial ports to appear as local drives
+BUG:	jumps to data because jump table entry is 0000h
+Note:	DRIVEMAP returns AX=FFFFh if not a valid function number in AL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9201" name="2F9201"><b>2F9201</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - CHECK IF MAPPED DRIVE<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - CHECK IF MAPPED DRIVE
+	AX = 9201h
+	DL = drive number (01h = A:, etc.)
+Return: AL = 92h if mapped drive
+	AH may be destroyed (v8.0 DRIVEMAP returns AX=0000h if not mapped)
+SeeAlso: AX=9204h,AX=920Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9202" name="2F9202"><b>2F9202</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - UNINSTALL<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - UNINSTALL
+	AX = 9202h
+	BX = caller's CS
+Return: AX = status
+	    0000h failed
+	    nonzero successful
+SeeAlso: AX=9204h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9203" name="2F9203"><b>2F9203</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET VERSION<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET VERSION
+	AX = 9203h
+Return: AH = major version
+	AL = minor version
+	CX = segment of resident code
+Note:	the DRIVEMAP included with PC Tools v8.0 is version 1.00
+SeeAlso: AX=9204h,INT 16/AX=FF70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9204" name="2F9204"><b>2F9204</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - INSTALLATION CHECK
+	AX = 9204h
+Return: AX = 9200h if installed
+	   BL = ???
+	   CX = segment of resident code
+Program: DRIVEMAP is a redirector which allows drives on computers connected
+	  over the parallel or serial ports to appear as local drives
+SeeAlso: AX=9201h,AX=9202h,AX=9203h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9205" name="2F9205"><b>2F9205</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - SET ???
+	AX = 9205h
+	BX = ??? to set
+Return: CX = new value of ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9206" name="2F9206"><b>2F9206</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9206h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9207" name="2F9207"><b>2F9207</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 9207h
+	???
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9208" name="2F9208"><b>2F9208</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9208h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9209" name="2F9209"><b>2F9209</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9209h
+	???
+Return: AX = ???
+	BX = ???
+	CX = ???
+	DX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920A" name="2F920A"><b>2F920A</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 920Ah
+	BX = ???
+Return: AX = ??? or FFFBh on error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920B" name="2F920B"><b>2F920B</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET DRIVE MAPPING<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - SET DRIVE MAPPING
+	AX = 920Bh
+	BL = drive letter (41h ['A'] = A:, etc)
+	CX = ??? (0000h removes mapping)
+Return: AX = ??? or FFF8h on error
+SeeAlso: AX=9201h,AX=920Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920C" name="2F920C"><b>2F920C</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 920Ch
+	???
+Return: AX = ??? (0002h)
+	CX = ??? (0000h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920D" name="2F920D"><b>2F920D</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET DRIVE TYPE<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET DRIVE TYPE
+	AX = 920Dh
+	BL = drive letter (41h ['A'] = A:, etc)
+Return: AX = type flags
+		bit 0: ???
+		bit 1: available
+		bit 5: local
+	BX = ???
+	CX = segment of resident code (apparently an unintended side effect)
+Program: DRIVEMAP is a redirector which allows drives on computers connected
+	  over the parallel or serial ports to appear as local drives
+SeeAlso: AX=9218h,INT 16/AX=FF70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920E" name="2F920E"><b>2F920E</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - SET LPT MAPPING<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - SET LPT MAPPING
+	AX = 920Eh
+	BX = port number (0-2)
+	CX = ??? (0000h to unmap)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F920F" name="2F920F"><b>2F920F</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 920Fh
+	ES:DI -&gt; 3-byte buffer for ???
+Return: CX = 0000h
+	ES:DI buffer filled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9210" name="2F9210"><b>2F9210</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9210h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9211" name="2F9211"><b>2F9211</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 9211h
+	ES:DI -&gt; 8-word buffer for ???
+Return: CX = 0000h
+	ES:DI buffer filled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9212" name="2F9212"><b>2F9212</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - CRITICAL SECTION???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - CRITICAL SECTION???
+	AX = 9212h
+	BX = phase
+	    0000h leave critical section???
+	    nonzero enter critical section???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9213" name="2F9213"><b>2F9213</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9213h
+	BX = function number (0000h-000Bh)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9214" name="2F9214"><b>2F9214</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 9214h
+	ES:DI -&gt; 6-word buffer for ???
+Return: CX = 0000h
+	AX = ???
+	ES:DI buffer filled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9215" name="2F9215"><b>2F9215</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 9215h
+	ES:DI -&gt; 100-word buffer for ???
+Return: CX = 0000h
+	ES:DI buffer filled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9216" name="2F9216"><b>2F9216</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9216h
+	ES:DI -&gt; ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9217" name="2F9217"><b>2F9217</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9217h
+	DS:SI -&gt; 25-word buffer containing ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9218" name="2F9218"><b>2F9218</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET LPT TYPE???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET LPT TYPE???
+	AX = 9218h
+	BX = port number???
+Return: AX = ???
+	BX = ??? (0000h)
+	CX = ??? (0000h)
+Program: DRIVEMAP is a redirector which allows drives on computers connected
+	  over the parallel or serial ports to appear as local drives
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9219" name="2F9219"><b>2F9219</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 9219h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F921A" name="2F921A"><b>2F921A</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 921Ah
+	???
+Return: AH = ???
+	AL = ???
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F921B" name="2F921B"><b>2F921B</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 921Bh
+	???
+Return: AX = ???
+	CX = segment of resident code (apparently an unintended side effect)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F921C" name="2F921C"><b>2F921C</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 921Ch
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F921D" name="2F921D"><b>2F921D</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - GET ???
+	AX = 921Dh
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F921E" name="2F921E"><b>2F921E</b></a> - INT 2F U - PC Tools v8.0 DRIVEMAP - ???<br />
+<pre>
+INT 2F U - PC Tools v8.0 DRIVEMAP - ???
+	AX = 921Eh
+	???
+Return: ???
+Program: DRIVEMAP is a redirector which allows drives on computers connected
+	  over the parallel or serial ports to appear as local drives
+Note:	this function sets two variables to 24h each
+SeeAlso: INT 16/AX=FF70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD300BX4562" name="2FD300BX4562"><b>2FD300BX4562</b></a> - INT 2F U - TeleReplica - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - TeleReplica - INSTALLATION CHECK
+	AX = D300h
+	BX = 4562h
+	CX = 2745h
+	DX = serial port I/O base address??? (03F8h for v3.9)
+Return: SI = segment of resident code
+	AX = 251Dh
+	BX = DF21h
+	CX = F321h
+	DX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD3CB" name="2FD3CB"><b>2FD3CB</b></a> - INT 2F U - LapLink Quick Connect v6 - API<br />
+<pre>
+INT 2F U - LapLink Quick Connect v6 - API
+	AX = D3CBh
+	CX = function
+	    0002h get ???
+		Return: BX:AX -&gt; ???
+			CL = ???
+			CH = ???
+			DX = ???
+			DI = COM1 I/O port???
+			SI = COM2 I/O port???
+	    0003h initialization???
+	    0004h ???
+	    0005h initialization???
+	    0006h reset/clear ???
+		Return: AX = 0000h
+			ES:DI -&gt; next byte after ??? cleared by this call
+	    0007h initialization???
+	    0008h uninstall
+		Return: BX = status
+			    0000h successful
+			    FFFFh incomplete, stub remains in memory
+Return: CX = 534Bh (except function 0002h)
+Index:	uninstall;LapLink Quick Connect
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_8" name="60_8"><b>60</b></a> - INT 60 - Tangram Arbiter - API<br />
+<pre>
+INT 60 - Tangram Arbiter - API
+Desc:	Arbiter makes a PC disk look like a slow disk over an SNA link to an
+	  IBM mainframe
+Range:	INT 60h to INT 66h, selected by configuration parameter
+Notes:	identified by string "@ARB_API" immediately following a short jump at
+	  the interrupt handler address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6247" name="6247"><b>6247</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 47h
+	AL = subfunction (00h-31h)
+	???
+	CF set
+Return: ???
+Program: COMMUTE is a remote-control program bundled with Central Point
+	  Software's PC Tools
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6248" name="6248"><b>6248</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 48h
+	AL = ???
+	???
+	CF set
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6249" name="6249"><b>6249</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 49h
+	???
+	CF set
+Return: ???
+Note:	may be the same as AH=4Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#624A" name="624A"><b>624A</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 4Ah
+	AL = subfunction (00h-46h)
+	???
+	CF set
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#624B--BX1234" name="624B--BX1234"><b>624B--BX1234</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 4Bh
+	BX = 1234h
+	CX = 1234h
+	ES = ???
+	CF set
+Return: ???
+Program: COMMUTE is a remote-control program bundled with Central Point
+	  Software's PC Tools
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#624C" name="624C"><b>624C</b></a> - INT 62 - PC Tools v7 COMMUTE - ???<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - ???
+	AH = 4Ch
+	BL = subfunction
+	    00h ???
+	    02h ???
+Return: CF clear if successful
+	CF set on error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#626262" name="626262"><b>626262</b></a> - INT 62 - PC Tools v7 COMMUTE - INSTALLATION CHECK<br />
+<pre>
+INT 62 - PC Tools v7 COMMUTE - INSTALLATION CHECK
+	AX = 6262h
+	CF set
+Return: AX = 0000h
+	BX = segment of resident code's PSP
+Program: COMMUTE is a remote-control program bundled with Central Point
+	  Software's PC Tools
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

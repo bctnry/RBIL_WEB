@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._0A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 0A
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#0A"><b>0A</b> - INT 0A C - IRQ2 - LPT2 (PC), VERTICAL RETRACE INTERRUPT (EGA,VGA)</a><br />
+<a href="#0A_0"><b>0A</b> - INT 0A C - IRQ2 - Tandy 1000-series HARD DISK</a><br />
+<a href="#0A_1"><b>0A</b> - INT 0A - IRQ2 - ROLAND MPU MIDI INTERFACE</a><br />
+<a href="#0A_2"><b>0A</b> - INT 0A CP - CPU-generated (80286+) - INVALID TASK STATE SEGMENT</a><br />
+
+<hr />
+
+<a href="#0A" name="0A"><b>0A</b></a> - INT 0A C - IRQ2 - LPT2 (PC), VERTICAL RETRACE INTERRUPT (EGA,VGA)<br />
+<pre>
+INT 0A C - IRQ2 - LPT2 (PC), VERTICAL RETRACE INTERRUPT (EGA,VGA)
+Notes:	the TOPS and PCnet adapters use this interrupt request line by default
+	DOS 3.2 revectors IRQ2 to a stack-switching routine; DOS 3.3+ does so
+	  unless STACKS=0 has been set in CONFIG.SYS.  MS/PC-DOS 3.3+ use the
+	  IBM Interrupt Sharing Protocol (see #02568) when hooking this IRQ
+	on ATs and above, the physical data line for IRQ2 is labeled IRQ9 and
+	  connects to the slave 8259.  The BIOS redirects the interrupt for
+	  IRQ9 back here.
+	under DESQview, only the INT 15h vector and BASIC segment address (the
+	  word at 0000h:0510h) may be assumed to be valid for the handler's
+	  process
+	many VGA boards do not implement the vertical retrace interrupt,
+	  including the IBM VGA Adapter where the traces are either cut or
+	  removed
+SeeAlso: INT 52"DESQview",INT 5A"DoubleDOS",INT 71,INT 7A"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0A_0" name="0A_0"><b>0A</b></a> - INT 0A C - IRQ2 - Tandy 1000-series HARD DISK<br />
+<pre>
+INT 0A C - IRQ2 - Tandy 1000-series HARD DISK
+Notes:	this interrupt may be masked by setting bit 2 on I/O port 21h
+	the Tandy 1000, 1000A, and 1000HD use IRQ2 for the hard disk; the
+	  1000EX, HX, RLX, RLX-HD, RLX-B, RLX-HD-B use IRQ5 instead; the
+	  1000RL, RL-HD, SL, SL/2, TL, TL/2, and TL/3 are jumper-selectable
+	  for either IRQ2 or IRQ5 (default IRQ5); the 1000SX and TX are
+	  DIP-switch selectable for IRQ2 or IRQ5 (default IRQ2); the RSX and
+	  RSX-HD use IRQ14.  Tandy systems which use IRQ2 for the hard disk
+	  interrupt use IRQ5 for vertical retrace.
+SeeAlso: INT 52"DESQview",INT 5A"DoubleDOS",INT 71
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0A_1" name="0A_1"><b>0A</b></a> - INT 0A - IRQ2 - ROLAND MPU MIDI INTERFACE<br />
+<pre>
+INT 0A - IRQ2 - ROLAND MPU MIDI INTERFACE
+Note:	newer Roland cards and MIDI interfaces by other manufacturers use
+	  a jumper-selectable IRQ, but software and hardware generally defaults
+	  to IRQ2
+SeeAlso: INT 52"DESQview",INT 5A"DoubleDOS",INT 71,INT 7A"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0A_2" name="0A_2"><b>0A</b></a> - INT 0A CP - CPU-generated (80286+) - INVALID TASK STATE SEGMENT<br />
+<pre>
+INT 0A CP - CPU-generated (80286+) - INVALID TASK STATE SEGMENT
+Desc:	automatically called during a task switch if the new TSS specified by
+	  the task gate is invalid for any of the following reasons:
+		TSS limit is less than 43 (80286) or 103 (80386/80486)
+		LDT selector invalid or segment not present
+		null SS selector, or SS selector outside LDT/GDT limit
+		stack segment is read-only
+		stack segment DPL differs from new CPL, or RPL &lt;&gt; CPL
+		CS selector is outside LDT/GDT limit or not code
+		non-conforming code segment's DPL differs from CPL
+		conforming code segment's DPL &gt; CPL
+		DS/ES selectors outside LDT/GDT limit or not readable segments
+Note:	the handler must use a task gate in order to have a valid TSS under
+	  which to execute; it must also reset the busy bit in the new TSS
+SeeAlso: INT 0B"CPU"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

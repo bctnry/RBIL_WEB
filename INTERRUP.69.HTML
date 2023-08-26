@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._69</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 69
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#69"><b>69</b> - INT 69 - Zenith AT BIOS - ???</a><br />
+<a href="#69_0"><b>69</b> - INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE</a><br />
+<a href="#690100"><b>690100</b> - INT 69 - DECnet DOS CTERM - INSTALLATION CHECK</a><br />
+<a href="#690101"><b>690101</b> - INT 69 - DECnet DOS CTERM - SEND BYTE</a><br />
+<a href="#690102"><b>690102</b> - INT 69 - DECnet DOS CTERM - READ BYTE</a><br />
+<a href="#690103"><b>690103</b> - INT 69 - DECnet DOS CTERM - STATUS</a><br />
+<a href="#690104"><b>690104</b> - INT 69 - DECnet DOS CTERM - DECnet STATUS</a><br />
+<a href="#690105"><b>690105</b> - INT 69 - DECnet DOS CTERM - OPEN SESSION</a><br />
+<a href="#690106"><b>690106</b> - INT 69 - DECnet DOS CTERM - CLOSE SESSION</a><br />
+<a href="#69010A"><b>69010A</b> - INT 69 - DECnet DOS CTERM - GET SESSION CONTROL BLOCK SIZE</a><br />
+<a href="#69010B"><b>69010B</b> - INT 69 - DECnet DOS CTERM - GET DECnet SOCKET</a><br />
+<a href="#69010F"><b>69010F</b> - INT 69 - DECnet DOS CTERM - DEINSTALL CTERM</a><br />
+<a href="#690A"><b>690A</b> - INT 69 - DECnet DOS 2.1+ - DATA LINK LAYER</a><br />
+<a href="#694001"><b>694001</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#694002"><b>694002</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#694101"><b>694101</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#694102"><b>694102</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#694103"><b>694103</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#694104"><b>694104</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#6942"><b>6942</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#6943"><b>6943</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#6944"><b>6944</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???</a><br />
+<a href="#6949"><b>6949</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - BUG</a><br />
+<a href="#696996"><b>696996</b> - INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER</a><br />
+<a href="#69FF"><b>69FF</b> - INT 69 - 10NET v5.0 - SYSSVC.COM - SIGNAL SYSTEM ERROR</a><br />
+
+<hr />
+
+<a href="#69" name="69"><b>69</b></a> - INT 69 - Zenith AT BIOS - ???<br />
+<pre>
+INT 69 - Zenith AT BIOS - ???
+Note:	called by INT 09 handler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69_0" name="69_0"><b>69</b></a> - INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE<br />
+<pre>
+INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE
+SeeAlso: INT 09"IRQ1",INT 68"HP Vectra",INT 6A"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690100" name="690100"><b>690100</b></a> - INT 69 - DECnet DOS CTERM - INSTALLATION CHECK<br />
+<pre>
+INT 69 - DECnet DOS CTERM - INSTALLATION CHECK
+	AX = 0100h
+Return: AL = FFh if present
+SeeAlso: AX=010Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690101" name="690101"><b>690101</b></a> - INT 69 - DECnet DOS CTERM - SEND BYTE<br />
+<pre>
+INT 69 - DECnet DOS CTERM - SEND BYTE
+	AX = 0101h
+	BL = character
+	DX = session handle
+Return: AH &gt;= 80h on error
+SeeAlso: AX=0102h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690102" name="690102"><b>690102</b></a> - INT 69 - DECnet DOS CTERM - READ BYTE<br />
+<pre>
+INT 69 - DECnet DOS CTERM - READ BYTE
+	AX = 0102h
+	DX = session handle
+Return: AH &gt;= 80h on error
+	AH &lt; 80h if successful
+	    AL = character
+SeeAlso: AX=0101h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690103" name="690103"><b>690103</b></a> - INT 69 - DECnet DOS CTERM - STATUS<br />
+<pre>
+INT 69 - DECnet DOS CTERM - STATUS
+	AX = 0103h
+	DX = session handle
+Return: AH status flags (see #03710)
+	AL = reason code if DECnet error (see #03711)
+SeeAlso: AX=0104h
+
+Bitfields for DECnet DOS CTERM status flags:
+Bit(s)	Description	(Table 03710)
+ 7	session has been aborted
+ 6	DECnet error
+ 1	trace data available
+ 0	receive data available
+
+(Table 03711)
+Values for reason code:
+ 00h	normal disconnect
+ 01h	unknown message from host
+ 02h	protocol violation from host
+ 03h	could not process the initiate message
+ 04h	error receiving message from host
+ 05h	error sending message to host
+ 06h	error checking for message from host
+ 07h	remote system does not support CTERM
+ 08h	remote system does not support correct protocol version
+ 09h	did not receive BIND message from host
+ 0Ah	could not send BIND message to host
+ 0Bh	no more sessions available
+ 0Ch	session does not exist
+ 0Dh	not enough memory to complete operation
+ 0Eh	connection has broken
+Index:	error codes;DECnet DOS CTERM|DECnet DOS CTERM;error codes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690104" name="690104"><b>690104</b></a> - INT 69 - DECnet DOS CTERM - DECnet STATUS<br />
+<pre>
+INT 69 - DECnet DOS CTERM - DECnet STATUS
+	AX = 0104h
+	DX = session handle
+Return: AX = reason code (see #03711)
+Note:	use this call when AX=0103h returns a DECnet error
+SeeAlso: AX=0103h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690105" name="690105"><b>690105</b></a> - INT 69 - DECnet DOS CTERM - OPEN SESSION<br />
+<pre>
+INT 69 - DECnet DOS CTERM - OPEN SESSION
+	AX = 0105h
+	DS:BX -&gt; ASCIZ node name
+	ES:DX -&gt; buffer for session control block (see #03727 at INT 6A/AH=D0h)
+Return: AX &lt;= 0 on error
+	AX &gt; 0 session handle
+SeeAlso: AX=0103h,AX=0106h,AX=010Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690106" name="690106"><b>690106</b></a> - INT 69 - DECnet DOS CTERM - CLOSE SESSION<br />
+<pre>
+INT 69 - DECnet DOS CTERM - CLOSE SESSION
+	AX = 0106h
+	DX = session handle
+Return: AH = status
+	    00h good close
+	    other error code (see #03711)
+SeeAlso: AX=0103h,AX=0105h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69010A" name="69010A"><b>69010A</b></a> - INT 69 - DECnet DOS CTERM - GET SESSION CONTROL BLOCK SIZE<br />
+<pre>
+INT 69 - DECnet DOS CTERM - GET SESSION CONTROL BLOCK SIZE
+	AX = 010Ah
+Return: AX = length of session control block in bytes
+SeeAlso: AX=0105h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69010B" name="69010B"><b>69010B</b></a> - INT 69 - DECnet DOS CTERM - GET DECnet SOCKET<br />
+<pre>
+INT 69 - DECnet DOS CTERM - GET DECnet SOCKET
+	AX = 010Bh
+	DX = session handle
+Return: AX &gt; 0	DECnet socket for the session
+	AX = 0	no match for handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69010F" name="69010F"><b>69010F</b></a> - INT 69 - DECnet DOS CTERM - DEINSTALL CTERM<br />
+<pre>
+INT 69 - DECnet DOS CTERM - DEINSTALL CTERM
+	AX = 010Fh
+Return: AH = status
+	    00h successful uninstall
+	    other error code (see #03711)
+Note:	CTERM must have been the last TSR loaded in order to deinstall it
+SeeAlso: AX=0100h
+Index:	uninstall;DECnet DOS CTERM
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#690A" name="690A"><b>690A</b></a> - INT 69 - DECnet DOS 2.1+ - DATA LINK LAYER<br />
+<pre>
+INT 69 - DECnet DOS 2.1+ - DATA LINK LAYER
+	AH = 0Ah
+	AL = function number (see #03712)
+	ES:BX -&gt; Datalink Communication Block (see #03714)
+Return: AX = status (see #03713)
+SeeAlso: INT 6D"DECnet"
+
+(Table 03712)
+Values for DECnet DOS Data Link Layer function:
+ 00h	initialize
+ 01h	open portal
+ 02h	close portal
+ 03h	enable multicast address
+ 04h	disable multicast address
+ 05h	transmit
+ 06h	request transmit buffer
+ 07h	deallocate transmit buffer
+ 08h	read channel status
+ 09h	read datalink portal list
+ 0Ah	read information about a datalink portal
+ 0Bh	read and/or clear counters
+ 0Ch	request to boot from a network server
+ 0Dh	enable Ethernet channel
+ 0Eh	disable Ethernet channel
+ 0Fh	start MOP/send a System ID message
+ 10h	stop MOP
+ 11h	get DECPARM
+ 12h	set DECPARM
+ 13h	external loopback
+
+(Table 03713)
+Values for DECnet DOS Data Link Layer status:
+ 00h	successful
+ 01h	hardware failed to initialize
+ 02h	channel state was not off (must be off to execute that command)
+ 03h	channel state is off (must be on to execute that command)
+ 04h	address not set
+ 05h	hardware missing
+ 06h	buffer too small
+ 07h	no more buffers available
+ 08h	no more resources available
+ 09h	promiscuous receiver active
+ 0Ah	non exclusive
+ 0Bh	unrecognized portal
+ 0Ch	protocol type in use
+ 0Dh	not a valid Multicast address
+ 0Eh	outstanding calls
+ 0Fh	hardware doesn't support receiving bad frames
+ 10h	none outstanding
+ 11h	no events
+ 12h	broken
+ 13h	buffer quota exceeded
+ 14h	already initialized
+ 15h	loopback failure
+Index:	error codes;DECnet DOS|DECnet DOS;error codes
+
+Format of Datalink Communication Block:
+Offset	Size	Description	(Table 03714)
+ 00h	WORD	portal ID
+ 02h  6 BYTEs	source address
+ 08h  6 BYTEs	destination address
+ 0Eh	DWORD	buffer pointer
+ 12h	WORD	buffer length
+ 14h	WORD	operation
+ 16h	BYTE	pad flag (used on open)
+		00h no pad
+		01h pad
+ 17h	BYTE	mode flag (used on open)
+		00h 802.3
+		01h Ethernet
+		02h promiscuous
+ 18h	DWORD	line status change function
+ 1Ch	DWORD	received data function
+ 20h	DWORD	transmitted data function
+ 24h	BYTE	maximum outstanding transmits/receives
+ 25h  2 BYTEs	protocol type
+ 27h	WORD	buffers lost
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694001" name="694001"><b>694001</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4001h
+Return: CF clear
+	AX = 0000h
+	ES:SI -&gt; ???
+InstallCheck:	test for the signature "SYSV" immediately before the interrupt
+	  handler
+Range:	INT 60 to INT 7F, selected by configuration
+SeeAlso: AX=4002h
+Index:	installation check;10NET SYSSVC
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694002" name="694002"><b>694002</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4002h
+	???
+Return: ???
+InstallCheck:	test for the signature "SYSV" immediately before the interrupt
+	  handler
+Range:	INT 60 to INT 7F, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694101" name="694101"><b>694101</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4101h
+Return: CF clear
+	ES:SI -&gt; ???
+Range:	INT 60 to INT 7F, selected by configuration
+SeeAlso: AX=4102h,AX=4103h,AX=4104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694102" name="694102"><b>694102</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4102h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694103" name="694103"><b>694103</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4103h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#694104" name="694104"><b>694104</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AX = 4104h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6942" name="6942"><b>6942</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AH = 42h
+	AL = function (01h-14h)
+	???
+Return: ???
+Range:	INT 60 to INT 7F, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6943" name="6943"><b>6943</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AH = 43h
+	AL = function (01h-05h)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6944" name="6944"><b>6944</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - ???<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - ???
+	AH = 44h
+	AL = function (01h-03h)
+	???
+Return: ???
+Range:	INT 60 to INT 7F, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6949" name="6949"><b>6949</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - BUG<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - BUG
+	AH = 49h
+Note:	due to a fencepost error, this function branches to hyperspace
+SeeAlso: AX=4001h,AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#696996" name="696996"><b>696996</b></a> - INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER<br />
+<pre>
+INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER
+	AX = 6996h
+	DS:DX -&gt; interrupt handler or 0000h:0000h to disable
+Return: AX = 9669h
+Program: ISR (Interrupt Service Reflector) is a TSR by Rich Bono which permits
+	  a program to provide hardware interrupt handlers even while being
+	  debugged with a debugger that swaps interrupt vectors during
+	  debugging.
+Note:	the interrupt vector which is to be reflected is set at installation
+	  time and cannot be changed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69FF" name="69FF"><b>69FF</b></a> - INT 69 - 10NET v5.0 - SYSSVC.COM - SIGNAL SYSTEM ERROR<br />
+<pre>
+INT 69 - 10NET v5.0 - SYSSVC.COM - SIGNAL SYSTEM ERROR
+	AH = FFh
+Return: never???
+Desc:	displays "System Error" message and register dump, then halts system
+InstallCheck:	test for the signature "SYSV" immediately before the interrupt
+	  handler
+Range:	INT 60 to INT 7F, selected by configuration
+SeeAlso: AX=4001h,AH=49h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

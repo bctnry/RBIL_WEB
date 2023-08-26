@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._59</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 59
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#59"><b>59</b> - INT 59 - IRQ9 relocated by DESQview 2.26+</a><br />
+<a href="#59_0"><b>59</b> - INT 59 - IRQ1 relocated by DoubleDOS</a><br />
+<a href="#59_1"><b>59</b> - INT 59 - TI Professional PC - COMMON ROM HARDWARE INTERRUPT EXIT VECTOR</a><br />
+<a href="#59_2"><b>59</b> - INT 59 - GSS Computer Graphics Interface (GSS*CGI)</a><br />
+
+<hr />
+
+<a href="#59" name="59"><b>59</b></a> - INT 59 - IRQ9 relocated by DESQview 2.26+<br />
+<pre>
+INT 59 - IRQ9 relocated by DESQview 2.26+
+Range:	INT 59 to INT F9, selected automatically
+Note:	this is the default, but other INTs may be used (see INT 50"DESQview")
+SeeAlso: INT 50"DESQview",INT 58"DESQview",INT 5A"DESQview",INT 71
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#59_0" name="59_0"><b>59</b></a> - INT 59 - IRQ1 relocated by DoubleDOS<br />
+<pre>
+INT 59 - IRQ1 relocated by DoubleDOS
+SeeAlso: INT 09
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#59_1" name="59_1"><b>59</b></a> - INT 59 - TI Professional PC - COMMON ROM HARDWARE INTERRUPT EXIT VECTOR<br />
+<pre>
+INT 59 - TI Professional PC - COMMON ROM HARDWARE INTERRUPT EXIT VECTOR
+Desc:	all hardware interrupts on the TI Pro jump indirectly to the handler
+	  pointed at by this interrupt vector to finish their handling of
+	  the hardware interrupt
+Notes:	the default handler decrements the interrupt count, restores registers
+	  (including the stack pointer), sends an EOI to the interrupt
+	  controller, and finally does an IRET
+	can be used by multitaskers which need to get control after every
+	  hardware interrupt
+SeeAlso: INT 40"TI Professional",INT 47"TI Professional"
+SeeAlso: INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#59_2" name="59_2"><b>59</b></a> - INT 59 - GSS Computer Graphics Interface (GSS*CGI)<br />
+<pre>
+INT 59 - GSS Computer Graphics Interface (GSS*CGI)
+	DS:DX -&gt; block of 5 array pointers
+Return: CF set on error
+	    AX = error code
+	CF clear if successful
+	    AX = return code
+Note:	INT 59 is the means by which GSS*CGI language bindings communicate with
+	  GSS*CGI device drivers and the GSS*CGI device driver controller.
+	also used by the IBM Graphic Development Toolkit
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

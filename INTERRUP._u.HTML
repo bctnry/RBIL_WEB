@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._u</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category u - emulators,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#214321BX0000"><b>214321BX0000</b> - INT 21 - Q87, Q387 - INSTALLATION CHECK</a><br />
+<a href="#214321BX0001"><b>214321BX0001</b> - INT 21 - Q87, Q387 - ENABLE EMULATOR</a><br />
+<a href="#214321BX0002"><b>214321BX0002</b> - INT 21 - Q87, Q387 - DISABLE EMULATOR</a><br />
+<a href="#60_12"><b>60</b> - INT 60 U - PC/370 v4.2 - ???</a><br />
+<a href="#672833"><b>672833</b> - INT 67 - Q87 v4+ - PREPARE TO UNLOAD AND GET XMS HANDLE FOR Q87 MEMORY</a><br />
+<a href="#674321"><b>674321</b> - INT 67 - Q87 v4+ - INSTALLATION CHECK</a><br />
+<a href="#DC"><b>DC</b> - INT DC - PC/370 v4.1- - API</a><br />
+
+<hr />
+
+<a href="#214321BX0000" name="214321BX0000"><b>214321BX0000</b></a> - INT 21 - Q87, Q387 - INSTALLATION CHECK<br />
+<pre>
+INT 21 - Q87, Q387 - INSTALLATION CHECK
+	AX = 4321h
+	BX = 0000h
+	EAX = 87654321h (entire EAX value is required, not just AX)
+Return: EAX = 12345678h if installed
+Program: Q387 (renamed to Q87 as of v3.7) is a math coprocessor emulator from
+	  Quickware
+Note:	this function is available only in virtual-86 mode in older versions;
+	  newer versions also provide it in MS Windows 16- and 32-bit protected
+	  mode
+SeeAlso: AX=4321h/BX=0001h,AX=4321h/BX=0002h,INT 67/AX=4321h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214321BX0001" name="214321BX0001"><b>214321BX0001</b></a> - INT 21 - Q87, Q387 - ENABLE EMULATOR<br />
+<pre>
+INT 21 - Q87, Q387 - ENABLE EMULATOR
+	AX = 4321h
+	BX = 0001h
+	EAX = 87654321h (entire EAX value is required, not just AX)
+Desc:	enable the emulator by setting the CPU MSW's EM bit and updating
+	  the BIOS equipment list
+Note:	this function is available only in virtual-86 mode in older versions;
+	  newer versions also provide it in MS Windows 16- and 32-bit protected
+	  mode
+SeeAlso: AX=4321h/BX=0000h,AX=4321h/BX=0002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214321BX0002" name="214321BX0002"><b>214321BX0002</b></a> - INT 21 - Q87, Q387 - DISABLE EMULATOR<br />
+<pre>
+INT 21 - Q87, Q387 - DISABLE EMULATOR
+	AX = 4321h
+	BX = 0002h
+	EAX = 87654321h (entire EAX value is required, not just AX)
+Desc:	disable the emulator by clearing the CPU MSW's EM bit and updating
+	  the BIOS equipment list
+Note:	this function is available only in virtual-86 mode in older versions;
+	  newer versions also provide it in MS Windows 16- and 32-bit protected
+	  mode
+SeeAlso: AX=4321h/BX=0000h,AX=4321h/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_12" name="60_12"><b>60</b></a> - INT 60 U - PC/370 v4.2 - ???<br />
+<pre>
+INT 60 U - PC/370 v4.2 - ???
+	???
+Return: ???
+Program: PC/370 is an IBM 370 emulator by Donald S. Higgins
+Range:	INT 00 to INT FF, selected by patching the executable
+Note:	the documentation includes instructions for patching the system for
+	  another interrupt
+SeeAlso: INT 2F/AX=7F24h,INT DC"PC/370"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#672833" name="672833"><b>672833</b></a> - INT 67 - Q87 v4+ - PREPARE TO UNLOAD AND GET XMS HANDLE FOR Q87 MEMORY<br />
+<pre>
+INT 67 - Q87 v4+ - PREPARE TO UNLOAD AND GET XMS HANDLE FOR Q87 MEMORY
+	AX = 2833h
+	EAX = 29482833h (entire EAX value required)
+Return: EAX = XMS handle for memory allocated when Q87 was installed
+	EBX = status
+	    00000000h Q87 is in demo mode (countdown running);
+			  Q87 remains active
+	    00000001h Q87 is in registered mode; memory manager's IDT, GDT,
+			  and optionally CR0 (if BL &lt;&gt; 5Fh on entry) have
+			  been restored
+	    00000002h Q87 is in demo mode (demo time has expired);
+			  Q87 remains active
+Note:	this call is used by UNLOAD87 to release the memory used by Q87
+BUG:	v4.00-v4.03 will hang on most machines when run under bare DOS with
+	  no memory manager, because neither Q87 nor UNLOAD87 checks whether
+	  there is a valid INT 67 handler before performing an installation
+	  check via INT 67
+SeeAlso: AX=4321h,INT 21/AX=4321h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#674321" name="674321"><b>674321</b></a> - INT 67 - Q87 v4+ - INSTALLATION CHECK<br />
+<pre>
+INT 67 - Q87 v4+ - INSTALLATION CHECK
+	AX = 4321h
+	EAX = 87654321h (entire EAX value required)
+Return: EAX = 12345678h if Q87 is installed
+Note:	this call requires that VCPI services be available; if they are not,
+	  this call will not be recognized
+BUG:	v4.00-v4.03 will hang on most machines when run under bare DOS with
+	  no memory manager, because neither Q87 nor UNLOAD87 checks whether
+	  there is a valid INT 67 handler before performing an installation
+	  check via INT 67
+SeeAlso: AX=2833h,INT 21/AX=4321h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DC" name="DC"><b>DC</b></a> - INT DC - PC/370 v4.1- - API<br />
+<pre>
+INT DC - PC/370 v4.1- - API
+SeeAlso: INT 60"PC/370"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

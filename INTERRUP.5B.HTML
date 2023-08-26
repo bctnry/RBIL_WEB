@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._5B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 5B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#5B"><b>5B</b> - INT 5B - IRQ11 relocated by DESQview 2.26+</a><br />
+<a href="#5B_0"><b>5B</b> - INT 5B - IRQ3 relocated by DoubleDOS</a><br />
+<a href="#5B_1"><b>5B</b> - INT 5B - PC cluster adapter - RELOCATED INT 19</a><br />
+<a href="#5B_2"><b>5B</b> - INT 5B - AT&T Starlan Extended NetBIOS (variable length names)</a><br />
+<a href="#5B_3"><b>5B</b> - INT 5B - Microsoft Network Transport Layer Interface</a><br />
+<a href="#5B_4"><b>5B</b> - INT 5B - used by Alloy NTNX</a><br />
+<a href="#5B_5"><b>5B</b> - INT 5B - ISOLAN Multi Protocol Software</a><br />
+<a href="#5B_6"><b>5B</b> - INT 5B C - TI Professional PC - KEYBOARD MAPPING HOOK</a><br />
+<a href="#5B5254DL04"><b>5B5254DL04</b> - INT 5B U - SitBack v3.02R - GET ???</a><br />
+<a href="#5B8485DL70"><b>5B8485DL70</b> - INT 5B U - SitBack v3.02R - INSTALLATION CHECK</a><br />
+<a href="#5B8485DL71"><b>5B8485DL71</b> - INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS</a><br />
+<a href="#5B8485DL72"><b>5B8485DL72</b> - INT 5B U - SitBack v3.02R - CLEAR ??? FLAG</a><br />
+<a href="#5B8485DL73"><b>5B8485DL73</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL74"><b>5B8485DL74</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL75"><b>5B8485DL75</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL76"><b>5B8485DL76</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL77"><b>5B8485DL77</b> - INT 5B U - SitBack v3.02R - SET ??? FLAG</a><br />
+<a href="#5B8485DL78"><b>5B8485DL78</b> - INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT</a><br />
+<a href="#5B8485DL79"><b>5B8485DL79</b> - INT 5B U - SitBack v3.02R - GET DTA</a><br />
+<a href="#5B8485DL7A"><b>5B8485DL7A</b> - INT 5B U - SitBack v3.02R - TOGGLE ???</a><br />
+
+<hr />
+
+<a href="#5B" name="5B"><b>5B</b></a> - INT 5B - IRQ11 relocated by DESQview 2.26+<br />
+<pre>
+INT 5B - IRQ11 relocated by DESQview 2.26+
+Range:	INT 5B to INT FB, selected automatically
+Note:	this is the default, but other INTs may be used (see INT 50"DESQview")
+SeeAlso: INT 50"DESQview",INT 5A"DESQview",INT 5C"DESQview",INT 73
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_0" name="5B_0"><b>5B</b></a> - INT 5B - IRQ3 relocated by DoubleDOS<br />
+<pre>
+INT 5B - IRQ3 relocated by DoubleDOS
+SeeAlso: INT 0B
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_1" name="5B_1"><b>5B</b></a> - INT 5B - PC cluster adapter - RELOCATED INT 19<br />
+<pre>
+INT 5B - PC cluster adapter - RELOCATED INT 19
+SeeAlso: INT 19,INT 5A"PC Cluster"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_2" name="5B_2"><b>5B</b></a> - INT 5B - AT&T Starlan Extended NetBIOS (variable length names)<br />
+<pre>
+INT 5B - AT&T Starlan Extended NetBIOS (variable length names)
+	ES:BX -&gt; Network Control Block (see #03245)
+Return: AL = status (see #03248)
+SeeAlso: INT 5C"NetBIOS"
+
+Format of Starlan Network Control Block:
+Offset	Size	Description	(Table 03245)
+ 00h	BYTE	ncb_command (see also #03250)
+		70h send net Break
+ 01h	BYTE	ncb_retcode
+ 02h	BYTE	ncb_lsn
+ 03h	BYTE	ncb_num
+ 04h	DWORD	-&gt; ncb_buffer
+ 08h	WORD	ncb_length
+ 0Ah 16 BYTEs	ncb_callname
+ 1Ah 16 BYTEs	ncb_name
+ 2Ah	BYTE	ncb_rto
+ 2Bh	BYTE	ncb_sto
+ 2Ch	DWORD	-&gt; ncb_post	/* int (far *ncb_post)(); */
+ 30h	BYTE	ncb_lana_num
+ 31h	BYTE	ncb_cmd_cplt
+ 32h	DWORD	-&gt; ncb_vname
+ 36h	BYTE	ncb_vnamelen
+ 37h  9 BYTEs	ncb_reserve
+Note:	fields 00h-31h are the same as for a standard NetBIOS NCB (see #03249)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_3" name="5B_3"><b>5B</b></a> - INT 5B - Microsoft Network Transport Layer Interface<br />
+<pre>
+INT 5B - Microsoft Network Transport Layer Interface
+Note:	used by MS-NET for executing network commands
+SeeAlso: INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_4" name="5B_4"><b>5B</b></a> - INT 5B - used by Alloy NTNX<br />
+<pre>
+INT 5B - used by Alloy NTNX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_5" name="5B_5"><b>5B</b></a> - INT 5B - ISOLAN Multi Protocol Software<br />
+<pre>
+INT 5B - ISOLAN Multi Protocol Software
+	ES:BX -&gt; Transfer Control Block (see #03246)
+Return: AL = status
+Note:	this software interface allows multiple protocols/software packages
+	  to access a BICC 411x network card
+
+Format of ISOLAN Transfer Control Block:
+Offset	Type	Description	(Table 03246)
+ 00h	BYTE	command code
+		B3h Status
+		F2h Activate
+		F3h Deactivate
+		F4h Send Data
+ 01h	BYTE	command identity
+ 02h	BYTE	virtual circuit ID
+ 03h	WORD	buffer length
+ 05h	DWORD	buffer pointer
+ 09h	BYTE	expedited data flag
+ 0Ah	BYTE	cancelable flag
+ 0Bh 16 BYTEs	local network address
+ 1Bh 16 BYTEs	remote network address
+ 2Bh	DWORD	asynchronous notification routine
+ 30h	DWORD	local network number
+ 34h	DWORD	remote network number
+ 38h	BYTE	call timeout
+ 39h	BYTE	not used
+ 3Ah  8 BYTEs	reserved
+ 42h	BYTE	command code extension
+ 43h	WORD	Blue Book MAC type
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B_6" name="5B_6"><b>5B</b></a> - INT 5B C - TI Professional PC - KEYBOARD MAPPING HOOK<br />
+<pre>
+INT 5B C - TI Professional PC - KEYBOARD MAPPING HOOK
+	CF set
+	AH = shift state (see #03247)
+	AL = scan code (see #03214)
+Return:	BX, CX, DI, ES may be destroyed
+	various return methods are supported:
+	    IRET, AX unchanged: process keystroke normally
+	    IRET, AL = FFh: discard keystroke
+	    IRET, AX changed: process modified keystroke
+	    chain to old INT 5B: allow other handlers to look at (possibly
+		  modified) keystroke in AX
+	    RETF 2, CF clear: place returned AX into keyboard buffer without
+		  any further processing
+Notes:	invoked by the keyboard ISR, and used to remap the keyboard
+	if CF is clear on entry, some other handler has processed the
+	  keystroke and the current handler should not modify it, instead
+	  performing a RETF 2 or IRET (after clearing CF on the stack)
+	when requesting that a value be placed directly into the keyboard
+	  buffer, AL and AH may not *both* be nonzero (the TI does not
+	  return scan codes as part of the key code for non-extended keys)
+SeeAlso: INT 15/AH=4Fh,INT 4A/AH=00h"TI",INT 59"TI Professional"
+SeeAlso: INT 5C"TI Professional",INT 5D"TI Professional"
+SeeAlso: INT 5E"TI Professional",INT 5F"TI Professional"
+
+Bitfields for TI Professional PC keyboard mapping hook shift states:
+Bit(s)	Description	(Table 03247)
+ 7	CAPS LOCK is on
+ 6-4	reserved (0)
+ 3	repeated key
+ 2	Shift is pressed
+ 1	Alt is pressed
+ 0	Ctrl is pressed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B5254DL04" name="5B5254DL04"><b>5B5254DL04</b></a> - INT 5B U - SitBack v3.02R - GET ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET ???
+	AX = 5254h
+	DL = 04h
+Return: ES:BX -&gt; ??? in resident portion
+Program: SitBack is a background file backup utility by SitBack Technologies,
+	  Inc. which initiates backups whenever the system is idle
+SeeAlso: AX=8485h/DL=71h,AX=8485h/DL=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL70" name="5B8485DL70"><b>5B8485DL70</b></a> - INT 5B U - SitBack v3.02R - INSTALLATION CHECK<br />
+<pre>
+INT 5B U - SitBack v3.02R - INSTALLATION CHECK
+	AX = 8485h
+	DL = 70h
+Return: CX = 8485h if installed
+	    DX:AX -&gt; ??? (configuration data?)
+Program: SitBack is a background file backup utility by SitBack Technologies,
+	  Inc. which initiates backups whenever the system is idle
+SeeAlso: AX=5254h/DL=04h,AX=8485h/DL=78h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL71" name="5B8485DL71"><b>5B8485DL71</b></a> - INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS<br />
+<pre>
+INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS
+	AX = 8485h
+	DL = 71h
+Return: ES:BX -&gt; FAR entry point to ???
+Note:	the flag which is modified is located at the address returned by
+	   AX=5254h/DL=04h
+SeeAlso: AX=8485h/DL=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL72" name="5B8485DL72"><b>5B8485DL72</b></a> - INT 5B U - SitBack v3.02R - CLEAR ??? FLAG<br />
+<pre>
+INT 5B U - SitBack v3.02R - CLEAR ??? FLAG
+	AX = 8485h
+	DL = 72h
+Note:	the flag which is modified is located at the address returned by
+	   AX=5254h/DL=04h
+SeeAlso: AX=8485h/DL=71h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL73" name="5B8485DL73"><b>5B8485DL73</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 73h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL74" name="5B8485DL74"><b>5B8485DL74</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 74h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL75" name="5B8485DL75"><b>5B8485DL75</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 75h
+	CX = ???
+Return: ???
+SeeAlso: AX=8485h/DL=76h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL76" name="5B8485DL76"><b>5B8485DL76</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 76h
+	CX = ???
+Return: ???
+Note:	conditionally calls the code for AX=8485h/DL=75h
+SeeAlso: AX=8485h/DL=75h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL77" name="5B8485DL77"><b>5B8485DL77</b></a> - INT 5B U - SitBack v3.02R - SET ??? FLAG<br />
+<pre>
+INT 5B U - SitBack v3.02R - SET ??? FLAG
+	AX = 8485h
+	DL = 77h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL78" name="5B8485DL78"><b>5B8485DL78</b></a> - INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT
+	AX = 8485h
+	DL = 78h
+Return: CX = 5342h if supported
+	    ES = AX = segment of TSR data
+SeeAlso: AX=8485h/DL=70h,AX=8485h/DL=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL79" name="5B8485DL79"><b>5B8485DL79</b></a> - INT 5B U - SitBack v3.02R - GET DTA<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET DTA
+	AX = 8485h
+	DL = 79h
+Return: CX = 5342h if supported
+	    ES:BX -&gt; DTA set by last INT 21/AH=1Ah
+Note:	this function is provided by SBOS.EXE rather than SB.EXE
+SeeAlso: INT 21/AH=1Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL7A" name="5B8485DL7A"><b>5B8485DL7A</b></a> - INT 5B U - SitBack v3.02R - TOGGLE ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - TOGGLE ???
+	AX = 8485h
+	DL = 7Ah
+Return: CX = 5342h if supported
+	    AL = new value of ??? (00h or 01h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

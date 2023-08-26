@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._4B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 4B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#4B"><b>4B</b> - INT 4B - Z100 - Slave 8259 - S100 vectored line 3</a><br />
+<a href="#4B_0"><b>4B</b> - INT 4B - Common Access Method SCSI interface (draft revision 1.9)</a><br />
+<a href="#4B_1"><b>4B</b> - INT 4B - Tandy 2000 - EQUIPMENT DETERMINATION</a><br />
+<a href="#4B_2"><b>4B</b> - INT 4B - Acorn BBC Master 512 - "OSBYTE" - MISC FUNCTIONS USING REGISTER PARAMS</a><br />
+<a href="#4B00"><b>4B00</b> - INT 4B - TI Professional PC - PARALLEL PORT - OUTPUT CHARACTER</a><br />
+<a href="#4B01"><b>4B01</b> - INT 4B - TI Professional PC - PARALLEL PORT - INITIALIZE PRINTER</a><br />
+<a href="#4B02"><b>4B02</b> - INT 4B - TI Professional PC - PARALLEL PORT - GET PRINTER STATUS</a><br />
+<a href="#4B80"><b>4B80</b> - INT 4B - IBM SCSI interface</a><br />
+<a href="#4B8102DX0000"><b>4B8102DX0000</b> - INT 4B - Virtual DMA Specification (VDS) - GET VERSION</a><br />
+<a href="#4B8103"><b>4B8103</b> - INT 4B - Virtual DMA Specification - LOCK DMA REGION</a><br />
+<a href="#4B8104"><b>4B8104</b> - INT 4B - Virtual DMA Specification - UNLOCK DMA REGION</a><br />
+<a href="#4B8105"><b>4B8105</b> - INT 4B - Virtual DMA Specification - SCATTER/GATHER LOCK REGION</a><br />
+<a href="#4B8106"><b>4B8106</b> - INT 4B - Virtual DMA Specification - SCATTER/GATHER UNLOCK REGION</a><br />
+<a href="#4B8107"><b>4B8107</b> - INT 4B - Virtual DMA Specification - REQUEST DMA BUFFER</a><br />
+<a href="#4B8108"><b>4B8108</b> - INT 4B - Virtual DMA Specification - RELEASE DMA BUFFFER</a><br />
+<a href="#4B8109DX0000"><b>4B8109DX0000</b> - INT 4B - Virtual DMA Specification - COPY INTO DMA BUFFER</a><br />
+<a href="#4B810ADX0000"><b>4B810ADX0000</b> - INT 4B - Virtual DMA Specification - COPY OUT OF DMA BUFFER</a><br />
+<a href="#4B810B"><b>4B810B</b> - INT 4B - Virtual DMA Specification - DISABLE DMA TRANSLATION</a><br />
+<a href="#4B810C"><b>4B810C</b> - INT 4B - Virtual DMA Specification - ENABLE DMA TRANSLATION</a><br />
+<a href="#4B810D"><b>4B810D</b> - INT 4B - QEMM-386 - BUG</a><br />
+
+<hr />
+
+<a href="#4B" name="4B"><b>4B</b></a> - INT 4B - Z100 - Slave 8259 - S100 vectored line 3<br />
+<pre>
+INT 4B - Z100 - Slave 8259 - S100 vectored line 3
+SeeAlso: INT 4A"Z100",INT 4C"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B_0" name="4B_0"><b>4B</b></a> - INT 4B - Common Access Method SCSI interface (draft revision 1.9)<br />
+<pre>
+INT 4B - Common Access Method SCSI interface (draft revision 1.9)
+	ES:DI -&gt; CAM Control Block (see #03229 at INT 4F/AX=8100h)
+InstallCheck:	test for the string "SCSI_CAM" eight bytes past the INT 4Bh
+	  handler
+Notes:	the CAM committee moved the interface to INT 4F after revision 1.9
+	  to avoid conflicting with the IBM SCSI interface and the Virtual
+	  DMA specification
+	the only driver to date reported to use the CAM interface on INT 4B
+	  instead of INT 4F is from Future Domain (which has drivers for CAM
+	  on either interrupt)
+SeeAlso: INT 4F/AX=8100h
+Index:	installation check;Common Access Method SCSI interface
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B_1" name="4B_1"><b>4B</b></a> - INT 4B - Tandy 2000 - EQUIPMENT DETERMINATION<br />
+<pre>
+INT 4B - Tandy 2000 - EQUIPMENT DETERMINATION
+Return: AX = BIOS equipment list word (see #03215)
+Note:	this interrupt is identical to INT 11 on the Tandy 2000
+SeeAlso: INT 11"EQUIPMENT",INT 4A"Tandy 2000",INT 4C"Tandy 2000"
+
+Bitfields for Tandy 2000 BIOS equipment list:
+Bit(s)	Description	(Table 03215)
+ 0	reserved
+ 1	monochrome graphics installed
+ 2	graphics with color option installed
+ 3	floppy disk drive 1 installed
+ 4	floppy disk drive 2 installed
+ 5	hard disk drive 1 installed
+ 6	hard disk drive 2 installed
+ 7	unused
+ 8	black and white monitor
+ 9	color monitor
+ 12-10	reserved
+ 13	printer installed
+ 14	reserved
+ 15	unused
+SeeAlso: #00226 at INT 11
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B_2" name="4B_2"><b>4B</b></a> - INT 4B - Acorn BBC Master 512 - "OSBYTE" - MISC FUNCTIONS USING REGISTER PARAMS<br />
+<pre>
+INT 4B - Acorn BBC Master 512 - "OSBYTE" - MISC FUNCTIONS USING REGISTER PARAMS
+	AL = function code
+	BL = first parameter
+	BH = second parameter (if needed)
+Return: BL = first return parameter
+	BH = second return parameter
+	CF depends on function
+SeeAlso: INT 40"Acorn",INT 4A"Acorn",INT 4C"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B00" name="4B00"><b>4B00</b></a> - INT 4B - TI Professional PC - PARALLEL PORT - OUTPUT CHARACTER<br />
+<pre>
+INT 4B - TI Professional PC - PARALLEL PORT - OUTPUT CHARACTER
+	AH = 00h
+	DL = printer number (00h)
+	AL = character to print
+Return: AH = printer status (see #03216)
+Note:	on the TI Pro, the BIOS only supports DL=00h; MS-DOS versions for the
+	  TI hook INT 4B and handle requests for DL&lt;&gt;00h
+SeeAlso: AH=01h,AH=02h,INT 17/AH=00h
+SeeAlso: INT 40"TI Professional",INT 48/AH=00h"TI Professional"
+SeeAlso: INT 49/AH=01h"TI",INT 4C"TI Professional",INT 4D/AH=00h
+
+Bitfields for TI Professional PC printer status:
+Bit(s)	Description	(Table 03216)
+ 0	timeout (function 00h only)
+ 3-1	unused
+ 4	busy
+ 5	paper out
+ 6	on-line (selected)
+ 7	fault
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B01" name="4B01"><b>4B01</b></a> - INT 4B - TI Professional PC - PARALLEL PORT - INITIALIZE PRINTER<br />
+<pre>
+INT 4B - TI Professional PC - PARALLEL PORT - INITIALIZE PRINTER
+	AH = 01h
+	DL = printer number (00h)
+Return: AH = printer status (see #03216)
+Note:	on the TI Pro, the BIOS only supports DL=00h; MS-DOS versions for the
+	  TI hook INT 4B and handle requests for DL&lt;&gt;00h
+SeeAlso: AH=00h,AH=02h,INT 17/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B02" name="4B02"><b>4B02</b></a> - INT 4B - TI Professional PC - PARALLEL PORT - GET PRINTER STATUS<br />
+<pre>
+INT 4B - TI Professional PC - PARALLEL PORT - GET PRINTER STATUS
+	AH = 02h
+	DL = printer number (00h)
+Return: AH = printer status (see #03216)
+Note:	on the TI Pro, the BIOS only supports DL=00h; MS-DOS versions for the
+	  TI hook INT 4B and handle requests for DL&lt;&gt;00h
+SeeAlso: AH=00h,AH=01h,INT 17/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B80" name="4B80"><b>4B80</b></a> - INT 4B - IBM SCSI interface<br />
+<pre>
+INT 4B - IBM SCSI interface
+	AH = 80h
+	AL = 00h-10h (Corel PowerSCSI INT4BCAM.SYS)
+	further details not yet available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8102DX0000" name="4B8102DX0000"><b>4B8102DX0000</b></a> - INT 4B - Virtual DMA Specification (VDS) - GET VERSION<br />
+<pre>
+INT 4B - Virtual DMA Specification (VDS) - GET VERSION
+	AX = 8102h
+	DX = 0000h
+Return: CF clear if successful
+	    AH = major version number
+	    AL = minor version number
+	    BX = product number (see #03217)
+	    CX = product revision number
+		always 0000h for QMAPS and HPMM.SYS
+		always 0001h for Microsoft's EMM386.EXE v4.20-4.41
+	    DX = flags (see #03219)
+	    SI:DI = maximum DMA buffer size
+	CF set on error
+	    AL = error code (see #03218)
+Note:	bit 5 of 0040h:007Bh is supposed to be set if VDS is supported; this is
+	  apparently not always the case
+SeeAlso: INT 2C/AX=002Bh,INT 31/AX=0400h,MEM 0040h:007Bh"4Bh"
+Index:	installation check;Virtual DMA Specification
+
+(Table 03217)
+Values for VDS product number:
+ 0000h	for Quadtel's QMAPS and Hewlett-Packard's HPMM.SYS
+ 0001h	for Microsoft's EMM386.EXE
+ 0003h	for Windows 3.x WIN386.EXE
+ 0300h	OS/2 (all versions to date)
+ 0EDCh	for DR DOS 6.0 EMM386.SYS
+ 4560h	("E`") for Qualitas' 386MAX
+ 4D43h	("MC") for V Communications' Memory Commander
+ 5145h	("QE") for Quarterdeck's QEMM-386
+ 524Dh	("RM") for Helix's Netroom RM386
+
+(Table 03218)
+Values for VDS error code:
+ 01h	region not in contiguous memory
+ 02h	region crossed a physical alignment boundary
+ 03h	unable to lock pages
+ 04h	no buffer available
+ 05h	region too large for buffer
+ 06h	buffer currently in use
+ 07h	invalid memory region
+ 08h	region was not locked
+ 09h	number of physical pages greater than table length
+ 0Ah	invalid buffer ID
+ 0Bh	copy out of buffer range
+ 0Ch	invalid DMA channel number
+ 0Dh	disable count overflow
+ 0Eh	disable count underflow
+ 0Fh	function not supported
+ 10h	reserved flag bits set in DX
+
+Bitfields for VDS flags:
+Bit(s)	Description	(Table 03219)
+ 0	PC/XT bus (DMA in first megabyte only)
+ 1	physical buffer/remap region in first megabyte
+ 2	automatic remap enabled
+ 3	all memory is physically contiguous
+ 4-15	reserved (zero)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8103" name="4B8103"><b>4B8103</b></a> - INT 4B - Virtual DMA Specification - LOCK DMA REGION<br />
+<pre>
+INT 4B - Virtual DMA Specification - LOCK DMA REGION
+	AX = 8103h
+	DX = flags (see #03220)
+	ES:DI -&gt; DMA descriptor structure (see #03221,#03222,#03223)
+Return: CF clear if successful
+	    DDS physical address field filled in
+	    DDS buffer ID field filled (0000h if no buffer allocated)
+	CF set on error
+	    AL = error code (see #03218)
+	    DDS region size field filled wth maximum contiguous length in bytes
+BUGS:	Windows 3.0 does not correctly support automatic remapping or copying
+	  in enhanced mode
+	Windows 3.0 in enhanced mode does not return a correct code on error
+SeeAlso: AX=8104h,AX=8105h
+
+Bitfields for VDS flags:
+Bit(s)	Description	(Table 03220)
+ 0	reserved (zero)
+ 1	data should be copied into buffer (ignored if 2 set)
+ 2	buffer should not be allocated if region noncontiguous or crosses
+	  physical alignment boundary specified by 4-5
+ 3	don't attempt automatic remap
+ 4	region must not cross 64K physical alignment boundary
+ 5	region must not cross 128K physical alignment boundary
+ 6-15	reserved (zero)
+
+Format of DMA descriptor structure (DDS):
+Offset	Size	Description	(Table 03221)
+ 00h	DWORD	region size
+ 04h	DWORD	offset
+ 08h	WORD	segment/selector
+ 0Ah	WORD	buffer ID
+ 0Ch	DWORD	physical address
+
+Format of Extended DMA descriptor structure (EDDS):
+Offset	Size	Description	(Table 03222)
+ 00h	DWORD	region size
+ 04h	DWORD	offset
+ 08h	WORD	segment/selector
+ 0Ah	WORD	reserved
+ 0Ch	WORD	number available
+ 0Eh	WORD	number used
+ 10h	DWORD	region 0 physical address
+ 14h	DWORD	region 0 size in bytes
+ 18h	DWORD	region 1 physical address
+ 1Ch	DWORD	region 1 size in bytes
+	...
+
+Format of Extended DMA descriptor structure (EDDS) with page table entries:
+Offset	Size	Description	(Table 03223)
+ 00h	DWORD	region size
+ 04h	DWORD	offset
+ 08h	WORD	segment/selector
+ 0Ah	WORD	reserved
+ 0Ch	WORD	number available
+ 0Eh	WORD	number used
+ 10h	DWORD	page table entry 0 (same as 80386 page table entry)
+ 14h	DWORD	page table entry 1
+	...
+Note:	bits 1-11 of the page table entries should be zero; bit 0 set if page
+	  is present and locked
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8104" name="4B8104"><b>4B8104</b></a> - INT 4B - Virtual DMA Specification - UNLOCK DMA REGION<br />
+<pre>
+INT 4B - Virtual DMA Specification - UNLOCK DMA REGION
+	AX = 8104h
+	DX = flags
+	    bit 0: reserved (zero)
+	    bit 1: data should be copied out of buffer
+	    bits 2-15 reserved (zero)
+	ES:DI -&gt; DMA descriptor structure (see #03221,#03222) with region size,
+		  physical address, and buffer ID fields set
+Return: CF clear if successful
+	    DDS physical address field set
+	    DDS buffer ID field set (0000h if no buffer allocated)
+	CF set on error
+	    AL = error code (see #03218)
+	    DDS region size field filled wth maximum contiguous length in bytes
+Note:	Windows 3.0 does not check whether the region extends beyond the end of
+	  a segment
+BUG:	Windows 3.0 in enhanced mode does not return a correct code on error
+SeeAlso: AX=8103h,AX=8106h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8105" name="4B8105"><b>4B8105</b></a> - INT 4B - Virtual DMA Specification - SCATTER/GATHER LOCK REGION<br />
+<pre>
+INT 4B - Virtual DMA Specification - SCATTER/GATHER LOCK REGION
+	AX = 8105h
+	DX = flags (see #03224)
+	ES:DI -&gt; Extended DMA descriptor structure (see #03222,#03223)
+		  region size, linear segment, linear offset, and number avail
+		  fields set
+Return: CF clear if successful
+	    EDDS number used field set
+	    if DX bit 6 set, lower 12 bits of BX = offset in first page
+	CF set on error
+	    AL = error code (see #03218)
+	    EDDS region size field filled with max length in bytes that can be
+		  locked and described in the EDDS table
+BUG:	Windows 3.0 in enhanced mode may return zero instead of the physical
+	  page address for pages which were originally not present
+SeeAlso: AX=8103h,AX=8106h
+
+Bitfields for VDS flags:
+Bit(s)	Description	(Table 03224)
+ 0-5	reserved (zero)
+ 6	EDDS should be returned with page table entries
+ 7	only present pages should be locked (not-present pages receive entry
+	  of 0000h)
+ 8-15	reserved (zero)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8106" name="4B8106"><b>4B8106</b></a> - INT 4B - Virtual DMA Specification - SCATTER/GATHER UNLOCK REGION<br />
+<pre>
+INT 4B - Virtual DMA Specification - SCATTER/GATHER UNLOCK REGION
+	AX = 8106h
+	DX = flags (see #03225)
+	ES:DI -&gt; Extended DMA descriptor structure (see #03222,#03223) returned
+		  by AX=8105h
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (see #03218)
+Note:	according to the Microsoft version of the VDS specification, the
+	  actual scatter/gather list is ignored, while according to the IBM
+	  version of the specification, "the result of a LOCK operation"
+	  must be provided to this function
+SeeAlso: AX=8104h,AX=8105h
+
+Bitfields for VDS flags:
+Bit(s)	Description	(Table 03225)
+ 0-5	reserved (zero)
+ 6	EDDS contains page table entries
+ 7	EDDS may contain not-present pages (entry = 0000h)
+ 8-15	reserved (zero)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8107" name="4B8107"><b>4B8107</b></a> - INT 4B - Virtual DMA Specification - REQUEST DMA BUFFER<br />
+<pre>
+INT 4B - Virtual DMA Specification - REQUEST DMA BUFFER
+	AX = 8107h
+	DX = flags
+	    bit 0: reserved (zero)
+	    bit 1: data should be copied into buffer
+	    bits  2-15 reserved (zero)
+	ES:DI -&gt; DMA descriptor structure (see #03221) with region size set
+		  (also region offset and region segment if DX bit 1 set)
+Return: CF clear if successful
+	    DDS physical address and buffer ID set
+	    DDS region size filled with length of buffer
+	CF set on error
+	    AL = error code (see #03218)
+SeeAlso: AX=8108h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8108" name="4B8108"><b>4B8108</b></a> - INT 4B - Virtual DMA Specification - RELEASE DMA BUFFFER<br />
+<pre>
+INT 4B - Virtual DMA Specification - RELEASE DMA BUFFFER
+	AX = 8108h
+	DX = flags
+	    bit 0: reserved (zero)
+	    bit 1: data should be copied out of buffer
+	    bits 2-15 reserved (zero)
+	ES:DI -&gt; DMA descriptor structure (see #03221,#03222) with buffer ID set
+		  (also region size/region offset/segment if DX bit 1 set)
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (see #03218)
+BUG:	under Windows 3.0 Enhanced mode, you must specify that data be copied
+	  for this function to work correctly
+SeeAlso: AX=8107h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B8109DX0000" name="4B8109DX0000"><b>4B8109DX0000</b></a> - INT 4B - Virtual DMA Specification - COPY INTO DMA BUFFER<br />
+<pre>
+INT 4B - Virtual DMA Specification - COPY INTO DMA BUFFER
+	AX = 8109h
+	DX = 0000h
+	ES:DI -&gt; DMA descriptor structure (see #03221,#03222) with buffer ID,
+		  region segment/offset, and region size fields set
+	BX:CX = starting offset into DMA buffer
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (see #03218)
+BUG:	Windows 3.0 Enhanced mode does not correctly interpret the copy count
+SeeAlso: AX=810Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B810ADX0000" name="4B810ADX0000"><b>4B810ADX0000</b></a> - INT 4B - Virtual DMA Specification - COPY OUT OF DMA BUFFER<br />
+<pre>
+INT 4B - Virtual DMA Specification - COPY OUT OF DMA BUFFER
+	AX = 810Ah
+	DX = 0000h
+	ES:DI -&gt; DMA descriptor structure (see #03221,#03223) with buffer ID,
+		  region segment/offset, and region size fields set
+	BX:CX = starting offset into DMA buffer
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (see #03218)
+BUG:	Windows 3.0 Enhanced mode does not correctly interpret the copy count
+SeeAlso: AX=8109h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B810B" name="4B810B"><b>4B810B</b></a> - INT 4B - Virtual DMA Specification - DISABLE DMA TRANSLATION<br />
+<pre>
+INT 4B - Virtual DMA Specification - DISABLE DMA TRANSLATION
+	AX = 810Bh
+	BX = DMA channel number
+	DX = 0000h
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (see #03218)
+SeeAlso: AX=810Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B810C" name="4B810C"><b>4B810C</b></a> - INT 4B - Virtual DMA Specification - ENABLE DMA TRANSLATION<br />
+<pre>
+INT 4B - Virtual DMA Specification - ENABLE DMA TRANSLATION
+	AX = 810Ch
+	BX = DMA channel number
+	DX = 0000h
+Return: CF clear if successful
+	    ZF set if disable count decremented to zero
+	CF set on error
+	    AL = error code (see #03218)
+SeeAlso: AX=810Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B810D" name="4B810D"><b>4B810D</b></a> - INT 4B - QEMM-386 - BUG<br />
+<pre>
+INT 4B - QEMM-386 - BUG
+	AX = 810Dh
+Note:	the code in QEMM v5.11 and 6.00 jumps to an invalid location on this
+	  call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

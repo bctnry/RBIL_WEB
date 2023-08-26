@@ -1,0 +1,2924 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._17</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 17
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#17----DX0ABC"><b>17----DX0ABC</b> - INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0B90"><b>17----DX0B90</b> - INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0B91"><b>17----DX0B91</b> - INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0F5F"><b>17----DX0F5F</b> - INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK</a><br />
+<a href="#1700"><b>1700</b> - INT 17 - PRINTER - WRITE CHARACTER</a><br />
+<a href="#1701"><b>1701</b> - INT 17 - PRINTER - INITIALIZE PORT</a><br />
+<a href="#1702"><b>1702</b> - INT 17 - PRINTER - GET STATUS</a><br />
+<a href="#1702--DX0000"><b>1702--DX0000</b> - INT 17 - INSET - INSTALLATION CHECK</a><br />
+<a href="#170200BX5050"><b>170200BX5050</b> - INT 17 - Enhanced Parallel Port (EPP) BIOS - INSTALLATION CHECK</a><br />
+<a href="#1703"><b>1703</b> - INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS</a><br />
+<a href="#1703_0"><b>1703</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1703_1"><b>1703</b> - INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING</a><br />
+<a href="#1703--BX5A00"><b>1703--BX5A00</b> - INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK</a><br />
+<a href="#170300"><b>170300</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "socket"</a><br />
+<a href="#1704"><b>1704</b> - INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT</a><br />
+<a href="#1704_0"><b>1704</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170400"><b>170400</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "bind"</a><br />
+<a href="#1705"><b>1705</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170500"><b>170500</b> - INT 17 U - Emulaser ELTSR - ???</a><br />
+<a href="#170500_0"><b>170500</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "connect"</a><br />
+<a href="#170501"><b>170501</b> - INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS</a><br />
+<a href="#170502"><b>170502</b> - INT 17 U - Emulaser ELTSR - SET ???</a><br />
+<a href="#170503"><b>170503</b> - INT 17 U - Emulaser ELTSR - DEACTIVATE???</a><br />
+<a href="#1706"><b>1706</b> - INT 17 U - Emulaser ELTSR - ???</a><br />
+<a href="#170600"><b>170600</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "listen"</a><br />
+<a href="#1707"><b>1707</b> - INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE</a><br />
+<a href="#170700"><b>170700</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "accept"</a><br />
+<a href="#1708"><b>1708</b> - INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE</a><br />
+<a href="#170800"><b>170800</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "recvfrom"</a><br />
+<a href="#1709"><b>1709</b> - INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???</a><br />
+<a href="#170900"><b>170900</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "sendto"</a><br />
+<a href="#170A"><b>170A</b> - INT 17 U - Emulaser ELTSR - SET ??? FILENAME</a><br />
+<a href="#170A00"><b>170A00</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "select"</a><br />
+<a href="#170B"><b>170B</b> - INT 17 U - Emulaser ELTSR - GET ???</a><br />
+<a href="#170B_0"><b>170B</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170B00"><b>170B00</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "ioctl"</a><br />
+<a href="#170C"><b>170C</b> - INT 17 U - Emulaser ELTSR - SET ??? FLAG</a><br />
+<a href="#170C_0"><b>170C</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170C00"><b>170C00</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "close"</a><br />
+<a href="#170D"><b>170D</b> - INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE</a><br />
+<a href="#170D_0"><b>170D</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170D00"><b>170D00</b> - INT 17 - DOSISODE to WATTCP TSR Interface - "shutdown" - SHUTDOWN INTERFACE</a><br />
+<a href="#170E"><b>170E</b> - INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING</a><br />
+<a href="#170E_0"><b>170E</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170E00"><b>170E00</b> - INT 17 - DOSISODE to WATTCP TSR Interface - INSTALLATION CHECK</a><br />
+<a href="#172000"><b>172000</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK</a><br />
+<a href="#172001"><b>172001</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG</a><br />
+<a href="#172002"><b>172002</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION</a><br />
+<a href="#172003"><b>172003</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???</a><br />
+<a href="#172004"><b>172004</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???</a><br />
+<a href="#172005"><b>172005</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE</a><br />
+<a href="#172006"><b>172006</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN</a><br />
+<a href="#172007"><b>172007</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED</a><br />
+<a href="#172400"><b>172400</b> - INT 17 - Shamrock Software NET.24 v3.11+ - ENABLE/DISABLE API FUNCTIONS</a><br />
+<a href="#172401"><b>172401</b> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, NO HANDSHAKE</a><br />
+<a href="#172402"><b>172402</b> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT BLOCK, NO HANDSHAKE</a><br />
+<a href="#172403"><b>172403</b> - INT 17 - Shamrock Software NET.24 v3.11+ - GET STATUS AND TRANSMISSION BUFFER</a><br />
+<a href="#172404"><b>172404</b> - INT 17 - Shamrock Software NET.24 v3.11+ - SEND ACK BLOCK</a><br />
+<a href="#172405"><b>172405</b> - INT 17 - Shamrock Software NET.24 v3.11+ - SEND NAK BLOCK</a><br />
+<a href="#172406"><b>172406</b> - INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED RECEIVE</a><br />
+<a href="#172407"><b>172407</b> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE CHARACTER FROM REMOTE</a><br />
+<a href="#172408"><b>172408</b> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, WITH HANDSHAKE</a><br />
+<a href="#172409"><b>172409</b> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT COMMAND, WITH HANDSHAKE</a><br />
+<a href="#17240A"><b>17240A</b> - INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED TRANSMIT</a><br />
+<a href="#17240B"><b>17240B</b> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT SINGLE CHARACTER TO REMOTE</a><br />
+<a href="#17240C"><b>17240C</b> - INT 17 - Shamrock Software NET.24 v3.11+ - END CHARACTER-ORIENTED TRANSMIT</a><br />
+<a href="#174B00"><b>174B00</b> - INT 17 - Brother P-Touch - INSTALLATION CHECK</a><br />
+<a href="#174B01"><b>174B01</b> - INT 17 - Brother P-Touch - UNINSTALL</a><br />
+<a href="#175000"><b>175000</b> - INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE</a><br />
+<a href="#175001"><b>175001</b> - INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE</a><br />
+<a href="#1751"><b>1751</b> - INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION</a><br />
+<a href="#1752"><b>1752</b> - INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION</a><br />
+<a href="#175555BXAAAA"><b>175555BXAAAA</b> - INT 17 - LR - SET CONFIGURATION</a><br />
+<a href="#175555BXBBBB"><b>175555BXBBBB</b> - INT 17 - LR - GET CONFIGURATION</a><br />
+<a href="#1760"><b>1760</b> - INT 17 - FLASHUP.COM - INSTALLATION CHECK</a><br />
+<a href="#1761"><b>1761</b> - INT 17 - SPEEDSCR.COM - INSTALLATION CHECK</a><br />
+<a href="#1762"><b>1762</b> - INT 17 U - T2PS v1.0 - UNINSTALL</a><br />
+<a href="#1763"><b>1763</b> - INT 17 U - T2PS v1.0 - SET PARAMETERS</a><br />
+<a href="#1764"><b>1764</b> - INT 17 U - T2PS v1.0 - GET PARAMETERS</a><br />
+<a href="#176F00BX0000"><b>176F00BX0000</b> - INT 17 - HP Vectra - EXTENDED BIOS - "F17_INQUIRE" - INSTALLATION CHECK</a><br />
+<a href="#176F02"><b>176F02</b> - INT 17 - HP Vectra - EXTENDED BIOS - "F17_PUT_BUFFER" - PRINT BUFFER</a><br />
+<a href="#1780"><b>1780</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1781"><b>1781</b> - INT 17 - Alloy NTNX, MW386 - CANCEL JOBS FOR CURRENT USER</a><br />
+<a href="#1782"><b>1782</b> - INT 17 - Alloy NTNX, MW386 - CANCEL ALL JOBS FOR CURRENT USER</a><br />
+<a href="#1783"><b>1783</b> - INT 17 - Alloy NTNX, MW386 - SET NUMBER OF COPIES</a><br />
+<a href="#1784"><b>1784</b> - INT 17 - Alloy NTNX, MW386 - GENERATE PRINT BREAK</a><br />
+<a href="#1784_0"><b>1784</b> - INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION</a><br />
+<a href="#1785"><b>1785</b> - INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION</a><br />
+<a href="#1787"><b>1787</b> - INT 17 - Alloy NTNX - SET INDOS POINTER</a><br />
+<a href="#1788"><b>1788</b> - INT 17 - Alloy NTNX, MW386 - REMOVE PRINTER FROM SPOOLER</a><br />
+<a href="#1789"><b>1789</b> - INT 17 - Alloy NTNX, MW386 - ADD PRINTER TO SPOOLER</a><br />
+<a href="#178A"><b>178A</b> - INT 17 - Alloy NTNX - ACTIVATE USER-WRITTEN PRINTER DRIVER</a><br />
+<a href="#178B"><b>178B</b> - INT 17 - Alloy MW386 - GET PHYSICAL DEVICE NUMBER FROM NAME</a><br />
+<a href="#178C"><b>178C</b> - INT 17 - Alloy MW386 - GET DEVICE NAME FROM PHYSICAL DEVICE NUMBER</a><br />
+<a href="#178D"><b>178D</b> - INT 17 - Alloy NTNX,MW386 - RESET SPOOLER</a><br />
+<a href="#178E"><b>178E</b> - INT 17 - Alloy NTNX - GET INT 28 ENTRY POINT</a><br />
+<a href="#178F"><b>178F</b> - INT 17 - Alloy NTNX - GET DOS INTERCEPT ENTRY POINT</a><br />
+<a href="#1790"><b>1790</b> - INT 17 - Alloy NTNX, MW386 - SPOOL FILE BY NAME</a><br />
+<a href="#1791"><b>1791</b> - INT 17 - Alloy NTNX, MW386 - GET USER NUMBER AND CURRENT PRINTER</a><br />
+<a href="#1792"><b>1792</b> - INT 17 - Alloy NTNX - CHECK PRINTER DRIVER</a><br />
+<a href="#1794"><b>1794</b> - INT 17 - Alloy NTNX, MW386 - SELECT PRINTER</a><br />
+<a href="#1795"><b>1795</b> - INT 17 - Alloy NTNX, MW386 - GET CURRENT PRINTER</a><br />
+<a href="#1796"><b>1796</b> - INT 17 - Alloy NTNX - SET SERIAL PORT PARAMETERS</a><br />
+<a href="#1797"><b>1797</b> - INT 17 - Alloy NTNX, MW386 - SET DATA DRIVEN PRINT BREAK</a><br />
+<a href="#1798"><b>1798</b> - INT 17 - Alloy NTNX,MW386 - RESTART PRINTER</a><br />
+<a href="#1799"><b>1799</b> - INT 17 - Alloy NTNX, MW386 - GET/SET PRINTER MODE</a><br />
+<a href="#179A"><b>179A</b> - INT 17 - Alloy NTNX,MW386 - SET TAB EXPANSION</a><br />
+<a href="#179B"><b>179B</b> - INT 17 - Alloy NTNX,MW386 - SET PRINT BREAK TIMEOUT</a><br />
+<a href="#17A0"><b>17A0</b> - INT 17 - Alloy MW386 - SPOOL COPY OF FILE</a><br />
+<a href="#17A4"><b>17A4</b> - INT 17 - Alloy MW386 - ENABLE/DISABLE FORM FEED</a><br />
+<a href="#17A6"><b>17A6</b> - INT 17 - Alloy MW386 - ENABLE/DISABLE BANNER PAGE</a><br />
+<a href="#17A7"><b>17A7</b> - INT 17 - Alloy MW386 v2+ - GET/SET SPOOL FLAGS</a><br />
+<a href="#17A8"><b>17A8</b> - INT 17 - Alloy MW386 - DEFINE TEMPORARY FILENAME</a><br />
+<a href="#17A9"><b>17A9</b> - INT 17 - Alloy MW386 - CHANGE TEMPORARY SPOOL DRIVE</a><br />
+<a href="#17AA"><b>17AA</b> - INT 17 - Alloy MW386 v2+ - GET REAL-TIME PRINTER STATUS</a><br />
+<a href="#17AF"><b>17AF</b> - INT 17 - Alloy MW386 - CHECK SPOOLER</a><br />
+<a href="#17C0"><b>17C0</b> - INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS</a><br />
+<a href="#17C1"><b>17C1</b> - INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD</a><br />
+<a href="#17C2"><b>17C2</b> - INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES</a><br />
+<a href="#17C3"><b>17C3</b> - INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)</a><br />
+<a href="#17C4"><b>17C4</b> - INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE</a><br />
+<a href="#17C5"><b>17C5</b> - INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE</a><br />
+<a href="#17C6"><b>17C6</b> - INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS</a><br />
+<a href="#17C7"><b>17C7</b> - INT 17 - PC Magazine PCSpool - CLOSE QUEUE</a><br />
+<a href="#17CD00"><b>17CD00</b> - INT 17 - INSET - EXECUTE COMMAND STRING</a><br />
+<a href="#17CD01"><b>17CD01</b> - INT 17 - INSET - GET IMAGE SIZE</a><br />
+<a href="#17CD02"><b>17CD02</b> - INT 17 - INSET - INITIALIZE</a><br />
+<a href="#17CD03"><b>17CD03</b> - INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE</a><br />
+<a href="#17CD04"><b>17CD04</b> - INT 17 - INSET - INITIALIZE LINKED MODE</a><br />
+<a href="#17CD05"><b>17CD05</b> - INT 17 - INSET - START MERGING IMAGE INTO TEXT</a><br />
+<a href="#17CD06"><b>17CD06</b> - INT 17 - INSET - GRAPHICS LINE FEED</a><br />
+<a href="#17CD07"><b>17CD07</b> - INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER</a><br />
+<a href="#17CD08"><b>17CD08</b> - INT 17 - INSET - CANCEL LINK MODE</a><br />
+<a href="#17CD09"><b>17CD09</b> - INT 17 - INSET - ALTER TEXT LINE SPACING</a><br />
+<a href="#17CD0A"><b>17CD0A</b> - INT 17 - INSET - GET SETUP</a><br />
+<a href="#17CD0B"><b>17CD0B</b> - INT 17 - INSET - START GETTING SCALED IMAGE</a><br />
+<a href="#17CD0C"><b>17CD0C</b> - INT 17 - INSET - GET NEXT IMAGE STRIP</a><br />
+<a href="#17E0"><b>17E0</b> - INT 17 - EPP BIOS - INSTALLATION CHECK</a><br />
+<a href="#17E1"><b>17E1</b> - INT 17 - EPP BIOS - DISABLE EPP</a><br />
+<a href="#17E2"><b>17E2</b> - INT 17 - EPP BIOS - ENABLE EPP</a><br />
+<a href="#17F0"><b>17F0</b> - INT 17 - NorthNet Jetstream API - INSTALLATION CHECK</a><br />
+<a href="#17F1"><b>17F1</b> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER</a><br />
+<a href="#17F2"><b>17F2</b> - INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS</a><br />
+<a href="#17F3"><b>17F3</b> - INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION</a><br />
+<a href="#17F4"><b>17F4</b> - INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS</a><br />
+<a href="#17F5"><b>17F5</b> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY</a><br />
+<a href="#17FF--BX0000"><b>17FF--BX0000</b> - INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE</a><br />
+
+<hr />
+
+<a href="#17----DX0ABC" name="17----DX0ABC"><b>17----DX0ABC</b></a> - INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK
+	DX = 0ABCh
+Return: AX = AAAAh
+	DX = BAAAh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0B90" name="17----DX0B90"><b>17----DX0B90</b></a> - INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK
+	DX = 0B90h
+Return: DX = ABBBh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0B91" name="17----DX0B91"><b>17----DX0B91</b></a> - INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK
+	DX = 0B91h
+Return: DX = ABCBh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0F5F" name="17----DX0F5F"><b>17----DX0F5F</b></a> - INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK
+	DX = 0F5Fh
+Return: AX = AAAAh
+	DX = F555h
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1700" name="1700"><b>1700</b></a> - INT 17 - PRINTER - WRITE CHARACTER<br />
+<pre>
+INT 17 - PRINTER - WRITE CHARACTER
+	AH = 00h
+	AL = character to write
+	DX = printer number (00h-02h)
+Return: AH = printer status (see #00631)
+Note:	Under PhysTechSoft's PTS ROM-DOS the parallel port can also be
+	  accessed as COM5.
+BUGS:	Some print spoolers trash the BX register on return.
+	Some original IBM BIOSes set more than one printer status bits at
+	  a time, while only one of them is correct.
+SeeAlso: AH=02h,AH=84h"AX",AX=6F02h,AH=F1h,INT 16/AX=FFE3h,INT 1A/AH=11h"NEC"
+SeeAlso: INT 4B/AH=00h,PORT 0278h"PRINTER",MEM 0040h:0008h,MEM 0040h:0078h
+
+Bitfields for printer status:
+Bit(s)	Description	(Table 00631)
+ 7	not busy
+ 6	acknowledge
+ 5	out of paper
+ 4	selected
+ 3	I/O error
+ 2-1	unused
+ 0	timeout
+Notes:	If both, bit 5 "out of paper" and 4 "selected" are set, the MS-DOS/
+	  PC DOS kernel assumes that no printer is attached.
+	for Tandy 2000, bit 7 indicates printer-busy when set rather than clear
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1701" name="1701"><b>1701</b></a> - INT 17 - PRINTER - INITIALIZE PORT<br />
+<pre>
+INT 17 - PRINTER - INITIALIZE PORT
+	AH = 01h
+	DX = printer number (00h-02h)
+Return: AH = printer status (see #00631)
+Note:	some printers report that they are ready immediately after
+	  initialization when they actually are not; a more reliable result may
+	  be obtained by calling AH=02h after a brief delay
+SeeAlso: AH=02h,AH=FFh"PC-MOS",INT 1A/AH=10h"NEC",INT 4B/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1702" name="1702"><b>1702</b></a> - INT 17 - PRINTER - GET STATUS<br />
+<pre>
+INT 17 - PRINTER - GET STATUS
+	AH = 02h
+	DX = printer number (00h-02h)
+Return: AH = printer status (see #00631)
+Note:	PRINTFIX from MS-DOS 5.0 hooks this function and always returns AH=90h
+SeeAlso: AH=01h,AH=F2h,INT 1A/AH=12h"NEC",INT 4B/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1702--DX0000" name="1702--DX0000"><b>1702--DX0000</b></a> - INT 17 - INSET - INSTALLATION CHECK<br />
+<pre>
+INT 17 - INSET - INSTALLATION CHECK
+	AH = 02h
+	DX = 0000h
+	CX = 07C3h (1987d)
+Return: CX = 07C2h (1986d) if installed
+Program: INSET is a text/graphics integration program
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170200BX5050" name="170200BX5050"><b>170200BX5050</b></a> - INT 17 - Enhanced Parallel Port (EPP) BIOS - INSTALLATION CHECK<br />
+<pre>
+INT 17 - Enhanced Parallel Port (EPP) BIOS - INSTALLATION CHECK
+	AX = 0200h
+	BX = 5050h ('PP')
+	CH = 45h   ('E')
+	DX = printer port number (00h-02h)
+Return: AH = status
+	    00h if installed and port is an enhanced parallel port
+		CX:AL = installed BIOS type
+		    5050h:45h ('PPE') if EPP v3.0+ BIOS installed
+		    4550h:50h ('EPP') if EPP v1.0 BIOS installed
+		---EPP 1.0, 3.0---
+		DX:BX -&gt; far entry point to Advanced BIOS (see #00632)
+		---EPP Revision 7---
+		DX = EPP I/O base address
+		ES:BX -&gt; far entry point to EPP BIOS (see #00632,#00633)
+	    03h if installed but specified port not supported
+		CF set
+Program: The Enhanced Parallel Port BIOS provides support for parallel
+	  port peripherals using the enhanced modes of the IEEE 1284.
+SeeAlso: AH=E0h,MEM 0040h:0008h,MEM 0040h:00DCh
+
+(Table 00632)
+Call EPP BIOS entry point with:
+	DL = port number (v1.0,v3.0)
+	DX = (Revision 7) EPP port I/O base address
+	AH = function
+	    00h Query Configuration
+		Return: AH = 00h if successful
+			    AL = IRQ number used by port or FFh if no IRQ
+			    BH = EPP BIOS revision (major in high nybble,
+				  minor in low nybble)
+			    BL = I/O capabilities (see #00635)
+			    ES:DI -&gt; ASCIZ driver information/version text
+			    ---v1.0,v3.0---
+			    CX = I/O port base address for parallel port
+			    ---Revision 7---
+			    CL = EPP chipset code (see #00636)
+			    CH = hardware manufacturer's product code
+	    01h Set Mode
+		AL = mode bits (see #00637)
+		Return: AX,BX destroyed
+	    02h Get Mode
+		Return: AL = mode bits (see also #00637)
+				bit 7: EPP port interrupts enabled
+			AH = 00h
+			CF clear
+			BX destroyed
+	    03h Interrupt Control
+		AL = subfunction
+		    00h enable parallel port interrupts
+		    01h disable parallel port interrupts
+		Return: AH = status (00h,05h,06h) (see also #00634)
+	    04h EPP Reset
+		Return: AH = 00h if successful
+			AL destroyed
+	    05h perform Address-Write/Device-Select I/O cycle
+		AL = device address
+		Return: AH = status
+			AL destroyed
+	    06h perform Address-Read I/O cycle
+		Return: AL = returned address/device data
+			AH = status
+	    07h write byte
+		AL = data byte to write
+		Return: AH = status
+	    08h output block of data
+		DS:SI -&gt; block of data to be sent to parallel port
+		CX = number of bytes to output
+		Return: AH = status (see #00634)
+			CX = number of unsent bytes
+	    09h read byte of data
+		Return: AH = status (see #00634)
+			AL = byte read from parallel port
+	    0Ah read block of data
+		ES:DI -&gt; buffer for received data
+		CX = number of bytes to read from paralle port
+		Return: AH = status (see #00634)
+			ES:DI buffer filled if successful
+			CX = number of bytes not transferred
+	    0Bh Address/Byte-Read
+		AL = device address
+		Return: AH = status (see #00634)
+			AL = byte read if successful
+	    0Ch Address/Byte-Write
+		AL = device address
+		DH = data byte (v1.0,v3.0)
+		CL = data byte (Revision 7)
+		Return: AH = status (see #00634)
+	    0Dh Address/Block-Read
+		AL = device address
+		ES:DI -&gt; buffer for received data
+		CX = number of bytes to read
+		Return: AH = status (see #00634)
+			CX = number of bytes NOT transferred
+	    0Eh Address/Block-Write
+		AL = device address
+		ES:DI -&gt; data to be sent (v1.0,v3.0)
+		DS:SI -&gt; data to be send (Revision 7)
+		CX = number of bytes to write
+		Return: AH = status (see #00634)
+			CX = number of bytes NOT transferred
+	    0Fh Lock Port
+		AL = multiplexor port number
+			bits 7-4: daisy chain port number (1-8)
+			bits 3-0: mux device port number (1-8, 0 if no mux)
+		Return: AH = status (00h,03h,05h) (see #00634)
+	    10h Unlock Port
+		AL = multiplexor port number
+			bits 7-4: daisy chain port number (1-8)
+			bits 3-0: mux device port number (1-8, 0 if no mux)
+		Return: AH = status (00h,03h,05h) (see #00634)
+	    11h Device Interrupt
+		BL = multiplexor port number
+			00h if no multiplexor, else mux device port (01h-08h)
+		AL = subfunction
+		    00h disable device interrupts
+		    01h enable device interrupt
+			ES:DI -&gt; interrupt event handler
+		Return: AH = status (00h,03h,05h,06h) (see #00634)
+		Note:	AMI BIOS v1.00.12.AX1T ignores the multiplexor port
+			  number; it also always sets INT 0F to the address
+			  specified in ES:DI
+	    12h Real-Time Mode
+		AL = subfunction
+		    00h check whether any real-time devices present
+		    01h add (advertise) real-time device
+		    02h remove real-time device
+		Return: AH = status (00h,05h,06h,07h) (see #00634)
+			AL = real-time devices present? (00h no, 01h yes)
+		Note:	unlike all other functions, this one does not use DL/DX
+Return: AH = status (see #00634)
+	CF clear if successful
+	CF set on error
+	BX destroyed
+SeeAlso: #00633
+
+(Table 00633)
+Call EPP BIOS (Revision 7) entry point multiplexor functions with:
+	DX = EPP port base I/O address
+	AH = function
+	    40h Query Mux
+		Return: AH = status (see #00634)
+			AL = currently-selected port
+			CH = status flags
+				bit 0: channel locked
+				bit 1: interrupt pending
+			BH destroyed
+		Note:	the PhoenixBIOS v4.0 documentation lists BL as the
+			  currently-selected port and AL as the status flags
+	    41h Query Device Port
+		AL = EPP multiplex device port (1-8)
+		Return: AH = status (see #00634)
+			CH = status flags (see #00638)
+			BX = EPP product/device ID (0000h if undefined)
+		Note:	the PhoenixBIOS v4.0 documentation lists AL as the
+			  status flags and CX as the device ID
+	    42h Set Product ID
+		AL = EPP multiplex device port (1-8)
+		CX = EPP product ID
+		Return: AH = status (see #00634)
+			BX destroyed
+	    50h Query Daisy Chain
+		AL = EPP multiplexor device port (1-8)
+		Return: AH = status (see #00634)
+			CH = status flags
+				bit 0: channel locked
+				bit 1: interrupt pending
+			BL = currently-selected device
+			BH = EPP daisy chain revision (high nybble = major)
+			CL = daisy-chain depth (00h if no daisy chain)
+			ES:DI -&gt; ASCIZ driver vendor identification string
+		Note:	the PhoenixBIOS v4.0 documentation lists AH=51h as
+			  "Query Daisy Chain" and BL as the multiplexor port;
+			  it also lists AL as status flags on return
+	    51h Rescan Daisy Chain (dynamically reassign port numbers)
+		AL = EPP multiplexor device port (1-8)
+		Return: AH = status (see #00634)
+			BX destroyed
+		Note:	the PhoenixBIOS v4.0 documentation lists AH=50h as
+			  "Rescan Daisy Chain" and BL as the multiplexor port
+Notes:	these functions are only valid if a port multiplexor or daisy chain
+	  is present
+	PhoenixBIOS 4.0 documents function 50h as "Rescan" and 51h as
+	  "Query Daisy Chain"
+SeeAlso: #00632,INT 2D/AL=DCh
+
+(Table 00634)
+Values for EPP BIOS function status:
+ 00h	successful
+ 02h	unsupported command/feature
+ 03h	unsupported parallel port
+ 05h	unsupported in current mode
+ 06h	invalid subfunction
+ 07h	already ???
+ 20h	multiplexor not present (AMI)
+ 40h	multiplexor not present
+ 41h	multiplexor currently locked
+ 80h	I/O timeout
+ FFh	invalid/unsupported function
+SeeAlso: #00632,#00633
+
+Bitfields for EPP (v3.0, Revision 7) I/O capabilities:
+Bit(s)	Description	(Table 00635)
+ 0	multiplexor present
+ 1	PS/2 bi-directional capable
+ 2	daisy chain present
+ 3	ECP capable
+ 4	EPP software emulation supported
+ 5	EPP capable
+ 6	fast Centronics supported
+ 7	standard EPP I/O map
+SeeAlso: #00632
+
+(Table 00636)
+Values for EPP (Revision 7) chipset code:
+ 00h	Intel SL
+ 01h	FarPoint Communications
+ 02h	SMC
+ 03h	Chips&Technologies
+ 04h	Western Digital
+ 05h	National Semiconductor
+SeeAlso: #00632
+
+Bitfields for EPP BIOS mode bits:
+Bit(s)	Description	(Table 00637)
+ 0	set compatibility mode
+ 1	set bi-directional mode
+ 2	set EPP mode
+---Revision 7,v3.0---
+ 3	set ECP mode
+ 4	set EPP software emulation
+ 5	set fast Centronics mode
+ 6-7 reserved (0)
+SeeAlso: #00632,#M0053
+
+Bitfields for EPP BIOS multiplex status flags:
+Bit(s)	Description	(Table 00638)
+ 0	port is selected
+ 1	port is locked
+ 2	interrupts are enabled
+ 3	interrupt pending
+SeeAlso: #00633
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703" name="1703"><b>1703</b></a> - INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS<br />
+<pre>
+INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS
+	AH = 03h
+Return: BX = ???
+	CX = ???
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+SeeAlso: AH=04h"Emulaser",AH=0Eh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703_0" name="1703_0"><b>1703</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 03h
+SeeAlso: AH=04h"IBM",AH=05h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703_1" name="1703_1"><b>1703</b></a> - INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING<br />
+<pre>
+INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING
+	AH = 03h
+	DX = printer port number
+	CX = number of characters to print
+	DS:SI -&gt; string
+Return: AH = printer status (see #00631)
+	CX = number of characters actually printed
+Desc:	send an entire string of chars to the print spooler with a single call
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=FFh"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703--BX5A00" name="1703--BX5A00"><b>1703--BX5A00</b></a> - INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK<br />
+<pre>
+INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK
+	AH = 03h
+	BX = 5A00h
+Return: AX = 5ACBh
+	DI = 0000h
+	ES = DMP code segment (also data segment)
+Program: DMP is a Printer driver/spooler, by DMP (USA), available on the
+	  PCTODAY disk, volume 10, March 1991
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170300" name="170300"><b>170300</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "socket"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "socket"
+	AX = 0300h
+	CX = type of socket from  socket( domain, type, protocol )
+	DX = local identifier of socket (0 - 31)
+Return: AX = 0000h success
+	    CX = segment of 4500 byte transfer buffer
+	    DX = offset of 4500 byte transfer buffer
+	   = FFFFH failure
+	    CX = error code
+		ENFILE	    23
+Program: DOSISODE is the ISO developers environment which has been ported to
+	  DOS and will run with the Waterloo TCP turned into a resident TSR.
+	  Currently it allows a maximum of 6 open sockets.
+Note:	this function will initialize the interface the first time it is
+	  called
+SeeAlso: AX=0400h"DOSISODE",AX=0600h"DOSISODE",AX=0800h"DOSISODE"
+SeeAlso: AX=0A00h"DOSISODE",AX=0C00h"DOSISODE",AX=0E00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1704" name="1704"><b>1704</b></a> - INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT<br />
+<pre>
+INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT
+	AH = 04h
+Note:	has no effect unless ELTSR is deactivated (see AX=0503h)
+SeeAlso: AH=03h"Emulaser",AX=0503h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1704_0" name="1704_0"><b>1704</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 04h
+SeeAlso: AH=03h"IBM",AH=05h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170400" name="170400"><b>170400</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "bind"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "bind"
+	AX = 0400h
+Note:	this function just returns
+SeeAlso: AX=0300h"DOSISODE",AX=0500h"DOSISODE",AX=0C00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1705" name="1705"><b>1705</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 05h
+SeeAlso: AH=03h"IBM",AH=04h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170500" name="170500"><b>170500</b></a> - INT 17 U - Emulaser ELTSR - ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - ???
+	AX = 0500h
+	???
+Return: AX = unload status (0001h safe to unload, 0002h not safe)
+	BX = ???
+	CX = PSP segment of ELTSR
+	DX = activity flag (0000h disabled, 0001h capturing, 0002h ???printing)
+	SI = ???
+	DI = ???
+SeeAlso: AH=04h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170500_0" name="170500_0"><b>170500</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "connect"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "connect"
+	AX = 0500h
+SeeAlso: AX=0400h"DOSISODE",AX=0700h"DOSISODE",AX=0C00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170501" name="170501"><b>170501</b></a> - INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS<br />
+<pre>
+INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS
+	AX = 0501h
+Return: (see AX=0500h)
+Note:	restores interrupt vectors without checking whether they have been
+	  hooked by later programs; should only be called if ELTSR reports
+	  that it is safe to unload
+SeeAlso: AH=04h,AX=0500h,AX=0503h,INT 1A/AH=E5h
+Index:	uninstall;Emulaser ELTSR
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170502" name="170502"><b>170502</b></a> - INT 17 U - Emulaser ELTSR - SET ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ???
+	AX = 0502h
+	BL = Emulaser port (31h = LPT1, 32h = LPT2, 33h = LPT3)
+	CL = ???
+	DL = ???
+Return: (see AX=0500h)
+SeeAlso: AH=04h,AX=0500h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170503" name="170503"><b>170503</b></a> - INT 17 U - Emulaser ELTSR - DEACTIVATE???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - DEACTIVATE???
+	AX = 0503h
+Return: (see AX=0500h)
+SeeAlso: AH=04h,AX=0500h,AX=0501h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1706" name="1706"><b>1706</b></a> - INT 17 U - Emulaser ELTSR - ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - ???
+	AH = 06h
+	???
+Return: ???
+SeeAlso: AX=0500h,AX=0503h,AH=07h"ELTSR",INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170600" name="170600"><b>170600</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "listen"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "listen"
+	AX = 0600h
+Note:	this function just returns
+SeeAlso: AX=0300h"DOSISODE",AX=0700h"DOSISODE",AX=0C00h"DOSISODE"
+SeeAlso: AX=0E00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1707" name="1707"><b>1707</b></a> - INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE
+	AH = 07h
+	ES:DX -&gt; ASCIZ filename to be opened
+Return: ???
+Note:	new output will be appended to the specified file
+SeeAlso: AH=08h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170700" name="170700"><b>170700</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "accept"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "accept"
+	AX = 0700h
+Note:	this function just returns
+SeeAlso: AX=0600h"DOSISODE",AX=0800h"DOSISODE",AX=0C00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1708" name="1708"><b>1708</b></a> - INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE
+	AH = 08h
+	???
+Return: ???
+Desc:	close the file previously opened by function 07h
+SeeAlso: AH=07h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170800" name="170800"><b>170800</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "recvfrom"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "recvfrom"
+	AX = 0800h
+SeeAlso: AX=0500h"DOSISODE",AX=0900h"DOSISODE",AX=0A00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1709" name="1709"><b>1709</b></a> - INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???
+	AH = 09h
+	BX = ???
+	CX = ???
+	DX = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AX = status
+	    00h successful
+	    FFh failed
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+Note:	this function calls through to INT 1A/AX=E401h, and thus requires
+	  that either ELSPL or Disk Spool II be installed
+SeeAlso: AH=0Ah,INT 1A/AX=E401h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170900" name="170900"><b>170900</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "sendto"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "sendto"
+	AX = 0900h
+SeeAlso: AX=0700h"DOSISODE",AX=0800h"DOSISODE",AX=0A00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170A" name="170A"><b>170A</b></a> - INT 17 U - Emulaser ELTSR - SET ??? FILENAME<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ??? FILENAME
+	AH = 0Ah
+	ES:BX -&gt; ??? buffer
+	CX = length of ??? buffer
+Return: ???
+Note:	copies the specified name into the buffer passed to ELSPL as the
+	  filename by AH=09h
+SeeAlso: AH=09h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170A00" name="170A00"><b>170A00</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "select"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "select"
+	AX = 0A00h
+SeeAlso: AX=0800h"DOSISODE",AX=0B00h"DOSISODE",AX=0E00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170B" name="170B"><b>170B</b></a> - INT 17 U - Emulaser ELTSR - GET ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - GET ???
+	AH = 0Bh
+Return: AX:BX -&gt; ???
+SeeAlso: AH=0Ah,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170B_0" name="170B_0"><b>170B</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Bh
+SeeAlso: AH=03h"IBM",AH=0Ch"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170B00" name="170B00"><b>170B00</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "ioctl"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "ioctl"
+	AX = 0B00h
+	DX = local identifier of socket (0 - 31)
+Note:	this function sets the socket into non_block mode
+SeeAlso: AX=0A00h"DOSISODE",AX=0C00h"DOSISODE",AX=0E00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170C" name="170C"><b>170C</b></a> - INT 17 U - Emulaser ELTSR - SET ??? FLAG<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ??? FLAG
+	AH = 0Ch
+	???
+Return: ???
+SeeAlso: AH=0Bh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170C_0" name="170C_0"><b>170C</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Ch
+SeeAlso: AH=0Bh"IBM",AH=0Dh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170C00" name="170C00"><b>170C00</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "close"<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "close"
+	AX = 0C00h
+SeeAlso: AX=0300h"DOSISODE",AX=0500h"DOSISODE",AX=0D00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170D" name="170D"><b>170D</b></a> - INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE
+	AH = 0Dh
+Return: AX = state (0000h off, 0010h on)
+Desc:	determine the actual state of ScrlLk even when Emulaser is controlling
+	  the ScrlLk light as its activity indicator
+SeeAlso: AH=0Ch,INT 16/AH=02h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170D_0" name="170D_0"><b>170D</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Dh
+SeeAlso: AH=0Ch"IBM",AH=0Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170D00" name="170D00"><b>170D00</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - "shutdown" - SHUTDOWN INTERFACE<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - "shutdown" - SHUTDOWN INTERFACE
+	AX = 0D00h
+Note:	this function is used to shutdown the interface
+SeeAlso: AX=0C00h"DOSISODE",AX=0E00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170E" name="170E"><b>170E</b></a> - INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING<br />
+<pre>
+INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING
+	AH = 0Eh
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+Note:	this function is called by ELTSR on every INT 08 to allow data to be
+	  processed in the background, but may also be called by applications
+	  to give Emulaser additional CPU time
+SeeAlso: AH=0Dh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170E_0" name="170E_0"><b>170E</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Eh
+SeeAlso: AH=03h"IBM",AH=0Dh"IBM",AH=80h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170E00" name="170E00"><b>170E00</b></a> - INT 17 - DOSISODE to WATTCP TSR Interface - INSTALLATION CHECK<br />
+<pre>
+INT 17 - DOSISODE to WATTCP TSR Interface - INSTALLATION CHECK
+	AX = 0E00h
+Return: CX = 1234h if installed
+Program: DOSISODE is the ISO developers environment which has been ported to
+	  DOS and will run with the Waterloo TCP turned into a resident TSR.
+	  Currently it allows a maximum of 6 open sockets.
+Note:	this function is used to check if the interface is loaded
+SeeAlso: AX=0300h"DOSISODE",AX=0A00h"DOSISODE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172000" name="172000"><b>172000</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK
+	AX = 2000h
+	BL = printer number???
+Return: AX = status (see #00639)
+	BX = driver version number (BH=major,BL=minor)
+	CH = ??? (00h)
+	CL = ???
+	DX = ??? (0100h)
+Note:	also enables the remaining printer driver functions (2001h-2007h)
+SeeAlso: AX=2001h,AX=2002h,AX=2003h,AX=2004h,AX=2005h,AX=2006h,AX=2007h
+
+(Table 00639)
+Values for PC Paint function status:
+ 0000h	successful
+ 0001h	invalid printer???
+ 0002h	???
+ 0003h	invalid subfunction
+ 0005h	driver disabled, must call function 00h first
+ 0009h	unknown printer error
+ 000Bh	printer not selected
+ 000Ch	printer out of paper
+ 000Eh	error while writing to serial printer
+ 000Fh	???
+ 0010h	invalid function number
+ 0011h	value out of range
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172001" name="172001"><b>172001</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG
+	AX = 2001h
+	BL = printer number???
+Return: AX = status (see #00639)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172002" name="172002"><b>172002</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION
+	AX = 2002h
+	BL = printer number???
+	CL = desired information
+	    00h printer type
+		Return: ES:DI -&gt; ASCIZ printer name
+	    01h paper size
+		DX = size index
+		Return: ES:DI -&gt; ASCIZ paper size description
+	    02h ???
+		Return: BX = ???
+	    03h printer information???
+		DX = ???
+		ES:BX -&gt; buffer for ??? (min 134 bytes)
+Return: AX = status (see #00639)
+SeeAlso: AX=2000h,AX=2004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172003" name="172003"><b>172003</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???
+	AX = 2003h
+	ES:BX -&gt; ???
+Return: AX = status (see #00639)
+SeeAlso: AX=2000h,AX=2004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172004" name="172004"><b>172004</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???
+	AX = 2004h
+	BL = printer number???
+Return: AX = status (see #00639)
+	ES:DI -&gt; ???
+SeeAlso: AX=2000h,AX=2003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172005" name="172005"><b>172005</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE
+	AX = 2005h
+	BL = printer number???
+Return: AX = status (see #00639)
+Note:	this function also clears the flag set by AX=2001h
+SeeAlso: AX=2000h,AX=2001h,AX=2006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172006" name="172006"><b>172006</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN
+	AX = 2006h
+	BL = printer number???
+Return: AX = status (see #00639)
+Note:	this function also clears the flag set by AX=2001h and disables
+	  functions other than AX=2000h
+SeeAlso: AX=2000h,AX=2001h,AX=2005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172007" name="172007"><b>172007</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED
+	AX = 2007h
+Return: AX unchanged
+SeeAlso: AX=2000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172400" name="172400"><b>172400</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - ENABLE/DISABLE API FUNCTIONS<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - ENABLE/DISABLE API FUNCTIONS
+	AX = 2400h
+	DL = new state
+	    00h disabled
+	    01h enabled
+Return: DL = 24h if installed
+	DH = minor version number
+	CX = network address of this machine
+	AL = status (see #00640)
+SeeAlso: AX=2403h,INT 16/AX=4500h
+
+(Table 00640)
+Values for NET.24 function status:
+ 00h	successful
+ 01h	timeout
+ 02h	header error
+ 03h	data error
+ 04h	busy
+ 05h	invalid parameters
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172401" name="172401"><b>172401</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, NO HANDSHAKE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, NO HANDSHAKE
+	AX = 2401h
+	BL = timeout in clock ticks
+Return: AL = status (see #00640)
+	DX:BX -&gt; receive buffer
+SeeAlso: AX=2402h,AX=2404h,AX=2408h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172402" name="172402"><b>172402</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT BLOCK, NO HANDSHAKE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT BLOCK, NO HANDSHAKE
+	AX = 2402h
+	transmit buffer filled (see AX=2403h)
+Return: AL = status (see #00640)
+SeeAlso: AX=2401h,AX=2403h,AX=2404h,AX=2409h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172403" name="172403"><b>172403</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - GET STATUS AND TRANSMISSION BUFFER<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - GET STATUS AND TRANSMISSION BUFFER
+	AX = 2403h
+Return: AL = status (see #00640)
+	CX = number of characters in receive ring buffer
+	DX:BX -&gt; transmit buffer
+SeeAlso: AX=2400h,AX=2402h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172404" name="172404"><b>172404</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - SEND ACK BLOCK<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - SEND ACK BLOCK
+	AX = 2404h
+	BX = target address
+Return: AL = status (see #00640)
+SeeAlso: AX=2402h,AX=2405h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172405" name="172405"><b>172405</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - SEND NAK BLOCK<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - SEND NAK BLOCK
+	AX = 2405h
+	BX = target address
+Return: AL = status (see #00640)
+SeeAlso: AX=2402h,AX=2404h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172406" name="172406"><b>172406</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED RECEIVE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED RECEIVE
+	AX = 2406h
+Return: AL = status (see #00640)
+SeeAlso: AX=2407h,AX=240Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172407" name="172407"><b>172407</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE CHARACTER FROM REMOTE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE CHARACTER FROM REMOTE
+	AX = 2407h
+Return: AL = status (see also #00640)
+	    06h end of data
+	DL = received character
+SeeAlso: AX=2406h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172408" name="172408"><b>172408</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, WITH HANDSHAKE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - RECEIVE BLOCK, WITH HANDSHAKE
+	AX = 2408h
+Return: AL = status (see also #00640)
+	    06h end of data
+	CX = number of bytes in receive buffer
+	DX:SI -&gt; receive buffer
+SeeAlso: AX=2401h,AX=2405h,AX=2409h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172409" name="172409"><b>172409</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT COMMAND, WITH HANDSHAKE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT COMMAND, WITH HANDSHAKE
+	AX = 2409h
+	BX = target address
+	CX = number of data bytes
+	DL = command code to send
+	DS:SI -&gt; data bytes for command
+Return: AL = status (see also #00640)
+	    03h no response
+	    06h remote currently unable to perform command
+SeeAlso: AX=2405h,AX=2408h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17240A" name="17240A"><b>17240A</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED TRANSMIT<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - PREPARE CHARACTER-ORIENTED TRANSMIT
+	AX = 240Ah
+Return: AL = status (see #00640)
+SeeAlso: AX=2406h,AX=240Bh,AX=240Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17240B" name="17240B"><b>17240B</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT SINGLE CHARACTER TO REMOTE<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - TRANSMIT SINGLE CHARACTER TO REMOTE
+	AX = 240Bh
+	DL = character to send
+Return: AL = status (see also AX=2400h)
+	    03h transmission error
+	    06h write error
+SeeAlso: AX=2407h,AX=240Ah,AX=240Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17240C" name="17240C"><b>17240C</b></a> - INT 17 - Shamrock Software NET.24 v3.11+ - END CHARACTER-ORIENTED TRANSMIT<br />
+<pre>
+INT 17 - Shamrock Software NET.24 v3.11+ - END CHARACTER-ORIENTED TRANSMIT
+	AX = 240Ch
+Return: AL = status (see also AX=2400h)
+	    03h transmission error
+	    06h remote breaks connection
+SeeAlso: AX=240Ah,AX=240Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#174B00" name="174B00"><b>174B00</b></a> - INT 17 - Brother P-Touch - INSTALLATION CHECK<br />
+<pre>
+INT 17 - Brother P-Touch - INSTALLATION CHECK
+	AX = 4B00h
+Return:	AX = 4249h ('BI' = Brother International) if installed
+	    BX = program ID
+		4550h ('EP') for "Epson FX-80 Emulator"
+		5047h ('PG') for "Printer to Disk Utility"
+	    CX = numbero of parallel port being emulated or intercepted
+SeeAlso: AX=4B01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#174B01" name="174B01"><b>174B01</b></a> - INT 17 - Brother P-Touch - UNINSTALL<br />
+<pre>
+INT 17 - Brother P-Touch - UNINSTALL
+	AX = 4B01h
+Return: AX = segment of resident program or 0000h if unable to uninstall
+Note:	the calling program must manually free both the indicated segment
+	  and the environment segment for the TSR with INT 21/AH=49h
+	  (the environment is pointed at by the WORD at AX:002Ch)
+SeeAlso: AX=4B00h,INT 21/AH=49h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175000" name="175000"><b>175000</b></a> - INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE
+	AX = 5000h
+	BX = country code
+	    0001h USA (English), 0051h Japan
+Return: AL = status
+	    00h successful
+	    01h bad country code
+	    02h other error
+SeeAlso: AX=5001h,AH=51h,INT 10/AX=5000h,INT 16/AX=5000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175001" name="175001"><b>175001</b></a> - INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE
+	AX = 5001h
+Return: AL = status
+	    00h successful
+		BX = country code
+	    02h error
+SeeAlso: AX=5000h,AH=51h,INT 10/AX=5001h,INT 16/AX=5001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1751" name="1751"><b>1751</b></a> - INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION
+	AH = 51h
+	DX = 2-byte JIS code
+Return: DX = shift-JIS value or 0000h on error
+Note:	one of AH=51h and AH=52h converts from JIS (Japanese Industry Standard)
+	  characters to Shift-JIS characters, and the other performs the
+	  opposite conversion
+SeeAlso: AX=5000h,AH=52h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1752" name="1752"><b>1752</b></a> - INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION
+	AH = 52h
+	DX = 2-byte shift-JIS code
+Return: DX = JIS code or 0000h on error
+Note:	one of AH=51h and AH=52h converts from JIS (Japanese Industry Standard)
+	  characters to Shift-JIS characters, and the other performs the
+	  opposite conversion
+SeeAlso: AH=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175555BXAAAA" name="175555BXAAAA"><b>175555BXAAAA</b></a> - INT 17 - LR - SET CONFIGURATION<br />
+<pre>
+INT 17 - LR - SET CONFIGURATION
+	AX = 5555h
+	BX = AAAAh
+	CL = configuration flags (see #04117)
+	DX = LPT number
+Return: AX = A55Ah
+	BX = BBBBh
+Program: LR_xxxx.COM files are a set of printer-hardware dependent printer
+	  drivers found in the LIR DOS/Windows 3.xx codepage support package
+	  develoved by LABAS u.a.b.  LIR supports several different screen and
+	  printer codepages and various keyboard layouts used in Lithuania.
+	  Download at: ftp://ftp.labas.com/pub/drivers/language/lir422.zip
+SeeAlso: AX=5555h/BX=BBBBh,INT 10/AX=5555h/BX=AAAAh
+
+Bitfields for LR_xxxx.COM configuration flags:
+Bit(s)	Description	(Table 04117)
+ 7	ESC sequence???
+ 6	ESC sequence???
+ 5-3	printer code page
+ 2	Lithuanian alphabet???
+ 1	Russian alphabet???
+ 0	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175555BXBBBB" name="175555BXBBBB"><b>175555BXBBBB</b></a> - INT 17 - LR - GET CONFIGURATION<br />
+<pre>
+INT 17 - LR - GET CONFIGURATION
+	AX = 5555h
+	BX = BBBBh
+	DX = LPT number
+Return: AX = A55Ah
+	BX = CCCCh
+	CL = configuration flags (see #04117)
+SeeAlso: AX=5555h/BX=AAAAh,INT 10/AX=5555h/BX=BBBBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1760" name="1760"><b>1760</b></a> - INT 17 - FLASHUP.COM - INSTALLATION CHECK<br />
+<pre>
+INT 17 - FLASHUP.COM - INSTALLATION CHECK
+	AH = 60h
+Return: AL = 60h
+	DX = CS of resident code
+Notes:	FLASHUP.COM is part of Flash-Up Windows by The Software Bottling Co.
+	FLASHUP also hooks INT 10 and receives commands via INT 10/AH=09h,0Ah
+	  consisting of an 80h followed by the actual command
+SeeAlso: INT 10/AH=09h,INT 10/AH=0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1761" name="1761"><b>1761</b></a> - INT 17 - SPEEDSCR.COM - INSTALLATION CHECK<br />
+<pre>
+INT 17 - SPEEDSCR.COM - INSTALLATION CHECK
+	AH = 61h
+Return: AL = 61h
+	DX = CS of resident code
+Note:	SPEEDSCR.COM is by The Software Bottling Co.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1762" name="1762"><b>1762</b></a> - INT 17 U - T2PS v1.0 - UNINSTALL<br />
+<pre>
+INT 17 U - T2PS v1.0 - UNINSTALL
+	AH = 62h
+Return: nothing
+SeeAlso: AH=63h,AH=64h,INT 05/AX=554Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1763" name="1763"><b>1763</b></a> - INT 17 U - T2PS v1.0 - SET PARAMETERS<br />
+<pre>
+INT 17 U - T2PS v1.0 - SET PARAMETERS
+	AH = 63h
+	ES:SI -&gt; settings (see #00641)
+Program: T2PS is a shareware ASCII-to-PostScript converter by A.N.D.
+	  Technologies
+SeeAlso: AH=62h,AH=64h,INT 05/AX=4E57h
+
+Format of T2PS settings:
+Offset	Size	Description	(Table 00641)
+ 00h	WORD	LPT port number (0=LPT1, etc.)
+ 02h	WORD	page heigh in points
+ 04h	WORD	page width in points
+ 06h	WORD	top margin in points
+ 08h	WORD	bottom margin in points
+ 0Ah	WORD	left margin in points
+ 0Ch	WORD	right margin in points
+ 0Eh	WORD	font size in points
+ 10h	WORD	tab size
+ 12h	WORD	timeout in clock ticks
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1764" name="1764"><b>1764</b></a> - INT 17 U - T2PS v1.0 - GET PARAMETERS<br />
+<pre>
+INT 17 U - T2PS v1.0 - GET PARAMETERS
+	AH = 64h
+	ES:SI -&gt; buffer for settings (see #00641)
+Return: ES:SI buffer filled
+SeeAlso: AH=62h,AH=63h,INT 05/AX=5053h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#176F00BX0000" name="176F00BX0000"><b>176F00BX0000</b></a> - INT 17 - HP Vectra - EXTENDED BIOS - "F17_INQUIRE" - INSTALLATION CHECK<br />
+<pre>
+INT 17 - HP Vectra - EXTENDED BIOS - "F17_INQUIRE" - INSTALLATION CHECK
+	AX = 6F00h
+	BX = 0000h
+Return: BX = 4850h ("HP") if HP Extended BIOS printer extensions available
+SeeAlso: AX=6F02h,INT 14/AX=6F00h,INT 10/AX=6F00h,INT 14/AX=6F00h
+SeeAlso: INT 33/AX=6F00h,INT 6F/AH=00h"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#176F02" name="176F02"><b>176F02</b></a> - INT 17 - HP Vectra - EXTENDED BIOS - "F17_PUT_BUFFER" - PRINT BUFFER<br />
+<pre>
+INT 17 - HP Vectra - EXTENDED BIOS - "F17_PUT_BUFFER" - PRINT BUFFER
+	AX = 6F02h
+	CX = size of buffer in bytes
+	DX = port number (0-3)
+	ES:DI -&gt; buffer containing characters to be printed
+Return: AH = printer status (see #00631)
+	CX = number of bytes successfully printed
+	---on error (AH bit 0 set)---
+	    ES:DI -&gt; next byte to be sent
+	---if successful---
+	    ES:DI unchanged
+SeeAlso: AH=00h,AX=6F00h,INT 14/AX=6F02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1780" name="1780"><b>1780</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 80h
+SeeAlso: AH=03h"IBM",AH=0Bh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1781" name="1781"><b>1781</b></a> - INT 17 - Alloy NTNX, MW386 - CANCEL JOBS FOR CURRENT USER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - CANCEL JOBS FOR CURRENT USER
+	AH = 81h
+	AL = 00h (NTNX compatibility mode)
+	CL = number of jobs to cancel
+Return: AL = status (see #00642)
+Note:	this function cancels the last CL printouts for the current task
+SeeAlso: AH=82h
+
+(Table 00642)
+Values for Alloy status:
+ 00h	success
+ 01h-7Fh warning
+ 80h	general failure
+ 81h	host overloaded (NTNX only)
+ 82h	module busy (NTNX only)
+ 83h	host busy (NTNX only)
+ 84h	re-entry flag set
+ 85h	invalid request
+ 86h	invalid printer
+ 87h	invalid process ID
+ 89h	access denied
+ 8Ah	option not available for given port type
+ 8Bh	option not available for given task type
+ 91h	printer busy
+ C2h	file not found
+ C3h	path not found
+ C4h	file access failure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1782" name="1782"><b>1782</b></a> - INT 17 - Alloy NTNX, MW386 - CANCEL ALL JOBS FOR CURRENT USER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - CANCEL ALL JOBS FOR CURRENT USER
+	AH = 82h
+	AL = 00h (NTNX compatibility mode)
+Return: AL = status (see #00642)
+SeeAlso: AH=81h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1783" name="1783"><b>1783</b></a> - INT 17 - Alloy NTNX, MW386 - SET NUMBER OF COPIES<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - SET NUMBER OF COPIES
+	AH = 83h
+	AL = mode
+	    00h NTNX compatibility
+		CL = number of copies (max 99, default 1)
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+		CX = number of copies
+Return: AL = status (see #00642)
+Note:	in NTNX compatibility mode, this function only affects LPT1
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1784" name="1784"><b>1784</b></a> - INT 17 - Alloy NTNX, MW386 - GENERATE PRINT BREAK<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - GENERATE PRINT BREAK
+	AH = 84h
+	AL = mode
+	    00h NTNX compatibility
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+Note:	closes spool file and tells spooler to queue the print job (LPT1 only
+	  under MW386 in NTNX compatibility mode)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1784_0" name="1784_0"><b>1784</b></a> - INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION
+	AH = 84h
+	AL = character
+	DX = printer number
+Return: AH = printer status (see #00631)
+SeeAlso: AH=00h,AH=85h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1785" name="1785"><b>1785</b></a> - INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION
+	AH = 85h
+	AL = new state (00h enabled, 01h disabled)
+SeeAlso: AH=84h"AX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1787" name="1787"><b>1787</b></a> - INT 17 - Alloy NTNX - SET INDOS POINTER<br />
+<pre>
+INT 17 - Alloy NTNX - SET INDOS POINTER
+	AH = 87h
+	AL = 00h
+	CX:BX -&gt; buffer for user-written printer drivers
+Return: BX,CX destroyed
+Note:	must be executed before the printer is enabled
+SeeAlso: AH=8Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1788" name="1788"><b>1788</b></a> - INT 17 - Alloy NTNX, MW386 - REMOVE PRINTER FROM SPOOLER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - REMOVE PRINTER FROM SPOOLER
+	AH = 88h
+	AL = mode
+	    00h NTNX compatibility
+		DX = NTNX printer number (see #00643)
+	    01h MW386
+		DX = MW386 printer number
+Return: AH = status (see #00642)
+Note:	removes specified printer from the spooler's list of printers
+SeeAlso: AH=89h,AH=8Bh
+
+(Table 00643)
+Values for Alloy NTNX printer number:
+ 00h	host LPT1
+ 01h	host LPT2
+ 02h	host LPT3
+ 03h	host LPT4
+ 04h	host COM1
+ 05h	host COM2
+ 06h	user's logical COM2
+ 07h	user's terminal AUX port
+ 08h	user's logical COM1 (MW386 only)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1789" name="1789"><b>1789</b></a> - INT 17 - Alloy NTNX, MW386 - ADD PRINTER TO SPOOLER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - ADD PRINTER TO SPOOLER
+	AH = 89h
+	AL = mode
+	    00h NTNX compatibility
+		DX = NTNX printer number (see #00643)
+	    01h MW386
+		DX = MW386 printer number
+Return: AL = status (see #00642)
+Note:	the specified printer is added to the spooler's list of available
+	  printers
+SeeAlso: AH=88h,AH=8Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178A" name="178A"><b>178A</b></a> - INT 17 - Alloy NTNX - ACTIVATE USER-WRITTEN PRINTER DRIVER<br />
+<pre>
+INT 17 - Alloy NTNX - ACTIVATE USER-WRITTEN PRINTER DRIVER
+	AH = 8Ah
+	???
+SeeAlso: AH=92h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178B" name="178B"><b>178B</b></a> - INT 17 - Alloy MW386 - GET PHYSICAL DEVICE NUMBER FROM NAME<br />
+<pre>
+INT 17 - Alloy MW386 - GET PHYSICAL DEVICE NUMBER FROM NAME
+	AH = 8Bh
+	DS:DX -&gt; ASCIZ printer name
+Return: AL = status (see also AH=81h)
+	    00h successful
+		DX = physical device number
+SeeAlso: AH=89h,AH=8Ch,INT 14/AH=20h"Alloy"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178C" name="178C"><b>178C</b></a> - INT 17 - Alloy MW386 - GET DEVICE NAME FROM PHYSICAL DEVICE NUMBER<br />
+<pre>
+INT 17 - Alloy MW386 - GET DEVICE NAME FROM PHYSICAL DEVICE NUMBER
+	AH = 8Ch
+	DX = physical device number
+	ES:DI -&gt; 17-byte buffer for ASCIZ device name
+Return: AL = status (see also AH=81h)
+	    00h successful
+		ES:DI buffer filled
+SeeAlso: AH=88h,AH=8Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178D" name="178D"><b>178D</b></a> - INT 17 - Alloy NTNX,MW386 - RESET SPOOLER<br />
+<pre>
+INT 17 - Alloy NTNX,MW386 - RESET SPOOLER
+	AH = 8Dh
+	AL = 00h
+Return: AL = status (see #00642)
+Notes:	clears all buffers and resets spooler to boot-up values
+	MW386 supports this function for compatibility only; it is a NOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178E" name="178E"><b>178E</b></a> - INT 17 - Alloy NTNX - GET INT 28 ENTRY POINT<br />
+<pre>
+INT 17 - Alloy NTNX - GET INT 28 ENTRY POINT
+	AH = 8Eh
+	AL = 00h
+Return: CX:BX -&gt; INT 28 entry point
+SeeAlso: AH=8Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#178F" name="178F"><b>178F</b></a> - INT 17 - Alloy NTNX - GET DOS INTERCEPT ENTRY POINT<br />
+<pre>
+INT 17 - Alloy NTNX - GET DOS INTERCEPT ENTRY POINT
+	AH = 8Fh
+	AL = 00h
+Return: CX:BX -&gt; DOS intercept routine
+SeeAlso: AH=8Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1790" name="1790"><b>1790</b></a> - INT 17 - Alloy NTNX, MW386 - SPOOL FILE BY NAME<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - SPOOL FILE BY NAME
+	AH = 90h
+	AL = mode
+	    00h NTNX compatibility
+		DL = printer code (FFh=current) (NTNX, MW386 v1.x only)
+		DH = number of copies (FFh=current) (NTNX, MW386 v1.x only)
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+	CX:SI -&gt; ASCIZ pathname
+Return: AL = status (see #00642)
+Note:	in mode 00h, the file is always sent to logical LPT1
+SeeAlso: AH=A0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1791" name="1791"><b>1791</b></a> - INT 17 - Alloy NTNX, MW386 - GET USER NUMBER AND CURRENT PRINTER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - GET USER NUMBER AND CURRENT PRINTER
+	AH = 91h
+	AL = mode
+	    00h NTNX compatibility
+		Return: CX = user number (00h = host)
+			DX = currently selected printer number (00h-08h)
+	    01h MW386
+		Return: CX = user number
+			DX = physical dev number of currently selected printer
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+		Return: CX = user number
+			DX = physical device number
+Return: AL = status (see #00642)
+SeeAlso: AH=8Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1792" name="1792"><b>1792</b></a> - INT 17 - Alloy NTNX - CHECK PRINTER DRIVER<br />
+<pre>
+INT 17 - Alloy NTNX - CHECK PRINTER DRIVER
+	AH = 92h
+	AL = 00h
+	CL = 00h
+Return: CL = driver state
+	    01h initialized
+	    80h not initialized
+	AX = status (see #00642)
+SeeAlso: AH=8Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1794" name="1794"><b>1794</b></a> - INT 17 - Alloy NTNX, MW386 - SELECT PRINTER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - SELECT PRINTER
+	AH = 94h
+	AL = mode
+	    00h NTNX compatibility
+		DX = NTNX printer number (see #00643)
+	    01h MW386
+		DX = MW386 printer number
+	    02h MW386 v2+
+		BX = logical printer number
+		DX = MW386 printer number
+Return: AL = status (see #00642)
+Note:	modes 00h and 01h affect only logical LPT1
+SeeAlso: AH=8Bh,AH=95h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1795" name="1795"><b>1795</b></a> - INT 17 - Alloy NTNX, MW386 - GET CURRENT PRINTER<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - GET CURRENT PRINTER
+	AH = 95h
+	AL = mode
+	    00h NTNX compatibility
+		Return: DX = NTNX printer number (see #00643)
+			    (FFFFh if current printer not compatible with NTNX)
+	    01h MW386
+		Return: DX = MW386 printer number
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+		Return: DX = MW386 printer number (FFFFh = none)
+Return: AL = status (see #00642)
+Note:	modes 00h and 01h return the printer number of logical LPT1 only
+SeeAlso: AH=94h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1796" name="1796"><b>1796</b></a> - INT 17 - Alloy NTNX - SET SERIAL PORT PARAMETERS<br />
+<pre>
+INT 17 - Alloy NTNX - SET SERIAL PORT PARAMETERS
+	AH = 96h
+	AL = 00h
+Note:	documentation states that this is a NOP, doing only XOR AX,AX before
+	  returning
+SeeAlso: INT 14/AH=24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1797" name="1797"><b>1797</b></a> - INT 17 - Alloy NTNX, MW386 - SET DATA DRIVEN PRINT BREAK<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - SET DATA DRIVEN PRINT BREAK
+	AH = 97h
+	AL = mode
+	    00h NTNX compatibility
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+	CH,CL,DH = three character break sequence
+	DL = subfunction
+	    00h set break string
+	    else reset break
+Return: AL = status (see #00642)
+Notes:	mode 00h affects only logical LPT1
+	when the break string is encountered, the spool file will be closed and
+	  queued for printing automatically
+	the break string is not permanently saved, and will be reset each time
+	  MW386 or the user is rebooted
+SeeAlso: AH=9Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1798" name="1798"><b>1798</b></a> - INT 17 - Alloy NTNX,MW386 - RESTART PRINTER<br />
+<pre>
+INT 17 - Alloy NTNX,MW386 - RESTART PRINTER
+	AH = 98h
+	AL = 00h
+	DL = printer number (FFh=current)
+Return: AL = status
+	    00h successful
+	    01h incorrect printer
+	    02h task not found
+Note:	MW386 supports this function for compatibility only; it is a NOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1799" name="1799"><b>1799</b></a> - INT 17 - Alloy NTNX, MW386 - GET/SET PRINTER MODE<br />
+<pre>
+INT 17 - Alloy NTNX, MW386 - GET/SET PRINTER MODE
+	AH = 99h
+	AL = mode
+	    00h NTNX compatibility
+		DL = NTNX printer number (see #00643)
+			(FFh = task's current logical LPT1)
+		DH = mode (see #00644)
+	    01h MW386
+		DX = MW386 printer number
+		CL = mode (as for DH above)
+Return: AL = status (see #00642)
+	DH = mode (bits 1 and 2 set as above)
+	DL = printer owner's user number if not spooled
+
+Bitfields for Alloy printer mode:
+ 0	get mode if 1, set mode if 0	(Table 00644)
+ 1	private ("attached")
+ 2	direct instead of spooled
+ 3-7	reserved (0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#179A" name="179A"><b>179A</b></a> - INT 17 - Alloy NTNX,MW386 - SET TAB EXPANSION<br />
+<pre>
+INT 17 - Alloy NTNX,MW386 - SET TAB EXPANSION
+	AH = 9Ah
+	AL = mode
+	    00h NTNX compatibility
+		DX = NTNX printer number (see #00643)
+			(FFFFh = current logical LPT1)
+	    01h MW386
+		DX = MW386 printer number
+	CL = tab length (00h = no expansion, 01h-63h = spaces per tab)
+Return: AL = status (see #00642)
+Note:	beginning with MW386 v2.0, tab expansion is set on a per-printer basis
+	  rather than a per-user basis; NTNX and MW386 v1.x ignore DX
+SeeAlso: AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#179B" name="179B"><b>179B</b></a> - INT 17 - Alloy NTNX,MW386 - SET PRINT BREAK TIMEOUT<br />
+<pre>
+INT 17 - Alloy NTNX,MW386 - SET PRINT BREAK TIMEOUT
+	AH = 9Bh
+	AL = mode
+	    00h NTNX compatibility
+		CX = timeout value in clock ticks (1/18 sec) (00h = never)
+	    01h MW386
+		CX = timeout value in seconds (00h = never)
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+		CX = timeout value in seconds (00h = never)
+Return: AL = status (see #00642)
+Notes:	modes 00h and 01h affect only the current logical LPT1
+	if no data is sent to a printer for the specified amount of time, the
+	  spool file will be closed and queued for printing automatically
+SeeAlso: AH=97h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A0" name="17A0"><b>17A0</b></a> - INT 17 - Alloy MW386 - SPOOL COPY OF FILE<br />
+<pre>
+INT 17 - Alloy MW386 - SPOOL COPY OF FILE
+	AH = A0h
+	AL = mode
+	    00h NTNX compatibility
+		DX = ??? (NTNX, MW386 v1.x only)
+	    02h MW386 v2+
+		BX = logical device number
+		    00h-03h = LPT1-LPT4
+		    04h-07h = COM1-COM4
+	CX:SI -&gt; ASCIZ pathname
+Return: AL = status (see #00642)
+Notes:	makes a copy of the specified file in the spooler's directory, allowing
+	  the original file to be modified or deleted while the copy is printed
+	in mode 00h, the file is printed on logical LPT1
+SeeAlso: AH=90h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A4" name="17A4"><b>17A4</b></a> - INT 17 - Alloy MW386 - ENABLE/DISABLE FORM FEED<br />
+<pre>
+INT 17 - Alloy MW386 - ENABLE/DISABLE FORM FEED
+	AH = A4h
+	AL = new state
+	    00h form feed after end of print job disabled
+	    01h form feed enabled
+Return: AL = status (see #00642)
+Note:	only affects the current logical LPT1
+SeeAlso: AH=9Ah,AH=A6h,INT 7F/AH=05h"NTNX (Host)"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A6" name="17A6"><b>17A6</b></a> - INT 17 - Alloy MW386 - ENABLE/DISABLE BANNER PAGE<br />
+<pre>
+INT 17 - Alloy MW386 - ENABLE/DISABLE BANNER PAGE
+	AH = A6h
+	AL = new state
+	    00h banner page before print job disabled
+	    01h banner page enabled
+Return: AL = status (see #00642)
+Note:	only affects the current logical LPT1
+SeeAlso: AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A7" name="17A7"><b>17A7</b></a> - INT 17 - Alloy MW386 v2+ - GET/SET SPOOL FLAGS<br />
+<pre>
+INT 17 - Alloy MW386 v2+ - GET/SET SPOOL FLAGS
+	AH = A7h
+	AL = spool flags (see #00645)
+	BX = logical device number
+	    00h-03h = LPT1-LPT4
+	    04h-07h = COM1-COM4
+Return: AL = status (see #00642)
+Note:	the documentation does not state which register contains the result of
+	  a GET
+SeeAlso: AH=A4h,AH=A6h
+
+Bitfields for Alloy spool flags:
+Bit(s)	Description	(Table 00645)
+ 0	banner page enabled (see AH=A6h)
+ 1	form feed enabled (see AH=A4h)
+ 2-6	reserved (0)
+ 7	set flags if 1, get flags if 0
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A8" name="17A8"><b>17A8</b></a> - INT 17 - Alloy MW386 - DEFINE TEMPORARY FILENAME<br />
+<pre>
+INT 17 - Alloy MW386 - DEFINE TEMPORARY FILENAME
+	AH = A8h
+	CX:SI -&gt; ASCIZ filename without extension (max 8 chars)
+Return: AL = status (see #00642)
+Note:	allows application to specify banner page filename for spool files
+	  collected from the application's printer output
+SeeAlso: AH=A9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17A9" name="17A9"><b>17A9</b></a> - INT 17 - Alloy MW386 - CHANGE TEMPORARY SPOOL DRIVE<br />
+<pre>
+INT 17 - Alloy MW386 - CHANGE TEMPORARY SPOOL DRIVE
+	AH = A9h
+	AL = new spool drive (2=C:,3=D:,etc)
+Return: AL = status (see #00642)
+Note:	does not remove previous spooling directory since jobs may be pending
+SeeAlso: AH=A8h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17AA" name="17AA"><b>17AA</b></a> - INT 17 - Alloy MW386 v2+ - GET REAL-TIME PRINTER STATUS<br />
+<pre>
+INT 17 - Alloy MW386 v2+ - GET REAL-TIME PRINTER STATUS
+	AH = AAh
+	AL = mode
+	    00h NTNX
+		DX = NTNX printer number (see #00643)
+	    01h MW386
+		DX = MW386 printer number
+Return: AH = instantaneous printer status
+	    00h printer ready
+	    01h not ready
+	    12h off line
+	    13h out of paper
+	    14h general device failure
+	    15h device timeout
+	    16h bad device number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17AF" name="17AF"><b>17AF</b></a> - INT 17 - Alloy MW386 - CHECK SPOOLER<br />
+<pre>
+INT 17 - Alloy MW386 - CHECK SPOOLER
+	AH = AFh
+Return: AX = 55AAh if spooler available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C0" name="17C0"><b>17C0</b></a> - INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS<br />
+<pre>
+INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS
+	AH = C0h
+	DX = printer port (0-3)
+Return: ES:BX -&gt; control block (see #00646)
+SeeAlso: AH=C1h
+
+Format of PCSpool control block:
+Offset	Size	Description	(Table 00646)
+ 00h	WORD	printer number
+ 02h	WORD	address of printer status port
+ 04h	WORD	number of first record in queue
+ 06h	WORD	number of last record in queue
+ 08h	DWORD	characters already printed
+ 0Ch	DWORD	number of characters remaining
+ 10h	DWORD	pointer to dequeue buffer
+ 14h	DWORD	previous count of characters printed
+ 18h	DWORD	number of clock ticks taken to print them
+ 1Ch	WORD	offset of next character to output
+ 1Eh	WORD	offset of next character to print
+ 20h	WORD	pointer to spooling queue record
+ 22h	BYTE	current spooling status
+ 23h	BYTE	current printer status:
+		00h OK
+		01h not ready
+		02h paused with message
+		03h paused
+		04h initializing
+		FEh non-existent port
+		FFh not spooled
+ 24h	BYTE	current control record type
+ 25h	WORD	observed printer speed
+ 27h	WORD	characters to print per service
+ 29h	BYTE	01h if disk write needed
+ 2Ah	BYTE	01h if queued data should be flushed
+ 2Bh	BYTE	01h to update cps status
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C1" name="17C1"><b>17C1</b></a> - INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD<br />
+<pre>
+INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD
+	AH = C1h
+	DX = printer port (0-3)
+	DS:SI -&gt; ASCIZ string to save for display
+Note:	flushes pending writes
+SeeAlso: AH=C0h,AH=C2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C2" name="17C2"><b>17C2</b></a> - INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES<br />
+<pre>
+INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES
+	AH = C2h
+	DX = printer port (0-3)
+SeeAlso: AH=C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C3" name="17C3"><b>17C3</b></a> - INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)
+	AH = C3h
+	DX = printer port (0-3)
+SeeAlso: AH=C2h,AH=C7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C4" name="17C4"><b>17C4</b></a> - INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE
+	AH = C4h
+Return: DI = B0BFh
+	SI = segment
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C5" name="17C5"><b>17C5</b></a> - INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE
+	AH = C5h
+	DX = printer port (0-3)
+Note:	cancels up to the pause record
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C6" name="17C6"><b>17C6</b></a> - INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS
+	AH = C6h
+	DX = printer port (0-3)
+Return: AX = queue status
+	   0000h printer not active or at pause
+	   0001h printer busy
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C7" name="17C7"><b>17C7</b></a> - INT 17 - PC Magazine PCSpool - CLOSE QUEUE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CLOSE QUEUE
+	AH = C7h
+	DX = printer port (0-3)
+SeeAlso: AH=C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD00" name="17CD00"><b>17CD00</b></a> - INT 17 - INSET - EXECUTE COMMAND STRING<br />
+<pre>
+INT 17 - INSET - EXECUTE COMMAND STRING
+	AX = CD00h
+	DS:DX -&gt; ASCIZ command string (max 80 bytes)
+Return: CX = 07C2h (1986d)
+Note:	user interface menus pop up after last command, unless that command
+	exits INSET
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD01" name="17CD01"><b>17CD01</b></a> - INT 17 - INSET - GET IMAGE SIZE<br />
+<pre>
+INT 17 - INSET - GET IMAGE SIZE
+	AX = CD01h
+	DS:DX -&gt; ASCIZ name of image file
+Return: AX = height in 1/720th inch
+	BX = width in 1/720th inch
+	CX = 07C2h (1986d)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD02" name="17CD02"><b>17CD02</b></a> - INT 17 - INSET - INITIALIZE<br />
+<pre>
+INT 17 - INSET - INITIALIZE
+	AX = CD02h
+Return: CX = 07C2h (1986d)
+Note:	all open files are closed and the printer is reset
+SeeAlso: AX=CD04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD03" name="17CD03"><b>17CD03</b></a> - INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE<br />
+<pre>
+INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE
+	AX = CD03h
+Return: CX = 07C2h (1986d)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD04" name="17CD04"><b>17CD04</b></a> - INT 17 - INSET - INITIALIZE LINKED MODE<br />
+<pre>
+INT 17 - INSET - INITIALIZE LINKED MODE
+	AX = CD04h
+	ES:SI -&gt; FAR routine for linked mode (see #00647)
+Return: CX = 07C2h
+SeeAlso: AX=CD02h,AX=CD08h
+
+(Table 00647)
+Values INSET linked-mode routine is called with:
+	AL = function
+	    00h send character to printer
+		BL = character to send
+	    01h send string to printer
+		CX = number of bytes to send
+		DS:DX -&gt; buffer containing data
+	    02h move print head to horizontal starting position of image
+Return: AX = status
+	    0000h success
+	    0001h failure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD05" name="17CD05"><b>17CD05</b></a> - INT 17 - INSET - START MERGING IMAGE INTO TEXT<br />
+<pre>
+INT 17 - INSET - START MERGING IMAGE INTO TEXT
+	AX = CD05h
+	DS:DX -&gt; ASCIZ name of PIX file
+	CX = left margin of text in 1/720th inch
+Return: AH = printer type
+	    00h page-oriented (multiple images may be placed side-by-side)
+	    01h line-oriented (use AX=CD06h for vertical paper movement)
+	CX = 07C2h (1986d)
+SeeAlso: AX=CD07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD06" name="17CD06"><b>17CD06</b></a> - INT 17 - INSET - GRAPHICS LINE FEED<br />
+<pre>
+INT 17 - INSET - GRAPHICS LINE FEED
+	AX = CD06h
+Return: AH = completion status
+	    00h image complete
+	    01h image incomplete
+	CX = 07C2h (1986d)
+SeeAlso: AX=CD09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD07" name="17CD07"><b>17CD07</b></a> - INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER<br />
+<pre>
+INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER
+	AX = CD07h
+Return: CX = 07C2h
+SeeAlso: AX=CD05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD08" name="17CD08"><b>17CD08</b></a> - INT 17 - INSET - CANCEL LINK MODE<br />
+<pre>
+INT 17 - INSET - CANCEL LINK MODE
+	AX = CD08h
+Return: CX = 07C2h
+SeeAlso: AX=CD04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD09" name="17CD09"><b>17CD09</b></a> - INT 17 - INSET - ALTER TEXT LINE SPACING<br />
+<pre>
+INT 17 - INSET - ALTER TEXT LINE SPACING
+	AX = CD09h
+	CX = line spacing in 1/720th inch
+Return: CX = 07C2h
+Note:	not yet implemented, line spacing is currently fixed at 1/6 inch
+SeeAlso: AX=CD06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0A" name="17CD0A"><b>17CD0A</b></a> - INT 17 - INSET - GET SETUP<br />
+<pre>
+INT 17 - INSET - GET SETUP
+	AX = CD0Ah
+	DS:DX -&gt; buffer for IN.SET data
+Return: CX = 07C2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0B" name="17CD0B"><b>17CD0B</b></a> - INT 17 - INSET - START GETTING SCALED IMAGE<br />
+<pre>
+INT 17 - INSET - START GETTING SCALED IMAGE
+	AX = CD0Bh
+	DS:SI -&gt; ASCIZ pathname of .PIX file
+	BX = number of bitplanes
+	CX = number of rows in output bitmap
+	DX = number of columns in output bitmap
+Return: AX = status
+	    0000h OK
+	    FFFFh error
+Note:	image is returned in strips by repeated calls to AX=CD0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0C" name="17CD0C"><b>17CD0C</b></a> - INT 17 - INSET - GET NEXT IMAGE STRIP<br />
+<pre>
+INT 17 - INSET - GET NEXT IMAGE STRIP
+	AX = CD0Ch
+Return: AX = status
+	    0000h OK but not complete
+	    0001h OK and image complete
+	    FFFFh error
+	DS:SI -&gt; buffer (max 4K) for bit map strip
+	CX = start row
+	DX = number of rows
+	BX = offset in bytes between bit planes
+Note:	buffer may be overwritten by subsequent calls
+SeeAlso: AX=CD0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E0" name="17E0"><b>17E0</b></a> - INT 17 - EPP BIOS - INSTALLATION CHECK<br />
+<pre>
+INT 17 - EPP BIOS - INSTALLATION CHECK
+	AH = E0h
+Return: ??? (AH &lt;&gt; E0h if installed ???)
+SeeAlso: AX=0200h"EPP",AH=E1h,AH=E2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E1" name="17E1"><b>17E1</b></a> - INT 17 - EPP BIOS - DISABLE EPP<br />
+<pre>
+INT 17 - EPP BIOS - DISABLE EPP
+	AH = E1h
+	???
+Return: ???
+SeeAlso: AX=0200h"EPP",AH=E0h,AH=E2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E2" name="17E2"><b>17E2</b></a> - INT 17 - EPP BIOS - ENABLE EPP<br />
+<pre>
+INT 17 - EPP BIOS - ENABLE EPP
+	AH = E2h
+	???
+Return: ???
+SeeAlso: AX=0200h"EPP",AH=E0h,AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F0" name="17F0"><b>17F0</b></a> - INT 17 - NorthNet Jetstream API - INSTALLATION CHECK<br />
+<pre>
+INT 17 - NorthNet Jetstream API - INSTALLATION CHECK
+	AH = F0h
+	DX = printer port (0-3)
+Return: AX = 0001h Jetstream present
+	     else  non-Jetstream port
+Note:	NorthNet Jetstream is a high-performance DMA-driven parallel card able
+	  to drive printers at up to 80000 characters per second
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F1" name="17F1"><b>17F1</b></a> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER<br />
+<pre>
+INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER
+	AH = F1h
+	CX = data buffer length
+	DX = printer port (0-3)
+	DS:SI -&gt; data buffer
+Return: AX = status
+	    0000h printer not ready (see also AH=02h)
+	    other printing started
+SeeAlso: AH=00h,AH=F2h,AH=F3h,AH=F5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F2" name="17F2"><b>17F2</b></a> - INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS<br />
+<pre>
+INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS
+	AH = F2h
+	DX = printer port (0-3)
+Return: AX = status
+	    0000h prior print request finished
+	    other number of characters left to print
+SeeAlso: AH=02h,AH=F1h,AH=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F3" name="17F3"><b>17F3</b></a> - INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION<br />
+<pre>
+INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION
+	AH = F3h
+	DX = printer port (0-3)
+Return: AX = number of unprinted characters due to abort
+SeeAlso: AH=F1h,AH=F4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F4" name="17F4"><b>17F4</b></a> - INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS<br />
+<pre>
+INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS
+	AH = F4h
+	DX = printer port (0-3)
+	DS:DS -&gt; FAR post address (called with interrupts on)
+SeeAlso: AH=F1h,AH=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F5" name="17F5"><b>17F5</b></a> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY<br />
+<pre>
+INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY
+	AH = F5h
+	CX = data buffer length
+	DX = printer port (0-3)
+	DS:SI -&gt; data buffer (32-bit physical address)
+Return: AX = status
+	    0000h printer not ready (see also AH=02h)
+	    other printing started
+SeeAlso: AH=F1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17FF--BX0000" name="17FF--BX0000"><b>17FF--BX0000</b></a> - INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE<br />
+<pre>
+INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE
+	AH = FFh
+	BX = 0000h
+	CX = 0000h
+	DX = printer port number
+Return: AH = printer status (see #00631 at AH=00h)
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+Desc:	close the spool file immediately instead of waiting for the close time
+	  to elapse
+SeeAlso: AH=01h,AH=03h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

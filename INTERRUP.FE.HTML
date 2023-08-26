@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._FE</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT FE
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#FE"><b>FE</b> - INT FE - AT/XT286/PS50+ - destroyed by return from protected mode</a><br />
+<a href="#FE_0"><b>FE</b> - INT FE - DoubleDOS - GIVE UP TIME</a><br />
+<a href="#FE_1"><b>FE</b> - INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER</a><br />
+<a href="#FE_2"><b>FE</b> - INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT</a><br />
+
+<hr />
+
+<a href="#FE" name="FE"><b>FE</b></a> - INT FE - AT/XT286/PS50+ - destroyed by return from protected mode<br />
+<pre>
+INT FE - AT/XT286/PS50+ - destroyed by return from protected mode
+Note:	the ROM BIOS uses 0030h:0100h as the initial stack on startup, which
+	  is the last fourth of the interrupt vector table.  If the processor
+	  is returned to real mode via a hardware reset (the only possibility
+	  on an 80286, though there are a number of ways of generating one),
+	  then the BIOS startup code stacks three words on its scratch stack
+	  before determining that a return to real mode has been requested.
+	  As a result, INT FE and INT FF are corrupted.
+SeeAlso: INT FF"XT286"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_0" name="FE_0"><b>FE</b></a> - INT FE - DoubleDOS - GIVE UP TIME<br />
+<pre>
+INT FE - DoubleDOS - GIVE UP TIME
+	AL = number of 55ms time slices to give away
+Return: after other program (if active) has run
+SeeAlso: INT 21/AH=EEh"DoubleDOS",INT F4"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_1" name="FE_1"><b>FE</b></a> - INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER<br />
+<pre>
+INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER
+SeeAlso: INT 3F
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_2" name="FE_2"><b>FE</b></a> - INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT<br />
+<pre>
+INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0E"IRQ6",INT FD"Sanyo",INT FF"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

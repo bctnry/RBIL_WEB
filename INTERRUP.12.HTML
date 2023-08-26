@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._12</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 12
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#12"><b>12</b> - INT 12 - BIOS - GET MEMORY SIZE</a><br />
+<a href="#12_0"><b>12</b> - INT 12 - CPU-generated (Pentium +) - MACHINE CHECK EXCEPTION</a><br />
+<a href="#12----CX1806"><b>12----CX1806</b> - INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK</a><br />
+<a href="#12----CX1807"><b>12----CX1807</b> - INT 12 - PARKER v2.0+ - INSTALLATION CHECK</a><br />
+<a href="#1205D7BX05D7"><b>1205D7BX05D7</b> - INT 12 U - Borland C++ IDE - INSTALLATION CHECK</a><br />
+<a href="#124350BX4920"><b>124350BX4920</b> - INT 12 C - CPI-standard virus - "FRIEND" CHECK</a><br />
+<a href="#12FFFECXFFFE"><b>12FFFECXFFFE</b> - INT 12 - Back&Forth v1.62+ - API</a><br />
+
+<hr />
+
+<a href="#12" name="12"><b>12</b></a> - INT 12 - BIOS - GET MEMORY SIZE<br />
+<pre>
+INT 12 - BIOS - GET MEMORY SIZE
+Return: AX = kilobytes of contiguous memory starting at absolute address 00000h
+Note:	this call returns the contents of the word at 0040h:0013h; in PC and
+	  XT, this value is set from the switches on the motherboard
+SeeAlso: INT 11"BIOS",INT 2F/AX=4A06h,INT 4C"Tandy 2000",MEM 0040h:0013h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12_0" name="12_0"><b>12</b></a> - INT 12 - CPU-generated (Pentium +) - MACHINE CHECK EXCEPTION<br />
+<pre>
+INT 12 - CPU-generated (Pentium +) - MACHINE CHECK EXCEPTION
+Notes:	Intel documents this interrupt as CPU model-dependent
+	for current Pentium processors, the reason for the machine check
+	  exception may be read from model-specific registers 00h and 01h
+	  (described, for example, in Christian Ludloff's 4P package)
+	for Pentium Pro/II processors,	the reason may be read from the
+	  MCG_STATUS MSR (see MSR 0000017Ah)
+	this exception is enabled by bit 6 of CR4
+SeeAlso: INT 11"CPU",MSR 00000000h,MSR 00000001h,MSR 0000017Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12----CX1806" name="12----CX1806"><b>12----CX1806</b></a> - INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK
+	CX = 1806h
+Return: AX = kilobytes of contiguous memory starting at absolute address 00000h
+	CX = 1960h if installed
+Program: KEYBUI is a resident keyboard driver by Johan Zwiekhorst which allows
+	  accented characters and box drawing on standard QWERTY keyboards; it
+	  also provides break-to-DOS and screen blanking capabilities
+SeeAlso: INT 14/AX=AA01h
+Index:	screen saver;KEYBUI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12----CX1807" name="12----CX1807"><b>12----CX1807</b></a> - INT 12 - PARKER v2.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 12 - PARKER v2.0+ - INSTALLATION CHECK
+	CX = 1807h
+Return: AX = kilobytes of contiguous memory starting at absolute address 00000h
+	CX = 1961h if installed
+Program: PARKER is an optionally-resident hard disk parking program by Johan
+	  Zwiekhorst
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1205D7BX05D7" name="1205D7BX05D7"><b>1205D7BX05D7</b></a> - INT 12 U - Borland C++ IDE - INSTALLATION CHECK<br />
+<pre>
+INT 12 U - Borland C++ IDE - INSTALLATION CHECK
+	AX = 05D7h (1495d)
+	BX = 05D7h
+Note:	the BC++ IDE will call INT 11/AX=05D7h/BX=0088h if it is loaded
+SeeAlso: INT 11/AX=05D7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#124350BX4920" name="124350BX4920"><b>124350BX4920</b></a> - INT 12 C - CPI-standard virus - "FRIEND" CHECK<br />
+<pre>
+INT 12 C - CPI-standard virus - "FRIEND" CHECK
+	AX = 4350h
+	BX = 4920h
+	CX = AB46h
+	DX = 554Eh
+Return: if friendly (not to be infected)
+	    CX:DX -&gt; ASCIZ identity code (changes yearly)
+SeeAlso: INT 13/AX=EC00h"VIRUS",INT 13/AX=5001h,INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12FFFECXFFFE" name="12FFFECXFFFE"><b>12FFFECXFFFE</b></a> - INT 12 - Back&Forth v1.62+ - API<br />
+<pre>
+INT 12 - Back&Forth v1.62+ - API
+	AX = FFFEh
+	CX = FFFEh
+	BX = function
+	    00h installation check
+		Return: AX = 0001h installed
+			     else  not loaded
+	    01h (reserved)
+	    02h build program ID list (shareware Back&Forth)
+		ES:DI -&gt; buffer of at least 100 bytes, to be filled with words
+		Return: AX = number of programs defined
+			ES:DI buffer filled with AX words
+	    02h get memory statistics (Back&Forth Professional)
+		Return: AX = available swap memory, KBytes
+			BX = maximum task size, KBytes
+			DX = fixed overhead per task, excluding video/macro
+			      storage
+	    03h switch to specified task (task need not be open yet)
+		DX = two-letter program ID
+		Return: AX = status
+			    0000h if task undefined
+			    0001h task switch will occur when safe
+	    04h (reserved)
+	    05h (reserved)
+	    06h get version (documented only for Back&Forth Professional)
+		Return: AX = version * 100 (v1.71 = 00ABh)
+	    07h spawn program (Back&Forth Professional only???)
+		ES:DI -&gt; BF_SPAWN record (see #00232)
+		Return: AX = status
+			    0000h if no task handles free
+			    0001h spawn will occur when safe
+	    08h get open tasks (documented only for Back&Forth Professional)
+		ES:DI -&gt; task info buffer (see #00231,#00233)
+		Return: AX = number of open tasks (max 20)
+		Note:	the supplied buffer must be large enough to hold 21
+			  task entries
+	    09h (reserved)
+	    ---Back&Forth Professional---
+	    0Ah get active clipboard filename
+		Return: DX:AX -&gt; ASCIZ clipboard filename
+	    0Bh get active task number
+		AX = active task number (00h-13h)
+		BX = number of tasks allocated
+		DX = maximum number of tasks
+	    0Ch (reserved)
+	    0Dh (reserved)
+	    0Eh (reserved)
+	    0Fh stuff string into keyboard buffer
+		ES:DI -&gt; ASCIZ string to be stuffed
+		Return: nothing
+	    10h check if in graphics mode
+		Return: AX = state
+			    0000h color text mode
+			    0004h mono text mode
+			    FFFFh graphics mode
+	    11h get Back&Forth Professional user number
+		Return: AX = user number (0000h-00FFh)
+	    12h switch task by task number
+		DX = task number
+		Return: AX = status
+			    0000h attempted to switch to active task
+			    0001h task switch will occur when safe
+			    FFFFh invalid task number
+	    13h delete (kill) task
+		DX = task number
+		Return: AX = status
+			    0000h attempted to delete the active task
+			    0001h successfully deleted
+			    FFFFh invalid task number
+		Note:	the active task number will change if the deleted task
+			  was lower in the task list than the active task
+	    14h get next available task handle
+		Return:	AX = next available task handle
+			    FFFFh if task table is full
+Program: Back & Forth is a task switcher by Progressive Solutions, Inc.
+SeeAlso: INT 11/AX=FFFEh
+Index:	installation check;BACK&FORTH
+
+Format of Back&Forth task info buffer:
+Offset	Size	Description	(Table 00231)
+ 00h 21 BYTEs	ASCIZ task name
+ 15h	BYTE	hotkey shift state (as for INT 16/AH=02h)
+ 16h	WORD	hotkey scan code (see also #00006)
+ 18h	WORD	program ID
+Index:	hotkeys;Back&Forth
+SeeAlso: #00232,#00233
+
+Format of Back&Forth Professional BF_SPAWN record:
+Offset	Size	Description	(Table 00232)
+ 00h 21 BYTEs	task description
+ 15h	BYTE	flag: disable hotkeys
+ 16h	WORD	environment size in bytes
+ 18h	BYTE	hotkey shift flags
+ 19h	WORD	hotkey scancode
+ 1Bh	WORD	maximum number of EMS pages
+ 1Dh	WORD	required memory in KBytes
+ 1Fh  3 BYTEs	DESQview-style two-letter program ID
+ 22h 13 BYTEs	base name of program to be run (no path or extension)
+ 2Fh 66 BYTEs	directory from which to start program
+ 71h 66 BYTEs	initial current directory for program
+SeeAlso: #00231,#00233
+
+Format of Back&Forth Professional BF_TASK record:
+Offset	Size	Description	(Table 00233)
+ 00h	DWORD	Unix-style task start time (seconds since 1970/1/1)
+ 04h 21 BYTEs	task description
+ 19h	DWORD	elapsed time in task (seconds)
+ 1Dh	WORD	task ID
+ 1Fh	BYTE	task hotkey keyboard flags
+ 20h	WORD	task hotkey scan code (see also #00006)
+ 22h	DWORD	time task was suspended/exited
+ 26h	WORD	task handle
+SeeAlso: #00231,#00232
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

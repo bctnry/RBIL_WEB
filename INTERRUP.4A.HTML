@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._4A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 4A
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#4A"><b>4A</b> - INT 4A C - SYSTEM - USER ALARM HANDLER</a><br />
+<a href="#4A_0"><b>4A</b> - INT 4A - Z100 - Slave 8259 - S100 vectored line 2</a><br />
+<a href="#4A_1"><b>4A</b> - INT 4A - Tandy 2000 - PRINT SCREEN</a><br />
+<a href="#4A_2"><b>4A</b> - INT 4A - Acorn BBC Master 512 - "OSWORD" - MISC FUNCTIONS USING CONTROL BLOCK</a><br />
+<a href="#4A00"><b>4A00</b> - INT 4A - TI Professional PC - KEYBOARD - GET KEYPRESS</a><br />
+<a href="#4A01"><b>4A01</b> - INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD STATUS</a><br />
+<a href="#4A02"><b>4A02</b> - INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD MODE</a><br />
+<a href="#4A03"><b>4A03</b> - INT 4A - TI Professional PC - KEYBOARD - FLUSH KEYBOARD BUFFER</a><br />
+<a href="#4A04"><b>4A04</b> - INT 4A - TI Professional PC - KEYBOARD - SEND COMMAND TO KEYBOARD</a><br />
+<a href="#4A05"><b>4A05</b> - INT 4A - TI Professional PC - KEYBOARD - INSERT CHARACTER INTO KEYBOARD BUFFER</a><br />
+
+<hr />
+
+<a href="#4A" name="4A"><b>4A</b></a> - INT 4A C - SYSTEM - USER ALARM HANDLER<br />
+<pre>
+INT 4A C - SYSTEM - USER ALARM HANDLER
+Desc:	This interrupt is invoked by the BIOS when a real-time clock alarm
+	  occurs; an application may use it to perform an action at a
+	  predetermined time.
+Note:	this interrupt is called from within a hardware interrupt handler,
+	  so all usual precautions against reentering DOS must be taken
+SeeAlso: INT 1A/AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A_0" name="4A_0"><b>4A</b></a> - INT 4A - Z100 - Slave 8259 - S100 vectored line 2<br />
+<pre>
+INT 4A - Z100 - Slave 8259 - S100 vectored line 2
+SeeAlso: INT 49"Z100",INT 4B"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A_1" name="4A_1"><b>4A</b></a> - INT 4A - Tandy 2000 - PRINT SCREEN<br />
+<pre>
+INT 4A - Tandy 2000 - PRINT SCREEN
+Note:	this interrupt is identical to INT 05
+SeeAlso: INT 05"PRINT SCREEN"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A_2" name="4A_2"><b>4A</b></a> - INT 4A - Acorn BBC Master 512 - "OSWORD" - MISC FUNCTIONS USING CONTROL BLOCK<br />
+<pre>
+INT 4A - Acorn BBC Master 512 - "OSWORD" - MISC FUNCTIONS USING CONTROL BLOCK
+	AL = function code
+	    FAh transfer data between 80186 and 65C12 I/O processor
+	DS:BX -&gt; control block (see #03211)
+Return: FLAGS destroyed
+	control block updated
+Note:	there are more functions than are listed here, but details are not
+	  available
+SeeAlso: INT 40"Acorn",INT 4B"Acorn",INT 4C"Acorn"
+
+Format of BBC Master control block for function FAh:
+Offset	Size	Description	(Table 03211)
+ 00h	BYTE	number of parameters sent to I/O processor (0Dh,0Eh)
+ 01h	BYTE	number of parameters read from I/O processor (01h)
+ 02h	DWORD	I/O processor address
+ 06h	DWORD	80186 segment:offset address
+ 0Ah	WORD	number of bytes to transfer
+ 0Ch	BYTE	operation type
+		00h write to 65C12 at 24 us/byte
+		01h read from 65C12 at 24 us/byte
+		02h write to 65C12 at 26 us/word
+		03h read from 65C12 at 26 us/word
+		04h write to 65C12 at 10 us/byte using 256-byte blocks
+		05h read from 65C12 at 10 us/byte using 256-byte blocks
+ 0Dh	BYTE	65C12 memory access control (only used if offset 00h = 0Eh)
+		(see #03212)
+
+Bitfields for 65C12 memory access control:
+Bit(s)	Description	(Table 03212)
+ 7	unused
+ 6	always use main screen memory if I/O addr 3000h-7FFFh (overrides bit 5)
+ 5	use shadow screen memory if screen address specified
+ 4	use current ROM rather than ROM selected by bits 3-0 (only if I/O
+	  address between 8000h and BFFFh)
+ 3-0	paged ROM number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A00" name="4A00"><b>4A00</b></a> - INT 4A - TI Professional PC - KEYBOARD - GET KEYPRESS<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - GET KEYPRESS
+	AH = 00h
+Return: AX = keystroke (AH=00h for ASCII keys -- no scan code)
+SeeAlso: AH=01h,AH=02h,AH=03h,AH=04h,AH=05h,INT 16/AH=00h
+SeeAlso: INT 47"TI Professional",INT 48/AH=00h"TI Professional"
+SeeAlso: INT 49/AH=01h"TI",INT 4C"TI Professional",INT 4D/AH=00h
+SeeAlso: INT 5B"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A01" name="4A01"><b>4A01</b></a> - INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD STATUS<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD STATUS
+	AH = 01h
+Return: ZF set if no keystroke available
+	ZF clear if keystrokes in buffer
+	    AX = next keystroke (AH=00h for ASCII keys -- no scan code)
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=05h,INT 16/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A02" name="4A02"><b>4A02</b></a> - INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD MODE<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - GET KEYBOARD MODE
+	AH = 02h
+Return: AL = shift states (see #03213)
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=05h,INT 16/AH=02h
+
+Bitfields for TI Professional PC keyboard shift states:
+Bit(s)	Description	(Table 03213)
+ 0	Ctrl key pressed
+ 1	Alt key pressed
+ 2	either Shift key pressed
+ 3-6	0
+ 7	CapsLock is ON
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A03" name="4A03"><b>4A03</b></a> - INT 4A - TI Professional PC - KEYBOARD - FLUSH KEYBOARD BUFFER<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - FLUSH KEYBOARD BUFFER
+	AH = 03h
+Return: nothing
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A04" name="4A04"><b>4A04</b></a> - INT 4A - TI Professional PC - KEYBOARD - SEND COMMAND TO KEYBOARD<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - SEND COMMAND TO KEYBOARD
+	AH = 04h
+	AL = command
+	    00h reset to default states
+	    01h enable auto-repeat (default)
+	    02h disable auto-repeat
+	    03h lock keyboard
+	    04h unlock keyboard (default)
+	    05h enable keyclick (requires hardware modification to work)
+	    06h disable keyclick (default)
+Return: nothing
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A05" name="4A05"><b>4A05</b></a> - INT 4A - TI Professional PC - KEYBOARD - INSERT CHARACTER INTO KEYBOARD BUFFER<br />
+<pre>
+INT 4A - TI Professional PC - KEYBOARD - INSERT CHARACTER INTO KEYBOARD BUFFER
+	AH = 05h
+	BX = character code (BH=00h if ASCII character, BL=00h/BH nonzero for
+	      extended codes) (see #03214)
+Return: ZF set if keyboard buffer was already full
+	ZF clear if keystroke inserted into buffer
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=05h,INT 5B"TI"
+
+(Table 03214)
+Values for TI Professional PC scan/character codes:
+ Scan	Key	Normal	Shift	Ctrl	Alt	Notes
+ 00h	  -- unused
+ 01h	F5	3F00h	5800h	6200h	6C00h
+ 02h	F6	4000h	5900h	6300h	6D00h
+ 03h	F7	4100h	5A00h	6400h	6E00h
+ 04h	F8	4200h	5B00h	6500h	6F00h
+ 05h	F9	4300h	5C00h	6600h	7000h
+ 06h	F10	4400h	5D00h	6700h	7100h
+ 07h	F11	4500h	0800h	0A00h	0C00h
+ 08h	F12	4600h	0900h	0B00h	0D00h
+ 09h	1 !	0031h	0021h	----	7800h
+ 0Ah	2 @	0032h	0040h	0300h	7900h
+ 0Bh	3 #	0033h	0023h	----	7A00h
+ 0Ch	4 $	0034h	0024h	----	7B00h
+ 0Dh	5 %	0035h	0025h	----	7C00h
+ 0Eh	6 ^	0036h	005Eh	001Eh	7D00h
+ 0Fh	7 &	0037h	0026h	----	7E00h
+ 10h	8 *	0038h	002Ah	----	7F00h
+ 11h	9 (	0039h	0028h	----	8000h
+ 12h	0 )	0030h	0029h	----	8100h
+ 13h	- _	002Dh	005Fh	001Fh	8200h
+ 14h	= +	003Dh	002Bh	----	8300h
+ 15h BACK SPACE 0008h	0008h	007Fh	----
+ 16h	` ~	0060h	007Eh	----	----
+ 17h	NUM =	003Dh	003Dh	003Dh	8C00h
+ 18h	NUM +	002Bh	002Bh	002Bh	8D00h
+ 19h   NUM SPAC	0020h	0020h	0020h	8E00h
+ 1Ah   NUM TAB	0009h	0F00h	0009h	8F00h
+ 1Bh	NUM 1	0031h	0031h	0031h	(alt-###)	[Note 5]
+ 1Ch	(unused)
+ 1Dh	NUM 0	0030h	0030h	0030h	(alt-###)	[Note 5]
+ 1Eh  NUM ENTER	000Dh	000Dh	000Dh	----
+ 1Fh	NUM 4	0034h	0034h	0034h	(alt-###)	[Note 5]
+ 20h	NUM 5	0035h	0035h	0035h	(alt-###)	[Note 5]
+ 21h	NUM 9	0039h	0039h	0039h	(alt-###)	[Note 5]
+ 22h	NUM -	002Dh	002Dh	002Dh	----
+ 23h	NUM 2	0032h	0032h	0032h	(alt-###)	[Note 5]
+ 24h-26h  -- unused
+ 27h	NUM 7	0037h	0037h	0037h	(alt-###)	[Note 5]
+ 28h	NUM 8	0038h	0038h	0038h	(alt-###)	[Note 5]
+ 29h	NUM 6	0036h	0036h	0036h	(alt-###)	[Note 5]
+ 2Ah	NUM ,	002Ch	002Ch	002Ch	----
+ 2Bh	NUM 3	0033h	0033h	0033h	(alt-###)	[Note 5]
+ 2Ch	NUM .	002Eh	002Eh	002Eh	----
+ 2Dh	PRINT	7200h	[Note2]	----	----	[Notes 1,2]
+ 2Eh   RtArrow	4D00h	8A00h	7400h	4E00h
+ 2Fh	INS	5200h	2800h	2900h	2A00h	[Note 1]
+ 30h	DEL	5300h	3800h	3900h	3A00h	[Note 1]
+ 31h	TAB	0009h	0F00h	0009h	----
+ 32h	Q	0071h	0051h	0011h	1000h
+ 33h	W	0077h	0057h	0017h	1100h
+ 34h	E	0065h	0045h	0005h	1200h
+ 35h	R	0072h	0052h	0012h	1300h
+ 36h	T	0074h	0054h	0014h	1400h
+ 37h	Y	0079h	0059h	0019h	1500h
+ 38h	U	0075h	0055h	0015h	1600h
+ 39h	I	0069h	0049h	0009h	1700h
+ 3Ah	O	006Fh	004Fh	000Fh	1800h
+ 3Bh	P	0070h	0050h	0010h	1900h
+ 3Ch	[ {	005Bh	007Bh	001Bh	----
+ 3Dh	] }	005Dh	007Dh	001Dh	----
+ 3Eh  LINE FEED	000Ah	000Ah	7500h	4F00h
+ 3Fh  BRK/PAUS	[Note3]	[Note4]	----	----	[Notes 1,3,4]
+ 40h  UpArrow	4800h	8800h	8400h	4900h
+ 41h	ESC	001Bh	001Bh	001Bh	----
+ 42h	A	0061h	0041h	0001h	1E00h
+ 43h	S	0073h	0053h	0013h	1F00h
+ 44h	D	0064h	0044h	0004h	2000h
+ 45h	F	0066h	0046h	0006h	2100h
+ 46h	G	0067h	0047h	0007h	2200h
+ 47h	H	0068h	0048h	0008h	2300h
+ 48h	J	006Ah	004Ah	000Ah	2400h
+ 49h	K	006Bh	004Bh	000Bh	2500h
+ 4Ah	L	006Ch	004Ch	000Ch	2600h
+ 4Bh	; :	003Bh	003Ah	----	----
+ 4Ch	' "	0027h	0022h	----	----
+ 4Dh	RETURN	000Dh	000Dh	000Dh	----
+ 4Eh	\ |	005Ch	007Ch	001Ch	----
+ 4Fh  LeftArrow	4B00h	8B00h	7300h	4C00h
+ 50h	HOME	4700h	8600h	7700h	8500h
+ 51h  Space Bar	0020h	0020h	0020h	0020h
+ 52h	Z	007Ah	005Ah	001Ah	2C00h
+ 53h	X	0078h	0058h	0018h	2D00h
+ 54h	C	0063h	0043h	0003h	2E00h
+ 55h	V	0076h	0056h	0016h	2F00h
+ 56h	B	0062h	0042h	0002h	3000h
+ 57h	N	006Eh	004Eh	000Eh	3100h
+ 58h	M	006Dh	004Dh	000Dh	3200h
+ 59h	, &lt;	002Ch	003Ch	----	----
+ 5Ah  PRINT	7200h	[Note2]	----	----	[Notes 1,2]
+ 5Bh	. &gt;	002Eh	003Eh	----	----
+ 5Ch	/ ?	002Fh	003Fh	----	----
+ 5Dh	(unused)
+ 5Eh	DEL	5300h	3800h	3900h	3A00h	[Note 1]
+ 5Fh	INS	5200h	2800h	2900h	2A00h	[Note 1]
+ 60h  DownArrow	5000h	8900h	7600h	5100h
+ 61h-63h  -- unused
+ 64h  BRK/PAUS	[Note3]	[Note4]	----	----	[Notes 1,3,4]
+ 65h	F1	3B00h	5400h	5E00h	6800h
+ 66h	F2	3C00h	5500h	5F00h	6900h
+ 67h	F3	3D00h	5600h	6000h	6A00h
+ 68h	F4	3E00h	5700h	6100h	6B00h
+ 69h-6Fh  -- unused
+Notes:	[1] four of the keys can have differing scan codes, depending on the
+	  actual keyboard; the BIOS accepts either scan code ("normal": 2Fh,
+	  30h, 5Ah, 64h; "alternate": 2Dh,3Fh,5Eh,5Fh) for any of these keys
+	[2] Shift-Print invokes INT 5E for a screen dump; the PRTSCRN.DEV
+	  device driver also supports Alt-Print, Ctrl-Print, Shift-Alt-Print,
+	  and Shift-Ctrl-Print for dumping graphics in various permutations
+	[3] BRK/PAUS invokes INT 5C for a pause, then stuffs 0100h into the
+	  keyboard buffer
+	[4] Shift-BRK/PAUS invokes INT 5D for the Break, then stuffs 0000h
+	  into the keyboard buffer; MS-DOS hooks INT 5D to keep the 0000h from
+	  appearing in the keyboard buffer
+	[5] on the TI Pro, one enters an arbitrary character slightly
+	  differently than on a standard PC: exactly three numberpad digits
+	  must be pressed (using leading zeros for codes less than 100), and
+	  the key for the requested code is inserted into the keyboard buffer
+	  immediately on pressing the third key.  The Alt key may be released
+	  and re-pressed arbitrarily often between digits without affecting
+	  the Alt-digit-digit-digit sequence.
+	scan codes with bit 7 set are not key releases, but rather
+	  auto-repeated keystrokes, which the BIOS only places into the
+	  keyboard buffer if the buffer is empty at the time (thus avoiding
+	  typeahead of repeated keystrokes faster than they can be processed)
+SeeAlso: #00006 at INT 09
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

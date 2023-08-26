@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._C7</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT C7
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#C7"><b>C7</b> - INT C7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C7_0"><b>C7</b> - INT C7 - APL*PLUS/PC - ???</a><br />
+<a href="#C7_1"><b>C7</b> - INT C7 - AMI BIOS - DRIVE 1 DATA</a><br />
+
+<hr />
+
+<a href="#C7" name="C7"><b>C7</b></a> - INT C7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C6"BASIC",INT C8"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C7_0" name="C7_0"><b>C7</b></a> - INT C7 - APL*PLUS/PC - ???<br />
+<pre>
+INT C7 - APL*PLUS/PC - ???
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 87"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C7_1" name="C7_1"><b>C7</b></a> - INT C7 - AMI BIOS - DRIVE 1 DATA<br />
+<pre>
+INT C7 - AMI BIOS - DRIVE 1 DATA
+Note:	this vector is used by some AMI BIOSes to store the final four bytes
+	  of the second hard disk's parameter table
+SeeAlso: INT 46"HARD DISK 1",INT 64"Adaptec",INT C0"AMI",INT C4"AMI"
+SeeAlso: INT C5"AMI",INT C6"AMI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

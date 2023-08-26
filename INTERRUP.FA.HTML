@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._FA</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT FA
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#FA"><b>FA</b> - INT FA - reserved for user interrupt</a><br />
+<a href="#FA_0"><b>FA</b> - INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT</a><br />
+<a href="#FA_1"><b>FA</b> - INT FA - DoubleDOS - TURN OFF TIMESHARING</a><br />
+<a href="#FA_2"><b>FA</b> - INT FA P - ASM Edit - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#FA" name="FA"><b>FA</b></a> - INT FA - reserved for user interrupt<br />
+<pre>
+INT FA - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_0" name="FA_0"><b>FA</b></a> - INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT<br />
+<pre>
+INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT
+Note:	this vector is not used on the Tandy 1000TL
+SeeAlso: INT 0A"IRQ2",INT F9"Sanyo",INT FB"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_1" name="FA_1"><b>FA</b></a> - INT FA - DoubleDOS - TURN OFF TIMESHARING<br />
+<pre>
+INT FA - DoubleDOS - TURN OFF TIMESHARING
+SeeAlso: INT 21/AH=EAh"DoubleDOS",INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_2" name="FA_2"><b>FA</b></a> - INT FA P - ASM Edit - INSTALLATION CHECK<br />
+<pre>
+INT FA P - ASM Edit - INSTALLATION CHECK
+Program: ASM Edit is a shareware programmer's editor
+Note:	ASM Edit hooks this vector in protected mode to allow DPMI programs
+	  to detect whether they were run while shelled to DOS from ASM Edit
+
+Format of ASM Edit signature block:
+Offset	Size	Description	(Table 04080)
+ 00h	BYTE	CFh (IRET)
+ 01h  8 BYTEs	signature "ASM Edit" (no trailing NUL)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

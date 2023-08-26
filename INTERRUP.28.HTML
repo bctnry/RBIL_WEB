@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._28</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 28
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#28"><b>28</b> - INT 28 C - DOS 2+ - DOS IDLE INTERRUPT</a><br />
+<a href="#289999"><b>289999</b> - INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#28" name="28"><b>28</b></a> - INT 28 C - DOS 2+ - DOS IDLE INTERRUPT<br />
+<pre>
+INT 28 C - DOS 2+ - DOS IDLE INTERRUPT
+	SS:SP = top of MS-DOS stack for I/O functions
+Return: all registers preserved
+Desc:	This interrupt is invoked each time one of the DOS character input
+	  functions loops while waiting for input.  Since a DOS call is in
+	  progress even though DOS is actually idle during such input waits,
+	  hooking this function is necessary to allow a TSR to perform DOS
+	  calls while the foreground program is waiting for user input.	 The
+	  INT 28h handler may invoke any INT 21h function except functions
+	  00h through 0Ch.
+Notes:	under DOS 2.x, the critical error flag (the byte immediately after the
+	  InDOS flag) must be set in order to call DOS functions 50h/51h from
+	  the INT 28h handler without destroying the DOS stacks.
+	calls to INT 21/AH=3Fh,40h from within an INT 28 handler may not use a
+	  handle which refers to CON
+	at the time of the call, the InDOS flag (see INT 21/AH=34h) is normally
+	  set to 01h; if larger, DOS is truly busy and should not be reentered
+	the default handler is an IRET instruction
+	supported in OS/2 compatibility box
+	the _MS-DOS_Programmer's_Reference_ for DOS 5.0 incorrectly documents
+	  this interrupt as superseded
+	the performance of NetWare Lite servers (and probably other peer-to-
+	  peer networks) can be dramatically improved by calling INT 28
+	  frequently from an application's idle loop
+SeeAlso: INT 21/AH=34h,INT 2A/AH=84h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#289999" name="289999"><b>289999</b></a> - INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK<br />
+<pre>
+INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK
+	AX = 9999h
+Return: AX = AAAAh if installed
+	    CX = version number * 100 (example: 03A2h = 930 = v9.30)
+	    DL = interrupt used by the dump function (see #02553)
+		(00h if call not available)
+	    BX = CS of PCXDUMP's INT 28 handler (undocumented)
+	    ES = segment of PCXDUMP's memory block (v9.30, undocumented)
+Program: PCXDUMP is a shareware screen grabber saving in PCX format
+Notes:	if DL&lt;&gt;00h a dump can be requested by calling INT DL as shown
+	  below (the user can choose the interrupt number at installation
+	  time); if DL=00h the dump function can be called only by hotkeys
+	  (this is the default)
+
+(Table 02553)
+Call PCXDUMP screen-dump function with:
+	INT xx
+	AX = 1234h
+	BX = dump type
+	    0000h Color dump
+	    0001h Immediate color dump
+	    0002h Black/White dump
+	    0003h Immediate B/W dump
+	    0004h Inverted B/W dump
+	    0005h Gray scaled dump
+	    0006h Inverted gray scaled dump
+	    0007h Text screen dump to text file
+	    0008h Text screen dump to ansi file
+Return: nothing
+Notes:	if BX=0001h, 0003h, 0007h or 0008h the whole screen will be
+	  dumped; the other valid values will draw a selection frame
+	  on the screen except in text modes (text modes allow only
+	  full screen dumps)
+	this function doesn't perform the dump, it only requests it;
+	  the dump will be performed after a few milliseconds if it's
+	  safe to do so, thus the author recommends putting a 60 ms delay
+	  after this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

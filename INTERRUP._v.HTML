@@ -1,0 +1,3644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._v</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category v - virus/antivirus,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#124350BX4920"><b>124350BX4920</b> - INT 12 C - CPI-standard virus - "FRIEND" CHECK</a><br />
+<a href="#135001_0"><b>135001</b> - INT 13 - VIRUS - "Andropinis" - INSTALLATION CHECK</a><br />
+<a href="#135342CX0001"><b>135342CX0001</b> - INT 13 - ScanBoot - INSTALLATION CHECK</a><br />
+<a href="#13A759"><b>13A759</b> - INT 13 U - Novell DOS 7 - SDRes v27.03 - ???</a><br />
+<a href="#13EC00"><b>13EC00</b> - INT 13 - VIRUS - "Tiso" - INSTALLATION CHECK</a><br />
+<a href="#13F2"><b>13F2</b> - INT 13 - VIRUS - "Neuroquila" - INSTALLATION CHECK</a><br />
+<a href="#13FA--DX5945"><b>13FA--DX5945</b> - INT 13 - PC Tools v8+ VSAFE, VWATCH - API</a><br />
+<a href="#13FD50"><b>13FD50</b> - INT 13 - VIRUS - "Predator" - INSTALLATION CHECK</a><br />
+<a href="#16DD"><b>16DD</b> - INT 16 - VIRUS - "Frumble" - INSTALLATION CHECK</a><br />
+<a href="#16FA00DX5945"><b>16FA00DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - INSTALLATION CHECK</a><br />
+<a href="#16FA01DX5945"><b>16FA01DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - UNINSTALL</a><br />
+<a href="#16FA02DX5945"><b>16FA02DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET/SET OPTIONS</a><br />
+<a href="#16FA03DX5945"><b>16FA03DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET ???</a><br />
+<a href="#16FA04DX5945"><b>16FA04DX5945</b> - INT 16 U - PC Tools v8+ VSAFE - GET HOTKEY DISABLE FLAG</a><br />
+<a href="#16FA05DX5945"><b>16FA05DX5945</b> - INT 16 U - PC Tools v8+ VSAFE - SET HOTKEY DISABLE FLAG</a><br />
+<a href="#16FA06DX5945"><b>16FA06DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET NETWORK DRIVES TEST FLAG</a><br />
+<a href="#16FA07DX5945"><b>16FA07DX5945</b> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - SET NETWORK DRIVES TEST FLAG</a><br />
+<a href="#16FA08DX5945"><b>16FA08DX5945</b> - INT 16 U - PC Tools v9+ VWATCH v2.1 - ???</a><br />
+<a href="#21010F"><b>21010F</b> - INT 21 - VIRUS - "Susan" - INSTALLATION CHECK</a><br />
+<a href="#210B56"><b>210B56</b> - INT 21 - VIRUS - "Perfume" - INSTALLATION CHECK</a><br />
+<a href="#210D20"><b>210D20</b> - INT 21 - VIRUS - "Crazy Imp" - INSTALLATION CHECK</a><br />
+<a href="#210E--DLAD"><b>210E--DLAD</b> - INT 21 U - Novell DOS 7 - SDRes v27.03 - INSTALLATION CHECK</a><br />
+<a href="#210E--DLAE"><b>210E--DLAE</b> - INT 21 U - Novell DOS 7 - SDRes v27.03 - CLEAR ??? FLAG</a><br />
+<a href="#210E--DLAF"><b>210E--DLAF</b> - INT 21 U - Novell DOS 7 - SDRes v27.03 - SET ??? FLAG</a><br />
+<a href="#211812"><b>211812</b> - INT 21 - VIRUS - "Tasha Yar" - INSTALLATION CHECK</a><br />
+<a href="#21187FBX4453"><b>21187FBX4453</b> - INT 21 - VIRUS - "DS-3783" -INSTALLATION CHECK</a><br />
+<a href="#2118FF"><b>2118FF</b> - INT 21 - VIRUS - "Pathogen:SMEG" - INSTALLATION CHECK</a><br />
+<a href="#212080"><b>212080</b> - INT 21 - VIRUS - "New-Year" - INSTALLATION CHECK</a><br />
+<a href="#212B16CX0643"><b>212B16CX0643</b> - INT 21 - VIRUS - "Maltese Amoeba" - INSTALLATION CHECK</a><br />
+<a href="#212C_0"><b>212C</b> - INT 21 - VIRUS - "Anti Pode 2.0" - INSTALLATION CHECK</a><br />
+<a href="#212C00CX534B"><b>212C00CX534B</b> - INT 21 - SKUDO - INSTALLATION CHECK</a><br />
+<a href="#212C2C"><b>212C2C</b> - INT 21 - VIRUS - "LockJaw/Proto-T" - INSTALLATION CHECK</a><br />
+<a href="#2130--DXABCD"><b>2130--DXABCD</b> - INT 21 - VIRUS - "Possessed" - INSTALLATION CHECK</a><br />
+<a href="#2130--SI1234"><b>2130--SI1234</b> - INT 21 - VIRUS - "ANDROMEDA-758" -INSTALLATION CHECK</a><br />
+<a href="#213000BX614A"><b>213000BX614A</b> - INT 21 - VIRUS - "Jackal" - INSTALLATION CHECK</a><br />
+<a href="#213030BX694D"><b>213030BX694D</b> - INT 21 - VIRUS - "IMTC" -INSTALLATION CHECK</a><br />
+<a href="#213032DX1234"><b>213032DX1234</b> - INT 21 - VIRUS - "Uruguay" - INSTALLATION CHECK</a><br />
+<a href="#2130F1"><b>2130F1</b> - INT 21 - VIRUS - "Dutch-555"/"Quit 1992" - INSTALLATION CHECK</a><br />
+<a href="#21330F"><b>21330F</b> - INT 21 - VIRUS - "Burghofer" - INSTALLATION CHECK</a><br />
+<a href="#2133DA"><b>2133DA</b> - INT 21 - VIRUS - "CoffeeShop" - INSTALLATION CHECK</a><br />
+<a href="#2133DB"><b>2133DB</b> - INT 21 - VIRUS - "CoffeeShop" - GENERATE RANDOM NUMBER</a><br />
+<a href="#2133DC"><b>2133DC</b> - INT 21 - VIRUS - "CoffeeShop" - DISPLAY "LEGALIZE CANNABIS" GRAPHIC</a><br />
+<a href="#2133E0"><b>2133E0</b> - INT 21 - VIRUS - "Oropax" - INSTALLATION CHECK</a><br />
+<a href="#21357F"><b>21357F</b> - INT 21 - VIRUS - "Agiplan"/"Month 4-6" - INSTALLATION CHECK</a><br />
+<a href="#213D76"><b>213D76</b> - INT 21 - VIRUS - "GT-SPOOF" -INSTALLATION CHECK</a><br />
+<a href="#213DFF"><b>213DFF</b> - INT 21 - VIRUS - "JD-448" - INSTALLATION CHECK</a><br />
+<a href="#213F--BXFEB0"><b>213F--BXFEB0</b> - INT 21 - VIRUS - "KYZ/LieWait" - INSTALLATION CHECK</a><br />
+<a href="#214203"><b>214203</b> - INT 21 - VIRUS - "Shake" - INSTALLATION CHECK</a><br />
+<a href="#214243"><b>214243</b> - INT 21 - VIRUS - "Invader" - INSTALLATION CHECK</a><br />
+<a href="#2144A0"><b>2144A0</b> - INT 21 - VIRUS - "Horns" - INSTALLATION CHECK</a><br />
+<a href="#214A--BX00B6"><b>214A--BX00B6</b> - INT 21 - VIRUS???</a><br />
+<a href="#214A--BXFFFF"><b>214A--BXFFFF</b> - INT 21 - VIRUS???</a><br />
+<a href="#214B04"><b>214B04</b> - INT 21 - VIRUS - "MG", "699"/"Thirteen Minutes" - INSTALLATION CHECK</a><br />
+<a href="#214B20"><b>214B20</b> - INT 21 - VIRUS - "Holocaust"/"Telefonica" - ???</a><br />
+<a href="#214B21"><b>214B21</b> - INT 21 C - VIRUS - "Holocaust"/"Telefonica" - ???</a><br />
+<a href="#214B25"><b>214B25</b> - INT 21 - VIRUS - "1063"/"Mono" - INSTALLATION CHECK</a><br />
+<a href="#214B40"><b>214B40</b> - INT 21 - VIRUS - "Plastique"/"AntiCad" - INSTALLATION CHECK</a><br />
+<a href="#214B41"><b>214B41</b> - INT 21 - VIRUS - "Plastique"/"AntiCad" - ???</a><br />
+<a href="#214B4A"><b>214B4A</b> - INT 21 - VIRUS - "Jabberwocky" - INSTALLATION CHECK</a><br />
+<a href="#214B4B"><b>214B4B</b> - INT 21 - VIRUS - "Horse-2" - INSTALLATION CHECK</a><br />
+<a href="#214B4D"><b>214B4D</b> - INT 21 - VIRUS - "Murphy-2", "Patricia"/"Smack" - INSTALLATION CHECK</a><br />
+<a href="#214B50"><b>214B50</b> - INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - INSTALLATION CHECK</a><br />
+<a href="#214B53"><b>214B53</b> - INT 21 - VIRUS - "Horse" - INSTALLATION CHECK</a><br />
+<a href="#214B53BX2121"><b>214B53BX2121</b> - INT 21 - VIRUS - "One Half" - INSTALLATION CHECK</a><br />
+<a href="#214B55"><b>214B55</b> - INT 21 - VIRUS - "Sparse" - INSTALLATION CHECK</a><br />
+<a href="#214B59"><b>214B59</b> - INT 21 - VIRUS - "Murphy-1", "Murphy-4" - INSTALLATION CHECK</a><br />
+<a href="#214B5E"><b>214B5E</b> - INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK</a><br />
+<a href="#214B60"><b>214B60</b> - INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - ???</a><br />
+<a href="#214B87"><b>214B87</b> - INT 21 - VIRUS - "Shirley" - INSTALLATION CHECK</a><br />
+<a href="#214B95"><b>214B95</b> - INT 21 - VIRUS - "Zherkov-1882" - INSTALLATION CHECK</a><br />
+<a href="#214BA7"><b>214BA7</b> - INT 21 - VIRUS - "1876"/"Dash-em" - INSTALLATION CHECK</a><br />
+<a href="#214BAA"><b>214BAA</b> - INT 21 - VIRUS - "Nomenklatura" - INSTALLATION CHECK</a><br />
+<a href="#214BAF"><b>214BAF</b> - INT 21 - VIRUS - "948"/"Screenplus1", "Magnitogorsk" - INSTALLATION CHECK</a><br />
+<a href="#214BB1"><b>214BB1</b> - INT 21 - VIRUS - "UZZY" -INSTALLATION CHECK</a><br />
+<a href="#214BDD"><b>214BDD</b> - INT 21 - VIRUS - "Lozinsky"/"Zherkov" - INSTALLATION CHECK</a><br />
+<a href="#214BEE"><b>214BEE</b> - INT 21 - F-DRIVER.SYS v1.14+ - GRAB INT 21</a><br />
+<a href="#214BF1_0"><b>214BF1</b> - INT 21 - VIRUS - "Jerusalem 2" - INSTALLATION CHECK</a><br />
+<a href="#214BFE"><b>214BFE</b> - INT 21 - VIRUS - "Hitchcock", "Dark Avenger-1028", "1193" - INSTALLATION CHECK</a><br />
+<a href="#214BFF"><b>214BFF</b> - INT 21 - VIRUS - "USSR-707", "Justice", "Europe 92" - INSTALLATION CHECK</a><br />
+<a href="#214BFFSI0000"><b>214BFFSI0000</b> - INT 21 - VIRUS - "Cascade" - INSTALLATION CHECK</a><br />
+<a href="#2150FD"><b>2150FD</b> - INT 21 - VIRUS - "Predator 2" - INSTALLATION CHECK</a><br />
+<a href="#215252"><b>215252</b> - INT 21 - VIRUS - "516"/"Leapfrog" - INSTALLATION CHECK</a><br />
+<a href="#2154--BX4475"><b>2154--BX4475</b> - INT 21 - VIRUS - "Dual_GtM"/"Ganeu" - INSTALLATION CHECK</a><br />
+<a href="#215454"><b>215454</b> - INT 21 - VIRUS - "Dudley" - INSTALLATION CHECK</a><br />
+<a href="#215643"><b>215643</b> - INT 21 - VIRUS - "PS-MPC.Gold" - INSTALLATION CHECK</a><br />
+<a href="#215741"><b>215741</b> - INT 21 - VIRUS - "WARP" -INSTALLATION CHECK</a><br />
+<a href="#2158CC"><b>2158CC</b> - INT 21 - VIRUS - "1067"/"Headcrash" - INSTALLATION CHECK</a><br />
+<a href="#2158DD"><b>2158DD</b> - INT 21 - VIRUS - "1067"/"Headcrash" - GET ORIGINAL INT 21h VECTOR</a><br />
+<a href="#216303"><b>216303</b> - INT 21 - VIRUS - "DOS IDLE" - INSTALLATION CHECK</a><br />
+<a href="#216304"><b>216304</b> - INT 21 - VIRUS - "Replicator" - INSTALLATION CHECK</a><br />
+<a href="#216969"><b>216969</b> - INT 21 - VIRUS - "Rape-747" - INSTALLATION CHECK</a><br />
+<a href="#2171_0"><b>2171</b> - INT 21 - VIRUS - "1205" - INSTALLATION CHECK</a><br />
+<a href="#217575"><b>217575</b> - INT 21 - VIRUS - "LEGO" -INSTALLATION CHECK</a><br />
+<a href="#2176"><b>2176</b> - INT 21 - VIRUS - "Klaeren"/"Hate" - INSTALLATION CHECK</a><br />
+<a href="#217700"><b>217700</b> - INT 21 - VIRUS - "Growing Block" - INSTALLATION CHECK</a><br />
+<a href="#217BCE"><b>217BCE</b> - INT 21 - VIRUS - "Whisper"/"Taipan" - INSTALLATION CHECK</a><br />
+<a href="#217BCF"><b>217BCF</b> - INT 21 - VIRUS - "Tai-Pan.666"/"Doom II Death" - INSTALLATION CHECK</a><br />
+<a href="#217D"><b>217D</b> - INT 21 - VIRUS - "OffSpring" - INSTALLATION CHECK</a><br />
+<a href="#217F"><b>217F</b> - INT 21 - VIRUS - "Squeaker","ASeXual" - INSTALLATION CHECK</a><br />
+<a href="#2183_0"><b>2183</b> - INT 21 - VIRUS - "SVC" - INSTALLATION CHECK</a><br />
+<a href="#2184"><b>2184</b> - INT 21 - VIRUS - "SVC 5.0" or "SVC 6.0" - INSTALLATION CHECK</a><br />
+<a href="#2189_0"><b>2189</b> - INT 21 - VIRUS - "Vriest" - INSTALLATION CHECK</a><br />
+<a href="#2190_0"><b>2190</b> - INT 21 - VIRUS - "Carioca" - INSTALLATION CHECK</a><br />
+<a href="#219753"><b>219753</b> - INT 21 - VIRUS - "Nina" - INSTALLATION CHECK</a><br />
+<a href="#219AD5"><b>219AD5</b> - INT 21 - VIRUS - "Massacre/Beavis" - INSTALLATION CHECK</a><br />
+<a href="#21A1D5"><b>21A1D5</b> - INT 21 - VIRUS - "789"/"Filehider" - INSTALLATION CHECK</a><br />
+<a href="#21A55A"><b>21A55A</b> - INT 21 - VIRUS - "Eddie-2" - INSTALLATION CHECK</a><br />
+<a href="#21AA00"><b>21AA00</b> - INT 21 - VIRUS - "Blinker" - INSTALLATION CHECK</a><br />
+<a href="#21AA03"><b>21AA03</b> - INT 21 - VIRUS - "Backtime" - INSTALLATION CHECK</a><br />
+<a href="#21AB"><b>21AB</b> - INT 21 - VIRUS - "600" or "Voronezh"-family - INSTALLATION CHECK</a><br />
+<a href="#21ABCD"><b>21ABCD</b> - INT 21 - VIRUS - Major BBS - INSTALLATION CHECK</a><br />
+<a href="#21ABCD_0"><b>21ABCD</b> - INT 21 - VIRUS - "SuperVirus 2" - INSTALLATION CHECK</a><br />
+<a href="#21B3"><b>21B3</b> - INT 21 - VIRUS - "Requires" - INSTALLATION CHECK</a><br />
+<a href="#21B974"><b>21B974</b> - INT 21 - VIRUS - "Tracker" - INSTALLATION CHECK</a><br />
+<a href="#21BBBB"><b>21BBBB</b> - INT 21 - VIRUS - "Hey You" - INSTALLATION CHECK</a><br />
+<a href="#21BE_0"><b>21BE</b> - INT 21 - VIRUS - "Datalock" - INSTALLATION CHECK</a><br />
+<a href="#21BE00"><b>21BE00</b> - INT 21 - VIRUS - "USSR-1049" - INSTALLATION CHECK</a><br />
+<a href="#21C0_0"><b>21C0</b> - INT 21 - VIRUS - "Slow"/"Zerotime", "Solano" - INSTALLATION CHECK</a><br />
+<a href="#21C000"><b>21C000</b> - INT 21 - VIRUS - "QUICKY" - INSTALLATION CHECK</a><br />
+<a href="#21C001"><b>21C001</b> - INT 21 - VIRUS - "QUICKY" - TURN INFECTION OFF</a><br />
+<a href="#21C002"><b>21C002</b> - INT 21 - VIRUS - "QUICKY" - TURN INFECTION ON</a><br />
+<a href="#21C1_0"><b>21C1</b> - INT 21 - VIRUS - "Solano" - ???</a><br />
+<a href="#21C2_0"><b>21C2</b> - INT 21 - VIRUS - "Scott's Valley" - ???</a><br />
+<a href="#21C301DXF1F1"><b>21C301DXF1F1</b> - INT 21 - VIRUS - "905"/"Backfont" - INSTALLATION CHECK</a><br />
+<a href="#21C500_0"><b>21C500</b> - INT 21 - VIRUS - "Sverdlov" - INSTALLATION CHECK</a><br />
+<a href="#21C6_0"><b>21C6</b> - INT 21 - VIRUS - "Socha" - INSTALLATION CHECK</a><br />
+<a href="#21C603"><b>21C603</b> - INT 21 - VIRUS - "Yankee Doodle" or "MLTI" - INSTALLATION CHECK</a><br />
+<a href="#21C700_0"><b>21C700</b> - INT 21 - VIRUS - "MH-757" - INSTALLATION CHECK</a><br />
+<a href="#21CA15"><b>21CA15</b> - INT 21 - VIRUS - "Piter" - ???</a><br />
+<a href="#21CB_0"><b>21CB</b> - INT 21 - VIRUS - "Milous" - INSTALLATION CHECK</a><br />
+<a href="#21CB02"><b>21CB02</b> - INT 21 - VIRUS - "Witcode" - INSTALLATION CHECK</a><br />
+<a href="#21CC_0"><b>21CC</b> - INT 21 - VIRUS - "Westwood" - INSTALLATION CHECK</a><br />
+<a href="#21CD_0"><b>21CD</b> - INT 21 - VIRUS - "Westwood" - ???</a><br />
+<a href="#21D0_0"><b>21D0</b> - INT 21 - VIRUS - "MALAGA" - INSTALLATION CHECK</a><br />
+<a href="#21D0_1"><b>21D0</b> - INT 21 - VIRUS - "ANTIARJ" -INSTALLATION CHECK</a><br />
+<a href="#21D000"><b>21D000</b> - INT 21 - VIRUS - "Fellowship" - INSTALLATION CHECK</a><br />
+<a href="#21D000_0"><b>21D000</b> - INT 21 - VIRUS - "Warlock" - INSTALLATION CHECK</a><br />
+<a href="#21D2_0"><b>21D2</b> - INT 21 - VIRUS???</a><br />
+<a href="#21D5_0"><b>21D5</b> - INT 21 - VIRUS - "Carfield" - ???</a><br />
+<a href="#21D5AA"><b>21D5AA</b> - INT 21 - VIRUS - "Diamond-A", "Diamond-B" - INSTALLATION CHECK</a><br />
+<a href="#21D5AABPDEAA"><b>21D5AABPDEAA</b> - INT 21 - VIRUS - "Dir" - INSTALLATION CHECK</a><br />
+<a href="#21DADA"><b>21DADA</b> - INT 21 - VIRUS - "Gotcha" - INSTALLATION CHECK</a><br />
+<a href="#21DAFE"><b>21DAFE</b> - INT 21 - VIRUS - "Plovdiv 1.3" - INSTALLATION CHECK</a><br />
+<a href="#21DC28"><b>21DC28</b> - INT 21 - VIRUS - "Monika" - INSTALLATION CHECK</a><br />
+<a href="#21DCBA"><b>21DCBA</b> - INT 21 - VIRUS - "Red Spider" - INSTALLATION CHECK</a><br />
+<a href="#21DD_0"><b>21DD</b> - INT 21 - VIRUS - "Jerusalem"-family - RELOCATE VIRUS???</a><br />
+<a href="#21DDEF"><b>21DDEF</b> - INT 21 - VIRUS- "GOLGI" - INSTALLATION CHECK</a><br />
+<a href="#21DE"><b>21DE</b> - INT 21 - VIRUS - "Durban" - INSTALLATION CHECK</a><br />
+<a href="#21DE_0"><b>21DE</b> - INT 21 - VIRUS - "April 1st EXE" - ???</a><br />
+<a href="#21DEAD"><b>21DEAD</b> - INT 21 - VIRUS - "90210" - INSTALLATION CHECK</a><br />
+<a href="#21DEAD_0"><b>21DEAD</b> - INT 21 - VIRUS - "Shifting Objective" - RELOCATE CODE ???</a><br />
+<a href="#21DEDE"><b>21DEDE</b> - INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK</a><br />
+<a href="#21DEFE"><b>21DEFE</b> - INT 21 - VIRUS - "Maze" - INSTALLATION CHECK</a><br />
+<a href="#21E0_2"><b>21E0</b> - INT 21 - VIRUS - "Jerusalem", "Armagedon" - INSTALLATION CHECK</a><br />
+<a href="#21E00F"><b>21E00F</b> - INT 21 - VIRUS - "8-tunes" - INSTALLATION CHECK</a><br />
+<a href="#21E1_1"><b>21E1</b> - INT 21 - VIRUS - "Mendoza", "Fu Manchu" - INSTALLATION CHECK</a><br />
+<a href="#21E4_0"><b>21E4</b> - INT 21 - VIRUS - "Anarkia" - INSTALLATION CHECK</a><br />
+<a href="#21E7_1"><b>21E7</b> - INT 21 - VIRUS - "Spyer"/"Kiev" - INSTALLATION CHECK</a><br />
+<a href="#21E900_0"><b>21E900</b> - INT 21 - VIRUS - "Dark End" - INSTALLATION CHECK</a><br />
+<a href="#21EC27"><b>21EC27</b> - INT 21 - VIRUS - "Halloween.1839" - INSTALLATION CHECK</a><br />
+<a href="#21EC59"><b>21EC59</b> - INT 21 - VIRUS - "Terror" - INSTALLATION CHECK</a><br />
+<a href="#21EE_1"><b>21EE</b> - INT 21 - VIRUS - "Jerusalem-G", "Pregnant", "Barrotes" - INSTALLATION CHECK</a><br />
+<a href="#21EEE7"><b>21EEE7</b> - INT 21 - VIRUS - "GingerBread" - INSTALLATION CHECK</a><br />
+<a href="#21EF"><b>21EF</b> - INT 21 - VIRUS - "Mabuhay"/"June 12th" - INSTALLATION CHECK</a><br />
+<a href="#21F0_0"><b>21F0</b> - INT 21 - VIRUS - "Frere Jacques" - INSTALLATION CHECK</a><br />
+<a href="#21F078"><b>21F078</b> - INT 21 - VIRUS - "Burgler/H" - INSTALLATION CHECK</a><br />
+<a href="#21F1_1"><b>21F1</b> - INT 21 - VIRUS - "F1-337" - ???</a><br />
+<a href="#21F1E9"><b>21F1E9</b> - INT 21 - VIRUS - "Tremor" - INSTALLATION CHECK</a><br />
+<a href="#21F2AA"><b>21F2AA</b> - INT 21 - VIRUS - "PcVrsDs" - INSTALLATION CHECK</a><br />
+<a href="#21F3_1"><b>21F3</b> - INT 21 - VIRUS - "Carfield" - INSTALLATION CHECK</a><br />
+<a href="#21F7"><b>21F7</b> - INT 21 - VIRUS - "GP1" - INSTALLATION CHECK</a><br />
+<a href="#21F9_1"><b>21F9</b> - INT 21 - VIRUS - "Satans-Bug" - INSTALLATION CHECK</a><br />
+<a href="#21FA_1"><b>21FA</b> - INT 21 - VIRUS - "Cinderella 2" - INSTALLATION CHECK</a><br />
+<a href="#21FA--DX5945"><b>21FA--DX5945</b> - INT 21 U - PC Tools v7+ VDEFEND, VSAFE, VWATCH - API</a><br />
+<a href="#21FB_1"><b>21FB</b> - INT 21 - VIRUS - "Cinderella" - INSTALLATION CHECK</a><br />
+<a href="#21FB0A"><b>21FB0A</b> - INT 21 - VIRUS - "dBASE" - INSTALLATION CHECK</a><br />
+<a href="#21FBA0"><b>21FBA0</b> - INT 21 - VIRUS - "Groove" - INSTALLATION CHECK</a><br />
+<a href="#21FBFB"><b>21FBFB</b> - INT 21 - VIRUS - "Dir.1367" - INSTALLATION CHECK</a><br />
+<a href="#21FC_1"><b>21FC</b> - INT 21 - VIRUS - "Troi" - INSTALLATION CHECK</a><br />
+<a href="#21FC03"><b>21FC03</b> - INT 21 - VIRUS - "Invisible" - INSTALLATION CHECK</a><br />
+<a href="#21FD_0"><b>21FD</b> - INT 21 - VIRUS - "Border" - INSTALLATION CHECK</a><br />
+<a href="#21FDAC"><b>21FDAC</b> - INT 21 - VIRUS - "Delwin" - INSTALLATION CHECK</a><br />
+<a href="#21FE_1"><b>21FE</b> - INT 21 - VIRUS - "483" - INSTALLATION CHECK</a><br />
+<a href="#21FE01"><b>21FE01</b> - INT 21 - VIRUS - "Flip" - INSTALLATION CHECK</a><br />
+<a href="#21FE02"><b>21FE02</b> - INT 21 - VIRUS - "2468"/"Tequila" - INSTALLATION CHECK</a><br />
+<a href="#21FE03"><b>21FE03</b> - INT 21 - VIRUS - "2468"/"Tequila" - DISPLAY VIRUS MESSAGE</a><br />
+<a href="#21FEAD"><b>21FEAD</b> - INT 21 - VIRUS - "Shifting Objective" - INSTALLATION CHECK</a><br />
+<a href="#21FEDC_0"><b>21FEDC</b> - INT 21 - VIRUS - "Black Monday" - INSTALLATION CHECK</a><br />
+<a href="#21FEFE"><b>21FEFE</b> - INT 21 - VIRUS - "CIDER" - INSTALLATION CHECK</a><br />
+<a href="#21FF_3"><b>21FF</b> - INT 21 - VIRUS - "Sunday", "Tumen 0.5", "Hero" - INSTALLATION CHECK</a><br />
+<a href="#21FF01"><b>21FF01</b> - INT 21 - VIRUS - "Drop" - INSTALLATION CHECK</a><br />
+<a href="#21FF0F"><b>21FF0F</b> - INT 21 - FLU_SHOT+ v1.83 - INSTALLATION CHECK</a><br />
+<a href="#21FF10"><b>21FF10</b> - INT 21 - VIRUS - "Twins" - INSTALLATION CHECK</a><br />
+<a href="#21FFFE"><b>21FFFE</b> - INT 21 - VIRUS - "08/15"/"Many Fingers" - INSTALLATION CHECK</a><br />
+<a href="#21FFFEBX0000"><b>21FFFEBX0000</b> - INT 21 - VIRUS - "Anti-Thunderbyte/LEMMING" - INSTALLATION CHECK</a><br />
+<a href="#21FFFF"><b>21FFFF</b> - INT 21 - VIRUS - "Ontario", "Year 1992"/"B1M92" - INSTALLATION CHECK</a><br />
+<a href="#21FFFFCX0000"><b>21FFFFCX0000</b> - INT 21 - VIRUS - "Revenge" - INSTALLATION CHECK</a><br />
+<a href="#2F4653CX0002"><b>2F4653CX0002</b> - INT 2F - F-PROT v1.x only - F-LOCK.EXE - API</a><br />
+<a href="#2F4653CX0003"><b>2F4653CX0003</b> - INT 2F - F-PROT v1.x only - F-XCHK.EXE - API</a><br />
+<a href="#2F4653CX0004"><b>2F4653CX0004</b> - INT 2F - F-PROT v1.x only - F-POPUP.EXE - API</a><br />
+<a href="#2F4653CX0005"><b>2F4653CX0005</b> - INT 2F - F-PROT v1.x only - F-DLOCK.EXE - API</a><br />
+<a href="#2F6282"><b>2F6282</b> - INT 2F U - PC Tools v7.0+ VDEFEND, VSAFE, VWATCH, DATAMON - SET ??? ADDRESS</a><br />
+<a href="#2F6284BX0000"><b>2F6284BX0000</b> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT	- INSTALLATION CHECK</a><br />
+<a href="#2F6284BX0001"><b>2F6284BX0001</b> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???</a><br />
+<a href="#2F6284BX0002"><b>2F6284BX0002</b> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET OPTIONS</a><br />
+<a href="#2F6284BX0003"><b>2F6284BX0003</b> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - SET OPTION??? FLAGS</a><br />
+<a href="#2F6284BX0004"><b>2F6284BX0004</b> - INT 2F U - PC Tools v8 DATAMON, v9+ DPROTECT - ???</a><br />
+<a href="#2FC080"><b>2FC080</b> - INT 2F U - AMI IAM.SYS - INSTALL ??? CALLBACK</a><br />
+<a href="#2FC081"><b>2FC081</b> - INT 2F U - AMI IAM.SYS - CLEAR ???</a><br />
+<a href="#2FC900BP0000"><b>2FC900BP0000</b> - INT 2F U - ThunderByte??? - INSTALLATION CHECK</a><br />
+<a href="#2FC987"><b>2FC987</b> - INT 2F U - ThunderByte??? - DISINFECT FILE???</a><br />
+<a href="#2FC9FD"><b>2FC9FD</b> - INT 2F - ThunderByte TBLOG - WRITE STRING TO LOG</a><br />
+<a href="#2FCA00BX5442"><b>2FCA00BX5442</b> - INT 2F - TBSCANX - INSTALLATION CHECK</a><br />
+<a href="#2FCA01"><b>2FCA01</b> - INT 2F - TBSCANX - GET STATUS</a><br />
+<a href="#2FCA02"><b>2FCA02</b> - INT 2F - TBSCANX - SET STATE</a><br />
+<a href="#2FCA03"><b>2FCA03</b> - INT 2F - TBSCANX - SCAN BUFFER</a><br />
+<a href="#2FCA04"><b>2FCA04</b> - INT 2F - TBSCANX - SCAN FILE</a><br />
+<a href="#31_0"><b>31</b> - INT 31 - VIRUS - "Vacsina" series - INSTALLATION CHECK (NOT A VECTOR!)</a><br />
+<a href="#32"><b>32</b> - INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#32_0"><b>32</b> - INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#44_4"><b>44</b> - INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#60_0"><b>60</b> - INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK</a><br />
+<a href="#61_6"><b>61</b> - INT 61 - VIRUS - "SEMTEX"/"Screen Trasher" - INT 21h SUBSTITUTE</a><br />
+<a href="#6B_0"><b>6B</b> - INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#70_0"><b>70</b> - INT 70 - VIRUS - "Stupid" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#87_1"><b>87</b> - INT 87 - VIRUS - "ZeroHunt" - VIRAL CODE (NOT A VECTOR!)</a><br />
+<a href="#8B_1"><b>8B</b> - INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)</a><br />
+<a href="#9C_0"><b>9C</b> - INT 9C - VIRUS - "INT13" - ORIGINAL INT 13h VECTOR</a><br />
+<a href="#9D_0"><b>9D</b> - INT 9D - VIRUS - "INT13" - ROM INT 13h ENTRY POINT</a><br />
+<a href="#9E_0"><b>9E</b> - INT 9E - VIRUS - "INT13" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#9F_0"><b>9F</b> - INT 9F - VIRUS - "INT13" - STORAGE FOR USER INT 13h VECTOR</a><br />
+<a href="#D3_1"><b>D3</b> - INT D3 - VIRUS - "Antiexe" - RELOCATED INT 13</a><br />
+<a href="#E0_1"><b>E0</b> - INT E0 - VIRUS - "Micro-128" - ???</a><br />
+<a href="#F1_4"><b>F1</b> - INT F1 - VIRUS - "Violetta" - ???</a><br />
+<a href="#FF_3"><b>FF</b> - INT FF - VIRUS - "Violetta" - ???</a><br />
+
+<hr />
+
+<a href="#124350BX4920" name="124350BX4920"><b>124350BX4920</b></a> - INT 12 C - CPI-standard virus - "FRIEND" CHECK<br />
+<pre>
+INT 12 C - CPI-standard virus - "FRIEND" CHECK
+	AX = 4350h
+	BX = 4920h
+	CX = AB46h
+	DX = 554Eh
+Return: if friendly (not to be infected)
+	    CX:DX -&gt; ASCIZ identity code (changes yearly)
+SeeAlso: INT 13/AX=EC00h"VIRUS",INT 13/AX=5001h,INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#135001_0" name="135001_0"><b>135001</b></a> - INT 13 - VIRUS - "Andropinis" - INSTALLATION CHECK<br />
+<pre>
+INT 13 - VIRUS - "Andropinis" - INSTALLATION CHECK
+	AX = 5001h
+Return: AX = 0150h if resident
+SeeAlso: AX=FD50h"VIRUS",INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#135342CX0001" name="135342CX0001"><b>135342CX0001</b></a> - INT 13 - ScanBoot - INSTALLATION CHECK<br />
+<pre>
+INT 13 - ScanBoot - INSTALLATION CHECK
+	AX = 5342h ("SB")
+	CX = 0001h
+	DX = 0000h
+Return: CF clear if ScanBoot installed
+	   AX = 0000h
+	   CX = serial number ("SW" if shareware release)
+	   DX = version
+	   BX,SI,ES destroyed
+Program: ScanBoot is a virus-detection TSR by PanSoft
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A759" name="13A759"><b>13A759</b></a> - INT 13 U - Novell DOS 7 - SDRes v27.03 - ???<br />
+<pre>
+INT 13 U - Novell DOS 7 - SDRes v27.03 - ???
+	AX = A759h
+Return: AX = 59A7h if installed
+	    DX:BX -&gt; ??? data
+Program: SDRes is the resident portion of the Search&Destroy antiviral by
+	  Fifth Generation Systems, as bundled with Novell DOS 7
+SeeAlso: INT 21/AH=0Eh/DL=ADh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13EC00" name="13EC00"><b>13EC00</b></a> - INT 13 - VIRUS - "Tiso" - INSTALLATION CHECK<br />
+<pre>
+INT 13 - VIRUS - "Tiso" - INSTALLATION CHECK
+	AX = EC00h
+Return: CF clear if installed
+SeeAlso: AH=F2h,INT 12/AX=4350h/BX=4920h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13F2" name="13F2"><b>13F2</b></a> - INT 13 - VIRUS - "Neuroquila" - INSTALLATION CHECK<br />
+<pre>
+INT 13 - VIRUS - "Neuroquila" - INSTALLATION CHECK
+	AH = F2h
+Return: CF ??? if installed
+SeeAlso: AX=EC00h,INT 12/AX=4350h/BX=4920h,INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13FA--DX5945" name="13FA--DX5945"><b>13FA--DX5945</b></a> - INT 13 - PC Tools v8+ VSAFE, VWATCH - API<br />
+<pre>
+INT 13 - PC Tools v8+ VSAFE, VWATCH - API
+	AH = FAh
+	DX = 5945h
+	AL = function (00h-07h)
+Return: varies by function
+	if not installed:
+	    CF set
+		AH = 01h
+Note:	this API is identical to the ones on INT 16/AH=FAh and INT 21/AH=FAh,
+	  so it is listed in its entirety under INT 16/AX=FA00h and following
+SeeAlso: INT 16/AX=FA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13FD50" name="13FD50"><b>13FD50</b></a> - INT 13 - VIRUS - "Predator" - INSTALLATION CHECK<br />
+<pre>
+INT 13 - VIRUS - "Predator" - INSTALLATION CHECK
+	AX = FD50h
+Return: AX = 50FDh if resident
+SeeAlso: AX=5001h"VIRUS",INT 16/AH=DDh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16DD" name="16DD"><b>16DD</b></a> - INT 16 - VIRUS - "Frumble" - INSTALLATION CHECK<br />
+<pre>
+INT 16 - VIRUS - "Frumble" - INSTALLATION CHECK
+	AH = DDh
+Return: AL = DDh if resident
+SeeAlso: INT 13/AX=FD50h,INT 21/AX=010Fh,INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA00DX5945" name="16FA00DX5945"><b>16FA00DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - INSTALLATION CHECK
+	AX = FA00h
+	DX = 5945h
+Return: CF clear
+	DI = 4559h
+	BX = BIOS hotkey scancode (default 2F00h) (VSAFE only)
+		FFFFh if disabled
+Note:	MS-DOS 6.0 bundles VSAFE and VWATCH as part of its virus protection
+SeeAlso: AX=FA05h,INT 13/AH=FAh,INT 21/AH=FAh"VDEFEND",INT 2F/AX=6282h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA01DX5945" name="16FA01DX5945"><b>16FA01DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - UNINSTALL<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - UNINSTALL
+	AX = FA01h
+	DX = 5945h
+Return: CF clear if successful
+	DI = 4559h
+SeeAlso: AX=FA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA02DX5945" name="16FA02DX5945"><b>16FA02DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET/SET OPTIONS<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET/SET OPTIONS
+	AX = FA02h
+	DX = 5945h
+	BL = new parameter flags (see #00616)
+Return: CF clear
+	DI = 4559h
+	CL = old value of parameter flags
+
+Bitfields for VSAFE/VWATCH parameter flags:
+Bit(s)	Description	(Table 00616)
+ 7	Protect executable files
+ 6	Protect FD boot sector
+ 5	Protect HD boot sector
+ 4	Boot sector viruses
+ 3	Check executable files
+ 2	General write protect
+ 1	Resident
+ 0	HD Low level format
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA03DX5945" name="16FA03DX5945"><b>16FA03DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET ???
+	AX = FA03h
+	DX = 5945h
+Return: CF clear
+	DI = 4559h
+	AX = 0002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA04DX5945" name="16FA04DX5945"><b>16FA04DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE - GET HOTKEY DISABLE FLAG<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE - GET HOTKEY DISABLE FLAG
+	AX = FA04h
+	DX = 5945h
+Return: CF clear
+	DI = 4559h
+	BL = hotkey disable flag (nonzero if hotkey disabled)
+Note:	this function is a NOP under VWATCH, merely returning CF clear/DI=4559h
+SeeAlso: AX=FA00h,AX=FA05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA05DX5945" name="16FA05DX5945"><b>16FA05DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE - SET HOTKEY DISABLE FLAG<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE - SET HOTKEY DISABLE FLAG
+	AX = FA05h
+	DX = 5945h
+	BL = new value of hotkey disable flag (nonzero to disable hotkey)
+Return: CF clear
+	DI = 4559h
+Note:	this function is a NOP under VWATCH, merely returning CF clear/DI=4559h
+SeeAlso: AX=FA00h,AX=FA04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA06DX5945" name="16FA06DX5945"><b>16FA06DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET NETWORK DRIVES TEST FLAG<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - GET NETWORK DRIVES TEST FLAG
+	AX = FA06h
+	DX = 5945h
+Return: CF clear
+	DI = 4559h
+	BL = test status
+	    00h don't monitor network drives (default for VWATCH v2.1)
+	    FFh monitor network drives (default for VSAFE v2.0)
+	CL = ??? (only VSAFE 2.0)
+SeeAlso: AX=FA07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA07DX5945" name="16FA07DX5945"><b>16FA07DX5945</b></a> - INT 16 U - PC Tools v8+ VSAFE, VWATCH - SET NETWORK DRIVES TEST FLAG<br />
+<pre>
+INT 16 U - PC Tools v8+ VSAFE, VWATCH - SET NETWORK DRIVES TEST FLAG
+	AX = FA07h
+	DX = 5945h
+	BL = new state
+	    00h don't monitor
+	    01h monitor network drives
+Return: CF clear
+	DI = 4559h
+Note:	VWATCH v2.1 (from PC Tools 9.0) returns CF set instead
+SeeAlso: AX=FA00h,AX=FA06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FA08DX5945" name="16FA08DX5945"><b>16FA08DX5945</b></a> - INT 16 U - PC Tools v9+ VWATCH v2.1 - ???<br />
+<pre>
+INT 16 U - PC Tools v9+ VWATCH v2.1 - ???
+	AX = FA08h
+	DX = 5945h
+Return: CF clear
+	DI = 4559h
+	AX = ??? (0002h)
+	BX = version (BH=major, BL=two-digit minor)
+Note:	this function is not supported by the PC Tools 9.0 VSAFE v2.0
+SeeAlso: AX=FA00h,AX=FA06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21010F" name="21010F"><b>21010F</b></a> - INT 21 - VIRUS - "Susan" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Susan" - INSTALLATION CHECK
+	AX = 010Fh
+Return: AX = 7553h ("Su") if resident
+SeeAlso: INT 16/AH=DDh"VIRUS",INT 21/AX=0B56h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210B56" name="210B56"><b>210B56</b></a> - INT 21 - VIRUS - "Perfume" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Perfume" - INSTALLATION CHECK
+	AX = 0B56h
+Return: AX = 4952h if resident
+SeeAlso: AX=0D20h,INT 12/AX=4350h/BX=4920h,INT 13/AH=F2h,INT 21/AX=010Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210D20" name="210D20"><b>210D20</b></a> - INT 21 - VIRUS - "Crazy Imp" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Crazy Imp" - INSTALLATION CHECK
+	AX = 0D20h
+Return: AX = 1971h if resident
+SeeAlso: AX=0B56h,AX=1812h,AX=2C2Ch,AX=710Dh,AH=30h/DX=ABCDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210E--DLAD" name="210E--DLAD"><b>210E--DLAD</b></a> - INT 21 U - Novell DOS 7 - SDRes v27.03 - INSTALLATION CHECK<br />
+<pre>
+INT 21 U - Novell DOS 7 - SDRes v27.03 - INSTALLATION CHECK
+	AH = 0Eh
+	DL = ADh
+Return: AL = BAh if installed
+Program: SDRes is the resident portion of the Search&Destroy antiviral by
+	  Fifth Generation Systems, as bundled with Novell DOS 7
+Note:	SDRes will terminate programs which test for the presence of viruses
+	  using interrupt-based installation calls, saying that the program
+	  may be infected
+SeeAlso: AH=0Eh/DL=AEh,AH=0Eh/DL=AFh,AH=4Ah/BX=00B6h,INT 13/AX=A759h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210E--DLAE" name="210E--DLAE"><b>210E--DLAE</b></a> - INT 21 U - Novell DOS 7 - SDRes v27.03 - CLEAR ??? FLAG<br />
+<pre>
+INT 21 U - Novell DOS 7 - SDRes v27.03 - CLEAR ??? FLAG
+	AH = 0Eh
+	DL = AEh
+SeeAlso: AH=0Eh/DL=ADh,AH=0Eh/DL=AFh,INT 13/AX=A759h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210E--DLAF" name="210E--DLAF"><b>210E--DLAF</b></a> - INT 21 U - Novell DOS 7 - SDRes v27.03 - SET ??? FLAG<br />
+<pre>
+INT 21 U - Novell DOS 7 - SDRes v27.03 - SET ??? FLAG
+	AH = 0Eh
+	DL = AFh
+SeeAlso: AH=0Eh/DL=ADh,AH=0Eh/DL=AEh,INT 13/AX=A759h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#211812" name="211812"><b>211812</b></a> - INT 21 - VIRUS - "Tasha Yar" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Tasha Yar" - INSTALLATION CHECK
+	AX = 1812h
+Return: AL = 00h if resident
+	DX = 4310h if resident
+SeeAlso: INT 21/AX=0B56h"VIRUS",INT 21/AX=187Fh,INT 21/AX=2C2Ch"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21187FBX4453" name="21187FBX4453"><b>21187FBX4453</b></a> - INT 21 - VIRUS - "DS-3783" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "DS-3783" -INSTALLATION CHECK
+	AX = 187Fh
+	BX = 4453h
+Return: BX = 87A1h if resident
+SeeAlso: AX=1812h"VIRUS",AX=18FFh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2118FF" name="2118FF"><b>2118FF</b></a> - INT 21 - VIRUS - "Pathogen:SMEG" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Pathogen:SMEG" - INSTALLATION CHECK
+	AX = 18FFh
+Return: AX = E701h if resident
+SeeAlso: INT 21/AX=1812h"VIRUS",INT 21/AX=2080h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212080" name="212080"><b>212080</b></a> - INT 21 - VIRUS - "New-Year" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "New-Year" - INSTALLATION CHECK
+	AX = 2080h
+Return: AH = 00h if resident (normal DOS return would be AX = 2000h)
+SeeAlso: INT 21/AX=18FFh"VIRUS",INT 21/AX=2C2Ch"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B16CX0643" name="212B16CX0643"><b>212B16CX0643</b></a> - INT 21 - VIRUS - "Maltese Amoeba" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Maltese Amoeba" - INSTALLATION CHECK
+	AX = 2B16h
+	CX = 0643h
+Return: AX = 1603h if installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212C_0" name="212C_0"><b>212C</b></a> - INT 21 - VIRUS - "Anti Pode 2.0" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Anti Pode 2.0" - INSTALLATION CHECK
+	AH = 2Ch
+Return: DL = F2h if resident
+SeeAlso: AX=1812h"VIRUS",AX=2C2Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212C00CX534B" name="212C00CX534B"><b>212C00CX534B</b></a> - INT 21 - SKUDO - INSTALLATION CHECK<br />
+<pre>
+INT 21 - SKUDO - INSTALLATION CHECK
+	AX = 2C00h
+	CX = 534Bh ('SK')
+	DX = 5544h ('UD')
+	BX = 4F21h ('O!')
+Return: AX = 5349h ('SI') if installed
+	    CH = version number
+	    CL = subversion
+Program: SKUDO is an antivirus TSR by Jordi Mas
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212C2C" name="212C2C"><b>212C2C</b></a> - INT 21 - VIRUS - "LockJaw/Proto-T" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "LockJaw/Proto-T" - INSTALLATION CHECK
+	AX = 2C2Ch
+Return: AX = 0DCDh if resident
+SeeAlso: AH=2Ch"VIRUS",AX=3000h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2130--DXABCD" name="2130--DXABCD"><b>2130--DXABCD</b></a> - INT 21 - VIRUS - "Possessed" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Possessed" - INSTALLATION CHECK
+	AH = 30h
+	DX = ABCDh
+Return: DX = DCBAh if installed
+SeeAlso: AX=0D20h,AH=30h/SI=1234h,AX=3000h"VIRUS",AX=30F1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2130--SI1234" name="2130--SI1234"><b>2130--SI1234</b></a> - INT 21 - VIRUS - "ANDROMEDA-758" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "ANDROMEDA-758" -INSTALLATION CHECK
+	AH = 30h
+	SI = 1234h
+Return: AX = FFDDh if resident
+SeeAlso: AH=30h/DX=ABCDh,AX=3000h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213000BX614A" name="213000BX614A"><b>213000BX614A</b></a> - INT 21 - VIRUS - "Jackal" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Jackal" - INSTALLATION CHECK
+	AX = 3000h
+	BX = 614Ah ('aJ')
+	CX = 6B63h ('kc')
+	DX = 6C61h ('la')
+Return: BX = ???
+SeeAlso: AX=2C2Ch"VIRUS",AX=3030h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213030BX694D" name="213030BX694D"><b>213030BX694D</b></a> - INT 21 - VIRUS - "IMTC" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "IMTC" -INSTALLATION CHECK
+	AX = 3030h
+	BX = 694Dh
+Return: DX = 7443h if resident
+SeeAlso: AX=3000h/BX=614Ah"VIRUS",AX=3032h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213032DX1234" name="213032DX1234"><b>213032DX1234</b></a> - INT 21 - VIRUS - "Uruguay" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Uruguay" - INSTALLATION CHECK
+	AX = 3032h
+	DX = 1234h
+Return: AX = 5678h if resident
+SeeAlso: AX=3030h"VIRUS",AX=30F1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2130F1" name="2130F1"><b>2130F1</b></a> - INT 21 - VIRUS - "Dutch-555"/"Quit 1992" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dutch-555"/"Quit 1992" - INSTALLATION CHECK
+	AX = 30F1h
+Return: AL = 00h if resident
+SeeAlso: AH=30h/DX=ABCDh,AX=3032h,AX=330Fh,AX=33DAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21330F" name="21330F"><b>21330F</b></a> - INT 21 - VIRUS - "Burghofer" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Burghofer" - INSTALLATION CHECK
+	AX = 330Fh
+Return: AL = 0Fh if resident (DOS returns AL=FFh)
+SeeAlso: AX=30F1h,AX=33DAh,AX=33E0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2133DA" name="2133DA"><b>2133DA</b></a> - INT 21 - VIRUS - "CoffeeShop" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "CoffeeShop" - INSTALLATION CHECK
+	AX = 33DAh
+Return: AH = A5h if resident
+	    AL = virus version
+SeeAlso: AX=33DB,AX=33DCh,AX=330Fh,AX=33E0h,AX=5643h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2133DB" name="2133DB"><b>2133DB</b></a> - INT 21 - VIRUS - "CoffeeShop" - GENERATE RANDOM NUMBER<br />
+<pre>
+INT 21 - VIRUS - "CoffeeShop" - GENERATE RANDOM NUMBER
+	AX = 33DBh
+Return:	???
+SeeAlso: AX=33DAh,AX=33DCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2133DC" name="2133DC"><b>2133DC</b></a> - INT 21 - VIRUS - "CoffeeShop" - DISPLAY "LEGALIZE CANNABIS" GRAPHIC<br />
+<pre>
+INT 21 - VIRUS - "CoffeeShop" - DISPLAY "LEGALIZE CANNABIS" GRAPHIC
+	AX = 33DCh
+Return:	???
+SeeAlso: AX=33DAh,AX=33DBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2133E0" name="2133E0"><b>2133E0</b></a> - INT 21 - VIRUS - "Oropax" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Oropax" - INSTALLATION CHECK
+	AX = 33E0h
+Return: AL = E0h if resident (DOS returns AL=FFh)
+SeeAlso: AX=330Fh,AX=33DAh,AX=357Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21357F" name="21357F"><b>21357F</b></a> - INT 21 - VIRUS - "Agiplan"/"Month 4-6" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Agiplan"/"Month 4-6" - INSTALLATION CHECK
+	AX = 357Fh
+Return: DX = FFFFh if installed
+SeeAlso: AX=33E0h,AX=3DFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213D76" name="213D76"><b>213D76</b></a> - INT 21 - VIRUS - "GT-SPOOF" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "GT-SPOOF" -INSTALLATION CHECK
+	AX = 3D76h
+Return: AX = 763Dh if resident
+SeeAlso: AX=357Fh,AX=3DFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213DFF" name="213DFF"><b>213DFF</b></a> - INT 21 - VIRUS - "JD-448" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "JD-448" - INSTALLATION CHECK
+	AX = 3DFFh
+Return: AX = 4A44h if resident
+SeeAlso: AX=3D76h,AX=4203h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213F--BXFEB0" name="213F--BXFEB0"><b>213F--BXFEB0</b></a> - INT 21 - VIRUS - "KYZ/LieWait" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "KYZ/LieWait" - INSTALLATION CHECK
+	AH = 3Fh
+	BX = FEB0h
+Return: BX = 1212h if resident
+SeeAlso: AX=3032h"VIRUS",AX=4BF1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214203" name="214203"><b>214203</b></a> - INT 21 - VIRUS - "Shake" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Shake" - INSTALLATION CHECK
+	AX = 4203h
+Return: AX = 1234h if resident
+SeeAlso: AX=3DFFh,AX=4243h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214243" name="214243"><b>214243</b></a> - INT 21 - VIRUS - "Invader" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Invader" - INSTALLATION CHECK
+	AX = 4243h
+Return: AX = 5678h if resident
+SeeAlso: AX=4203h,AX=44A0h,AX=4B04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2144A0" name="2144A0"><b>2144A0</b></a> - INT 21 - VIRUS - "Horns" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Horns" - INSTALLATION CHECK
+	AX = 44A0h
+Return: AH = FFh if installed
+SeeAlso: AX=4243h"VIRUS",AX=4B04h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214A--BX00B6" name="214A--BX00B6"><b>214A--BX00B6</b></a> - INT 21 - VIRUS???<br />
+<pre>
+INT 21 - VIRUS???
+	AH = 4Ah
+	BX = 00B6h
+	ES = CX
+Return: ???
+Note:	this call is intercepted by the Search&Destroy SDRes v27.03 bundled
+	  with Novell DOS 7, and is presumably some virus's installation check
+SeeAlso: AH=0Eh/DL=ADh,AH=4Ah/BX=FFFFh,AH=D2h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214A--BXFFFF" name="214A--BXFFFF"><b>214A--BXFFFF</b></a> - INT 21 - VIRUS???<br />
+<pre>
+INT 21 - VIRUS???
+	AH = 4Ah
+	BX = FFFFh
+	CX = 0568h
+	SI = 0129h
+	DI = 0000h
+	ES = BP
+Return: ???
+Note:	this call is intercepted by the Search&Destroy SDRes v27.03 bundled
+	  with Novell DOS 7, and is presumably some virus's installation check
+SeeAlso: AH=0Eh/DL=ADh,AH=4Ah/BX=00B6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B04" name="214B04"><b>214B04</b></a> - INT 21 - VIRUS - "MG", "699"/"Thirteen Minutes" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "MG", "699"/"Thirteen Minutes" - INSTALLATION CHECK
+	AX = 4B04h
+Return: CF clear if "MG" resident
+	AX = 044Bh if "699"/"Thirteen Minutes" resident
+SeeAlso: AX=4243h,AH=4Ah/BX=FFFFh,AX=4B21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B20" name="214B20"><b>214B20</b></a> - INT 21 - VIRUS - "Holocaust"/"Telefonica" - ???<br />
+<pre>
+INT 21 - VIRUS - "Holocaust"/"Telefonica" - ???
+	AX = 4B20h
+SeeAlso: AX=4B04h,AX=4B21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B21" name="214B21"><b>214B21</b></a> - INT 21 C - VIRUS - "Holocaust"/"Telefonica" - ???<br />
+<pre>
+INT 21 C - VIRUS - "Holocaust"/"Telefonica" - ???
+	AX = 4B21h
+Note:	called at completion of virus installation
+SeeAlso: AX=4B04h,AX=4B20h,AX=4B25h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B25" name="214B25"><b>214B25</b></a> - INT 21 - VIRUS - "1063"/"Mono" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "1063"/"Mono" - INSTALLATION CHECK
+	AX = 4B25h
+Return: DI = 1234h if resident
+SeeAlso: AX=4B21h,AX=4B40h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B40" name="214B40"><b>214B40</b></a> - INT 21 - VIRUS - "Plastique"/"AntiCad" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Plastique"/"AntiCad" - INSTALLATION CHECK
+	AX = 4B40h
+Return: AX = 5678h if resident
+SeeAlso: AX=4B25h,AX=4B41h,AX=4B4Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B41" name="214B41"><b>214B41</b></a> - INT 21 - VIRUS - "Plastique"/"AntiCad" - ???<br />
+<pre>
+INT 21 - VIRUS - "Plastique"/"AntiCad" - ???
+	AX = 4B41h
+	???
+Return: ???
+SeeAlso: AX=4B40h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B4A" name="214B4A"><b>214B4A</b></a> - INT 21 - VIRUS - "Jabberwocky" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Jabberwocky" - INSTALLATION CHECK
+	AX = 4B4Ah
+Return: AL = 57h if resident
+SeeAlso: AX=4B40h,AX=4B4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B4B" name="214B4B"><b>214B4B</b></a> - INT 21 - VIRUS - "Horse-2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Horse-2" - INSTALLATION CHECK
+	AX = 4B4Bh
+Return: CF clear if resident
+SeeAlso: AX=4B4Ah,AX=4B4Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B4D" name="214B4D"><b>214B4D</b></a> - INT 21 - VIRUS - "Murphy-2", "Patricia"/"Smack" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Murphy-2", "Patricia"/"Smack" - INSTALLATION CHECK
+	AX = 4B4Dh
+Return: CF clear if resident
+SeeAlso: AX=4B4Ah,AX=4B50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B50" name="214B50"><b>214B50</b></a> - INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - INSTALLATION CHECK
+	AX = 4B50h
+Return: AX = 1234h if resident
+SeeAlso: AX=4B4Dh,AX=4B53h,AX=4B60h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B53" name="214B53"><b>214B53</b></a> - INT 21 - VIRUS - "Horse" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Horse" - INSTALLATION CHECK
+	AX = 4B53h
+Return: CF clear if resident
+SeeAlso: AX=4B50h,AX=4B53h/BX=2121h,AX=4B55h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B53BX2121" name="214B53BX2121"><b>214B53BX2121</b></a> - INT 21 - VIRUS - "One Half" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "One Half" - INSTALLATION CHECK
+	AX = 4B53h
+	BX = 2121h
+	CX = 1212h
+	DX = 0236h
+Return: AX = 454Bh if installed
+SeeAlso: AX=4B50h,AX=4B53h,AX=4B55h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B55" name="214B55"><b>214B55</b></a> - INT 21 - VIRUS - "Sparse" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Sparse" - INSTALLATION CHECK
+	AX = 4B55h
+Return: AX = 1231h if resident
+SeeAlso: AX=4B53h,AX=4B59h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B59" name="214B59"><b>214B59</b></a> - INT 21 - VIRUS - "Murphy-1", "Murphy-4" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Murphy-1", "Murphy-4" - INSTALLATION CHECK
+	AX = 4B59h
+Return: CF clear if resident
+SeeAlso: AX=4B50h,AX=4B5Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B5E" name="214B5E"><b>214B5E</b></a> - INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK
+	AX = 4B5Eh
+Return: CF clear if resident
+SeeAlso: AX=4B59h,AX=4B87h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B60" name="214B60"><b>214B60</b></a> - INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - ???<br />
+<pre>
+INT 21 - VIRUS - "Plastique-2576"/"AntiCad-2576" - ???
+	AX = 4B60h
+	???
+Return: ???
+SeeAlso: AX=4B50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B87" name="214B87"><b>214B87</b></a> - INT 21 - VIRUS - "Shirley" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Shirley" - INSTALLATION CHECK
+	AX = 4B87h
+Return: AX = 6663h if resident
+SeeAlso: AX=4B5Eh,AX=4B95h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B95" name="214B95"><b>214B95</b></a> - INT 21 - VIRUS - "Zherkov-1882" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Zherkov-1882" - INSTALLATION CHECK
+	AX = 4B95h
+Return: AX = 1973h if resident
+SeeAlso: AX=4B87h,AX=4BA7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BA7" name="214BA7"><b>214BA7</b></a> - INT 21 - VIRUS - "1876"/"Dash-em" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "1876"/"Dash-em" - INSTALLATION CHECK
+	AX = 4BA7h
+Return: AX = B459h if resident
+SeeAlso: AX=4B95h,AX=4BAAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BAA" name="214BAA"><b>214BAA</b></a> - INT 21 - VIRUS - "Nomenklatura" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Nomenklatura" - INSTALLATION CHECK
+	AX = 4BAAh
+Return: CF clear if resident
+SeeAlso: AX=4BA7h,AX=4BAFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BAF" name="214BAF"><b>214BAF</b></a> - INT 21 - VIRUS - "948"/"Screenplus1", "Magnitogorsk" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "948"/"Screenplus1", "Magnitogorsk" - INSTALLATION CHECK
+	AX = 4BAFh
+Return: AL = AFh if "Magnitogorsk" resident
+	AL = FAh if "948"/"Screenplus1" resident
+SeeAlso: AX=4BAAh,AX=4BB1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BB1" name="214BB1"><b>214BB1</b></a> - INT 21 - VIRUS - "UZZY" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "UZZY" -INSTALLATION CHECK
+	AX = 4BB1h
+Return: CL = 04h if resident
+SeeAlso: AX=4BAFh"VIRUS",AX=4BDDh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BDD" name="214BDD"><b>214BDD</b></a> - INT 21 - VIRUS - "Lozinsky"/"Zherkov" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Lozinsky"/"Zherkov" - INSTALLATION CHECK
+	AX = 4BDDh
+Return: AX = 1234h
+SeeAlso: AX=4BB1h"VIRUS",AX=4BFEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BEE" name="214BEE"><b>214BEE</b></a> - INT 21 - F-DRIVER.SYS v1.14+ - GRAB INT 21<br />
+<pre>
+INT 21 - F-DRIVER.SYS v1.14+ - GRAB INT 21
+	AX = 4BEEh
+Return: AX = status
+	    1234h grab was successful
+	    2345h failed (INT 21 grabbed previously)
+Program: F-DRIVER.SYS is part of the shareware F-PROT virus/trojan protection
+	  package by Fridrik Skulason
+Note:	when called the first time, this function moves the INT 21 monitoring
+	  code from its original location in the INT 21 chain to be the first
+	  thing called by INT 21.  This is the mechanism used by F-NET.
+SeeAlso: INT 2F/AX=4653h/CX=0002h,INT 2F/AX=4653h/CX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BF1_0" name="214BF1_0"><b>214BF1</b></a> - INT 21 - VIRUS - "Jerusalem 2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Jerusalem 2" - INSTALLATION CHECK
+	AX = 4BF1h
+Return: AX = 1FB4h if resident
+SeeAlso: AH=3Fh/BX=FEB0h"VIRUS",AX=4BDDh"VIRUS",AX=4BFEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BFE" name="214BFE"><b>214BFE</b></a> - INT 21 - VIRUS - "Hitchcock", "Dark Avenger-1028", "1193" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Hitchcock", "Dark Avenger-1028", "1193" - INSTALLATION CHECK
+	AX = 4BFEh
+Return: AX = 1234h if "Hitchcock" or "Storm" resident
+	AX = ABCDh if "1193"/"Copyright" resident
+	DI = 55BBh if "Dark Avenger-1028" resident
+SeeAlso: AX=4BDDh,AX=4BF1h"VIRUS",AX=4BFFh"Justice"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BFF" name="214BFF"><b>214BFF</b></a> - INT 21 - VIRUS - "USSR-707", "Justice", "Europe 92" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "USSR-707", "Justice", "Europe 92" - INSTALLATION CHECK
+	AX = 4BFFh
+Return: BL = FFh if "USSR-707" resident
+	DI = 55AAh if "Justice" resident
+	AX = 1234h if "Hitchcock.1238" resident
+	CF clear if "Europe 92" resident
+SeeAlso: AX=4BFEh,AX=4BFFh"Cascade",AX=5252h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BFFSI0000" name="214BFFSI0000"><b>214BFFSI0000</b></a> - INT 21 - VIRUS - "Cascade" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Cascade" - INSTALLATION CHECK
+	AX = 4BFFh
+	SI = 0000h
+	DI = 0000h
+Return: DI = 55AAh if installed
+SeeAlso: AX=4BFFh"Justice",AX=5252h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2150FD" name="2150FD"><b>2150FD</b></a> - INT 21 - VIRUS - "Predator 2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Predator 2" - INSTALLATION CHECK
+	AX = 50FDh
+Return: AX = FD50h if resident
+SeeAlso: AX=4BFFh"VIRUS",AX=5454h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215252" name="215252"><b>215252</b></a> - INT 21 - VIRUS - "516"/"Leapfrog" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "516"/"Leapfrog" - INSTALLATION CHECK
+	AX = 5252h
+Return: BX = FFEEh if resident
+SeeAlso: AX=4BFFh"Cascade",AX=58CCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2154--BX4475" name="2154--BX4475"><b>2154--BX4475</b></a> - INT 21 - VIRUS - "Dual_GtM"/"Ganeu" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dual_GtM"/"Ganeu" - INSTALLATION CHECK
+	AH = 54h
+	BX = 4475h ("Du")
+	CX = 616Ch ("al")
+Return: BX = 4774h ("Gt") and CX = 4D21h ("M!") if resident
+SeeAlso: AX=50FDh"VIRUS",AX=5454h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215454" name="215454"><b>215454</b></a> - INT 21 - VIRUS - "Dudley" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dudley" - INSTALLATION CHECK
+	AX = 5454h
+Return: AX = 0000h if resident
+SeeAlso: AX=50FDh"VIRUS",AH=54h/BX=4475h"VIRUS",AX=7BCEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215643" name="215643"><b>215643</b></a> - INT 21 - VIRUS - "PS-MPC.Gold" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "PS-MPC.Gold" - INSTALLATION CHECK
+	AX = 5643h  ('VC')
+Return: AX = 5053h  ('PS') if resident
+SeeAlso: AX=33E0h"VIRUS",AX=5741h"VIRUS",AX=6303h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215741" name="215741"><b>215741</b></a> - INT 21 - VIRUS - "WARP" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "WARP" -INSTALLATION CHECK
+	AX = 5741h
+Return: AX = 5250h if resident
+SeeAlso: AX=5643h"VIRUS",AX=58CCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2158CC" name="2158CC"><b>2158CC</b></a> - INT 21 - VIRUS - "1067"/"Headcrash" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "1067"/"Headcrash" - INSTALLATION CHECK
+	AX = 58CCh
+Return: CF clear if resident
+SeeAlso: AX=5741h"VIRUS",AX=5643h,AX=5252h,AX=58DDh,AX=6303h"VIRUS",AX=6969h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2158DD" name="2158DD"><b>2158DD</b></a> - INT 21 - VIRUS - "1067"/"Headcrash" - GET ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 21 - VIRUS - "1067"/"Headcrash" - GET ORIGINAL INT 21h VECTOR
+	AX = 58DDh
+Return: CX = code segment of virus
+	ES:BX = old INT 21h vector
+SeeAlso: AX=5252h,AX=58CCh,AX=6969h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#216303" name="216303"><b>216303</b></a> - INT 21 - VIRUS - "DOS IDLE" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "DOS IDLE" - INSTALLATION CHECK
+	AX = 6303h
+Return: BX = 6303h if resident
+SeeAlso: AX=5643h"VIRUS",AX=6304h"VIRUS",AX=9AD5h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#216304" name="216304"><b>216304</b></a> - INT 21 - VIRUS - "Replicator" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Replicator" - INSTALLATION CHECK
+	AX = 6304h
+Return: BX = 6304h if resident
+SeeAlso: AX=6303h"VIRUS",AX=6969h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#216969" name="216969"><b>216969</b></a> - INT 21 - VIRUS - "Rape-747" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Rape-747" - INSTALLATION CHECK
+	AX = 6969h
+Return: AX = 0666h if resident
+SeeAlso: AX=58CCh,AX=6304h"VIRUS",AH=71h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2171_0" name="2171_0"><b>2171</b></a> - INT 21 - VIRUS - "1205" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "1205" - INSTALLATION CHECK
+	AH = 71h
+Return: AH = 17h if "1205" is resident
+SeeAlso: AX=6969h"VIRUS",AH=76h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217575" name="217575"><b>217575</b></a> - INT 21 - VIRUS - "LEGO" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "LEGO" -INSTALLATION CHECK
+	AX = 7575h
+Return: AX = 4321h if resident
+SeeAlso: AX=6969h,AH=76h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2176" name="2176"><b>2176</b></a> - INT 21 - VIRUS - "Klaeren"/"Hate" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Klaeren"/"Hate" - INSTALLATION CHECK
+	AH = 76h
+Return: AL = 48h if resident
+SeeAlso: AX=7575h,AX=7700h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217700" name="217700"><b>217700</b></a> - INT 21 - VIRUS - "Growing Block" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Growing Block" - INSTALLATION CHECK
+	AX = 7700h
+Return: AX = 0920h if resident
+SeeAlso: AH=76h,AX=7BCEh,AH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217BCE" name="217BCE"><b>217BCE</b></a> - INT 21 - VIRUS - "Whisper"/"Taipan" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Whisper"/"Taipan" - INSTALLATION CHECK
+	AX = 7BCEh
+Return: AX = 7BCEh if resident (???)
+SeeAlso: AX=5454h"VIRUS",AX=7700h,AX=7BCFh,AH=7Fh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217BCF" name="217BCF"><b>217BCF</b></a> - INT 21 - VIRUS - "Tai-Pan.666"/"Doom II Death" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Tai-Pan.666"/"Doom II Death" - INSTALLATION CHECK
+	AX = 7BCFh
+Return: AX = 7BCFh if resident
+SeeAlso: AX=7BCEh"VIRUS",AH=7Dh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217D" name="217D"><b>217D</b></a> - INT 21 - VIRUS - "OffSpring" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "OffSpring" - INSTALLATION CHECK
+	AH = 7Dh
+Return: AH = FAh if installed
+SeeAlso: AX=7BCFh"VIRUS",AH=7Fh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217F" name="217F"><b>217F</b></a> - INT 21 - VIRUS - "Squeaker","ASeXual" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Squeaker","ASeXual" - INSTALLATION CHECK
+	AH = 7Fh
+Return: AH = 80h if resident
+SeeAlso: AX=7BCEh,AH=83h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2183_0" name="2183_0"><b>2183</b></a> - INT 21 - VIRUS - "SVC" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "SVC" - INSTALLATION CHECK
+	AH = 83h
+Return: DX = 1990h if resident
+SeeAlso: AH=76h,AH=84h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2184" name="2184"><b>2184</b></a> - INT 21 - VIRUS - "SVC 5.0" or "SVC 6.0" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "SVC 5.0" or "SVC 6.0" - INSTALLATION CHECK
+	AH = 84h
+Return: DX = 1990h if resident
+	    BH = version number (major in high nybble, minor in low)
+SeeAlso: AH=83h"VIRUS",AH=89h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2189_0" name="2189_0"><b>2189</b></a> - INT 21 - VIRUS - "Vriest" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Vriest" - INSTALLATION CHECK
+	AH = 89h
+Return: AX = 0123h if resident
+SeeAlso: AH=84h"VIRUS",AH=90h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2190_0" name="2190_0"><b>2190</b></a> - INT 21 - VIRUS - "Carioca" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Carioca" - INSTALLATION CHECK
+	AH = 90h
+Return: AH = 01h if resident
+SeeAlso: AH=89h"VIRUS",AX=9753h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#219753" name="219753"><b>219753</b></a> - INT 21 - VIRUS - "Nina" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Nina" - INSTALLATION CHECK
+	AX = 9753h
+Return: never (executes original program) if virus resident
+SeeAlso: AH=90h"VIRUS",AX=A1D5h"VIRUS",AX=9AD5h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#219AD5" name="219AD5"><b>219AD5</b></a> - INT 21 - VIRUS - "Massacre/Beavis" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Massacre/Beavis" - INSTALLATION CHECK
+	AX = 9AD5h
+Return: AX = 9AD4h if resident
+SeeAlso: AX=6969h"VIRUS",AX=A1D5h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A1D5" name="21A1D5"><b>21A1D5</b></a> - INT 21 - VIRUS - "789"/"Filehider" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "789"/"Filehider" - INSTALLATION CHECK
+	AX = A1D5h
+Return: AX = 900Dh if resident
+SeeAlso: AX=9753h,AX=9AD5h,AX=A55Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A55A" name="21A55A"><b>21A55A</b></a> - INT 21 - VIRUS - "Eddie-2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Eddie-2" - INSTALLATION CHECK
+	AX = A55Ah
+Return: AX = 5AA5h if resident
+SeeAlso: AX=A1D5h,AX=AA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21AA00" name="21AA00"><b>21AA00</b></a> - INT 21 - VIRUS - "Blinker" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Blinker" - INSTALLATION CHECK
+	AX = AA00h
+Return: AX = 00AAh if resident
+SeeAlso: AX=A55Ah,AX=AA03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21AA03" name="21AA03"><b>21AA03</b></a> - INT 21 - VIRUS - "Backtime" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Backtime" - INSTALLATION CHECK
+	AX = AA03h
+Return: AX = 03AAh if resident
+SeeAlso: AX=AA00h,AH=ABh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21AB" name="21AB"><b>21AB</b></a> - INT 21 - VIRUS - "600" or "Voronezh"-family - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "600" or "Voronezh"-family - INSTALLATION CHECK
+	AH = ABh
+Return: AX = 5555h if resident
+SeeAlso: AX=AA03h,AX=ABCDh,AX=BBBBh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21ABCD" name="21ABCD"><b>21ABCD</b></a> - INT 21 - VIRUS - Major BBS - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - Major BBS - INSTALLATION CHECK
+	AX = ABCDh
+Return: AX = 1234h if installed
+SeeAlso: AH=ABh"VIRUS",AX=ABCDh"SuperVirus"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21ABCD_0" name="21ABCD_0"><b>21ABCD</b></a> - INT 21 - VIRUS - "SuperVirus 2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "SuperVirus 2" - INSTALLATION CHECK
+	AX = ABCDh
+Return: AX = DCBAh if resident
+SeeAlso: AX=ABCDh"VIRUS",AX=BBBBh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21B3" name="21B3"><b>21B3</b></a> - INT 21 - VIRUS - "Requires" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Requires" - INSTALLATION CHECK
+	AH = B3h
+Return: AX = 9051h if resident
+SeeAlso: AH=7Fh"VIRUS",AX=B974h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21B974" name="21B974"><b>21B974</b></a> - INT 21 - VIRUS - "Tracker" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Tracker" - INSTALLATION CHECK
+	AX = B974h
+Return: AX = 2888h if resident
+SeeAlso: AH=B3h"VIRUS",AH=D0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21BBBB" name="21BBBB"><b>21BBBB</b></a> - INT 21 - VIRUS - "Hey You" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Hey You" - INSTALLATION CHECK
+	AX = BBBBh
+Return: AX = 6969h
+SeeAlso: AH=ABh"VIRUS",AH=BEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21BE_0" name="21BE_0"><b>21BE</b></a> - INT 21 - VIRUS - "Datalock" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Datalock" - INSTALLATION CHECK
+	AH = BEh
+Return: AX = 1234h if resident
+SeeAlso: AX=BBBBh,AX=BE00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21BE00" name="21BE00"><b>21BE00</b></a> - INT 21 - VIRUS - "USSR-1049" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "USSR-1049" - INSTALLATION CHECK
+	AX = BE00h
+	CF set
+Return: CF clear if resident
+SeeAlso: AH=BEh"VIRUS",AH=C0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C0_0" name="21C0_0"><b>21C0</b></a> - INT 21 - VIRUS - "Slow"/"Zerotime", "Solano" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Slow"/"Zerotime", "Solano" - INSTALLATION CHECK
+	AH = C0h
+Return: AX = 0300h if "Slow"/"Zerotime" resident
+	AX = 1234h if "Solano" resident
+SeeAlso: AX=BE00h,AX=C000h"VIRUS",AX=C301h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C000" name="21C000"><b>21C000</b></a> - INT 21 - VIRUS - "QUICKY" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "QUICKY" - INSTALLATION CHECK
+	AX = C000h
+	BX = most files infected by any other infected file
+Return: AX = 76F3h if resident
+SeeAlso: AH=C0h"VIRUS",AX=C001h,AX=C002h,AH=C1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C001" name="21C001"><b>21C001</b></a> - INT 21 - VIRUS - "QUICKY" - TURN INFECTION OFF<br />
+<pre>
+INT 21 - VIRUS - "QUICKY" - TURN INFECTION OFF
+	AX = C001h
+Return: nothing
+Note:	if the virus is already memory resident this call disables any
+	  further infections
+SeeAlso: AX=C000h,AX=C002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C002" name="21C002"><b>21C002</b></a> - INT 21 - VIRUS - "QUICKY" - TURN INFECTION ON<br />
+<pre>
+INT 21 - VIRUS - "QUICKY" - TURN INFECTION ON
+	AX = C002h
+Return: nothing
+Note:	if the virus is already memory resident and infection is disabled,
+	  this call re-enables it
+SeeAlso: AX=C000h,AX=C001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C1_0" name="21C1_0"><b>21C1</b></a> - INT 21 - VIRUS - "Solano" - ???<br />
+<pre>
+INT 21 - VIRUS - "Solano" - ???
+	AH = C1h
+	???
+Return: ???
+SeeAlso: AH=C0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C2_0" name="21C2_0"><b>21C2</b></a> - INT 21 - VIRUS - "Scott's Valley" - ???<br />
+<pre>
+INT 21 - VIRUS - "Scott's Valley" - ???
+	AH = C2h
+	???
+Return: ???
+SeeAlso: AH=C0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C301DXF1F1" name="21C301DXF1F1"><b>21C301DXF1F1</b></a> - INT 21 - VIRUS - "905"/"Backfont" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "905"/"Backfont" - INSTALLATION CHECK
+	AX = C301h
+	DX = F1F1h
+Return: DX = 0E0Eh if resident
+SeeAlso: AH=C0h"VIRUS",AX=C500h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C500_0" name="21C500_0"><b>21C500</b></a> - INT 21 - VIRUS - "Sverdlov" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Sverdlov" - INSTALLATION CHECK
+	AX = C500h
+Return: AX = 6731h if resident
+SeeAlso: AX=C301h"VIRUS",AH=C6h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C6_0" name="21C6_0"><b>21C6</b></a> - INT 21 - VIRUS - "Socha" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Socha" - INSTALLATION CHECK
+	AH = C6h
+Return: AL = 55h if resident
+SeeAlso: AX=C500h"VIRUS",AX=C603h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C603" name="21C603"><b>21C603</b></a> - INT 21 - VIRUS - "Yankee Doodle" or "MLTI" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Yankee Doodle" or "MLTI" - INSTALLATION CHECK
+	AX = C603h
+	BX = version number (002Ch or 002Dh)
+	CF set
+Return: CF clear if resident
+	ZF set if resident and input BX matches version
+SeeAlso: AX=C500h"VIRUS",AX=C700h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21C700_0" name="21C700_0"><b>21C700</b></a> - INT 21 - VIRUS - "MH-757" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "MH-757" - INSTALLATION CHECK
+	AX = C700h
+Return: AL = 07h if resident
+SeeAlso: AX=C603h"VIRUS",AH=CBh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21CA15" name="21CA15"><b>21CA15</b></a> - INT 21 - VIRUS - "Piter" - ???<br />
+<pre>
+INT 21 - VIRUS - "Piter" - ???
+	AX = CA15h
+	???
+Return: ???
+SeeAlso: AH=CCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21CB_0" name="21CB_0"><b>21CB</b></a> - INT 21 - VIRUS - "Milous" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Milous" - INSTALLATION CHECK
+	AH = CBh
+Return: AL = 07h if resident
+SeeAlso: AX=C700h"VIRUS",AX=CB02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21CB02" name="21CB02"><b>21CB02</b></a> - INT 21 - VIRUS - "Witcode" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Witcode" - INSTALLATION CHECK
+	AX = CB02h
+Return: AX = 02CBh if resident
+SeeAlso: AH=CBh"VIRUS",AH=CCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21CC_0" name="21CC_0"><b>21CC</b></a> - INT 21 - VIRUS - "Westwood" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Westwood" - INSTALLATION CHECK
+	AH = CCh
+Return: AX = 0700h if resident
+SeeAlso: AX=CB02h,AH=CDh"VIRUS",AX=D000h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21CD_0" name="21CD_0"><b>21CD</b></a> - INT 21 - VIRUS - "Westwood" - ???<br />
+<pre>
+INT 21 - VIRUS - "Westwood" - ???
+	AH = CDh
+	???
+Return: ???
+SeeAlso: AH=CCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D0_0" name="21D0_0"><b>21D0</b></a> - INT 21 - VIRUS - "MALAGA" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "MALAGA" - INSTALLATION CHECK
+	AH = D0h
+Return: AX = 00D0h if resident
+SeeAlso: AH=B3h"VIRUS",AH=D0h"ANTIARJ",AX=D000h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D0_1" name="21D0_1"><b>21D0</b></a> - INT 21 - VIRUS - "ANTIARJ" -INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "ANTIARJ" -INSTALLATION CHECK
+	AH = D0h
+Return: AH = D1h if resident
+SeeAlso: AH=D0h"MALAGA"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D000" name="21D000"><b>21D000</b></a> - INT 21 - VIRUS - "Fellowship" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Fellowship" - INSTALLATION CHECK
+	AX = D000h
+Return: BX = 1234h if resident
+SeeAlso: AH=CCh"VIRUS",AH=D0h"ANTIARJ",AX=D000h"Warlock",AH=D5h"VIRUS",AX=D5AAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D000_0" name="21D000_0"><b>21D000</b></a> - INT 21 - VIRUS - "Warlock" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Warlock" - INSTALLATION CHECK
+	AX = D000h
+	CF clear
+Return: CF set if resident (normal DOS return would be CF clear)
+SeeAlso: AX=D000h"VIRUS",AH=D5h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D2_0" name="21D2_0"><b>21D2</b></a> - INT 21 - VIRUS???<br />
+<pre>
+INT 21 - VIRUS???
+	AH = D2h
+	???
+Return: ???
+Note:	this call is intercepted by the Search&Destroy SDRes v27.03 bundled
+	  with Novell DOS 7, and is presumably some virus's installation check
+SeeAlso: AH=4Ah/BX=00B6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D5_0" name="21D5_0"><b>21D5</b></a> - INT 21 - VIRUS - "Carfield" - ???<br />
+<pre>
+INT 21 - VIRUS - "Carfield" - ???
+	AH = D5h
+	???
+Return: ???
+SeeAlso: AX=D5AAh,AH=F3h"Carfield"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D5AA" name="21D5AA"><b>21D5AA</b></a> - INT 21 - VIRUS - "Diamond-A", "Diamond-B" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Diamond-A", "Diamond-B" - INSTALLATION CHECK
+	AX = D5AAh
+Return: AX = 2A55h if "Diamond-A" resident
+	AX = 2A03h if "Diamond-B"-family virus resident
+SeeAlso: AX=D000h,AH=D5h"VIRUS",AX=D5AAh/BP=DEAAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21D5AABPDEAA" name="21D5AABPDEAA"><b>21D5AABPDEAA</b></a> - INT 21 - VIRUS - "Dir" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dir" - INSTALLATION CHECK
+	AX = D5AAh
+	BP = DEAAh
+Return: SI = 4321h if resident
+SeeAlso: AX=D5AAh,AX=DADAh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DADA" name="21DADA"><b>21DADA</b></a> - INT 21 - VIRUS - "Gotcha" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Gotcha" - INSTALLATION CHECK
+	AX = DADAh
+Return: AH = A5h
+SeeAlso: AX=D5AAh,AX=DAFEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DAFE" name="21DAFE"><b>21DAFE</b></a> - INT 21 - VIRUS - "Plovdiv 1.3" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Plovdiv 1.3" - INSTALLATION CHECK
+	AX = DAFEh
+Return: AX = 1234h if resident
+SeeAlso: AX=DADAh,AH=DDh"VIRUS",AH=DEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DC28" name="21DC28"><b>21DC28</b></a> - INT 21 - VIRUS - "Monika" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Monika" - INSTALLATION CHECK
+	AX = DC28h
+Return: AX = 1973h if resident
+SeeAlso: AX=D000h"VIRUS",AX=DCBAh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DCBA" name="21DCBA"><b>21DCBA</b></a> - INT 21 - VIRUS - "Red Spider" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Red Spider" - INSTALLATION CHECK
+	AX = DCBAh
+Return: AX = ABCDh if resident
+SeeAlso: AX=DC28h"VIRUS",AX=DEFEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DD_0" name="21DD_0"><b>21DD</b></a> - INT 21 - VIRUS - "Jerusalem"-family - RELOCATE VIRUS???<br />
+<pre>
+INT 21 - VIRUS - "Jerusalem"-family - RELOCATE VIRUS???
+	AH = DDh
+	CX = number of bytes to copy
+	DS:SI -&gt; source of copy
+	ES:DI -&gt; destination of copy
+Return: does not return normally; return address is caller's CS:0100h with
+	  AX = ???
+SeeAlso: AX=DDEFh,AH=E0h"VIRUS",AH=EEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DDEF" name="21DDEF"><b>21DDEF</b></a> - INT 21 - VIRUS- "GOLGI" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS- "GOLGI" - INSTALLATION CHECK
+	AX = DDEFh
+Return: AX = EFDDh if resident
+SeeAlso: AH=DDh"VIRUS",AH=DEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DE" name="21DE"><b>21DE</b></a> - INT 21 - VIRUS - "Durban" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Durban" - INSTALLATION CHECK
+	AH = DEh
+Return: AH = DFh if resident
+SeeAlso: AX=DAFEh,AX=DDEFh,AH=DEh"April 1st",AX=DEADh"90210"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DE_0" name="21DE_0"><b>21DE</b></a> - INT 21 - VIRUS - "April 1st EXE" - ???<br />
+<pre>
+INT 21 - VIRUS - "April 1st EXE" - ???
+	AH = DEh
+	???
+Return: ???
+SeeAlso: AH=DEh"Durban",AX=DEADh"90210"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DEAD" name="21DEAD"><b>21DEAD</b></a> - INT 21 - VIRUS - "90210" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "90210" - INSTALLATION CHECK
+	AX = DEADh
+Return: AX = AAAAh if resident
+SeeAlso: AH=DEh"April 1st",AX=DEADh"Shifting",AX=DEDEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DEAD_0" name="21DEAD_0"><b>21DEAD</b></a> - INT 21 - VIRUS - "Shifting Objective" - RELOCATE CODE ???<br />
+<pre>
+INT 21 - VIRUS - "Shifting Objective" - RELOCATE CODE ???
+	AX = DEADh
+SeeAlso: AX=FEADh
+SeeAlso: AX=DEADh"90210",AX=DEDEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DEDE" name="21DEDE"><b>21DEDE</b></a> - INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Brothers" - INSTALLATION CHECK
+	AX = DEDEh
+Return: AH = 41h if resident
+SeeAlso: AX=DEADh"Shifting",AX=DEFEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DEFE" name="21DEFE"><b>21DEFE</b></a> - INT 21 - VIRUS - "Maze" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Maze" - INSTALLATION CHECK
+	AX = DEFEh
+Return: AX = ABCDh if resident
+SeeAlso: AX=DCBAh"VIRUS",AX=DEDEh"VIRUS",AH=E0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E0_2" name="21E0_2"><b>21E0</b></a> - INT 21 - VIRUS - "Jerusalem", "Armagedon" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Jerusalem", "Armagedon" - INSTALLATION CHECK
+	AH = E0h
+Return: AX = 0300h if "Jerusalem" resident
+	AX = DADAh if "Armagedon" resident
+SeeAlso: AH=DEh"VIRUS",AX=DEDEh"VIRUS",AX=E00Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E00F" name="21E00F"><b>21E00F</b></a> - INT 21 - VIRUS - "8-tunes" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "8-tunes" - INSTALLATION CHECK
+	AX = E00Fh
+Return: AX = 4C31h if resident
+SeeAlso: AH=E0h"VIRUS",AH=E1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E1_1" name="21E1_1"><b>21E1</b></a> - INT 21 - VIRUS - "Mendoza", "Fu Manchu" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Mendoza", "Fu Manchu" - INSTALLATION CHECK
+	AH = E1h
+Return: AX = 0300h if "Mendoza" resident
+	AX = 0400h if "Fu Manchu" resident
+SeeAlso: AX=E00Fh,AH=E4h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E4_0" name="21E4_0"><b>21E4</b></a> - INT 21 - VIRUS - "Anarkia" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Anarkia" - INSTALLATION CHECK
+	AH = E4h
+Return: AH = 04h if resident
+SeeAlso: AH=E1h"VIRUS",AH=E7h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E7_1" name="21E7_1"><b>21E7</b></a> - INT 21 - VIRUS - "Spyer"/"Kiev" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Spyer"/"Kiev" - INSTALLATION CHECK
+	AH = E7h
+Return: AH = 78h if resident
+SeeAlso: AH=E4h"VIRUS",AX=EC59h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E900_0" name="21E900_0"><b>21E900</b></a> - INT 21 - VIRUS - "Dark End" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dark End" - INSTALLATION CHECK
+	AX = E900h
+Return: AX = 1234h if resident
+SeeAlso: AX=DEFEh"VIRUS",AX=EC27h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EC27" name="21EC27"><b>21EC27</b></a> - INT 21 - VIRUS - "Halloween.1839" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Halloween.1839" - INSTALLATION CHECK
+	AX = EC27h
+Return: AX = 4A52h ("JR") if resident
+SeeAlso: AH=E7h"VIRUS",AX=E900h"VIRUS",AX=EC59h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EC59" name="21EC59"><b>21EC59</b></a> - INT 21 - VIRUS - "Terror" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Terror" - INSTALLATION CHECK
+	AX = EC59h
+Return: BP = EC59h if resident
+SeeAlso: AX=EC27h"VIRUS",AH=EEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EE_1" name="21EE_1"><b>21EE</b></a> - INT 21 - VIRUS - "Jerusalem-G", "Pregnant", "Barrotes" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Jerusalem-G", "Pregnant", "Barrotes" - INSTALLATION CHECK
+	AH = EEh
+Return: AX = 0300h if "Jerusalem-G" resident
+	AL = 05h if "Pregnant" resident
+	AL = FEh if "Barrotes" resident
+SeeAlso: AH=DDh"VIRUS",AX=EC59h,AX=EEE7h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EEE7" name="21EEE7"><b>21EEE7</b></a> - INT 21 - VIRUS - "GingerBread" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "GingerBread" - INSTALLATION CHECK
+	AX = EEE7h
+Return: AX = D703h if installed
+SeeAlso: AH=EEh"VIRUS",AH=EFh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EF" name="21EF"><b>21EF</b></a> - INT 21 - VIRUS - "Mabuhay"/"June 12th" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Mabuhay"/"June 12th" - INSTALLATION CHECK
+	AH = EFh
+Return: AX = 025Bh if resident
+SeeAlso: AX=EC27h"VIRUS",AH=EEh"VIRUS",AH=F0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F0_0" name="21F0_0"><b>21F0</b></a> - INT 21 - VIRUS - "Frere Jacques" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Frere Jacques" - INSTALLATION CHECK
+	AH = F0h
+Return: AX = 0300h if resident
+SeeAlso: AH=EEh"VIRUS",AX=F078h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F078" name="21F078"><b>21F078</b></a> - INT 21 - VIRUS - "Burgler/H" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Burgler/H" - INSTALLATION CHECK
+	AX = F078h
+Return: AX = 0000h if installed
+SeeAlso: AH=F0h"VIRUS",AH=F1h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F1_1" name="21F1_1"><b>21F1</b></a> - INT 21 - VIRUS - "F1-337" - ???<br />
+<pre>
+INT 21 - VIRUS - "F1-337" - ???
+	AH = F1h
+	???
+Return: ???
+SeeAlso: AH=F0h"VIRUS",AX=F1E9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F1E9" name="21F1E9"><b>21F1E9</b></a> - INT 21 - VIRUS - "Tremor" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Tremor" - INSTALLATION CHECK
+	AX = F1E9h
+Return: AX = installation state
+	    CADEh installed, and calling program is infected
+	    F100h not installed (normal DOS return value)
+	    else  installed, but calling program is not infected
+SeeAlso: AH=F1h"VIRUS",AX=F2AAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F2AA" name="21F2AA"><b>21F2AA</b></a> - INT 21 - VIRUS - "PcVrsDs" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "PcVrsDs" - INSTALLATION CHECK
+	AX = F2AAh
+Return: AH = AAh if resident
+SeeAlso: AH=F1h"VIRUS",AH=F3h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F3_1" name="21F3_1"><b>21F3</b></a> - INT 21 - VIRUS - "Carfield" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Carfield" - INSTALLATION CHECK
+	AH = F3h
+Return: AX = 0400h if resident
+SeeAlso: AH=D5h"Carfield",AX=F2AAh,AH=F7h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F7" name="21F7"><b>21F7</b></a> - INT 21 - VIRUS - "GP1" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "GP1" - INSTALLATION CHECK
+	AH = F7h
+Return: AX = 0300h if resident
+SeeAlso: AH=F0h"VIRUS",AH=F9h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F9_1" name="21F9_1"><b>21F9</b></a> - INT 21 - VIRUS - "Satans-Bug" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Satans-Bug" - INSTALLATION CHECK
+	AH = F9h
+Return: AX = AC0Ah if resident
+SeeAlso: AH=F7h"VIRUS",AH=FBh"VIRUS",AX=FEDCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FA_1" name="21FA_1"><b>21FA</b></a> - INT 21 - VIRUS - "Cinderella 2" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Cinderella 2" - INSTALLATION CHECK
+	AH = FAh
+Return: AH = F9h if resident
+SeeAlso: AH=F0h"VIRUS",AX=FBA0h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FA--DX5945" name="21FA--DX5945"><b>21FA--DX5945</b></a> - INT 21 U - PC Tools v7+ VDEFEND, VSAFE, VWATCH - API<br />
+<pre>
+INT 21 U - PC Tools v7+ VDEFEND, VSAFE, VWATCH - API
+	AH = FAh
+	DX = 5945h
+	AL = function (00h-02h for VDEFEND, 00h-07h for VSAFE and VWATCH)
+Return: varies by function
+Note:	this API is identical to the API on INT 13/AH=FAh and INT 16/AH=FAh,
+	  so it is listed in its entirety only under INT 16/AX=FA00h and
+	  following
+SeeAlso: INT 13/AX=FA00h,INT 16/AX=FA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FB_1" name="21FB_1"><b>21FB</b></a> - INT 21 - VIRUS - "Cinderella" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Cinderella" - INSTALLATION CHECK
+	AH = FBh
+Return: AH = 00h if resident
+SeeAlso: AH=F9h"VIRUS",AH=FAh"VIRUS",AX=FB0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FB0A" name="21FB0A"><b>21FB0A</b></a> - INT 21 - VIRUS - "dBASE" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "dBASE" - INSTALLATION CHECK
+	AX = FB0Ah
+Return: AX = 0AFBh if resident
+SeeAlso: AH=FBh"VIRUS",AX=FBA0h"VIRUS",AH=FCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FBA0" name="21FBA0"><b>21FBA0</b></a> - INT 21 - VIRUS - "Groove" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Groove" - INSTALLATION CHECK
+	AX = FBA0h
+Return: AX = 0ABFh if resident
+SeeAlso: AX=FB0Ah"VIRUS",AX=FBFBh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FBFB" name="21FBFB"><b>21FBFB</b></a> - INT 21 - VIRUS - "Dir.1367" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Dir.1367" - INSTALLATION CHECK
+	AX = FBFBh
+Return: AX = BFBFh if resident
+SeeAlso: AX=FBA0h"VIRUS",AH=FCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FC_1" name="21FC_1"><b>21FC</b></a> - INT 21 - VIRUS - "Troi" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Troi" - INSTALLATION CHECK
+	AH = FCh
+Return: AL = A5h if resident
+SeeAlso: AX=FBA0h"VIRUS",AX=FC03h"VIRUS",AH=FDh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FC03" name="21FC03"><b>21FC03</b></a> - INT 21 - VIRUS - "Invisible" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Invisible" - INSTALLATION CHECK
+	AX = FC03h
+Return: AX = 03FCh if resident
+SeeAlso: AH=FCh"VIRUS",AH=FDh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FD_0" name="21FD_0"><b>21FD</b></a> - INT 21 - VIRUS - "Border" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Border" - INSTALLATION CHECK
+	AH = FDh
+Return: AH = 13h if resident
+SeeAlso: AH=FCh"VIRUS",AX=FDACh"VIRUS",AH=FEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FDAC" name="21FDAC"><b>21FDAC</b></a> - INT 21 - VIRUS - "Delwin" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Delwin" - INSTALLATION CHECK
+	AX = FDACh
+Return: AX = 02E3h if resident
+SeeAlso: AH=FDh"VIRUS",AH=FEh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FE_1" name="21FE_1"><b>21FE</b></a> - INT 21 - VIRUS - "483" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "483" - INSTALLATION CHECK
+	AH = FEh
+Return: AH = 00h if resident
+SeeAlso: AX=FDACh"VIRUS",AX=FE01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FE01" name="21FE01"><b>21FE01</b></a> - INT 21 - VIRUS - "Flip" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Flip" - INSTALLATION CHECK
+	AX = FE01h
+Return: AX = 01FEh if resident
+SeeAlso: AH=FEh"VIRUS",AX=FE02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FE02" name="21FE02"><b>21FE02</b></a> - INT 21 - VIRUS - "2468"/"Tequila" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "2468"/"Tequila" - INSTALLATION CHECK
+	AX = FE02h
+Return: AX = 01FDh if resident
+SeeAlso: AX=FE01h,AX=FE03h,AX=FEDCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FE03" name="21FE03"><b>21FE03</b></a> - INT 21 - VIRUS - "2468"/"Tequila" - DISPLAY VIRUS MESSAGE<br />
+<pre>
+INT 21 - VIRUS - "2468"/"Tequila" - DISPLAY VIRUS MESSAGE
+	AX = FE03h
+SeeAlso: AX=FE02h,AX=FEADh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FEAD" name="21FEAD"><b>21FEAD</b></a> - INT 21 - VIRUS - "Shifting Objective" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Shifting Objective" - INSTALLATION CHECK
+	AX = FEADh
+Return: AX = D00Dh if resident
+SeeAlso: AX=FE03h,AX=FEDCh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FEDC_0" name="21FEDC_0"><b>21FEDC</b></a> - INT 21 - VIRUS - "Black Monday" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Black Monday" - INSTALLATION CHECK
+	AX = FEDCh
+Return: AL = DCh if resident
+SeeAlso: AX=FE02h,AX=FEFEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FEFE" name="21FEFE"><b>21FEFE</b></a> - INT 21 - VIRUS - "CIDER" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "CIDER" - INSTALLATION CHECK
+	AX = FEFEh
+Return: SI = 1994h if resident
+SeeAlso: AX=FEDCh"VIRUS",AH=FFh"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF_3" name="21FF_3"><b>21FF</b></a> - INT 21 - VIRUS - "Sunday", "Tumen 0.5", "Hero" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Sunday", "Tumen 0.5", "Hero" - INSTALLATION CHECK
+	AH = FFh
+Return: AH = 00h if "Tumen 0.5" or "Hero" resident
+	AX = 0400h if "Sunday" resident
+SeeAlso: AX=FEDCh"VIRUS",AX=FF01h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF01" name="21FF01"><b>21FF01</b></a> - INT 21 - VIRUS - "Drop" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Drop" - INSTALLATION CHECK
+	AX = FF01h
+Return: AX = 01FFh if resident
+SeeAlso: AH=FEh"VIRUS",AX=FF0Fh"FLU_SHOT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF0F" name="21FF0F"><b>21FF0F</b></a> - INT 21 - FLU_SHOT+ v1.83 - INSTALLATION CHECK<br />
+<pre>
+INT 21 - FLU_SHOT+ v1.83 - INSTALLATION CHECK
+	AX = FF0Fh
+Return: AX = 0101h if resident
+Program: FLU_SHOT+ is an antivirus/antitrojan program by Ross M. Greenberg and
+	  Software Concepts Design
+Note:	the "PSQR/1720" virus calls this function to determine whether
+	  FLU_SHOT+ is present
+SeeAlso: AH=FFh"VIRUS",AX=FF10h"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF10" name="21FF10"><b>21FF10</b></a> - INT 21 - VIRUS - "Twins" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Twins" - INSTALLATION CHECK
+	AX = FF10h
+Return: AL = 07h if resident
+SeeAlso: AX=FF0Fh,AX=FFFEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FFFE" name="21FFFE"><b>21FFFE</b></a> - INT 21 - VIRUS - "08/15"/"Many Fingers" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "08/15"/"Many Fingers" - INSTALLATION CHECK
+	AX = FFFEh
+Return: AX = 0815h if resident
+SeeAlso: AX=FF10h,AX=FFFEh/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FFFEBX0000" name="21FFFEBX0000"><b>21FFFEBX0000</b></a> - INT 21 - VIRUS - "Anti-Thunderbyte/LEMMING" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Anti-Thunderbyte/LEMMING" - INSTALLATION CHECK
+	AX = FFFEh
+	BX = 0000h
+Return: BX = FFFFh if resident
+SeeAlso: AX=FFFEh,AX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FFFF" name="21FFFF"><b>21FFFF</b></a> - INT 21 - VIRUS - "Ontario", "Year 1992"/"B1M92" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Ontario", "Year 1992"/"B1M92" - INSTALLATION CHECK
+	AX = FFFFh
+Return: AX = 0000h if "Ontario" resident
+	AX = 1992h if "Year 1992"/"B1M92" resident
+SeeAlso: AX=FF0Fh,AX=FFFFh/CX=0000h,INT 6B"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FFFFCX0000" name="21FFFFCX0000"><b>21FFFFCX0000</b></a> - INT 21 - VIRUS - "Revenge" - INSTALLATION CHECK<br />
+<pre>
+INT 21 - VIRUS - "Revenge" - INSTALLATION CHECK
+	AX = FFFFh
+	CX = 0000h
+Return: CX = 0006h if resident
+SeeAlso: AX=FFFFh,INT 6B"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0002" name="2F4653CX0002"><b>2F4653CX0002</b></a> - INT 2F - F-PROT v1.x only - F-LOCK.EXE - API<br />
+<pre>
+INT 2F - F-PROT v1.x only - F-LOCK.EXE - API
+	AX = 4653h ('FS')
+	CX = 0002h
+	BX = subfunction
+	    0000h  installation check
+		Return: AX = FFFFh
+	    0001h  uninstall
+		Return: AX,BX,ES destroyed
+	    0002h  disable (v1.08 and below only)
+	    0003h  enable (v1.08 and below only)
+Program: F-LOCK is part of the shareware F-PROT virus/trojan protection
+	  package by Fridrik Skulason
+SeeAlso: AX=4653h/CX=0003h,AX=CA00h,INT 21/AX=4BEEh
+Index:	installation check;F-LOCK|uninstall;F-LOCK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0003" name="2F4653CX0003"><b>2F4653CX0003</b></a> - INT 2F - F-PROT v1.x only - F-XCHK.EXE - API<br />
+<pre>
+INT 2F - F-PROT v1.x only - F-XCHK.EXE - API
+	AX = 4653h ('FS')
+	CX = 0003h
+	BX = subfunction
+	    0000h  installation check
+		Return: AX = FFFFh
+	    0001h  uninstall
+		Return: AX,BX,ES destroyed
+Program: F-XCHK is part of the shareware F-PROT virus/trojan protection
+	  package by Fridrik Skulason
+SeeAlso: AX=4653h/CX=0002h,AX=4653h/CX=0004h,AX=CA00h
+Index:	installation check;F-XCHK|uninstall;F-XCHK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0004" name="2F4653CX0004"><b>2F4653CX0004</b></a> - INT 2F - F-PROT v1.x only - F-POPUP.EXE - API<br />
+<pre>
+INT 2F - F-PROT v1.x only - F-POPUP.EXE - API
+	AX = 4653h ('FS')
+	CX = 0004h
+	BX = subfunction
+	    0000h  installation check
+		Return: AX = FFFFh
+	    0001h  uninstall
+		Return: AX,BX,ES destroyed
+	    0002h  disable (v1.08 and below only)
+		   display message (v1.14+)
+			other registers: ???
+	    0003h  enable (v1.08 and below only)
+		   display message (v1.14+)
+			other registers: ???
+			Return: AX = key pressed by user
+Program: F-POPUP is part of the shareware F-PROT virus/trojan protection
+	  package by Fridrik Skulason
+SeeAlso: AX=4653h/CX=0003h,AX=4653h/CX=0005h,AX=CA00h
+Index:	installation check;F-POPUP|uninstall;F-POPUP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0005" name="2F4653CX0005"><b>2F4653CX0005</b></a> - INT 2F - F-PROT v1.x only - F-DLOCK.EXE - API<br />
+<pre>
+INT 2F - F-PROT v1.x only - F-DLOCK.EXE - API
+	AX = 4653h ('FS')
+	CX = 0005h
+	BX = subfunction
+	    0000h installation check
+		Return: AX = FFFFh
+	    0001h uninstall
+		Return: AX,BX,ES destroyed
+Program: F-DLOCK is part of the shareware F-PROT virus/trojan protection
+	  package by Fridrik Skulason
+SeeAlso: AX=4653h/CX=0004h,AX=CA00h
+Index:	installation check;F-DLOCK|uninstall;F-DLOCK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6282" name="2F6282"><b>2F6282</b></a> - INT 2F U - PC Tools v7.0+ VDEFEND, VSAFE, VWATCH, DATAMON - SET ??? ADDRESS<br />
+<pre>
+INT 2F U - PC Tools v7.0+ VDEFEND, VSAFE, VWATCH, DATAMON - SET ??? ADDRESS
+	AX = 6282h
+	CX:DX -&gt; ??? or 0000h:0000h
+	DI = segment of ??? record (see #02846) or 0000h/FFFFh to ignore
+Return: BX = 0062h
+Note:	if CX:DX = 0000h:0000h on entry, the ??? address is not changed
+	  (DATAMON only)
+SeeAlso: INT 13/AH=FAh"VSAFE",INT 21/AH=FAh"VDEFEND"
+
+Format of VSAFE/VWATCH record:
+Offset	Size	Description	(Table 02846)
+ 00h	DWORD	???
+ 04h	WORD	offset of ??? in record's segment
+		VSAFE 2.0 sets byte at +01h to 56h or 58h
+		VWATCH 2.1 sets byte at +02h to 56h or 58h
+ 06h  2 BYTEs	???
+ 08h	BYTE	??? (01h/other)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6284BX0000" name="2F6284BX0000"><b>2F6284BX0000</b></a> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT	- INSTALLATION CHECK<br />
+<pre>
+INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT	- INSTALLATION CHECK
+	AX = 6284h
+	BX = 0000h
+	CX = 0000h
+Return: AX = segment of resident code
+	BX = 5555h
+	CX = 5555h
+Note:	also supported by DOS 6 UNDELETE which is licensed from PC Tools
+SeeAlso: AX=6284h/BX=0001h,INT 16/AX=FFA3h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6284BX0001" name="2F6284BX0001"><b>2F6284BX0001</b></a> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???<br />
+<pre>
+INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???
+	AX = 6284h
+	BX = 0001h
+	CX = 0001h
+Return: AX:BX -&gt; ??? data (see #02847)
+	CX = BX
+SeeAlso: AX=6284h/BX=0000h
+
+Format of DPROTECT data for v9.0:
+Offset	Size	Description	(Table 02847)
+ 00h  5 BYTEs	???
+ 05h	WORD	resident code segment (may be segment of DWORD at +03h)
+ 07h	DWORD	-&gt; FAR function to sound alert tone
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6284BX0002" name="2F6284BX0002"><b>2F6284BX0002</b></a> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET OPTIONS<br />
+<pre>
+INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET OPTIONS
+	AX = 6284h
+	BX = 0002h
+	CX = 0002h
+Return: AX = options (see #02848)
+	BX = ??? (0000h for v9)
+	CX = AX
+	DX = BX
+Note:	also supported by DOS 6 UNDELETE which is licensed from PC Tools
+SeeAlso: AX=6284h/BX=0000h,AX=6284h/BX=0003h
+
+Bitfields for DATAMON/DPROTECT options:
+Bit(s)	Description	(Table 02848)
+ 1	???
+ 12	disabled
+ 13	using Delete Sentry
+ 14	using Delete Tracker
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6284BX0003" name="2F6284BX0003"><b>2F6284BX0003</b></a> - INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - SET OPTION??? FLAGS<br />
+<pre>
+INT 2F U - PC Tools v7-8 DATAMON, v9+ DPROTECT - SET OPTION??? FLAGS
+	AX = 6284h
+	BX = 0003h
+	CX = flags (see #02849)
+	DX = flags
+	    bit 15: ???
+Note:	v9 DPROTECT only checks bit 12 of CX, and ignores DX entirely
+SeeAlso: AX=6284h/BX=0002h
+
+Bitfields for DATAMON/DPROTECT CX flags:
+Bit(s)	Description	(Table 02849)
+ 3	???
+ 5	???
+ 10	???
+ 12	disable DATAMON/DPROTECT
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F6284BX0004" name="2F6284BX0004"><b>2F6284BX0004</b></a> - INT 2F U - PC Tools v8 DATAMON, v9+ DPROTECT - ???<br />
+<pre>
+INT 2F U - PC Tools v8 DATAMON, v9+ DPROTECT - ???
+	AX = 6284h
+	BX = 0004h
+	CX = 0004h
+Return: AX = 5555h
+	BX = ??? (0800h)
+	CX = ??? (FCCCh for v8, FCCBh for v9)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC080" name="2FC080"><b>2FC080</b></a> - INT 2F U - AMI IAM.SYS - INSTALL ??? CALLBACK<br />
+<pre>
+INT 2F U - AMI IAM.SYS - INSTALL ??? CALLBACK
+	AX = C080h
+	CX:DX -&gt; ??? callback
+	DI = segment of ??? buffer (first WORD copied into IAM.SYS)
+Program: IAM.SYS is the Illegal Activity Monitor portion of American
+	  Megatrends, Inc.'s PC-Defender anti-virus product
+Note:	also sets ??? flag
+SeeAlso: AX=C081h
+
+Format of IAM.SYS buffer:
+Offset	Size	Description	(Table 03034)
+ 00h	BYTE	???
+ 01h	BYTE	???
+ 02h  N BYTEs	??? (ASCIZ strings)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC081" name="2FC081"><b>2FC081</b></a> - INT 2F U - AMI IAM.SYS - CLEAR ???<br />
+<pre>
+INT 2F U - AMI IAM.SYS - CLEAR ???
+	AX = C081h
+Desc:	clears the ??? flag that AX=C080h sets
+SeeAlso: AX=C080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC900BP0000" name="2FC900BP0000"><b>2FC900BP0000</b></a> - INT 2F U - ThunderByte??? - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - ThunderByte??? - INSTALLATION CHECK
+	AX = C900h
+	BP = 0000h
+Return: AL = FFh if installed
+	    BP &gt;= 0014h
+Note:	called by TBSCANX
+SeeAlso: AX=C987h,AX=CA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC987" name="2FC987"><b>2FC987</b></a> - INT 2F U - ThunderByte??? - DISINFECT FILE???<br />
+<pre>
+INT 2F U - ThunderByte??? - DISINFECT FILE???
+	AX = C987h
+	BX:DX -&gt; filename
+	BX:CX -&gt; virus name
+Return: AX = status
+	    0000h successful???
+Note:	called by TBSCANX
+SeeAlso: AX=CA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC9FD" name="2FC9FD"><b>2FC9FD</b></a> - INT 2F - ThunderByte TBLOG - WRITE STRING TO LOG<br />
+<pre>
+INT 2F - ThunderByte TBLOG - WRITE STRING TO LOG
+	AX = C9FDh
+	DS:SI -&gt; ASCIZ string (max 110 chars)
+Return: AH = 00h
+	AL = last character in string
+	CX = number of unused characters in string
+	SI,DI destroyed
+Notes:	The string can also be terminated with a '%'-character.
+	This function is never called within ThunderBYTE Anti-Virus.
+SeeAlso: AX=C900h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA00BX5442" name="2FCA00BX5442"><b>2FCA00BX5442</b></a> - INT 2F - TBSCANX - INSTALLATION CHECK<br />
+<pre>
+INT 2F - TBSCANX - INSTALLATION CHECK
+	AX = CA00h
+	BX = 5442h ('TB')
+Return: AL = state
+	    00h not installed
+	    FFh installed
+		BX = 7462h ('tb') if BX was 5442h on entry
+Program: TBSCANX is a resident virus scanning module by Frans Veldman.
+Notes:	programs may perform virus checks on themselves, other program files,
+	  or their data files by invoking the TBSCANX API.
+	current versions of TBScanX don't actually check the value of BX
+SeeAlso: AX=4653h/CX=0002h,AX=4653h/CX=0007h,AX=C900h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA01" name="2FCA01"><b>2FCA01</b></a> - INT 2F - TBSCANX - GET STATUS<br />
+<pre>
+INT 2F - TBSCANX - GET STATUS
+	AX = CA01h
+Return: AH = BCD version number (v2.2+)
+	    CAh for versions before 2.2
+	AL = state (00h = disabled, 01h = enabled)
+	CX = number of signatures which will be searched
+---v2.0---
+	BX = EMS handle, 0000h if not using EMS
+---v2.3+---
+	BX = segment of swap area, 0000h if not swapped
+	DX = EMS or XMS handle (XMS handle if BX=0000h), FFFFh if not using EMS
+SeeAlso: AX=CA02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA02" name="2FCA02"><b>2FCA02</b></a> - INT 2F - TBSCANX - SET STATE<br />
+<pre>
+INT 2F - TBSCANX - SET STATE
+	AX = CA02h
+	BL = new state (00h = disabled, 01h = enabled)
+SeeAlso: AX=CA01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA03" name="2FCA03"><b>2FCA03</b></a> - INT 2F - TBSCANX - SCAN BUFFER<br />
+<pre>
+INT 2F - TBSCANX - SCAN BUFFER
+	AX = CA03h
+	CX = size of buffer
+	DS:DX -&gt; buffer containing data to scan
+Return: CF clear if no virus signatures found
+	    BX,ES destroyed
+	CF set if signature found
+	    ES:BX -&gt; ASCIZ virus name (v2.3+)
+	    DS:DX -&gt; ASCIZ virus name (v2.0)
+	AX,CX,DX destroyed (v2.3+)
+	all other registers except CS:IP and SS:SP destroyed (v2.0)
+SeeAlso: AX=CA04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA04" name="2FCA04"><b>2FCA04</b></a> - INT 2F - TBSCANX - SCAN FILE<br />
+<pre>
+INT 2F - TBSCANX - SCAN FILE
+	AX = CA04h
+	DS:DX -&gt; filename
+Return: CF clear if no virus signatures found
+	    BX,SI,DI,ES destroyed
+	CF set if signature found
+	    ES:BX -&gt; ASCIZ virus name
+	AX,CX,DX destroyed
+Note:	this function requires at least 4K free memory
+SeeAlso: AX=CA03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#31_0" name="31_0"><b>31</b></a> - INT 31 - VIRUS - "Vacsina" series - INSTALLATION CHECK (NOT A VECTOR!)<br />
+<pre>
+INT 31 - VIRUS - "Vacsina" series - INSTALLATION CHECK (NOT A VECTOR!)
+Note:	if one of the Vacsina viruses is resident, the low byte of this
+	  interrupt still contains the last byte of the INT 30 CP/M JMP
+	  instruction, but the remaining three bytes are 7Fh 39h followed
+	  by the Vacsina version number
+SeeAlso: INT 21/AX=FFFFh"VIRUS",INT 32"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#32" name="32"><b>32</b></a> - INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 21/AX=FFFFh"VIRUS",INT 31"VIRUS",INT 44"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#32_0" name="32_0"><b>32</b></a> - INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 31"VIRUS",INT 9E"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_4" name="44_4"><b>44</b></a> - INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 32"VIRUS",INT 60"VIRUS",INT 70"VIRUS",INT 9E"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_0" name="60_0"><b>60</b></a> - INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK<br />
+<pre>
+INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK
+Desc:	The "Zero Bug" virus hooks this vector.	 It considers itself installed
+	  if offset 103h of the handler's segment contains the bytes "ZE"
+SeeAlso: INT 32"VIRUS",INT 44"VIRUS",INT 61"SEMTEX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#61_6" name="61_6"><b>61</b></a> - INT 61 - VIRUS - "SEMTEX"/"Screen Trasher" - INT 21h SUBSTITUTE<br />
+<pre>
+INT 61 - VIRUS - "SEMTEX"/"Screen Trasher" - INT 21h SUBSTITUTE
+Note:	the virus copies the original INT 21h vector into INT 61h
+SeeAlso: INT 21/AH=00h,INT 21/AH=25h,INT 60"VIRUS",INT 6B"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B_0" name="6B_0"><b>6B</b></a> - INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 21/AX=FFFFh,INT 61"VIRUS",INT 70"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#70_0" name="70_0"><b>70</b></a> - INT 70 - VIRUS - "Stupid" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 70 - VIRUS - "Stupid" - ORIGINAL INT 21h VECTOR
+Note:	the virus sets this interrupt to be the same as INT 21, and then
+	  performs only INT 70 calls; since INT 70 is also generated by the
+	  real-time clock on the PC/AT and higher, this could cause random
+	  actions on an infected system
+SeeAlso: INT 6B"VIRUS",INT 9E"VIRUS",INT E0"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#87_1" name="87_1"><b>87</b></a> - INT 87 - VIRUS - "ZeroHunt" - VIRAL CODE (NOT A VECTOR!)<br />
+<pre>
+INT 87 - VIRUS - "ZeroHunt" - VIRAL CODE (NOT A VECTOR!)
+Note:	the ZeroHunt virus copies its resident code down to 0000h:021Ch and
+	  following
+SeeAlso: INT 8B"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8B_1" name="8B_1"><b>8B</b></a> - INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)<br />
+<pre>
+INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)
+Note:	if the ZeroHunt virus is resident, this vector will contain either
+	  EE83h:019Bh (ZH-411) or EE83h:019Fh (ZH-415)
+SeeAlso: INT 70"VIRUS",INT 87"VIRUS",INT 9C"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9C_0" name="9C_0"><b>9C</b></a> - INT 9C - VIRUS - "INT13" - ORIGINAL INT 13h VECTOR<br />
+<pre>
+INT 9C - VIRUS - "INT13" - ORIGINAL INT 13h VECTOR
+SeeAlso: INT 8B"VIRUS",INT 9D"VIRUS",INT 9E"VIRUS",INT 9F"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9D_0" name="9D_0"><b>9D</b></a> - INT 9D - VIRUS - "INT13" - ROM INT 13h ENTRY POINT<br />
+<pre>
+INT 9D - VIRUS - "INT13" - ROM INT 13h ENTRY POINT
+Note:	this vector is used by the virus to store the result of a call to
+	  INT 2F/AH=13h
+SeeAlso: INT 2F/AH=13h,INT 9C"VIRUS",INT 9E"VIRUS",INT 9F"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9E_0" name="9E_0"><b>9E</b></a> - INT 9E - VIRUS - "INT13" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 9E - VIRUS - "INT13" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 70"VIRUS",INT 9C"VIRUS",INT 9D"VIRUS",INT E0"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9F_0" name="9F_0"><b>9F</b></a> - INT 9F - VIRUS - "INT13" - STORAGE FOR USER INT 13h VECTOR<br />
+<pre>
+INT 9F - VIRUS - "INT13" - STORAGE FOR USER INT 13h VECTOR
+Note:	while it is infecting a file, the INT13 virus grabs INT 13 and uses
+	  this interrupt to store the existing INT 13 vector for later
+	  restoration
+SeeAlso: INT 9C"VIRUS",INT 9D"VIRUS",INT D3"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D3_1" name="D3_1"><b>D3</b></a> - INT D3 - VIRUS - "Antiexe" - RELOCATED INT 13<br />
+<pre>
+INT D3 - VIRUS - "Antiexe" - RELOCATED INT 13
+SeeAlso: INT 9F"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_1" name="E0_1"><b>E0</b></a> - INT E0 - VIRUS - "Micro-128" - ???<br />
+<pre>
+INT E0 - VIRUS - "Micro-128" - ???
+Note:	Micro-128 also overwrites the upper half of the interrupt table
+SeeAlso: INT 9E"VIRUS",INT F1"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_4" name="F1_4"><b>F1</b></a> - INT F1 - VIRUS - "Violetta" - ???<br />
+<pre>
+INT F1 - VIRUS - "Violetta" - ???
+Note:	used but not chained by virus
+SeeAlso: INT E0"VIRUS",INT FF"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_3" name="FF_3"><b>FF</b></a> - INT FF - VIRUS - "Violetta" - ???<br />
+<pre>
+INT FF - VIRUS - "Violetta" - ???
+Note:	used but not chained by virus
+SeeAlso: INT E0"VIRUS",INT F1"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._29</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 29
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#29"><b>29</b> - INT 29 C - DOS 2+ - FAST CONSOLE OUTPUT</a><br />
+<a href="#29E60DCL0E"><b>29E60DCL0E</b> - INT 29 - ShowGFX - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#29" name="29"><b>29</b></a> - INT 29 C - DOS 2+ - FAST CONSOLE OUTPUT<br />
+<pre>
+INT 29 C - DOS 2+ - FAST CONSOLE OUTPUT
+	AL = character to display
+Return: nothing
+	BX may be destroyed by some versions of DOS 3.3
+Notes:	automatically called when writing to a device with bit 4 of its device
+	  driver header set (see also INT 21/AH=52h)
+	COMMAND.COM v3.2 and v3.3 compare the INT 29 vector against the INT 20
+	  vector and assume that ANSI.SYS is installed if the segment is larger
+	the default handler under DOS 2.x and 3.x simply calls INT 10/AH=0Eh
+	the default handler under DESQview 2.2 understands the &lt;Esc&gt;[2J
+	  screen-clearing sequence, calls INT 10/AH=0Eh for all others
+SeeAlso: INT 21/AH=52h,INT 2F/AX=0802h,INT 79"AVATAR.SYS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#29E60DCL0E" name="29E60DCL0E"><b>29E60DCL0E</b></a> - INT 29 - ShowGFX - INSTALLATION CHECK<br />
+<pre>
+INT 29 - ShowGFX - INSTALLATION CHECK
+	AX = E60Dh
+	CL = 0Eh
+	DX = C0DEh
+Return: DX = DEC0h
+Program: ShowGFX is a PCBoard graphics driver by Solar Designer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

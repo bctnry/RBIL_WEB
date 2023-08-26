@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._00</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 00
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#00"><b>00</b> - INT 00 C - CPU-generated - DIVIDE ERROR</a><br />
+<a href="#00_0"><b>00</b> - INT 00 - Zenith - ROM DEBUGGER</a><br />
+
+<hr />
+
+<a href="#00" name="00"><b>00</b></a> - INT 00 C - CPU-generated - DIVIDE ERROR<br />
+<pre>
+INT 00 C - CPU-generated - DIVIDE ERROR
+Desc:	generated if the divisor of a DIV or IDIV instruction is zero or the
+	  quotient overflows the result register; DX and AX will be unchanged.
+Notes:	on an 8086/8088, the return address points to the following instruction
+	on an 80286+, the return address points to the divide instruction
+	an 8086/8088 will generate this interrupt if the result of a division
+	  is 80h (byte) or 8000h (word)
+SeeAlso: INT 04,OPCODE "AAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#00_0" name="00_0"><b>00</b></a> - INT 00 - Zenith - ROM DEBUGGER<br />
+<pre>
+INT 00 - Zenith - ROM DEBUGGER
+Desc:	invokes the ROM Debugger when at the BIOS level; equivalent to
+	  pressing Ctrl-Alt-Ins on booting.
+Note:	since DOS revectors INT 00, it is necessary to restore this vector to
+	  its original ROM BIOS value in order to invoke the debugger once DOS
+	  loads
+SeeAlso: INT 03"Columbia"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

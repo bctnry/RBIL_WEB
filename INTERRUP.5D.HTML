@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._5D</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 5D
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#5D"><b>5D</b> - INT 5D - IRQ13 relocated by DESQview 2.26+</a><br />
+<a href="#5D_0"><b>5D</b> - INT 5D - IRQ5 relocated by DoubleDOS</a><br />
+<a href="#5D_1"><b>5D</b> - INT 5D C - TI Professional PC - KEYBOARD BREAK KEY VECTOR</a><br />
+
+<hr />
+
+<a href="#5D" name="5D"><b>5D</b></a> - INT 5D - IRQ13 relocated by DESQview 2.26+<br />
+<pre>
+INT 5D - IRQ13 relocated by DESQview 2.26+
+Range:	INT 5D to INT FD, selected automatically
+Note:	this is the default, but other INTs may be used (see INT 50"DESQview")
+SeeAlso: INT 50"DESQview",INT 5C"DESQview",INT 5E"DESQview",INT 75
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5D_0" name="5D_0"><b>5D</b></a> - INT 5D - IRQ5 relocated by DoubleDOS<br />
+<pre>
+INT 5D - IRQ5 relocated by DoubleDOS
+SeeAlso: INT 0D"IRQ5",INT 5C"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5D_1" name="5D_1"><b>5D</b></a> - INT 5D C - TI Professional PC - KEYBOARD BREAK KEY VECTOR<br />
+<pre>
+INT 5D C - TI Professional PC - KEYBOARD BREAK KEY VECTOR
+	CF clear
+	AX = 0000h
+Return: CF clear
+	    AX = keystroke to place into keyboard buffer
+	CF set
+	    AX ignored
+Desc:	invoked by the keyboard ISR when Shift-BrkPause is pressed
+Note:	the default handler is a simple IRET instruction
+SeeAlso: INT 09"IRQ1",INT 4A/AH=00h"TI",INT 59"TI Professional"
+SeeAlso: INT 5B"TI Professional",INT 5C"TI Professional"
+SeeAlso: INT 5E"TI Professional",INT 5F"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._88</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 88
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#88"><b>88</b> - INT 88 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#88_0"><b>88</b> - INT 88h - WANG PC - GET CONFIGURATION</a><br />
+<a href="#88--00"><b>88--00</b> - INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE</a><br />
+<a href="#88--01"><b>88--01</b> - INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--02"><b>88--02</b> - INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--08"><b>88--08</b> - INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--F5"><b>88--F5</b> - INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL</a><br />
+<a href="#88--F6"><b>88--F6</b> - INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING</a><br />
+<a href="#88--F7"><b>88--F7</b> - INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING</a><br />
+<a href="#88--F8"><b>88--F8</b> - INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING</a><br />
+<a href="#88--F9"><b>88--F9</b> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS</a><br />
+<a href="#88--FC"><b>88--FC</b> - INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION</a><br />
+<a href="#88--FD"><b>88--FD</b> - INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY</a><br />
+<a href="#88--FE"><b>88--FE</b> - INT 88 - APL*PLUS/PC - CREATE NAME</a><br />
+<a href="#88--FF"><b>88--FF</b> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS</a><br />
+
+<hr />
+
+<a href="#88" name="88"><b>88</b></a> - INT 88 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 88 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 87"BASIC",INT 89"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88_0" name="88_0"><b>88</b></a> - INT 88h - WANG PC - GET CONFIGURATION<br />
+<pre>
+INT 88h - WANG PC - GET CONFIGURATION
+	 AL = get info type
+	     01h Get System Console
+		Return: ES:BX -&gt; Configuration structure (see #04089)
+	     else: ???
+SeeAlso: PORT 1010h"Wang",MEM F000h:0000h,MEM FC00h:3FC2h,INT 21/AX=4402h
+
+Format of Wang PC System Console configuration structure:
+Offset	Size	Description	(Table 04089)
+ 00h	WORD	version
+ 02h	WORD	memory size
+ 04h  2 WORDs	reserved
+ 08h	WORD	number of screens (1..4)
+ 0Ah  4 WORDs	offset of console screen info structure 1..4 within
+		  configuration structure's segment (ES) (see #04090)
+
+Format of Wang PC Screen Info structure:
+Offset	Size	Description	(Table 04090)
+ 00h	BYTE	state
+		(bit 7 set appears to indicate the active console that is
+		  currently attached to the screen)
+ 01h	BYTE	scanoff
+ 02h	WORD	buffer segment
+ 04h	BYTE	colors
+ 05h	BYTE	row
+ 06h	BYTE	column
+ 07h	BYTE	attribute
+		00h = ???
+		02h = ???
+		0Fh = white on black
+ 08h	BYTE	auxiliary mode
+ 09h	BYTE	auxiliary mode 2
+SeeAlso: #04089
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--00" name="88--00"><b>88--00</b></a> - INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE
+	AL = 00h
+	BX = STPTR of the variable to be assigned
+	ES:SI -&gt; model of type, rank, and shape (see #03978)
+Return: ES:DI -&gt; first data byte of object
+	DX:CX = number of elements in the object
+SeeAlso: INT 88/AL=01h,INT 88/AL=08h,INT C8"APL"
+
+Format of APL*PLUS/PC shape model:
+Offset	Size	Description	(Table 03978)
+ 00h	BYTE	type
+		01h character (2-byte dimension sizes)
+		02h integer (2-byte dimension sizes)
+		08h floating point (2-byte dimension sizes)
+		11h character (4-byte dimension sizes)
+		12h integer (4-byte dimension sizes)
+		18h floating point (4-byte dimension sizes)
+ 01h	BYTE	rank
+ 02h	(D)WORD first dimension of shape
+ N	(D)WORD second dimension of shape
+	...
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--01" name="88--01"><b>88--01</b></a> - INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 01h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=00h,AL=02h,AL=08h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--02" name="88--02"><b>88--02</b></a> - INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 02h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=01h,AL=08h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--08" name="88--08"><b>88--08</b></a> - INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 08h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=01h,AL=02h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F5" name="88--F5"><b>88--F5</b></a> - INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL<br />
+<pre>
+INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL
+	AL = F5h
+	BX = STPTR of object
+SeeAlso: INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F6" name="88--F6"><b>88--F6</b></a> - INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING
+	AL = F6h
+	BX = STPTR of object
+SeeAlso: AL=F7h,AL=F8h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F7" name="88--F7"><b>88--F7</b></a> - INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING
+	AL = F7h
+	BX = STPTR of object
+SeeAlso: AL=F6h,AL=F8h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F8" name="88--F8"><b>88--F8</b></a> - INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING
+	AL = F8h
+	BX = STPTR of object
+Return: BX = name's outswapping status
+	    0000h eligible
+	    0001h not eligible
+SeeAlso: AL=F6h,AL=F7h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F9" name="88--F9"><b>88--F9</b></a> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS
+	AL = F9h
+	ES:SI -&gt; name
+	CX = length of name
+Return: CF set if name ill-formed or already in use
+	    BX = STPTR if already in symbol table
+	CF clear if name is available for use
+	    BX = 0000h
+Note:	does not force the name into the workspace
+SeeAlso: AL=FEh,AL=FFh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FC" name="88--FC"><b>88--FC</b></a> - INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION
+	AL = FCh
+	BX = amount of memory needed (paragraphs)
+Return: CF clear if memory available
+	CF set if a workspace compaction is required
+SeeAlso: AL=FDh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FD" name="88--FD"><b>88--FD</b></a> - INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY<br />
+<pre>
+INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY
+	AL = FDh
+Return: BX = number of paragraphs available in workspace
+SeeAlso: AL=FCh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FE" name="88--FE"><b>88--FE</b></a> - INT 88 - APL*PLUS/PC - CREATE NAME<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE NAME
+	AL = FEh
+	ES:SI -&gt; name
+	CX = length of name
+Return: BX = STPTR of name
+	DX = interpreter's data segment
+SeeAlso: AL=F9h,AL=FFh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FF" name="88--FF"><b>88--FF</b></a> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS
+	AL = FFh
+	ES:SI -&gt; name
+	CX = length of name
+Return: CF set if name ill-formed or already in use
+	    BX = STPTR if already in symbol table
+	CF clear if name is available for use
+	    BX = 0000h
+Note:	forces the name into the workspace and makes it immune from outswapping
+SeeAlso: AL=F9h,AL=FEh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

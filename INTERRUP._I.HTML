@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._I</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category I - IBM workstation/terminal emulators
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#0C_1"><b>0C</b> - INT 0C - IBM SYSTEM 36/38 WORKSTATION EMULATION - API POINTER</a><br />
+<a href="#214402_2"><b>214402</b> - INT 21 U - IBM SYSTEM 36/38 WORKSTATION EMULATION - VDI.SYS - GET ???</a><br />
+<a href="#21A0"><b>21A0</b> - INT 21 - Attachmate Extra! - GET 3270 DISPLAY STATE</a><br />
+<a href="#21A1"><b>21A1</b> - INT 21 - Attachmate Extra! - SET 3270 DISPLAY STATE</a><br />
+<a href="#21A2"><b>21A2</b> - INT 21 - Attachmate Extra! - SET HOST WINDOW STATE</a><br />
+<a href="#21A3"><b>21A3</b> - INT 21 - Attachmate Extra! - SEND KEYSTROKES TO HOST WINDOW</a><br />
+<a href="#21A4"><b>21A4</b> - INT 21 - Attachmate Extra! - GET HOST WINDOW BUFFER ADDRESS</a><br />
+<a href="#21A5"><b>21A5</b> - INT 21 - Attachmate Extra! - GET HOST WINDOW CURSOR POSITION</a><br />
+<a href="#21AF"><b>21AF</b> - INT 21 - Attachmate Extra! - GET TRANSLATE TABLE ADDRESS</a><br />
+<a href="#21B8"><b>21B8</b> - INT 21 - Attachmate Extra! - DISABLE HOST BUFFER UPDATES</a><br />
+<a href="#2A90"><b>2A90</b> - INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???</a><br />
+<a href="#2FB400"><b>2FB400</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - INSTALLATION CHECK</a><br />
+<a href="#2FB401"><b>2FB401</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - GET HOST BUFFER ADDRESS</a><br />
+<a href="#2FB402"><b>2FB402</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???</a><br />
+<a href="#2FB403"><b>2FB403</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???</a><br />
+<a href="#2FB404"><b>2FB404</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???</a><br />
+<a href="#2FB405"><b>2FB405</b> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???</a><br />
+<a href="#44_1"><b>44</b> - INT 44 - IBM 3270-PC High Level Language API</a><br />
+<a href="#60_15"><b>60</b> - INT 60 u - 3270-PC CONTROL PROGRAM - ???</a><br />
+<a href="#61_5"><b>61</b> - INT 61 - Sangoma CCIP (CCPOP 3270 resident module) INTERFACE</a><br />
+<a href="#610002"><b>610002</b> - INT 61 - Banyan VINES - 3270 INTERFACE</a><br />
+<a href="#67_2"><b>67</b> - INT 67 - Sangoma CCPOP 3270 resident module</a><br />
+<a href="#68"><b>68</b> - INT 68 - Sangoma CCPOP 3270 resident module</a><br />
+<a href="#7A04"><b>7A04</b> - INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE</a><br />
+<a href="#7A06"><b>7A06</b> - INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE</a><br />
+<a href="#7A09--BX8020"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES</a><br />
+<a href="#7A09--BX8020_0"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES</a><br />
+<a href="#7A09--BX8020_1"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES</a><br />
+<a href="#7A09--BX8020_2"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES</a><br />
+<a href="#7A09--BX8020_3"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION</a><br />
+<a href="#7A09--BX8020_4"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA</a><br />
+<a href="#7A09--BX8020_5"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA</a><br />
+<a href="#7A09--BX8020_6"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - COPY SERVICE</a><br />
+<a href="#7A09--BX8020_7"><b>7A09--BX8020</b> - INT 7A - IBM 3270 Workstation Program API - Multi-DOS</a><br />
+<a href="#7A09"><b>7A09</b> - INT 7A - IBM 3270 Workstation Program API - HOST SERVICES</a><br />
+<a href="#7A13"><b>7A13</b> - INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE</a><br />
+<a href="#7A81"><b>7A81</b> - INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME</a><br />
+<a href="#7A83"><b>7A83</b> - INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS</a><br />
+<a href="#7AFDCB"><b>7AFDCB</b> - INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK</a><br />
+<a href="#7AFE01"><b>7AFE01</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION</a><br />
+<a href="#7AFE02"><b>7AFE02</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION</a><br />
+<a href="#7AFF01"><b>7AFF01</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION</a><br />
+<a href="#7AFF02"><b>7AFF02</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION</a><br />
+<a href="#7AFF03"><b>7AFF03</b> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION</a><br />
+<a href="#7AFF04"><b>7AFF04</b> - INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???</a><br />
+<a href="#7B_0"><b>7B</b> - INT 7B - Eicon Access API (3270/5250 gateways)</a><br />
+<a href="#7F0104BX0000"><b>7F0104BX0000</b> - INT 7F - HLLAPI (IBM 3270 High-Level Language API)/LLAPI (Rabbit Low Level API)</a><br />
+
+<hr />
+
+<a href="#0C_1" name="0C_1"><b>0C</b></a> - INT 0C - IBM SYSTEM 36/38 WORKSTATION EMULATION - API POINTER<br />
+<pre>
+INT 0C - IBM SYSTEM 36/38 WORKSTATION EMULATION - API POINTER
+Desc:	the IBM System 36/38 emulator may be invoked through a private API,
+	  whose entry point address (see #00007) is offset 100h in the segment
+	  pointed at by this vector
+
+(Table 00007)
+Call the System 36/38 emulator API entry point with:
+	AH = function
+	    03h update screen
+	    05h select next session
+		AL = session number (00h-03h)
+		Return: AL = session type code
+			    00h not active
+			    01h display session
+			    02h printer session
+			    FEh invalid session number
+			DS = requested session's data segment (0 if not active)
+			    (see #00008)
+Return: ???
+
+Format of System 36/38 emulator's data area:
+Offset	Size	Description	(Table 00008)
+13Eh	BYTE	bit flags for status line indicators turned on since this byte
+		last zerod
+13Fh	BYTE	bit flags for status line indicators turned off since this
+		byte last set to FFh
+140h	WORD	offset of EBCDIC to ASCII translation
+146h	WORD	offset of EBCDIC screen buffer
+148h	WORD	offset of EC (engineering change) level signature
+150h	BYTE	"KEYI"
+151h	BYTE	5250 key scan code to be sent to remote
+15Bh	BYTE	"SYSAV"
+15Dh	BYTE	5250 cursor column
+15Eh	BYTE	5250 cursor row
+167h	BYTE	"DVCTAD"
+178h	BYTE	"FLAGS"
+184h	BYTE	"SESSNOAD"
+193h	BYTE	"STNAD"
+198h	BYTE	"NSDS"
+Note:	offsets are from the interrupt handler's segment
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_2" name="214402_2"><b>214402</b></a> - INT 21 U - IBM SYSTEM 36/38 WORKSTATION EMULATION - VDI.SYS - GET ???<br />
+<pre>
+INT 21 U - IBM SYSTEM 36/38 WORKSTATION EMULATION - VDI.SYS - GET ???
+	AX = 4402h
+	BX = handle for character device "GDMS"
+	CX = number of bytes to read (&gt;= 4)
+	DS:DX -&gt; buffer (see #01445)
+Return: CF set on error
+	    AX = error code (see #01680 at AH=59h/BX=0000h)
+	CF clear if successful
+	    AX = number of bytes read
+
+Format of System 36/38 emulator returned data:
+Offset	Size	Description	(Table 01445)
+ 00h  4 BYTEs	???
+ 04h	DWORD	pointer to ???
+ 08h  4 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A0" name="21A0"><b>21A0</b></a> - INT 21 - Attachmate Extra! - GET 3270 DISPLAY STATE<br />
+<pre>
+INT 21 - Attachmate Extra! - GET 3270 DISPLAY STATE
+	AH = A0h
+Return: AL = display status (see #01796)
+	BX = host window status (see #01797)
+Program: Attachmate Extra! is a 3270 emulator by Attachmate Corporation
+SeeAlso: AH=A1h
+
+Bitfields for Attachmate Extra! display status:
+Bit(s)	Description	(Table 01796)
+ 7	0=windowed, 1=enlarged
+ 6-3	current screen profile number 0-9
+ 2-0	active window number (0=PC, 1-4=host B-E, 5-6=notepad F-G)
+
+Bitfields for host window status:
+Bit(s)	Description	(Table 01797)
+ 15	reserved
+ 14	0=host E window installed, 1=not
+ 13	0=host E terminal on, 1=off
+ 12	0=host E window displayed, 1=not
+ 11	reserved
+ 10	0=host D window installed, 1=not
+ 9	0=host D terminal on, 1=off
+ 8	0=host D window displayed, 1=not
+ 7	reserved
+ 6	0=host C window installed, 1=not
+ 5	0=host C terminal on, 1=off
+ 4	0=host C window displayed, 1=not
+ 3	reserved
+ 2	0=host B window installed, 1=not
+ 1	0=host B terminal on, 1=off
+ 0	0=host B window displayed, 1=not
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A1" name="21A1"><b>21A1</b></a> - INT 21 - Attachmate Extra! - SET 3270 DISPLAY STATE<br />
+<pre>
+INT 21 - Attachmate Extra! - SET 3270 DISPLAY STATE
+	AH = A1h
+	AL = new display status byte (see #01796)
+SeeAlso: AH=A0h,AH=A2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A2" name="21A2"><b>21A2</b></a> - INT 21 - Attachmate Extra! - SET HOST WINDOW STATE<br />
+<pre>
+INT 21 - Attachmate Extra! - SET HOST WINDOW STATE
+	AH = A2h
+	AL = new host window status byte (see #01798)
+SeeAlso: AH=A1h
+
+Bitfields for Attachmate Extra! host window status:
+Bit(s)	Description	(Table 01798)
+ 7	0=power off, 1=power on
+ 6	0=not installed, 1=installed
+ 5-3	reserved
+ 2-0	window number 1-4=host B-E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A3" name="21A3"><b>21A3</b></a> - INT 21 - Attachmate Extra! - SEND KEYSTROKES TO HOST WINDOW<br />
+<pre>
+INT 21 - Attachmate Extra! - SEND KEYSTROKES TO HOST WINDOW
+	AH = A3h
+	AL = window number (1-4=host B-E)
+	CX = 0001h
+	DS:BX -&gt; keystroke buffer
+	DL = zero if keystroke buffer contains host function code (see #01799),
+	      non-zero if keystroke buffer contains ASCII character
+Return: CX = zero if character sent, non-zero if not
+	BX incremented if CX=0
+
+(Table 01799)
+Values for Attachmate Extra! host function code:
+ 00h=reserved	10h=PF16	20h=Clear	30h=SysReq
+ 01h=PF1	11h=PF17	21h=Print	31h=ErInp
+ 02h=PF2	12h=PF18	22h=Left	32h=ErEof
+ 03h=PF3	13h=PF19	23h=Right	33h=Ident
+ 04h=PF4	14h=PF20	24h=Up		34h=Test
+ 05h=PF5	15h=PF21	25h=Down	35h=Reset
+ 06h=PF6	16h=PF22	26h=Home	36h=DevCncl
+ 07h=PF7	17h=PF23	27h=Fast Left	37h=Dup
+ 08h=PF8	18h=PF24	28h=Fast Right	38h=FldMark
+ 09h=PF9	19h=Alt on	29h=Bksp	39h=Enter
+ 0Ah=PF10	1Ah=Alt off	2Ah=Insert	3Ah=CrSel
+ 0Bh=PF11	1Bh=Shift on	2Bh=Delete
+ 0Ch=PF12	1Ch=Shift off	2Ch=Backtab
+ 0Dh=PF13	1Dh=PA1		2Dh=Tab
+ 0Eh=PF14	1Eh=PA2		2Eh=Newline
+ 0Fh=PF15	1Fh=PA3		2Fh=Attn
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A4" name="21A4"><b>21A4</b></a> - INT 21 - Attachmate Extra! - GET HOST WINDOW BUFFER ADDRESS<br />
+<pre>
+INT 21 - Attachmate Extra! - GET HOST WINDOW BUFFER ADDRESS
+	AH = A4h
+	AL = window number (1-4=host B-E)
+Return: DS:BX -&gt; 3270 display buffer
+SeeAlso: AH=A5h,AH=B8h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21A5" name="21A5"><b>21A5</b></a> - INT 21 - Attachmate Extra! - GET HOST WINDOW CURSOR POSITION<br />
+<pre>
+INT 21 - Attachmate Extra! - GET HOST WINDOW CURSOR POSITION
+	AH = A5h
+	AL = window number (1-4=host B-E)
+Return: BX = cursor position (80 * row + column, where 0:0 is upper left)
+Note:	if the host window is configured with the Extended Attribute (EAB)
+	  feature, multiply the cursor position by 2 to obtain the byte offset
+	  into the display buffer
+SeeAlso: AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21AF" name="21AF"><b>21AF</b></a> - INT 21 - Attachmate Extra! - GET TRANSLATE TABLE ADDRESS<br />
+<pre>
+INT 21 - Attachmate Extra! - GET TRANSLATE TABLE ADDRESS
+	AH = AFh
+Return: DS:BX -&gt; translate tables (see #01800)
+
+Format of Attachmate Extra! translate tables:
+Offset	Size	Description	(Table 01800)
+ 00h 256 BYTEs	ASCII to 3270 buffer code translate table
+100h 256 BYTEs	3270 buffer code to ASCII translate table
+200h 256 BYTEs	3270 buffer code to EBCDIC translate table
+300h 256 BYTEs	EBCDIC to 3270 buffer code translate table
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21B8" name="21B8"><b>21B8</b></a> - INT 21 - Attachmate Extra! - DISABLE HOST BUFFER UPDATES<br />
+<pre>
+INT 21 - Attachmate Extra! - DISABLE HOST BUFFER UPDATES
+	AH = B8h
+	AL = window number (1-4=host B-E)
+	DL = 01h
+Notes:	only valid in CUT mode
+	next AID keystroke (eg Enter) enables host buffer updates
+SeeAlso: AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A90" name="2A90"><b>2A90</b></a> - INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???<br />
+<pre>
+INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???
+	AH = 90h
+	???
+Return: ???
+Note:	the LANtastic redirector and SERVER.EXE use this function with AL=01h,
+	  03h-07h,0Ch-11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB400" name="2FB400"><b>2FB400</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - INSTALLATION CHECK<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - INSTALLATION CHECK
+	AX = B400h
+Return: AL = FFh if installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB401" name="2FB401"><b>2FB401</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - GET HOST BUFFER ADDRESS<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - GET HOST BUFFER ADDRESS
+	AX = B401h
+Return: ES -&gt; host screen buffer (PC ASCII format)
+	ES unchanged if communications not started
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB402" name="2FB402"><b>2FB402</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - ???
+	AX = B402h
+	BX = ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB403" name="2FB403"><b>2FB403</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - ???
+	AX = B403h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB404" name="2FB404"><b>2FB404</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - ???
+	AX = B404h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB405" name="2FB405"><b>2FB405</b></a> - INT 2F - IBM PC3270 EMULATION PROG v3 - ???<br />
+<pre>
+INT 2F - IBM PC3270 EMULATION PROG v3 - ???
+	AX = B405h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_1" name="44_1"><b>44</b></a> - INT 44 - IBM 3270-PC High Level Language API<br />
+<pre>
+INT 44 - IBM 3270-PC High Level Language API
+	DS:SI -&gt; parameter control block
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_15" name="60_15"><b>60</b></a> - INT 60 u - 3270-PC CONTROL PROGRAM - ???<br />
+<pre>
+INT 60 u - 3270-PC CONTROL PROGRAM - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#61_5" name="61_5"><b>61</b></a> - INT 61 - Sangoma CCIP (CCPOP 3270 resident module) INTERFACE<br />
+<pre>
+INT 61 - Sangoma CCIP (CCPOP 3270 resident module) INTERFACE
+	BX:DX -&gt; control block
+SeeAlso: INT 67"Sangoma"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#610002" name="610002"><b>610002</b></a> - INT 61 - Banyan VINES - 3270 INTERFACE<br />
+<pre>
+INT 61 - Banyan VINES - 3270 INTERFACE
+	AX = 0002h
+	BH = function number (see #03346)
+	DS:CX -&gt; argument block (except BH=00h,1Ah) (see #03348)
+Return: AX = status (see #03347)
+Notes:	Either 3270/SNA or 3270/BSC interface may use AX=0002h, depending on
+	  which is loaded first.  The other interface will use AX=000Ah
+	Status codes greater than 63h indicate an inconsistency in the 3270/SNA
+	  or 3270/BSC resident driver, which must be reloaded by the user
+
+(Table 03346)
+Values for VINES 3270 interface function number:
+ 00h "pi2reset"	 reset 3270/SNA or 3270/BSC driver
+ 02h "pi2bsc"	 (3270/BSC only)
+ 03h "pi2get"	 get information stored in 3270 resident driver
+ 04h "pi2put"	 store information in 3270 resident driver
+ 05h "pi2gcur"	 get current screen position
+ 07h "pi2sdat"	 send data keystroke
+ 08h "pi2scom"	 send command keystroke
+ 0Ah "pi2field"	 get field info for arbitrary screen positions
+ 0Fh "pi2stat"	 get logical unit/device status
+ 12h "pi2nlus"	 determine logical unit/device assignment
+ 13h "pi2gate"	 specifies comm port address to gateway service
+ 14h "pi2attach" attach a logical unit/device
+ 15h "pi2sdev"	 save logical unit/device info in resident driver
+		(not supported in &gt;3.0)
+ 16h "pi2gdev"	 get device information (not supported in &gt;3.0)
+ 17h "pi2luinfo" get info about specific logical unit/device
+ 18h "pi2gerr"	 get finer error detail
+ 19h "pi2dhold"	 (3270/SNA only)  holds a 3270 device
+ 1Ah "pi2shut"	 release memory-resident module
+ 1Ch "pi2sprof"	 save profile info in res driver (not supp in &gt;3.0)
+ 1Dh "pi2gprof"	 get prevsly stored profile info (not supp in &gt;3.0)
+
+(Table 03347)
+Values for VINES 3270 status:
+ 0000h	successful
+ 000Bh	invalid parameter or data does not fit data area
+ 000Ch	another code path currently active in resident driver
+ 000Dh	operation currently not allowed
+ 0032h	encountered connection disconnect error
+ 0033h	encountered "sosend" completion error
+ 0034h	encountered "sosend" communication error
+ 0035h	attach request refused.	extended error info via "pi2gerr":
+	01h resource unavailable
+	02h invalid type
+	03h version mismatch
+	04h invalid logical unit number
+	05h error during ARL processing
+	06h no access for user
+ 0071h	encountered "sosock" error
+ 0072h	encountered unrecognizable error
+ 0073h	encountered "sowait" error (extended info via "pi2gerr")
+ 0074h	encountered invalid type-of-request on "sowait"
+ 0075h	encountered "sorec" error (extended info via "pi2gerr")
+ 0076h	encountered "sorec" completion error (ext info via "pi2gerr")
+ 0077h	encountered connection request
+ 0078h	encountered unrecognizable data
+ 0079h	encountered unknown connection ID (ext info via "pi2gerr")
+SeeAlso: #03325
+
+Format of argument block for BH=03h,04h:
+Offset	Size	Description	(Table 03348)
+ 00h	WORD	size of data area (max 256)
+ 02h  N BYTEs	data area
+SeeAlso: #03349,#03350,#03351
+
+Format of argument block for BH=05h:
+Offset	Size	Description	(Table 03349)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	pointer to WORD buffer for cursor index
+ 04h	WORD	pointer to BYTE buffer for current field attribute
+SeeAlso: #03348,#03350,#03351
+
+Format of argument block for BH=07h:
+Offset	Size	Description	(Table 03350)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	ASCII data byte
+ 04h	WORD	pointer to WORD count of characters which will need updating
+SeeAlso: #03348,#03349,#03351
+
+Format of argument block for BH=08h:
+Offset	Size	Description	(Table 03351)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	3270 keystroke (see #03352)
+SeeAlso: #03348,#03349,#03350,#03353
+
+(Table 03352)
+Values for 3270 keystroke:
+ 0000h	Enter
+ 0001h	Clear
+ 0002h	PA1
+ 0003h	PA2
+ 0004h	PA3
+ 0005h	PF1
+ ...
+ 001Ch	PF24
+ 001Dh	CSELECT (cursor select)
+ 001Eh	Insert
+ 001Fh	Delete
+ 0020h	EOField
+ 0021h	EINPUT (erase input)
+ 0022h	Reset
+ 0023h	Attention
+ 0024h	SysReq
+ 0025h	Duplicate
+ 0026h	Fieldmark
+ 0027h	Home
+ 0028h	NextLine
+ 0029h	Tab
+ 002Ah	BackTab
+ 002Bh	cursor up
+ 002Ch	cursor down
+ 002Dh	cursor right
+ 002Eh	cursor left
+ 002Fh	double cursor right
+ 0030h	double cursor left
+ 0031h	PRINT
+ 0032h	CANCEL
+ 0033h	Backspace
+
+Format of argument block for BH=0Ah:
+Offset	Size	Description	(Table 03353)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	screen index
+ 04h	WORD	pointer to WORD buffer for field length
+ 06h	WORD	pointer to WORD buffer for offset in screen of field start
+SeeAlso: #03351,#03354
+
+Format of argument block for BH=0Fh:
+Offset	Size	Description	(Table 03354)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	clear mask (clear these bits of status after returning status)
+ 04h	WORD	pointer to WORD buffer for device status (see #03355)
+SeeAlso: #03353,#03356
+
+Bitfields for Banyan 3270 device status:
+Bit(s)	Description	(Table 03355)
+ 10	status modified
+ 9	buffer modified
+ 8	set cursor
+ 5	sound alarm
+ 1-0	size of print line for printer logical units
+	00  unformatted line
+	01  40-character line
+	10  64-character line
+	11  80-character line
+
+Format of argument block for BH=12h:
+Offset	Size	Description	(Table 03356)
+ 00h	WORD	pointer to WORD buffer for number of logical units or devices
+ 02h	WORD	pointer to WORD buffer for version number
+ 04h	WORD	pointer to 64-byte buffer for logical unit/device list
+SeeAlso: #03354,#03357
+
+Format of argument block for BH=13h:
+Offset	Size	Description	(Table 03357)
+ 00h 16 BYTEs	communications port address (see #03328)
+SeeAlso: #03356,#03358
+
+Format of argument block for BH=14h:
+Offset	Size	Description	(Table 03358)
+ 00h	WORD	logical unit/device number
+		0000h attach any free device of the specified type
+ 02h	WORD	logical unit/device type
+		(3270/SNA) 01h, 02h, or 03h
+		(3270/BSC) 02h display
+		(3270/BSC) 03h printer
+ 04h	WORD	pointer to WORD buffer for attached logical unit/device number
+SeeAlso: #03357,#03359
+
+Format of argument block for BH=16h:
+Offset	Size	Description	(Table 03359)
+ 00h	WORD	pointer to 18-byte buffer for device block (see #03364)
+		first WORD must be set to desired logical unit/device number
+SeeAlso: #03358,#03360
+
+Format of argument block for BH=17h:
+Offset	Size	Description	(Table 03360)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	pointer to information block in caller's DS (see #03365)
+SeeAlso: #03359,#03361
+
+Format of argument block for BH=18h:
+Offset	Size	Description	(Table 03361)
+ 00h	WORD	pointer to WORD buffer for major error code
+ 02h	WORD	pointer to WORD buffer for minor error code
+SeeAlso: #03360,#03362
+
+Format of argument block for BH=19h:
+Offset	Size	Description	(Table 03362)
+ 00h	WORD	logical unit/device number
+SeeAlso: #03361,#03363
+
+Format of argument block for BH=1Ch,1Dh:
+Offset	Size	Description	(Table 03363)
+ 00h	WORD	pointer to profile block in caller's DS (see #03368)
+SeeAlso: #03348,#03362
+
+Format of device block, argument block for BH=15h:
+Offset	Size	Description	(Table 03364)
+ 00h	WORD	logical unit/device number
+ 02h	WORD	logical unit/device type
+ 04h	WORD	display model number
+ 06h	WORD	numeric checking
+ 08h	WORD	status line
+ 0Ah	BYTE	unprotected normal field attribute
+ 0Bh	BYTE	unprotected intensified field attribute
+ 0Ch	BYTE	protected normal field attribute
+ 0Dh	BYTE	protected intensified field attribute
+ 0Eh	WORD	reserved
+ 10h	WORD	printer port number
+
+Format of information block:
+Offset	Size	Description	(Table 03365)
+ 00h	WORD	device model number
+ 02h	DWORD	screen buffer pointer
+ 06h	DWORD	status line pointer (see #03366)
+ 0Ah	DWORD	reserved
+
+Format of Banyan VINES 3270 status line:
+Offset	Size	Description	(Table 03366)
+ 00h	BYTE	comm line status
+		00h inactive
+		01h active
+ 01h	BYTE	activation level
+		01h physical unit activated
+		02h logical unit also activated
+		03h session is bound
+ 02h	BYTE	data traffic state
+		00h inactive
+		01h active
+ 03h	BYTE	screen ownership
+		00h SLU-&gt;PLU session owns screen
+		01h SLU-&gt;SSCP session owns screen
+ 04h	BYTE	keyboard status (see #03367)
+ 05h	BYTE	insert mode
+		01h if in insert mode
+ 06h	BYTE	numeric
+		01h if current screen buffer is numeric only
+ 07h	BYTE	printer status
+		00h printer not assigned
+		01h printer is inactive
+		02h printer error
+		03h currently printing
+		04h printer is busy
+		05h printer is very busy
+ 08h	BYTE	printer assignment
+ 09h	BYTE	maximum size of network name
+ 0Ah  N BYTEs	ASCIZ network name
+	BYTE	maximum size of message window
+      M BYTEs	null-terminated message window
+	BYTE	code set
+		00h EBCDIC
+		01h ASCII
+      M BYTEs	extended attributes
+		01h extended attributes are in effect (stored at screen+1920)
+		    each extended attribute specifies
+		    bits 0,1: 00=normal, 01=blink, 10=reverse, 11=underscor
+		    bits 2-4: 000=default,001=blue,010=red,011=pink,
+			      100=green,101=turquoise,110=yellow,111=white
+	BYTE	extended color
+		01h other than base color is in effect
+
+(Table 03367)
+Values for Banyan VINES 3270 keyboard status:
+ 00h	UNLOCK - ready to accept data
+ 01h	TIME - aid was struck
+ 02h	SYSTEM - received response no restore
+ 03h	FUNCTION - unavailable keyboard function
+ 04h	INPUT - not currently used
+ 05h	ENDFIELD - field filled in insert mode
+ 06h	PROTECTED - attempt to enter in protected field
+ 07h	NUMERIC - attempt to enter in numeric field
+ 08h	PROGRAM - error in outbound data stream
+
+Format of Banyan VINES 3270 profile block:
+Offset	Size	Description	(Table 03368)
+ 00h 64 BYTEs	gateway service name
+ 40h 16 BYTEs	gateway comm port address
+ 50h	WORD	primary logical unit number
+ 52h	WORD	secondary logical unit type
+ 54h	WORD	secondary logical unit number
+ 56h	WORD	printer assignment
+ 58h 50 BYTEs	keyboard definitions filename
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#67_2" name="67_2"><b>67</b></a> - INT 67 - Sangoma CCPOP 3270 resident module<br />
+<pre>
+INT 67 - Sangoma CCPOP 3270 resident module
+SeeAlso: INT 61"Sangoma",INT 68"Sangoma"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68" name="68"><b>68</b></a> - INT 68 - Sangoma CCPOP 3270 resident module<br />
+<pre>
+INT 68 - Sangoma CCPOP 3270 resident module
+SeeAlso: INT 67"Sangoma",INT 92"Sangoma"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A04" name="7A04"><b>7A04</b></a> - INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - CREATE A QUEUE
+	AH = 04h
+	???
+Return: ???
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A06" name="7A06"><b>7A06</b></a> - INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - DELETE A QUEUE
+	AH = 06h
+	???
+Return: ???
+SeeAlso: AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020" name="7A09--BX8020"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - SESSION SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 0000h
+	DX = ID of session manager (SESSMGR)
+	AL = service (see #03834)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03834)
+Values for service:
+ 01h	get session ID
+ 02h	get session info
+ 04h	dettach from session
+ 05h	attach to session
+ 06h	get list of windows available
+ 07h	get environment of window
+ 08h	get 'PIF' (program information file) info
+ 0Ah	get base window ID
+ 0Bh	get cursor info
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_0" name="7A09--BX8020_0"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - KEYBOARD SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 0000h
+	DX = ID of keyboard manager
+	AL = service number (see #03835)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03835)
+Values for 3270 Workstation Program keyboard service:
+ 01h	connect to keyboard
+ 02h	disconnect from keyboard
+ 03h	read from keyboard
+ 04h	send keystroke to session
+ 05h	disable input
+ 06h	enable input
+ 07h	update status code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_1" name="7A09--BX8020_1"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - WINDOW SERVICES
+	AH = 09h
+	BX = 8020h (synchronous request)
+	CX = 00FFh
+	DX = ID of window service controller (WSCTRL)
+	AL = service number (see #03836)
+	ES:DI -&gt; control block
+Return: ???
+
+(Table 03836)
+Values for 3270 Workstation Program window service:
+ 01h	connect to WS control
+ 02h	disconnect from WS control
+ 03h	add a window
+ 04h	change window's position on screen
+ 05h	change window's size
+ 06h	change window's color
+ 07h	change window's position in the presentation space
+ 08h	hide/unhide toggle
+ 09h	enlarge/reduce toggle
+ 0Ah	change screen background color
+ 0Bh	get window's position on screen
+ 0Ch	get window's size
+ 0Dh	get window's color
+ 0Eh	get window's position in the presentation space
+ 0Fh	determine whether hidden
+ 10h	determine whether enlarged
+ 11h	get background color
+ 12h	get window names
+ 13h	delete all windows from profile
+ 14h	pick active window
+ 15h	redraw screen
+ 16h	redraw window
+ 17h	delete a window from profile
+ 18h	get active window
+ 19h	get active screen
+ 1Ah	get window data
+ 1Bh	change window data
+ 1Ch	select active screen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_2" name="7A09--BX8020_2"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - PRESENTATION SPACE SERVICES
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of PCPSM
+	AL = service
+	    01h define presentation space
+	    02h delete presentation space
+	    03h display presentation space
+	    04h position cursor in presentation space
+	    05h change default presentation space
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_3" name="7A09--BX8020_3"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - 3270 EMULATION
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of 3270EML
+	AL = service
+	    01h connect
+	    02h disconnect
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_4" name="7A09--BX8020_4"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - OPERATOR INFORMATION AREA
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of OIAM
+	AL = service
+	    01h read Operator Information Area
+	    02h read OIA subset
+	ES:DI -&gt; control block
+Return: ???
+Note: the OIA is the 25th line on the Host session
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_5" name="7A09--BX8020_5"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - TRANSLATE DATA
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of XLATE
+	AL = service
+	    01h translate from host characters to ASCII and vice versa
+		(determined by control block byte 11)
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_6" name="7A09--BX8020_6"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - COPY SERVICE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - COPY SERVICE
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	DX = ID of copy service
+	AL = service
+	    01h copy string from one presentation space to another
+	    02h copy block from one presentation space to another
+	    03h connect to PC session for copy
+	    04h disconnect PC session from copy
+	ES:DI -&gt; control block
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09--BX8020_7" name="7A09--BX8020_7"><b>7A09--BX8020</b></a> - INT 7A - IBM 3270 Workstation Program API - Multi-DOS<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - Multi-DOS
+	AH = 09h
+	BX = 8020h
+	CX = 00FFh
+	ES:DI -&gt; control block
+	DX = ID of INDJQRY
+		get environment size
+	   = ID of INDJASY
+		request DOS functions from workstation
+	   = ID of MEMORY
+		AL = function
+		    01h allocate memory
+		    02h deallocate memory
+		    03h modify allocated size
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A09" name="7A09"><b>7A09</b></a> - INT 7A - IBM 3270 Workstation Program API - HOST SERVICES<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - HOST SERVICES
+	AH = 09h
+	BX = request type (4000h async, 8028h synchronous)
+	CX = 0000h
+	DX = ID of MFIC
+	AL = service (see #03837)
+	ES:DI -&gt; control block
+
+(Table 03837)
+Values for 3270 Workstation Program host service:
+ 01h	connect to host
+ 02h	disconnect from host
+ 03h	read DFT structured data from host
+ 04h	write DFT structured data to host
+ 05h	create a host buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A13" name="7A13"><b>7A13</b></a> - INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - GET DATA FROM A QUEUE
+	AH = 13h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A81" name="7A81"><b>7A81</b></a> - INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - RESOLVE A GATE NAME
+	AH = 81h
+	ES:DI -&gt; 8-char blank-padded gate name (see #03838)
+Return: DX = gate ID
+
+(Table 03838)
+Values for 3270 Workstation Program gate name:
+ "SESSMGR "
+ "KEYBOARD"
+ "WSCTRL  "
+ "MFIC	  "
+ "PCPSM	  "
+ "3270EML "
+ "COPY	  "
+ "XLATE	  "
+ "OIAM	  "
+ "MEMORY  "
+ "INDJQRY "
+ "INDJASY "
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A83" name="7A83"><b>7A83</b></a> - INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS<br />
+<pre>
+INT 7A - IBM 3270 Workstation Program API - GET COMPLETION RESULTS
+	AH = 83h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFDCB" name="7AFDCB"><b>7AFDCB</b></a> - INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK<br />
+<pre>
+INT 7A - IBM Personal Communications/3270 - INSTALLATION CHECK
+	AX = FDCBh
+Return: DX:AX -&gt; PCS/3270 signature block if loaded (see #03839)
+
+Format of Personal Communications/3270 signature block:
+Offset	Size	Description	(Table 03839)
+ 04h	WORD	PCS/3270 signature (5741h)
+ 06h	WORD	version (0501h = PCS/3270 v1.0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFE01" name="7AFE01"><b>7AFE01</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION
+	AX = FE01h
+	???
+Return: ???
+SeeAlso: AX=FE02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFE02" name="7AFE02"><b>7AFE02</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL SEND/RECEIVE FUNCTION
+	AX = FE02h
+	???
+Return: ???
+SeeAlso: AX=FE01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF01" name="7AFF01"><b>7AFF01</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION
+	AX = FF01h
+	ES:DI -&gt; API function handler routine
+Return: CX = 1200h
+SeeAlso: AX=FF02h,AX=FF03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF02" name="7AFF02"><b>7AFF02</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API TERMINATION
+	AX = FF02h
+Return: CX = 1200h
+SeeAlso: AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF03" name="7AFF03"><b>7AFF03</b></a> - INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION<br />
+<pre>
+INT 7A - IBM PC3270 EMUL PROG v3 - INTERNAL API INITIALIZATION
+	AX = FF03h
+	ES:DI -&gt; send/receive function handler routine
+Return: CX = 1200h
+SeeAlso: AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7AFF04" name="7AFF04"><b>7AFF04</b></a> - INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???<br />
+<pre>
+INT 7A U - IBM PC3270 EMUL PROG v3 - INTERNAL ???
+	AX = FF04h
+	ES:DI -&gt; ???
+Return: CX = 1200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_0" name="7B_0"><b>7B</b></a> - INT 7B - Eicon Access API (3270/5250 gateways)<br />
+<pre>
+INT 7B - Eicon Access API (3270/5250 gateways)
+SeeAlso: INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F0104BX0000" name="7F0104BX0000"><b>7F0104BX0000</b></a> - INT 7F - HLLAPI (IBM 3270 High-Level Language API)/LLAPI (Rabbit Low Level API)<br />
+<pre>
+INT 7F - HLLAPI (IBM 3270 High-Level Language API)/LLAPI (Rabbit Low Level API)
+	AX = 0104h (HLLAPI gate ID)
+	BX = 0000h
+	DS:SI -&gt; parameter control block (see #03872)
+Return: parameter control block updated
+InstallCheck:	for the Novell HLLAPI TSR, test for the signature "CXI" (for
+	  the company Novell bought) immediately prior to the interrupt handler
+SeeAlso: AX=0105h,AX=ABCDh
+
+Format of HLLAPI parameter control block:
+Offset	Size	Description	(Table 03872)
+ 00h  3 BYTEs	signature = 'PCB'
+ 03h	BYTE	function number (see #03873,#03874)
+ 04h	WORD	segment of control string
+ 06h	WORD	offset of control string
+ 08h	WORD	length of control string, unless explicit end-of-str char set
+ 0Ah	BYTE	unused (IBM)
+		ControlString[0] (Rabbit)
+ 0Bh	WORD	return code (see #03876)
+ 0Dh	WORD	maximum length of control string (IBM)
+		unused (Rabbit)
+
+(Table 03873)
+Values for HLLAPI function number:
+ 00h	OEM function (Query system for Attachmate implementation)
+ 01h	Connect presentation space
+ 02h	Disconnect presentation space
+ 03h	Send string of keystrokes as if typed from keyboard
+ 04h	Wait ~60s, returns status of presentation space
+ 05h	Copy current presentation space into a user-defined buffer
+ 06h	Search presentation space for first occurrence of a specified string
+ 07h	Query cursor location in current presentation space
+ 08h	Copy part or all of current presentation space into user buffer
+ 09h	Set session parameters; parameters vary by vendor (see #03875)
+ 0Ah	Get info on sessions currently connected
+ 0Bh	Lock current presentation space
+ 0Ch	Unlock previously locked presentation space
+ 0Dh	Return copy of operator info area (OIA) of current presentation space
+ 0Eh	get attribute byte for given position in the current presentation space
+ 0Fh	copy string of characters to the current presentation space
+ 10h	workstation control functions
+ 11h	storage manager functions, intended primarily for BASIC applications
+	(not implemented by Rabbit)
+ 12h	set delay period in half-second intervals
+ 14h	get info on level of workstation support used
+ 15h	reset session parameters to default values
+ 16h	get detailed info on the current session
+ 17h	start host notification to application on presentation sp or OIA update
+ 18h	check host update when host notification enabled
+ 19h	stop host notification
+ 1Eh	search field within current presentation space for string
+ 1Fh	get first positionof a selected field in the current presentation space
+ 20h	get length of specified field
+ 21h	copy string into a specified field
+ 22h	copy specified field into a user-defined buffer
+ 23h	create alternate presentation space (IBM only), don't use with BASIC
+ 24h	switch to alternate presentation space (IBM only), not with BASIC
+ 25h	display cursor in specified area (IBM only), don't use with BASIC
+ 26h	display alternate presentation space (IBM only), don't use with BASIC
+ 27h	delete alternate presentation space (IBM only), don't use with BASIC
+ 28h	set cursor
+ 29h	start Close Intercept
+ 2Ah	query Close Intercept
+ 2Bh	stop Close Intercept
+ 32h	start intercepting keystrokes to allow filtering
+ 33h	get keystrokes after turning on interception
+ 34h	notify operator when keystroke rejected by filter subroutine
+ 35h	stop intercepting keystrokes
+ 5Ah	send file
+ 5Bh	receive file
+ 5Ch	run a program (not implemented by Rabbit)
+ 5Dh	execute DOS command (not implemented by Rabbit)
+ 63h	change presentation space position to PC display row/col or vice versa
+ 65h	connect to Window Services
+ 66h	disconnect from Window Services
+ 67h	set/query window coordinates
+ 68h	set/query window status
+ 69h	change presentation space name
+ 78h	connect Structured Fields
+ 79h	disconnect Structured Fields
+ 7Ah	query size of communications buffer
+ 7Bh	allocate communications buffer
+ 7Ch	free communications buffer
+ 7Dh	get request completion state
+ 7Eh	read Structured Fields
+ 7Fh	write Structured Fields
+ FFh	Get info on DCA implementation
+
+(Table 03874)
+Values for LLAPI function number:
+ 80h	initialize LLAPI (internal call)
+ 83h	set Session ID (one-character ID)
+ 84h	read Session ID (one-character ID)
+ 85h	lock 327x keyboard
+ 86h	unlock 327x keyboard
+ 87h	wait for Clear to Send
+ 88h	type ASCII character
+ 89h	type 327x key
+ 8Ah	read keyboard lock state
+ 8Fh	force screen update
+ 90h	view session
+ 91h	relinquish (suspend foreground until background becomes idle)
+ 92h	poke screen character
+ 93h	poke translated character
+ 94h	peek screen character
+ 95h	peek translated character
+ 96h	set cursor position
+ 97h	send scan code (Rabbit only)
+ 98h	synchronize (returns after keystroke queue empty)
+ 99h	type PC key (Rabbit only)
+
+(Table 03875)
+Values for HLLAPI Function 09h Session Parameters:
+ ASCII		??? (Rabbit only)
+ ATTRIB		return attributes in hex
+ NOATTRIB	return attributes as blanks
+ CONPHYS	make physical connection
+ CONLOG		only make logical connection
+ EAB		copy extended attribute bytes along with data
+ NOEAB		copy data only
+ ESC=n		set escape character to "n" (default '@')
+ EOT=n		set end of string character (default 00h)
+ FPAUSE		full-duration pause
+ FTNOWAIT	return immediately from functions 5Ah and 5Bh (Rabbit only)
+ FTWAIT		wait for file transfer to complete (Rabbit only)
+ IPAUSE		interruptable pause
+ RABESC		??? (Rabbit only)
+ NORABESC	??? (Rabbit only)
+ SCANCODE	??? (Rabbit only)
+ STRLEN		use explicit string lengths
+ STREOT		use terminated strings
+ SRCHALL	search entire presentation space
+ SRCHFROM	search from specified offset
+ SRCHFRWD	search forward from position 1
+ SRCHBKWD	search backward from last position in presentation space
+ TIMEOUT=n	??? (Rabbit only)
+ TWAIT		wait specified time for keyboard ready
+ LWAIT		wait until keyboard ready
+ NWAIT		no wait
+ TRON		enable tracing
+ TROFF		disable tracing
+ AUTORESET	send reset before sending keys with function 03h
+ NORESET	don't send reset
+ QUIET		don't display messages sent with INT 21/AH=09h
+ NOQUIET	allow messages to be displayed
+ TIMEOUT=n	set timeout in 30-second intervals, 0 = wait until ^Break
+ XLATE		translate extended attribute bytes
+ NOXLATE	don't translate
+ NEWRET		use HLLAPI v3.0 return code conventions
+ OLDRET		use HLLAPI v2.0 return code conventions
+
+(Table 03876)
+Values for Windows HLLAPI return code:
+ 00h	successful
+ 01h	Presentation Space not connected/requested size unavailable
+ 02h	invalid function or parameter error/invalid block ID
+ 03h	file transfer complete
+ 04h	file transfer complete (segmented)/Presentation Space busy
+ 05h	inhibited or keyboard locked
+ 06h	data truncated
+ 07h	invalid Presentation Space position
+ 08h	operation not available
+ 09h	system error
+ 0Ah	blocking error
+ 0Bh	resource not available
+ 0Ch	session stopped
+ 14h	undefined key combination
+ 15h	OIA updated
+ 16h	Presentation Space updated
+ 17h	both Presentation Space and OIA updated
+ 18h	no such field
+ 19h	no keystrokes available
+ 1Ah	Presentation Space or Operator Information Area changed
+ 1Bh	file transfer aborted
+ 1Ch	zero-length field
+ 1Eh	cursor type invalid
+ 1Fh	keystroke overflow
+ 20h	another application is already connected
+ 22h	message sent to host cancelled
+ 23h	transmission from host cancelled
+ 24h	lost contact with host
+ 25h	function successful
+ 26h	function incomplete
+ 27h	a DDM session is already connected
+ 28h	disconnected, but asynchronous requests still pending
+ 29h	buffer already in use
+ 2Ah	no matching request found
+12Dh	invalid function number
+12Eh	file not found
+131h	access denied
+134h	out of memory
+136h	environment invalid
+137h	format invalid
+270Eh (9998) invalid Presentation Space ID
+270Fh (9999) invalid row or column code
+---Windows HLLAPI extensions---
+F000h	asynchronous call already in progress
+F001h	invalid asynchronous task ID
+F002h	blocking call cancelled
+F003h	underlying subsystem not started
+F004h	unsupported application version
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

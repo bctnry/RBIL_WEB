@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._e</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category e - electronic mail
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#164500"><b>164500</b> - INT 16 - Shamrock Software EMAIL - GET STATUS</a><br />
+<a href="#164501"><b>164501</b> - INT 16 - Shamrock Software EMAIL - GET ELAPSED ONLINE TIME AND MAXIMUM TIME</a><br />
+<a href="#164502"><b>164502</b> - INT 16 - Shamrock Software EMAIL - GET CURRENT COMMUNICATIONS PARAMETERS</a><br />
+<a href="#164503"><b>164503</b> - INT 16 - Shamrock Software EMAIL - SPECIFY COMMAND-WORD FOR USER FUNCTION</a><br />
+<a href="#164504"><b>164504</b> - INT 16 - Shamrock Software EMAIL - CHECK FOR USER FUNCTION COMMAND-WORD</a><br />
+<a href="#164505"><b>164505</b> - INT 16 - Shamrock Software EMAIL - SEND RESULT OF USER FUNCTION</a><br />
+<a href="#164506"><b>164506</b> - INT 16 - Shamrock Software EMAIL - MONITOR XMODEM DOWNLOAD</a><br />
+<a href="#2F92"><b>2F92</b> - INT 2F - Network Courier E-Mail - API</a><br />
+<a href="#2F9400"><b>2F9400</b> - INT 2F - MICRO.EXE - INSTALLATION CHECK</a><br />
+<a href="#2F9401"><b>2F9401</b> - INT 2F - MICRO.EXE - SET ??? FLAG</a><br />
+<a href="#2F9402"><b>2F9402</b> - INT 2F - MICRO.EXE - ???</a><br />
+<a href="#2F9403"><b>2F9403</b> - INT 2F - MICRO.EXE - SET ??? FLAG</a><br />
+<a href="#2F9404"><b>2F9404</b> - INT 2F - MICRO.EXE - CLEAR ??? FLAG</a><br />
+<a href="#2F9C"><b>2F9C</b> - INT 2F - Network Courier E-Mail OPERATOR.EXE - API</a><br />
+<a href="#7B_3"><b>7B</b> - INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???</a><br />
+<a href="#92E1"><b>92E1</b> - INT 92 - Da Vinci eMail Dispatcher INTERFACE</a><br />
+<a href="#92E100"><b>92E100</b> - INT 92 - Da Vinci eMail Dispatcher - "NetInitStart"</a><br />
+<a href="#92E101BX0000"><b>92E101BX0000</b> - INT 92 - Da Vinci eMail Dispatcher - "NetInitCheck"</a><br />
+<a href="#92E102BX0000"><b>92E102BX0000</b> - INT 92 - Da Vinci eMail Dispatcher - "NetCheckDriver"</a><br />
+<a href="#92E103BX0000"><b>92E103BX0000</b> - INT 92 - Da Vinci eMail Dispatcher - "NetTerminate"</a><br />
+<a href="#92E104"><b>92E104</b> - INT 92 - Da Vinci eMail Dispatcher - "NetWhereIs"</a><br />
+<a href="#92E105"><b>92E105</b> - INT 92 - Da Vinci eMail Dispatcher - "NetOpen"</a><br />
+<a href="#92E106BX0004"><b>92E106BX0004</b> - INT 92 - Da Vinci eMail Dispatcher - "NetRead"</a><br />
+<a href="#92E107BX0002"><b>92E107BX0002</b> - INT 92 - Da Vinci eMail Dispatcher - "NetGetError"</a><br />
+<a href="#92E108"><b>92E108</b> - INT 92 - Da Vinci eMail Dispatcher - "NetWrite"</a><br />
+<a href="#92E109"><b>92E109</b> - INT 92 - Da Vinci eMail Dispatcher - "NetErrorFix" (UNUSED)</a><br />
+<a href="#92E10A"><b>92E10A</b> - INT 92 - Da Vinci eMail Dispatcher - "NetClose"</a><br />
+<a href="#92E10B"><b>92E10B</b> - INT 92 - Da Vinci eMail Dispatcher - "NetCheckQueue"</a><br />
+<a href="#92E10C"><b>92E10C</b> - INT 92 - Da Vinci eMail Dispatcher - "NetReadQueue"</a><br />
+<a href="#92E10D"><b>92E10D</b> - INT 92 - Da Vinci eMail Dispatcher - "NetSubmitName"</a><br />
+<a href="#92E10E"><b>92E10E</b> - INT 92 - Da Vinci eMail Dispatcher - "NetRemoveName"</a><br />
+<a href="#92E10FBX0000"><b>92E10FBX0000</b> - INT 92 - Da Vinci eMail Dispatcher - IS ANYONE THERE? QUERY</a><br />
+<a href="#92E110"><b>92E110</b> - INT 92 - Da Vinci eMail Dispatcher - "NetGetAltRoute"</a><br />
+<a href="#92E111"><b>92E111</b> - INT 92 - Da Vinci eMail Dispatcher - "NetDeleteAltRoutes"</a><br />
+<a href="#92E112"><b>92E112</b> - INT 92 - Da Vinci eMail Dispatcher - "NetChangePassword"</a><br />
+<a href="#92E113"><b>92E113</b> - INT 92 - Da Vinci eMail Dispatcher - "NetSetAltRoute"</a><br />
+<a href="#92E175"><b>92E175</b> - INT 92 - Da Vinci eMail Dispatcher - BECOME MICRO TSR</a><br />
+<a href="#92E180"><b>92E180</b> - INT 92 - Da Vinci eMail Dispatcher - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#164500" name="164500"><b>164500</b></a> - INT 16 - Shamrock Software EMAIL - GET STATUS<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - GET STATUS
+	AX = 4500h
+	DL = port number (01h = COM1)
+	ES:BX -&gt; 13-byte buffer for ASCIZ name
+Return: AX = 4D00h if EMAIL installed on specified port
+	    ES:BX -&gt; "" if no connection
+		  -&gt; "*" if connection but caller has not identified name
+		  -&gt; name otherwise
+	    CX = version (CH = major, CL = minor)
+	    DL = privilege level of user (00h = guest)
+	    DH = chosen language (00h German, 01h English)
+SeeAlso: AX=4501h,AX=4502h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164501" name="164501"><b>164501</b></a> - INT 16 - Shamrock Software EMAIL - GET ELAPSED ONLINE TIME AND MAXIMUM TIME<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - GET ELAPSED ONLINE TIME AND MAXIMUM TIME
+	AX = 4501h
+	DL = port number (01h = COM1)
+Return: AX = 4D00h if EMAIL installed on specified port
+	    BX = maximum connect time in clock ticks
+	    CX = maximum connect time for guests (without name) in clock ticks
+	    DX = elapsed connect time of current user in clock ticks
+SeeAlso: AX=4500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164502" name="164502"><b>164502</b></a> - INT 16 - Shamrock Software EMAIL - GET CURRENT COMMUNICATIONS PARAMETERS<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - GET CURRENT COMMUNICATIONS PARAMETERS
+	AX = 4502h
+	DL = port number (01h = COM1)
+Return: AX = 4D00h if EMAIL installed on specified port
+	    BL = current value of serial port's Line Control Register
+	    BH = flags (see #00593)
+	    CX = selected country code (33 = France, 49 = Germany, etc)
+	    DX = baudrate divisor (115200/DX = baudrate)
+SeeAlso: AX=4500h
+
+Bitfields for Shamrock Software EMAIL flags:
+Bit(s)	Description	(Table 00593)
+ 0	ISO code
+ 1	pause
+ 2	linefeed
+ 3	ANSI sequences
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164503" name="164503"><b>164503</b></a> - INT 16 - Shamrock Software EMAIL - SPECIFY COMMAND-WORD FOR USER FUNCTION<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - SPECIFY COMMAND-WORD FOR USER FUNCTION
+	AX = 4503h
+	DL = port number (01h = COM1)
+	DH = maximum execution time in clock ticks (00h = 5 seconds)
+	ES:BX -&gt; ASCIZ string with new user command-word
+Return: AX = 4D00h if EMAIL installed on specified port
+Notes:	a single user command (consisting of only uppercase letters and digits)
+	  may be defined, and remains valid until it is overwritten or the
+	  EMAIL program terminates; the user command must be activated by
+	  calling AX=4504h at least once.
+	an existing command word may be redefined with this function
+SeeAlso: AX=4504h,AX=4505h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164504" name="164504"><b>164504</b></a> - INT 16 - Shamrock Software EMAIL - CHECK FOR USER FUNCTION COMMAND-WORD<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - CHECK FOR USER FUNCTION COMMAND-WORD
+	AX = 4504h
+	DL = port number (01h = COM1)
+	ES:BX -&gt; 80-byte buffer for ASCIZ user input line
+Return: AX = 4D00h if EMAIL installed on specified port
+	    DL = flags
+		bit 0: user function supported (always set)
+		bit 1: user entered user-function command word
+	    if DL bit 1 set,
+		ES:BX buffer contains line entered by user which begins with
+			the defined command word and has been converted to all
+			caps
+Note:	caller must process the returned commandline and invoke AX=4505h
+	  within five seconds with the result of that processing
+SeeAlso: AX=4503h,AX=4505h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164505" name="164505"><b>164505</b></a> - INT 16 - Shamrock Software EMAIL - SEND RESULT OF USER FUNCTION<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - SEND RESULT OF USER FUNCTION
+	AX = 4505h
+	DL = port number (01h = COM1)
+	DH = error flag
+	    bit 3: set on error
+	ES:BX -&gt; ASCIZ text to return to user, max 1024 bytes
+Return: AH = 4Dh if EMAIL installed on specified port
+	AL = status
+	    00h successful
+	    02h unable to perform function (timeout, prev call not complete)
+	    other error
+Notes:	if the error flag in DH is set, the string is not sent and an error
+	  message is generated instead; if this function is not called within
+	  five seconds of AX=4504h, EMAIL automatically generates an error
+	  message
+	the string is copied into an internal buffer, allowing this function's
+	  caller to continue immediately
+SeeAlso: AX=4503h,AX=4504h,INT 17/AX=2400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164506" name="164506"><b>164506</b></a> - INT 16 - Shamrock Software EMAIL - MONITOR XMODEM DOWNLOAD<br />
+<pre>
+INT 16 - Shamrock Software EMAIL - MONITOR XMODEM DOWNLOAD
+	AX = 4506h
+	DL = port number (01h = COM1)
+	ES:BX -&gt; 13-byte buffer for ASCIZ filename
+Return: AX = 4D00h if EMAIL installed on specified port
+	    DH = Xmodem status
+		00h no XGET command given
+		01h XGET in progress
+		02h XGET completed successfully
+	    ES:BX buffer filled with last filename given to XGET command
+		(without path)
+Note:	DH=02h will only be returned once per XGET; subsequent calls will
+	  return DH=00h
+SeeAlso: AX=4500h,INT 17/AX=2408h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F92" name="2F92"><b>2F92</b></a> - INT 2F - Network Courier E-Mail - API<br />
+<pre>
+INT 2F - Network Courier E-Mail - API
+	AH = 92h
+	AL = function
+	    00h installation check
+	    01h uninstall
+	    02h pop down MICRO.EXE notification window
+	    03h ???
+	    04h ???
+	    05h ???
+Return: ???
+Program: The Network Courier is an electronic mail package by Consumers
+	  Software of Vancouver, BC which was bought by Microsoft in 1991 and
+	  renamed Microsoft Mail v3.0.
+SeeAlso: AX=9400h,AX=9401h,AX=9402h,AH=9Ch
+Index:	installation check;Network Courier E-Mail
+Index:	uninstall;Network Courier E-Mail
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9400" name="2F9400"><b>2F9400</b></a> - INT 2F - MICRO.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - MICRO.EXE - INSTALLATION CHECK
+	AX = 9400h
+Return: AL = 07h or 08h if installed
+Program: MICRO.EXE is a TSR of the Microsoft Mail part of Workgroup Connection
+SeeAlso: AH=92h"Network Courier",AX=9401h,AX=9402h,AX=9403h,AX=9404h
+SeeAlso: INT 21/AH=3Fh"WORKGRP.SYS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9401" name="2F9401"><b>2F9401</b></a> - INT 2F - MICRO.EXE - SET ??? FLAG<br />
+<pre>
+INT 2F - MICRO.EXE - SET ??? FLAG
+	AX = 9401h
+SeeAlso: AX=9400h,AX=9403h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9402" name="2F9402"><b>2F9402</b></a> - INT 2F - MICRO.EXE - ???<br />
+<pre>
+INT 2F - MICRO.EXE - ???
+	AX = 9402h
+	???
+Return: ???
+SeeAlso: AX=9400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9403" name="2F9403"><b>2F9403</b></a> - INT 2F - MICRO.EXE - SET ??? FLAG<br />
+<pre>
+INT 2F - MICRO.EXE - SET ??? FLAG
+	AX = 9403h
+SeeAlso: AX=9400h,AX=9404h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9404" name="2F9404"><b>2F9404</b></a> - INT 2F - MICRO.EXE - CLEAR ??? FLAG<br />
+<pre>
+INT 2F - MICRO.EXE - CLEAR ??? FLAG
+	AX = 9404h
+	ES:DI -&gt; name of executable from which MICRO.EXE was started
+Note:	if the specified name is identical to the name of the program file
+	  from which MICRO was started, the ??? flag is cleared; otherwise,
+	  it is left unchanged
+SeeAlso: AX=9400h,AX=9403h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9C" name="2F9C"><b>2F9C</b></a> - INT 2F - Network Courier E-Mail OPERATOR.EXE - API<br />
+<pre>
+INT 2F - Network Courier E-Mail OPERATOR.EXE - API
+	AH = 9Ch
+	AL = subfunction
+	    01h uninstall
+Return: ???
+Program: The Network Courier is an electronic mail package by Consumers
+	  Software of Vancouver, BC which was bought by Microsoft in 1991 and
+	  renamed Microsoft Mail v3.0.
+SeeAlso: AH=92h
+Index:	uninstall;Network Courier E-Mail OPERATOR.EXE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_3" name="7B_3"><b>7B</b></a> - INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???<br />
+<pre>
+INT 7B U - MCI Express v2.11+ - DRIVER.EXE - ???
+Program: MCI Express is a front end to MCI Mail; DRIVER.EXE is its
+	  communication driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E1" name="92E1"><b>92E1</b></a> - INT 92 - Da Vinci eMail Dispatcher INTERFACE<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher INTERFACE
+	AH = E1h
+	AL = function
+	BX = stack count (number of words to push)
+	CX:DX -&gt; stack data (in word-reversed order ready to push)
+Return: AX = status (see #03979)
+Note:	preserves BP, DS, SI, DI; other registers may be destroyed
+
+(Table 03979)
+Values for Da Vinci eMail function status:
+ 0001h	success
+ FF97h	"ERS_NOT_AVAILABLE"
+ FF99h	"ERS_TOO_MANY_NAMES"
+ FF9Ah	"ERS_BAD_NAME_PASSWORD"
+ FFE3h	"ERS_NAME_NOT_FOUND"
+ FFF8h	"ERS_USE_STRING" (call NetGetError to get error string)
+ FFFFh	"ERS_NO_SUCH_FILE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E100" name="92E100"><b>92E100</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetInitStart"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetInitStart"
+	AX = E100h
+	BX = size of parameter block in words (000Ah)
+	CX:DX -&gt; parameter block (see #03980)
+Return: AX = 0001h success
+Desc:	this function is used to initialize the dispatcher
+SeeAlso: AX=E101h,AX=E103h
+
+Format of Da Vinci eMail "NetInitStart" parameter block:
+Offset	Size	Description	(Table 03980)
+ 00h	WORD	segment of ???
+ 02h	WORD	offset of ???
+ 04h	WORD	high part of long ???
+ 06h	WORD	low part of long ???
+ 08h	WORD	high part of long ???
+ 0Ah	WORD	low part of long ???
+ 0Ch	WORD	high part of long ???
+ 0Eh	WORD	low part of long ???
+ 10h	WORD	high part of long ???
+ 12h	WORD	low part of long ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E101BX0000" name="92E101BX0000"><b>92E101BX0000</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetInitCheck"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetInitCheck"
+	AX = E101h
+	BX = 0000h
+	CX:DX ignored
+Return: AX = 0001h success
+SeeAlso: AX=E100h,AX=E180h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E102BX0000" name="92E102BX0000"><b>92E102BX0000</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetCheckDriver"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetCheckDriver"
+	AX = E102h
+	BX = 0000h
+	CX:DX ignored
+Return: AX = 0001h success
+Desc:	this function is used to determine if the dispatcher is loaded
+SeeAlso: AX=E10Bh,AX=E180h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E103BX0000" name="92E103BX0000"><b>92E103BX0000</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetTerminate"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetTerminate"
+	AX = E103h
+	BX = 0000h
+	CX:DX ignored
+Return: AX = status (see #03979)
+SeeAlso: AX=E100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E104" name="92E104"><b>92E104</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetWhereIs"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetWhereIs"
+	AX = E104h
+	BX = size of parameter block in words (0006h)
+	CX:DX -&gt; parameter block (see #03981)
+Return: AX = status (see #03979)
+Desc:	this function is used to verify node address for usernames
+SeeAlso: AX=E180h
+
+Format of Da Vinci eMail "NetWhereIs" parameter block:
+Offset	Size	Description	(Table 03981)
+ 00h	WORD	segment of node address buffer
+ 02h	WORD	offset of node address buffer
+ 04h	WORD	segment of uppercase username
+ 06h	WORD	offset of uppercase username
+ 08h	WORD	segment of "DVSEMAIL"
+ 0Ah	WORD	offset of "DVSEMAIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E105" name="92E105"><b>92E105</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetOpen"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetOpen"
+	AX = E105h
+	BX = size of parameter block in words (0007h)
+	CX:DX -&gt; parameter block (see #03982)
+Return: AX = 0000h Error
+	AX = handle
+Desc:	this function is used to open a submission channel
+SeeAlso: AX=E10Ah,AX=E106h,AX=E108h
+
+Format of Da Vinci eMail "NetOpen" parameter block:
+Offset	Size	Description	(Table 03982)
+ 00h	WORD	operation (1 = read, 2 = write)
+ 02h	WORD	segment of uppercase To: username
+ 04h	WORD	offset of uppercase To: username
+ 06h	WORD	segment of "DVSEMAIL"
+ 08h	WORD	offset of "DVSEMAIL"
+ 0Ah	WORD	segment of node address
+ 0Ch	WORD	offset of node address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E106BX0004" name="92E106BX0004"><b>92E106BX0004</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetRead"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetRead"
+	AX = E106h
+	BX = 0004h
+	CX:DX -&gt; parameter block
+Return: AX = 0001h
+SeeAlso: AX=E108h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E107BX0002" name="92E107BX0002"><b>92E107BX0002</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetGetError"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetGetError"
+	AX = E107h
+	BX = 0002h
+	CX:DX -&gt; parameter block
+Return: AX = 0001h
+SeeAlso: AX=E109h,AX=E180h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E108" name="92E108"><b>92E108</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetWrite"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetWrite"
+	AX = E108h
+	BX = size of parameter block in words (0004h)
+	CX:DX -&gt; parameter block (see #03983)
+Return: AX = amount written
+Desc:	This function is used to write transactions to the dispatcher.
+	  The command block is written first and then another call is used
+	  to write the associated data.
+SeeAlso: AX=E106h
+
+Format of Da Vinci eMail "NetWrite" parameter block:
+Offset	Size	Description	(Table 03983)
+ 00h	WORD	buffer count (see #03985)
+ 02h	WORD	segment of command buffer (see #03984)
+ 04h	WORD	offset of command buffer
+ 06h	WORD	handle from NetOpen
+
+Format of Da Vinci eMail command buffer:
+Offset	Size	Description	(Table 03984)
+ 00h	BYTE	command
+		21h '!' Protocol commands for remote control
+		41h 'A' Authorization protocol element
+		42h 'B' Return(back) routing information
+		    Associated data is the From: username
+		43h 'C' Carbon Copy list
+		    Associated data is a comma delimitted list of usernames
+		44h 'D' Distribution list
+		    Associated data is a comma delimitted list of usernames
+		45h 'E' Mail end marker
+		    No associated data
+		48h 'H' Mail message header
+		    Associated data is a message header buffer
+		4Dh 'M' Mail message
+		    Associated data is the body of the message
+		4Fh 'O' Object
+		50h 'P' Paperclip attachment
+		52h 'R' Routing information
+		    Associated data is the To: username
+		53h 'S' Subject
+		    Associated data is the subject of the message
+		54h 'T' Trail of Reply/Forwards
+ 01h	BYTE	subcommand
+ 02h	DWORD	length of associated data
+
+Format of Da Vinci eMail message header buffer:
+Offset	Size	Description	(Table 03985)
+ 00h 30 BYTEs	subject line
+ 1Eh 24 BYTEs	To
+ 36h 24 BYTEs	From
+ 4Eh	DWORD	Time
+		BYTE	00h
+		BYTE	hour
+		BYTE	minute
+		BYTE	second
+ 52h	DWORD	Date
+		BYTE	00h
+		BYTE	year
+		BYTE	month
+		BYTE	day
+ 56h	DWORD	serial number (00000000h)
+ 5Ah	WORD	mail types (see #03986)
+ 5Ch	WORD	special types (0)
+
+Bitfields for Da Vinci eMail mail types:
+Bit(s)	Description	(Table 03986)
+ 7	blind carbon copy
+ 6	carbon copy
+ 5	priority
+ 4	confidential
+ 3	certified
+ 2	bulk
+ 1-0	class (first, second, third, bulk)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E109" name="92E109"><b>92E109</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetErrorFix" (UNUSED)<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetErrorFix" (UNUSED)
+	AX = E109h
+	BX = size of parameter block in words (0001h)
+	CX:DX -&gt; parameter block (see #03987)
+Return: AX = FF97h (ERS_NOT_AVAILABLE)
+SeeAlso: AX=E107h,AX=E180h
+
+Format of Da Vinci eMail "NetErrorFix" parameter block:
+Offset	Size	Description	(Table 03987)
+ 00h	WORD	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10A" name="92E10A"><b>92E10A</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetClose"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetClose"
+	AX = E10Ah
+	BX = size of parameter block in words (0001h)
+	CX:DX -&gt; parameter block (see #03988)
+Return: AX = 0001h
+Desc:	this function is used to close a dispatcher handle
+SeeAlso: AX=E105h
+
+Format of Da Vinci eMail "NetClose" parameter block:
+Offset	Size	Description	(Table 03988)
+ 00h	WORD	handle from NetOpen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10B" name="92E10B"><b>92E10B</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetCheckQueue"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetCheckQueue"
+	AX = E10Bh
+	BX = size of parameter block in words (0004h)
+	CX:DX -&gt; parameter block (see #03989)
+Return: AX = 0001h
+SeeAlso: AX=E102h,AX=E10Ch
+
+Format of Da Vinci eMail "NetCheckQueue" parameter block:
+Offset	Size	Description	(Table 03989)
+ 00h	WORD	segment of 24-byte username buffer
+ 02h	WORD	offset of 24-byte username buffer
+ 04h	WORD	segment of 24-byte protocol buffer
+ 06h	WORD	offset of 24-byte protocol buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10C" name="92E10C"><b>92E10C</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetReadQueue"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetReadQueue"
+	AX = E10Ch
+	BX = size of parameter block in words (0002h)
+	CX:DX -&gt; parameter block (see #03990)
+Return: AX = 0001h
+SeeAlso: AX=E10Bh
+
+Format of Da Vinci eMail "NetReadQueue" parameter block:
+Offset	Size	Description	(Table 03990)
+ 00h	WORD	Segment of 128 byte node address buffer
+ 02h	WORD	Offset of 128 byte node address buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10D" name="92E10D"><b>92E10D</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetSubmitName"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetSubmitName"
+	AX = E10Dh
+	BX = size of parameter block in words (0006h)
+	CX:DX -&gt; parameter block (see #03991)
+Return: AX = status (see #03979)
+Desc:	this function is used to verify username/password
+SeeAlso: AX=E10Eh
+
+Format of Da Vinci eMail "NetSubmitName" parameter block:
+Offset	Size	Description	(Table 03991)
+ 00h	WORD	segment of uppercase password string
+ 02h	WORD	offset of uppercase password string
+ 04h	WORD	segment of uppercase username string
+ 06h	WORD	offset of uppercase username string
+ 08h	WORD	segment of "DVSEMAIL"
+ 0Ah	WORD	offset of "DVSEMAIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10E" name="92E10E"><b>92E10E</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetRemoveName"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetRemoveName"
+	AX = E10Eh
+	BX = size of parameter block in words (0004h)
+	CX:DX -&gt; parameter block (see #03992)
+Return: AX = 0001h
+Desc:	this function is used to remove a username
+SeeAlso: AX=E10Dh
+
+Format of Da Vinci eMail "NetRemoveName" parameter block:
+Offset	Type	Description	(Table 03992)
+ 00h	WORD	segment of uppercase username
+ 02h	WORD	offset of uppercase username
+ 04h	WORD	segment of "DVSEMAIL"
+ 06h	WORD	offset of "DVSEMAIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E10FBX0000" name="92E10FBX0000"><b>92E10FBX0000</b></a> - INT 92 - Da Vinci eMail Dispatcher - IS ANYONE THERE? QUERY<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - IS ANYONE THERE? QUERY
+	AX = E10Fh
+	BX = 0000h
+	CX:DX ignored
+Return: AX = 0001h
+SeeAlso: AX=E180h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E110" name="92E110"><b>92E110</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetGetAltRoute"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetGetAltRoute"
+	AX = E110h
+	BX = size of parameter block in words (0006h)
+	CX:DX -&gt; parameter block (see #03993)
+Return: AX = 0001h
+SeeAlso: AX=E111h,AX=E113h
+
+Format of Da Vinci eMail "NetGetAltRoute" parameter block:
+Offset	Size	Description	(Table 03993)
+ 00h  6 WORDs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E111" name="92E111"><b>92E111</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetDeleteAltRoutes"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetDeleteAltRoutes"
+	AX = E111h
+	BX = size of parameter block in words (0004h)
+	CX:DX -&gt; parameter block (see #03994)
+Return: AX = 0001h
+SeeAlso: AX=E110h,AX=E113h
+
+Format of Da Vinci eMail "NetDeleteAltRoutes" parameter block:
+Offset	Size	Description	(Table 03994)
+ 00h  4 WORDs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E112" name="92E112"><b>92E112</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetChangePassword"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetChangePassword"
+	AX = E112h
+	BX = size of parameter block in words (0008h)
+	CX:DX -&gt; parameter block (see #03995)
+Return: AX = 0001h
+SeeAlso: AX=E180h
+
+Format of Da Vinci eMail "NetChangePassword" parameter block:
+Offset	Size	Description	(Table 03995)
+ 00h  8 WORDs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E113" name="92E113"><b>92E113</b></a> - INT 92 - Da Vinci eMail Dispatcher - "NetSetAltRoute"<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - "NetSetAltRoute"
+	AX = E113h
+	BX = size of parameter block in words (0008h)
+	CX:DX -&gt; parameter block (see #03996)
+Return: AX = 0001h
+SeeAlso: AX=E110h,AX=E111h
+
+Format of Da Vinci eMail "NetSetAltRoute" parameter block:
+Offset	Size	Description	(Table 03996)
+ 00h  8 WORDs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E175" name="92E175"><b>92E175</b></a> - INT 92 - Da Vinci eMail Dispatcher - BECOME MICRO TSR<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - BECOME MICRO TSR
+	AX = E175h
+Return: AX = 0012h
+	BX = PSP
+SeeAlso: AX=E180h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92E180" name="92E180"><b>92E180</b></a> - INT 92 - Da Vinci eMail Dispatcher - INSTALLATION CHECK<br />
+<pre>
+INT 92 - Da Vinci eMail Dispatcher - INSTALLATION CHECK
+	AX = E180h
+Return: AX = 0012h if installed
+	ES:DX -&gt; '$'-terminated driver information string
+SeeAlso: AX=E102h,AX=E105h,AX=E10Fh,AX=E175h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

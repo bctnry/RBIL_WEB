@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._71</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 71
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#71"><b>71</b> - INT 71 C - IRQ9 - REDIRECTED TO INT 0A BY BIOS</a><br />
+
+<hr />
+
+<a href="#71" name="71"><b>71</b></a> - INT 71 C - IRQ9 - REDIRECTED TO INT 0A BY BIOS<br />
+<pre>
+INT 71 C - IRQ9 - REDIRECTED TO INT 0A BY BIOS
+Notes:	may be masked by setting bit 1 on I/O port A1h
+	the default BIOS handler invokes INT 0A for compatibility, since the
+	  pin for IRQ2 on the PC expansion bus became the pin for IRQ9 on the
+	  AT expansion bus.
+	under DESQview, only the INT 15h vector and BASIC segment address (the
+	  word at 0000h:0510h) may be assumed to be valid for the handler's
+	  process
+SeeAlso: INT 0A"IRQ2",INT 59"IRQ9",MEM 0040h:006Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

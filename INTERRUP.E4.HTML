@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._E4</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT E4
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#E40005"><b>E40005</b> - INT E4 - Logitech Modula v2.0 - MonitorEntry</a><br />
+<a href="#E40006"><b>E40006</b> - INT E4 - Logitech Modula v2.0 - MonitorExit</a><br />
+<a href="#E4"><b>E4</b> - INT E4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E4_0"><b>E4</b> - INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT</a><br />
+
+<hr />
+
+<a href="#E40005" name="E40005"><b>E40005</b></a> - INT E4 - Logitech Modula v2.0 - MonitorEntry<br />
+<pre>
+INT E4 - Logitech Modula v2.0 - MonitorEntry
+	AX = 0005h
+	BX = priority
+Return: nothing
+SeeAlso: AX=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E40006" name="E40006"><b>E40006</b></a> - INT E4 - Logitech Modula v2.0 - MonitorExit<br />
+<pre>
+INT E4 - Logitech Modula v2.0 - MonitorExit
+	AX = 0006h
+Return: nothing
+SeeAlso: AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E4" name="E4"><b>E4</b></a> - INT E4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E4_0" name="E4_0"><b>E4</b></a> - INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT<br />
+<pre>
+INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT
+Note:	This interrupt corresponds with Concurrent CP/M-86 and is to get
+	  an unused flag.
+SeeAlso: INT E5"DIGITAL RESEARCH"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

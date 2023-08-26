@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._32</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 32
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#32"><b>32</b> - INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#32_0"><b>32</b> - INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#326E"><b>326E</b> - INT 32 - NOISE.SYS 0.53 - API</a><br />
+<a href="#326E00"><b>326E00</b> - INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK</a><br />
+<a href="#326E01"><b>326E01</b> - INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT</a><br />
+<a href="#326E04"><b>326E04</b> - INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST</a><br />
+<a href="#326E06"><b>326E06</b> - INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER</a><br />
+<a href="#326E10"><b>326E10</b> - INT 32 - NOISE.SYS v0.53+ - STATUS CHECK</a><br />
+<a href="#326E11"><b>326E11</b> - INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE</a><br />
+<a href="#326E12"><b>326E12</b> - INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER</a><br />
+<a href="#326E13"><b>326E13</b> - INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL</a><br />
+<a href="#326E14"><b>326E14</b> - INT 32 - NOISE.SYS v0.53+ - GET FLAGS</a><br />
+<a href="#326E15"><b>326E15</b> - INT 32 - NOISE.SYS v0.53+ - SET FLAGS</a><br />
+<a href="#326E16"><b>326E16</b> - INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES</a><br />
+<a href="#326E17"><b>326E17</b> - INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES</a><br />
+<a href="#326E18"><b>326E18</b> - INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD</a><br />
+<a href="#326E_0"><b>326E</b> - INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE</a><br />
+
+<hr />
+
+<a href="#32" name="32"><b>32</b></a> - INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 32 - VIRUS - "Tiny" Viruses - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 21/AX=FFFFh"VIRUS",INT 31"VIRUS",INT 44"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#32_0" name="32_0"><b>32</b></a> - INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 32 - VIRUS - "Plovdiv 1.3"/"Damage 1.3" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 31"VIRUS",INT 9E"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E" name="326E"><b>326E</b></a> - INT 32 - NOISE.SYS 0.53 - API<br />
+<pre>
+INT 32 - NOISE.SYS 0.53 - API
+	AH = 6Eh (function ID)
+	AL = subfunction (see INT 32/AX=6E00h)
+Return: CF set on error
+	    AL = error code (see #03166)
+	CF clear if successful
+Notes:	INT 32 is only a proposed interface for NOISE.SYS. Use the IOCTL READ
+	  from the RANDOM device to determine the interrupt and function ID
+	  used by the driver, since future versions may use the Alternate
+	  Multiplex Interrupt (AMIS) at INT 2Dh.
+	the beta v0.51 had a substantially different API on INT 32/AH=6Eh
+
+(Table 03166)
+Values for NOISE.SYS error codes:
+ 00h	subfunction not supported
+ FBh	random pool is empty
+ FCh	quality of sample is too low
+ FDh	too many processes using the API or driver
+ FEh	subfunction is disabled in the current build
+ FFh	successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E00" name="326E00"><b>326E00</b></a> - INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK
+	AX = 6E00h
+Return: AL = installation status
+	    00h not installed
+	    FFh installed
+		CX = version (ie, 0123h = Version 1.2.3)
+		DX:DI -&gt; signature string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E01" name="326E01"><b>326E01</b></a> - INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT
+	AX = 6E01h
+Return: AL = FFh
+	DX:DI -&gt; far call hook
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E04" name="326E04"><b>326E04</b></a> - INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST<br />
+<pre>
+INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST
+	AX = 6E04h
+Return: AL = status
+	    00h = unimplemented
+	    04h = DX:BX -&gt; interrupt hook list
+	    FEh = subfunction disabled
+Note:	the hook list array ends with API interrupt (usually 32h, although
+	  it will differ if the API is installed at another interrupt)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E06" name="326E06"><b>326E06</b></a> - INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER<br />
+<pre>
+INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER
+	AX = 6E06h
+Return: AL = number of device drivers in NOISE.SYS chain
+	    02h = default (for RANDOM and URANDOM devices)
+	AH = AMIS device driver flags (set to 00h for now)
+	DX:BX -&gt; first device in chain (see #01646)
+SeeAlso: INT 2D/AL=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E10" name="326E10"><b>326E10</b></a> - INT 32 - NOISE.SYS v0.53+ - STATUS CHECK<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - STATUS CHECK
+	AX = 6E10h
+Return: CF set on error
+	    AL = error code (FDh) (see #03166)
+	CF clear if successful
+	    AL = status
+		FFh successful
+	    BH = number of processes using the API
+	    CX = number of random bytes waiting
+	    DX = maximum possible bytes waiting
+		(if CX=DX, the pool is full)
+Note:	this subfunction is a convenient way to check the driver if any
+	  fresh bytes are waiting in the output pool.
+SeeAlso: INT 32/AH=6Eh,AX=6E00h,AX=6E11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E11" name="326E11"><b>326E11</b></a> - INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE
+	AX = 6E11h
+Return: CF set on error
+	    AL = error code (00h,FDh,FEh) (see #03166)
+	CF clear if successful
+	    EBX = estimated bit count (refer to note below)
+	    CL = FRACBITS (number of fractional bits)
+	    EDX = low 32-bits of total number of samples added
+Note:  the estimated number of fresh random bits is equal to
+	  (EAX &gt;&gt; FRACBITS) + ((EAX & ((1 &lt;&lt; FRACBITS)-1) / (1 &lt;&lt; FRACBITS))
+SeeAlso: AH=6Eh,AX=6E00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E12" name="326E12"><b>326E12</b></a> - INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER
+	AX = 6E12h
+Return: CF set on error
+	    AL = error code (FCh,FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes waiting
+Note:	subfunctions 12h and 13h are meant for applications or devices
+	  which are able to gather entropy from other sources which are
+	  not polled by NOISE.SYS (for example, a communications driver
+	  could use this call to sample packet arrival times).
+SeeAlso: AX=6E00h,AX=6E10h,AX=6E13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E13" name="326E13"><b>326E13</b></a> - INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL
+	AX = 6E13h
+	DX = sample
+Return: CF set on error
+	    AL = error code (FCh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes waiting
+SeeAlso: AX=6E00h,AX=6E11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E14" name="326E14"><b>326E14</b></a> - INT 32 - NOISE.SYS v0.53+ - GET FLAGS<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET FLAGS
+	AX = 6E14h
+Return: BX = flags (see #03167)
+	CX = mask of settable flags in BX
+SeeAlso: AX=6E00h,AX=6E15h
+
+Bitfields for NOISE.SYS flags:
+Bit(s)	Description	(Table 03167)
+ 0	MS Windows active
+ 1-5	reserved
+ 6	clock drift sampling
+ 7	video retrace drift sampling
+ 8	network access sampling (not implemented yet in 0.53)
+ 9	CD-ROM access sampling (not implemented yet in 0.53)
+ 10	DOS spinner
+ 11	DOS process start/end and miscellaneous process activity sampling
+ 12	mouse movement/button sampling
+ 13	disk sampling (INT 13)
+ 14	keystroke timings
+ 15	reserved for hardware RNG
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E15" name="326E15"><b>326E15</b></a> - INT 32 - NOISE.SYS v0.53+ - SET FLAGS<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - SET FLAGS
+	AX = 6E15h
+	BX = flags (see #03167)
+Return: BX = new flags
+Note:	flags which AX=6E14h indicates are not settable should be masked off
+	  by ANDing with the CX returned by AX=6E14h
+SeeAlso: AX=6E00h,AX=6E14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E16" name="326E16"><b>326E16</b></a> - INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES
+	AX = 6E16h
+	CX = number of bytes
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AL = error code (FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes read
+SeeAlso: AX=6E00h,AX=6E12h,AX=6E17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E17" name="326E17"><b>326E17</b></a> - INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES
+	AX = 6E17h
+	CX = number of bytes
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AL = error code (FBh,FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes read
+SeeAlso: AX=6E00h,AX=6E16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E18" name="326E18"><b>326E18</b></a> - INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD<br />
+<pre>
+INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD
+	AX = 6E18h
+	CX = buffer size
+	ES:DI -&gt; buffer
+Return: AL = status
+	    00h unimplemented (before v0.6)
+	    FEh subfunction is disabled
+	    FFh successful
+		CX = number of bytes read
+Note:	the control record corresponds to the IOCTL Read record for the RANDOM
+	  device
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E_0" name="326E_0"><b>326E</b></a> - INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE<br />
+<pre>
+INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE
+	AH = 6Eh
+	AL = 19h to 3Fh
+Return: AL = 00h
+Note:	these functions are reserved for future use; user additions to the
+	  the driver should use subfunctions 40h to FFh.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

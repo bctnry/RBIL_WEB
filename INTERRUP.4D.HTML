@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._4D</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 4D
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#4D"><b>4D</b> - INT 4D - Z100 - Slave 8259 - S100 vectored line 5</a><br />
+<a href="#4D_0"><b>4D</b> - INT 4D - IBM - M-Audio Adapter SUPPORT</a><br />
+<a href="#4D00"><b>4D00</b> - INT 4D - TI Professional PC - DISK - RESET DISK SYSTEM</a><br />
+<a href="#4D01"><b>4D01</b> - INT 4D - TI Professional PC - DISK - GET STATUS OF LAST OPERATION</a><br />
+<a href="#4D02"><b>4D02</b> - INT 4D - TI Professional PC - DISK - READ SECTOR(S) INTO MEMORY</a><br />
+<a href="#4D03"><b>4D03</b> - INT 4D - TI Professional PC - DISK - WRITE SECTOR(S) FROM MEMORY</a><br />
+<a href="#4D04"><b>4D04</b> - INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR CRC(S)</a><br />
+<a href="#4D05"><b>4D05</b> - INT 4D - TI Professional PC - DISK - NOP</a><br />
+<a href="#4D06"><b>4D06</b> - INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR(S)</a><br />
+<a href="#4D07"><b>4D07</b> - INT 4D - TI Professional PC - DISK - GET RETRY STATUS OF LAST OPERATION</a><br />
+<a href="#4D08"><b>4D08</b> - INT 4D - TI Professional PC - DISK - SET STANDARD DEVICE INTERFACE TABLE</a><br />
+<a href="#4D09"><b>4D09</b> - INT 4D - TI Professional PC - DISK - SET DEVICE INTERFACE TABLE ADDRESS</a><br />
+<a href="#4D0A"><b>4D0A</b> - INT 4D - TI Professional PC - DISK - GET DEVICE INTERFACE TABLE ADDRESS</a><br />
+<a href="#4D0B"><b>4D0B</b> - INT 4D - TI Professional PC - DISK - TURN OFF ALL DRIVES</a><br />
+
+<hr />
+
+<a href="#4D" name="4D"><b>4D</b></a> - INT 4D - Z100 - Slave 8259 - S100 vectored line 5<br />
+<pre>
+INT 4D - Z100 - Slave 8259 - S100 vectored line 5
+SeeAlso: INT 4C"Z100",INT 4E"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D_0" name="4D_0"><b>4D</b></a> - INT 4D - IBM - M-Audio Adapter SUPPORT<br />
+<pre>
+INT 4D - IBM - M-Audio Adapter SUPPORT
+	no details available; supposedly documented in IBM form G571-0203-01
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D00" name="4D00"><b>4D00</b></a> - INT 4D - TI Professional PC - DISK - RESET DISK SYSTEM<br />
+<pre>
+INT 4D - TI Professional PC - DISK - RESET DISK SYSTEM
+	AH = 00h
+	DL = drive (if bit 7 is set both hard disks and floppy disks reset)
+Return: AH = status (see #00234 at INT 13/AH=01h)
+	CF clear if successful (returned AH=00h)
+	CF set on error
+Note:	this function is the same as INT 13/AH=00h on a standard PC BIOS
+SeeAlso: AH=01h,AH=02h,AH=08h,AH=0Bh,INT 13/AH=00h,INT 46"TI Professional"
+SeeAlso: INT 48/AH=00h"TI Professional",INT 4A/AH=00h"TI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D01" name="4D01"><b>4D01</b></a> - INT 4D - TI Professional PC - DISK - GET STATUS OF LAST OPERATION<br />
+<pre>
+INT 4D - TI Professional PC - DISK - GET STATUS OF LAST OPERATION
+	AH = 01h
+	DL = drive (bit 7 set for hard disk)
+Return: CF clear if status unchanged
+	CF set if status changed since last call
+	AH = 00h
+	AL = status of previous operation (see #00234 at INT 13/AH=01h)
+Notes:	this function is nearly the same as INT 13/AH=01h on a standard PC BIOS
+	the TI's BIOS tranparently performs a number of retries, and an error
+	  status is only reported if all of the retries fail.  To get the error
+	  status if the operation succeeded on a retry, use AH=07h instead
+SeeAlso: AH=00h,AH=07h,INT 13/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D02" name="4D02"><b>4D02</b></a> - INT 4D - TI Professional PC - DISK - READ SECTOR(S) INTO MEMORY<br />
+<pre>
+INT 4D - TI Professional PC - DISK - READ SECTOR(S) INTO MEMORY
+	AH = 02h
+	AL = number of sectors to read (must be nonzero)
+	CH = low eight bits of cylinder number
+	CL = sector number 1-63 (bits 0-5)
+	     high two bits of cylinder (bits 6-7, hard disk only)
+	DH = head number
+	DL = drive number (bit 7 set for hard disk)
+	ES:BX -&gt; data buffer
+Return: CF set on error
+	    if AH = 11h (corrected ECC error), AL = burst length
+	CF clear if successful
+	AH = status (see #00234 at INT 13/AH=01h)
+	AL = number of sectors transferred
+	ES:BX -&gt; buffer for last sector processed (including one with errors)
+SeeAlso: AH=00h,AH=01h,AH=03h,AH=04h,INT 13/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D03" name="4D03"><b>4D03</b></a> - INT 4D - TI Professional PC - DISK - WRITE SECTOR(S) FROM MEMORY<br />
+<pre>
+INT 4D - TI Professional PC - DISK - WRITE SECTOR(S) FROM MEMORY
+	AH = 03h
+	AL = number of sectors to write (must be nonzero)
+	CH = low eight bits of cylinder number
+	CL = sector number 1-63 (bits 0-5)
+	     high two bits of cylinder (bits 6-7, hard disk only)
+	DH = head number
+	DL = drive number (bit 7 set for hard disk)
+	ES:BX -&gt; buffer containing data
+Return: CF set on error
+	    if AH = 11h (corrected ECC error), AL = burst length
+	CF clear if successful
+	AH = status (see #00234 at INT 13/AH=01h)
+	AL = number of sectors transferred
+	ES:BX -&gt; buffer for last sector processed (including one with errors)
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=04h,INT 13/AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D04" name="4D04"><b>4D04</b></a> - INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR CRC(S)<br />
+<pre>
+INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR CRC(S)
+	AH = 04h
+	AL = number of sectors to verify (must be nonzero)
+	CH = low eight bits of cylinder number
+	CL = sector number 1-63 (bits 0-5)
+	     high two bits of cylinder (bits 6-7, hard disk only)
+	DH = head number
+	DL = drive number (bit 7 set for hard disk)
+	ES:BX -&gt; data buffer
+Return: CF set on error
+	    if AH = 11h (corrected ECC error), AL = burst length
+	CF clear if successful
+	AH = status (see #00234 at INT 13/AH=01h)
+	AL = number of sectors transferred
+	ES:BX -&gt; buffer for last sector processed (including one with errors)
+Note:	even though no data is transferred, ES:BX must still be valid
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=06h,INT 13/AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D05" name="4D05"><b>4D05</b></a> - INT 4D - TI Professional PC - DISK - NOP<br />
+<pre>
+INT 4D - TI Professional PC - DISK - NOP
+	AH = 05h
+Note:	on the TI Pro, FORMAT.COM contains direct port I/O commands to perform
+	  disk formatting, rather than using the BIOS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D06" name="4D06"><b>4D06</b></a> - INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR(S)<br />
+<pre>
+INT 4D - TI Professional PC - DISK - VERIFY DISK SECTOR(S)
+	AH = 06h
+	AL = number of sectors to verify (must be nonzero)
+	CH = low eight bits of cylinder number
+	CL = sector number 1-63 (bits 0-5)
+	     high two bits of cylinder (bits 6-7, hard disk only)
+	DH = head number
+	DL = drive number (bit 7 set for hard disk)
+	ES:BX -&gt; data buffer
+Return: CF set on error
+	    if AH = 11h (corrected ECC error), AL = burst length
+	CF clear if successful
+	AH = status (see #00234 at INT 13/AH=01h)
+	AL = number of sectors transferred
+	ES:BX -&gt; buffer for last sector processed (including one with errors)
+Note:	even though no data is transferred, ES:BX must still be valid because
+	  an actual comparison with disk data is performed, not just the CRC
+	  check of the standard PC BIOS or INT 4D/AH=04h
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=04h,INT 13/AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D07" name="4D07"><b>4D07</b></a> - INT 4D - TI Professional PC - DISK - GET RETRY STATUS OF LAST OPERATION<br />
+<pre>
+INT 4D - TI Professional PC - DISK - GET RETRY STATUS OF LAST OPERATION
+	AH = 07h
+	DL = drive (bit 7 set for hard disk)
+Return: CF clear if status unchanged
+	CF set if status changed since last call
+	AH = 00h
+	AL = status of previous operation (see #00234 at INT 13/AH=01h)
+Notes:	this function is nearly the same as INT 13/AH=01h on a standard PC BIOS
+	the TI's BIOS tranparently performs a number of retries; this function
+	  returns the error status of a failed operation even if the operation
+	  succeeded on a retry
+SeeAlso: AH=00h,AH=01h,INT 13/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D08" name="4D08"><b>4D08</b></a> - INT 4D - TI Professional PC - DISK - SET STANDARD DEVICE INTERFACE TABLE<br />
+<pre>
+INT 4D - TI Professional PC - DISK - SET STANDARD DEVICE INTERFACE TABLE
+	AH = 08h
+	DL = drive number (00h-03h)
+	AL = drive type
+	    00h single-sided 48 tpi (40-track, 8 sectors, 512 bytes/sector)
+	    01h double-sided 48 tpi (40-track, 8 sectors, 512 bytes/sector)
+	    02h single-sided 96 tpi (80-track, 8 sectors, 512 bytes/sector)
+	    03h double-sided 96 tpi (80-track, 8 sectors, 512 bytes/sector)
+Return: nothing???
+SeeAlso: AH=00h,AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D09" name="4D09"><b>4D09</b></a> - INT 4D - TI Professional PC - DISK - SET DEVICE INTERFACE TABLE ADDRESS<br />
+<pre>
+INT 4D - TI Professional PC - DISK - SET DEVICE INTERFACE TABLE ADDRESS
+	AH = 09h
+	DL = drive number (00h-07h)
+	ES:BX -&gt; Device Interface Table (see #03226)
+Return: nothing???
+SeeAlso: AH=00h,AH=08h,AH=0Ah,INT 1E
+
+Format of TI Professional PC Device Interface Table:
+Offset	Size	Description	(Table 03226)
+ 00h	DWORD	-&gt; entry point for disk routine
+ 04h	WORD	bytes per sector
+ 06h	BYTE	sectors per track
+ 07h	BYTE	number of heads
+ 08h	BYTE	number of cylinders
+ 09h	BYTE	retry count
+ 0Ah	BYTE	precompensation start
+SeeAlso: #01264 at INT 1E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D0A" name="4D0A"><b>4D0A</b></a> - INT 4D - TI Professional PC - DISK - GET DEVICE INTERFACE TABLE ADDRESS<br />
+<pre>
+INT 4D - TI Professional PC - DISK - GET DEVICE INTERFACE TABLE ADDRESS
+	AH = 0Ah
+	DL = drive number (00h-07h)
+Return: AH = status
+	ES:BX -&gt; Device Interface Table (see #03226)
+SeeAlso: AH=00h,AH=08h,AH=09h,INT 1E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D0B" name="4D0B"><b>4D0B</b></a> - INT 4D - TI Professional PC - DISK - TURN OFF ALL DRIVES<br />
+<pre>
+INT 4D - TI Professional PC - DISK - TURN OFF ALL DRIVES
+	AH = 0Bh
+Return: AH = 00h
+Note:	used for diagnostics or to conserve power
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

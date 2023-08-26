@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._47</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 47
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#47"><b>47</b> - INT 47 - Z100 - Master 8259 - Printer</a><br />
+<a href="#47_0"><b>47</b> - INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART</a><br />
+<a href="#47_1"><b>47</b> - INT 47 - Acorn BBC Master 512 - "OSWRCH" - WRITE CHARACTER TO CUR OUTPUT STREAM</a><br />
+<a href="#47_2"><b>47</b> - INT 47 - Western Digital WD1002-27X SuperBIOS - INT 40 CASCADE</a><br />
+<a href="#478000"><b>478000</b> - INT 47 - SQL Base - DATABASE ENGINE API</a><br />
+<a href="#478001"><b>478001</b> - INT 47 - SQL Base - GET VERSION NUMBER</a><br />
+
+<hr />
+
+<a href="#47" name="47"><b>47</b></a> - INT 47 - Z100 - Master 8259 - Printer<br />
+<pre>
+INT 47 - Z100 - Master 8259 - Printer
+SeeAlso: INT 46"Z100",INT 48"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#47_0" name="47_0"><b>47</b></a> - INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART<br />
+<pre>
+INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART
+SeeAlso: INT 09"IRQ1",INT 46"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#47_1" name="47_1"><b>47</b></a> - INT 47 - Acorn BBC Master 512 - "OSWRCH" - WRITE CHARACTER TO CUR OUTPUT STREAM<br />
+<pre>
+INT 47 - Acorn BBC Master 512 - "OSWRCH" - WRITE CHARACTER TO CUR OUTPUT STREAM
+	AL = character to be written
+Return: FLAGS destroyed
+SeeAlso: INT 40"Acorn",INT 46"Acorn",INT 49"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#47_2" name="47_2"><b>47</b></a> - INT 47 - Western Digital WD1002-27X SuperBIOS - INT 40 CASCADE<br />
+<pre>
+INT 47 - Western Digital WD1002-27X SuperBIOS - INT 40 CASCADE
+Desc:	used by the second WD1002-27X controller to cascade to the first
+	  controller's INT 40
+SeeAlso: INT 40"DISKETTE",INT 42"SuperBIOS",INT 48"SuperBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#478000" name="478000"><b>478000</b></a> - INT 47 - SQL Base - DATABASE ENGINE API<br />
+<pre>
+INT 47 - SQL Base - DATABASE ENGINE API
+	AX = 8000h
+	DS:BX -&gt; parameter block, first word is function number (see #03203)
+Program: SQL Base is a network-oriented database engine by Gupta Technologies
+SeeAlso: AX=8001h
+
+(Table 03203)
+Values for SQL Base function number:
+ 01h	"SQLFINI" initalialize application's use of the database
+ 02h	"SQLFDON" application is done using the database
+ 03h	"SQLFCON" connect to a cursor/database
+ 04h	"SQLFDIS" disconnect from a cursor/database
+ 05h	"SQLFCOM" compile a SQL command
+ 06h	"SQLFEXE" execute a SQL command
+ 07h	"SQLFCEX" compile and execute a SQL command
+ 08h	"SQLFCMT" commit a transaction to the database
+ 09h	"SQLFDES" describe the items of a SELECT statement
+ 0Ah	"SQLFGFI" get fetch information
+ 0Bh	"SQLFFBK" fetch previous result row from SELECT statement
+ 0Ch	"SQLFFET" fetch next result row from SELECT statement
+ 0Dh	"SQLFEFB" enable fetch backwards
+ 0Eh	"SQLFPRS" position in result set
+ 0Fh	"SQLFURS" undo result set
+ 10h	"SQLFNBV" get number of bind variables
+ 11h	"SQLFBND" bind data variables
+ 12h	"SQLFBNN" bind numerics
+ 13h	"SQLFBLN" bind long number
+ 14h	"SQLFBLD" bind long data variables
+ 15h	"SQLFSRS" start restriction set processing
+ 16h	"SQLFRRS" restart restriction set processing
+ 17h	"SQLFCRS" close restriction set
+ 18h	"SQLFDRS" drop restriction set
+ 19h	"SQLFARF" apply Roll Forward journal
+ 1Ah	"SQLFERF" end Roll Forward journal
+ 1Bh	"SQLFSRF" start Roll Forward journal
+ 1Ch	"SQLFSTO" store a compiled SQL command
+ 1Dh	"SQLFRET" retrieve a compiled SQL command
+ 1Eh	"SQLFDST" drop a stored command
+ 1Fh	"SQLFCTY" get command type
+ 20h	"SQLFEPO" get error position
+ 21h	"SQLFGNR" get number of rows
+ 22h	"SQLFNSI" get number of select items
+ 23h	"SQLFRBF" get Roll Back flag
+ 24h	"SQLFRCD" get return code
+ 25h	"SQLFROW" get number of ROWs
+ 26h	"SQLFSCN" set cursor name
+ 27h	"SQLFSIL" set isolation level
+ 28h	"SQLFSLP" set log parameters
+ 29h	"SQLFSSB" set select buffer
+ 2Ah	"SQLFSSS" set sort space
+ 2Bh	"SQLFRLO" read long
+ 2Ch	"SQLFWLO" write long
+ 2Dh	"SQLFLSK" long seek
+ 2Eh	"SQLFGLS" get long size
+ 2Fh	"SQLFELO" end long operation
+ 30h	"SQLFRBK" roll back a transaction from the database
+ 31h	"SQLFERR" error message
+ 32h	"SQLFCPY" copy
+ 33h	"SQLFR01" reserved
+ 34h	"SQLFSYS" system
+ 35h	"SQLFSTA" statistics
+ 36h	"SQLFR02" reserved
+ 37h	"SQLFXAD" extra add
+ 38h	"SQLFXCN" extra character to number
+ 39h	"SQLFXDA" extra date add
+ 3Ah	"SQLFXDP" extra date picture
+ 3Bh	"SQLFXDV" extra divide
+ 3Ch	"SQLFXML" extra multiply
+ 3Dh	"SQLFXNP" extra number picture
+ 3Eh	"SQLFXPD" extra picture date
+ 3Fh	"SQLFXSB" extra subtract
+ 40h	"SQLFINS" install database
+ 41h	"SQLFDIN" deinstall database
+ 42h	"SQLFDIR" directory of databases
+ 43h	"SQLFTIO" timeout
+ 44h	"SQLFFQN" get fully qualified column name
+ 45h	"SQLFEXP" explain execution plan
+ 46h	"SQLFFER" get full error
+ 47h	"SQLFBKP" begin online backup
+ 48h	"SQLFRDC" read backup data chunk
+ 49h	"SQLFEBK" end backup
+ 4Ah	"SQLFRES" begin restore from backup
+ 4Bh	"SQLFWDC" write backup data chunk for restore
+ 4Ch	"SQLFRRD" recover restored database to consistent state
+ 4Dh	"SQLFERS" end restore
+ 4Eh	"SQLFNRR" return number of result set rows
+ 4Fh	"SQLFSTR" start restriction mode
+ 50h	"SQLFSPR" stop restriction mode
+ 51h	"SQLFCNC" connect 2
+ 52h	"SQLFCNR" connect with no recovery
+ 53h	"SQLFOMS" set output message size
+ 54h	"SQLFIMS" set input message size
+ 55h	"SQLFSCP" set cache pages
+ 56h	"SQLFDSC" describe items of a SELECT statement (external)
+ 57h	"SQLFLAB" get label info for items in SELECT statement
+ 58h	"SQLFCBV" clear bind variables
+ 59h	"SQLFGET" get database information
+ 5Ah	"SQLFSET" set database information
+ 5Bh	"SQLFTEC" translate error code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#478001" name="478001"><b>478001</b></a> - INT 47 - SQL Base - GET VERSION NUMBER<br />
+<pre>
+INT 47 - SQL Base - GET VERSION NUMBER
+	AX = 8001h
+Return: ???
+Program: SQL Base is a network-oriented database engine by Gupta Technologies
+SeeAlso: AX=8000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,3169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._E0</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT E0
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#E0"><b>E0</b> - INT E0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E0_0"><b>E0</b> - INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION</a><br />
+<a href="#E0_1"><b>E0</b> - INT E0 - VIRUS - "Micro-128" - ???</a><br />
+<a href="#E0_2"><b>E0</b> - INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API</a><br />
+<a href="#E0_3"><b>E0</b> - INT E0 - CP/M-86, Concurrent CP/M, DR Multiuser DOS - FUNCTION CALLS</a><br />
+<a href="#E0----CL00"><b>E0----CL00</b> - INT E0 - REAL/32 - "P_TERMCPM" - TERMINATE CALLING PROCESS</a><br />
+<a href="#E0----CL01"><b>E0----CL01</b> - INT E0 - REAL/32 - "C_READ" - FETCH CHARACTER FROM THE DEFAULT CONSOLE</a><br />
+<a href="#E0----CL02"><b>E0----CL02</b> - INT E0 - REAL/32 - "C_WRITE" - WRITE CHARACTER TO DEFAULT CONSOLE</a><br />
+<a href="#E0----CL03"><b>E0----CL03</b> - INT E0 - DR Multiuser DOS - "A_READ" - READ CHARACTER FROM DEFAULT AUX DEVICE</a><br />
+<a href="#E0----CL04"><b>E0----CL04</b> - INT E0 - DR Multiuser DOS - "A_WRITE" - WRITE CHARACTER TO DEFAULT AUX DEVICE</a><br />
+<a href="#E0----CL05"><b>E0----CL05</b> - INT E0 - REAL/32 - "L_WRITE" - WRITE CHARACTER TO DEFAULT LIST DEVICE</a><br />
+<a href="#E0----CL06"><b>E0----CL06</b> - INT E0 - REAL/32 - "C_RAWIO" - PERFORM RAW I/O WITH DEFAULT CONSOLE</a><br />
+<a href="#E0----CL07"><b>E0----CL07</b> - INT E0 - DR Multiuser DOS - "A_STATIN" - GET INPUT STATUS OF AUX DEVICE</a><br />
+<a href="#E0----CL08"><b>E0----CL08</b> - INT E0 - DR Multiuser DOS - "A_STATOUT" - GET OUTPUT STATUS OF AUX DEVICE</a><br />
+<a href="#E0----CL09"><b>E0----CL09</b> - INT E0 - REAL/32 - "C_WRITESTR" - WRITE STRING TO DEFAULT CONSOLE</a><br />
+<a href="#E0----CL0A"><b>E0----CL0A</b> - INT E0 - REAL/32 - "C_READSTR" - READ STRING FROM DEFAULT CONSOLE</a><br />
+<a href="#E0----CL0B"><b>E0----CL0B</b> - INT E0 - REAL/32 - "C_STAT" - RETURN DEFAULT CONSOLE INPUT STATUS</a><br />
+<a href="#E0----CL0C"><b>E0----CL0C</b> - INT E0 - REAL/32 - "S_BDOSVER" - GET BDOS VERSION</a><br />
+<a href="#E0----CL2F"><b>E0----CL2F</b> - INT E0 - REAL/32 - "P_CHAIN" - CHAIN PROCESS</a><br />
+<a href="#E0----CL35"><b>E0----CL35</b> - INT E0 R - REAL/32 - "MC_MAX" - CP-M/86 ALLOCATE MAXIMUM MEMORY</a><br />
+<a href="#E0----CL36"><b>E0----CL36</b> - INT E0 R - REAL/32 - "MC_ABSMAX" - ALLOCATE MAXIMUM MEMORY SEGMENT ABSOLUTE</a><br />
+<a href="#E0----CL37"><b>E0----CL37</b> - INT E0 R - REAL/32 - "MC_ALLOC" - CP-M/86 ALLOCATE MEMORY SEGMENT</a><br />
+<a href="#E0----CL38"><b>E0----CL38</b> - INT E0 R - REAL/32 - "MC_ABSALLOC" - ALLOCATE MEMORY SEGMENT ABSOLUTE</a><br />
+<a href="#E0----CL39"><b>E0----CL39</b> - INT E0 R - REAL/32 - "MC_FREE" - CP-M/86 FREE SPECIFIED MEMORY SEGMENT</a><br />
+<a href="#E0----CL3A"><b>E0----CL3A</b> - INT E0 R - REAL/32 - "MC_ALLFREE" - CP-M/86 FREE ALL MEMORY</a><br />
+<a href="#E0----CL3B"><b>E0----CL3B</b> - INT E0 u - REAL/32 - "P_LOAD" - LOAD .CMD FILE INTO MEMORY</a><br />
+<a href="#E0----CL40"><b>E0----CL40</b> - INT E0 - REAL/32 - "N_LOGON" - LOG ONTO A SERVER</a><br />
+<a href="#E0----CL41"><b>E0----CL41</b> - INT E0 - REAL/32 - "N_LOGON" - LOG OFF A SERVER</a><br />
+<a href="#E0----CL44"><b>E0----CL44</b> - INT E0 - REAL/32 - "N_STAT" - GET NETWORK STATUS</a><br />
+<a href="#E0----CL45"><b>E0----CL45</b> - INT E0 - REAL/32 - "N_RCT" - GET REQUESTOR CONFIGURATION TABLE</a><br />
+<a href="#E0----CL47"><b>E0----CL47</b> - INT E0 - REAL/32 - "N_SCT" - GET SERVER CONFIGURATION TABLE</a><br />
+<a href="#E0----CL48"><b>E0----CL48</b> - INT E0 - REAL/32 - "N_ERRMODE" - SET NETWORK ERROR MODE</a><br />
+<a href="#E0----CL59"><b>E0----CL59</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "S_MEMORY" - RESERVE MEMORY IN GLOBAL AREA</a><br />
+<a href="#E0----CL5C"><b>E0----CL5C</b> - INT E0 - REAL/32 - "P_PATH" - SCAN PATH FOR EXECUTABLE FILE</a><br />
+<a href="#E0----CL5D"><b>E0----CL5D</b> - INT E0 - REAL/32 - "P_EXEC" - EXECUTE CHILD PROCESS</a><br />
+<a href="#E0----CL5E"><b>E0----CL5E</b> - INT E0 - REAL/32 - "P_EXITCODE" - GET/SET PROCESS EXIT CODE</a><br />
+<a href="#E0----CL6B"><b>E0----CL6B</b> - INT E0 - REAL/32 - "S_SERIAL" - GET OS SERIAL NUMBER</a><br />
+<a href="#E0----CL6D"><b>E0----CL6D</b> - INT E0 - REAL/32 - "C_MODE" - GET/SET CONSOLE MODE</a><br />
+<a href="#E0----CL6E"><b>E0----CL6E</b> - INT E0 - REAL/32 - "C_DELIMIT" - GET/SET STRING DELIMITER</a><br />
+<a href="#E0----CL6F"><b>E0----CL6F</b> - INT E0 - REAL/32 - "C_WRITEBLK" - WRITE BLOCK TO DEFAULT CONSOLE</a><br />
+<a href="#E0----CL70"><b>E0----CL70</b> - INT E0 - REAL/32 - "L_WRITEBLK" - WRITE BLOCK TO DEFAULT LIST (PRINTER) DEVICE</a><br />
+<a href="#E0----CL71"><b>E0----CL71</b> - INT E0 R - ConcCP/M,DR Multiuser DOS - EXECUTE DOS-COMPATIBLE FUNCTIONS</a><br />
+<a href="#E0----CL73"><b>E0----CL73</b> - INT E0 - GSX-86, GEM/1, GEM/2 - API</a><br />
+<a href="#E0----CL80"><b>E0----CL80</b> - INT E0 - REAL/32 - "M_ALLOC" - ALLOCATE MEMORY</a><br />
+<a href="#E0----CL81"><b>E0----CL81</b> - INT E0 - REAL/32 - "M_FREE" - DEALLOCATE MEMORY</a><br />
+<a href="#E0----CL84"><b>E0----CL84</b> - INT E0 - REAL/32 - "DEV_WAITFLAG" - WAIT ON SYSTEM FLAG</a><br />
+<a href="#E0----CL85"><b>E0----CL85</b> - INT E0 - REAL/32 - "DEV_SETFLAG" - SET SYSTEM FLAG</a><br />
+<a href="#E0----CL86"><b>E0----CL86</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_MAKE" - CREATE MESSAGE QUEUE</a><br />
+<a href="#E0----CL87"><b>E0----CL87</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_OPEN" - OPEN MESSAGE QUEUE</a><br />
+<a href="#E0----CL88"><b>E0----CL88</b> - INT E0 - REAL/32 - "Q_DELETE" - DELETE SYSTEM QUEUE</a><br />
+<a href="#E0----CL89"><b>E0----CL89</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_READ" - READ MESSAGE QUEUE</a><br />
+<a href="#E0----CL8A"><b>E0----CL8A</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CREAD" - CONDITIONALLY READ MSG QUEUE</a><br />
+<a href="#E0----CL8B"><b>E0----CL8B</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_WRITE" - WRITE MESSAGE QUEUE</a><br />
+<a href="#E0----CL8C"><b>E0----CL8C</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CWRITE" - CONDITIONALLY WRITE MSG QUEUE</a><br />
+<a href="#E0----CL8E"><b>E0----CL8E</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "P_DISPATCH" - CALL DISPATCHER</a><br />
+<a href="#E0----CL8F"><b>E0----CL8F</b> - INT E0 - REAL/32 - "P_TERM" - TERMINATE CALLING PROCESS</a><br />
+<a href="#E0----CL90"><b>E0----CL90</b> - INT E0 - REAL/32 - "P_CREATE" - CREATE A PROCESS</a><br />
+<a href="#E0----CL91"><b>E0----CL91</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "P_PRIORITY" - SET PROCESS PRIORITY</a><br />
+<a href="#E0----CL92"><b>E0----CL92</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "C_ATTACH" - ATTACH TO DEFAULT CONSOLE</a><br />
+<a href="#E0----CL93"><b>E0----CL93</b> - INT E0 - ConcCP/M,DR Multiuser DOS - "C_DETACH" - DETACH FROM DEFAULT CONSOLE</a><br />
+<a href="#E0----CL94"><b>E0----CL94</b> - INT E0 - REAL/32 - "C_SET" - SET PROCESS'S DEFAULT CONSOLE</a><br />
+<a href="#E0----CL95"><b>E0----CL95</b> - INT E0 - REAL/32 - "C_ASSIGN" - ASSIGN DEFAULT CONSOLE TO ANOTHER PROCESS</a><br />
+<a href="#E0----CL96"><b>E0----CL96</b> - INT E0 - REAL/32 - "P_CLI" - RUN COMMAND LINE INTERFACE</a><br />
+<a href="#E0----CL99"><b>E0----CL99</b> - INT E0 - REAL/32 - "C_GET" - GET DEFAULT CONSOLE</a><br />
+<a href="#E0----CL9A"><b>E0----CL9A</b> - INT E0 - REAL/32 - "S_SYSDAT" - GET SYSTEM DATA AREA</a><br />
+<a href="#E0----CL9C"><b>E0----CL9C</b> - INT E0 - REAL/32 - "P_PDADR" - GET ADDRESS OF PROCESS DESCRIPTOR</a><br />
+<a href="#E0----CL9D"><b>E0----CL9D</b> - INT E0 - REAL/32 - "P_ABORT" - ABORT PROCESS BY NAME OR DESCRIPTOR</a><br />
+<a href="#E0----CL9E"><b>E0----CL9E</b> - INT E0 - REAL/32 - "L_ATTACH" - ATTACH TO DEFAULT LIST DEVICE</a><br />
+<a href="#E0----CL9F"><b>E0----CL9F</b> - INT E0 - REAL/32 - "L_DETACH" - DETACH FROM DEFAULT LIST DEVICE</a><br />
+<a href="#E0----CLA0"><b>E0----CLA0</b> - INT E0 - REAL/32 - "L_SET" - SET DEFAULT LIST DEVICE</a><br />
+<a href="#E0----CLA1"><b>E0----CLA1</b> - INT E0 - REAL/32 - "L_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT LIST DEVICE</a><br />
+<a href="#E0----CLA2"><b>E0----CLA2</b> - INT E0 - REAL/32 - "C_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT CONSOLE</a><br />
+<a href="#E0----CLA3"><b>E0----CLA3</b> - INT E0 - ConcCP/M,DR Multiuser DOS,REAL/32 - "S_OSVER" - GET OS VERSION</a><br />
+<a href="#E0----CLA4"><b>E0----CLA4</b> - INT E0 - REAL/32 - "L_GET" - GET DEFAULT LIST (PRINTER) DEVICE</a><br />
+<a href="#E0----CLA5"><b>E0----CLA5</b> - INT E0 - DR Multiuser DOS - "A_ATTACH" - ATTACH AUX DEVICE</a><br />
+<a href="#E0----CLA6"><b>E0----CLA6</b> - INT E0 - DR Multiuser DOS - "A_DETACH" - DETACH FROM AUX DEVICE</a><br />
+<a href="#E0----CLA7"><b>E0----CLA7</b> - INT E0 - DR Multiuser DOS - "A_CATTACH" - CONDITIONALLY ATTACH TO AUX DEVICE</a><br />
+<a href="#E0----CLA8"><b>E0----CLA8</b> - INT E0 - DR Multiuser DOS - "A_SET" - SET DEFAULT AUX DEVICE NUMBER</a><br />
+<a href="#E0----CLA9"><b>E0----CLA9</b> - INT E0 - DR Multiuser DOS - "A_GET" - GET DEFAULT AUX DEVICE NUMBER</a><br />
+<a href="#E0----CLAC"><b>E0----CLAC</b> - INT E0 - DR Multiuser DOS - "A_READBLK" - READ STRING FROM AUX DEVICE</a><br />
+<a href="#E0----CLAD"><b>E0----CLAD</b> - INT E0 - DR Multiuser DOS - "A_WRITEBLK" - WRITE STRING TO AUX DEVICE</a><br />
+<a href="#E0----CLB0"><b>E0----CLB0</b> - INT E0 - DR Multiuser DOS - "A_CONFIG" - GET/SET AUX DEVICE PARAMETERS</a><br />
+<a href="#E0----CLB1"><b>E0----CLB1</b> - INT E0 - DR Multiuser DOS - "A_CONTROL" - GET/SET AUX CONTROL PARAMETERS</a><br />
+<a href="#E0----CLB2"><b>E0----CLB2</b> - INT E0 - DR Multiuser DOS - "A_BREAK" - SEND BREAK TO AUX DEVICE</a><br />
+<a href="#E0----CLB3"><b>E0----CLB3</b> - INT E0 R - REAL/32 - "MP_ALLOC" - ALLOCATE PHYSICAL MEMORY</a><br />
+<a href="#E0----CLB4"><b>E0----CLB4</b> - INT E0 R - REAL/32 - "MP_FREE" - DEALLOCATE PHYSICAL MEMORY</a><br />
+<a href="#E0----CLB5"><b>E0----CLB5</b> - INT E0 R - REAL/32 - "MP_MAP" - MAP PHYSICAL MEMORY</a><br />
+<a href="#E0----CLB6"><b>E0----CLB6</b> - INT E0 - REAL/32 - "Q_NCREAD" - CONDITIONALLY NONDESTRUCTIVELY READ QUEUE</a><br />
+<a href="#E0----CLB7"><b>E0----CLB7</b> - INT E0 - REAL/32 - "DEV_TWAITFLAG" - TIMED WAIT ON SYSTEM FLAG</a><br />
+<a href="#E0----CLB8"><b>E0----CLB8</b> - INT E0 - REAL/32 - "DEV_MAP" - GET/SET SERIAL/PARALLEL PORT MAPPINGS</a><br />
+<a href="#E0----CLB9"><b>E0----CLB9</b> - INT E0 - REAL/32 - "L_TIMEOUT" - SET LIST DEVICE TIMEOUT</a><br />
+<a href="#E0----CLBA"><b>E0----CLBA</b> - INT E0 - REAL/32 - "A_TIMEOUT" - SET AUX DEVICE TIMEOUT</a><br />
+<a href="#E0----CLBD"><b>E0----CLBD</b> - INT E0 - DR Multiuser DOS - "P_DELAY" - DELAY EXECUTION</a><br />
+<a href="#E00000"><b>E00000</b> - INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN</a><br />
+<a href="#E00001"><b>E00001</b> - INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING</a><br />
+<a href="#E00002"><b>E00002</b> - INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION</a><br />
+<a href="#E00003"><b>E00003</b> - INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT</a><br />
+<a href="#E00010"><b>E00010</b> - INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION</a><br />
+<a href="#E00011"><b>E00011</b> - INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT</a><br />
+<a href="#E00012"><b>E00012</b> - INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS</a><br />
+<a href="#E00013"><b>E00013</b> - INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED</a><br />
+<a href="#E00014"><b>E00014</b> - INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING</a><br />
+<a href="#E00015"><b>E00015</b> - INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT</a><br />
+<a href="#E00016"><b>E00016</b> - INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED</a><br />
+<a href="#E00017"><b>E00017</b> - INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE</a><br />
+<a href="#E00018"><b>E00018</b> - INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE</a><br />
+<a href="#E00019"><b>E00019</b> - INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE</a><br />
+<a href="#E0001A"><b>E0001A</b> - INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT</a><br />
+<a href="#E0001B"><b>E0001B</b> - INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER</a><br />
+<a href="#E0001C"><b>E0001C</b> - INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE</a><br />
+<a href="#E0001D"><b>E0001D</b> - INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME</a><br />
+<a href="#E0001E"><b>E0001E</b> - INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT</a><br />
+<a href="#E0001F"><b>E0001F</b> - INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS</a><br />
+<a href="#E00020"><b>E00020</b> - INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS</a><br />
+<a href="#E00021"><b>E00021</b> - INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"</a><br />
+<a href="#E00022"><b>E00022</b> - INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE</a><br />
+<a href="#E00023"><b>E00023</b> - INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL</a><br />
+<a href="#E00024"><b>E00024</b> - INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE</a><br />
+<a href="#E00025"><b>E00025</b> - INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT</a><br />
+<a href="#E00026"><b>E00026</b> - INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER</a><br />
+<a href="#E00027"><b>E00027</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING</a><br />
+<a href="#E00028"><b>E00028</b> - INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING</a><br />
+<a href="#E00029"><b>E00029</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME</a><br />
+<a href="#E0002A"><b>E0002A</b> - INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME</a><br />
+<a href="#E0002B"><b>E0002B</b> - INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT</a><br />
+<a href="#E0002C"><b>E0002C</b> - INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL</a><br />
+<a href="#E0002D"><b>E0002D</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES</a><br />
+<a href="#E0002E"><b>E0002E</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES</a><br />
+<a href="#E00080"><b>E00080</b> - INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT</a><br />
+
+<hr />
+
+<a href="#E0" name="E0"><b>E0</b></a> - INT E0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DF"BASIC",INT E1"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_0" name="E0_0"><b>E0</b></a> - INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION<br />
+<pre>
+INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION
+SeeAlso: INT CF"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_1" name="E0_1"><b>E0</b></a> - INT E0 - VIRUS - "Micro-128" - ???<br />
+<pre>
+INT E0 - VIRUS - "Micro-128" - ???
+Note:	Micro-128 also overwrites the upper half of the interrupt table
+SeeAlso: INT 9E"VIRUS",INT F1"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_2" name="E0_2"><b>E0</b></a> - INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API<br />
+<pre>
+INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API
+	AX = function code (numerous)
+	parameters passed in BX, DX, ES, DI, and/or BP
+Return: AX = return from function
+Program: DeskMate is a proprietary GUI from Tandy distributed with several
+	  models of the Tandy 1000's, 2500's, 3000's, and laptops.  Retail
+	  and runtime versions also exist.  Some Tandy's are designed to
+	  boot directly into DeskMate.
+SeeAlso: INT 15/AX=7002h,INT E1"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_3" name="E0_3"><b>E0</b></a> - INT E0 - CP/M-86, Concurrent CP/M, DR Multiuser DOS - FUNCTION CALLS<br />
+<pre>
+INT E0 - CP/M-86, Concurrent CP/M, DR Multiuser DOS - FUNCTION CALLS
+	CL = function number (see #04019,#04020)
+	DS,DX contain parameter(s):
+		DL = byte parameter
+		DX = word parameter
+		DS:DX -&gt; structure
+Return: as appropriate for function:
+		AL = byte result
+		AX = word
+		ES:AX -&gt; structure (and BX=ES)
+	CX is often the error code (see #04021)
+Notes:	several functions are covered in more detail in following entries
+	most of these calls are also supported by Digital Research's DOS Plus
+	  v2.1; the unsupported functions are 26h,29h-2Bh,3Ah,3Dh-62h,71h-8Ch,
+	  90h-92h,94h-97h,9Bh-ABh, and AEh-FFh
+SeeAlso: INT 21/AX=4459h,INT 21/AH=E0h"DOS Plus",INT E6"CP/M-86"
+
+(Table 04019)
+Values for CP/M-86,DR Multiuser DOS function number:
+ 00h	terminate calling process			(see INT E0/CL=00h)
+ 01h	read a character				(see INT E0/CL=01h)
+ 02h	write character to default console		(see INT E0/CL=02h)
+ 03h	read character from default AUX			(see INT E0/CL=03h)
+ 04h	write character to default AUX			(see INT E0/CL=04h)
+ 05h	write character to default list device		(see INT E0/CL=05h)
+ 06h	perform raw I/O on default console		(see INT E0/CL=06h)
+ 07h	return default AUX input status			(see INT E0/CL=07h)
+ 08h	return default AUX output status		(see INT E0/CL=08h)
+ 09h	write string to default console			(see INT E0/CL=09h)
+ 0Ah	read string from default console		(see INT E0/CL=0Ah)
+ 0Bh	return default console input status		(see INT E0/CL=0Bh)
+ 0Ch	get BDOS release ID				(see INT E0/CL=0Ch)
+ 0Dh	reset all disk drives		(see also INT 21/AH=0Dh)
+ 0Eh	set default drive		(see also INT 21/AH=0Eh"DOS 1+")
+ 0Fh	open file via FCB		(see also INT 21/AH=0Fh,#01345)
+ 10h	close file via FCB		(see also INT 21/AH=10h)
+ 11h	search for first matching file with FCB (see also INT 21/AH=11h)
+ 12h	search for next matching file with FCB (see also INT 21/AH=12h)
+ 13h	delete file via FCB		(see also INT 21/AH=13h)
+ 14h	sequential read via FCB		(see also INT 21/AH=14h)
+ 15h	sequential write via FCB	(see also INT 21/AH=15h)
+ 16h	create file via FCB		(see also INT 21/AH=16h)
+ 17h	rename file via FCB		(see also INT 21/AH=17h)
+ 18h	get bit map of logged drives
+ 19h	get default drive		(see also INT 21/AH=19h)
+ 1Ah	set DMA address offset
+ 1Bh	get default disk allocation vector (see also INT 21/AH=1Bh)
+ 1Ch	set default drive to read-only
+ 1Dh	get bit map of read-only drives
+ 1Eh	set file attributes via FCB	(see also INT 21/AX=4301h)
+ 1Fh	get address of disk parameter block (see also INT 21/AH=1Fh)
+ 20h	get/set default user number
+ 21h	read random record via FCB	(see also INT 21/AH=21h)
+ 22h	write random record via FCB	(see also INT 21/AH=22h)
+ 23h	compute file size with FCB	(see also INT 21/AH=23h)
+ 24h	get FCB random record number	(see also INT 21/AH=24h)
+ 25h	reset specified drives
+ 26h	access specified drives (not in DR DOS Plus v2.1)
+ 27h	free specified drives
+ 28h	write random with FCB, zero fill (see also INT 21/AH=28h)
+ 2Ah	lock records in FCB file	(see also INT 21/AH=5Ch)
+ 2Bh	unlock records in FCB file	(see also INT 21/AH=5Ch)
+ 2Ch	set BDOS multisector count
+ 2Dh	set BDOS error mode
+ 2Eh	get free space on disk
+ 2Fh	load, initialize, and jump to process ("chain process")
+	(see INT E0/CL=2Fh,INT 21/AH=4Bh)
+ 30h	flush write-deferred buffers
+ 31h	get/set system variable (DOS Plus v2.1)
+ 32h	call BIOS (XIOS) character routine (see #04020)
+ 33h	set DMA address segment
+ 34h	get DMA buffer address
+ 35h	CP/M-86 allocate maximum memory			(see INT E0/CL=35h)
+ 36h	allocate maximum memory at specified segment	(see INT E0/CL=36h)
+ 37h	CP/M-86 allocate memory segment (see INT E0/CL=37h,INT 21/AH=48h)
+ 38h	allocate memory at specified segment		(see INT E0/CL=38h)
+ 39h	CP/M-86 free specified memory segment (see INT E0/CL=39h,INT 21/AH=49h)
+ 3Ah	CP/M-86 free all memory (not in DOS Plus v2.1)	(see INT E0/CL=3Ah)
+ 3Bh	load .CMD file into memory			(see INT E0/CL=3Bh)
+ 3Ch	(DOS Plus v2.1) call RSX program
+ 40h	(DR-NET, REAL/32) log on a server		(see INT E0/CL=40h)
+ 41h	(DR-NET, REAL/32) log off a server		(see INT E0/CL=41h)
+ 42h	(DR-NET) send a message
+ 43h	(DR-NET) receive a message
+ 44h	(DR-NET, REAL/32) get network status		(see INT E0/CL=44h)
+ 45h	(DR-NET, REAL/32) get requestor config table	(see INT E0/CL=45h)
+ 46h	(DR-NET) set compatibility attributes
+ 47h	(DR-NET, REAL/32) get server configuration table (see INT E0/CL=47h)
+ 48h	(DR-NET, REAL/32) set network error mode	(see INT E0/CL=48h)
+ 49h	(DR-NET, REAL/32) attach network
+ 4Ah	(DR-NET, REAL/32) detach network
+ 4Bh	(DR-NET, REAL/32) set default password
+ 4Ch	(DR-NET, REAL/32) get-set long timeout
+ 4Dh	(DR-NET, REAL/32) get parameter table
+ 4Fh	(REAL/32) get extended network error
+ 50h	(DR-NET, REAL/32) get network information
+ 53h	get current time			(see also INT 21/AH=2Ch)
+ 54h	set current time			(see also INT 21/AH=2Dh)
+ 55h	get binary system date			(see also INT 21/AH=2Ah)
+ 56h	set system date				(see also INT 21/AH=2Bh"DATE")
+ 57h	allocate system flag
+ 58h	deallocate system flag
+ 59h	reserve memory in global area			(see INT E0/CL=59h)
+ 5Ah	lock physical drive
+ 5Bh	unlock physical drive
+ 5Ch	search path for executable file			(see INT E0/CL=5Ch)
+ 5Dh	load and execute command			(see INT E0/CL=5Dh)
+ 5Eh	get/set process exit code			(see INT E0/CL=5Eh)
+ 5Fh	set country information
+ 60h	get country information
+ 63h	truncate FCB file (see also INT 21/AH=28h)
+ 64h	create/update directory label
+ 65h	get directory label
+ 66h	get FCB date stamp and password mode
+ 67h	write extended FCB
+ 68h	set system date and time
+ 69h	get system date and time in binary
+ 6Ah	establish password for file access
+ 6Bh	get OS serial number				(see INT E0/CL=6Bh)
+ 6Ch	(DOS Plus v2.1) get/set program return code
+ 6Dh	get/set console mode				(see INT E0/CL=6Dh)
+ 6Eh	get/set string delimiter			(see INT E0/CL=6Eh)
+ 6Fh	write block to default console			(see INT E0/CL=6Fh)
+ 70h	write block to default list device		(see INT E0/CL=70h)
+ 71h	execute DOS-compatible function			(see INT E0/CL=71h)
+ 74h	set FCB time and date stamps
+ 80h	allocate memory					(see INT E0/CL=80h)
+ 82h	deallocate memory				(see INT E0/CL=81h)
+ 83h	poll I/O device
+ 84h	wait on system flag				(see INT E0/CL=84h)
+ 85h	set system flag					(see INT E0/CL=85h)
+ 86h	create message queue				(see INT E0/CL=86h)
+ 87h	open message queue				(see INT E0/CL=87h)
+ 88h	delete message queue				(see INT E0/CL=88h)
+ 89h	read from message queue				(see INT E0/CL=89h)
+ 8Ah	conditionally read from message queue		(see INT E0/CL=8Ah)
+ 8Bh	write to message queue				(see INT E0/CL=8Bh)
+ 8Ch	conditionally write to message queue		(see INT E0/CL=8Ch)
+ 8Dh	delay calling process				(see INT E0/CL=8Dh)
+ 8Eh	call process dispatcher (yield CPU)		(see INT E0/CL=8Eh)
+ 8Fh	terminate calling process (same as func 00h)	(see INT E0/CL=8Fh)
+ 90h	create a process				(see INT E0/CL=90h)
+ 91h	set calling process' priority			(see INT E0/CL=91h)
+ 92h	attach to default console			(see INT E0/CL=92h)
+ 93h	detach from default console			(see INT E0/CL=93h)
+ 94h	(REAL/32) set the process' default console	(see INT E0/CL=94h)
+ 95h	assign default console to process		(see INT E0/CL=95h)
+ 96h	interpret and execute commandline		(see INT E0/CL=96h)
+ 97h	resident procedure library
+ 98h	parse ASCII string into FCB (see also INT 21/AH=29h)
+ 99h	return default console				(see INT E0/CL=99h)
+ 9Ah	get address of system data (SYSDAT)		(see INT E0/CL=9Ah)
+ 9Bh	get system time and date
+ 9Ch	return calling process' descriptor		(see INT E0/CL=9Ch)
+ 9Dh	terminate process by name or PD address		(see INT E0/CL=9Dh)
+ 9Eh	attach to default list device			(see INT E0/CL=9Eh)
+ 9Fh	detach from default list device			(see INT E0/CL=9Fh)
+ A0h	select default list device			(see INT E0/CL=A0h)
+ A1h	conditionally attach to default list device	(see INT E0/CL=A1h)
+ A2h	conditionally attach to default console		(see INT E0/CL=A2h)
+ A3h	get OS version number				(see INT E0/CL=A3h)
+ A4h	get default list device				(see INT E0/CL=A4h)
+ A5h	attach to default AUX				(see INT E0/CL=A5h)
+ A6h	detach from default AUX				(see INT E0/CL=A6h)
+ A7h	conditionally attach to default AUX		(see INT E0/CL=A7h)
+ A8h	set default AUX					(see INT E0/CL=A8h)
+ A9h	return default AUX				(see INT E0/CL=A9h)
+ ACh	read block from default AUX			(see INT E0/CL=ACh)
+ ADh	(DOS Plus v2.1) write block to default AUX	(see INT E0/CL=ADh)
+ B0h	configure default AUX				(see INT E0/CL=B0h)
+ B1h	get/set device control parameters		(see INT E0/CL=B1h)
+ B2h	send Break through default AUX			(see INT E0/CL=B2h)
+ B3h	allocate physical memory			(see INT E0/CL=B3h)
+ B4h	free physical memory				(see INT E0/CL=B4h)
+ B5h	map physical memory				(see INT E0/CL=B5h)
+ B6h	nondestructive conditional message queue read	(see INT E0/CL=B6h)
+ B7h	timed wait on system flag			(see INT E0/CL=B7h)
+ B8h	get/set I/O port mapping			(see INT E0/CL=B8h)
+ B9h	set list device timeout				(see INT E0/CL=B9h)
+ BAh	set AUX timeout value				(see INT E0/CL=BAh)
+ BBh	execute XIOS service
+ BDh	(DR Multiuser DOS) delay			(see INT E0/CL=BDh)
+ FFh	return 80386 to native mode
+SeeAlso: #04020,#04021
+
+(Table 04020)
+Values for DOS Plus v2.1 XIOS functions:
+ 00h	terminate program
+ 01h	???
+ 02h	check for console input status
+ 03h	read character from console
+ 04h	write character to console
+ 05h	write character to list device
+ 06h	write character to auxiliary device
+ 07h	read character from auxiliary device
+ 0Fh	get list device status
+ 10h-14h reserved
+ 15h	device initialization
+ 16h	check console output status
+ 17h-7Fh reserved
+---BBC Acorn---
+ 80h	get XIOS version
+ 81h	get Tube semaphore
+ 82h	release Tube semaphore
+ 83h	select text/graphics
+ 84h	update B&W graphics rectangle
+ 85h	update color graphics rectangle
+ 86h	get/release/update mouse
+ 87h	get system error info
+ 88h	entry in CLOCK called by WatchDog RSP
+ 89h	BBC OSBYTE function
+ 8Ah	BBC OSWORD function
+SeeAlso: #04019
+
+(Table 04021)
+Values for DR Multiuser DOS Error Return Code:
+ 00h	no error
+ 01h	system call not implemented
+ 02h	illegal system call number
+ 03h	cannot find memory
+ 04h	illegal flag number
+ 05h	flag overrun
+ 06h	flag underrun
+ 07h	no unused Queue Descriptors
+ 08h	no free queue buffer
+ 09h	cannot find queue
+ 0Ah	queue in use
+ 0Ch	no free Process Descriptors
+ 0Dh	no queue access
+ 0Eh	empty queue
+ 0Fh	full queue
+ 10h	CLI queue missing
+ 11h	no 8087 in system
+ 12h	no unused Memory Descriptors
+ 13h	illegal console number
+ 14h	no Process Descriptor match
+ 15h	no console match
+ 16h	no CLI process
+ 17h	illegal disk number
+ 18h	illegal filename
+ 19h	illegal filetype
+ 1Ah	character not ready
+ 1Bh	illegal Memory Descriptor
+ 1Ch	bad return from BDOS load
+ 1Dh	bad return from BDOS read
+ 1Eh	bad return from BDOS open
+ 1Fh	null command
+ 20h	not owner of resource
+ 21h	no CSEG in load file
+ 22h	process Descriptor exists on Thread Root
+ 23h	could not terminate process
+ 24h	cannot attach to process
+ 25h	illegal list device number
+ 26h	illegal password
+ 28h	external termination occurred
+ 29h	fixup error upon load
+ 2Ah	flag set ignored
+ 2Bh	illegal auxilliary device number
+SeeAlso: #04019
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL00" name="E0----CL00"><b>E0----CL00</b></a> - INT E0 - REAL/32 - "P_TERMCPM" - TERMINATE CALLING PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "P_TERMCPM" - TERMINATE CALLING PROCESS
+	CL = 00h
+Return: AX = error code
+	    FFFFh on failure
+	may destroy SI,DI???
+Program: REAL/32 is the descendant of IMS Multiuser DOS, which in turn is
+	  derived from DR Multiuser DOS and its predecessors (Concurrent DOS,
+	  etc.)
+Notes:	sets the exit code (ERRORLEVEL) to 00h
+	INT E0h is officially reserved for Digital Research by Intel.
+	Apparently some Borland products also used this interrupt, which forced
+	  Digital Research to indirect calls through other interrupt entry
+	  points.
+	This is also supported by IMS Multiuser DOS and IMS REAL/32.
+SeeAlso: INT 21/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL01" name="E0----CL01"><b>E0----CL01</b></a> - INT E0 - REAL/32 - "C_READ" - FETCH CHARACTER FROM THE DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_READ" - FETCH CHARACTER FROM THE DEFAULT CONSOLE
+	CL = 01h
+Return: AX = character
+	may destroy SI,DI???
+Notes:	this function echos the character to the screen, expanding Tab
+	  characters to the next multiple of eight columns; Ctrl-C is
+	  ignored if the calling process can not terminate
+	the calling process is suspended until a character is available; if
+	  the caller does not own the console, it is suspended until it
+	  can attach to the console
+SeeAlso: INT E0/CL=02h,INT E0/CL=06h,INT 21/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL02" name="E0----CL02"><b>E0----CL02</b></a> - INT E0 - REAL/32 - "C_WRITE" - WRITE CHARACTER TO DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_WRITE" - WRITE CHARACTER TO DEFAULT CONSOLE
+	CL = 02h
+	DX = character
+Return: nothing
+	may destroy SI,DI???
+Note:	Tab characters are expanded to blanks up to the next multiple of
+	  eight columns
+SeeAlso: INT E0/CL=01h,INT E0/CL=06h,INT 21/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL03" name="E0----CL03"><b>E0----CL03</b></a> - INT E0 - DR Multiuser DOS - "A_READ" - READ CHARACTER FROM DEFAULT AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_READ" - READ CHARACTER FROM DEFAULT AUX DEVICE
+	CL = 03h
+Return: AL = ASCII character
+	may destroy SI,DI???
+Notes:	A_READ reads the next 8-bit character from the logical auxilliary
+	  input device (AUXn:); control is not returned to the calling
+	  process until a character has been read.
+	if another process owns AUX, this call blocks until the device becomes
+	  available
+	this function is also supported by REAL/32
+SeeAlso: INT 21/AH=03h,INT E0/CL=04h,INT E0/CL=07h,INT E0/CL=A5h,INT E0/CL=ACh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL04" name="E0----CL04"><b>E0----CL04</b></a> - INT E0 - DR Multiuser DOS - "A_WRITE" - WRITE CHARACTER TO DEFAULT AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_WRITE" - WRITE CHARACTER TO DEFAULT AUX DEVICE
+	CL = 04h
+	DL = BYTE to write
+Return: nothing
+	may destroy SI,DI,DH???
+Note:	if another process owns AUX, this call blocks until the device becomes
+	  available
+SeeAlso: INT 21/AH=04h,INT E0/CL=03h,INT E0/CL=08h,INT E0/CL=A5h,INT E0/CL=ADh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL05" name="E0----CL05"><b>E0----CL05</b></a> - INT E0 - REAL/32 - "L_WRITE" - WRITE CHARACTER TO DEFAULT LIST DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_WRITE" - WRITE CHARACTER TO DEFAULT LIST DEVICE
+	CL = 05h
+	DL = char to write
+Return: nothing
+	may destroy SI,DI???
+Note:	if another process owns the list device, this call blocks until the
+	  device becomes available
+SeeAlso: INT 21/AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL06" name="E0----CL06"><b>E0----CL06</b></a> - INT E0 - REAL/32 - "C_RAWIO" - PERFORM RAW I/O WITH DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_RAWIO" - PERFORM RAW I/O WITH DEFAULT CONSOLE
+	CL = 06h
+	DL = mode describing the operation to be performed
+	    FFh get console input/status
+	    FEh get console status
+	    FDh get console input (blocking)
+	    else output DL to the console as a character
+Return: AX = returned value
+	    for DL = FFh, the character or 00h if none available
+	    for DL = FEh, 00h if no characters available, FFh if any available
+	    for DL = FDh, the character read from the console
+	    else AX = 0000h
+	may destroy SI,DI???
+Notes:	during raw I/O, the special characters ^C, ^O, ^P, and ^S are not
+	  interpreted, but are passed through
+	if the virtual console is in ^S mode and the owning process calls
+	  this function, the ^S state is cleared
+SeeAlso: INT E0/CL=01h,INT E0/CL=02h,INT 21/AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL07" name="E0----CL07"><b>E0----CL07</b></a> - INT E0 - DR Multiuser DOS - "A_STATIN" - GET INPUT STATUS OF AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_STATIN" - GET INPUT STATUS OF AUX DEVICE
+	CL = 07h
+Return: AL = status
+	    00h not ready
+	    FFh character available
+Desc:	determine whether the current AUX device has input available
+SeeAlso: INT E0/CL=03h,INT E0/CL=08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL08" name="E0----CL08"><b>E0----CL08</b></a> - INT E0 - DR Multiuser DOS - "A_STATOUT" - GET OUTPUT STATUS OF AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_STATOUT" - GET OUTPUT STATUS OF AUX DEVICE
+	CL = 08h
+Return: AL = status
+	    00h not ready
+	    FFh ready for output
+Desc:	determine whether the current AUX device is able to accept more output
+SeeAlso: INT E0/CL=04h,INT E0/CL=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL09" name="E0----CL09"><b>E0----CL09</b></a> - INT E0 - REAL/32 - "C_WRITESTR" - WRITE STRING TO DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_WRITESTR" - WRITE STRING TO DEFAULT CONSOLE
+	CL = 09h
+	DS:DX -&gt; string
+Return: nothing
+	may destroy SI,DI,DS???
+Note:	the string terminated with a '$' character (24h) by default; the
+	  terminator may be changed with C_DELIMIT
+	tabs are expanded to the next multiple of eight columns
+SeeAlso: INT E0/CL=6Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL0A" name="E0----CL0A"><b>E0----CL0A</b></a> - INT E0 - REAL/32 - "C_READSTR" - READ STRING FROM DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_READSTR" - READ STRING FROM DEFAULT CONSOLE
+	CL = 0Ah
+	DS:DX -&gt; buffer for string (see #04022)
+Return: nothing
+
+Format of REAL/32 "C_READSTR" buffer:
+Offset	Size	Description	(Table 04022)
+ 00h	BYTE	maximum number of characters buffer can hold
+ 01h	BYTE	actual number of buffers read
+ 02h  N BYTEs	input line
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL0B" name="E0----CL0B"><b>E0----CL0B</b></a> - INT E0 - REAL/32 - "C_STAT" - RETURN DEFAULT CONSOLE INPUT STATUS<br />
+<pre>
+INT E0 - REAL/32 - "C_STAT" - RETURN DEFAULT CONSOLE INPUT STATUS
+	CL = 0Bh
+Return: AX = status
+	    0000h no characters ready
+	    0001h character available
+	may destroy SI,DI???
+Note:	after setting bit 0 of the console mode word with C_MODE, this function
+	  will only return AX=0001h when the user presses Ctrl-C.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL0C" name="E0----CL0C"><b>E0----CL0C</b></a> - INT E0 - REAL/32 - "S_BDOSVER" - GET BDOS VERSION<br />
+<pre>
+INT E0 - REAL/32 - "S_BDOSVER" - GET BDOS VERSION
+	CL = 0Ch
+Return: AX = version (see #04023)
+	may destroy SI,DI???
+SeeAlso: INT E0/CL=A3h,INT 21/AX=4451h
+
+(Table 04023)
+Values for REAL/32 BDOS version:
+ 1432h	- DR Concurrent PC DOS Version 3.2
+ 1441h	- DR Concurrent DOS Version 4.1
+ 1450h	- DR Concurrent DOS/XM Version 5.0
+ 1463h	- DR Multiuser DOS Release 5.0
+ 1465h	- DR Multiuser DOS Release 5.01
+ 1466h	- DR Multiuser DOS Release 5.1, IMS Multiuser DOS Enhanced Release 5.1
+ 1467h	- IMS Multiuser DOS Version 7.0, 7.1
+ 1468h	- IMS REAL/32 Version 7.50, 7.51
+ 1469h	- IMS REAL/32 Version 7.52, 7.53
+ 14??h	- IMS REAL/32 Version 7.6
+SeeAlso: #01579,#01580,#01581
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL2F" name="E0----CL2F"><b>E0----CL2F</b></a> - INT E0 - REAL/32 - "P_CHAIN" - CHAIN PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "P_CHAIN" - CHAIN PROCESS
+	CL = 2Fh
+	[DTA] = ASCIZ command line for process to start
+Return: AX = return code
+	    0000h successful
+	    FFFFh failed
+	may destroy SI,DI???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL35" name="E0----CL35"><b>E0----CL35</b></a> - INT E0 R - REAL/32 - "MC_MAX" - CP-M/86 ALLOCATE MAXIMUM MEMORY<br />
+<pre>
+INT E0 R - REAL/32 - "MC_MAX" - CP-M/86 ALLOCATE MAXIMUM MEMORY
+	CL = 35h
+	DS:DX -&gt; MCB (see #04024)
+Return: AX = status
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=39h
+
+Format of REAL/32 MCB (Memory Control Block):
+Offset	Size	Description	(Table 04024)
+ 00h	WORD	segment address of memory block
+ 02h	WORD	length of block in paragraphs
+ 04h	BYTE	reserved (0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL36" name="E0----CL36"><b>E0----CL36</b></a> - INT E0 R - REAL/32 - "MC_ABSMAX" - ALLOCATE MAXIMUM MEMORY SEGMENT ABSOLUTE<br />
+<pre>
+INT E0 R - REAL/32 - "MC_ABSMAX" - ALLOCATE MAXIMUM MEMORY SEGMENT ABSOLUTE
+	CL = 36h
+	DS:DX -&gt; MCB (see #04024)
+Return: AX = status
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=39h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL37" name="E0----CL37"><b>E0----CL37</b></a> - INT E0 R - REAL/32 - "MC_ALLOC" - CP-M/86 ALLOCATE MEMORY SEGMENT<br />
+<pre>
+INT E0 R - REAL/32 - "MC_ALLOC" - CP-M/86 ALLOCATE MEMORY SEGMENT
+	CL = 37h
+	DS:DX -&gt; MCB (see #04024)
+Return: AX = status
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=39h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL38" name="E0----CL38"><b>E0----CL38</b></a> - INT E0 R - REAL/32 - "MC_ABSALLOC" - ALLOCATE MEMORY SEGMENT ABSOLUTE<br />
+<pre>
+INT E0 R - REAL/32 - "MC_ABSALLOC" - ALLOCATE MEMORY SEGMENT ABSOLUTE
+	CL = 38h
+	DS:DX -&gt; MCB (see #04024)
+Return: AX = status
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=39h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL39" name="E0----CL39"><b>E0----CL39</b></a> - INT E0 R - REAL/32 - "MC_FREE" - CP-M/86 FREE SPECIFIED MEMORY SEGMENT<br />
+<pre>
+INT E0 R - REAL/32 - "MC_FREE" - CP-M/86 FREE SPECIFIED MEMORY SEGMENT
+	CL = 39h
+	DS:DX -&gt; MCB (see #04024)
+Return: AX = status
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=3Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL3A" name="E0----CL3A"><b>E0----CL3A</b></a> - INT E0 R - REAL/32 - "MC_ALLFREE" - CP-M/86 FREE ALL MEMORY<br />
+<pre>
+INT E0 R - REAL/32 - "MC_ALLFREE" - CP-M/86 FREE ALL MEMORY
+	CL = 3Ah
+Return: nothing???
+Desc:	release all of the calling process's memory except the User Data Area
+SeeAlso: INT E0/CL=39h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL3B" name="E0----CL3B"><b>E0----CL3B</b></a> - INT E0 u - REAL/32 - "P_LOAD" - LOAD .CMD FILE INTO MEMORY<br />
+<pre>
+INT E0 u - REAL/32 - "P_LOAD" - LOAD .CMD FILE INTO MEMORY
+	CL = 3Bh
+	???
+Return: ???
+Note:	IMS does not document the details of this call because .CMD files are
+	  supported for backward compatibility only
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL40" name="E0----CL40"><b>E0----CL40</b></a> - INT E0 - REAL/32 - "N_LOGON" - LOG ONTO A SERVER<br />
+<pre>
+INT E0 - REAL/32 - "N_LOGON" - LOG ONTO A SERVER
+	CL = 40h
+	DS:DX -&gt; LPB (see #04025)
+Return: AX = status (0000h,00FFh,07FFh,0DFFh,0EFFh,FFFFh) (see #04030)
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=41h
+
+Format of REAL/32 Logon/Logoff Parameter Block:
+Offset	Size	Description	(Table 04025)
+ 00h	BYTE	node ID
+ 01h  8 BYTEs	password for server access
+ 09h	DWORD	-&gt; process descriptor of process to be logged on (see #04026)
+
+Format of REAL/32 Process Descriptor:
+Offset	Size	Description	(Table 04026)
+ 00h	WORD	offset of next entry in current descriptor list
+ 02h	WORD	offset of thread list
+ 04h	BYTE	current processor status (see #04027)
+ 05h	BYTE	priority
+ 06h	WORD	runtime flags (see #04028)
+ 08h  8 BYTEs	process name
+ 10h	WORD	segment of User Data Area (UDA) (256 or 352 bytes)
+ 12h	BYTE	current default disk drive
+ 13h	BYTE	drive from which process was loaded
+ 14h	WORD	reserved (0)
+ 16h	WORD	offset of memory descriptor list for memory owned by process
+ 18h  6 BYTEs	reserved
+ 1Eh	WORD	offset of process descriptor for parent process
+		0000h if parent has already terminated
+ 20h	BYTE	number of default console
+ 21h	BYTE	number of default AUX device
+ 22h  2 BYTEs	reserved
+ 24h	BYTE	number of default list device
+ 25h	BYTE	reserved
+ 26h	WORD	flags (see #04029)
+ 28h 12 BYTEs	reserved
+ 34h	WORD	offset of memory page allocation root
+ 36h 22 BYTEs	reserved
+Note:	At least offset 10h (UDA) is also supported by MDOS 5.00, 5.01, 5.10,
+	  as the DR DOS MEM utility retrieves this UDA segment through
+	  INT E0/CL=9Ah when INT 21/AX=4451h returns 1463h, 1465h, or 1466h.
+SeeAlso: #04025
+
+(Table 04027)
+Values for REAL/32 processor status:
+ 00h	process is ready to run
+ 01h	process is polling a device
+ 02h	delaying for a number of ticks
+ 03h	in swap list
+ 04h	terminating
+ 05h	asleep
+ 06h	waiting to read a message from a queue
+ 07h	waiting to write a message
+ 08h	waiting on system flag or semaphore
+ 09h	waiting to attach to an I/O device
+ 0Ah	waiting on sync block
+ 0Bh	waiting for system flag or semaphore with timeout
+ 0Ch	forced dispatch
+SeeAlso: #04026
+
+Bitfields for REAL/32 process flags:
+Bit(s)	Description	(Table 04028)
+ 0	system process
+ 1	do not terminate
+ 2	special rsp process
+ 3	from process descriptor table
+ 14-4	unused???
+ 15	uses math coprocessor
+SeeAlso: #04026,#04029
+
+Bitfields for REAL/32 secondary flags:
+Bit(s)	Description	(Table 04029)
+ 0	suspend when in background
+ 1	???
+ 2	in foreground
+ 3	enable APPEND processing on file opens
+ 4	Ctrl-C was typed
+ 5	Ctrl-C will reset disk system
+ 6	OK to read locked record
+ 7	???
+ 8	do not perform banking
+SeeAlso: #04026,#04028
+
+(Table 04030)
+Values for REAL/32 "N_LOGON" status:
+ 0000h	successful
+ 00FFh	server could not create shadow process
+ 07FFh	incorrect password
+ 0CFFh	not logged into specified server
+ 0DFFh	process already logged onto 16 servers,
+	LPB process not attached to network
+ 0EFFh	physical transmission prevented message or response from getting thru
+	network error during logoff
+ FFFFh	calling process not attached to network
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL41" name="E0----CL41"><b>E0----CL41</b></a> - INT E0 - REAL/32 - "N_LOGON" - LOG OFF A SERVER<br />
+<pre>
+INT E0 - REAL/32 - "N_LOGON" - LOG OFF A SERVER
+	CL = 41h
+	DS:DX -&gt; LPB (see #04025)
+Return: AX = status (0000h,0CFFh,0DFFh,0EFFh,FFFFh) (see #04030)
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=40h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL44" name="E0----CL44"><b>E0----CL44</b></a> - INT E0 - REAL/32 - "N_STAT" - GET NETWORK STATUS<br />
+<pre>
+INT E0 - REAL/32 - "N_STAT" - GET NETWORK STATUS
+	CL = 44h
+Return: AX = network status or 0FFFh on error
+	    bit 8: calling process is attached to network
+	may destroy SI,DI???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL45" name="E0----CL45"><b>E0----CL45</b></a> - INT E0 - REAL/32 - "N_RCT" - GET REQUESTOR CONFIGURATION TABLE<br />
+<pre>
+INT E0 - REAL/32 - "N_RCT" - GET REQUESTOR CONFIGURATION TABLE
+	CL = 45h
+	DS:DX -&gt; RCT Control Block (see #04031,#04032)
+Return: AX = status or error code (see #04033,#04030)
+	may destroy SI,DI,DS???
+SeeAlso: INT E0/CL=47h
+
+Format of REAL/32 RCT Control Block for Drives:
+Offset	Size	Description	(Table 04031)
+ 00h	BYTE	command byte
+		00h map disk drive
+		02h map list device
+ 01h	BYTE	local resource ID
+ 02h	BYTE	remote resource ID
+ 03h	BYTE	server node ID number
+Note:	the RCT Control Block is a union of two possible structures; this
+	  variant is used when mapping disk drives and list devices
+SeeAlso: #04032
+
+Format of REAL/32 RCT Control Block for Queues:
+Offset	Size	Description	(Table 04032)
+ 00h	BYTE	command byte
+		03h map local queue to server
+		04h unmap queue
+ 01h  8 BYTEs	local queue name (case-sensitive)
+ 09h  8 BYTEs	remote queue name (case-sensitive)
+ 11h	BYTE	server node ID number
+Note:	the RCT Control Block is a union of two possible structures; this
+	  variant is used when mapping queues
+SeeAlso: #04031
+
+(Table 04033)
+Values for REAL/32 "N_RCT" status:
+ 0000h	successful
+ 0001h	invalid local device
+ 0002h	invalid remote device
+ 0003h	no queue entry space
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL47" name="E0----CL47"><b>E0----CL47</b></a> - INT E0 - REAL/32 - "N_SCT" - GET SERVER CONFIGURATION TABLE<br />
+<pre>
+INT E0 - REAL/32 - "N_SCT" - GET SERVER CONFIGURATION TABLE
+	CL = 47h
+	DS:DX -&gt; 112-byte buffer for Server Configuration Table (see #04034)
+Return: AX = status (0000h successful, else error code)
+	may destroy SI,DI,DS???
+Note:	the first byte of the SCT buffer is set to the desired server number
+	  prior to calling this function
+SeeAlso: INT E0/CL=45h
+
+Format of REAL/32 Server Configuration Table:
+Offset	Size	Description	(Table 04034)
+ 00h	BYTE	server's default physical drive ID
+ 01h	BYTE	network status
+ 02h	BYTE	server node ID number
+ 03h	BYTE	maximum number of requesters supported by server
+ 04h	BYTE	current number of shadow processes
+ 05h 108 BYTEs	six logon structures, each:
+		Offset	Size	Description
+		 00h	WORD	bit vector of logged-in nodes
+		 02h 16 BYTEs	list of requester node IDs
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL48" name="E0----CL48"><b>E0----CL48</b></a> - INT E0 - REAL/32 - "N_ERRMODE" - SET NETWORK ERROR MODE<br />
+<pre>
+INT E0 - REAL/32 - "N_ERRMODE" - SET NETWORK ERROR MODE
+	CL = 48h
+	DL = new error mode
+	    FFh return error in registers AX,BX,CX
+	    FEh display message and return error
+	    FDh display message and abort (default)
+Return: CX = error code (0000h successful, FFFFh failed)
+	may destroy SI,DI???
+Desc:	specify how the REAL/32 Net Server responds to error numbers 0CFFh,
+	  0DFFh, and 0EFFh (see #04030)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL59" name="E0----CL59"><b>E0----CL59</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "S_MEMORY" - RESERVE MEMORY IN GLOBAL AREA<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "S_MEMORY" - RESERVE MEMORY IN GLOBAL AREA
+	CL = 59h
+	DX = size in bytes
+Return: AX = status
+	    FFFFh failed
+	    other successful
+		ES:BX -&gt; reserved memory
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL5C" name="E0----CL5C"><b>E0----CL5C</b></a> - INT E0 - REAL/32 - "P_PATH" - SCAN PATH FOR EXECUTABLE FILE<br />
+<pre>
+INT E0 - REAL/32 - "P_PATH" - SCAN PATH FOR EXECUTABLE FILE
+	CL = 5Ch
+	DS:DX -&gt; Exec Parameter Block (EPB) (see #04035)
+Return:	AX = status
+	    FFFEh file not found
+	    FFFDh path not found
+	    FFFCh too many handles open
+	    FFFBh access denied
+	    FFF6h invalid environment
+	    FFDCh sharing conflict
+	    FFAAh invalid password
+	EPB updated (if successful)
+	may destroy SI,DI,DS
+SeeAlso: INT E0/CL=5Dh,INT E0/CL=5Eh,INT 21/AH=4Bh
+
+Format of REAL/32 Exec Parameter Block (EPB):
+Offset	Size	Description	(Table 04035)
+ 00h	DWORD	-&gt; ASCIZ command to be executed
+ 04h	BYTE	type of exec
+		00h .CMD
+		01h .COM
+		02h .EXE
+		03h .BAT
+		04h RSP-type queue
+ 05h	BYTE	flags
+		bit 0: overlay existing program
+		bit 1: don't assign console to child
+		bit 2: allocate memory for .CMD within parent's memory space
+		bit 3: make full banked window available while loading child
+ 06h	DWORD	32-bit offset to ASCIZ command line
+ 0Ah	WORD	selector for ASCIZ command line
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL5D" name="E0----CL5D"><b>E0----CL5D</b></a> - INT E0 - REAL/32 - "P_EXEC" - EXECUTE CHILD PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "P_EXEC" - EXECUTE CHILD PROCESS
+	CL = 5Dh
+	DS:DX -&gt; Exec Parameter Block (EPB) (see #04035)
+Return:	AX = status
+	    FFFEh file not found
+	    FFFDh path not found
+	    FFFCh too many handles open
+	    FFFBh access denied
+	    FFF6h invalid environment
+	    FFDCh sharing conflict
+	    FFAAh invalid password
+	EPB updated (if successful)
+	may destroy SI,DI,DS
+SeeAlso: INT E0/CL=5Ch,INT E0/CL=5Eh,INT 21/AH=4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL5E" name="E0----CL5E"><b>E0----CL5E</b></a> - INT E0 - REAL/32 - "P_EXITCODE" - GET/SET PROCESS EXIT CODE<br />
+<pre>
+INT E0 - REAL/32 - "P_EXITCODE" - GET/SET PROCESS EXIT CODE
+	CL = 5Eh
+	DX = exit code or FFFFh to get
+	    DH ignored when setting code
+	    DL = process exit code
+Return: AX = status (FFFFh on error)
+	if getting:
+	    AH = termination reason
+		00h normal
+		01h external termination via Ctrl-C or P_ABORT
+		02h hardware (critical) error abort
+		03h child did not terminate
+		FFh illegal request (no child, or exit code already retrieved)
+	    AL = process exit code
+SeeAlso: INT E0/CL=5Dh,INT 21/AH=4Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL6B" name="E0----CL6B"><b>E0----CL6B</b></a> - INT E0 - REAL/32 - "S_SERIAL" - GET OS SERIAL NUMBER<br />
+<pre>
+INT E0 - REAL/32 - "S_SERIAL" - GET OS SERIAL NUMBER
+	CL = 6Bh
+	DS:DX -&gt; 6-byte buffer for ASCII serial number
+Return: nothing???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL6D" name="E0----CL6D"><b>E0----CL6D</b></a> - INT E0 - REAL/32 - "C_MODE" - GET/SET CONSOLE MODE<br />
+<pre>
+INT E0 - REAL/32 - "C_MODE" - GET/SET CONSOLE MODE
+	CL = 6Dh
+	DX = new console mode (see #04036), or FFFFh to get current mode
+Return: AX = status if setting (0000h = success)
+	AX = current console mode if DX=FFFFh on entry
+
+Bitfields for REAL/32 console mode:
+Bit(s)	Description	(Table 04036)
+ 0	C_STAT function will return 01h only when Ctrl-C is pressed
+ 1	disable support for stop/start scroll (Ctrl-S/Ctrl-Q)
+ 2	raw console output (no tab expansion, no printer echo)
+ 3	disable program termination on Ctrl-C
+ 7	disable Ctrl-O console bit-bucket
+ 10	enable Esc as end-of-line character
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL6E" name="E0----CL6E"><b>E0----CL6E</b></a> - INT E0 - REAL/32 - "C_DELIMIT" - GET/SET STRING DELIMITER<br />
+<pre>
+INT E0 - REAL/32 - "C_DELIMIT" - GET/SET STRING DELIMITER
+	CL = 6Eh
+	DX = new delimiter, or FFFFh to get current string delimiter
+Return: AX = status (0000h success) if setting
+	AX = current string delimiter (default is 24h '$' at process start)
+SeeAlso: INT E0/CL=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL6F" name="E0----CL6F"><b>E0----CL6F</b></a> - INT E0 - REAL/32 - "C_WRITEBLK" - WRITE BLOCK TO DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_WRITEBLK" - WRITE BLOCK TO DEFAULT CONSOLE
+	CL = 6Fh
+	DS:DX -&gt; Character Control Block (see #04051,#04052)
+Return: nothing???
+SeeAlso: INT E0/CL=70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL70" name="E0----CL70"><b>E0----CL70</b></a> - INT E0 - REAL/32 - "L_WRITEBLK" - WRITE BLOCK TO DEFAULT LIST (PRINTER) DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_WRITEBLK" - WRITE BLOCK TO DEFAULT LIST (PRINTER) DEVICE
+	CL = 70h
+	DS:DX -&gt; Character Control Block (see #04051,#04052)
+Return: nothing???
+SeeAlso: INT E0/CL=6Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL71" name="E0----CL71"><b>E0----CL71</b></a> - INT E0 R - ConcCP/M,DR Multiuser DOS - EXECUTE DOS-COMPATIBLE FUNCTIONS<br />
+<pre>
+INT E0 R - ConcCP/M,DR Multiuser DOS - EXECUTE DOS-COMPATIBLE FUNCTIONS
+	CL = 71h
+	DS:DX -&gt; parameter block (see #04038)
+Return: AX = status (0000h successful, else error code)
+	may destroy SI,DI,DS
+
+(Table 04037)
+Values for DR "execute DOS-compatible function" function number:
+ 00h	"fd_getdpb"	get disk information (see also INT 21/AH=32h)
+ 01h	"fd_mkdir"	create directory (see also INT 21/AH=39h)
+ 02h	"fd_rmdir"	remove directory (see also INT 21/AH=3Ah)
+ 03h	"fd_chdir"	change directory (see also INT 21/AH=3Bh)
+ 04h	"fd_creat"	create file (see also INT 21/AH=3Ch)
+ 05h	"fd_open"	open existing file (see also INT 21/AH=3Dh)
+ 06h	"fd_close"	close file (see also INT 21/AH=3Eh)
+ 07h	"fd_read"	read from file (see also INT 21/AH=3Fh)
+ 08h	"fd_write"	write to file (see also INT 21/AH=40h)
+ 09h	"fd_delete"	delete file (see also INT 21/AH=41h)
+ 0Ah	"fd_lseek"	get/set file position (see also INT 21/AH=42h)
+ 0Bh	"fd_chmod"	get/set file attributes (see also INT 21/AH=43h)
+ 0Ch	"fd_curdir"	get current directory (see also INT 21/AH=47h)
+ 0Dh	"fd_sfirst"	find first matching file (see also INT 21/AH=4Eh)
+ 0Eh	"fd_snext"	find next matching file (see also INT 21/AH=4Fh)
+ 0Fh	"fd_rename"	rename file (see also INT 21/AH=56h)
+ 10h	"fd_gsfdate"	get/set file date (see also INT 21/AX=5700h)
+ 11h	"fd_mktemp"	make temporary file (see also INT 21/AH=5Ah)
+ 12h	"fd_mknew"	create new file (see also INT 21/AH=5Bh)
+ 13h	"fd_lock"	lock/unlock file data (see also INT 21/AH=5Ch)
+ 14h	"fd_dup"	duplicate file handle (see also INT 21/AH=45h)
+ 15h	"fd_dup2"	force duplicate file handle (see also INT 21/AH=46h)
+ 16h-19h ???
+ 1Ah	"fd_ioctl"	I/O control emulation
+ 1Bh	"fd_commit"	commit file to disk (see also INT 21/AH=68h)
+ 1Ch	"fd_expand"	expand file name (see also INT 21/AH=60h)
+ 1Dh	???
+ 1Eh	???
+ 1Fh	"fd_sethandles" set number of handles for calling process
+SeeAlso: #04038
+
+Format of DR "execute DOS-compatible function" parameter block:
+Offset	Size	Description	(Table 04038)
+ 00h	WORD	function number (see #04037)
+---function 00h---
+ 02h	WORD	drive
+ 04h	DWORD	-&gt; DPB (see #04039)
+---function 01h,02h,03h---
+ 02h	DWORD	-&gt; ASCIZ directory name
+---function 04h---
+ 02h	DWORD	-&gt; ASCIZ filename
+ 06h	WORD	file attributes
+---function 05h---
+ 02h	DWORD	-&gt; ASCIZ filename
+ 06h	WORD	open mode (see INT 21/AH=3Dh)
+---function 06h---
+ 02h	WORD	file handle
+---function 07h,08h---
+ 02h	WORD	file handle
+ 04h	DWORD	-&gt; buffer
+ 08h	WORD	number of bytes to read or write
+---function 09h---
+ 02h	DWORD	-&gt; ASCIZ filename
+---function 0Ah---
+ 02h	WORD	file handle
+ 04h	DWORD	(call) desired offset
+		(ret) new file position if function is successful
+ 08h	WORD	seek origin (offset is calculated from specified position)
+		00h start of file
+		01h current position
+		02h end of file
+---function 0Bh---
+ 02h	DWORD	-&gt; ASCIZ filename
+ 06h	WORD	(call) new file attributes or new file owner
+		(ret) current/new file attributes, depending on function
+ 08h	WORD	subfunction
+		00h get attribute
+		01h set attribute
+		02h get extended attributes
+		03h set extended attributes (and password)
+		04h get encrypted password
+		05h set extended attributes (and encrypted password)
+		06h get file owner
+		07h set file owner
+		Note: the password is taken from the first 8 bytes of the DTA
+---function 0Ch---
+ 02h	WORD	drive
+ 04h	DWORD	-&gt; 64-byte buffer for ASCIZ current directory path
+---function 0Dh---
+ 02h	DWORD	-&gt; ASCIZ filespec
+ 06h	WORD	file attributes
+ 08h	WORD	(call) size of buffer pointed at by current DTA
+		(ret) number of matching files returned???
+		Note:	if the volume label attribute is specified, the root
+			  directory will be searched
+			if the buffer is at least 47 bytes, multiple matching
+			  entries will be stored in the DTA (at 21 bytes per
+			  entry)
+---function 0Eh---
+ 02h	WORD	number of additional matches to store in DTA
+		(normally set to 0, but if DTA is at least 47 bytes, can be
+		  set to (DTAsize-21)/26 to return multiple matches)
+---function 0Fh---
+ 02h	DWORD	-&gt; ASCIZ filename
+ 06h	DWORD	-&gt; ASCIZ new name
+---function 10h---
+ 02h	WORD	file handle
+ 04h	WORD	subfunction
+		00h get date and time
+		01h set date and time
+ 06h	WORD	file date
+ 08h	WORD	file time
+---function 11h---
+ 02h	DWORD	-&gt; ASCIZ pathname + 13 extra bytes for generated filename
+		(if pathname does not end in backslash, one will be appended)
+ 06h	WORD	file attributes
+---function 12h---
+ 02h	DWORD	-&gt; ASCIZ filename
+ 06h	WORD	file attributes
+---function 13h---
+ 02h	WORD	file handle
+ 04h	DWORD	offset of start of region
+ 08h	DWORD	length of region to lock/unlock
+ 0Ch	WORD	subfunction (00h = lock, 01h = unlock)
+---function 14h---
+ 02h	WORD	file handle to be duplicated
+		(new file handle is returned as function return value)
+---function 15h---
+ 02h	WORD	file handle to be duplicated
+ 04h	WORD	file handle which is to become the duplicate
+---function 1Ah, form 1---
+ 02h	WORD	file handle
+ 04h	WORD	IOCTL function number (00h,01h,06h,07h,0Ah)
+ 06h	WORD	(ret) status
+---function 1Ah, form 2---
+ 02h	WORD	drive number
+ 04h	WORD	IOCTL function number (08h,09h,0Eh,0Fh)
+ 06h	WORD	(ret) status
+---function 1Ah, form 3---
+ 02h	WORD	file handle
+ 04h	WORD	IOCTL function number (02h,03h,54h)
+ 06h	DWORD	-&gt; buffer
+ 0Ah	WORD	(call) size of buffer in bytes
+		(ret) size of returned data
+---function 1Ah, form 4---
+ 02h	WORD	drive number
+ 04h	WORD	IOCTL function number (04h,05h)
+ 06h	DWORD	-&gt; buffer
+ 0Ah	WORD	(call) size of buffer in bytes
+		(ret) size of returned data
+---function 1Bh---
+ 02h	WORD	file handle of file to be committed to disk
+---function 1Ch---
+ 02h	DWORD	-&gt; ASCIZ relative filename
+ 06h	DWORD	-&gt; buffer for absolute filename
+---function 1Fh---
+ 02h	WORD	desired number of file handles for process
+
+Format of DR Multiuser DOS Disk Parameter Block (DPB):
+Offset	Size	Description	(Table 04039)
+ 00h	BYTE	drive number (00h = A:)
+ 01h	BYTE	relative unit number
+ 02h	WORD	sector size in bytes
+ 04h	BYTE	sectors per cluster - 1
+ 05h	BYTE	shift count to convert clusters into sectors
+ 06h	WORD	number of reserved sectors at beginning of drive
+ 08h	BYTE	number of FATs
+ 09h	WORD	number of root directory entries
+ 0Bh	WORD	number of first sector containing user data
+ 0Dh	WORD	number of clusterse on disk
+ 0Fh	BYTE	number of sectors per FAT
+ 10h	WORD	sector number of first directory sector
+ 12h  4 BYTEs	reserved
+ 16h	BYTE	media ID byte (see #01356)
+ 17h	BYTE	00h if disk accessed, FFh if not
+ 18h  6 BYTEs	reserved
+ 1Eh	WORD	number of free clusters on drive
+Note:	this structure is a subset of the MS-DOS 3.x Drive Parameter Block
+SeeAlso: #04038,#01357 at INT 21/AH=1Fh,#01395 at INT 21/AH=32h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL73" name="E0----CL73"><b>E0----CL73</b></a> - INT E0 - GSX-86, GEM/1, GEM/2 - API<br />
+<pre>
+INT E0 - GSX-86, GEM/1, GEM/2 - API
+	CL = 73h
+	CH = 04h
+	DS:DX -&gt; parameter block
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL80" name="E0----CL80"><b>E0----CL80</b></a> - INT E0 - REAL/32 - "M_ALLOC" - ALLOCATE MEMORY<br />
+<pre>
+INT E0 - REAL/32 - "M_ALLOC" - ALLOCATE MEMORY
+	CL = 80h
+	DS:DX -&gt; Memory Parameter Block (MPB) (see #04040)
+Return: AX = status (0000h success, else error code)
+SeeAlso: INT E0/CL=81h
+
+Format of REAL/32 Memory Parameter Block (MPB):
+Offset	Size	Description	(Table 04040)
+ 00h	WORD	(call) desired starting paragraph of block, or
+		  0000h for anywhere
+		(ret) starting paragraph of allocated block
+ 02h	WORD	(call) minimum number of paragraphs required
+		(ret) actual number of paragraphs allocated
+ 04h	WORD	(call) maximum number of paragraphs to allocate
+		(ret) actual number of paragraphs allocated
+ 06h	WORD	process descriptor (see #04026) of memory's owner or 0000h
+ 08h	WORD	flags (normally set to 0000h on call)
+SeeAlso: #04041
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL81" name="E0----CL81"><b>E0----CL81</b></a> - INT E0 - REAL/32 - "M_FREE" - DEALLOCATE MEMORY<br />
+<pre>
+INT E0 - REAL/32 - "M_FREE" - DEALLOCATE MEMORY
+	CL = 81h
+	DS:DX -&gt; Memory Free Parameter Block (MFPB) (see #04041)
+Return: AX = status (0000h success, else error code)
+SeeAlso: INT E0/CL=81h
+
+Format of REAL/32 Memory Free Parameter Block (MFPB) :
+Offset	Size	Description	(Table 04041)
+ 00h	WORD	starting segment of block to be freed
+ 02h	WORD	reserved (0)
+SeeAlso: #04040
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL84" name="E0----CL84"><b>E0----CL84</b></a> - INT E0 - REAL/32 - "DEV_WAITFLAG" - WAIT ON SYSTEM FLAG<br />
+<pre>
+INT E0 - REAL/32 - "DEV_WAITFLAG" - WAIT ON SYSTEM FLAG
+	CL = 84h
+	DX = system flag ID
+Return: AX = status (0000h success, else error code)
+	if successful, this function does not return until the system flag has
+	  been set by an interrupt handler (see INT E0/CL=85h); if the flag was
+	  already set, this call returns immediately
+SeeAlso: INT E0/CL=85h,INT E0/CL=B7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL85" name="E0----CL85"><b>E0----CL85</b></a> - INT E0 - REAL/32 - "DEV_SETFLAG" - SET SYSTEM FLAG<br />
+<pre>
+INT E0 - REAL/32 - "DEV_SETFLAG" - SET SYSTEM FLAG
+	CL = 85h
+	DX = system flag ID
+Return: AX = status (0000h success, else error code)
+Note:	REAL/32 returns an error if the flag was already set, which indicates
+	  that a previous logical interrupt has not yet been serviced
+SeeAlso: INT E0/CL=84h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL86" name="E0----CL86"><b>E0----CL86</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_MAKE" - CREATE MESSAGE QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_MAKE" - CREATE MESSAGE QUEUE
+	CL = 86h
+	DS:DX -&gt; queue descriptor (see #04042)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=87h
+
+Format of DR Multiuser DOS queue descriptor:
+Offset	Size	Description	(Table 04042)
+ 00h  2 WORDs	internal use, initialize to zeros
+ 04h	WORD	queue flags (see #04043)
+ 06h  8 BYTEs	queue name
+ 0Eh	WORD	length of message
+ 10h	WORD	number of messages
+ 12h  4 WORDs	internal use, initialize to zeros
+ 1Ah	WORD	offset in system area of buffer for messages
+
+Bitfields for REAL/32 queue flags:
+Bit(s)	Description	(Table 04043)
+ 0	mutual exclusion queue
+ 1	can not be deleted
+ 2	restricted to system processes
+ 3	RSP message queue
+ 4	reserved for internal use
+ 5	RPL address queue
+ 7-6	reserved for internal use
+ 15-8	reserved for future use
+SeeAlso: #04042
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL87" name="E0----CL87"><b>E0----CL87</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_OPEN" - OPEN MESSAGE QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_OPEN" - OPEN MESSAGE QUEUE
+	CL = 87h
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=86h,INT E0/CL=88h,INT E0/CL=89h
+
+Format of DR Multiuser DOS queue parameter block:
+Offset	Size	Description	(Table 04044)
+ 00h	WORD	internal use, initialize to zero
+ 02h	WORD	queue ID (set by INT E0/CL=87h)
+ 04h	WORD	internal use, initialize to zero
+ 06h	WORD	offset of queue message buffer
+		(REAL/32) if FFFFh, then full address of buffer is stored at
+		  offest 10h
+ 08h  8 BYTEs	queue name
+---REAL/32 only----
+ 10h	DWORD	segment:offset of queue message buffer
+SeeAlso: #04045
+
+Format of protected-mode REAL/32 Queue Parameter Block (QPB):
+Offset	Size	Description	(Table 04045)
+ 00h	WORD	internal use
+ 02h	WORD	queue ID
+ 04h	WORD	internal use
+ 06h	DWORD	32-bit offset to buffer
+ 0Ah	WORD	selector for buffer
+ 0Ch  8 BYTEs	queue name
+SeeAlso: #04044
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL88" name="E0----CL88"><b>E0----CL88</b></a> - INT E0 - REAL/32 - "Q_DELETE" - DELETE SYSTEM QUEUE<br />
+<pre>
+INT E0 - REAL/32 - "Q_DELETE" - DELETE SYSTEM QUEUE
+	CL = 88h
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+SeeAlso: INT E0/CL=87h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL89" name="E0----CL89"><b>E0----CL89</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_READ" - READ MESSAGE QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_READ" - READ MESSAGE QUEUE
+	CL = 89h
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=87h,INT E0/CL=8Ah,INT E0/CL=8Bh,INT E0/CL=B6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL8A" name="E0----CL8A"><b>E0----CL8A</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CREAD" - CONDITIONALLY READ MSG QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CREAD" - CONDITIONALLY READ MSG QUEUE
+	CL = 8Ah
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=87h,INT E0/CL=89h,INT E0/CL=8Ch,INT E0/CL=B6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL8B" name="E0----CL8B"><b>E0----CL8B</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_WRITE" - WRITE MESSAGE QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_WRITE" - WRITE MESSAGE QUEUE
+	CL = 8Bh
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=89h,INT E0/CL=8Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL8C" name="E0----CL8C"><b>E0----CL8C</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CWRITE" - CONDITIONALLY WRITE MSG QUEUE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "Q_CWRITE" - CONDITIONALLY WRITE MSG QUEUE
+	CL = 8Ch
+	DS:DX -&gt; queue parameter block (QPB) (see #04044,#04045)
+Return: AX = status (0000h success, FFFFh failure)
+	CX = error code (see #04021)
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=8Ah,INT E0/CL=8Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL8E" name="E0----CL8E"><b>E0----CL8E</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "P_DISPATCH" - CALL DISPATCHER<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "P_DISPATCH" - CALL DISPATCHER
+	CL = 8Eh
+	DX = FFFFh (optional) to force dispatch
+Return: nothing
+Desc:	allow other processes of the same or higher priority to run if they
+	  are ready
+Notes:	if DX=FFFFh, a dispatch is forced even if no other process is ready
+	also supported by REAL/32
+SeeAlso: INT E0/CL=91h,INT 15/AX=1000h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL8F" name="E0----CL8F"><b>E0----CL8F</b></a> - INT E0 - REAL/32 - "P_TERM" - TERMINATE CALLING PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "P_TERM" - TERMINATE CALLING PROCESS
+	CL = 8Fh
+	DX = termination code
+Return: never if successful
+	AX = FFFFh on failure
+Note:	this function can not terminate processes whose KEEP flag is set
+	if the termination code is FFh, this function can terminate the process
+	  even if its SYSTEM flag is on; otherwise, only user processes can
+	  terminate themselves
+SeeAlso: INT E0/CL=90h,INT 21/AH=4Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL90" name="E0----CL90"><b>E0----CL90</b></a> - INT E0 - REAL/32 - "P_CREATE" - CREATE A PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "P_CREATE" - CREATE A PROCESS
+	CL = 90h
+	DS:DX -&gt; process descriptor in calling process' system memory area
+		(see #04026)
+Return: AX = status
+Notes:	this call can create more than one process if the specied process
+	  descriptor's link (next-process) field is nonzero
+	all reserved and unused fields in the process descriptor should be
+	  filled with zeros; passing an invalid descriptor or pointer may
+	  crash the system because the descriptor is not checked by the OS
+	the newly-created process(es) is always a native process, which can not
+	  make DOS calls
+SeeAlso: INT E0/CL=8Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL91" name="E0----CL91"><b>E0----CL91</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "P_PRIORITY" - SET PROCESS PRIORITY<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "P_PRIORITY" - SET PROCESS PRIORITY
+	CL = 91h
+	DL = new priority (00h highest to FFh lowest)
+Return: nothing
+Notes:	sets priority of calling process; transient processes are initialized
+	  to priority C8h
+	also supported by REAL/32
+SeeAlso: INT E0/CL=8Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL92" name="E0----CL92"><b>E0----CL92</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "C_ATTACH" - ATTACH TO DEFAULT CONSOLE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "C_ATTACH" - ATTACH TO DEFAULT CONSOLE
+	CL = 92h
+Return: AX = status
+Notes:	also supported by REAL/32
+	if the console is currently owned by another process, this function
+	  waits until the console is available
+SeeAlso: INT E0/CL=93h,INT E0/CL=94h,INT E0/CL=99h,INT E0/CL=9Eh,INT E0/CL=A2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL93" name="E0----CL93"><b>E0----CL93</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS - "C_DETACH" - DETACH FROM DEFAULT CONSOLE<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS - "C_DETACH" - DETACH FROM DEFAULT CONSOLE
+	CL = 93h
+Return: AX = status
+	    0000h successfully detached
+	    FFFFh detach failed
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=92h,INT E0/CL=A6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL94" name="E0----CL94"><b>E0----CL94</b></a> - INT E0 - REAL/32 - "C_SET" - SET PROCESS'S DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_SET" - SET PROCESS'S DEFAULT CONSOLE
+	CL = 94h
+	DX = console ID
+Return: AX = status (0000h success, else error code)
+SeeAlso: INT E0/CL=92h,INT E0/CL=95h,INT E0/CL=99h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL95" name="E0----CL95"><b>E0----CL95</b></a> - INT E0 - REAL/32 - "C_ASSIGN" - ASSIGN DEFAULT CONSOLE TO ANOTHER PROCESS<br />
+<pre>
+INT E0 - REAL/32 - "C_ASSIGN" - ASSIGN DEFAULT CONSOLE TO ANOTHER PROCESS
+	CL = 95h
+	DS:DX -&gt; Assign Control Parameter Block (ACPB) (see #04046)
+Return: AX = status
+SeeAlso: INT E0/CL=94h,INT E0/CL=99h
+
+Format of REAL/32 Assign Control Parameter Block (ACPB):
+Offset	Size	Description	(Table 04046)
+ 00h	BYTE	ID of console to assign
+ 01h	BYTE	flag: if FFh, new process must have CNS as console for this
+		  call to succeed
+ 02h	DWORD	-&gt; process descriptor (see #04026) or 00000000h
+ 06h  8 BYTEs	name of process to search for if descriptor field above is zero
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL96" name="E0----CL96"><b>E0----CL96</b></a> - INT E0 - REAL/32 - "P_CLI" - RUN COMMAND LINE INTERFACE<br />
+<pre>
+INT E0 - REAL/32 - "P_CLI" - RUN COMMAND LINE INTERFACE
+	CL = 96h
+	DS:DX -&gt; Command Line Buffer (CLBUF) (see #04047)
+Return: AX = status
+Desc:	execute the indicated command concurrently with the calling process;
+	  system queue commands, .BAT, .CMD, .COM, and .EXE files can be
+	  executed
+Note:	the calling process will lose its virtual console and must reattach it
+	  before attempting any I/O
+SeeAlso: INT E0/CL=92h
+
+Format of REAL/32 Command Line Buffer (CLBUF):
+Offset	Size	Description	(Table 04047)
+ 00h	BYTE	reserved (0)
+ 01h 128 BYTEs	ASCIZ command line
+ 81h	BYTE	(0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL99" name="E0----CL99"><b>E0----CL99</b></a> - INT E0 - REAL/32 - "C_GET" - GET DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_GET" - GET DEFAULT CONSOLE
+	CL = 99h
+Return: AX = default console ID
+SeeAlso: INT E0/CL=94h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL9A" name="E0----CL9A"><b>E0----CL9A</b></a> - INT E0 - REAL/32 - "S_SYSDAT" - GET SYSTEM DATA AREA<br />
+<pre>
+INT E0 - REAL/32 - "S_SYSDAT" - GET SYSTEM DATA AREA
+	CL = 9Ah
+Return: ES:AX -&gt; system data area (see #04048)
+	may destroy SI,DI
+
+Format of REAL/32 system data area:
+Offset	Size	Description	(Table 04048)
+ 00h	DWORD	address of supervisor entry point
+ 04h 36 BYTEs	reserved
+ 28h	DWORD	address of XIOS entry point
+ 2Ch	DWORD	address of XIOS initialization point
+ 30h  8 BYTEs	reserved
+ 38h	DWORD	address of IRET dispatcher entry point
+ 3Ch	DWORD	address of RETF dispatcher entry point
+ 40h	WORD	segment of operating system code
+ 42h	WORD	paragraph address of first Resident System Process (RSP)
+ 44h	WORD	paragraph after OS system area
+ 46h	BYTE	reserved
+ 47h	BYTE	number of system console devices
+ 48h	BYTE	number of system list (printer) devices
+ 49h	BYTE	number of Character Control blocks
+ 4Ah	BYTE	number of system flags
+ 4Bh	BYTE	current search disk
+ 4Ch	WORD	maximum memory per process
+ 4Eh	BYTE	reserved
+ 4Fh	BYTE	"dayfile" (flag, true if FFh)
+ 50h	BYTE	default disk for temporary files
+ 51h	BYTE	system ticks per second (typically 60)
+ 52h	WORD	offset of Locked Unused list
+ 54h	WORD	offset of CCB table
+ 56h	WORD	offset of system flag table
+ 58h	WORD	offset of root of Memory Descriptor Unused list
+ 5Ah	WORD	offset of Memory Free list
+ 5Ch	WORD	offset of Process Unused list
+ 5Eh	WORD	offset of Queue Unused list
+ 60h  4 WORDs	(no longer used) QMAU
+ 68h	WORD	offset of root of Ready List
+ 6Ah	WORD	offset of root of Delay List
+ 6Ch	WORD	offset of Dispatcher Ready list
+ 6Eh	WORD	offset of root of Poll List
+ 70h	WORD	reserved
+ 72h	WORD	offset of root of Thread List
+ 74h	WORD	offset of root of Queue List
+ 76h	WORD	offset of Memory Allocation list
+ 78h	WORD	segment of version string
+ 7Ah	WORD	BDOS version number
+ 7Ch	WORD	OS version number
+ 7Eh	WORD	number of days since 1978/01/01
+ 80h	BYTE	current time: hour
+ 81h	BYTE	current time: minute
+ 82h	BYTE	current time: second
+ 83h	BYTE	number of XIOS consoles
+ 84h	BYTE	number of XIOS list (printer) devices
+ 85h	BYTE	total number of character devices
+ 86h	WORD	offset of LCB table
+ 88h	WORD	bitmap of open files
+ 8Ah	BYTE	maximum locked records per process
+ 8Bh	BYTE	maximum open files per process
+ 8Ch	WORD	offset of process descriptor for math coprocessor's owner
+ 8Eh	WORD	offset of Auxiliary Control Block
+ 90h  8 BYTEs	reserved
+ 98h	WORD	offset of root Memory Window Descriptor
+ 9Ah	WORD	reserved
+ 9Ch	BYTE	number of Auxiliary Control Blocks
+ 9Dh	BYTE	default search disk
+ 9Eh	BYTE	reserved
+ 9Fh	BYTE	number of physical consoles
+ A0h	DWORD	address of 8087 interrupt handler
+ A4h	DWORD	address of default 8087 exception handler
+ ...		reserved
+C00h 82 BYTEs	XIOS header structure (see #04049)
+
+Format of REAL/32 XIOS header structure:
+Offset	Size	Description	(Table 04049)
+ 00h  3 BYTEs	XIOS initialization entry point
+ 03h  3 BYTEs	XIOS service entry point
+ 06h	WORD	segment address of system data
+ 08h	DWORD	address of supervisor entry point
+ 0Ch	BYTE	set tick flag
+ 0Dh	BYTE	ticks per second
+ 0Eh	BYTE	global Door Open interrupt flag
+ 0Fh	BYTE	number of Auxiliary Control Blocks
+ 10h	BYTE	number of physical consoles
+ 11h	BYTE	number of virtual consoles
+ 12h	BYTE	number of logical consoles
+ 13h	BYTE	number of list control blocks
+ 14h	WORD	offset of CCB table
+ 16h	WORD	offset of LCB table
+ 18h 16 WORDs	offsets into DPH for drives A-P
+ 38h	WORD	buffer size in paragraphs
+ 3Ah	WORD	offset of ACB table
+ 3Ch	WORD	used by OEM
+ 3Eh	WORD	offset of CCB pointer array
+ 40h	WORD	offset of LCB pointer array
+ 42h	WORD	offset of ACB pointer array
+ 44h	BYTE	'first' flag
+ 45h	BYTE	unused
+ 46h	WORD	offset of print device support table
+ 48h	WORD	offset of aux device support table
+ 4Ah	WORD	XIOS extra segment
+ 4Ch	WORD	segment of save end address for debug
+ 4Eh	WORD	segment of save start address for debug
+ 50h	BYTE	number of main virtual console
+ 51h	WORD	segment of XIOS code
+SeeAlso: #04048
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL9C" name="E0----CL9C"><b>E0----CL9C</b></a> - INT E0 - REAL/32 - "P_PDADR" - GET ADDRESS OF PROCESS DESCRIPTOR<br />
+<pre>
+INT E0 - REAL/32 - "P_PDADR" - GET ADDRESS OF PROCESS DESCRIPTOR
+	CL = 9Ch
+Return: ES:AX -&gt; caller's process descriptor (see #04026)
+	may destroy SI,DI
+Note:	This function is also called by the DR DOS MEM utility when
+	  INT 21/AX=4451h returns either 1463h (MDOS 5.00), 1465h (MDOS 5.01),
+	  or 1466h (MDOS 5.10).
+SeeAlso: INT E0/CL=8Fh,INT E0/CL=90h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL9D" name="E0----CL9D"><b>E0----CL9D</b></a> - INT E0 - REAL/32 - "P_ABORT" - ABORT PROCESS BY NAME OR DESCRIPTOR<br />
+<pre>
+INT E0 - REAL/32 - "P_ABORT" - ABORT PROCESS BY NAME OR DESCRIPTOR
+	CL = 9Dh
+	DS:DX -&gt; Abort Parameter Block (see #04050)
+Return: AX = status
+	may destroy SI,DI,DS
+SeeAlso: INT E0/CL=8Fh,INT E0/CL=9Ch
+
+Format of REAL/32 Abort Parameter Block:
+Offset	Size	Description	(Table 04050)
+ 00h	WORD	process descriptor of process to abort, or 0000h
+ 02h	WORD	termination code
+ 04h	BYTE	default console number
+ 05h	BYTE	reserved (0)
+ 06h  8 BYTEs	name of process to abort, if descriptor at offset 00h is 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL9E" name="E0----CL9E"><b>E0----CL9E</b></a> - INT E0 - REAL/32 - "L_ATTACH" - ATTACH TO DEFAULT LIST DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_ATTACH" - ATTACH TO DEFAULT LIST DEVICE
+	CL = 9Eh
+Return: AX = status
+	may destroy SI,DI
+SeeAlso: INT E0/CL=92h,INT E0/CL=9Fh,INT E0/CL=A0h,INT E0/CL=A1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CL9F" name="E0----CL9F"><b>E0----CL9F</b></a> - INT E0 - REAL/32 - "L_DETACH" - DETACH FROM DEFAULT LIST DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_DETACH" - DETACH FROM DEFAULT LIST DEVICE
+	CL = 9Fh
+Return: AX = status
+	may destroy SI,DI
+SeeAlso: INT E0/CL=92h,INT E0/CL=9Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA0" name="E0----CLA0"><b>E0----CLA0</b></a> - INT E0 - REAL/32 - "L_SET" - SET DEFAULT LIST DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_SET" - SET DEFAULT LIST DEVICE
+	CL = A0h
+	DX = ID of list (printer) device
+Return: AX = status (0000h success, FFFFh if invalid printer number)
+	may destroy SI,DI
+SeeAlso: INT E0/CL=92h,INT E0/CL=9Eh,INT E0/CL=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA1" name="E0----CLA1"><b>E0----CLA1</b></a> - INT E0 - REAL/32 - "L_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT LIST DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT LIST DEVICE
+	CL = A1h
+Return: AX = status (00h = successful, FFh = unable to attach)
+	may destroy SI,DI
+Desc:	attach the default list device to the calling process only if it is
+	  currently available
+SeeAlso: INT E0/CL=92h,INT E0/CL=9Eh,INT E0/CL=A0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA2" name="E0----CLA2"><b>E0----CLA2</b></a> - INT E0 - REAL/32 - "C_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT CONSOLE<br />
+<pre>
+INT E0 - REAL/32 - "C_CATTACH" - CONDITIONALLY ATTACH TO DEFAULT CONSOLE
+	CL = A2h
+Return: AL = status (FFh = console attached to another process)
+Note:	if the console is currently owned by another process, this function
+	  will return an error code instead of attaching or waiting
+SeeAlso: INT E0/CL=93h,INT E0/CL=94h,INT E0/CL=99h,INT E0/CL=92h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA3" name="E0----CLA3"><b>E0----CLA3</b></a> - INT E0 - ConcCP/M,DR Multiuser DOS,REAL/32 - "S_OSVER" - GET OS VERSION<br />
+<pre>
+INT E0 - ConcCP/M,DR Multiuser DOS,REAL/32 - "S_OSVER" - GET OS VERSION
+	CL = A3h
+Return: AX = operating system version (see #04023) (see also INT 21/AX=4451h)
+SeeAlso: INT E0/CL=0Ch,INT 21/AX=4451h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA4" name="E0----CLA4"><b>E0----CLA4</b></a> - INT E0 - REAL/32 - "L_GET" - GET DEFAULT LIST (PRINTER) DEVICE<br />
+<pre>
+INT E0 - REAL/32 - "L_GET" - GET DEFAULT LIST (PRINTER) DEVICE
+	CL = A4h
+Return: AL = number of default list device
+SeeAlso: INT E0/CL=A0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA5" name="E0----CLA5"><b>E0----CLA5</b></a> - INT E0 - DR Multiuser DOS - "A_ATTACH" - ATTACH AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_ATTACH" - ATTACH AUX DEVICE
+	CL = A5h
+Return: nothing (DR)
+	AX = status (REAL/32)
+Desc:	attaches the default auxiliary device to the calling process unless
+	  it is already attached to another process, in which case the call
+	  blocks until the device becomes available
+Notes:	this call should be used before attempting to read or write from
+	  the AUX device; however, the I/O calls internally call this function
+	  to ensure device ownership
+	also supported by REAL/32
+SeeAlso: INT E0/CL=03h,INT E0/CL=04h,INT E0/CL=A6h,INT E0/CL=A7h,INT E0/CL=A8h
+SeeAlso: INT E0/CL=ACh,INT E0/CL=ADh,INT E0/CL=B0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA6" name="E0----CLA6"><b>E0----CLA6</b></a> - INT E0 - DR Multiuser DOS - "A_DETACH" - DETACH FROM AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_DETACH" - DETACH FROM AUX DEVICE
+	CL = A6h
+Return: AX = status
+	    0000h successfully detached
+	    FFFFh detach failed
+	CX = error code
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=93h,INT E0/CL=A5h,INT E0/CL=A7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA7" name="E0----CLA7"><b>E0----CLA7</b></a> - INT E0 - DR Multiuser DOS - "A_CATTACH" - CONDITIONALLY ATTACH TO AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_CATTACH" - CONDITIONALLY ATTACH TO AUX DEVICE
+	CL = A7h
+Return: AX = status
+	    0000h attached
+	    FFFFh unable to attach
+Desc:	attaches the default auxiliary device to the calling process if it is
+	  available
+Notes:	does not block if the device is already in use
+	also supported by REAL/32
+SeeAlso: INT E0/CL=A5h,INT E0/CL=A6h,INT E0/CL=A8h,INT E0/CL=B0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA8" name="E0----CLA8"><b>E0----CLA8</b></a> - INT E0 - DR Multiuser DOS - "A_SET" - SET DEFAULT AUX DEVICE NUMBER<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_SET" - SET DEFAULT AUX DEVICE NUMBER
+	CL = A8h
+	DL = auxiliary device number
+Return: AX = status
+	    0000h successful
+	    FFFFh failed
+	CX = error code
+Desc:	specify which physical device will become AUX
+SeeAlso: INT E0/CL=A5h,INT E0/CL=A9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLA9" name="E0----CLA9"><b>E0----CLA9</b></a> - INT E0 - DR Multiuser DOS - "A_GET" - GET DEFAULT AUX DEVICE NUMBER<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_GET" - GET DEFAULT AUX DEVICE NUMBER
+	CL = A9h
+Return: AL = current default auxiliary device number
+Desc:	determine which physical device is currently AUX
+SeeAlso: INT E0/CL=A8h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLAC" name="E0----CLAC"><b>E0----CLAC</b></a> - INT E0 - DR Multiuser DOS - "A_READBLK" - READ STRING FROM AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_READBLK" - READ STRING FROM AUX DEVICE
+	CL = ACh
+	DS:DX -&gt; character control block (CHCB) (see #04051,#04052)
+Return: AX = number of characters read
+Desc:	read characters from the default auxiliary (AUXn:) device into a buffer
+	  until the buffer is full or the device is no longer ready
+Notes:	if the device is initially not ready, blocks until at least one
+	  character has been read
+	if another process owns AUX, this call blocks until the device becomes
+	  available
+	also supported by REAL/32
+SeeAlso: INT E0/CL=03h,INT E0/CL=A5h,INT E0/CL=ADh
+
+Format of DR Multiuser DOS character control block (CHCB):
+Offset	Size	Description	(Table 04051)
+ 00h	DWORD	pointer to character buffer
+ 04h	WORD	length of character buffer
+Note:	this version of the structure is used by REAL/32 in real mode
+SeeAlso: #04059
+
+Format of REAL/32 protected-mode Character Control Block (CHCB):
+Offset	Size	Description	(Table 04052)
+ 00h	DWORD	32-bit offset of character buffer
+ 04h	WORD	selector for character buffer
+ 06h	WORD	length of character buffer
+SeeAlso: #04051
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLAD" name="E0----CLAD"><b>E0----CLAD</b></a> - INT E0 - DR Multiuser DOS - "A_WRITEBLK" - WRITE STRING TO AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_WRITEBLK" - WRITE STRING TO AUX DEVICE
+	CL = ADh
+	DS:DX -&gt; character control block (see #04051,#04052)
+Return: AX = number of characters written
+Notes:	does not return until at least one character has been written
+	also supported by REAL/32
+SeeAlso: INT E0/CL=04h,INT E0/CL=A5h,INT E0/CL=ACh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB0" name="E0----CLB0"><b>E0----CLB0</b></a> - INT E0 - DR Multiuser DOS - "A_CONFIG" - GET/SET AUX DEVICE PARAMETERS<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_CONFIG" - GET/SET AUX DEVICE PARAMETERS
+	CL = B0h
+	DX:DX -&gt; AUX device parameter block (see #04053)
+Return: AX = status
+	    0000h successful
+		parameter block updated
+	    FFFFh failed
+		CX = error code
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=A5h,INT E0/CL=B1h
+
+Format of DR Multiuser DOS AUX device parameter block:
+Offset	Size	Description	(Table 04053)
+ 00h	BYTE	function (00h get, 01h set)
+ 01h	BYTE	baud rate (see #04055) FFh = don't change/unknown
+ 02h	BYTE	parity (see #04054)
+ 03h	BYTE	stop bits (00h one, 01h 1.5, 02h two, FFh unknown/don't change)
+ 04h	BYTE	data bits (05h-08h or FFh unknown/don't change)
+ 05h	BYTE	handshake (00h none, 01h DTS/DSR, 02h RTS/CTS, 04h XON/XOFF,
+		FFh unknown/don't change)
+ 06h	BYTE	XON character, FFh unknown/don't change
+ 07h	BYTE	XOFF character, FFh unknown/don't change
+
+(Table 04054)
+Values for DR Multiuser DOS AUX parity:
+ 00h	none
+ 01h	odd
+ 02h	none
+ 03h	even
+ 04h	stick parity bit
+ FFh	don't change/unknown
+SeeAlso: #04053,#04055
+
+(Table 04055)
+Values for DR Multiuser DOS AUX baud rate:
+ 00h	50 baud
+ 01h	62.5 baud
+ 02h	75 baud
+ 03h	110 baud
+ 04h	134.5 baud
+ 05h	150 baud
+ 06h	200 baud
+ 07h	300 baud
+ 08h	600 baud
+ 09h	1200 baud
+ 0Ah	1800 baud
+ 0Bh	2000 baud
+ 0Ch	2400 baud
+ 0Dh	3600 baud
+ 0Eh	4800 baud
+ 0Fh	7200 baud
+ 10h	9600 baud
+ 11h	19200 baud
+ 12h	38400 baud
+ 13h	56000 baud
+ 14h	76800 baud
+ 15h	115200 baud
+SeeAlso: #04053,#04054
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB1" name="E0----CLB1"><b>E0----CLB1</b></a> - INT E0 - DR Multiuser DOS - "A_CONTROL" - GET/SET AUX CONTROL PARAMETERS<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_CONTROL" - GET/SET AUX CONTROL PARAMETERS
+	CL = B1h
+	DS:DX -&gt; AUX device control block (see #04056)
+Return: AX = status
+	    0000h successful
+		control block updated
+	    FFFFh failed
+		CX = error code
+Note:	also supported by REAL/32
+SeeAlso: INT E0/CL=B0h,INT E0/CL=B2h
+
+Format of DR Multiuser DOS AUX device control block:
+Offset	Size	Description	(Table 04056)
+ 00h	BYTE	function (00h get, 01h set)
+ 01h	BYTE	DTR state (00h low, 01h high, FFh unknown/don't change)
+ 02h	BYTE	RTS state (00h low, 01h high, FFh unknown/don't change)
+ 03h	BYTE	DSR state (00h low, 01h high, FFh unknown/don't change)
+ 04h	BYTE	CTS state (00h low, 01h high, FFh unknown/don't change)
+ 05h	BYTE	DCD state (00h low, 01h high, FFh unknown/don't change)
+ 06h	BYTE	RI state (00h inactive, 01h active, FFh unknown/don't change)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB2" name="E0----CLB2"><b>E0----CLB2</b></a> - INT E0 - DR Multiuser DOS - "A_BREAK" - SEND BREAK TO AUX DEVICE<br />
+<pre>
+INT E0 - DR Multiuser DOS - "A_BREAK" - SEND BREAK TO AUX DEVICE
+	CL = B2h
+	DX = duration of break in system ticks (0001h-FFFFh)
+Return: AX = status
+	    0000h successful
+		break signal completed
+	    FFFFh failed
+		CX = error code
+Notes:	if the AUX device is currently owned by another process, this call will
+	  block until the device becomes available
+	also supported by REAL/32
+SeeAlso: INT E0/CL=A5h,INT E0/CL=B1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB3" name="E0----CLB3"><b>E0----CLB3</b></a> - INT E0 R - REAL/32 - "MP_ALLOC" - ALLOCATE PHYSICAL MEMORY<br />
+<pre>
+INT E0 R - REAL/32 - "MP_ALLOC" - ALLOCATE PHYSICAL MEMORY
+	CL = B3h
+	DX = number of 4K pages to allocate
+Return: AX = number of first 4K page allocated, or FFFFh on error
+Note:	memory allocated with this function is not automatically freed when
+	  the process terminates
+SeeAlso: INT E0/CL=B4h,INT E0/CL=B5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB4" name="E0----CLB4"><b>E0----CLB4</b></a> - INT E0 R - REAL/32 - "MP_FREE" - DEALLOCATE PHYSICAL MEMORY<br />
+<pre>
+INT E0 R - REAL/32 - "MP_FREE" - DEALLOCATE PHYSICAL MEMORY
+	CL = B4h
+	DX = number of the physical page to free
+Return: AX = status (0000h successful, FFFFh error)
+SeeAlso: INT E0/CL=B3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB5" name="E0----CLB5"><b>E0----CLB5</b></a> - INT E0 R - REAL/32 - "MP_MAP" - MAP PHYSICAL MEMORY<br />
+<pre>
+INT E0 R - REAL/32 - "MP_MAP" - MAP PHYSICAL MEMORY
+	CL = B5h
+	DS:DX -&gt; Memory Physical Parameter Block (see #04057)
+Return: AX = status (0000h successful, FFFFh error)
+	may destroy SI,DI,DS
+SeeAlso: INT E0/CL=B3h
+
+Format of REAL/32 Memory Physical Parameter Block:
+Offset	Size	Description	(Table 04057)
+ 00h	WORD	4K page number in first megabyte to be mapped
+ 02h	WORD	number of page to map into above page, or 0000h to unmap
+ 04h	WORD	window number (0000h, as only one window currently supported)
+ 06h	WORD	reserved
+Note:	all users of the system share the window, so applications should not
+	  use it for arguments to system calls, attempt to read/write to/from
+	  files via the window, etc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB6" name="E0----CLB6"><b>E0----CLB6</b></a> - INT E0 - REAL/32 - "Q_NCREAD" - CONDITIONALLY NONDESTRUCTIVELY READ QUEUE<br />
+<pre>
+INT E0 - REAL/32 - "Q_NCREAD" - CONDITIONALLY NONDESTRUCTIVELY READ QUEUE
+	CL = B6h
+	DS:DX -&gt; Queue Parameter Block (QPB) (see #04045,#04044)
+Return: AX = status
+SeeAlso: INT E0/CL=89h,INT E0/CL=8Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB7" name="E0----CLB7"><b>E0----CLB7</b></a> - INT E0 - REAL/32 - "DEV_TWAITFLAG" - TIMED WAIT ON SYSTEM FLAG<br />
+<pre>
+INT E0 - REAL/32 - "DEV_TWAITFLAG" - TIMED WAIT ON SYSTEM FLAG
+	CL = B7h
+	DS:DX -&gt; Flag Parameter Block (FPB) (see #04058)
+Return: AX = status
+	may destroy SI,DI,DS
+Note:	if the flag was already set, this function returns immediately
+SeeAlso: INT E0/CL=84h,INT E0/CL=85h
+
+Format of REAL/32 Flag Parameter Block (FPB):
+Offset	Size	Description	(Table 04058)
+ 00h	WORD	number of system flag on which to wait
+ 02h	WORD	maximum number of system ticks (see INT E0/CL=9Ah) to wait
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB8" name="E0----CLB8"><b>E0----CLB8</b></a> - INT E0 - REAL/32 - "DEV_MAP" - GET/SET SERIAL/PARALLEL PORT MAPPINGS<br />
+<pre>
+INT E0 - REAL/32 - "DEV_MAP" - GET/SET SERIAL/PARALLEL PORT MAPPINGS
+	CL = B8h
+	DS:DX -&gt; Device Map Parameter Block (DEVPB) (see #04059)
+Return: nothing???
+	may destroy SI,DI,DS
+
+Format of REAL/32 Device Map Parameter Block (DEVPB):
+Offset	Size	Description	(Table 04059)
+ 00h	WORD	direction (00h = get current mapping, 01h = set new mapping)
+ 02h  4 BYTEs	physical device IDs which map into LPT1 - LPT4
+ 06h  4 BYTEs	physical device IDs which map into COM1 - COM4
+Note:	LPT4 and COM3/COM4 are reserved on early versions of Multiuser DOS,
+	  but are supported from at least CCI Multiuser DOS v7.22 onward
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLB9" name="E0----CLB9"><b>E0----CLB9</b></a> - INT E0 - REAL/32 - "L_TIMEOUT" - SET LIST DEVICE TIMEOUT<br />
+<pre>
+INT E0 - REAL/32 - "L_TIMEOUT" - SET LIST DEVICE TIMEOUT
+	CL = B9h
+	DX = timeout value in system ticks (see #04048)
+		0000h-FFEFh = new number of system ticks
+		FFFDh = get current value without changing
+		FFFEh = start timeout count
+		FFFFh = never timeout
+Return: AX = status, or current timeout value if DX=FFFDh on entry
+	may destroy SI,DI
+SeeAlso: INT E0/CL=BAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLBA" name="E0----CLBA"><b>E0----CLBA</b></a> - INT E0 - REAL/32 - "A_TIMEOUT" - SET AUX DEVICE TIMEOUT<br />
+<pre>
+INT E0 - REAL/32 - "A_TIMEOUT" - SET AUX DEVICE TIMEOUT
+	CL = BAh
+	DX = timeout value in system ticks (see #04048)
+		0000h-FFEFh = new number of system ticks
+		FFFDh = get current value without changing
+		FFFEh = start timeout count
+		FFFFh = never timeout
+Return: AX = status, or current timeout value if DX=FFFDh on entry
+	may destroy SI,DI
+SeeAlso: INT E0/CL=B9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0----CLBD" name="E0----CLBD"><b>E0----CLBD</b></a> - INT E0 - DR Multiuser DOS - "P_DELAY" - DELAY EXECUTION<br />
+<pre>
+INT E0 - DR Multiuser DOS - "P_DELAY" - DELAY EXECUTION
+	CL = BDh
+	DX = delay in system ticks (typically 16.6 ms/tick)
+Return: after the delay elapses
+	no results
+Notes:	the length of a system tick is installation-dependent (typically
+	  1/50 or 1/60 second); the length may be determined by reading the
+	  TICKSPERSEC value from the system data segment
+	the actual delay before the process is rescheduled to run may be up to
+	  one tick longer than requested; the delay between rescheduling and
+	  actual execution cannot be predicted if higher-priority processes
+	  are awaiting a turn at the CPU
+SeeAlso: INT 15/AH=86h,INT 1A/AX=FF01h,INT 2F/AX=1224h,INT 62/AX=0096h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00000" name="E00000"><b>E00000</b></a> - INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN
+	AX = 0000h
+Return: nothing
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00001" name="E00001"><b>E00001</b></a> - INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING
+	AX = 0001h
+	BX = speed (0-maximum for robot)
+	CX = direction (0-359 degrees)
+Return: nothing
+Notes:	the speed will change to the specified value at the maximum
+	  acceleration the robot is capable of; if the robot is already moving
+	  faster than its maximum maneuverability speed, it will not be able
+	  to change direction
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0002h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00002" name="E00002"><b>E00002</b></a> - INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION
+	AX = 0002h
+	BX = direction (0-359 degrees)
+	CX = resolution (0-45 degrees)
+Return: AX = status
+	    FFFFh if nothing detected
+	    else robot ID (0-19)
+		BX = range to detected robot
+Notes:	the scan searches within CX degrees to either side of the specified
+	  direction
+	the scanner will see right through walls, but shells will not pass
+	  through walls
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0001h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00003" name="E00003"><b>E00003</b></a> - INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT
+	AX = 0003h
+	BX = direction (0-359 degrees)
+	CX = range (0-700)
+Return: AX = status (0000h not fired, else ID of shell fired)
+Notes:	up to seven shells may be in flight for a robot at one time; the cannon
+	  takes 50 ticks to reload
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0001h,AX=0002h,AX=002Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00010" name="E00010"><b>E00010</b></a> - INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION
+	AX = 0010h
+Return: BX = current X coordinate (0-999)
+	CX = current Y coordinate (0-999)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00011" name="E00011"><b>E00011</b></a> - INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT
+	AX = 0011h
+	BX = target robot ID
+	CX = data to be sent
+Return: AX = status (0000h data could not be sent, 0001h data sent)
+Note:	this call costs one unit of battery power
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00012" name="E00012"><b>E00012</b></a> - INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS
+	AX = 0012h
+Return: AX = status
+	    0000h no data available
+	    0001h data retrieved
+		BX = sender's ID
+		CX = data
+Note:	each robot has a 20-word receive FIFO; if the FIFO is full, other
+	  robots will be unable to send more data until some is read
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00013" name="E00013"><b>E00013</b></a> - INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED
+	AX = 0013h
+Return: BX = damage status
+Note:	the initial value depends on configuration, but is typically 100; as
+	  the robot is damaged, it decreases
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00014" name="E00014"><b>E00014</b></a> - INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING
+	AX = 0014h
+Return: BX = current speed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00015" name="E00015"><b>E00015</b></a> - INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT
+	AX = 0015h
+Return: BX = current battery charge
+Note:	the battery starts off with 1000 units of charge, and is constantly
+	  being charged by solar panels and constantly discharged by motion;
+	  the battery is charged at 4 units per turn and discharged at
+	  0.1*speed units per turn.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00016" name="E00016"><b>E00016</b></a> - INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED
+	AX = 0016h
+Return: BX:CX = number of game ticks elapsed (not related to real time)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00017" name="E00017"><b>E00017</b></a> - INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE
+	AX = 0017h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*sine of angle
+SeeAlso: AX=0018h,AX=0019h,AX=001Ah,AX=001Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00018" name="E00018"><b>E00018</b></a> - INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE
+	AX = 0018h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*cosine of angle
+SeeAlso: AX=0017h,AX=0019h,AX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00019" name="E00019"><b>E00019</b></a> - INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE
+	AX = 0019h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*tangent of angle
+SeeAlso: AX=0017h,AX=0018h,AX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001A" name="E0001A"><b>E0001A</b></a> - INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT
+	AX = 001Ah
+	BX:CX = 100000*tangent of an angle
+Return: AX = angle (-90 to +90 degrees)
+SeeAlso: AX=0017h,AX=0018h,AX=0019h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001B" name="E0001B"><b>E0001B</b></a> - INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER
+	AX = 001Bh
+	BX:CX = value
+Return: BX:CX = square root
+SeeAlso: AX=0017h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001C" name="E0001C"><b>E0001C</b></a> - INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE
+	AX = 001Ch
+	BX:CX -&gt; pattern array
+Return: nothing
+Note:	the pattern array consists of five bytes, the low five bits of each
+	  specifying the bit pattern for one line of the robot's screen display
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001D" name="E0001D"><b>E0001D</b></a> - INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME
+	AX = 001Dh
+	BX = flag number (0 or 1)
+	CX = new value (0 reset, 1 set)
+Return: nothing
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+Note:	the two flag markers may be used for any purpose, typically for
+	  debugging to provide a visual display of progress
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001E" name="E0001E"><b>E0001E</b></a> - INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT
+	AX = 001Eh
+	BX = number of armor units to buy (negative to sell)
+Return: nothing
+Note:	each armor unit is worth 50 battery units; the robot's armor rating
+	  will not go above its initial rating, so attempts to purchase more
+	  will waste battery units
+SeeAlso: AX=001Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001F" name="E0001F"><b>E0001F</b></a> - INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS
+	AX = 001Fh
+	BX = number of shells to buy
+Return: nothing
+Note:	each shell costs ten battery units
+SeeAlso: AX=001Eh,AX=0020h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00020" name="E00020"><b>E00020</b></a> - INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS
+	AX = 0020h
+Return: BX = number of shells remaining
+SeeAlso: AX=001Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00021" name="E00021"><b>E00021</b></a> - INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"
+	AX = 0021h
+	BX:CX -&gt; 81-byte buffer for map (see #04060)
+Return: buffer filled with 9x9 area of map centered on robot's position
+
+(Table 04060)
+Values for PCROBOTS map squares:
+ 2Eh '.' empty square
+ 44h 'D' damaging trap
+ 52h 'R' refueling point
+ 58h 'X' wall
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00022" name="E00022"><b>E00022</b></a> - INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE
+	AX = 0022h
+	BX = new state (0000h become visible, 0001h become invisible)
+Return: nothing
+Notes:	this function has no effect if the robot is not capable of invisibility
+	the robot can only stay invisible for 100 turns, after which it will
+	  automatically become visible; it must also be remain visible for
+	  as many turns as it was invisible before it can turn invisible
+	  again
+SeeAlso: AX=0024h,AX=0080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00023" name="E00023"><b>E00023</b></a> - INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL
+	AX = 0023h
+Return: BX = status of last shell to land
+	    0000h missed completely
+	    0001h hit a wall
+	    0002h hit a robot within 50-square radius
+	    0003h hit a robot within 25-square radius
+	    0004h hit a robot within 5-square radius
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00024" name="E00024"><b>E00024</b></a> - INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE
+	AX = 0024h
+Return: BX = visibility (0000h visible, 0001h invisible)
+SeeAlso: AX=0022h,AX=0080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00025" name="E00025"><b>E00025</b></a> - INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT
+	AX = 0025h
+	BX = Y
+	CX = X
+Return: AX = angle (arctangent of Y/X)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00026" name="E00026"><b>E00026</b></a> - INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER
+	AX = 0026h
+Return: AX = robot ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00027" name="E00027"><b>E00027</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING
+	AX = 0027h
+	BX:CX = ASCIZ IFF string
+Return: nothing
+Note:	the IFF string may only be set once
+SeeAlso: AX=0028h,AX=0029h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00028" name="E00028"><b>E00028</b></a> - INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING
+	AX = 0028h
+	BX = robot ID to test
+Return: AX = status
+	    0000h IFF strings match
+	    0001h IFF strings differ or invalid robot ID
+SeeAlso: AX=0027h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00029" name="E00029"><b>E00029</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME
+	AX = 0029h
+	BX:CX -&gt; ASCIZ name string
+Return: nothing
+Note:	the name may only be set once
+SeeAlso: AX=0027h,AX=002Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002A" name="E0002A"><b>E0002A</b></a> - INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME
+	AX = 002Ah
+	BX:CX -&gt; ASCIZ name string
+	DX = first ID to check
+Return: AX = robot ID or FFFFh if no robot with specified name
+SeeAlso: AX=0028h,AX=0029h,AX=002Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002B" name="E0002B"><b>E0002B</b></a> - INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT
+	AX = 002Bh
+Return: AX = team ID (0-2) or FFFFh if 'loner'
+SeeAlso: AX=0029h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002C" name="E0002C"><b>E0002C</b></a> - INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL
+	AX = 002Ch
+	BX = shell ID
+Return: AX = status
+	    0000h missed completely
+	    0001h hit a wall
+	    0002h hit a robot within a 50-square radius
+	    0003h hit a robot within a 25-square radius
+	    0004h hit a robot within a 5-square radius
+	    0005h shell not known (too old or not yet fired)
+	    0006h shell still in flight
+SeeAlso: AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002D" name="E0002D"><b>E0002D</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES
+	AX = 002Dh
+	BX:CX -&gt; X word variable
+Return: AX = status (0001h OK, 0000h problem with address)
+Note:	after this call, PCROBOTS will automatically update the specified
+	  word whenever the robot moves
+SeeAlso: AX=002Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002E" name="E0002E"><b>E0002E</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES
+	AX = 002Eh
+	BX:CX -&gt; Y word variable
+Return: AX = status (0001h OK, 0000h problem with address)
+Note:	after this call, PCROBOTS will automatically update the specified
+	  word whenever the robot moves
+SeeAlso: AX=002Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00080" name="E00080"><b>E00080</b></a> - INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT
+	AX = 0080h
+	BX = basic configuration (see #04061)
+	CX = advanced configuration (see #04062)
+Return: AX = status (0001h OK, 0000h not first call in program)
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+Notes:	a maximum of ten points may be allocated to the robot; if you attempt
+	  to allocate more, some items will be given a value of zero.  If this
+	  function is not called, each attribute is set to the default value
+	  of 2.
+	if the invisibility option is chosen, the robot will start with only
+	  900 cannon shells instead of the default 1000
+
+Bitfields for PCROBOTS basic configuration:
+Bit(s)	Description	(Table 04061)
+ 0-3	maximum speed (0-4 = 50,75,100,150,200)
+ 4-7	maneuverability (0-4 = 20%,35%,50%,75%,100%)
+ 8-11	cannon range (0-4 = 300,500,700,1000,1500)
+ 12-15	robot armor (0-4 = 50,75,100,150,200)
+
+Bitfields for PCROBOTS advanced configuration:
+Bit(s)	Description	(Table 04062)
+ 0-2	robot acceleration (0-4 = 5,7,10,15,20)
+ 3	capable of invisibility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

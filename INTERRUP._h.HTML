@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._h</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category h - vendor-specific hardware,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#0B_1"><b>0B</b> - INT 0B - HP 95LX - LOW-LEVEL KEYBOARD HANDLER</a><br />
+<a href="#0D_1"><b>0D</b> - INT 0D - HP 95LX - INFRARED INTERRUPT</a><br />
+<a href="#0E_1"><b>0E</b> - INT 0E C - HP 95LX - EXTERNAL CARD INTERRUPT</a><br />
+<a href="#0F_0"><b>0F</b> - INT 0F C - HP 95LX - REAL-TIME CLOCK</a><br />
+<a href="#40_0"><b>40</b> - INT 40 - Z100 - Master 8259 - Parity error or S100 error</a><br />
+<a href="#40_2"><b>40</b> - INT 40 - TI Professional PC - IRQ0</a><br />
+<a href="#41_0"><b>41</b> - INT 41 - Z100 - Master 8259 - Processor Swap</a><br />
+<a href="#41_1"><b>41</b> - INT 41 - TI Professional PC - IRQ1</a><br />
+<a href="#42_0"><b>42</b> - INT 42 - Z100 - Master 8259 - Timer</a><br />
+<a href="#42_1"><b>42</b> - INT 42 - TI Professional PC - IRQ2</a><br />
+<a href="#43_0"><b>43</b> - INT 43 - Z100 - Master 8259 - Slave 8259 input</a><br />
+<a href="#43_1"><b>43</b> - INT 43 - TI Professional PC - IRQ3 - TIMER1 25ms INTERVAL INTERRUPT</a><br />
+<a href="#44_2"><b>44</b> - INT 44 - Z100 - Master 8259 - Serial A</a><br />
+<a href="#44_3"><b>44</b> - INT 44 - TI Professional PC - IRQ4</a><br />
+<a href="#45"><b>45</b> - INT 45 - Z100 - Master 8259 - Serial B</a><br />
+<a href="#45_0"><b>45</b> - INT 45 - TI Professional PC - IRQ5</a><br />
+<a href="#46_0"><b>46</b> - INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen</a><br />
+<a href="#46_1"><b>46</b> - INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER</a><br />
+<a href="#47"><b>47</b> - INT 47 - Z100 - Master 8259 - Printer</a><br />
+<a href="#47_0"><b>47</b> - INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART</a><br />
+<a href="#48_0"><b>48</b> - INT 48 - Z100 - Slave 8259 - S100 vectored line 0</a><br />
+<a href="#49_0"><b>49</b> - INT 49 - Z100 - Slave 8259 - S100 vectored line 1</a><br />
+<a href="#4A_0"><b>4A</b> - INT 4A - Z100 - Slave 8259 - S100 vectored line 2</a><br />
+<a href="#4B"><b>4B</b> - INT 4B - Z100 - Slave 8259 - S100 vectored line 3</a><br />
+<a href="#4C"><b>4C</b> - INT 4C - Z100 - Slave 8259 - S100 vectored line 4</a><br />
+<a href="#4D"><b>4D</b> - INT 4D - Z100 - Slave 8259 - S100 vectored line 5</a><br />
+<a href="#4E"><b>4E</b> - INT 4E - Z100 - Slave 8259 - S100 vectored line 6</a><br />
+<a href="#4F"><b>4F</b> - INT 4F - Z100 - Slave 8259 - S100 vectored line 7</a><br />
+<a href="#64_4"><b>64</b> - INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#65_2"><b>65</b> - INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#66_2"><b>66</b> - INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#68_1"><b>68</b> - INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST</a><br />
+<a href="#69_0"><b>69</b> - INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE</a><br />
+<a href="#6A_1"><b>6A</b> - INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6B_1"><b>6B</b> - INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6C_2"><b>6C</b> - INT 6C C - HP Vectra AT - IRQ20 - HP-HIL CONTROLLER INTERRUPT</a><br />
+<a href="#6D_2"><b>6D</b> - INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6E_0"><b>6E</b> - INT 6E C - HP Vectra AT - IRQ22 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#F8_0"><b>F8</b> - INT F8 - Sanyo MBC-550/555 - IRQ0 - 100 HZ INTERRUPT</a><br />
+<a href="#F9_1"><b>F9</b> - INT F9 - Sanyo MBC-550/555 - IRQ1 - ???</a><br />
+<a href="#FA_0"><b>FA</b> - INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT</a><br />
+<a href="#FB_0"><b>FB</b> - INT FB - Sanyo MBC-550/555 - IRQ3 - KEYBOARD USART RECEIVE INTERRUPT</a><br />
+<a href="#FC_1"><b>FC</b> - INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT</a><br />
+<a href="#FD_1"><b>FD</b> - INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER</a><br />
+<a href="#FE_2"><b>FE</b> - INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT</a><br />
+<a href="#FF_1"><b>FF</b> - INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT</a><br />
+
+<hr />
+
+<a href="#0B_1" name="0B_1"><b>0B</b></a> - INT 0B - HP 95LX - LOW-LEVEL KEYBOARD HANDLER<br />
+<pre>
+INT 0B - HP 95LX - LOW-LEVEL KEYBOARD HANDLER
+Desc:	this is the lowest-level keyboard handler on an HP 95LX palmtop
+Note:	debounces key, places the keycode in I/O register 60h, and calls INT 09
+SeeAlso: INT 09,INT 0D"HP 95LX",INT 15/AX=4DD4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0D_1" name="0D_1"><b>0D</b></a> - INT 0D - HP 95LX - INFRARED INTERRUPT<br />
+<pre>
+INT 0D - HP 95LX - INFRARED INTERRUPT
+Desc:	this interrupt is used to perform communications over the infrared
+	  data link
+SeeAlso: INT 0B"HP 95LX",INT 0E"HP 95LX",INT 15/AX=4DD4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0E_1" name="0E_1"><b>0E</b></a> - INT 0E C - HP 95LX - EXTERNAL CARD INTERRUPT<br />
+<pre>
+INT 0E C - HP 95LX - EXTERNAL CARD INTERRUPT
+SeeAlso: INT 0D"HP 95LX",INT 0F"HP 95LX",INT 15/AX=4DD4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0F_0" name="0F_0"><b>0F</b></a> - INT 0F C - HP 95LX - REAL-TIME CLOCK<br />
+<pre>
+INT 0F C - HP 95LX - REAL-TIME CLOCK
+SeeAlso: INT 0E"HP 95LX",INT 15/AX=4DD4h,INT 70"IRQ8"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#40_0" name="40_0"><b>40</b></a> - INT 40 - Z100 - Master 8259 - Parity error or S100 error<br />
+<pre>
+INT 40 - Z100 - Master 8259 - Parity error or S100 error
+SeeAlso: INT 41"Z100",INT FF"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#40_2" name="40_2"><b>40</b></a> - INT 40 - TI Professional PC - IRQ0<br />
+<pre>
+INT 40 - TI Professional PC - IRQ0
+Note:	on the TI Pro, IRQ0 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ2
+SeeAlso: INT 0A"IRQ2",INT 41"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41_0" name="41_0"><b>41</b></a> - INT 41 - Z100 - Master 8259 - Processor Swap<br />
+<pre>
+INT 41 - Z100 - Master 8259 - Processor Swap
+SeeAlso: INT 40"Z100",INT 42"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41_1" name="41_1"><b>41</b></a> - INT 41 - TI Professional PC - IRQ1<br />
+<pre>
+INT 41 - TI Professional PC - IRQ1
+Note:	on the TI Pro, IRQ1 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ3
+SeeAlso: INT 0B"IRQ3",INT 40"TI Professional",INT 42"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#42_0" name="42_0"><b>42</b></a> - INT 42 - Z100 - Master 8259 - Timer<br />
+<pre>
+INT 42 - Z100 - Master 8259 - Timer
+SeeAlso: INT 41"Z100",INT 43"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#42_1" name="42_1"><b>42</b></a> - INT 42 - TI Professional PC - IRQ2<br />
+<pre>
+INT 42 - TI Professional PC - IRQ2
+Note:	on the TI Pro, IRQ0 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ4
+SeeAlso: INT 0C"IRQ4",INT 41"TI Professional",INT 43"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#43_0" name="43_0"><b>43</b></a> - INT 43 - Z100 - Master 8259 - Slave 8259 input<br />
+<pre>
+INT 43 - Z100 - Master 8259 - Slave 8259 input
+Note:	slave runs in special fully nested mode
+SeeAlso: INT 42"Z100",INT 44"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#43_1" name="43_1"><b>43</b></a> - INT 43 - TI Professional PC - IRQ3 - TIMER1 25ms INTERVAL INTERRUPT<br />
+<pre>
+INT 43 - TI Professional PC - IRQ3 - TIMER1 25ms INTERVAL INTERRUPT
+SeeAlso: INT 0B"IRQ3",INT 42"TI Professional",INT 44"TI Professional"
+SeeAlso: INT 58"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_2" name="44_2"><b>44</b></a> - INT 44 - Z100 - Master 8259 - Serial A<br />
+<pre>
+INT 44 - Z100 - Master 8259 - Serial A
+SeeAlso: INT 43"Z100",INT 45"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_3" name="44_3"><b>44</b></a> - INT 44 - TI Professional PC - IRQ4<br />
+<pre>
+INT 44 - TI Professional PC - IRQ4
+Note:	on the TI Pro, IRQ4 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ5
+SeeAlso: INT 0D"IRQ5",INT 43"TI Professional",INT 45"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#45" name="45"><b>45</b></a> - INT 45 - Z100 - Master 8259 - Serial B<br />
+<pre>
+INT 45 - Z100 - Master 8259 - Serial B
+SeeAlso: INT 44"Z100",INT 46"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#45_0" name="45_0"><b>45</b></a> - INT 45 - TI Professional PC - IRQ5<br />
+<pre>
+INT 45 - TI Professional PC - IRQ5
+Note:	on the TI Pro, IRQ5 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ6
+SeeAlso: INT 0E"IRQ6",INT 44"TI Professional",INT 46"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#46_0" name="46_0"><b>46</b></a> - INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen<br />
+<pre>
+INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen
+SeeAlso: INT 45"Z100",INT 47"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#46_1" name="46_1"><b>46</b></a> - INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER<br />
+<pre>
+INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER
+Note:	on the TI Pro, IRQ6 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ7
+SeeAlso: INT 0F"IRQ7",INT 45"TI Professional",INT 47"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#47" name="47"><b>47</b></a> - INT 47 - Z100 - Master 8259 - Printer<br />
+<pre>
+INT 47 - Z100 - Master 8259 - Printer
+SeeAlso: INT 46"Z100",INT 48"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#47_0" name="47_0"><b>47</b></a> - INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART<br />
+<pre>
+INT 47 - TI Professional PC - IRQ7 - KEYBOARD USART
+SeeAlso: INT 09"IRQ1",INT 46"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_0" name="48_0"><b>48</b></a> - INT 48 - Z100 - Slave 8259 - S100 vectored line 0<br />
+<pre>
+INT 48 - Z100 - Slave 8259 - S100 vectored line 0
+SeeAlso: INT 47"Z100",INT 49"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#49_0" name="49_0"><b>49</b></a> - INT 49 - Z100 - Slave 8259 - S100 vectored line 1<br />
+<pre>
+INT 49 - Z100 - Slave 8259 - S100 vectored line 1
+SeeAlso: INT 48"Z100",INT 4A"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4A_0" name="4A_0"><b>4A</b></a> - INT 4A - Z100 - Slave 8259 - S100 vectored line 2<br />
+<pre>
+INT 4A - Z100 - Slave 8259 - S100 vectored line 2
+SeeAlso: INT 49"Z100",INT 4B"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4B" name="4B"><b>4B</b></a> - INT 4B - Z100 - Slave 8259 - S100 vectored line 3<br />
+<pre>
+INT 4B - Z100 - Slave 8259 - S100 vectored line 3
+SeeAlso: INT 4A"Z100",INT 4C"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4C" name="4C"><b>4C</b></a> - INT 4C - Z100 - Slave 8259 - S100 vectored line 4<br />
+<pre>
+INT 4C - Z100 - Slave 8259 - S100 vectored line 4
+SeeAlso: INT 4B"Z100",INT 4D"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4D" name="4D"><b>4D</b></a> - INT 4D - Z100 - Slave 8259 - S100 vectored line 5<br />
+<pre>
+INT 4D - Z100 - Slave 8259 - S100 vectored line 5
+SeeAlso: INT 4C"Z100",INT 4E"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4E" name="4E"><b>4E</b></a> - INT 4E - Z100 - Slave 8259 - S100 vectored line 6<br />
+<pre>
+INT 4E - Z100 - Slave 8259 - S100 vectored line 6
+SeeAlso: INT 4D"Z100",INT 4F"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4F" name="4F"><b>4F</b></a> - INT 4F - Z100 - Slave 8259 - S100 vectored line 7<br />
+<pre>
+INT 4F - Z100 - Slave 8259 - S100 vectored line 7
+SeeAlso: INT 4E"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_4" name="64_4"><b>64</b></a> - INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 65"DG10",INT 66"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_2" name="65_2"><b>65</b></a> - INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 64"DG10",INT 66"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_2" name="66_2"><b>66</b></a> - INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 64"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68_1" name="68_1"><b>68</b></a> - INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST<br />
+<pre>
+INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST
+SeeAlso: INT 08"IRQ0",INT 69"HP Vectra",INT 6F/AH=00h"HP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#69_0" name="69_0"><b>69</b></a> - INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE<br />
+<pre>
+INT 69 C - HP Vectra AT - IRQ17 - KEYBOARD OUTPUT-BUFFER-FULL SERVICE ROUTINE
+SeeAlso: INT 09"IRQ1",INT 68"HP Vectra",INT 6A"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A_1" name="6A_1"><b>6A</b></a> - INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6A C - HP Vectra AT - IRQ18 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0A"IRQ2",INT 69"HP Vectra",INT 6B"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B_1" name="6B_1"><b>6B</b></a> - INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0B"IRQ3",INT 6A"HP Vectra",INT 6C"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6C_2" name="6C_2"><b>6C</b></a> - INT 6C C - HP Vectra AT - IRQ20 - HP-HIL CONTROLLER INTERRUPT<br />
+<pre>
+INT 6C C - HP Vectra AT - IRQ20 - HP-HIL CONTROLLER INTERRUPT
+SeeAlso: INT 0C"IRQ4",INT 6B"HP Vectra",INT 6D"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6D_2" name="6D_2"><b>6D</b></a> - INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0D"IRQ5",INT 6C"HP Vectra",INT 6E"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6E_0" name="6E_0"><b>6E</b></a> - INT 6E C - HP Vectra AT - IRQ22 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6E C - HP Vectra AT - IRQ22 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0E"IRQ6",INT 6D"HP Vectra",INT 6F/AH=00h"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F8_0" name="F8_0"><b>F8</b></a> - INT F8 - Sanyo MBC-550/555 - IRQ0 - 100 HZ INTERRUPT<br />
+<pre>
+INT F8 - Sanyo MBC-550/555 - IRQ0 - 100 HZ INTERRUPT
+Note:	normally masked off at 8259 interrupt controller
+SeeAlso: INT 08"IRQ0",INT F9"Sanyo",INT FA"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F9_1" name="F9_1"><b>F9</b></a> - INT F9 - Sanyo MBC-550/555 - IRQ1 - ???<br />
+<pre>
+INT F9 - Sanyo MBC-550/555 - IRQ1 - ???
+Note:	documented as "for system use only"; normally enabled at the 8259
+SeeAlso: INT 09"IRQ1",INT F8"Sanyo",INT FA"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_0" name="FA_0"><b>FA</b></a> - INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT<br />
+<pre>
+INT FA - Sanyo MBC-550/555 - IRQ2 - SERIAL PORT USART INTERRUPT
+Note:	this vector is not used on the Tandy 1000TL
+SeeAlso: INT 0A"IRQ2",INT F9"Sanyo",INT FB"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FB_0" name="FB_0"><b>FB</b></a> - INT FB - Sanyo MBC-550/555 - IRQ3 - KEYBOARD USART RECEIVE INTERRUPT<br />
+<pre>
+INT FB - Sanyo MBC-550/555 - IRQ3 - KEYBOARD USART RECEIVE INTERRUPT
+SeeAlso: INT 0B"IRQ3",INT FA"Sanyo",INT FC"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FC_1" name="FC_1"><b>FC</b></a> - INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT<br />
+<pre>
+INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0C"IRQ4",INT FB"Sanyo",INT FD"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_1" name="FD_1"><b>FD</b></a> - INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER<br />
+<pre>
+INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER
+SeeAlso: INT 0D"IRQ5",INT FC"Sanyo",INT FE"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_2" name="FE_2"><b>FE</b></a> - INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT<br />
+<pre>
+INT FE - Sanyo MBC-550/555 - IRQ6 - 8087 COPROCESSOR INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0E"IRQ6",INT FD"Sanyo",INT FF"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_1" name="FF_1"><b>FF</b></a> - INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT<br />
+<pre>
+INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0F"IRQ7",INT FE"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

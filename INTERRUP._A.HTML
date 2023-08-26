@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category A - applications
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#1080"><b>1080</b> - INT 10 - CU Writer v1.4 - GET OPTION</a><br />
+<a href="#1081"><b>1081</b> - INT 10 - CU Writer v1.4 - SET OPTION</a><br />
+<a href="#10A0"><b>10A0</b> - INT 10 - CU Writer v1.4 - SET PIXEL WRITE MODE</a><br />
+<a href="#10B0"><b>10B0</b> - INT 10 - CU Writer v1.4 - PUT PIXEL</a><br />
+<a href="#10B1"><b>10B1</b> - INT 10 - CU Writer v1.4 - MOVE TO</a><br />
+<a href="#10B2"><b>10B2</b> - INT 10 - CU Writer v1.4 - DRAW LINE TO</a><br />
+<a href="#10B3"><b>10B3</b> - INT 10 - CU Writer v1.4 - FLOOD FILL</a><br />
+<a href="#10B4"><b>10B4</b> - INT 10 - CU Writer v1.4 - DRAW RECTANGLE</a><br />
+<a href="#10B5"><b>10B5</b> - INT 10 - CU Writer v1.4 - DRAW FILLED RECTANGLE</a><br />
+<a href="#10C0"><b>10C0</b> - INT 10 - CU Writer v1.4 - GO TO TEXT ROW AND COLUMN</a><br />
+<a href="#10C1"><b>10C1</b> - INT 10 - CU Writer v1.4 - OUTPUT TEXT</a><br />
+<a href="#10C2"><b>10C2</b> - INT 10 - CU Writer v1.4 - REVERSE TEXT</a><br />
+<a href="#10C3"><b>10C3</b> - INT 10 - CU Writer v1.4 - TEXT BAR</a><br />
+<a href="#10C4"><b>10C4</b> - INT 10 - CU Writer v1.4 - TEXT MENU</a><br />
+<a href="#10D0"><b>10D0</b> - INT 10 - CU Writer v1.4 - LOAD PICTURE</a><br />
+<a href="#165500"><b>165500</b> - INT 16 C - Microsoft Word internal - MICROSOFT WORD COOPERATION WITH TSR</a><br />
+<a href="#1655FE"><b>1655FE</b> - INT 16 CU - Microsoft QBASIC internal - MICROSOFT COOPERATION WITH TSR</a><br />
+<a href="#1A3601"><b>1A3601</b> - INT 1A - WORD PERFECT v5.0 Third Party Interface - INSTALLATION CHECK</a><br />
+<a href="#6F636FBX6D70"><b>6F636FBX6D70</b> - INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK</a><br />
+<a href="#6F636FBX6D70_0"><b>6F636FBX6D70</b> - INT 6F - Clara Empricost - TSR Version - UNINSTALL</a><br />
+<a href="#78_1"><b>78</b> - INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND</a><br />
+<a href="#790001"><b>790001</b> - INT 79 R - AutoCAD Device Interface - DIGITIZER - INITIALIZE</a><br />
+<a href="#790002"><b>790002</b> - INT 79 R - AutoCAD Device Interface - DIGITIZER - TERMINATE</a><br />
+<a href="#790003"><b>790003</b> - INT 79 R - AutoCAD Device Interface - DIGITIZER - GET DIGITIZER STATUS</a><br />
+<a href="#7A0001"><b>7A0001</b> - INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)</a><br />
+<a href="#7A0200BX0000"><b>7A0200BX0000</b> - INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)</a><br />
+<a href="#7B_2"><b>7B</b> - INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA</a><br />
+<a href="#7B8001"><b>7B8001</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT</a><br />
+<a href="#7B8002"><b>7B8002</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT</a><br />
+<a href="#7B8003"><b>7B8003</b> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT</a><br />
+<a href="#7C_2"><b>7C</b> - INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER</a><br />
+
+<hr />
+
+<a href="#1080" name="1080"><b>1080</b></a> - INT 10 - CU Writer v1.4 - GET OPTION<br />
+<pre>
+INT 10 - CU Writer v1.4 - GET OPTION
+	AH = 80h
+	AL = desired option
+Return: ???
+Program: CU Writer is a public-domain Thai-English word processor from
+	  Chulalongkorn University, Bangkok
+SeeAlso: AH=81h"CU Writer"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1081" name="1081"><b>1081</b></a> - INT 10 - CU Writer v1.4 - SET OPTION<br />
+<pre>
+INT 10 - CU Writer v1.4 - SET OPTION
+	AH = 81h
+	???
+Return: ???
+SeeAlso: AH=80h"CU Writer"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A0" name="10A0"><b>10A0</b></a> - INT 10 - CU Writer v1.4 - SET PIXEL WRITE MODE<br />
+<pre>
+INT 10 - CU Writer v1.4 - SET PIXEL WRITE MODE
+	AH = A0h
+	???
+Return: ???
+Program: CU Writer is a public-domain Thai-English word processor from
+	  Chulalongkorn University, Bangkok
+SeeAlso: AH=80h"CU Writer",AH=B0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B0" name="10B0"><b>10B0</b></a> - INT 10 - CU Writer v1.4 - PUT PIXEL<br />
+<pre>
+INT 10 - CU Writer v1.4 - PUT PIXEL
+	AH = B0h
+	???
+Return: ???
+SeeAlso: AH=A0h"CU Writer",AH=B1h,AH=B2h,AH=B3h,AH=B4h,AH=B5h,AH=D0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B1" name="10B1"><b>10B1</b></a> - INT 10 - CU Writer v1.4 - MOVE TO<br />
+<pre>
+INT 10 - CU Writer v1.4 - MOVE TO
+	AH = B1h
+	???
+Return: ???
+SeeAlso: AH=B0h,AH=B2h,AH=C0h"CU Writer"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B2" name="10B2"><b>10B2</b></a> - INT 10 - CU Writer v1.4 - DRAW LINE TO<br />
+<pre>
+INT 10 - CU Writer v1.4 - DRAW LINE TO
+	AH = B2h
+	???
+Return: ???
+SeeAlso: AH=B0h,AH=B1h,AH=B3h,AH=B4h,AH=B5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B3" name="10B3"><b>10B3</b></a> - INT 10 - CU Writer v1.4 - FLOOD FILL<br />
+<pre>
+INT 10 - CU Writer v1.4 - FLOOD FILL
+	AH = B3h
+	???
+Return: ???
+SeeAlso: AH=B2h,AH=B5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B4" name="10B4"><b>10B4</b></a> - INT 10 - CU Writer v1.4 - DRAW RECTANGLE<br />
+<pre>
+INT 10 - CU Writer v1.4 - DRAW RECTANGLE
+	AH = B4h
+	???
+Return: ???
+SeeAlso: AH=B0h,AH=B2h,AH=B3h,AH=B5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10B5" name="10B5"><b>10B5</b></a> - INT 10 - CU Writer v1.4 - DRAW FILLED RECTANGLE<br />
+<pre>
+INT 10 - CU Writer v1.4 - DRAW FILLED RECTANGLE
+	AH = B5h
+	???
+Return: ???
+SeeAlso: AH=B0h,AH=B2h,AH=B3h,AH=B4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10C0" name="10C0"><b>10C0</b></a> - INT 10 - CU Writer v1.4 - GO TO TEXT ROW AND COLUMN<br />
+<pre>
+INT 10 - CU Writer v1.4 - GO TO TEXT ROW AND COLUMN
+	AH = C0h
+	???
+Return: ???
+SeeAlso: AH=B1h,AH=C1h,AH=C2h,AH=C3h,AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10C1" name="10C1"><b>10C1</b></a> - INT 10 - CU Writer v1.4 - OUTPUT TEXT<br />
+<pre>
+INT 10 - CU Writer v1.4 - OUTPUT TEXT
+	AH = C1h
+	???
+Return: ???
+SeeAlso: AH=C0h,AH=C2h,AH=C3h,AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10C2" name="10C2"><b>10C2</b></a> - INT 10 - CU Writer v1.4 - REVERSE TEXT<br />
+<pre>
+INT 10 - CU Writer v1.4 - REVERSE TEXT
+	AH = C2h
+	???
+Return: ???
+SeeAlso: AH=C0h,AH=C1h,AH=C3h,AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10C3" name="10C3"><b>10C3</b></a> - INT 10 - CU Writer v1.4 - TEXT BAR<br />
+<pre>
+INT 10 - CU Writer v1.4 - TEXT BAR
+	AH = C3h
+	???
+Return: ???
+SeeAlso: AH=C0h,AH=C1h,AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10C4" name="10C4"><b>10C4</b></a> - INT 10 - CU Writer v1.4 - TEXT MENU<br />
+<pre>
+INT 10 - CU Writer v1.4 - TEXT MENU
+	AH = C4h
+	???
+Return: ???
+SeeAlso: AH=C0h,AH=C1h,AH=C3h,AH=D0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10D0" name="10D0"><b>10D0</b></a> - INT 10 - CU Writer v1.4 - LOAD PICTURE<br />
+<pre>
+INT 10 - CU Writer v1.4 - LOAD PICTURE
+	AH = D0h
+	???
+Return: ???
+SeeAlso: AH=B0h"CU Writer",AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165500" name="165500"><b>165500</b></a> - INT 16 C - Microsoft Word internal - MICROSOFT WORD COOPERATION WITH TSR<br />
+<pre>
+INT 16 C - Microsoft Word internal - MICROSOFT WORD COOPERATION WITH TSR
+	AX = 5500h
+Return: AX = 4D53h ('MS') if keyboard TSR present
+Notes:	during startup, Microsoft Word tries to communicate with any TSRs
+	  that are present through this call.
+	if the return is not 4D53h, Word installs its own INT 09 and INT 16
+	  handlers; otherwise it assumes that the TSR will handle the keyboard
+SeeAlso: AX=55FFh,INT 1A/AX=3601h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1655FE" name="1655FE"><b>1655FE</b></a> - INT 16 CU - Microsoft QBASIC internal - MICROSOFT COOPERATION WITH TSR<br />
+<pre>
+INT 16 CU - Microsoft QBASIC internal - MICROSOFT COOPERATION WITH TSR
+	AX = 55FEh
+	DX = function
+	    0000h initialize
+		ES:BX -&gt; ??? function
+		ES:CX -&gt; ??? structure
+	    FFFFh shutdown/reset
+Return: AX = result
+	    4D4Bh only the INT 1B handler will be installed.
+	    other: handlers for INT 08, INT 09, INT 16, INT 1B, and INT 1C
+		  are installed
+Notes:	The pointer in ES:CX seems to point at a structure defining a callback
+	  function when new keyboard keys are pressed. If a TSR returns
+	  AX=4D4Bh, QBASIC will stop (with IRQ's and interrupts enabled).
+	these calls are also made by MS-DOS 6.0's DOSSHELL at startup, exit,
+	  and before/after shelling out
+	since EDIT.COM and HELP.COM merely invoke QBASIC, those two programs
+	  will also cause this interface to be invoked
+	K3PLUS v6.07+ supports this function, but will never invoke the
+	  callback function
+SeeAlso: AX=5500h,AX=AF4Dh,INT 1A/AX=3601h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A3601" name="1A3601"><b>1A3601</b></a> - INT 1A - WORD PERFECT v5.0 Third Party Interface - INSTALLATION CHECK<br />
+<pre>
+INT 1A - WORD PERFECT v5.0 Third Party Interface - INSTALLATION CHECK
+	AX = 3601h
+Return: DS:SI = routine to monitor keyboard input, immediately preceded by the
+		ASCIZ string "WPCORP\0"
+Notes:	WordPerfect 5.0 will call this interrupt at start up to determine if a
+	  third party product wants to interface with it.  The third party
+	  product must intercept this interrupt and return the address of a
+	  keyboard monitor routine.
+	Before checking for keyboard input, and after every key entered by the
+	  user, Word Perfect will call the routine whose address was provided
+	  in DS:SI with the following parameters:
+		Entry:	AX = key code or 0
+			BX = WordPerfect state flag
+		Exit:	AX = 0 or key code
+			BX = 0 or segment address of buffer with key codes
+	See the "WordPerfect 5.0 Developer's Toolkit" for further information.
+SeeAlso: INT 16/AX=5500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F636FBX6D70" name="6F636FBX6D70"><b>6F636FBX6D70</b></a> - INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK<br />
+<pre>
+INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK
+	AX = 636Fh ('co')
+	BX = 6D70h ('mp')
+	CX = 696Eh ('in')
+	SS:DX -&gt; WORD to set if installed
+Return: SS:DX word set to 636Fh if installed
+Program: Condition List Action Rejection Algorithm for the Evaluation
+	  of Music at Pseudo-Random Idea COnstruction STage
+	  (CLARA EMPRICOST) is an experimental program by Silas Brown
+SeeAlso: AX=636Fh/BX=6D70h"UNINSTALL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F636FBX6D70_0" name="6F636FBX6D70_0"><b>6F636FBX6D70</b></a> - INT 6F - Clara Empricost - TSR Version - UNINSTALL<br />
+<pre>
+INT 6F - Clara Empricost - TSR Version - UNINSTALL
+	AX = 636Fh ('co')
+	BX = 6D70h ('mp')
+	CX = 6F73h ('os')
+Return: nothing -- call installation check to determine whether successful
+Program: Condition List Action Rejection Algorithm for the Evaluation
+	  of Music at Pseudo-Random Idea COnstruction STage
+	  (CLARA EMPRICOST) is an experimental program by Silas Brown
+Notes:	 Saves any unfinished task and prevents processing of
+	   new tasks, even if can't uninstall
+	 If INT 28h or INT 6Fh have been chained since installation,
+	   returns without changing interrupts or freeing memory
+	 do not call while DOS is active (i.e. InDOS flag is nonzero or INT 28
+	   is active and InDOS &gt; 1)
+SeeAlso: AX=636Fh/BX=6D70h"INSTALLATION CHECK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#78_1" name="78_1"><b>78</b></a> - INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND<br />
+<pre>
+INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND
+	AX = function
+	    0001h begin plot
+		BX = file level
+		    0000h ASCII file
+		    0001h binary file
+		    0002h AutoCAD DXB file
+		    0003h installed ADI driver
+	    0002h end plot (close plotter)
+	    0003h move (pen up)
+		BX = new X position
+		CX = new Y position
+	    0004h move (pen down)
+		BX = new X position
+		CX = new Y position
+	    0005h select pen
+		BX = pen number
+	    0006h select drawing speed
+		BX = drawing speed N
+	    0007h select line style
+		BX = line style N
+	    0008h raise pen
+	    0009h abort plot
+Return: AX = 0000h (may be used for driver status in future releases)
+SeeAlso: INT 79"AutoCAD",INT 7A/AX=0001h"AutoCAD",INT 7B/AX=8001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#790001" name="790001"><b>790001</b></a> - INT 79 R - AutoCAD Device Interface - DIGITIZER - INITIALIZE<br />
+<pre>
+INT 79 R - AutoCAD Device Interface - DIGITIZER - INITIALIZE
+	AX = 0001h
+	BX = interface level (0001h)
+Return: AX = status (0000h initialization failed, 0001h init successful)
+	BX = digitizer type
+	    0000h relative pointing device (mouse, etc.)
+	    0001h digitizing tablet
+	CX = digitizer dataflow type
+	    0000h continuous
+	    0001h pauses between packets
+SeeAlso: AX=0002h,AX=0003h,INT 7A/AX=0001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#790002" name="790002"><b>790002</b></a> - INT 79 R - AutoCAD Device Interface - DIGITIZER - TERMINATE<br />
+<pre>
+INT 79 R - AutoCAD Device Interface - DIGITIZER - TERMINATE
+	AX = 0002h
+SeeAlso: AX=0001h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#790003" name="790003"><b>790003</b></a> - INT 79 R - AutoCAD Device Interface - DIGITIZER - GET DIGITIZER STATUS<br />
+<pre>
+INT 79 R - AutoCAD Device Interface - DIGITIZER - GET DIGITIZER STATUS
+	AX = 0003h
+Return: AX = status
+	    0000h nothing
+	    0002h tracking point (no button pressed)
+		BX = X coordinate
+		CX = Y coordinate
+	    0003h picked point (button 0,A,B,C,D pressed)
+		BX = X coordinate
+		CX = Y coordinate
+	    0004h button pick
+		BX = button number
+	    0005h button and coordinates
+		BX = button number
+		CX = X coordinate
+		DX = Y coordinate
+SeeAlso: AX=0001h,AX=0002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A0001" name="7A0001"><b>7A0001</b></a> - INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - DISPLAY - INITIALIZE (INIT1)
+	AX = 0001h
+	BX = configuration
+	CX = interface level (0001h)
+Return: AX = status
+	    0000h initialization failed
+	    0001h pre-v4.0 driver initialized successfully
+	    0003h post-v3.1 driver initialized successfully (driver truncates
+		  excessivly long packets)
+	BX = width of graphics area in pixels, or 0000h if using packet
+		  communication
+	DX:CX -&gt; packet-mode entry point (see #03832)
+SeeAlso: AX=0001h,AX=0200h,AX=07D0h,INT 61/AX=0007h"OPTIMA",INT 78"AutoCAD"
+SeeAlso: INT 79/AX=0001h,INT 7B/AX=8001h"AutoCAD",INT 7C"AutoShade"
+
+(Table 03832)
+Call packet-mode entry point with:
+STACK:	DWORD	pointer to request packet (see #03833)
+	WORD	length of packet
+
+Format of request packet:
+Offset	Size	Description	(Table 03833)
+ 00h	WORD	function number (00h-45h for Compaq VGADI41.EXE)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A0200BX0000" name="7A0200BX0000"><b>7A0200BX0000</b></a> - INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - RENDERING DEVICE - INITIALIZE (RDLINKUP)
+	AX = 0200h
+	BX = 0000h
+	CX = interface level (0001h)
+Return: BX = 0000h (driver uses packet communication)
+	DX:CX -&gt; packet-mode entry point (see #03832)
+SeeAlso: AX=0001h"AutoCAD",INT 79/AX=0001h,INT 7B/AX=8001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_2" name="7B_2"><b>7B</b></a> - INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA<br />
+<pre>
+INT 7B CR - AutoCAD Device Interface - PRINTER/PLOTTER - SEND PLOTTING DATA
+	AX = data length (0000h-7FFFh)
+	CX:BX -&gt; data to be plotted
+	DX = vertical position of line on page
+Return: nothing
+Notes:	This interrupt is called by AutoCAD to perform its output
+	A data length of 0000h indicates that a blank line is to be output
+SeeAlso: AX=8001h,AX=8002h,INT 78"AutoCAD",INT 7A/AX=0001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8001" name="7B8001"><b>7B8001</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - BEGIN PLOT
+	AX = 8001h
+	BX = file level
+	    0000h binary file
+	    0001h CAD/camera image file
+	    0002h installed ADI driver
+	CX = horizontal size in pixels
+	DX = vertical size in pixels
+Return: AX = status (0000h initialization failed, 0001h init successful)
+	BX = allowed output format
+	    0000h monochrome
+	    0001h color (4 bits per pixel)
+SeeAlso: AX=8002h,AX=8003h,INT 7B"AutoCAD",INT 7C"AutoShade"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8002" name="7B8002"><b>7B8002</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - END PLOT
+	AX = 8002h
+SeeAlso: AX=8001h,AX=8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B8003" name="7B8003"><b>7B8003</b></a> - INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT<br />
+<pre>
+INT 7B R - AutoCAD Device Interface - PRINTER/PLOTTER - ABORT PLOT
+	AX = 8003h
+SeeAlso: AX=8001h,AX=8002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_2" name="7C_2"><b>7C</b></a> - INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER<br />
+<pre>
+INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER
+Note:	this is the default interrupt vector for rendering hardcopy drivers
+	  instead of INT 7A used by AutoCAD drivers
+SeeAlso: INT 7A/AX=0001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

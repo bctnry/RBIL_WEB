@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._D4</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT D4
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#D4"><b>D4</b> - INT D4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D4_0"><b>D4</b> - INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D400"><b>D400</b> - INT D4 O - PC-MOS/386 v5.01 - OBSOLETE FUNCTIONS</a><br />
+<a href="#D402"><b>D402</b> - INT D4 - PC-MOS/386 v3.0+ - GET SYSTEM CONTROL BLOCK POINTER</a><br />
+<a href="#D403"><b>D403</b> - INT D4 - PC-MOS/386 v5.01 - GET/SET EXTENDED DIRECTORY INFORMATION</a><br />
+<a href="#D404"><b>D404</b> - INT D4 - PC-MOS/386 v3.0+ - GET TASK CONTROL BLOCK</a><br />
+<a href="#D407"><b>D407</b> - INT D4 - PC-MOS/386 v3.0+ - WAIT FOR EVENT</a><br />
+<a href="#D410"><b>D410</b> - INT D4 - PC-MOS/386 v3.0+ - ENTER/LEAVE NATIVE 386 EXECUTION MODE</a><br />
+<a href="#D411"><b>D411</b> - INT D4 - PC-MOS/386 v3.0+ - ALLOCATE NATIVE MODE MEMORY BLOCK</a><br />
+<a href="#D412"><b>D412</b> - INT D4 - PC-MOS/386 v3.0+ - FREE NATIVE MODE MEMORY BLOCK</a><br />
+<a href="#D413"><b>D413</b> - INT D4 - PC-MOS/386 v5.01 - GET ALIAS FOR SELECTOR (NATIVE MODE ONLY)</a><br />
+<a href="#D416"><b>D416</b> - INT D4 - PC-MOS/386 v5.01 - SET/CLEAR IRQ RESERVATION</a><br />
+<a href="#D419"><b>D419</b> - INT D4 - PC-MOS/386 v5.01 - GET TASK ID</a><br />
+<a href="#D41A"><b>D41A</b> - INT D4 - PC-MOS/386 v5.01 - GET/SET TASK PRIORITY</a><br />
+<a href="#D41B"><b>D41B</b> - INT D4 - PC-MOS/386 v5.01 - GET/SET TIME SLICE</a><br />
+<a href="#D41C"><b>D41C</b> - INT D4 - PC-MOS/386 v5.01 - GET/SET KEYBOARD MODE</a><br />
+<a href="#D41D"><b>D41D</b> - INT D4 - PC-MOS/386 v5.01 - GET CURRENT PROGRAM NAME</a><br />
+<a href="#D41E"><b>D41E</b> - INT D4 - PC-MOS/386 v5.01 - GET CURRENT USERNAME AND SECURITY CLASS</a><br />
+<a href="#D41F"><b>D41F</b> - INT D4 - PC-MOS/386 v5.01 - GET TASK PARTITION INFORMATION</a><br />
+<a href="#D420"><b>D420</b> - INT D4 - PC-MOS/386 v5.01 - GET PORT AND BAUDRATE INFORMATION</a><br />
+<a href="#D421"><b>D421</b> - INT D4 - PC-MOS/386 v5.01 - REMOVE A TASK</a><br />
+<a href="#D422"><b>D422</b> - INT D4 - PC-MOS/386 v5.01 - ADD A TASK TO THE SYSTEM</a><br />
+<a href="#D423"><b>D423</b> - INT D4 - PC-MOS/386 v5.01 - CHANGE TERMINAL DRIVER</a><br />
+<a href="#D424"><b>D424</b> - INT D4 U - PC-MOS/386 v5.01 - GET OPERATING SYSTEM SERIAL NUMBER</a><br />
+<a href="#D425"><b>D425</b> - INT D4 - PC-MOS/386 v5.01 - IDENTIFY LOAD ADDRESS OF DEVICE DRIVER LOCATION</a><br />
+<a href="#D426"><b>D426</b> - INT D4 - PC-MOS/386 v5.01 - GET SYSTEM CONTROL BLOCK SEGMENT/SELECTOR</a><br />
+<a href="#D427"><b>D427</b> - INT D4 - PC-MOS/386 v5.01 - GET TASK CONTROL BLOCK SEGMENT/SELECTOR</a><br />
+<a href="#D428"><b>D428</b> - INT D4 - PC-MOS/386 v5.01 - GET CONTROL BLOCK DATA FROM SCB OR TCB</a><br />
+<a href="#D429"><b>D429</b> - INT D4 - PC-MOS/386 v5.01 - WRITE CONTROL BLOCK DATA INTO SCB OR TCB</a><br />
+<a href="#D42A"><b>D42A</b> - INT D4 - PC-MOS/386 v5.01 - SWAP CONTROL BLOCK DATA OF SCB OR TCB</a><br />
+<a href="#D42C"><b>D42C</b> - INT D4 - PC-MOS/386 v5.01 - GET/SET SPOOLER PARAMETERS</a><br />
+<a href="#D42D"><b>D42D</b> - INT D4 - PC-MOS/386 v5.01 - GET MAXIMUM TASK SIZE</a><br />
+
+<hr />
+
+<a href="#D4" name="D4"><b>D4</b></a> - INT D4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D3"BASIC",INT D5"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D4_0" name="D4_0"><b>D4</b></a> - INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D400" name="D400"><b>D400</b></a> - INT D4 O - PC-MOS/386 v5.01 - OBSOLETE FUNCTIONS<br />
+<pre>
+INT D4 O - PC-MOS/386 v5.01 - OBSOLETE FUNCTIONS
+	AH = 00h and 01h
+Return: nothing
+Desc:	PC-MOS/386 v5.01 reports that these functions are no longer supported
+	  and enters an endless loop
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D402" name="D402"><b>D402</b></a> - INT D4 - PC-MOS/386 v3.0+ - GET SYSTEM CONTROL BLOCK POINTER<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - GET SYSTEM CONTROL BLOCK POINTER
+	AH = 02h
+Return: AX = 0000h
+	ES:BX -&gt; System Control Block in V86 mode (see #04004)
+	ES:EBX -&gt; System Control Block in native mode (see #04004)
+Note:	superseded by AH=26h
+SeeAlso: AH=04h,AH=10h,AH=26h,AH=28h,AH=29h,AH=2Ah,INT 21/AX=3000h,INT 38
+
+Format of PC-MOS/386 System Control Block:
+Offset	Size	Description	(Table 04004)
+ 00h	WORD	pointer to first TCB in chain
+ 02h 17 BYTEs	reserved
+ 13h	WORD	pointer to current task's TCB
+ 15h	WORD	pointer to TCB of visible (console) task
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D403" name="D403"><b>D403</b></a> - INT D4 - PC-MOS/386 v5.01 - GET/SET EXTENDED DIRECTORY INFORMATION<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET/SET EXTENDED DIRECTORY INFORMATION
+	AH = 03h
+	AL = subfunction (00h get, 01h set)
+	DS:(E)DX -&gt; pathname
+	ES:(E)BX -&gt; 10-byte buffer for directory information (see #04005)
+Return: CF clear if successful
+	    AL = permitted access level for file (00h-03h)
+	    ES:(E)BX -&gt; modified buffer (AL=01h on entry)
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Notes:	BX/DX are used in V86 mode, EBX/EDX in native mode
+	the file class cannot be changed for files because it affects the
+	  encryption method, but directories can have their classes changed
+
+Format of PC-MOS/386 directory information:
+Offset	Size	Description	(Table 04005)
+ 00h	BYTE	reserved (0)
+ 01h	BYTE	file class ('A'-'Z' or 00h)
+ 02h	DWORD	user ID of file creator
+ 06h	WORD	file creation time (see #01665 at INT 21/AX=5700h)
+ 08h	WORD	file creation date (see #01666 at INT 21/AX=5700h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D404" name="D404"><b>D404</b></a> - INT D4 - PC-MOS/386 v3.0+ - GET TASK CONTROL BLOCK<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - GET TASK CONTROL BLOCK
+	AH = 04h
+	BX = task ID or FFFFh for calling task
+Return: CF clear if successful
+	    ES = segment of Task Control Block (TCB) (see #04006)
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Note:	superseded by AH=27h
+SeeAlso: AH=02h,AH=27h,AH=28h,AH=29h,AH=2Ah,INT 38
+
+Format of PC-MOS/386 Task Control Block:
+Offset	Size	Description	(Table 04006)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "T" = TCB
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---TCB---
+ 10h	WORD	TCB task ID
+ 12h	WORD	native context save area
+ 14h	WORD	start address of task
+ 16h	WORD	end address of task
+ 18h	BYTE	task priority
+ 19h	BYTE	task time slice
+ 1Ah	BYTE	"TCBWAIT" run status of task
+ 1Bh	BYTE	"TCBSTAT" what the task is waiting for
+ 1Ch	DWORD	address of polling routine
+ 20h	BYTE	error code from last function call
+ 21h 11 BYTEs	name of currently executing task
+ 2Ch  4 BYTEs	???
+ 30h	BYTE	keyboard disabled if bit 1 set
+ 31h	BYTE	current shift state and toggles
+ 32h  2 BYTEs	???
+ 34h	BYTE	current video mode
+ 35h	BYTE	current video page
+ 36h	BYTE	number of text columns per screen
+ 37h	BYTE	number of text rows per screen
+ 38h	WORD	length of video buffer
+ 3Ah	WORD	video page length
+ 3Ch	WORD	apge start address in video RAM
+ 3Eh  4 WORDs	current cursor positions for four screen pages
+ 46h  8 BYTEs	???
+ 4Eh	WORD	current cursor type
+ 50h	BYTE	current palette setting
+ 51h	BYTE	original video mode
+ 52h	BYTE	start CRT row (00h or 01h)
+ 53h	BYTE	video RAM in task active
+ 54h	WORD	handle of video save area
+ 56h	WORD	page count of video save area
+ 58h	WORD	segment address of video save area
+ 5Ah	WORD	poitner to first Task File Block (see #04009)
+ 5Ch	WORD	pointer to first Current Directory Block (see #04012)
+ 5Eh	WORD	pointer to active Current Directory Block (see #04012)
+ 60h	BYTE	number of drives
+ 61h	BYTE	current drive (0=A:, etc.)
+ 62h	DWORD	disk transfer address
+ 66h  4 BYTEs	???
+ 6Ah	BYTE	verify flag (nonzero = on)
+ 6Bh	BYTE	break flag (nonzero = on)
+ 6Ch	WORD	share/lock retry count
+ 6Eh	WORD	ticks between share/lock retries
+ 70h	BYTE	remote printer flags (see #04007)
+ 71h	BYTE	ETX/ACK delay count
+ 72h	WORD	spooler segment address
+ 74h  2 BYTEs	???
+ 76h  3 BYTEs	remote printer redirection for LPT1 through LPT3 (see #04008)
+ 79h  2 BYTEs	???
+ 7Bh	DWORD	offset of username in TCB
+ 7Fh	BYTE	current output class
+ 80h  7 BYTEs	protection access rights, 2 bits per class (writeable!)
+ 87h 122 BYTEs	???
+101h	BYTE	TCB sleep downcounter value
+102h 20 BYTEs	???
+116h	BYTE	last scan code
+	...
+5D0h	DWORD	far pointer to Device Driver Terminal's entry point
+5D4h	WORD	offset of logical screen
+5D6h	WORD	segment of logical screen
+5D8h	WORD	cursor offset within page
+5DAh	BYTE	screen columns
+5DBh	WORD	async port number (0000h = none)
+5DDh	DWORD	physical baudrate
+5E1h 19 BYTEs	reserved for Device Driver Terminal (DDT)
+	...
+7A6h	DWORD	far pointer to unregister calling chain
+
+Bitfields for PC-MOS/386 remote printer flags:
+Bit(s)	Description	(Table 04007)
+ 0	LPT1 to terminal
+ 1	LPT2 to terminal
+ 2	LPT3 to terminal
+ 3	escape to printer pending
+ 4	use XON/XOFF
+ 5	use ETX/ACK
+ 6	waiting for ACK or XON
+ 7	transparent printing on
+
+(Table 04008)
+Values for PC-MOS/386 remote printer redirection:
+ 00h	not redirected
+ 01h	redirected to COM1
+ ...
+ 18h	redirected to COM24
+ 51h	redirected to LPT1
+ 52h	redirected to LPT2
+ 53h	redirected to LPT3
+
+Format of PC-MOS/386 Task File Block:
+Offset	Size	Description	(Table 04009)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "F" = task file block
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---TFB---
+ 10h	WORD	segment address of next TFB
+ 12h	WORD	segment address of previous TFB
+ 14h	WORD	segment address of TFB's Global File Block (see #04011)
+ 16h	WORD	segment address of owner's PSP
+ 18h	WORD	file handle
+ 1Ah  3 BYTEs	???
+ 1Dh	DWORD	file position
+ 21h  4 BYTEs	???
+ 25h	BYTE	IOCTL flags (see #04010)
+ 26h  2 BYTEs	???
+
+Bitfields for PC-MOS/386 IOCTL flags:
+Bit(s)	Description	(Table 04010)
+ 0	stdin
+ 1	stdout
+ 2	null device
+ 3	clock device
+ 4	reserved
+ 5	ASCII mode instead of binary
+ 6	EOF encountered on input
+ 7	device rather than file
+
+Format of PC-MOS/386 Global File Block:
+Offset	Size	Description	(Table 04011)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "G" = global file block
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---GFB---
+ 10h 10 BYTEs	???
+ 1Ah	WORD	file attribute
+ 1Ch	BYTE	???
+ 1Dh	DWORD	address of device driver
+ 21h	WORD	first cluster
+ 23h	WORD	time of last modification
+ 25h	WORD	date of last modification
+ 27h	DWORD	size of file in bytes
+ 2Bh 11 BYTEs	???
+ 36h 11 BYTEs	device name or FCB-format filename
+ 41h	WORD	segment address of TFB list
+ 43h	WORD	segment address of first RLB (see #04014) (0000h = none)
+ 45h	BYTE	flag: nonzero if GFB refers to character device
+ 46h	WORD	address of Block Device Block (see #04013)
+ 48h	WORD	sector of file's directory entry (see #01352)
+ 4Ah	WORD	high word of file's directory entry
+ 4Ch	WORD	ofsset of directory entry within sector
+
+Format of PC-MOS/386 Current Directory Block:
+Offset	Size	Description	(Table 04012)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "C" = current directory block
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---CDB---
+ 10h	BYTE	drive number
+ 11h	BYTE	???
+ 12h 64 BYTEs	directory name
+ 52h	WORD	first directory cluster (0000h = root)
+
+Format of PC-MOS/386 Block Device Block:
+Offset	Size	Description	(Table 04013)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "B" = block device block
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---BDB---
+ 10h	BYTE	logical drive
+ 11h	BYTE	unit passed to driver
+ 12h	WORD	sector size
+ 14h	BYTE	cluster mask
+ 15h	BYTE	cluster shift count
+ 16h	WORD	starting sector of first FAT
+ 18h	BYTE	number of FATs
+ 19h	WORD	number of root directories
+ 1Bh	WORD	sector number of first data sector (cluster 0002h)
+ 1Dh	WORD	number of clusters + 1 (number of highest data cluster)
+ 1Fh	BYTE	number of sectors in FAT
+ 20h	WORD	beginning root directory sector number
+ 22h	DWORD	device driver address
+ 26h	BYTE	media descriptor byte
+ 27h  5 BYTEs	???
+ 2Ch	BYTE	flag: volume &gt; 32MB
+ 2Dh	BYTE	???
+ 2Eh	BYTE	number of sectors per cluster
+ 2Fh	WORD	number of clusters on device
+ 31h	WORD	number of free clusters (FFFFh = unknown)
+ 33h	WORD	root directory cluster number
+ 35h	WORD	pointer to alias/subst string
+ 37h	WORD	TCB segment address of owner (0000h = none)
+
+Format of PC-MOS/386 Record Lock Block:
+Offset	Size	Description	(Table 04014)
+ 00h	BYTE	signature byte "H" if allocated from system memory pool
+ 01h	BYTE	header block ID, "R" = record lock block
+ 02h	WORD	length of block in paragraphs
+ 04h	WORD	segment address of next header block (0000h if last)
+ 06h	WORD	segment address of previous header block (0000h if first)
+ 08h	WORD	pointer to next TCB
+ 0Ah	WORD	pointer to previous TCB
+ 0Ch	WORD	pointer to associated TCB (if applicable)
+ 0Eh	WORD	reserved
+---RLB---
+ 10h	WORD	segment address of owner's PSP
+ 12h	WORD	segment address of Global File Block (see #04011)
+ 14h	WORD	segment address of owner's Task File Block (see #04009)
+ 16h	DWORD	file offset of locked region start
+ 1Ah	DWORD	length of locked region
+ 1Eh	WORD	owner's handle for file
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D407" name="D407"><b>D407</b></a> - INT D4 - PC-MOS/386 v3.0+ - WAIT FOR EVENT<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - WAIT FOR EVENT
+	AH = 07h
+	AL = events to monitor (see #04015)
+	BX = number of timer ticks until timeout if AL bit 1 set
+	CX = bitmap of IRQs to monitor if AL bit 2 set
+		(bit 0 = IRQ0 .. bit 15 = IRQ15)
+	DX = port to monitor if AL bit 3 set
+Return: CF clear if successful
+	    AL = type of event which woke up task (see #04015)
+	    CX = IRQ (if any) which awakened task
+	    DX = port (if any) which awakened task
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Note:	a device driver may make this call with AL=00h, which indicates that
+	  the driver is responsible for setting and clearing the TCBWAIT field
+	  in the TCB.  To put task to sleep, set TCBWAIT bits 2-0 to 001; to
+	  reawaken it, set bit 1 (leaving other bits unchanged)
+SeeAlso: AH=04h,INT 16/AH=00h,INT 38
+
+Bitfields for PC-MOS/386 events to monitor:
+Bit(s)	Description	(Table 04015)
+ 0	keystroke
+ 1	timeout
+ 2	IRQ
+ 3	port access
+ 7	return status of user poll routine (other ignored if set)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D410" name="D410"><b>D410</b></a> - INT D4 - PC-MOS/386 v3.0+ - ENTER/LEAVE NATIVE 386 EXECUTION MODE<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - ENTER/LEAVE NATIVE 386 EXECUTION MODE
+	AH = 10h
+	AL = direction (00h return to V86 mode, 01h enter native mode)
+	CX = length in bytes of Native Context Area ( &gt;=1024 )
+	DX = segment of Native Context Area
+Return: CF clear if successful
+	    running in desired mode at instruction following INT D4 call
+	    all segment registers converted to appropriate selectors/segments
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Note:	MS-DOS calls are available in protected mode
+SeeAlso: AH=11h,AH=12h,AH=13h,INT 2F/AX=1687h,INT 67/AX=DE0Ch,INT 38
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D411" name="D411"><b>D411</b></a> - INT D4 - PC-MOS/386 v3.0+ - ALLOCATE NATIVE MODE MEMORY BLOCK<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - ALLOCATE NATIVE MODE MEMORY BLOCK
+	AH = 11h
+	EBX = block length in bytes
+Return: CF clear if successful
+	    EBX = number of bytes actually allocated
+	    ES = selector for allocated block
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+Note:	the memory must be released before the program terminates
+SeeAlso: AH=10h,AH=12h,INT 38
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D412" name="D412"><b>D412</b></a> - INT D4 - PC-MOS/386 v3.0+ - FREE NATIVE MODE MEMORY BLOCK<br />
+<pre>
+INT D4 - PC-MOS/386 v3.0+ - FREE NATIVE MODE MEMORY BLOCK
+	AH = 12h
+	ES = selector for block to free
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=10h,AH=11h,AH=13h,INT 38
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D413" name="D413"><b>D413</b></a> - INT D4 - PC-MOS/386 v5.01 - GET ALIAS FOR SELECTOR (NATIVE MODE ONLY)<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET ALIAS FOR SELECTOR (NATIVE MODE ONLY)
+	AH = 13h
+	AL = type of alias selector (00h data, 01h stack, 02h code)
+	BX = selector
+Return: CF clear if successful
+	    AX = new selector or 0000h if BX selector not found
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=11h,AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D416" name="D416"><b>D416</b></a> - INT D4 - PC-MOS/386 v5.01 - SET/CLEAR IRQ RESERVATION<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - SET/CLEAR IRQ RESERVATION
+	AH = 16h
+	AL = function (00h clear, 01h set reservation)
+	CX = IRQ number
+Return: AX = status
+	    (0000h successful, 0001h currently reserved by another task)
+SeeAlso: AH=07h,INT 14/AH=11h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D419" name="D419"><b>D419</b></a> - INT D4 - PC-MOS/386 v5.01 - GET TASK ID<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET TASK ID
+	AH = 19h
+Return: BX = caller's task ID
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=1Dh,AH=1Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41A" name="D41A"><b>D41A</b></a> - INT D4 - PC-MOS/386 v5.01 - GET/SET TASK PRIORITY<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET/SET TASK PRIORITY
+	AH = 1Ah
+	AL = subfunction (00h read, 01h set, 02h get and set)
+	BX = task ID (FFFFh for current task)
+	CL = new priority value
+Return: CF clear if successful
+	    CL = current priority value
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=1Bh,AH=1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41B" name="D41B"><b>D41B</b></a> - INT D4 - PC-MOS/386 v5.01 - GET/SET TIME SLICE<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET/SET TIME SLICE
+	AH = 1Bh
+	AL = subfunction (00h read, 01h set, 02h get and set)
+	BX = task ID (FFFFh for current task) (see AH=19h)
+	CL = new time slice value
+Return: CF clear if successful
+	    CL = current time slice value
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=1Ah,AH=1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41C" name="D41C"><b>D41C</b></a> - INT D4 - PC-MOS/386 v5.01 - GET/SET KEYBOARD MODE<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET/SET KEYBOARD MODE
+	AH = 1Ch
+	AL = subfunction (00h enable, 01h disable, 02h get mode)
+	BX = task ID (FFFFh for current task)
+Return: CF clear if successful
+	    CL = current keyboard state
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=1Ah,AH=1Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41D" name="D41D"><b>D41D</b></a> - INT D4 - PC-MOS/386 v5.01 - GET CURRENT PROGRAM NAME<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET CURRENT PROGRAM NAME
+	AH = 1Dh
+	BX = task ID (FFFFh for current task) (see AH=19h)
+	ES:DI -&gt; buffer for program name (see #04016)
+Return: CF clear if successful
+	    ES:DI buffer filled
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=19h,AH=1Eh
+
+Format of PC-MOS/386 program name buffer:
+Offset	Size	Description	(Table 04016)
+ 00h  8 BYTEs	filename
+ 08h  3 BYTEs	extension
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41E" name="D41E"><b>D41E</b></a> - INT D4 - PC-MOS/386 v5.01 - GET CURRENT USERNAME AND SECURITY CLASS<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET CURRENT USERNAME AND SECURITY CLASS
+	AH = 1Eh
+	BX = task ID (FFFFh for current task)
+	ES:DI -&gt; 4-byte buffer for username
+Return: CF clear if successful
+	    CL = security class
+		20h (' ') none
+		41h-5Ah ('A'-'Z') security level
+	    ES:DI buffer filled
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=19h,AH=1Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D41F" name="D41F"><b>D41F</b></a> - INT D4 - PC-MOS/386 v5.01 - GET TASK PARTITION INFORMATION<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET TASK PARTITION INFORMATION
+	AH = 1Fh
+	BX = task ID (FFFFh for current task) (see AH=19h)
+Return: CF clear if successful
+	    CX = start segment of task
+	    DX = ending segment of task
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=2Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D420" name="D420"><b>D420</b></a> - INT D4 - PC-MOS/386 v5.01 - GET PORT AND BAUDRATE INFORMATION<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET PORT AND BAUDRATE INFORMATION
+	AH = 20h
+	BX = task ID (FFFFh for current task) (see AH=19h)
+Return: CF clear if successful
+	    CX = port number (0000h if none)
+	    DI:SI = baudrate (if CX nonzero)
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: INT 14/AH=0Ch"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D421" name="D421"><b>D421</b></a> - INT D4 - PC-MOS/386 v5.01 - REMOVE A TASK<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - REMOVE A TASK
+	AH = 21h
+	BX = task ID (FFFFh for current task) (see AH=19h)
+Return: CF clear if successful
+	    AX = ASCII percentage of System Memory Pool used
+		(AH = tens digit, AL = ones digit)
+	    DS,SI destroyed
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D422" name="D422"><b>D422</b></a> - INT D4 - PC-MOS/386 v5.01 - ADD A TASK TO THE SYSTEM<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - ADD A TASK TO THE SYSTEM
+	AH = 22h
+	DS:SI -&gt; addtask data structure (see #04018)
+Return: CF clear if successful
+	    ES = segment address of the new task's TCB data structure
+	CF set on error
+	    AX = error code (see #04017)
+SeeAlso: AH=21h
+
+(Table 04017)
+Values for PC-MOS/386 error code:
+ 08h	insufficient memory
+ 0Bh	invalid addtask structure format
+ 12h	insufficient available space in system memory pool
+ 1Fh	general failure
+ 55h	already allocated
+ 57h	if task already in use or invalid parameter
+
+Format of PC-MOS/386 addtask data structure:
+Offset	Size	Description	(Table 04018)
+ 00h	WORD	task size in KB (min 16KB)
+ 02h	WORD	task ID (0000h for automatic selection)
+ 04h	BYTE	task class (' ' or 'A'-'Z')
+ 05h	DWORD	-&gt; ASCIZ name of task startup batchfile
+ 09h	DWORD	-&gt; task's terminal driver (0000000h = background task)
+ 0Dh	WORD	task port
+ 0Fh	DWORD	task baud rate
+ 13h	DWORD	(ret) total extended memory
+ 17h	DWORD	(ret) number of 4K extended memory pages allocated
+ 1Bh	WORD	(ret) paragraphs of system memory pool allocated
+ 1Dh	WORD	(ret) system memory pool size in paragraphs
+ 1Fh	WORD	(ret) ASCII task percentage of system memory pool
+ 21h  3 BYTEs	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D423" name="D423"><b>D423</b></a> - INT D4 - PC-MOS/386 v5.01 - CHANGE TERMINAL DRIVER<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - CHANGE TERMINAL DRIVER
+	AH = 23h
+	BX = task ID (FFFFh for current task)
+	DS:SI -&gt; entry point of the new Device Driver Terminal
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D424" name="D424"><b>D424</b></a> - INT D4 U - PC-MOS/386 v5.01 - GET OPERATING SYSTEM SERIAL NUMBER<br />
+<pre>
+INT D4 U - PC-MOS/386 v5.01 - GET OPERATING SYSTEM SERIAL NUMBER
+	AH = 24h
+Return: DS:DX -&gt; '$'-terminated string containing the serial number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D425" name="D425"><b>D425</b></a> - INT D4 - PC-MOS/386 v5.01 - IDENTIFY LOAD ADDRESS OF DEVICE DRIVER LOCATION<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - IDENTIFY LOAD ADDRESS OF DEVICE DRIVER LOCATION
+	AH = 25h
+	DX = driver's CS value
+Return: AX = segment address of driver in system memory pool
+	    (0000h if the driver is not within the system memory pool)
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D426" name="D426"><b>D426</b></a> - INT D4 - PC-MOS/386 v5.01 - GET SYSTEM CONTROL BLOCK SEGMENT/SELECTOR<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET SYSTEM CONTROL BLOCK SEGMENT/SELECTOR
+	AH = 26h
+Return: DX = segment/selector of the System Control Block (see #04004)
+Note:	this function supersedes AH=02h
+SeeAlso: AH=02h,AH=27h,AH=28h,AH=29h,AH=2Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D427" name="D427"><b>D427</b></a> - INT D4 - PC-MOS/386 v5.01 - GET TASK CONTROL BLOCK SEGMENT/SELECTOR<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET TASK CONTROL BLOCK SEGMENT/SELECTOR
+	AH = 27h
+	BX = task ID (FFFFh if current task) (see AH=19h)
+Return: CF clear if successful
+	    DX = segment/selector for the Task Control Block (see #04006)
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+Note:	this function supersedes AH=04h
+SeeAlso: AH=26h,AH=28h,AH=29h,AH=2Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D428" name="D428"><b>D428</b></a> - INT D4 - PC-MOS/386 v5.01 - GET CONTROL BLOCK DATA FROM SCB OR TCB<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET CONTROL BLOCK DATA FROM SCB OR TCB
+	AH = 28h
+	BX = offset into control block at which to start reading
+	CX = number of bytes to read
+	DX = segment/selector of control block obtained via AH=26h or AH=27h
+	ES:DI -&gt; buffer for data
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also #01680 at INT 21/AH=59h/BX=0000h)
+		05h access denied due to an invalid segment/selector
+SeeAlso: AH=26h,AH=27h,AH=29h,AH=2Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D429" name="D429"><b>D429</b></a> - INT D4 - PC-MOS/386 v5.01 - WRITE CONTROL BLOCK DATA INTO SCB OR TCB<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - WRITE CONTROL BLOCK DATA INTO SCB OR TCB
+	AH = 29h
+	BX = offset into control block at which to start writing
+	CX = number of bytes to write
+	DX = segment/selector of control block obtained via AH=26h or AH=27h
+	DS:SI -&gt; buffer containing data to be written
+Return: CF clear if successful
+	CF set on errro
+	    AX = error code (see also #01680 at INT 21/AH=59h/BX=0000h)
+		05h access denied due to an invalid segment/selector
+Note:	 this function performs no bounds checking
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=26h,AH=27h,AH=28h,AH=2Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D42A" name="D42A"><b>D42A</b></a> - INT D4 - PC-MOS/386 v5.01 - SWAP CONTROL BLOCK DATA OF SCB OR TCB<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - SWAP CONTROL BLOCK DATA OF SCB OR TCB
+	AH = 2Ah
+	BX = offset into control block at which to start swap
+	CX = number of bytes to swap
+	DX = segment/selector of control block obtained via AH=26h or AH=27h
+	DS:SI -&gt; buffer containing new data and to receive current data
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also #01680 at INT 21/AH=59h/BX=0000h)
+		05h access denied due to an invalid segment/selector
+Note:	the interrupts are disabled during the swap to prevent corruption
+SeeAlso: AH=26h,AH=27h,AH=28h,AH=29h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D42C" name="D42C"><b>D42C</b></a> - INT D4 - PC-MOS/386 v5.01 - GET/SET SPOOLER PARAMETERS<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET/SET SPOOLER PARAMETERS
+	AH = 2Ch
+	AL = function
+	    00h set spooler timeout
+		CX = timout value in seconds
+	    01h get spooler timeout
+		Return: CX = current timeout in seconds
+	    02h get spooler parameters
+		Return: CH = priority (00h-09h)
+			CL = disposition (d, h, i, n, s)
+			SI = class (a - z)
+	    03h set spooler parameters
+		CH = priority (00h-09h)
+		CL = disposition (d, h, i, n, s)
+		SI = class (a - z)
+		BX = task ID (FFFFh for current task)
+		DX = LPT number
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AH=00h,AH=02h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D42D" name="D42D"><b>D42D</b></a> - INT D4 - PC-MOS/386 v5.01 - GET MAXIMUM TASK SIZE<br />
+<pre>
+INT D4 - PC-MOS/386 v5.01 - GET MAXIMUM TASK SIZE
+	AH = 2Dh
+Return: DX = maximum task size in paragraphs
+	BX = start address of task space
+Program: PC-MOS/386 is a multitasking/multiuser MS-DOS-compatible operating
+	  system by The Software Link, Inc.
+SeeAlso: AH=1Fh,AH=22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

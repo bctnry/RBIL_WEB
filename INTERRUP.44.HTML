@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._44</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 44
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#44"><b>44</b> - INT 44 - VIDEO DATA - ROM BIOS CHARACTER FONT, CHARACTERS 00h-7Fh (PCjr)</a><br />
+<a href="#44_0"><b>44</b> - INT 44 - Novell NetWare - HIGH-LEVEL LANGUAGE API</a><br />
+<a href="#44_1"><b>44</b> - INT 44 - IBM 3270-PC High Level Language API</a><br />
+<a href="#44_2"><b>44</b> - INT 44 - Z100 - Master 8259 - Serial A</a><br />
+<a href="#44_3"><b>44</b> - INT 44 - TI Professional PC - IRQ4</a><br />
+<a href="#44_4"><b>44</b> - INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#4400"><b>4400</b> - INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE</a><br />
+<a href="#44_5"><b>44</b> - INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE</a><br />
+
+<hr />
+
+<a href="#44" name="44"><b>44</b></a> - INT 44 - VIDEO DATA - ROM BIOS CHARACTER FONT, CHARACTERS 00h-7Fh (PCjr)<br />
+<pre>
+INT 44 - VIDEO DATA - ROM BIOS CHARACTER FONT, CHARACTERS 00h-7Fh (PCjr)
+Desc:	this vector points at graphics data for current character font
+SeeAlso: INT 1F"SYSTEM DATA",INT 43"VIDEO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_0" name="44_0"><b>44</b></a> - INT 44 - Novell NetWare - HIGH-LEVEL LANGUAGE API<br />
+<pre>
+INT 44 - Novell NetWare - HIGH-LEVEL LANGUAGE API
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_1" name="44_1"><b>44</b></a> - INT 44 - IBM 3270-PC High Level Language API<br />
+<pre>
+INT 44 - IBM 3270-PC High Level Language API
+	DS:SI -&gt; parameter control block
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_2" name="44_2"><b>44</b></a> - INT 44 - Z100 - Master 8259 - Serial A<br />
+<pre>
+INT 44 - Z100 - Master 8259 - Serial A
+SeeAlso: INT 43"Z100",INT 45"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_3" name="44_3"><b>44</b></a> - INT 44 - TI Professional PC - IRQ4<br />
+<pre>
+INT 44 - TI Professional PC - IRQ4
+Note:	on the TI Pro, IRQ4 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ5
+SeeAlso: INT 0D"IRQ5",INT 43"TI Professional",INT 45"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_4" name="44_4"><b>44</b></a> - INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 44 - VIRUS - "Lehigh" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 32"VIRUS",INT 60"VIRUS",INT 70"VIRUS",INT 9E"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4400" name="4400"><b>4400</b></a> - INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE<br />
+<pre>
+INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE
+	AH = 00h
+	AL = function
+	    00h get current filing system
+		Return: AL = filing system (see #03200)
+	    01h get address of commandline tail
+		Return: BX buffer filled with address of command tail in I/O
+			      processor address space (use INT 4A/AL=05h to
+			      retrieve)
+	    FFh flush all files onto secondary storage
+	BX -&gt; 4-byte data buffer
+Note:	the commandline tail is terminated with a carriage return (0Dh)
+SeeAlso: INT 40"Acorn",INT 45"Acorn"
+
+(Table 03200)
+Values for BBC Master filing system:
+ 00h	none
+ 01h	1200 bps cassette
+ 02h	300 bps cassette
+ 03h	ROM FS
+ 04h	DFS
+ 05h	ANFS/NFS
+ 06h	TFS
+ 08h	ADFS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#44_5" name="44_5"><b>44</b></a> - INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE<br />
+<pre>
+INT 44 - Acorn BBC Master 512 - "OSARGS" - GET/SET FILE PARAMS FOR OPEN FILE
+	AH = nonzero file handle
+	AL = function
+	    00h get sequential pointer for file
+	    01h set sequential pointer for file
+	    02h get length of file
+	BX -&gt; 4-byte data buffer
+Return: BX buffer updated if appropriate
+SeeAlso: INT 40"Acorn",INT 41"Acorn",INT 44/AH=00h,INT 45"Acorn",INT 4A"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

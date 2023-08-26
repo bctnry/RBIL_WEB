@@ -1,0 +1,5889 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._S</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category S - serial I/O
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#11BC--DX1954"><b>11BC--DX1954</b> - INT 11 - BNU FOSSIL - INSTALLATION CHECK</a><br />
+<a href="#14"><b>14</b> - INT 14 - SERIAL - Digiboard DigiCHANNEL PC/X* Extender INT 14 (XAPCM232.SYS)</a><br />
+<a href="#1400"><b>1400</b> - INT 14 - SERIAL - INITIALIZE PORT</a><br />
+<a href="#1400_0"><b>1400</b> - INT 14 - FOSSIL (Fido/Opus/Seadog Standard Interface Level) - INITIALIZE</a><br />
+<a href="#1400_1"><b>1400</b> - INT 14 - Tandy 2000 - SERIAL - RESET COMM PORT</a><br />
+<a href="#1400_2"><b>1400</b> - INT 14 - MBBIOS - INITIALIZE PORT</a><br />
+<a href="#1401"><b>1401</b> - INT 14 - SERIAL - WRITE CHARACTER TO PORT</a><br />
+<a href="#1402"><b>1402</b> - INT 14 - SERIAL - READ CHARACTER FROM PORT</a><br />
+<a href="#1402_0"><b>1402</b> - INT 14 - FOSSIL - RECEIVE CHARACTER WITH WAIT</a><br />
+<a href="#1403"><b>1403</b> - INT 14 - SERIAL - GET PORT STATUS</a><br />
+<a href="#1404"><b>1404</b> - INT 14 - SERIAL - EXTENDED INITIALIZE (CONVERTIBLE,PS)</a><br />
+<a href="#1404_0"><b>1404</b> - INT 14 - Tandy 2000 - SERIAL - FLUSH COMM BUFFER</a><br />
+<a href="#1404_1"><b>1404</b> - INT 14 - FOSSIL - INITIALIZE DRIVER</a><br />
+<a href="#1404_2"><b>1404</b> - INT 14 - MultiDOS Plus IODRV - INITIALIZE PORT</a><br />
+<a href="#1404_3"><b>1404</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE BAUD RATE</a><br />
+<a href="#1404_4"><b>1404</b> - INT 14 - MBBIOS - INSTALLATION CHECK</a><br />
+<a href="#140400"><b>140400</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INSTALLATION CHECK</a><br />
+<a href="#140401"><b>140401</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INITIALIZE MODE</a><br />
+<a href="#140402"><b>140402</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - EXTENDED INITIALIZE</a><br />
+<a href="#140403"><b>140403</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - SET TIMEOUT</a><br />
+<a href="#140404"><b>140404</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE RECEIVE BUFFER</a><br />
+<a href="#140405"><b>140405</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET RECEIVE BUFFER COUNT</a><br />
+<a href="#140406"><b>140406</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE TRANSMIT BUFFER</a><br />
+<a href="#140407"><b>140407</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET TRANSMIT BUFFER COUNT</a><br />
+<a href="#140408"><b>140408</b> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - UNINSTALL</a><br />
+<a href="#1405"><b>1405</b> - INT 14 - SERIAL - EXTENDED COMMUNICATION PORT CONTROL (CONVERTIBLE,PS)</a><br />
+<a href="#1405_0"><b>1405</b> - INT 14 - FOSSIL - DEINITIALIZE DRIVER</a><br />
+<a href="#1405_1"><b>1405</b> - INT 14 - MultiDOS Plus IODRV - READ CHARACTER FROM PORT</a><br />
+<a href="#1405_2"><b>1405</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE PROTOCOL</a><br />
+<a href="#1405_3"><b>1405</b> - INT 14 - MBBIOS - DROP DTR AND RTS</a><br />
+<a href="#1405_4"><b>1405</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHANGE PORT PROTOCOL</a><br />
+<a href="#1406"><b>1406</b> - INT 14 - FOSSIL - RAISE/LOWER DTR</a><br />
+<a href="#1406_0"><b>1406</b> - INT 14 - MultiDOS Plus IODRV - WRITE CHARACTER TO PORT</a><br />
+<a href="#1406_1"><b>1406</b> - INT 14 - MBBIOS - RAISE DTR AND RTS</a><br />
+<a href="#1406_2"><b>1406</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DRIVER 'ID' FUNCTION</a><br />
+<a href="#1407"><b>1407</b> - INT 14 - FOSSIL - RETURN TIMER TICK PARAMETERS</a><br />
+<a href="#1407_0"><b>1407</b> - INT 14 - MultiDOS Plus IODRV - GET PORT STATUS</a><br />
+<a href="#1407_1"><b>1407</b> - INT 14 - MBBIOS - SEND BREAK</a><br />
+<a href="#1407_2"><b>1407</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SEND RS-232 BREAK</a><br />
+<a href="#1408"><b>1408</b> - INT 14 - FOSSIL - FLUSH OUTPUT BUFFER WAITING TILL ALL OUTPUT IS DONE</a><br />
+<a href="#1408_0"><b>1408</b> - INT 14 - MultiDOS Plus 4.0 IODRV - GET AND RESET PORT LINE STATUS</a><br />
+<a href="#1408_1"><b>1408</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - ALTERNATE STATUS CHECK</a><br />
+<a href="#1408_2"><b>1408</b> - INT 14 - MBBIOS - NON-DESTRUCTIVE READ</a><br />
+<a href="#1408_3"><b>1408</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STATUS CHECK</a><br />
+<a href="#1409"><b>1409</b> - INT 14 - FOSSIL - PURGE OUTPUT BUFFER THROWING AWAY ALL PENDING OUTPUT</a><br />
+<a href="#1409_0"><b>1409</b> - INT 14 - MultiDOS Plus IODRV - RESET PORT STATUS</a><br />
+<a href="#1409_1"><b>1409</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR BUFFERS</a><br />
+<a href="#1409_2"><b>1409</b> - INT 14 - MBBIOS - GET/SET OPTIONS</a><br />
+<a href="#1409_3"><b>1409</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RESET I/O BUFFER POINTERS</a><br />
+<a href="#140A"><b>140A</b> - INT 14 - FOSSIL - PURGE INPUT BUFFER THROWING AWAY ALL PENDING INPUT</a><br />
+<a href="#140A_0"><b>140A</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - INPUT QUEUE CHECK</a><br />
+<a href="#140A_1"><b>140A</b> - INT 14 - MBBIOS - WRITE BUFFER</a><br />
+<a href="#140B"><b>140B</b> - INT 14 - FOSSIL - TRANSMIT NO WAIT</a><br />
+<a href="#140B_0"><b>140B</b> - INT 14 - MBBIOS - READ BUFFER</a><br />
+<a href="#140C"><b>140C</b> - INT 14 - FOSSIL - NON-DESTRUCTIVE READ AHEAD</a><br />
+<a href="#140C_0"><b>140C</b> - INT 14 - MBBIOS PACCOM support - BUFFER MANAGEMENT</a><br />
+<a href="#140D"><b>140D</b> - INT 14 - FOSSIL - KEYBOARD READ WITHOUT WAIT</a><br />
+<a href="#140D_0"><b>140D</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - GET POINTER TO CH_KEY_RDY FLAG</a><br />
+<a href="#140D_1"><b>140D</b> - INT 14 - MBBIOS PACCOM support - SET TXD</a><br />
+<a href="#140D00"><b>140D00</b> - INT 14 - MBBIOS - GET AVAILABLE BYTES</a><br />
+<a href="#140D01"><b>140D01</b> - INT 14 - MBBIOS - LOWER ALL MODEM CONTROL SIGNALS</a><br />
+<a href="#140D02"><b>140D02</b> - INT 14 - MBBIOS - RAISE ALL MODEM CONTROL SIGNALS</a><br />
+<a href="#140D03"><b>140D03</b> - INT 14 - MBBIOS - SET HANDSHAKE BYTE</a><br />
+<a href="#140E"><b>140E</b> - INT 14 - FOSSIL - KEYBOARD READ WITH WAIT</a><br />
+<a href="#140E_0"><b>140E</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - WRITE STRING</a><br />
+<a href="#140E_1"><b>140E</b> - INT 14 - MBBIOS PACCOM support - SET PERSISTENCE</a><br />
+<a href="#140F"><b>140F</b> - INT 14 - FOSSIL - ENABLE/DISABLE FLOW CONTROL</a><br />
+<a href="#140F_0"><b>140F</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - READ STRING</a><br />
+<a href="#140F_1"><b>140F</b> - INT 14 - MBBIOS PACCOM support - SET SLOT TIME</a><br />
+<a href="#1410"><b>1410</b> - INT 14 - FOSSIL - EXTENDED ^C/^K CHECKING AND TRANSMIT ON/OFF</a><br />
+<a href="#1410_0"><b>1410</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR RECEIVE BUFFER</a><br />
+<a href="#1410_1"><b>1410</b> - INT 14 - MBBIOS PACCOM support - SET CRC WAIT</a><br />
+<a href="#1411"><b>1411</b> - INT 14 - FOSSIL - SET CURRENT CURSOR LOCATION</a><br />
+<a href="#1411_0"><b>1411</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR TRANSMIT BUFFER</a><br />
+<a href="#1411_1"><b>1411</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DISABLE PORT</a><br />
+<a href="#1412"><b>1412</b> - INT 14 - FOSSIL - READ CURRENT CURSOR LOCATION</a><br />
+<a href="#1412_0"><b>1412</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - GET TRANSMIT BUFFER FREE SPACE</a><br />
+<a href="#1412_1"><b>1412</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET CURRENT PORT PARAMETERS</a><br />
+<a href="#1413"><b>1413</b> - INT 14 - FOSSIL - SINGLE CHARACTER ANSI WRITE TO SCREEN</a><br />
+<a href="#1413_0"><b>1413</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - REGISTER A PORT WITH A TERMINAL</a><br />
+<a href="#1414"><b>1414</b> - INT 14 - FOSSIL - ENABLE OR DISABLE WATCHDOG PROCESSING</a><br />
+<a href="#1414_0"><b>1414</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT STRING</a><br />
+<a href="#1414_1"><b>1414</b> - INT 14 - Digiboard - GET NUMBER OF BOARDS INSTALLED</a><br />
+<a href="#1415"><b>1415</b> - INT 14 - FOSSIL - WRITE CHARACTER TO SCREEN USING BIOS SUPPORT ROUTINES</a><br />
+<a href="#1415_0"><b>1415</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STRING</a><br />
+<a href="#1415_1"><b>1415</b> - INT 14 - Digiboard - ENABLE/DISABLE MEMORY</a><br />
+<a href="#1416"><b>1416</b> - INT 14 - FOSSIL - INSERT/DELETE FUNCTION FROM TIMER TICK CHAIN</a><br />
+<a href="#1416_0"><b>1416</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - LINK TO ANOTHER SERIAL DRIVER</a><br />
+<a href="#1416_1"><b>1416</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - CCB COMMAND</a><br />
+<a href="#141646"><b>141646</b> - INT 14 - Digiboard - CCB COMMAND - SET INTERRUPT TO HOST MASK</a><br />
+<a href="#141647"><b>141647</b> - INT 14 - Digiboard - CCB COMMAND - SET BAUD/DATABITS/STOPBITS/PARITY</a><br />
+<a href="#141649"><b>141649</b> - INT 14 - Digiboard - CCB COMMAND - SET MODEM LINES</a><br />
+<a href="#14164A"><b>14164A</b> - INT 14 - Digiboard - CCB COMMAND - SET BREAK COUNT</a><br />
+<a href="#14164B"><b>14164B</b> - INT 14 - Digiboard - CCB COMMAND - SET HANDSHAKE</a><br />
+<a href="#14164C"><b>14164C</b> - INT 14 - Digiboard - CCB COMMAND - SET XON/XOFF CHARACTERS</a><br />
+<a href="#14164D"><b>14164D</b> - INT 14 - Digiboard - CCB COMMAND - SET TRANSMIT MID-WATER MARK</a><br />
+<a href="#14164E"><b>14164E</b> - INT 14 - Digiboard - CCB COMMAND - IRQ POLLING TIMER TO HOST</a><br />
+<a href="#14164F"><b>14164F</b> - INT 14 - Digiboard - CCB COMMAND - BUFFER SET ALL</a><br />
+<a href="#141653"><b>141653</b> - INT 14 - Digiboard - CCB COMMAND - SPECIAL CHARACTER INTERRUPT</a><br />
+<a href="#1417"><b>1417</b> - INT 14 - FOSSIL - REBOOT SYSTEM</a><br />
+<a href="#1417_0"><b>1417</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - WRITE MODEM CONTROL REGISTER</a><br />
+<a href="#1418"><b>1418</b> - INT 14 - FOSSIL - READ BLOCK</a><br />
+<a href="#1418_0"><b>1418</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - SEND BIOS COMMAND</a><br />
+<a href="#1418_1"><b>1418</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET DRIVER DESCRIPTION</a><br />
+<a href="#1419"><b>1419</b> - INT 14 - FOSSIL - WRITE BLOCK</a><br />
+<a href="#1419_0"><b>1419</b> - INT 14 - Digiboard DigiCHANNEL PC/X* - SPECIAL CHARACTER INTERRUPT</a><br />
+<a href="#1419_1"><b>1419</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SELECTIVE BUFFER FLUSH</a><br />
+<a href="#141A"><b>141A</b> - INT 14 - FOSSIL - BREAK BEGIN OR END</a><br />
+<a href="#141A_0"><b>141A</b> - INT 14 - Digiboard DigiCHANNEL PC/X - SPECIAL CHARACTER FLAG/COUNTER</a><br />
+<a href="#141B"><b>141B</b> - INT 14 - FOSSIL - RETURN INFORMATION ABOUT THE DRIVER</a><br />
+<a href="#141C"><b>141C</b> - INT 14 - X00 FOSSIL - ACTIVATE PORT</a><br />
+<a href="#141D"><b>141D</b> - INT 14 - X00 FOSSIL - DEACTIVATE PORT</a><br />
+<a href="#141E"><b>141E</b> - INT 14 - X00 FOSSIL - EXTENDED LINE CONTROL INITIALIZATION</a><br />
+<a href="#141E_0"><b>141E</b> - INT 14 - HUNTER 16 - READ COMMS PARAMETERS</a><br />
+<a href="#141F"><b>141F</b> - INT 14 - X00 FOSSIL - EXTENDED SERIAL PORT STATUS/CONTROL</a><br />
+<a href="#1420"><b>1420</b> - INT 14 - X00 FOSSIL - DESTRUCTIVE READ WITH NO WAIT</a><br />
+<a href="#1420_0"><b>1420</b> - INT 14 - Alloy MW386 - ATTACH LOGICAL COMMUNICATIONS PORT TO PHYSICAL PORT</a><br />
+<a href="#1420_1"><b>1420</b> - INT 14 - MultiDOS Plus - INITIALIZE PORT</a><br />
+<a href="#1420_2"><b>1420</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHECK OUTPUT QUEUE</a><br />
+<a href="#1420_3"><b>1420</b> - INT 14 - HUNTER 16 - SELECT COMMS PARAMETERS</a><br />
+<a href="#1421"><b>1421</b> - INT 14 - X00 FOSSIL - STUFF RECEIVE BUFFER</a><br />
+<a href="#1421_0"><b>1421</b> - INT 14 - Alloy MW386 v1.x only - RELEASE PHYSICAL COMMUNICATIONS PORT</a><br />
+<a href="#1421_1"><b>1421</b> - INT 14 - MultiDOS Plus - TRANSMIT CHARACTER</a><br />
+<a href="#1421_2"><b>1421</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT CHARACTER, WITH TIMEOUT</a><br />
+<a href="#1421_3"><b>1421</b> - INT 14 - HUNTER 16 - EXTENDED CONTROL</a><br />
+<a href="#1422"><b>1422</b> - INT 14 - Alloy MW386 v2+ - RELEASE LOGICAL COMMUNICATIONS PORT</a><br />
+<a href="#1422_0"><b>1422</b> - INT 14 - MultiDOS Plus - RECEIVE CHARACTER</a><br />
+<a href="#1422_1"><b>1422</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RECEIVE CHARACTER, WITH TIMEOUT</a><br />
+<a href="#1422_2"><b>1422</b> - INT 14 - HUNTER 16 - EXTENDED STATUS</a><br />
+<a href="#1423"><b>1423</b> - INT 14 - Alloy MW386 v2+ - GET PORT NUMBER FROM LOGICAL PORT ID</a><br />
+<a href="#1423_0"><b>1423</b> - INT 14 - MultiDOS Plus - GET PORT STATUS</a><br />
+<a href="#1423_1"><b>1423</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DECLARE PORT OWNERSHIP</a><br />
+<a href="#1423_2"><b>1423</b> - INT 14 - HUNTER 16 - CONTROL HANDSHAKE LINES</a><br />
+<a href="#1424"><b>1424</b> - INT 14 - Alloy MW386 v2+ - CHANGE PHYSICAL PORT PARAMETERS</a><br />
+<a href="#1424_0"><b>1424</b> - INT 14 - MultiDOS Plus - SET MONITOR MODE</a><br />
+<a href="#1424_1"><b>1424</b> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - ???</a><br />
+<a href="#1424_2"><b>1424</b> - INT 14 - HUNTER 16 - CONTROL CTS HANDSHAKING</a><br />
+<a href="#1425"><b>1425</b> - INT 14 - MultiDOS Plus - CLEAR BUFFERS</a><br />
+<a href="#1425_0"><b>1425</b> - INT 14 - HUNTER 16 - CONTROL RS232 DRIVERS</a><br />
+<a href="#1426"><b>1426</b> - INT 14 - HUNTER 16 - CONTROL RI POWER UP</a><br />
+<a href="#1427"><b>1427</b> - INT 14 - MultiDOS Plus - GET BUFFER CHARACTER COUNT</a><br />
+<a href="#1427_0"><b>1427</b> - INT 14 - HUNTER 16 - GET INSTALLED PROTOCOLS COUNT</a><br />
+<a href="#1428"><b>1428</b> - INT 14 - HUNTER 16 - GET PROTOCOL NAME</a><br />
+<a href="#1429"><b>1429</b> - INT 14 - HUNTER 16 - GET PROTOCOL HANDLE</a><br />
+<a href="#142A"><b>142A</b> - INT 14 - HUNTER 16 - EXTENDED PROTOCOL MENU</a><br />
+<a href="#142B"><b>142B</b> - INT 14 - HUNTER 16 - GET EXTENDED PROTOCOL PARAMETERS</a><br />
+<a href="#142C00"><b>142C00</b> - INT 14 - HUNTER 16 - GET DTR</a><br />
+<a href="#142C"><b>142C</b> - INT 14 - HUNTER 16 - SET DTR</a><br />
+<a href="#1456"><b>1456</b> - INT 14 U - BWCOM14 - INSTALLATION CHECK</a><br />
+<a href="#1457"><b>1457</b> - INT 14 U - BWCOM14 - INITIALIZE</a><br />
+<a href="#1458"><b>1458</b> - INT 14 U - BWCOM14 - SHUTDOWN</a><br />
+<a href="#146F00"><b>146F00</b> - INT 14 - HP Vectra EX-BIOS - "F14_INQUIRE" - INSTALLATION CHECK</a><br />
+<a href="#146F01"><b>146F01</b> - INT 14 - HP Vectra EX-BIOS - "F14_EXINIT" - INITIALIZE SERIAL PORT</a><br />
+<a href="#146F02"><b>146F02</b> - INT 14 - HP Vectra EX-BIOS - "F14_PUT_BUFFER" - TRANSMIT BUFFER</a><br />
+<a href="#146F03"><b>146F03</b> - INT 14 - HP Vectra EX-BIOS - "F14_GET_BUFFER" - READ DATA INTO BUFFER</a><br />
+<a href="#146F04"><b>146F04</b> - INT 14 - HP Vectra EX-BIOS - "F14_TRM_BUFFER" - READ UNTIL TERMINATOR</a><br />
+<a href="#147E"><b>147E</b> - INT 14 - FOSSIL - INSTALL AN EXTERNAL APPLICATION FUNCTION</a><br />
+<a href="#147F"><b>147F</b> - INT 14 - FOSSIL - REMOVE AN EXTERNAL APPLICATION FUNCTION</a><br />
+<a href="#1480"><b>1480</b> - INT 14 - COMMUNICATIONS FOSSIL</a><br />
+<a href="#1480_0"><b>1480</b> - INT 14 - COURIERS.COM - INSTALLATION CHECK</a><br />
+<a href="#148000"><b>148000</b> - INT 14 - ARTICOM - INSTALLATION CHECK</a><br />
+<a href="#148000_0"><b>148000</b> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET ERROR CODE AND BUFFER STATUS</a><br />
+<a href="#148001"><b>148001</b> - INT 14 - ARTICOM - UNLOAD ASYNCHRONOUS REDIRECTOR FROM MEMORY</a><br />
+<a href="#148001_0"><b>148001</b> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS</a><br />
+<a href="#148002"><b>148002</b> - INT 14 - ARTICOM - GET ASYNCHRONOUS REDIRECTOR STATUS</a><br />
+<a href="#148002_0"><b>148002</b> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS</a><br />
+<a href="#148003"><b>148003</b> - INT 14 - ARTICOM - TRANSLATE ERROR CODE TO ERROR STRING</a><br />
+<a href="#148003_0"><b>148003</b> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET I/O BUFFER SIZES</a><br />
+<a href="#148004"><b>148004</b> - INT 14 - ARTICOM - ATTACH ASYNCHRONOUS RESOURCE</a><br />
+<a href="#148005"><b>148005</b> - INT 14 - ARTICOM - DETACH ASYNCHRONOUS RESOURCE</a><br />
+<a href="#148006"><b>148006</b> - INT 14 - ARTICOM - GET RESOURCE INFORMATION</a><br />
+<a href="#148007"><b>148007</b> - INT 14 - ARTICOM - GET REDIRECTED PORT INFORMATION</a><br />
+<a href="#148008"><b>148008</b> - INT 14 - ARTICOM - GET AVAILABLE SERVER NAME</a><br />
+<a href="#148009"><b>148009</b> - INT 14 - ARTICOM - SET SEND AND RECEIVE TIMEOUTS</a><br />
+<a href="#14800A"><b>14800A</b> - INT 14 - ARTICOM - MODIFY FLOW CONTROL</a><br />
+<a href="#148025"><b>148025</b> - INT 14 - ARTICOM - SET INTERNAL SEND/RECEIVE VECTOR</a><br />
+<a href="#148035"><b>148035</b> - INT 14 - ARTICOM - GET INTERNAL SEND/RECEIVE VECTOR</a><br />
+<a href="#1481"><b>1481</b> - INT 14 - COURIERS.COM - CHECK IF PORT BUSY</a><br />
+<a href="#1481_0"><b>1481</b> - INT 14 - COMM-DRV - EXTENDED INITIALIZATION</a><br />
+<a href="#1482_0"><b>1482</b> - INT 14 - COURIERS.COM - CONFIGURE PORT</a><br />
+<a href="#1482_1"><b>1482</b> - INT 14 - COMM-DRV v14.0 - PORT CLEANUP</a><br />
+<a href="#1483_0"><b>1483</b> - INT 14 - COURIERS.COM - START INPUT</a><br />
+<a href="#1483_1"><b>1483</b> - INT 14 - COMM-DRV v14.0 - FLUSH COMMUNICATION BUFFERS</a><br />
+<a href="#1484"><b>1484</b> - INT 14 - COURIERS.COM - READ CHARACTER</a><br />
+<a href="#1484_0"><b>1484</b> - INT 14 - COMM-DRV v14.0 - SEND PACKET</a><br />
+<a href="#1485"><b>1485</b> - INT 14 - COURIERS.COM - FLUSH PENDING INPUT</a><br />
+<a href="#1485_0"><b>1485</b> - INT 14 - COMM-DRV v14.0 - RECEIVE PACKET</a><br />
+<a href="#1486"><b>1486</b> - INT 14 - COURIERS.COM - START OUTPUT</a><br />
+<a href="#1486_0"><b>1486</b> - INT 14 - COMM-DRV v14.0 - SET INPUT/OUTPUT TIMEOUTS</a><br />
+<a href="#1487"><b>1487</b> - INT 14 - COURIERS.COM - OUTPUT STATUS</a><br />
+<a href="#1487_0"><b>1487</b> - INT 14 - COMM-DRV v14.0 - TURN ON DTR</a><br />
+<a href="#1488"><b>1488</b> - INT 14 - COURIERS.COM - ABORT OUTPUT</a><br />
+<a href="#1488_0"><b>1488</b> - INT 14 - COMM-DRV v14.0 - TURN OFF DTR</a><br />
+<a href="#1489"><b>1489</b> - INT 14 - COURIERS.COM - SEND SINGLE CHARACTER</a><br />
+<a href="#1489_0"><b>1489</b> - INT 14 - COMM-DRV v14.0 - TURN ON RTS</a><br />
+<a href="#148A"><b>148A</b> - INT 14 - COURIERS.COM - SEND BREAK</a><br />
+<a href="#148A_0"><b>148A</b> - INT 14 - COMM-DRV v14.0 - TURN OFF RTS</a><br />
+<a href="#148B"><b>148B</b> - INT 14 - COMM-DRV v14.0 - SET USER INTERRUPT ROUTINE</a><br />
+<a href="#148C"><b>148C</b> - INT 14 - COURIERS.COM - SET SPEED</a><br />
+<a href="#148C_0"><b>148C</b> - INT 14 - COMM-DRV v14.0 - READ UART REGISTER</a><br />
+<a href="#148D"><b>148D</b> - INT 14 - COURIERS.COM - DECONFIGURE PORT</a><br />
+<a href="#148D_0"><b>148D</b> - INT 14 - COMM-DRV v14.0 - WRITE UART REGISTER</a><br />
+<a href="#148E"><b>148E</b> - INT 14 - COMM-DRV v14.0 - READ PACKET NONDESTRUCTIVELY</a><br />
+<a href="#14A0"><b>14A0</b> - INT 14 - 3com BAPI SERIAL I/O - CONNECT TO PORT</a><br />
+<a href="#14A0--CXFFFF"><b>14A0--CXFFFF</b> - INT 14 - Interconnections Inc. TES - INSTALLATION CHECK/STATUS REPORT</a><br />
+<a href="#14A1"><b>14A1</b> - INT 14 - 3com BAPI SERIAL I/O - DISCONNECT FROM PORT</a><br />
+<a href="#14A1_0"><b>14A1</b> - INT 14 - Interconnections Inc. TES - GET LIST OF SESSIONS WITH STATUS</a><br />
+<a href="#14A2"><b>14A2</b> - INT 14 - 3com BAPI SERIAL I/O - WRITE CHARACTER</a><br />
+<a href="#14A2_0"><b>14A2</b> - INT 14 - Interconnections Inc. TES - GET LIST OF SERVER NAMES</a><br />
+<a href="#14A3"><b>14A3</b> - INT 14 - 3com BAPI SERIAL I/O - READ CHARACTER</a><br />
+<a href="#14A3_0"><b>14A3</b> - INT 14 - Interconnections Inc. TES - START A NEW SESSION</a><br />
+<a href="#14A4"><b>14A4</b> - INT 14 - 3com BAPI SERIAL I/O - WRITE BLOCK</a><br />
+<a href="#14A4_0"><b>14A4</b> - INT 14 - Interconnections Inc. TES - HOLD CURRENTLY ACTIVE SESSION</a><br />
+<a href="#14A5"><b>14A5</b> - INT 14 - 3com BAPI SERIAL I/O - READ BLOCK</a><br />
+<a href="#14A5_0"><b>14A5</b> - INT 14 - Interconnections Inc. TES - RESUME A SESSION</a><br />
+<a href="#14A6"><b>14A6</b> - INT 14 - 3com BAPI SERIAL I/O - SEND SHORT BREAK</a><br />
+<a href="#14A6_0"><b>14A6</b> - INT 14 - Interconnections Inc. TES - DROP A SESSION</a><br />
+<a href="#14A7"><b>14A7</b> - INT 14 - 3com BAPI SERIAL I/O - READ STATUS</a><br />
+<a href="#14A7_0"><b>14A7</b> - INT 14 - Interconnections Inc. TES - SWITCH TO NEXT ACTIVE SESSION</a><br />
+<a href="#14A8"><b>14A8</b> - INT 14 - Interconnections Inc. TES - SEND STRING TO COMMAND INTERPRETER</a><br />
+<a href="#14AF00BXAAAA"><b>14AF00BXAAAA</b> - INT 14 - 3com BAPI SERIAL I/O - INSTALLATION CHECK</a><br />
+<a href="#14B0"><b>14B0</b> - INT 14 - 3com BAPI SERIAL I/O - EN/DISABLE "ENTER COMMAND MODE" (ECM) CHARACTER</a><br />
+<a href="#14B1"><b>14B1</b> - INT 14 - 3com BAPI SERIAL I/O - ENTER COMMAND MODE</a><br />
+<a href="#14B2"><b>14B2</b> - INT 14 - 3com BAPI SERIAL I/O - GET ECM WATCH STATE</a><br />
+<a href="#14B3"><b>14B3</b> - INT 14 - 3com BAPI SERIAL I/O - GET/SET CONFIGURATION INFO</a><br />
+<a href="#14E000"><b>14E000</b> - INT 14 - MX5 Extended FOSSIL - GET MNP STATUS BLOCK</a><br />
+<a href="#14E001"><b>14E001</b> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP LEVEL</a><br />
+<a href="#14E002"><b>14E002</b> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP ANSWER/ORIGINATE MODE</a><br />
+<a href="#14E003"><b>14E003</b> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP WAIT TICKS</a><br />
+<a href="#14E004"><b>14E004</b> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP CONNECT SOUND LEVEL</a><br />
+<a href="#14E005"><b>14E005</b> - INT 14 - MX5 Extended FOSSIL - UNINSTALL</a><br />
+<a href="#14E006BX0000"><b>14E006BX0000</b> - INT 14 - MX5 Extended FOSSIL - INSTALLATION CHECK</a><br />
+<a href="#14E007"><b>14E007</b> - INT 14 - MX5 Extended FOSSIL - WAIT SPECIFIED NUMBER OF TICKS</a><br />
+<a href="#14F4FF"><b>14F4FF</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - INSTALLATION CHECK</a><br />
+<a href="#14F9"><b>14F9</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - REGAIN CONTROL</a><br />
+<a href="#14FA"><b>14FA</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SEND BREAK</a><br />
+<a href="#14FB"><b>14FB</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET OUTGOING MODEM SIGNALS</a><br />
+<a href="#14FC"><b>14FC</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - READ CHARACTER, NO WAIT</a><br />
+<a href="#14FD02"><b>14FD02</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - READ STATUS</a><br />
+<a href="#14FF01"><b>14FF01</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET SEND BUFFER</a><br />
+<a href="#14FF02"><b>14FF02</b> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET RECEIVE BUFFER</a><br />
+<a href="#14FFF8"><b>14FFF8</b> - INT 14 - COMM-DRV v14.0 - SET BAUD RATE DIVISOR</a><br />
+<a href="#14FFFB"><b>14FFFB</b> - INT 14 - COMM-DRV v14.0 - GET HIGHEST ALLOWED PORT NUMBER</a><br />
+<a href="#14FFFC"><b>14FFFC</b> - INT 14 - COMM-DRV v14.0 - GET INT 14 FLAGS</a><br />
+<a href="#14FFFD"><b>14FFFD</b> - INT 14 - COMM-DRV v14.0 - SET INT 14 FLAGS</a><br />
+<a href="#14FFFE"><b>14FFFE</b> - INT 14 - COMM-DRV v14.0 - RESTORE INT 14 VECTOR TO ORIGINAL</a><br />
+<a href="#14FFFF"><b>14FFFF</b> - INT 14 - COMM-DRV v14.0 - GET INT 14 INFORMATION AREA</a><br />
+<a href="#1549"><b>1549</b> - INT 15 U - HP 100LX/200LX - SERIAL INTERFACE SELECT</a><br />
+<a href="#154A"><b>154A</b> - INT 15 U - HP 100LX/200LX - SERIAL INTERFACE CONTROL</a><br />
+<a href="#212B--CX6269_0"><b>212B--CX6269</b> - INT 21 - bitFOSS - INSTALLATION CHECK</a><br />
+<a href="#212B--CX6269_1"><b>212B--CX6269</b> - INT 21 - bitFOSSI - INSTALLATION CHECK</a><br />
+<a href="#2F1A42BX4156"><b>2F1A42BX4156</b> - INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ3 HANDLER</a><br />
+<a href="#2F1A43BX4156"><b>2F1A43BX4156</b> - INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ4 HANDLER</a><br />
+<a href="#2F1A62BX4156"><b>2F1A62BX4156</b> - INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ3 HANDLER</a><br />
+<a href="#2F1A63BX4156"><b>2F1A63BX4156</b> - INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ4 HANDLER</a><br />
+<a href="#2FFEEF"><b>2FFEEF</b> - INT 2F - RTS Control TSR - INSTALLATION CHECK</a><br />
+<a href="#65_8"><b>65</b> - INT 65 U - EZRECV v1.0 - API</a><br />
+<a href="#6B0000"><b>6B0000</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE</a><br />
+<a href="#6B0100"><b>6B0100</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ</a><br />
+<a href="#6B02"><b>6B02</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK</a><br />
+<a href="#6B0600"><b>6B0600</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL</a><br />
+<a href="#6B0700"><b>6B0700</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS</a><br />
+<a href="#6B10"><b>6B10</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS</a><br />
+<a href="#6B11--DX0001"><b>6B11--DX0001</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT</a><br />
+<a href="#6B12"><b>6B12</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS</a><br />
+<a href="#6B13"><b>6B13</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME</a><br />
+<a href="#6B14"><b>6B14</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS</a><br />
+<a href="#6B15"><b>6B15</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG</a><br />
+<a href="#6B16"><b>6B16</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT</a><br />
+<a href="#6B17"><b>6B17</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT</a><br />
+<a href="#6B18"><b>6B18</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT</a><br />
+<a href="#6B19"><b>6B19</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT</a><br />
+<a href="#6B1A"><b>6B1A</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS</a><br />
+<a href="#6B1B"><b>6B1B</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS</a><br />
+<a href="#6B1C"><b>6B1C</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER</a><br />
+<a href="#6B1D"><b>6B1D</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL</a><br />
+<a href="#6B1E"><b>6B1E</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST</a><br />
+<a href="#6B1F"><b>6B1F</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS</a><br />
+<a href="#6B20"><b>6B20</b> - INT 6B - Connection Manager CLIENT.EXE - ???</a><br />
+<a href="#6B21"><b>6B21</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE</a><br />
+<a href="#7D_0"><b>7D</b> - INT 7D U - YTERM 1.4 - CLOCK SUPPORT</a><br />
+<a href="#7E_0"><b>7E</b> - INT 7E U - YTERM 1.4 - ???</a><br />
+<a href="#7F_1"><b>7F</b> - INT 7F - Telebit ACS SERIAL I/O</a><br />
+<a href="#7F_3"><b>7F</b> - INT 7F U - YTERM - ???</a><br />
+<a href="#FD_2"><b>FD</b> - INT FD - TFPCX - INSTALLATION CHECK</a><br />
+<a href="#FD01"><b>FD01</b> - INT FD - TFPCX - TEST FOR CHARACTER WAITING</a><br />
+<a href="#FD02"><b>FD02</b> - INT FD - TFPCX - GET CHARACTER</a><br />
+<a href="#FD03"><b>FD03</b> - INT FD - TFPCX - OUTPUT CHARACTER</a><br />
+<a href="#FDFE"><b>FDFE</b> - INT FD - TFPCX - GET VERSION</a><br />
+
+<hr />
+
+<a href="#11BC--DX1954" name="11BC--DX1954"><b>11BC--DX1954</b></a> - INT 11 - BNU FOSSIL - INSTALLATION CHECK<br />
+<pre>
+INT 11 - BNU FOSSIL - INSTALLATION CHECK
+	AH = BCh
+	DX = 1954h
+Return: AX = 1954h
+	ES:DX -&gt; entry point of driver (instead of INT 14)
+SeeAlso: INT 14/AH=04h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14" name="14"><b>14</b></a> - INT 14 - SERIAL - Digiboard DigiCHANNEL PC/X* Extender INT 14 (XAPCM232.SYS)<br />
+<pre>
+INT 14 - SERIAL - Digiboard DigiCHANNEL PC/X* Extender INT 14 (XAPCM232.SYS)
+InstallCheck:	determine whether the "~DOSXAM~" character device exists
+Index:	installation check;Digiboard DigiCHANNEL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1400" name="1400"><b>1400</b></a> - INT 14 - SERIAL - INITIALIZE PORT<br />
+<pre>
+INT 14 - SERIAL - INITIALIZE PORT
+	AH = 00h
+	AL = port parameters (see #00300)
+	DX = port number (00h-03h) (04h-43h for Digiboard XAPCM232.SYS)
+Return: AH = line status (see #00304)
+	    FFh if error on Digiboard XAPCM232.SYS
+	AL = modem status (see #00305)
+Notes:	default handler is at F000h:E739h in IBM PC and 100% compatible BIOSes
+	since the PCjr supports a maximum of 4800 bps, attempting to set 9600
+	  bps will result in 4800 bps
+	various network and serial-port drivers support the standard BIOS
+	  functions with interrupt-driven I/O instead of the BIOS's polled I/O
+	the 1993/04/08 Compaq system ROM uses only the low two bits of DX
+	the default setting used by DOS (MS-DOS 6, DR-DOS 7.03, PTS-DOS) when
+	  (re-)initializing the serial devices is AL=A3h (2400 bps, no parity,
+	  1 stop bit, 8 data bits).
+SeeAlso: AH=04h"SERIAL",AH=04h"MultiDOS",AH=05h"SERIAL",AH=57h
+SeeAlso: AX=8000h"ARTICOM",AH=81h"COMM-DRV",AH=82h"COURIERS",AH=8Ch
+SeeAlso: MEM 0040h:0000h,PORT 03F8h"Serial"
+
+Bitfields for serial port parameters:
+Bit(s)	Description	(Table 00300)
+ 7-5	data rate (110,150,300,600,1200,2400,4800,9600 bps)
+ 4-3	parity (00 or 10 = none, 01 = odd, 11 = even)
+ 2	stop bits (set = 2, clear = 1)
+ 1-0	data bits (00 = 5, 01 = 6, 10 = 7, 11 = 8)
+SeeAlso: #00302,#00307,#00308,#00309
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1400_0" name="1400_0"><b>1400</b></a> - INT 14 - FOSSIL (Fido/Opus/Seadog Standard Interface Level) - INITIALIZE<br />
+<pre>
+INT 14 - FOSSIL (Fido/Opus/Seadog Standard Interface Level) - INITIALIZE
+	AH = 00h
+	AL = initializing parameters
+	    7 - 6 - 5	   4 - 3     2	  1 - 0
+	    -BAUD RATE-	   PARITY   STOP   WORD
+				    BITS  LENGTH
+	    000 19200 bd   00 none  0: 1  00: 5
+	    001 38400 bd   01 odd   1: 2  01: 6
+	    010	  300 bd   11 even	  10: 7
+	    011	  600 bd		  11: 8
+	    100	 1200 bd
+	    101	 2400 bd
+	    110	 4800 bd
+	    111	 9600 bd (4800 on PCjr)
+	DX = port number (0-3 or FFh if only performing non-I/O setup)
+Return: AH = RS-232 status code bits (see #00301)
+	AL = modem status bits
+	    bit 3: always 1
+	    bit 7: DCD - carrier detect
+SeeAlso: #00300,AH=05h"FOSSIL",AH=81h"COMM-DRV",AH=82h"COURIERS"
+
+Bitfields for FOSSIL RS-232 status:
+Bit(s)	Description	(Table 00301)
+ 0	RDA - input data is available in buffer
+ 1	OVRN - data has been lost
+ 5	THRE - room is available in output buffer
+ 6	TSRE - output buffer empty
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1400_1" name="1400_1"><b>1400</b></a> - INT 14 - Tandy 2000 - SERIAL - RESET COMM PORT<br />
+<pre>
+INT 14 - Tandy 2000 - SERIAL - RESET COMM PORT
+	AH = 00h
+	AL = RS-232C parameters (see #00302)
+	DL = port number
+	DH = protocol
+	    bit 0: use XON/XOFF on received data
+	    bit 1: use XON/XOFF when transmitting
+Return: AH = line status (see #00304)
+	AL = modem status (see #00305)
+Note:	this interrupt is identical to INT 53 on the Tandy 2000
+SeeAlso: AH=04h"Tandy 2000",INT 53"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1400_2" name="1400_2"><b>1400</b></a> - INT 14 - MBBIOS - INITIALIZE PORT<br />
+<pre>
+INT 14 - MBBIOS - INITIALIZE PORT
+	AH = 00h
+	AL = port parameters (see #00302)
+	DX = port number
+Return: AH = line status (see #00304)
+	AL = modem status (see #00305)
+Note:	MBBIOS was written by H. Roy Engehausen
+SeeAlso: AH=04h"MBBIOS",AH=05h"MBBIOS",AH=09h"MBBIOS"
+
+Bitfields for MBBIOS port parameters:
+Bit(s)	Description	(Table 00302)
+ 7-5	data rate
+	(normally 110,150,300,600,1200,2400,4800,9600 bps;
+	9600,14400,19200,28800,38400,57600,115200,330400 bps
+	if the high-speed option is set)
+ 4-3	parity (00 or 10 = none, 01 = odd, 11 = even)
+ 2	stop bits (set = 2, clear = 1)
+ 1-0	data bits (00 = 5, 01 = 6, 10 = 7, 11 = 8)
+SeeAlso: #00300
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1401" name="1401"><b>1401</b></a> - INT 14 - SERIAL - WRITE CHARACTER TO PORT<br />
+<pre>
+INT 14 - SERIAL - WRITE CHARACTER TO PORT
+	AH = 01h
+	AL = character to write
+	DX = port number (00h-03h) (04h-43h for Digiboard XAPCM232.SYS)
+Return: AH bit 7 clear if successful
+	AH bit 7 set on error
+	AH bits 6-0 = port status (see #00304)
+Notes:	various network and serial-port drivers support the standard BIOS
+	  functions with interrupt-driven I/O instead of the BIOS's polled I/O
+	the 1993/04/08 Compaq system ROM uses only the low two bits of DX
+SeeAlso: AH=02h,AH=0Bh"FOSSIL",AX=8000h"ARTICOM",AH=89h,MEM 0040h:007Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1402" name="1402"><b>1402</b></a> - INT 14 - SERIAL - READ CHARACTER FROM PORT<br />
+<pre>
+INT 14 - SERIAL - READ CHARACTER FROM PORT
+	AH = 02h
+	AL = 00h (ArtiCom)
+	DX = port number (00h-03h (04h-43h for Digiboard XAPCM232.SYS))
+Return: AH = line status (see #00304)
+	AL = received character if AH bit 7 clear
+Notes:	will timeout if DSR is not asserted, even if function 03h returns
+	  data ready
+	various network and serial-port drivers support the standard BIOS
+	  functions with interrupt-driven I/O instead of the BIOS's polled I/O
+	the 1993/04/08 Compaq system ROM uses only the low two bits of DX
+SeeAlso: AH=01h,AH=02h"FOSSIL",AH=84h,AH=FCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1402_0" name="1402_0"><b>1402</b></a> - INT 14 - FOSSIL - RECEIVE CHARACTER WITH WAIT<br />
+<pre>
+INT 14 - FOSSIL - RECEIVE CHARACTER WITH WAIT
+	AH = 02h
+	DX = port number (0-3)
+Return: AL = character received
+	AH = 00h
+SeeAlso: AH=01h,AH=02h"SERIAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1403" name="1403"><b>1403</b></a> - INT 14 - SERIAL - GET PORT STATUS<br />
+<pre>
+INT 14 - SERIAL - GET PORT STATUS
+	AH = 03h
+	AL = 00h (ArtiCom)
+	DX = port number (00h-03h) (04h-43h for Digiboard XAPCM232.SYS)
+Return: AH = line status (see #00304)
+	AL = modem status (see #00305)
+	AX = 9E00h if disconnected (ArtiCom)
+Note:	the 1993/04/08 Compaq system ROM uses only the low two bits of DX
+SeeAlso: AH=00h,AH=07h"MultiDOS",AX=8000h"ARTICOM",AH=81h"COURIERS",AX=FD02h
+
+Bitfields for serial line status:
+Bit(s)	Description	(Table 00304)
+ 7	timeout
+ 6	transmit shift register empty
+ 5	transmit holding register empty
+ 4	break detected
+ 3	framing error
+ 2	parity error
+ 1	overrun error
+ 0	receive data ready
+Note:	for COMM-DRV, if bit 7 is set, an error occurred, and may be retrieved
+	  through a separate call (see AX=8000h"COMM-DRV")
+
+Bitfields for modem status:
+Bit(s)	Description	(Table 00305)
+ 7	carrier detect
+ 6	ring indicator
+ 5	data set ready
+ 4	clear to send
+ 3	delta carrier detect
+ 2	trailing edge of ring indicator
+ 1	delta data set ready
+ 0	delta clear to send
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404" name="1404"><b>1404</b></a> - INT 14 - SERIAL - EXTENDED INITIALIZE (CONVERTIBLE,PS)<br />
+<pre>
+INT 14 - SERIAL - EXTENDED INITIALIZE (CONVERTIBLE,PS)
+	AH = 04h
+	AL = break status
+	    00h if break
+	    01h if no break
+	BH = parity (see #00307)
+	BL = number of stop bits
+	    00h one stop bit
+	    01h two stop bits (1.5 if 5 bit word length)
+	CH = word length (see #00308)
+	CL = bps rate (see #00309)
+	DX = port number
+Return: AX = port status code (see #00304,#00305)
+SeeAlso: AH=00h,AH=1Eh,AX=8000h"ARTICOM"
+
+(Table 00307)
+Values for serial port parity:
+ 00h	no parity
+ 01h	odd parity
+ 02h	even parity
+ 03h	stick parity odd
+ 04h	stick parity even
+SeeAlso: #00300,#00308,#00309,#00310
+
+(Table 00308)
+Values for serial port word length:
+ 00h	5 bits
+ 01h	6 bits
+ 02h	7 bits
+ 03h	8 bits
+SeeAlso: #00300,#00307,#00309,#00345
+
+(Table 00309)
+Values for serial port bps rate:
+ 00h	110 (19200 if ComShare installed)
+ 01h	150 (38400 if ComShare installed)
+ 02h	300
+ 03h	600 (14400 if ComShare installed)
+ 04h	1200
+ 05h	2400
+ 06h	4800 (28800 if ComShare installed)
+ 07h	9600
+ 08h	19200
+---ComShare---
+ 09h	38400
+ 0Ah	57600
+ 0Bh	115200
+SeeAlso: #00300,#00307,#00309,#00346,#00353,AH=36h,#00364,#00606,#02923
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404_0" name="1404_0"><b>1404</b></a> - INT 14 - Tandy 2000 - SERIAL - FLUSH COMM BUFFER<br />
+<pre>
+INT 14 - Tandy 2000 - SERIAL - FLUSH COMM BUFFER
+	AH = 04h
+	DL = port number
+	DH = protocol
+	    bit 0: use XON/XOFF on received data
+	    bit 1: use XON/XOFF when transmitting
+Return: nothing
+Desc:	clears the serial interface buffer
+Note:	this interrupt is identical to INT 53 on the Tandy 2000
+SeeAlso: AH=00h"Tandy 2000",INT 53"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404_1" name="1404_1"><b>1404</b></a> - INT 14 - FOSSIL - INITIALIZE DRIVER<br />
+<pre>
+INT 14 - FOSSIL - INITIALIZE DRIVER
+	AH = 04h
+	DX = port number
+	optionally BX=4F50h
+		   ES:CX -&gt; byte to be set upon ^C
+Return: AX = 1954h (if successful)
+	BL = maximum function number supported (excluding 7Eh and above)
+	BH = revision of FOSSIL specification supported
+	DTR is raised
+Note:	the word at offset 6 in the interrupt handler contains 1954h, and the
+	  following byte contains the maximum function number supported; this
+	  can serve as an installation check
+SeeAlso: AH=05h"FOSSIL",AH=1Ch,INT 11/AH=BCh
+Index:	installation check;FOSSIL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404_2" name="1404_2"><b>1404</b></a> - INT 14 - MultiDOS Plus IODRV - INITIALIZE PORT<br />
+<pre>
+INT 14 - MultiDOS Plus IODRV - INITIALIZE PORT
+	AH = 04h
+Return: port initialized; if Hayes-compatible modem, a connection has been
+	  established
+Note:	the port number is stored at offset BEh in the Task Control Block
+	  (see #00456 at INT 15/AH=13h"MultiDOS")
+SeeAlso: AH=00h,AH=05h"MultiDOS",AH=20h"MultiDOS",INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404_3" name="1404_3"><b>1404</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE BAUD RATE<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE BAUD RATE
+	AH = 04h
+	AL = initializing parameters (see #00310)
+	BX = baud rate
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh error
+SeeAlso: AH=05h"Digiboard"
+
+Bitfields for Digiboard initializing parameters:
+Bit(s)	Description	(Table 00310)
+ 7-5	unused
+ 4-3	parity (00 none, 01 odd, 11 even)
+ 2	stop bits (0 = one, 1 = two)
+ 1-0	data bits (00 = five, 01 = six, 10 = seven, 11 = eight)
+SeeAlso: #00307,#00308
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1404_4" name="1404_4"><b>1404</b></a> - INT 14 - MBBIOS - INSTALLATION CHECK<br />
+<pre>
+INT 14 - MBBIOS - INSTALLATION CHECK
+	AH = 04h
+	DX = port number
+Return: AX = AA55h if installed on specified port
+SeeAlso: AH=00h"MBBIOS",AH=09h"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140400" name="140400"><b>140400</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INSTALLATION CHECK<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INSTALLATION CHECK
+	AX = 0400h
+Return: AX = 0FF0h
+SeeAlso: AX=0401h,AX=0408h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140401" name="140401"><b>140401</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INITIALIZE MODE<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - INITIALIZE MODE
+	AX = 0401h
+	CX = mode
+Return: nothing
+SeeAlso: AX=0400h,AX=0402h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140402" name="140402"><b>140402</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - EXTENDED INITIALIZE<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - EXTENDED INITIALIZE
+	AX = 0402h
+	CL = parameters
+Return: nothing
+SeeAlso: AX=0400h,AX=0401h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140403" name="140403"><b>140403</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - SET TIMEOUT<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - SET TIMEOUT
+	AX = 0403h
+	CX = timeout
+Return: nothing
+SeeAlso: AX=0400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140404" name="140404"><b>140404</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE RECEIVE BUFFER<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE RECEIVE BUFFER
+	AX = 0404h
+Return: nothing
+SeeAlso: AX=0400h,AX=0405h,AX=0406h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140405" name="140405"><b>140405</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET RECEIVE BUFFER COUNT<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET RECEIVE BUFFER COUNT
+	AX = 0405h
+Return: AX = number of characters in buffer
+SeeAlso: AX=0400h,AX=0404h,AX=0407h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140406" name="140406"><b>140406</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE TRANSMIT BUFFER<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - CLEAR THE TRANSMIT BUFFER
+	AX = 0406h
+Return: nothing
+SeeAlso: AX=0400h,AX=0404h,AX=0407h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140407" name="140407"><b>140407</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET TRANSMIT BUFFER COUNT<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - GET TRANSMIT BUFFER COUNT
+	AX = 0407h
+Return: AX = number of characters in the buffer
+SeeAlso: AX=0400h,AX=0405h,AX=0406h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140408" name="140408"><b>140408</b></a> - INT 14 - Microsoft Systems Journal TSRCOMM INT14 - UNINSTALL<br />
+<pre>
+INT 14 - Microsoft Systems Journal TSRCOMM INT14 - UNINSTALL
+	AX = 0408h
+Return: nothing
+SeeAlso: AX=0400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405" name="1405"><b>1405</b></a> - INT 14 - SERIAL - EXTENDED COMMUNICATION PORT CONTROL (CONVERTIBLE,PS)<br />
+<pre>
+INT 14 - SERIAL - EXTENDED COMMUNICATION PORT CONTROL (CONVERTIBLE,PS)
+	AH = 05h
+	AL = function
+	    00h read modem control register
+	      Return: BL = modem control register (see #00334)
+		      AH = status
+	    01h write modem control register
+	      BL = modem control register (see #00334)
+	      Return: AX = status
+	DX = port number
+Note:	also supported by ArtiCom
+SeeAlso: AH=00h,AH=1Fh,AX=8000h"ARTICOM",AH=FBh
+
+Bitfields for modem control register:
+Bit(s)	Description	(Table 00334)
+ 0	data terminal ready
+ 1	request to send
+ 2	OUT1
+ 3	OUT2
+ 4	LOOP
+ 5-7	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_0" name="1405_0"><b>1405</b></a> - INT 14 - FOSSIL - DEINITIALIZE DRIVER<br />
+<pre>
+INT 14 - FOSSIL - DEINITIALIZE DRIVER
+	AH = 05h
+	DX = port number
+Return: none
+	DTR is not affected
+SeeAlso: AH=00h,AH=04h"FOSSIL",AH=1Dh,AH=8Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_1" name="1405_1"><b>1405</b></a> - INT 14 - MultiDOS Plus IODRV - READ CHARACTER FROM PORT<br />
+<pre>
+INT 14 - MultiDOS Plus IODRV - READ CHARACTER FROM PORT
+	AH = 05h
+	AL = timeout in seconds (00h = never)
+Return: AL = status
+	    00h successful
+		AH = character read
+	    01h read error
+	    02h timed out
+	    other modem status (CTS, DSR) changed
+Note:	the port number is stored at offset BEh in the Task Control Block
+SeeAlso: AH=02h,AH=04h"MultiDOS",AH=06h"MultiDOS",AH=22h"MultiDOS"
+SeeAlso: INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_2" name="1405_2"><b>1405</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE PROTOCOL<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CHANGE PROTOCOL
+	AH = 05h
+	AL = protocol (see #00335)
+	BH = new XOFF character (00h = current)
+	BL = new XON character (00h = current)
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh error
+SeeAlso: AH=04h"Digiboard"
+
+Bitfields for Digiboard protocol:
+Bit(s)	Description	(Table 00335)
+ 7-4	unused
+ 3	RTS/CTS
+ 2	DSR
+ 1,0	XON/XOFF
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_3" name="1405_3"><b>1405</b></a> - INT 14 - MBBIOS - DROP DTR AND RTS<br />
+<pre>
+INT 14 - MBBIOS - DROP DTR AND RTS
+	AH = 05h
+	DX = port number
+Return: none
+SeeAlso: AH=00h"MBBIOS",AH=06h"MBBIOS",AH=06h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_4" name="1405_4"><b>1405</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHANGE PORT PROTOCOL<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHANGE PORT PROTOCOL
+	AH = 05h
+	AL = new port protocol (see #00336)
+	BH = new XOFF character
+	BL = new XON character
+	DX = port number
+Return: AH = FFh if invalid protocol
+SeeAlso: AH=00h,AH=04h"SERIAL",AH=06h"PC-MOS"
+
+Bitfields for PC-MOS/386 serial port protocol:
+Bit(s)	Description	(Table 00336)
+ 7	set to enable/disable CD monitoring, clear to set protocol
+---bit 7 set---
+ 4	CD monitoring enabled
+ 5	automatic restart enabled
+---bit 7 clear---
+ 0	receive XON/XOFF
+ 1	transmit XON/XOFF
+ 2	DTR/DSR
+ 3	RTS/CTS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1406" name="1406"><b>1406</b></a> - INT 14 - FOSSIL - RAISE/LOWER DTR<br />
+<pre>
+INT 14 - FOSSIL - RAISE/LOWER DTR
+	AH = 06h
+	DX = port
+	AL = DTR state to be set
+	    00h = lower
+	    01h = raise
+Return: nothing
+SeeAlso: AH=05h"MBBIOS",AH=1Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1406_0" name="1406_0"><b>1406</b></a> - INT 14 - MultiDOS Plus IODRV - WRITE CHARACTER TO PORT<br />
+<pre>
+INT 14 - MultiDOS Plus IODRV - WRITE CHARACTER TO PORT
+	AH = 06h
+	AL = character
+Return: AL = status
+	    00h successful
+Notes:	the port number is stored at offset BEh in the Task Control Block
+	if output queue is full, the calling task is blocked until the
+	  character can be stored
+SeeAlso: AH=01h,AH=04h"MultiDOS",AH=05h"MultiDOS",AH=21h"MultiDOS"
+SeeAlso: INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1406_1" name="1406_1"><b>1406</b></a> - INT 14 - MBBIOS - RAISE DTR AND RTS<br />
+<pre>
+INT 14 - MBBIOS - RAISE DTR AND RTS
+	AH = 06h
+	DX = port number
+Return: none
+SeeAlso: AH=05h"MBBIOS",AH=07h"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1406_2" name="1406_2"><b>1406</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DRIVER 'ID' FUNCTION<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DRIVER 'ID' FUNCTION
+	AH = 06h
+	DX = port number
+Return: AH bit 7 set
+	AL = number of highest function supported by driver
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+SeeAlso: AH=18h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1407" name="1407"><b>1407</b></a> - INT 14 - FOSSIL - RETURN TIMER TICK PARAMETERS<br />
+<pre>
+INT 14 - FOSSIL - RETURN TIMER TICK PARAMETERS
+	AH = 07h
+Return: AL = timer tick interrupt number
+	AH = ticks per second on interrupt number in AL
+	DX = approximate number of milliseconds per tick
+SeeAlso: AH=16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1407_0" name="1407_0"><b>1407</b></a> - INT 14 - MultiDOS Plus IODRV - GET PORT STATUS<br />
+<pre>
+INT 14 - MultiDOS Plus IODRV - GET PORT STATUS
+	AH = 07h
+Return: CL = modem status (see #00305)
+	CH = character at head of input queue (if any)
+	DX = number of characters in input queue
+Note:	the port number is stored at offset BEh in the Task Control Block
+SeeAlso: AH=03h,AH=05h"MultiDOS",AH=08h"MultiDOS",AH=09h"MultiDOS"
+SeeAlso: AH=23h"MultiDOS",INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1407_1" name="1407_1"><b>1407</b></a> - INT 14 - MBBIOS - SEND BREAK<br />
+<pre>
+INT 14 - MBBIOS - SEND BREAK
+	AH = 07h
+	DX = port number
+Return: none
+SeeAlso: AH=06h"MBBIOS",AH=FAh"EBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1407_2" name="1407_2"><b>1407</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SEND RS-232 BREAK<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SEND RS-232 BREAK
+	AH = 07h
+	BX = duration of break in clock ticks
+	DX = port number
+Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1408" name="1408"><b>1408</b></a> - INT 14 - FOSSIL - FLUSH OUTPUT BUFFER WAITING TILL ALL OUTPUT IS DONE<br />
+<pre>
+INT 14 - FOSSIL - FLUSH OUTPUT BUFFER WAITING TILL ALL OUTPUT IS DONE
+	AH = 08h
+	DX = port number
+Return: nothing
+SeeAlso: AH=09h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1408_0" name="1408_0"><b>1408</b></a> - INT 14 - MultiDOS Plus 4.0 IODRV - GET AND RESET PORT LINE STATUS<br />
+<pre>
+INT 14 - MultiDOS Plus 4.0 IODRV - GET AND RESET PORT LINE STATUS
+	AH = 08h
+Return: AL = line status (see #00304)
+	AH destroyed
+Notes:	the port number is stored at offset BEh in the Task Control Block
+	on every line status change, the line status is ORed with the line
+	  status accumulator; this function returns the accumulator and clears
+	  it
+SeeAlso: AH=03h,AH=04h"MultiDOS",AH=07h"MultiDOS",INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1408_1" name="1408_1"><b>1408</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - ALTERNATE STATUS CHECK<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - ALTERNATE STATUS CHECK
+	AH = 08h
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = RS232 status bits (see #00304 at AH=03h)
+	ZF set if no characters queued
+	ZF clear if character available
+	    AL = next character
+SeeAlso: AH=03h,AH=08h"PC-MOS",AH=09h"Digiboard",AH=14h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1408_2" name="1408_2"><b>1408</b></a> - INT 14 - MBBIOS - NON-DESTRUCTIVE READ<br />
+<pre>
+INT 14 - MBBIOS - NON-DESTRUCTIVE READ
+	AH = 08h
+	DX = port number
+Return: AL = character (if AH bit 0 set)
+	AH = status (see #00304)
+SeeAlso: AH=0Bh"MBBIOS",AH=0Ch"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1408_3" name="1408_3"><b>1408</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STATUS CHECK<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STATUS CHECK
+	AH = 08h
+	DX = port number
+Return: CF set if carrier loss detected
+	ZF set if input buffer empty
+	ZF clear if characters available
+	    AL = next character dequeued
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1409" name="1409"><b>1409</b></a> - INT 14 - FOSSIL - PURGE OUTPUT BUFFER THROWING AWAY ALL PENDING OUTPUT<br />
+<pre>
+INT 14 - FOSSIL - PURGE OUTPUT BUFFER THROWING AWAY ALL PENDING OUTPUT
+	AH = 09h
+	DX = port number
+Return: nothing
+SeeAlso: AH=08h"FOSSIL",AH=0Ah"FOSSIL",AH=88h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1409_0" name="1409_0"><b>1409</b></a> - INT 14 - MultiDOS Plus IODRV - RESET PORT STATUS<br />
+<pre>
+INT 14 - MultiDOS Plus IODRV - RESET PORT STATUS
+	AH = 09h
+Return: modem status byte cleared
+Note:	the port number is stored at offset BEh in the Task Control Block
+SeeAlso: AH=04h"MultiDOS",AH=07h"MultiDOS",INT 15/AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1409_1" name="1409_1"><b>1409</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR BUFFERS<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR BUFFERS
+	AH = 09h
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh error
+SeeAlso: AH=08h"Digiboard",AH=0Ah"Digiboard",AH=10h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1409_2" name="1409_2"><b>1409</b></a> - INT 14 - MBBIOS - GET/SET OPTIONS<br />
+<pre>
+INT 14 - MBBIOS - GET/SET OPTIONS
+	AH = 09h
+	AL = option byte (see #00337)
+	DX = port number???
+Return: AL = old option byte
+SeeAlso: AH=00h"MBBIOS",AH=04h"MBBIOS",AH=10h"FOSSIL"
+
+Bitfields for MBBIOS option byte:
+Bit(s)	Description	(Table 00337)
+ 0	transmit buffering enabled
+ 2	hardware handshaking enabled
+ 5	high-speed option enabled (see AH=00h"MBBIOS",#00302)
+ other	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1409_3" name="1409_3"><b>1409</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RESET I/O BUFFER POINTERS<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RESET I/O BUFFER POINTERS
+	AH = 09h
+	DX = port number
+Return: nothing
+SeeAlso: AH=13h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140A" name="140A"><b>140A</b></a> - INT 14 - FOSSIL - PURGE INPUT BUFFER THROWING AWAY ALL PENDING INPUT<br />
+<pre>
+INT 14 - FOSSIL - PURGE INPUT BUFFER THROWING AWAY ALL PENDING INPUT
+	AH = 0Ah
+	DX = port number
+Return: nothing
+SeeAlso: AH=09h"FOSSIL",AH=85h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140A_0" name="140A_0"><b>140A</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - INPUT QUEUE CHECK<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - INPUT QUEUE CHECK
+	AH = 0Ah
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AX = number of characters available in buffer
+Note:	this function is also supported by the PC-MOS/386 v5.01 $serial.sys
+SeeAlso: AH=09h"Digiboard",AH=0Dh"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140A_1" name="140A_1"><b>140A</b></a> - INT 14 - MBBIOS - WRITE BUFFER<br />
+<pre>
+INT 14 - MBBIOS - WRITE BUFFER
+	AH = 0Ah
+	CX = count
+	ES:DI -&gt; buffer (see #00338)
+Return: AX = status (see #00304,#00305)
+	CX = unsent character count
+	DI updated
+Note:	the PACCOM version of MBBIOS does not use CX or ES:DI; instead, ES
+	  contains the segment of a buffer containing the packet to be sent,
+	  which by default will be freed once the packet has been sent.	 Use
+	  AH=0Ch"MBBIOS" to allocate the buffer.
+SeeAlso: AH=01h,AH=0Bh"MBBIOS",AH=0Ch"MBBIOS",AH=19h"FOSSIL"
+
+Format of MBBIOS PACCOM buffer:
+Offset	Size	Description	(Table 00338)
+ 00h 504 BYTEs	data area
+1F8h	WORD	length of data in data area
+1FAh	BYTE	flags/status
+		bit 7: don't discard buffer after transmitting data
+		bit 6: buffer has been transmitted
+1FBh	BYTE	reserved (0) for additional flags/status
+1FCh	WORD	user data
+1FEh	WORD	MBBIOS-internal pointer to next buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140B" name="140B"><b>140B</b></a> - INT 14 - FOSSIL - TRANSMIT NO WAIT<br />
+<pre>
+INT 14 - FOSSIL - TRANSMIT NO WAIT
+	AH = 0Bh
+	AL = character
+	DX = port number
+Return: AX = result
+	    0000h character not accepted
+	    0001h character accepted
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140B_0" name="140B_0"><b>140B</b></a> - INT 14 - MBBIOS - READ BUFFER<br />
+<pre>
+INT 14 - MBBIOS - READ BUFFER
+	AH = 0Bh
+	CX = size of buffer
+	ES:DI -&gt; buffer
+Return: AH = composite line status (see #00304) formed by ORing all statuses
+		  on receive interrupts; bit 0 set if additional characters
+		  available
+	AL = composite modem status (see #00305) formed by ORing all statuses
+	CX = number of characters actually read
+	DI updated
+Note:	the PACCOM version of MBBIOS does not use CX or ES:DI on call,
+	  instead returning ES set to the segment of the buffer containing a
+	  received packet, or 0000h if no packets available; the buffer may
+	  be freed with AH=0Ch"MBBIOS"
+SeeAlso: AH=02h,AH=08h"MBBIOS",AH=0Ah"MBBIOS",AH=0Ch"MBBIOS",AH=18h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140C" name="140C"><b>140C</b></a> - INT 14 - FOSSIL - NON-DESTRUCTIVE READ AHEAD<br />
+<pre>
+INT 14 - FOSSIL - NON-DESTRUCTIVE READ AHEAD
+	AH = 0Ch
+	DX = port number
+Return: AX = FFFFh character not available
+	AX = 00xxh character xx available
+SeeAlso: AH=08h"MBBIOS",AH=20h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140C_0" name="140C_0"><b>140C</b></a> - INT 14 - MBBIOS PACCOM support - BUFFER MANAGEMENT<br />
+<pre>
+INT 14 - MBBIOS PACCOM support - BUFFER MANAGEMENT
+	AH = 0Ch
+	ES = segment of buffer to free, or 0000h to allocate new buffer
+Return: ES = segment of allocated buffer (if ES=0000h on entry)
+Note:	the PACCOM version of MBBIOS uses only ES as buffer address for
+	  AH=0Ah and AH=0Bh
+SeeAlso: AH=0Ah"MBBIOS",AH=0Bh"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D" name="140D"><b>140D</b></a> - INT 14 - FOSSIL - KEYBOARD READ WITHOUT WAIT<br />
+<pre>
+INT 14 - FOSSIL - KEYBOARD READ WITHOUT WAIT
+	AH = 0Dh
+Return: AX = result
+	    FFFFh character not available
+	    xxyyh standard IBM-style scan code
+SeeAlso: AH=0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D_0" name="140D_0"><b>140D</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - GET POINTER TO CH_KEY_RDY FLAG<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - GET POINTER TO CH_KEY_RDY FLAG
+	AH = 0Dh
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: ES:BX -&gt; CH_KEY_RDY flag (see #00339)
+SeeAlso: AH=0Ah"Digiboard"
+
+(Table 00339)
+Values for Digiboard CH_KEY_RDY flag:
+ 00h	receive buffer empty
+ FFh	characters available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D_1" name="140D_1"><b>140D</b></a> - INT 14 - MBBIOS PACCOM support - SET TXD<br />
+<pre>
+INT 14 - MBBIOS PACCOM support - SET TXD
+	AH = 0Dh
+	AL = new setting (FFh = 1.0)
+Return: nothing
+Desc:	specify the time from RTS to start or packet
+SeeAlso: AX=0D00h,AH=0Eh"MBBIOS",AH=0Fh"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D00" name="140D00"><b>140D00</b></a> - INT 14 - MBBIOS - GET AVAILABLE BYTES<br />
+<pre>
+INT 14 - MBBIOS - GET AVAILABLE BYTES
+	AX = 0D00h
+Return: AX = bytes in transmit buffer
+	CX = bytes in receive buffer
+SeeAlso: AH=0Ah"MBBIOS",AH=0Bh"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D01" name="140D01"><b>140D01</b></a> - INT 14 - MBBIOS - LOWER ALL MODEM CONTROL SIGNALS<br />
+<pre>
+INT 14 - MBBIOS - LOWER ALL MODEM CONTROL SIGNALS
+	AX = 0D01h
+Return: nothing
+Note:	this function lowers DTR, RTS, etc.
+SeeAlso: AX=0D02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D02" name="140D02"><b>140D02</b></a> - INT 14 - MBBIOS - RAISE ALL MODEM CONTROL SIGNALS<br />
+<pre>
+INT 14 - MBBIOS - RAISE ALL MODEM CONTROL SIGNALS
+	AX = 0D02h
+Return: nothing
+Note:	this function raises DTR, RTS, etc.
+SeeAlso: AX=0D01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140D03" name="140D03"><b>140D03</b></a> - INT 14 - MBBIOS - SET HANDSHAKE BYTE<br />
+<pre>
+INT 14 - MBBIOS - SET HANDSHAKE BYTE
+	AX = 0D03h
+	CL = new handshake byte
+Return: CL = previous handshake byte
+Note:	this function lowers DTR, RTS, etc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140E" name="140E"><b>140E</b></a> - INT 14 - FOSSIL - KEYBOARD READ WITH WAIT<br />
+<pre>
+INT 14 - FOSSIL - KEYBOARD READ WITH WAIT
+	AH = 0Eh
+Return: AX = xxyyh standard IBM-style scan code
+SeeAlso: AH=0Dh"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140E_0" name="140E_0"><b>140E</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - WRITE STRING<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - WRITE STRING
+	AH = 0Eh
+	CX = number of characters to write
+	ES:BX -&gt; string
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AX = number of characters actually written
+	ZF clear if successful
+	ZF set on error
+SeeAlso: AH=0Fh"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140E_1" name="140E_1"><b>140E</b></a> - INT 14 - MBBIOS PACCOM support - SET PERSISTENCE<br />
+<pre>
+INT 14 - MBBIOS PACCOM support - SET PERSISTENCE
+	AH = 0Eh
+	AL = new setting (FFh = 1.0)
+Return: nothing
+Desc:	specify the time from end of DCD to RTS
+SeeAlso: AH=0Dh"MBBIOS",AH=0Fh"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140F" name="140F"><b>140F</b></a> - INT 14 - FOSSIL - ENABLE/DISABLE FLOW CONTROL<br />
+<pre>
+INT 14 - FOSSIL - ENABLE/DISABLE FLOW CONTROL
+	AH = 0Fh
+	AL = bit mask describing requested flow control (see #00340)
+	DX = port number
+Return: nothing
+SeeAlso: AH=09h"MBBIOS",AH=10h"FOSSIL"
+
+Bitfields for FOSSIL requested flow control:
+Bit(s)	Description	(Table 00340)
+ 0	XON/XOFF on transmit (watch for XOFF while sending)
+ 1	CTS/RTS (CTS on transmit/RTS on receive)
+ 2	reserved
+ 3	XON/XOFF on receive (send XOFF when buffer near full)
+ 4-7	all 1
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140F_0" name="140F_0"><b>140F</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - READ STRING<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - READ STRING
+	AH = 0Fh
+	CX = number of characters to read
+	ES:BX -&gt; buffer
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AX = number of characters read
+	ZF clear if successful
+	ZF set on error (line status or wrong number of characters)
+SeeAlso: AH=0Eh"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#140F_1" name="140F_1"><b>140F</b></a> - INT 14 - MBBIOS PACCOM support - SET SLOT TIME<br />
+<pre>
+INT 14 - MBBIOS PACCOM support - SET SLOT TIME
+	AH = 0Fh
+	AL = new setting in clock ticks
+Return: nothing
+Desc:	specify the time from end of DCD to RTS
+SeeAlso: AH=0Dh"MBBIOS",AH=0Eh"MBBIOS",AH=10h"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1410" name="1410"><b>1410</b></a> - INT 14 - FOSSIL - EXTENDED ^C/^K CHECKING AND TRANSMIT ON/OFF<br />
+<pre>
+INT 14 - FOSSIL - EXTENDED ^C/^K CHECKING AND TRANSMIT ON/OFF
+	AH = 10h
+	AL = bit mask
+	    bit 0: enable/disable ^C/^K checking
+	    bit 1: enable/disable the transmitter
+	DX = port number
+Return: nothing
+SeeAlso: AH=0Fh"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1410_0" name="1410_0"><b>1410</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR RECEIVE BUFFER<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR RECEIVE BUFFER
+	AH = 10h
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh error
+SeeAlso: AH=09h"Digiboard",AH=11h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1410_1" name="1410_1"><b>1410</b></a> - INT 14 - MBBIOS PACCOM support - SET CRC WAIT<br />
+<pre>
+INT 14 - MBBIOS PACCOM support - SET CRC WAIT
+	AH = 10h
+	AL = new setting in clock ticks (should be at least 5 character times)
+Return: nothing
+Desc:	specify the time from start of last character to dropping RTS
+SeeAlso: AH=0Dh"MBBIOS",AH=0Fh"MBBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1411" name="1411"><b>1411</b></a> - INT 14 - FOSSIL - SET CURRENT CURSOR LOCATION<br />
+<pre>
+INT 14 - FOSSIL - SET CURRENT CURSOR LOCATION
+	AH = 11h
+	DH = row
+	DL = column
+Return: nothing
+Note:	this is the same as INT 10/AH=02h
+SeeAlso: AH=12h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1411_0" name="1411_0"><b>1411</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR TRANSMIT BUFFER<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CLEAR TRANSMIT BUFFER
+	AH = 11h
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh error
+SeeAlso: AH=09h"Digiboard",AH=10h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1411_1" name="1411_1"><b>1411</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DISABLE PORT<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DISABLE PORT
+	AH = 11h
+	DX = port number
+Return: AL = status
+	    00h successful
+	    01h IRQ for port is shared
+	    02h IRQ was reserved
+SeeAlso: AH=04h"SERIAL",AH=05h"SERIAL",AH=12h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1412" name="1412"><b>1412</b></a> - INT 14 - FOSSIL - READ CURRENT CURSOR LOCATION<br />
+<pre>
+INT 14 - FOSSIL - READ CURRENT CURSOR LOCATION
+	AH = 12h
+Return: DH = row
+	DL = column
+Note:	this is the same as INT 10/AH=03h
+SeeAlso: AH=11h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1412_0" name="1412_0"><b>1412</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - GET TRANSMIT BUFFER FREE SPACE<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - GET TRANSMIT BUFFER FREE SPACE
+	AH = 12h
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AX = number of bytes free
+SeeAlso: AH=0Ah"Digiboard",AH=14h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1412_1" name="1412_1"><b>1412</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET CURRENT PORT PARAMETERS<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET CURRENT PORT PARAMETERS
+	AH = 12h
+	DX = port number
+Return: AH = status
+	    FFh port number invalid
+	AL = line parameters (see #00304)
+	AH = flow control configuration (see #00336 at AH=05h"PC-MOS")
+	CX:BX = bps rate
+	DL = XOFF character or 00h for none
+	DH = XON character or 00h for none
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1413" name="1413"><b>1413</b></a> - INT 14 - FOSSIL - SINGLE CHARACTER ANSI WRITE TO SCREEN<br />
+<pre>
+INT 14 - FOSSIL - SINGLE CHARACTER ANSI WRITE TO SCREEN
+	AH = 13h
+	AL = character
+Return: nothing
+Note:	should not be called if it is unsafe to call DOS
+SeeAlso: AH=15h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1413_0" name="1413_0"><b>1413</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - REGISTER A PORT WITH A TERMINAL<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - REGISTER A PORT WITH A TERMINAL
+	AH = 13h
+	DX = port number
+Return: AH = status
+	    FFh port number invalid
+	    else
+		ES:BX -&gt; BYTE flag (00h buffer empty, FFh buffer contains data)
+SeeAlso: AH=17h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1414" name="1414"><b>1414</b></a> - INT 14 - FOSSIL - ENABLE OR DISABLE WATCHDOG PROCESSING<br />
+<pre>
+INT 14 - FOSSIL - ENABLE OR DISABLE WATCHDOG PROCESSING
+	AH = 14h
+	AL = 01h enable watchdog
+	     00h disable watchdog
+	DX = port number
+Return: nothing
+SeeAlso: INT 21/AH=2Bh/CX=6269h"WDTSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1414_0" name="1414_0"><b>1414</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT STRING<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT STRING
+	AH = 14h
+	CX = number of characters in string
+	DX = port number
+	ES:BX -&gt; string to be sent
+	SI = timeout in timer ticks or 0000h for default
+Return: AX = number of bytes actually sent
+	ZF clear if successful
+	ZF set on timeout
+SeeAlso: AH=01h,AH=15h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1414_1" name="1414_1"><b>1414</b></a> - INT 14 - Digiboard - GET NUMBER OF BOARDS INSTALLED<br />
+<pre>
+INT 14 - Digiboard - GET NUMBER OF BOARDS INSTALLED
+	AH = 14h
+Return: AX = number of boards installed
+SeeAlso: AH=08h"Digiboard",AH=15h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1415" name="1415"><b>1415</b></a> - INT 14 - FOSSIL - WRITE CHARACTER TO SCREEN USING BIOS SUPPORT ROUTINES<br />
+<pre>
+INT 14 - FOSSIL - WRITE CHARACTER TO SCREEN USING BIOS SUPPORT ROUTINES
+	AH = 15h
+	AL = character
+Return: nothing
+SeeAlso: AH=13h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1415_0" name="1415_0"><b>1415</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STRING<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - INPUT STRING
+	AH = 15h
+	CX = size of buffer
+	DX = port number
+	ES:BX -&gt; buffer for received characters
+	SI = timeout in clock ticks or 0000h for default
+Return: AX = number of characters actually read
+	ZF set on timeout (no data available)
+SeeAlso: AH=02h,AH=14h"PC-MOS",AH=16h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1415_1" name="1415_1"><b>1415</b></a> - INT 14 - Digiboard - ENABLE/DISABLE MEMORY<br />
+<pre>
+INT 14 - Digiboard - ENABLE/DISABLE MEMORY
+	AH = 15h
+	AL = new state (00h disabled, 01h enabled)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=14h"Digiboard",AH=16h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1416" name="1416"><b>1416</b></a> - INT 14 - FOSSIL - INSERT/DELETE FUNCTION FROM TIMER TICK CHAIN<br />
+<pre>
+INT 14 - FOSSIL - INSERT/DELETE FUNCTION FROM TIMER TICK CHAIN
+	AH = 16h
+	AL = function
+	    00h = delete
+	    01h = add
+	ES:DX -&gt; routine to call
+Return: AX = status
+	    0000h successful
+	    0001h unsuccessful
+SeeAlso: AH=07h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1416_0" name="1416_0"><b>1416</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - LINK TO ANOTHER SERIAL DRIVER<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - LINK TO ANOTHER SERIAL DRIVER
+	AH = 16h
+	ES:BX -&gt; calling driver's INT 14 entry point
+Return: nothing
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1416_1" name="1416_1"><b>1416</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - CCB COMMAND<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - CCB COMMAND
+	AH = 16h
+	AL = CCB command number (see #00342) (see also following entries)
+	BL = byte 2
+	BH = byte 3
+	CL = byte 1 (for all channel functions except 4Eh and 4Fh)
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AX=1646h,AH=18h"Digiboard"
+
+(Table 00342)
+Values for Digiboard CCB command number:
+ 40h	Set Receive Mid Water Mark
+ 41h	Set Receive High Water Mark
+ 42h	Flush Receive Buffer
+ 43h	Flush Transmit Buffer
+ 44h	Transmit Pause
+ 45h	Transmit Resume
+ 46h	Set Interrupt to Host Mask
+ 47h	Set Baud, Data, Stop and Parity
+ 48h	Send Break
+ 49h	Set Modem Lines
+ 4Ah	Set Break Count
+ 4Bh	Set Handshake
+ 4Ch	Set Xon/Xoff Characters
+ 4Dh	Set Transmit Mid Water Mark
+ 4Eh	IRQ Polling Timer to Host
+ 4Fh	Buffer Set All
+ 50h	Port On
+ 51h	Port Off
+ 52h	Receive Pause
+ 53h	Special Character Interrupt
+ 54h	RS-422 Enable
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141646" name="141646"><b>141646</b></a> - INT 14 - Digiboard - CCB COMMAND - SET INTERRUPT TO HOST MASK<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET INTERRUPT TO HOST MASK
+	AX = 1646h
+	BL = bits to set
+	BH = bits to clear
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1647h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141647" name="141647"><b>141647</b></a> - INT 14 - Digiboard - CCB COMMAND - SET BAUD/DATABITS/STOPBITS/PARITY<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET BAUD/DATABITS/STOPBITS/PARITY
+	AX = 1647h
+	BL = baud
+	BH = datatype
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1646h,AX=1649h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141649" name="141649"><b>141649</b></a> - INT 14 - Digiboard - CCB COMMAND - SET MODEM LINES<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET MODEM LINES
+	AX = 1649h
+	BL = bits to set
+	BH = bits to clear
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1647h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164A" name="14164A"><b>14164A</b></a> - INT 14 - Digiboard - CCB COMMAND - SET BREAK COUNT<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET BREAK COUNT
+	AX = 164Ah
+	BL = break count
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1649h,AX=164Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164B" name="14164B"><b>14164B</b></a> - INT 14 - Digiboard - CCB COMMAND - SET HANDSHAKE<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET HANDSHAKE
+	AX = 164Bh
+	BL = bits to set
+	BH = bits to clear
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1649h,AX=164Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164C" name="14164C"><b>14164C</b></a> - INT 14 - Digiboard - CCB COMMAND - SET XON/XOFF CHARACTERS<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET XON/XOFF CHARACTERS
+	AX = 164Ch
+	BL = XON character
+	BH = XOFF character
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=164Bh,AX=164Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164D" name="14164D"><b>14164D</b></a> - INT 14 - Digiboard - CCB COMMAND - SET TRANSMIT MID-WATER MARK<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SET TRANSMIT MID-WATER MARK
+	AX = 164Dh
+	BX = new mid-water mark
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=164Ch,AX=164Eh,AX=164Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164E" name="14164E"><b>14164E</b></a> - INT 14 - Digiboard - CCB COMMAND - IRQ POLLING TIMER TO HOST<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - IRQ POLLING TIMER TO HOST
+	AX = 164Eh
+	BL = ticks
+	BH = ???
+	CL = mode
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=164Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14164F" name="14164F"><b>14164F</b></a> - INT 14 - Digiboard - CCB COMMAND - BUFFER SET ALL<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - BUFFER SET ALL
+	AX = 164Fh
+	BL = size
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=164Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141653" name="141653"><b>141653</b></a> - INT 14 - Digiboard - CCB COMMAND - SPECIAL CHARACTER INTERRUPT<br />
+<pre>
+INT 14 - Digiboard - CCB COMMAND - SPECIAL CHARACTER INTERRUPT
+	AX = 1653h
+	BL = enable/disable
+	BH = special character
+	CL = byte 1
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h error
+	    FFh error
+SeeAlso: AH=16h"Digiboard",AX=1646h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1417" name="1417"><b>1417</b></a> - INT 14 - FOSSIL - REBOOT SYSTEM<br />
+<pre>
+INT 14 - FOSSIL - REBOOT SYSTEM
+	AH = 17h
+	AL = method
+	    00h = cold boot
+	    01h = warm boot
+SeeAlso: INT 16/AX=E0FFh,INT 19,INT 60/DI=0606h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1417_0" name="1417_0"><b>1417</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - WRITE MODEM CONTROL REGISTER<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - WRITE MODEM CONTROL REGISTER
+	AH = 17h
+	AL = new value for UART's modem control register
+	DX = port number
+Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1418" name="1418"><b>1418</b></a> - INT 14 - FOSSIL - READ BLOCK<br />
+<pre>
+INT 14 - FOSSIL - READ BLOCK
+	AH = 18h
+	CX = maximum number of characters to transfer
+	DX = port number
+	ES:DI -&gt; user buffer
+Return: AX = number of characters transferred
+SeeAlso: AH=19h"FOSSIL",AH=83h"COURIERS",AX=FF02h,INT 6B/AX=0100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1418_0" name="1418_0"><b>1418</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - SEND BIOS COMMAND<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - SEND BIOS COMMAND
+	AH = 18h
+	ES:BX -&gt; 16-byte command string
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    80h timeout
+	AL = mailbox status
+	    00h no errors
+	    8Xh BIOS error
+	ES:BX buffer filled in with mailbox string
+	ZF clear if no errors
+	ZF set if either status byte contains an error code
+SeeAlso: AH=16h"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1418_1" name="1418_1"><b>1418</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET DRIVER DESCRIPTION<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - GET DRIVER DESCRIPTION
+	AH = 18h
+	DX = port number
+Return: DS:BX -&gt; 40-byte buffer containing a string identifying the serial
+		driver
+SeeAlso: AH=06h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1419" name="1419"><b>1419</b></a> - INT 14 - FOSSIL - WRITE BLOCK<br />
+<pre>
+INT 14 - FOSSIL - WRITE BLOCK
+	AH = 19h
+	CX = maximum number of characters to transfer
+	DX = port number
+	ES:DI -&gt; user buffer
+Return: AX = number of characters transferred
+SeeAlso: AH=18h"FOSSIL",AH=86h,INT 6B/AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1419_0" name="1419_0"><b>1419</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X* - SPECIAL CHARACTER INTERRUPT<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X* - SPECIAL CHARACTER INTERRUPT
+	AH = 19h
+	BL = flag
+	    00h disable special character interrupt
+	    FFh enable interrupt
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: AH = status
+	    00h successful
+	    FFh failed
+SeeAlso: AH=1Ah"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1419_1" name="1419_1"><b>1419</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SELECTIVE BUFFER FLUSH<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - SELECTIVE BUFFER FLUSH
+	AH = 19h
+	AL = what to flush
+	    bit 0: input buffer
+	    bit 1: output buffer
+	DX = port number
+Return: nothing
+SeeAlso: AH=09h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141A" name="141A"><b>141A</b></a> - INT 14 - FOSSIL - BREAK BEGIN OR END<br />
+<pre>
+INT 14 - FOSSIL - BREAK BEGIN OR END
+	AH = 1Ah
+	AL = 00h stop sending 'break'
+	     01h start sending 'break'
+	DX = port number
+Return: nothing
+SeeAlso: AH=06h"FOSSIL",AH=8Ah,AH=FAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141A_0" name="141A_0"><b>141A</b></a> - INT 14 - Digiboard DigiCHANNEL PC/X - SPECIAL CHARACTER FLAG/COUNTER<br />
+<pre>
+INT 14 - Digiboard DigiCHANNEL PC/X - SPECIAL CHARACTER FLAG/COUNTER
+	AH = 1Ah
+	BX = subfunction
+	    00h return pointer to special character flag byte
+	    01h return pointer to special character counter word
+	DX = port number (00h-03h) (04h-43h for XAPCM232.SYS)
+Return: ES:BX -&gt; special character flag or counter
+Notes:	flag is FFh if one or more special characters are in the receive
+	  buffer; it is 00h and the counter is invalid if no special characters
+	  are in the receive buffer
+	counter (if valid) contains the number of characters in the receive
+	  buffer up to and including the last-received special character
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141B" name="141B"><b>141B</b></a> - INT 14 - FOSSIL - RETURN INFORMATION ABOUT THE DRIVER<br />
+<pre>
+INT 14 - FOSSIL - RETURN INFORMATION ABOUT THE DRIVER
+	AH = 1Bh
+	DX = port number
+	CX = size of user buffer
+	ES:DI -&gt; user buffer for driver info (see #00343)
+Return: AX = number of characters transferred
+	CX = 3058h ("0X") (X00 FOSSIL only)
+	DX = 2030h (" 0") (X00 FOSSIL only)
+
+Format of FOSSIL driver info:
+Offset	Size	Description	(Table 00343)
+ 00h	WORD	size of structure in bytes
+ 02h	BYTE	FOSSIL spec driver conforms to
+ 03h	BYTE	revision level of this specific driver
+ 04h	DWORD	pointer to ASCIZ identification string
+ 08h	WORD	size of the input buffer
+ 0Ah	WORD	number of bytes left in buffer
+ 0Ch	WORD	size of the output buffer
+ 0Eh	WORD	number of bytes left in buffer
+ 10h	BYTE	width of screen
+ 11h	BYTE	length of screen
+ 12h	BYTE	actual baud rate, computer to modem
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141C" name="141C"><b>141C</b></a> - INT 14 - X00 FOSSIL - ACTIVATE PORT<br />
+<pre>
+INT 14 - X00 FOSSIL - ACTIVATE PORT
+	AH = 1Ch
+	DX = port number
+Return: AX = 1954h if successful
+	BL = maximum function number supported (not including 7Eh and above)
+	BH = revision of FOSSIL specification supported
+Note:	this is a duplicate of AH=04h, so that AH=04h may be made compatible
+	  with the PS/2 BIOS in a future release
+SeeAlso: AH=04h"FOSSIL",AH=1Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141D" name="141D"><b>141D</b></a> - INT 14 - X00 FOSSIL - DEACTIVATE PORT<br />
+<pre>
+INT 14 - X00 FOSSIL - DEACTIVATE PORT
+	AH = 1Dh
+	DX = port number
+Return: none
+Notes:	this is a duplicate of AH=05h, so that AH=05h may be made compatible
+	  with the PS/2 BIOS in a future release
+	ignored if the port was never activated with AH=04h or AH=1Ch
+SeeAlso: AH=05h"FOSSIL",AH=1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141E" name="141E"><b>141E</b></a> - INT 14 - X00 FOSSIL - EXTENDED LINE CONTROL INITIALIZATION<br />
+<pre>
+INT 14 - X00 FOSSIL - EXTENDED LINE CONTROL INITIALIZATION
+	AH = 1Eh
+	AL = break status
+	    00h if break
+	    01h if no break
+	BH = parity (see #00344)
+	BL = number of stop bits
+	    00h one stop bit
+	    01h two stop bits (1.5 if 5 bit word length)
+	CH = word length (see #00345)
+	CL = bps rate (see #00346)
+	DX = port number
+Return: AX = port status code (see #00304,#00305)
+Notes:	this function is intended to exactly emulate the PS/2 BIOS AH=04h call
+	if the port was locked at X00 load time, the appropriate parameters are
+	  ignored
+SeeAlso: AH=00h,AH=04h"SERIAL"
+
+(Table 00344)
+Values for X00 FOSSIL parity:
+ 00h	no parity
+ 01h	odd parity
+ 02h	even parity
+ 03h	stick parity odd
+ 04h	stick parity even
+SeeAlso: #00307,#00345,#00346
+
+(Table 00345)
+Values for X00 FOSSIL word length:
+ 00h	5 bits
+ 01h	6 bits
+ 02h	7 bits
+ 03h	8 bits
+SeeAlso: #00308,#00344,#00346
+
+(Table 00346)
+Values for X00 FOSSIL bps rate:
+ 00h	110
+ 01h	150
+ 02h	300
+ 03h	600
+ 04h	1200
+ 05h	2400
+ 06h	4800
+ 07h	9600
+ 08h	19200
+SeeAlso: #00309,#00344,#00345
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141E_0" name="141E_0"><b>141E</b></a> - INT 14 - HUNTER 16 - READ COMMS PARAMETERS<br />
+<pre>
+INT 14 - HUNTER 16 - READ COMMS PARAMETERS
+	AH = 1Eh
+	CX = channel number (00h COM1, 01h COM2, ...)
+	DS:BX -&gt; buffer for communications parameters (see #00347)
+Return: DS:BX buffer filled
+Note:	the Husky Hunter 16 is an 8088-based ruggedized laptop.	 Other family
+	  members are the Husky Hunter, Husky Hunter 16/80, and Husky Hawk.
+SeeAlso: AH=20h"HUNTER"
+
+Format of HUNTER 16 communications parameters:
+Offset	Size	Description	(Table 00347)
+ 00h	BYTE	communications type (00h IBM, nonzero Husky)
+ 01h	BYTE	port number (00h COM1, 01h COM2)
+ 02h	BYTE	baud rate (00h 110 bps, 01h 150, 02h 300, 03h 600, 04h 1200,
+		  05h 2400, 06h 4800, 07h 9600, 08h 19200, 09h 38400)
+ 03h	BYTE	data bits (01h seven, 02h eight)
+ 04h	BYTE	parity (00h none, 01h odd, 02h even)
+ 05h	BYTE	stop bits (00h one, 01h two)
+ 06h	BYTE	handshake (see #00348)
+ 07h	BYTE	handshake protocol (00h none, 01h Xon/Xoff, 02h HWK3780)
+ 08h	BYTE	Nulls after CR (0-20)
+ 09h	BYTE	LF (00h off, 01h on)
+ 0Ah	BYTE	Serig. 0..7Fh: Ignore this character
+		       80h: Serig off
+ 0Bh	BYTE	echo (00h off, 01h on)
+ 0Ch	BYTE	transmit timeout in seconds (1-60) or 00h to disable
+ 0Dh	BYTE	receive timeout in seconds (1-60) or 00h to disable
+ 0Eh  5 BYTEs	reserved
+
+Bitfields for HUNTER 16 handshake:
+Bit(s)	Description	(Table 00348)
+ 0-1	0: RTS off, 1: RTS hold, 2: RTS true
+ 2	DTR enabled
+ 4	CTS enabled
+ 5	DSR enabled
+ 6	DCD enabled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#141F" name="141F"><b>141F</b></a> - INT 14 - X00 FOSSIL - EXTENDED SERIAL PORT STATUS/CONTROL<br />
+<pre>
+INT 14 - X00 FOSSIL - EXTENDED SERIAL PORT STATUS/CONTROL
+	AH = 1Fh
+	DX = port number
+	AL = direction
+	    00h read modem control register
+		Return: BL = modem control register (see #00349)
+			AH = status
+	    01h write modem control register
+		BL = modem control register (see #00349)
+		Return: AX = status
+Notes:	this function is intended to exactly emulate the PS/2 BIOS AH=05h call
+	X00 forces BL bit 3 set (interrupts cannot be disabled)
+SeeAlso: AH=00h,AH=05h"SERIAL"
+
+Bitfields for X00 FOSSIL modem control register:
+Bit(s)	Description	(Table 00349)
+ 0	data terminal ready
+ 1	request to send
+ 2	OUT1
+ 3	OUT2 (interrupts) enabled
+ 4	LOOP
+ 5-7	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1420" name="1420"><b>1420</b></a> - INT 14 - X00 FOSSIL - DESTRUCTIVE READ WITH NO WAIT<br />
+<pre>
+INT 14 - X00 FOSSIL - DESTRUCTIVE READ WITH NO WAIT
+	AH = 20h
+	DX = port number
+Return: AH = 00h if character was available
+	    AL = next character (removed from receive buffer)
+	AX = FFFFh if no character available
+SeeAlso: AH=0Ch,AH=21h"X00"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1420_0" name="1420_0"><b>1420</b></a> - INT 14 - Alloy MW386 - ATTACH LOGICAL COMMUNICATIONS PORT TO PHYSICAL PORT<br />
+<pre>
+INT 14 - Alloy MW386 - ATTACH LOGICAL COMMUNICATIONS PORT TO PHYSICAL PORT
+	AH = 20h
+	AL = logical port (01h COM1, 02h COM2)
+	DX = physical port number
+Return: AX = status
+	    0000h successful
+	    FFFFh failed
+SeeAlso: AH=21h"Alloy",AH=22h"Alloy",AH=23h"Alloy",INT 17/AH=8Bh"Alloy"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1420_1" name="1420_1"><b>1420</b></a> - INT 14 - MultiDOS Plus - INITIALIZE PORT<br />
+<pre>
+INT 14 - MultiDOS Plus - INITIALIZE PORT
+	AH = 20h
+	AL = port parameters (see #00300 at AH=00h"SERIAL")
+	DX = port number (0-3)
+Return: AH = status
+	    00h successful
+	    41h no such port
+	    64h monitor mode already active
+SeeAlso: AH=00h"SERIAL",AH=04h"MultiDOS",AH=21h"MultiDOS",AH=23h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1420_2" name="1420_2"><b>1420</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHECK OUTPUT QUEUE<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - CHECK OUTPUT QUEUE
+	AH = 20h
+	DX = port number
+Return: AX = number of bytes in output buffer
+SeeAlso: AH=0Ah"Digiboard"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1420_3" name="1420_3"><b>1420</b></a> - INT 14 - HUNTER 16 - SELECT COMMS PARAMETERS<br />
+<pre>
+INT 14 - HUNTER 16 - SELECT COMMS PARAMETERS
+	AH = 20h
+	CX = channel number (00h COM1, 01h COM2, ...)
+	DS:BX -&gt; buffer with communications parameter (see #00347)
+Return: AX = status
+	    0000h successful
+	    0001h invalid parameter
+SeeAlso: AH=1Eh"HUNTER",AH=21h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1421" name="1421"><b>1421</b></a> - INT 14 - X00 FOSSIL - STUFF RECEIVE BUFFER<br />
+<pre>
+INT 14 - X00 FOSSIL - STUFF RECEIVE BUFFER
+	AH = 21h
+	AL = character
+	DX = port number
+Return: nothing
+Notes:	the given character is inserted at the end of the receive buffer as if
+	  it had just arrived from the serial port; all normal receive
+	  processing (XON/XOFF, ^C/^K) is performed on the character
+	fully re-entrant
+SeeAlso: AH=20h"X00"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1421_0" name="1421_0"><b>1421</b></a> - INT 14 - Alloy MW386 v1.x only - RELEASE PHYSICAL COMMUNICATIONS PORT<br />
+<pre>
+INT 14 - Alloy MW386 v1.x only - RELEASE PHYSICAL COMMUNICATIONS PORT
+	AH = 21h
+	DX = physical port number
+Return: AX = status
+	    0000h successful
+	    FFFFh failed
+SeeAlso: AH=20h"Alloy",AH=22h"Alloy"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1421_1" name="1421_1"><b>1421</b></a> - INT 14 - MultiDOS Plus - TRANSMIT CHARACTER<br />
+<pre>
+INT 14 - MultiDOS Plus - TRANSMIT CHARACTER
+	AH = 21h
+	AL = character to send
+	DX = port number
+Return: AH = status (see #00350)
+Note:	monitor mode must have been turned on with AH=24h before calling
+SeeAlso: AH=20h"MultiDOS",AH=22h"MultiDOS",AH=24h"MultiDOS"
+
+(Table 00350)
+Values for MultiDOS Plus status:
+ 00h	successful
+ 39h	no DSR or CTS
+ 3Ch	no DSR
+ 3Bh	no CTS
+ 41h	no such port
+ 42h	monitor mode not active
+ 97h	timed out
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1421_2" name="1421_2"><b>1421</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT CHARACTER, WITH TIMEOUT<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - OUTPUT CHARACTER, WITH TIMEOUT
+	AH = 21h
+	AL = char to send
+	DX = port number
+	SI = timeout in timer ticks (0000h = default)
+Return: after character is sent or timeout expires
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+SeeAlso: AH=01h,AH=0Eh"Digiboard",AH=22h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1421_3" name="1421_3"><b>1421</b></a> - INT 14 - HUNTER 16 - EXTENDED CONTROL<br />
+<pre>
+INT 14 - HUNTER 16 - EXTENDED CONTROL
+	AH = 21h
+	AL = command
+	    01h force transmission of buffer
+	    02h clear transmit buffer
+	    03h clear receive buffer
+	DX = port (00h COM1, 01h COM2)
+Return: AH = extended status
+Desc:	executes the command on the selected port
+SeeAlso: AH=1Eh"HUNTER",AH=20h"HUNTER",AH=22h"HUNTER",AH=24h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1422" name="1422"><b>1422</b></a> - INT 14 - Alloy MW386 v2+ - RELEASE LOGICAL COMMUNICATIONS PORT<br />
+<pre>
+INT 14 - Alloy MW386 v2+ - RELEASE LOGICAL COMMUNICATIONS PORT
+	AH = 22h
+	AL = logical port (01h COM1, 02h COM2)
+Return: AX = status (0000h successful)
+SeeAlso: AH=20h"Alloy",AH=21h"Alloy"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1422_0" name="1422_0"><b>1422</b></a> - INT 14 - MultiDOS Plus - RECEIVE CHARACTER<br />
+<pre>
+INT 14 - MultiDOS Plus - RECEIVE CHARACTER
+	AH = 22h
+	DX = port number
+Return: AH = status (see also AH=21h"MultiDOS")
+	    00h successful
+		AL = character
+	    3Dh framing and parity error
+	    3Eh overrun error
+	    3Fh framing error
+	    40h parity error
+	    96h ring buffer overflow
+Note:	if no character is available, this function waits until a character
+	  arrives or an implementation-dependent timeout elapses
+SeeAlso: AH=20h"MultiDOS",AH=21h"MultiDOS",AH=27h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1422_1" name="1422_1"><b>1422</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RECEIVE CHARACTER, WITH TIMEOUT<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - RECEIVE CHARACTER, WITH TIMEOUT
+	AH = 22h
+	DX = port number
+	SI = timeout in timer ticks (0000h = default)
+Return: AH = port status (see also #00304 at AH=03h)
+	    bit 7 = 1 indicates time-out
+	AL = character received
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+SeeAlso: AH=02h,AH=0Fh"Digiboard",AH=21h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1422_2" name="1422_2"><b>1422</b></a> - INT 14 - HUNTER 16 - EXTENDED STATUS<br />
+<pre>
+INT 14 - HUNTER 16 - EXTENDED STATUS
+	AH = 22h
+	DX = port (00h COM1, 01h COM2)
+Return: AH = extended status
+	BX = number of characters in input buffer
+	CX = number of characters in output buffer
+Desc:	returns the most recent Extended Status code for the port
+SeeAlso: AH=21h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1423" name="1423"><b>1423</b></a> - INT 14 - Alloy MW386 v2+ - GET PORT NUMBER FROM LOGICAL PORT ID<br />
+<pre>
+INT 14 - Alloy MW386 v2+ - GET PORT NUMBER FROM LOGICAL PORT ID
+	AH = 23h
+	AL = logical port (01h COM1, 02h COM2)
+	DH = user ID
+	DL = process ID (DH,DL both FFh for current task)
+Return: AL = MW386 port mode (see #00351)
+	CX = MW386 port number
+	DH = owner's user ID
+	DL = owner's task ID
+SeeAlso: AH=20h"Alloy",INT 17/AH=8Bh"Alloy"
+
+Bitfields for MW386 port mode:
+Bit(s)	Description	(Table 00351)
+ 0	port is shared (spooler only)
+ 1	port is spooled instead of direct (spooler only)
+ 2	port is assigned as logical COM device, not in spooler
+ 3	port is free
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1423_0" name="1423_0"><b>1423</b></a> - INT 14 - MultiDOS Plus - GET PORT STATUS<br />
+<pre>
+INT 14 - MultiDOS Plus - GET PORT STATUS
+	AH = 23h
+	DX = port number
+Return: AH = line status (see #00304 at AH=03h)
+	AL = modem status (see #00305 at AH=03h)
+SeeAlso: AH=03h,AH=07h"MultiDOS",AH=20h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1423_1" name="1423_1"><b>1423</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DECLARE PORT OWNERSHIP<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - DECLARE PORT OWNERSHIP
+	AH = 23h
+	DX = port number
+	BX = TCB segment/selector address of owner task
+Return: nothing
+SeeAlso: AH=0Dh"Digiboard",AH=21h"PC-MOS",AH=22h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1423_2" name="1423_2"><b>1423</b></a> - INT 14 - HUNTER 16 - CONTROL HANDSHAKE LINES<br />
+<pre>
+INT 14 - HUNTER 16 - CONTROL HANDSHAKE LINES
+	AH = 23h
+	BH = handshake line to set (00h RTS, 01h DTR)
+	BL = new level (00h low, 01h high)
+Return: nothing
+Desc:	sets the handshake lines of COM1 to the desired level
+SeeAlso: AH=21h"HUNTER",AH=24h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1424" name="1424"><b>1424</b></a> - INT 14 - Alloy MW386 v2+ - CHANGE PHYSICAL PORT PARAMETERS<br />
+<pre>
+INT 14 - Alloy MW386 v2+ - CHANGE PHYSICAL PORT PARAMETERS
+	AH = 24h
+	CX = physical I/O port number
+	DS:DX -&gt; configuration table (see #00352)
+Return: AH = 00h
+Note:	invalid port numbers are merely ignored
+SeeAlso: INT 17/AH=96h
+
+Format of Alloy MW386 configuration table:
+Offset	Size	Description	(Table 00352)
+ 00h	BYTE	baud rate (see #00353)
+ 01h	BYTE	data bits (00h=5, 01h=6, 02h=7, 03h=8)
+ 02h	BYTE	parity (00h none, 01h odd, 02h even)
+ 03h	BYTE	stop bits (00h=1, 01h=2)
+ 04h	BYTE	receive flow control
+		00h none, 01h XON/XOFF, 02h DTR/DSR, 03h XPC, 04h RTS/CTS
+ 05h	BYTE	transmit flow control (as for receive)
+
+(Table 00353)
+Values for Alloy MW386 baud rate:
+ 00h	38400
+ 01h	19200
+ 02h	9600
+ 03h	7200
+ 04h	4800
+ 05h	3600
+ 06h	2400
+ 07h	2000
+ 08h	1200
+ 09h	600
+ 0Ah	300
+ 0Bh	150
+ 0Ch	134.5
+SeeAlso: #00309
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1424_0" name="1424_0"><b>1424</b></a> - INT 14 - MultiDOS Plus - SET MONITOR MODE<br />
+<pre>
+INT 14 - MultiDOS Plus - SET MONITOR MODE
+	AH = 24h
+	AL = port status storage
+	    00h single status for entire receive buffer
+	    01h separate status kept for each byte in receive buffer
+	DX = port number
+Return: AH = status
+	    00h successful
+	    3Ah invalid status storage specified
+	    41h no such port
+	    64h monitor mode already active
+Note:	in monitor mode, MultiDOS redirects all BIOS video output to a serial
+	  port
+SeeAlso: AH=20h"MultiDOS",AH=25h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1424_1" name="1424_1"><b>1424</b></a> - INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - ???<br />
+<pre>
+INT 14 - PC-MOS/386 v5.01 $serial.sys v5.04 - ???
+	AH = 24h
+Return: ???
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1424_2" name="1424_2"><b>1424</b></a> - INT 14 - HUNTER 16 - CONTROL CTS HANDSHAKING<br />
+<pre>
+INT 14 - HUNTER 16 - CONTROL CTS HANDSHAKING
+	AH = 24h
+	AL = new CTS handshake state for COM1 (00h disabled, 01h enabled)
+Return: nothing
+SeeAlso: AH=23h"HUNTER",AH=25h"HUNTER",AH=26h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1425" name="1425"><b>1425</b></a> - INT 14 - MultiDOS Plus - CLEAR BUFFERS<br />
+<pre>
+INT 14 - MultiDOS Plus - CLEAR BUFFERS
+	AH = 25h
+	AL = function
+	    00h only clear buffers
+	    01h clear buffers and deactivate
+	DX = port number
+Return: AH = status
+	    00h successful
+	    3Ah invalid function
+	    41h no such port
+	    42h monitor mode not active
+SeeAlso: AH=20h"MultiDOS",AH=24h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1425_0" name="1425_0"><b>1425</b></a> - INT 14 - HUNTER 16 - CONTROL RS232 DRIVERS<br />
+<pre>
+INT 14 - HUNTER 16 - CONTROL RS232 DRIVERS
+	AH = 25h
+	AL = new state of RS232 drivers (00h off, 01h on)
+Return: nothing
+Note:	this function can be used to save power by turning off the RS232
+	  drivers.  It can also be used to turn on the RS232 drivers before
+	  connecting to a remote system to avoid "garbage" while the drivers
+	  turn on.
+SeeAlso: AH=23h"HUNTER",AH=24h"HUNTER",AH=26h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1426" name="1426"><b>1426</b></a> - INT 14 - HUNTER 16 - CONTROL RI POWER UP<br />
+<pre>
+INT 14 - HUNTER 16 - CONTROL RI POWER UP
+	AH = 26h
+	AL = 00h enable RI power up
+	    else disable RI power up
+Return: nothing
+Desc:	control whether the Ring Indicator handshake can power up the Hunter
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1427" name="1427"><b>1427</b></a> - INT 14 - MultiDOS Plus - GET BUFFER CHARACTER COUNT<br />
+<pre>
+INT 14 - MultiDOS Plus - GET BUFFER CHARACTER COUNT
+	AH = 27h
+	DX = port number
+Return: AH = status
+	    00h successful
+	    41h no such port
+	    42h monitor mode not active
+	AL = number of characters in receive buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1427_0" name="1427_0"><b>1427</b></a> - INT 14 - HUNTER 16 - GET INSTALLED PROTOCOLS COUNT<br />
+<pre>
+INT 14 - HUNTER 16 - GET INSTALLED PROTOCOLS COUNT
+	AH = 27h
+	AL = number of extended protocols installed (since last call)
+Return: AL = total number installed, including new ones
+Desc:	Returns the number of extended communication protocols installed
+SeeAlso: AH=25h"HUNTER",AH=28h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1428" name="1428"><b>1428</b></a> - INT 14 - HUNTER 16 - GET PROTOCOL NAME<br />
+<pre>
+INT 14 - HUNTER 16 - GET PROTOCOL NAME
+	AH = 28h
+	AL = protocol handle
+	DS:BX -&gt; 8 character buffer for protocol name
+Return: AH = status
+	    00h successful
+		DS:BX buffer filled with the protocol name
+	    FFh failed
+SeeAlso: AH=27h"HUNTER",AH=29h"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1429" name="1429"><b>1429</b></a> - INT 14 - HUNTER 16 - GET PROTOCOL HANDLE<br />
+<pre>
+INT 14 - HUNTER 16 - GET PROTOCOL HANDLE
+	AH = 29h
+	DS:BX -&gt; buffer containing the protocol name
+Return: AH = status
+	    00h successful
+		AL = handle
+	    FFh failed
+SeeAlso: AH=28h"HUNTER",AH=2Ah"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#142A" name="142A"><b>142A</b></a> - INT 14 - HUNTER 16 - EXTENDED PROTOCOL MENU<br />
+<pre>
+INT 14 - HUNTER 16 - EXTENDED PROTOCOL MENU
+	AH = 2Ah
+	AL = protocol handle
+Return: AH = status
+	    00h successful
+	    FFh failed
+	AL = menu handle
+SeeAlso: AH=29h"HUNTER",AH=2Bh"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#142B" name="142B"><b>142B</b></a> - INT 14 - HUNTER 16 - GET EXTENDED PROTOCOL PARAMETERS<br />
+<pre>
+INT 14 - HUNTER 16 - GET EXTENDED PROTOCOL PARAMETERS
+	AH = 2Bh
+	AL = protocol handle
+	DS:BX -&gt; buffer for extended protocol parameters
+Return: AH = status
+	    00h successful
+		DS:BX buffer filled with extended parameters
+	    FFh failed
+SeeAlso: AH=2Ah"HUNTER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#142C00" name="142C00"><b>142C00</b></a> - INT 14 - HUNTER 16 - GET DTR<br />
+<pre>
+INT 14 - HUNTER 16 - GET DTR
+	AX = 2C00h
+Return: AH = 00h
+	BL = current state
+	    00h	 normal DTR operation
+	    else DTR is forced high
+Desc:	Indicates whether the DTR signal on COM1 is forced high
+Note:	the Husky Hunter 16 is an 8088-based ruggedized laptop.	 Other family
+	  members are the Husky Hunter, Husky Hunter 16/80, and Husky Hawk.
+SeeAlso: AH=2Ch"SET DTR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#142C" name="142C"><b>142C</b></a> - INT 14 - HUNTER 16 - SET DTR<br />
+<pre>
+INT 14 - HUNTER 16 - SET DTR
+	AH = 2Ch
+	AL nonzero
+	BL = new state
+	    00h	 normal operation
+	    else force DTR high
+Return: AH = 00h
+Desc:	determine whether the DTR signal on COM1 should be forced high
+SeeAlso: AX=2C00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1456" name="1456"><b>1456</b></a> - INT 14 U - BWCOM14 - INSTALLATION CHECK<br />
+<pre>
+INT 14 U - BWCOM14 - INSTALLATION CHECK
+	AH = 56h
+Return: CX = 0001h if installed
+Program: BWCOM14 is a network serial port emulator (simulating a Hayes modem
+	  connected to the serial port) distributed as part of the
+	  Beame&Whiteside BW-NFS package
+SeeAlso: AH=57h,AH=58h,INT 2F/AX=DF00h/BX=5445h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1457" name="1457"><b>1457</b></a> - INT 14 U - BWCOM14 - INITIALIZE<br />
+<pre>
+INT 14 U - BWCOM14 - INITIALIZE
+	AH = 57h
+	DL = port number
+Return: AL = initialization status (00h successful, 01h already initialized)
+	CX = port status (0001h port redirected, 0002h and FFFFh failed)
+Note:	after this call, all invocations of INT 14/AH=00h-03h for the specified
+	  port will be handled by BWCOM14 until AH=58h is called
+SeeAlso: AH=00h"SERIAL",AH=56h,AH=58h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1458" name="1458"><b>1458</b></a> - INT 14 U - BWCOM14 - SHUTDOWN<br />
+<pre>
+INT 14 U - BWCOM14 - SHUTDOWN
+	AH = 58h
+Return: CX = status (0001h successful, 0002h not initialized)
+Note:	after this call, BWCOM14 will no longer redirect the COM port
+SeeAlso: AH=56h,AH=57h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#146F00" name="146F00"><b>146F00</b></a> - INT 14 - HP Vectra EX-BIOS - "F14_INQUIRE" - INSTALLATION CHECK<br />
+<pre>
+INT 14 - HP Vectra EX-BIOS - "F14_INQUIRE" - INSTALLATION CHECK
+	AX = 6F00h
+	BX &lt;&gt; 4850h (usually set to 0000h for simplicity)
+Return: BX = 4850h ("HP") if HP Extended BIOS serial port extensions available
+	AX destroyed
+Note:	supported by original HP Vectra AT and by ES/QS/RS series Vectras
+SeeAlso: AX=6F01h,AX=6F02h,AX=6F03h,AX=6F04h,INT 10/AX=6F00h,INT 14/AX=6F00h
+SeeAlso: INT 17/AX=6F00h,INT 33/AX=6F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#146F01" name="146F01"><b>146F01</b></a> - INT 14 - HP Vectra EX-BIOS - "F14_EXINIT" - INITIALIZE SERIAL PORT<br />
+<pre>
+INT 14 - HP Vectra EX-BIOS - "F14_EXINIT" - INITIALIZE SERIAL PORT
+	AX = 6F01h
+	BX = port attributes (see #00356)
+	DX = port number (0-3)
+Return: AH = line status (see #00304)
+	AL = modem status (see #00305)
+Note:	supported by original HP Vectra AT and by ES/QS/RS series Vectras
+SeeAlso: AX=6F00h
+
+Bitfields for HP Vectra Extended BIOS serial port attributes:
+Bit(s)	Description	(Table 00356)
+ 8-5	data rate (110, 150, 300, 600, 1200, 2400, 4800, 9600, 19200)
+ 4-3	parity
+	00 none
+	01 odd
+	10 none
+	11 even
+ 2	stop bits (0 = one, 1 = two)
+ 1-0	bits per character
+	10 seven-bit characters
+	11 eight-bit characters
+	0x undefined
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#146F02" name="146F02"><b>146F02</b></a> - INT 14 - HP Vectra EX-BIOS - "F14_PUT_BUFFER" - TRANSMIT BUFFER<br />
+<pre>
+INT 14 - HP Vectra EX-BIOS - "F14_PUT_BUFFER" - TRANSMIT BUFFER
+	AX = 6F02h
+	CX = number of characters in buffer
+	DX = port number (0-3)
+	ES:DI -&gt; buffer containing characters
+Return: AH = line status (see #00304)
+	AL = modem status (see #00305)
+	CX = number of bytes actually sent
+	ES:DI -&gt; next byte to be transferred (unchanged if all bytes sent)
+Desc:	send characters from the specified buffer until all characters have
+	  been sent or an error/timeout is encountered
+Note:	supported by original HP Vectra AT and by ES/QS/RS series Vectras
+SeeAlso: AX=6F00h,AX=6F03h,AX=6F04h,INT 17/AX=6F02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#146F03" name="146F03"><b>146F03</b></a> - INT 14 - HP Vectra EX-BIOS - "F14_GET_BUFFER" - READ DATA INTO BUFFER<br />
+<pre>
+INT 14 - HP Vectra EX-BIOS - "F14_GET_BUFFER" - READ DATA INTO BUFFER
+	AX = 6F03h
+	CX = size of buffer
+	DX = port number (0-3)
+	ES:DI -&gt; buffer for received characters
+Return: AH = line status (see #00304)
+	---on error (AH bit 7 set)---
+	   AL = 00h
+	   ES:DI -&gt; next byte to be transferred
+	---if successful---
+	   AL = last byte read
+	   ES:DI unchanged
+	CX = number of bytes read
+Desc:	read characters into the specified buffer until the buffer is filled
+	  or a timeout occurs
+Notes:	supported by original HP Vectra AT and by ES/QS/RS series Vectras
+	polls the Data Set Ready modem status and Data Ready line status bits
+	  to determine when characters are available
+SeeAlso: AX=6F00h,AX=6F02h,AX=6F04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#146F04" name="146F04"><b>146F04</b></a> - INT 14 - HP Vectra EX-BIOS - "F14_TRM_BUFFER" - READ UNTIL TERMINATOR<br />
+<pre>
+INT 14 - HP Vectra EX-BIOS - "F14_TRM_BUFFER" - READ UNTIL TERMINATOR
+	AX = 6F04h
+	BL = lowest termination character
+	BH = highest termination character
+	CX = size of buffer
+	DX = port number (0-3)
+	ES:DI -&gt; buffer for received characters
+Return: AH = line status (see #00304)
+	---on error (AH bit 7 set)---
+	   AL = 00h
+	   ES:DI -&gt; next byte to be transferred
+	---if successful---
+	   AL = last byte read
+	   ES:DI unchanged
+	CX = number of bytes read
+Desc:	read characters into the specified buffer until the buffer is filled,
+	  a character in the specified range is received, or a timeout occurs
+Notes:	supported by original HP Vectra AT and by ES/QS/RS series Vectras
+	polls the Data Set Ready modem status and Data Ready line status bits
+	  to determine when characters are available
+SeeAlso: AX=6F00h,AX=6F02h,AX=6F03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#147E" name="147E"><b>147E</b></a> - INT 14 - FOSSIL - INSTALL AN EXTERNAL APPLICATION FUNCTION<br />
+<pre>
+INT 14 - FOSSIL - INSTALL AN EXTERNAL APPLICATION FUNCTION
+	AH = 7Eh
+	AL = code assigned to external application (80h-BFh)
+	    80h reserved for communications FOSSIL
+	    81h video FOSSIL
+	    82h reserved for keyboard FOSSIL
+	    83h reserved for system FOSSIL
+	ES:DX -&gt; entry point
+Return: AX = 1954h
+	BL = code assigned to application (same as input AL)
+	DH = status
+	    00h failed
+	    01h successful
+SeeAlso: AH=7Fh,AH=80h"FOSSIL",AX=8100h,AH=82h"FOSSIL",AH=83h"FOSSIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#147F" name="147F"><b>147F</b></a> - INT 14 - FOSSIL - REMOVE AN EXTERNAL APPLICATION FUNCTION<br />
+<pre>
+INT 14 - FOSSIL - REMOVE AN EXTERNAL APPLICATION FUNCTION
+	AH = 7Fh
+	AL = code assigned to external application
+	ES:DX -&gt; entry point
+Return: AX = 1954h
+	BL = code assigned to application (same as input AL)
+	DH = status
+	    00h failed
+	    01h successful
+SeeAlso: AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1480" name="1480"><b>1480</b></a> - INT 14 - COMMUNICATIONS FOSSIL<br />
+<pre>
+INT 14 - COMMUNICATIONS FOSSIL
+	AH = 80h
+SeeAlso: AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1480_0" name="1480_0"><b>1480</b></a> - INT 14 - COURIERS.COM - INSTALLATION CHECK<br />
+<pre>
+INT 14 - COURIERS.COM - INSTALLATION CHECK
+	AH = 80h
+Return: AH = E8h if loaded
+Program: COURIERS is a TSR utility by PC Magazine
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148000" name="148000"><b>148000</b></a> - INT 14 - ARTICOM - INSTALLATION CHECK<br />
+<pre>
+INT 14 - ARTICOM - INSTALLATION CHECK
+	AX = 8000h
+Return: AL = FFh if installed
+	    BH = major version
+	    BL = minor version
+Program: ArtiCom is an asynchronous communications driver by Artisoft which
+	  works on top of NetBIOS and allows modem/serial-port sharing by
+	  programs using INT 14 for serial I/O.
+Note:	ArtiCom supports 32 simultaneous COM ports using multiport cards and
+	  drivers
+SeeAlso: AH=00h"SERIAL",AH=01h,AH=02h,AH=03h,AH=04h"SERIAL",AH=05h"SERIAL"
+SeeAlso: AX=8001h,AX=8002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148000_0" name="148000_0"><b>148000</b></a> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET ERROR CODE AND BUFFER STATUS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET ERROR CODE AND BUFFER STATUS
+	AX = 8000h
+	DX = port number
+Return: AX = code for last error (see #00357)
+	BX = number of characters in output buffer
+	CX = nubmer of characters in input buffer
+	DX = state flag (see #00358)
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+SeeAlso: AX=8001h"COMM-DRV",AX=8002h"COMM-DRV",AX=8003h"COMM-DRV"
+
+(Table 00357)
+Values for COMM-DRV error code:
+ 00h	no error
+ 01h	buffer not set or attempted to change buffer for active port
+ 02h	port not active
+ 03h	transmit buffer full
+ 04h	receive buffer full
+ 05h	syntax error
+ 06h	invalid buffer size
+ 07h	invalid port
+ 08h	handler changed
+ 09h	invalid baud rate
+ 0Ah	invalid parity setting
+ 0Bh	invalid data length
+ 0Ch	invalid number of stop bits
+ 0Dh	invalid protocol number
+ 0Eh	IRQ changed
+ 0Fh	port changged
+ 10h	invalid threshold setting
+ 11h	invalid IRQ number
+ 12h	interrupts not enabled
+ 13h	invalid break syntax
+ 14h	fatal error
+ 15h	CTS error
+ 16h	invalid RS232 I/O port address
+ 17h	environment variable not set
+ 18h	error on IOCTL call
+ 19h	error during atexit cleanup
+ 1Ah	error mapping for direct calls
+ 1Bh	error opening device
+ 1Ch	unable to allocate memory
+ 1Dh	error on external micro card
+ 1Eh	card changed error
+ 1Fh	card type error
+ 20h	not supported
+ 21h	parent port error
+ 22h	card command buffer full
+ 23h	no subdevice for this port
+ 24h	unknown error
+ 25h	external card busy
+ 26h	no more timers available
+ 27h	INT 14 vector changed
+ 28h	INT 08 vector changed
+ 29h	DPMI error
+ 2Ah	TSR buffer too small (or nonexistent)
+ 2Bh	out of asynchronous resources
+ 2Ch	out of timer resources
+ 2Dh	out of "other" timer resources
+ 2Eh	file I/O error
+ 2Fh	hardware memory &gt; 64K
+
+Bitfields for state flag :
+Bit(s)	Description	(Table 00358)
+ 0	port is active
+ 1	output throttled (XOFF received, or DSR or CTS reset)
+ 2	input throttled (XOFF sent, or DTR or RTS reset)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148001" name="148001"><b>148001</b></a> - INT 14 - ARTICOM - UNLOAD ASYNCHRONOUS REDIRECTOR FROM MEMORY<br />
+<pre>
+INT 14 - ARTICOM - UNLOAD ASYNCHRONOUS REDIRECTOR FROM MEMORY
+	AX = 8001h
+Return: AX = error code, if error (see #00360)
+SeeAlso: AX=8000h"ARTICOM",AX=8002h"ARTICOM",AX=8003h"ARTICOM"
+Index:	uninstall;ARTICOM
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148001_0" name="148001_0"><b>148001</b></a> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS
+	AX = 8001h
+	DX = port number
+Return: BX:DI -&gt; Port Control Block (see #00367)
+SeeAlso: AX=8000h"COMM-DRV",AX=8002h"COMM-DRV",AX=8003h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148002" name="148002"><b>148002</b></a> - INT 14 - ARTICOM - GET ASYNCHRONOUS REDIRECTOR STATUS<br />
+<pre>
+INT 14 - ARTICOM - GET ASYNCHRONOUS REDIRECTOR STATUS
+	AX = 8002h
+	ES:DI -&gt; buffer for redirector status structure (see #00359)
+Return: AX = error code, if error (see #00360)
+SeeAlso: AX=8000h"ARTICOM",AX=8003h"ARTICOM"
+
+Format of ARTICOM redirector status:
+Offset	Size	Description	(Table 00359)
+ 00h	WORD	redirector major and minor version numbers
+ 02h	WORD	redirectable ports found
+ 04h	WORD	redirectable ports + local ports found
+ 06h	WORD	redirector internal buffer size
+ 08h	WORD	maximum servers maintained
+ 0Ah	WORD	number of adapters found
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148002_0" name="148002_0"><b>148002</b></a> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET PORT PARAMETERS
+	AX = 8002h
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+	    BX:DI -&gt; Port Control Block (see #00367) (modifyable portion only)
+SeeAlso: AX=8000h"COMM-DRV",AX=8001h"COMM-DRV",AX=8003h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148003" name="148003"><b>148003</b></a> - INT 14 - ARTICOM - TRANSLATE ERROR CODE TO ERROR STRING<br />
+<pre>
+INT 14 - ARTICOM - TRANSLATE ERROR CODE TO ERROR STRING
+	AX = 8003h
+	CX = error number to translate (see #00360)
+Return: ES:DI -&gt; ASCIZ error text or 0000h:0000h if unable to translate
+SeeAlso: AX=8000h
+
+(Table 00360)
+Values for ARTICOM error codes:
+ 00h	"No error"
+ 01h	"An invalid port number was specified"
+ 02h	"Port is already redirected"
+ 03h	"Too many ports redirected"
+ 04h	"Cannot locate the server"
+ 05h	"Server is busy"
+ 06h	"Access denied"
+ 07h	"Resource in use"
+ 08h	"Resource in use - request queued"
+ 09h	"No such resource"
+ 0Ah	"Invalid username/password pair"
+ 0Bh	"Noncompatible version number"
+ 0Ch	"Can't remove from memory"
+ 0Dh	"Bad NETBIOS adapter number"
+ 0Eh	"No more entries in list"
+ 0Fh	"Resource is not available at this time"
+ 10h	"Invalid value to INT 14 call"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148003_0" name="148003_0"><b>148003</b></a> - INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET I/O BUFFER SIZES<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ PORT METRICS - GET I/O BUFFER SIZES
+	AX = 8003h
+	DX = port number
+Return: AX = number of characters in input buffer
+	BX = input buffer size
+	CX = number of characters in output buffer
+	DX = output buffer size
+SeeAlso: AX=8000h"COMM-DRV",AX=8001h"COMM-DRV",AX=8002h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148004" name="148004"><b>148004</b></a> - INT 14 - ARTICOM - ATTACH ASYNCHRONOUS RESOURCE<br />
+<pre>
+INT 14 - ARTICOM - ATTACH ASYNCHRONOUS RESOURCE
+	AX = 8004h
+	DX = port to redirect (COM1=0, COM2=1, ...)
+	CH = attach type
+	CL = adapter to use for attach, 0FFh to search all
+	ES:DI -&gt; attachment structure (see #00361)
+Return: AX = error code, if error (see #00360)
+Note:	The wildcard '*' is supported in the server and resource fields.  If
+	  wild cards are used then the first matching available server is
+	  attached.
+SeeAlso: AX=8000h,AX=8003h,AX=8005h
+
+Format of ARTICOM attachment structure:
+Offset	Size	Description	(Table 00361)
+ 00h 16 BYTEs	server to look for attach
+ 10h 16 BYTEs	attach to resource name
+ 20h 16 BYTEs	username for attach
+ 30h 16 BYTEs	password for username or resource
+ 40h	BYTE	attach type
+		00h normal
+		01h queue if resource is in use (not yet supported in v1.00)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148005" name="148005"><b>148005</b></a> - INT 14 - ARTICOM - DETACH ASYNCHRONOUS RESOURCE<br />
+<pre>
+INT 14 - ARTICOM - DETACH ASYNCHRONOUS RESOURCE
+	AX = 8005h
+	DX = port to detach (COM1=0, COM2=1, ...)
+Return: AX = error code, if error (see #00360)
+Note:	only a previously attached resource can be detached
+SeeAlso: AX=8000h,AX=8003h,AX=8004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148006" name="148006"><b>148006</b></a> - INT 14 - ARTICOM - GET RESOURCE INFORMATION<br />
+<pre>
+INT 14 - ARTICOM - GET RESOURCE INFORMATION
+	AX = 8006h
+	BX = remote port (COM1=0, COM2=1, ...)
+	CL = adapter number, FFh to try all adapters
+	ES:DI -&gt; resource information structure (see #00362)
+	DS:SI -&gt; 16 byte server name. See note.
+Return: AX = error code, if error (see #00360)
+	BX = next remote port, recall to get next resource info
+Note:	Wild cards supported in both the resource field and server name
+	  string DS:SI. If wild cards used then first matching available
+	  resource information is searched. Set the resource field to FFh to
+	  return all resources.
+SeeAlso: AX=8000h,AX=8002h,AX=8003h,AX=8007h
+
+Format of ARTICOM resource information structure:
+Offset	Size	Description	(Table 00362)
+ 00h	BYTE	00h = free, else used
+ 01h 16 BYTEs	resource name
+ 11h 16 BYTEs	username of resource user
+ 21h	WORD	amount of time used
+ 23h	WORD	amount of time remaining
+ 53h 48 BYTEs	description of resource
+ 93h 64 BYTEs	initialization string for modem
+ B3h 32 BYTEs	dial string for modem
+ D3h 32 BYTEs	hang-up string for modem
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148007" name="148007"><b>148007</b></a> - INT 14 - ARTICOM - GET REDIRECTED PORT INFORMATION<br />
+<pre>
+INT 14 - ARTICOM - GET REDIRECTED PORT INFORMATION
+	AX = 8007h
+	DX = port index (COM1=0, COM2=1, ...)
+	ES:DI -&gt; buffer for port information structure (see #00363)
+Return: CF clear if redirection info returned and port is redirected
+	CF set if not a redirected port
+	AX = error code, if error (see #00360)
+SeeAlso: AX=8000h,AX=8003h,AX=8006h,AX=8008h
+
+Format of ARTICOM port information structure:
+Offset	Size	Description	(Table 00363)
+ 00h 16 BYTEs	server name resource is on
+ 10h	BYTE	adapter number server is on
+ 11h 16 BYTEs	resource name
+ 21h	WORD	remote port index, use to get additional information
+ 23h	WORD	buffer size
+ 25h	WORD	baud rate (see #00364)
+ 26h	BYTE	modem status register
+ 27h	BYTE	modem control register
+ 28h	BYTE	line status register
+ 29h	BYTE	line control register
+ 2Ah	BYTE	flow control in use: 0 - NONE, 1 - XON/XOFF, 2 - RTS/CTS
+ 2Bh	WORD	send timeout in ticks
+ 2Dh	WORD	receive timeout in ticks
+ 2Fh	WORD	time used on remote port
+ 31h	WORD	time left before timeout
+ 33h	BYTE	if server changes allowed?
+ 34h	WORD	FFFFh (-1) if connection ok, else old port index
+
+(Table 00364)
+Values for ARTICOM baud rate:
+ 00h	110
+ 01h	150
+ 02h	300
+ 03h	600
+ 04h	1200
+ 05h	2400
+ 06h	4800
+ 07h	9600
+ 08h	19200
+ 09h	38400
+ 0Ah	57600
+ 0Bh	115200
+ 0Ch	134.5
+ 0Dh	1800
+ 0Eh	2000
+ 0Fh	3600
+ 10h	7200
+SeeAlso: #00309
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148008" name="148008"><b>148008</b></a> - INT 14 - ARTICOM - GET AVAILABLE SERVER NAME<br />
+<pre>
+INT 14 - ARTICOM - GET AVAILABLE SERVER NAME
+	AX = 8008h
+	BX = server index (0,1,...)
+	ES:DI -&gt; server name structure (see #00365)
+Return: AX = error code, if error (see #00360)
+	BX = next remote port, repeat call to get next available server
+Note:	the wildcard '*' is supported in the server name field.	 Set the
+	  server name to FFh to search for all servers.
+SeeAlso: AX=8000h,AX=8003h,AX=8007h
+
+Format of ARTICOM server name structure:
+Offset	 Size	  Description	(Table 00365)
+  00h 16 BYTEs	  (call) ASCIZ server name
+  10h	 BYTE	  (ret) the adapter server is found
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148009" name="148009"><b>148009</b></a> - INT 14 - ARTICOM - SET SEND AND RECEIVE TIMEOUTS<br />
+<pre>
+INT 14 - ARTICOM - SET SEND AND RECEIVE TIMEOUTS
+	AX = 8009h
+	BX = send timeout in ticks
+	CX = receive timeout in ticks
+	DX = port index (COM1=0, COM2=1, ...)
+Return: nothing
+SeeAlso: AX=8000h,AX=800Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14800A" name="14800A"><b>14800A</b></a> - INT 14 - ARTICOM - MODIFY FLOW CONTROL<br />
+<pre>
+INT 14 - ARTICOM - MODIFY FLOW CONTROL
+	AX = 800Ah
+	BL = flow control type (00h none, 01h XON/XOFF, 02h RTS/CTS)
+	DX = port index (COM1=0, COM2=1, ...)
+Return: AX = error code, if error (see #00360)
+Note:	for attached ports only!
+SeeAlso: AX=8000h,AX=8003h,AX=8009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148025" name="148025"><b>148025</b></a> - INT 14 - ARTICOM - SET INTERNAL SEND/RECEIVE VECTOR<br />
+<pre>
+INT 14 - ARTICOM - SET INTERNAL SEND/RECEIVE VECTOR
+	AX = 8025h
+	DS:DX -&gt; address of trap function (see #00366) to call on read/write
+Return: nothing
+Note:	setting the vector to a user function allows the redirector's activity
+	  to be monitored.
+SeeAlso: AX=8000h,AX=8035h,INT 21/AH=25h
+
+(Table 00366)
+Values ARTICOM trap function is called with:
+	AH = operation
+	    80h reading character
+	    81h writing character
+	AL = character
+Return: AX must be preserved
+	far JUMP to old trap function (see AX=8035h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148035" name="148035"><b>148035</b></a> - INT 14 - ARTICOM - GET INTERNAL SEND/RECEIVE VECTOR<br />
+<pre>
+INT 14 - ARTICOM - GET INTERNAL SEND/RECEIVE VECTOR
+	AX = 8035h
+Return: ES:BX -&gt; address of current send/receive routine
+Note:	this function returns the address of the routine which is called
+	  inside A-REDIR.EXE each time a character is received or sent on the
+	  active COM port.
+SeeAlso: AX=8000h,AX=8025h,INT 21/AH=35h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1481" name="1481"><b>1481</b></a> - INT 14 - COURIERS.COM - CHECK IF PORT BUSY<br />
+<pre>
+INT 14 - COURIERS.COM - CHECK IF PORT BUSY
+	AH = 81h
+	AL = port number (1-4)
+Return: AH = status
+	    00h port available
+	    01h port exists but already in use
+	    02h port nonexistent
+Program: COURIERS is a TSR utility by PC Magazine
+SeeAlso: AH=83h,AH=8Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1481_0" name="1481_0"><b>1481</b></a> - INT 14 - COMM-DRV - EXTENDED INITIALIZATION<br />
+<pre>
+INT 14 - COMM-DRV - EXTENDED INITIALIZATION
+	AH = 81h
+	BX:DI -&gt; port control block (see #00367)
+	DX = port number
+Return: AH = line status register (see #00304)
+	    error if bit 7 set
+	AL = modem status register (see #00305)
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+Note:	AX=8001h should be called first to fill in the port control block
+SeeAlso: AH=00h,AX=8001h,AH=82h"COMM-DRV",AH=86h"COMM-DRV"
+
+Format of COMM-DRV port control block:
+Offset	Type	Description	(Table 00367)
+ 00h	WORD	port IO address
+ 02h	WORD	port IRQ
+ 04h	WORD	baud rate
+ 06h	WORD	parity
+ 08h	WORD	data bits
+ 0Ah	WORD	stop bits
+ 0Ch	WORD	break status (0000h off)
+ 0Eh	WORD	flow control protocol
+ 10h	BYTE	input block
+ 11h	BYTE	output block
+ 12h	WORD	low threshold
+ 14h	WORD	high threshold
+ 16h	WORD	segment of buffer
+ 18h	WORD	offset of buffer
+ 1Ah	WORD	input buffer length
+ 1Ch	WORD	output buffer length
+ 1Eh	BYTE	auxiliary address
+ 1Fh	BYTE	spare
+ 20h  4 WORDs	spares
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1482_0" name="1482_0"><b>1482</b></a> - INT 14 - COURIERS.COM - CONFIGURE PORT<br />
+<pre>
+INT 14 - COURIERS.COM - CONFIGURE PORT
+	AH = 82h
+	AL = port number (1-4)
+	BX = speed (bps)
+	CX = bit flags
+	    bit 0: enable input flow control
+	    bit 1: enable output flow control
+	    bit 2: use X.PC protocol (not yet implemented)
+Return: nothing
+SeeAlso: AH=00h,AH=8Ch,INT 7A"X.PC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1482_1" name="1482_1"><b>1482</b></a> - INT 14 - COMM-DRV v14.0 - PORT CLEANUP<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - PORT CLEANUP
+	AH = 82h
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+Desc:	reset the port to its state before the AH=81h initialization and unhook
+	  any interrupts used by the port
+SeeAlso: AH=81h"COMM-DRV",AH=83h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1483_0" name="1483_0"><b>1483</b></a> - INT 14 - COURIERS.COM - START INPUT<br />
+<pre>
+INT 14 - COURIERS.COM - START INPUT
+	AH = 83h
+	ES:BX -&gt; circular input buffer
+	CX = length of buffer
+		(should be at least 128 bytes if input flow control enabled)
+Return: nothing
+SeeAlso: AH=18h,AH=87h,AH=8Dh,AH=A5h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1483_1" name="1483_1"><b>1483</b></a> - INT 14 - COMM-DRV v14.0 - FLUSH COMMUNICATION BUFFERS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - FLUSH COMMUNICATION BUFFERS
+	AH = 83h
+	DX = port number
+	AL = subfunction
+	    00h flush input buffer
+	    01h flush output buffer
+	    02h flush both buffers
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AH=81h"COMM-DRV",AH=84h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1484" name="1484"><b>1484</b></a> - INT 14 - COURIERS.COM - READ CHARACTER<br />
+<pre>
+INT 14 - COURIERS.COM - READ CHARACTER
+	AH = 84h
+Return: ZF set if no characters available
+	ZF clear
+	   AL = character
+	   AH = modem status bits
+		bit 7: set on input buffer overflow
+SeeAlso: AH=02h,AH=86h,AH=89h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1484_0" name="1484_0"><b>1484</b></a> - INT 14 - COMM-DRV v14.0 - SEND PACKET<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - SEND PACKET
+	AH = 84h
+	CX = packet length in bytes
+	DX = port number
+	ES:DI -&gt; packet to be sent
+Return: AH = line status (see #00304)
+	    bit 7 set on error
+	AL destroyed
+SeeAlso: AH=83h"COMM-DRV",AH=85h"COMM-DRV",AH=86h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1485" name="1485"><b>1485</b></a> - INT 14 - COURIERS.COM - FLUSH PENDING INPUT<br />
+<pre>
+INT 14 - COURIERS.COM - FLUSH PENDING INPUT
+	AH = 85h
+Return: nothing
+SeeAlso: AH=0Ah,AH=88h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1485_0" name="1485_0"><b>1485</b></a> - INT 14 - COMM-DRV v14.0 - RECEIVE PACKET<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - RECEIVE PACKET
+	AH = 85h
+	CX = length of packet in bytes
+	DX = port number
+	ES:DI -&gt; buffer for packet
+Return: AH = line status (see #00304)
+	    bit 7 set on error
+	AL destroyed
+Note:	this call requires that at least the requested number of bytes are
+	  already present in the input buffer, and will fail if there are
+	  fewer bytes available
+SeeAlso: AH=84h"COMM-DRV",AH=86h"COMM-DRV",AH=8Eh"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1486" name="1486"><b>1486</b></a> - INT 14 - COURIERS.COM - START OUTPUT<br />
+<pre>
+INT 14 - COURIERS.COM - START OUTPUT
+	AH = 86h
+	ES:BX -&gt; output buffer
+	CX = length of output buffer
+Return: nothing
+SeeAlso: AH=19h,AH=83h"COURIERS",AH=A4h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1486_0" name="1486_0"><b>1486</b></a> - INT 14 - COMM-DRV v14.0 - SET INPUT/OUTPUT TIMEOUTS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - SET INPUT/OUTPUT TIMEOUTS
+	AH = 86h
+	BL = maximum clock ticks to wait before signalling error on input func
+	BH = maximum clock ticks to wait before signalling error on output
+	DX = port number
+	SI = input timeout in clock ticks if BL=FFh and BH=FFh
+	DI = output timeout in clock ticks if BL=FFh and BH=FFh
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+Note:	functions 02h, 85h, and 8Eh will wait for the input timeout before
+	  returning an error when no data is available; functions 01h and 84h
+	  will wait for the output timeout before returning an error if there
+	  is no space to output the data
+SeeAlso: AH=01h,AH=02h,AH=84h"COMM-DRV",AH=85h"COMM-DRV",AH=8Eh"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1487" name="1487"><b>1487</b></a> - INT 14 - COURIERS.COM - OUTPUT STATUS<br />
+<pre>
+INT 14 - COURIERS.COM - OUTPUT STATUS
+	AH = 87h
+Return: AX = number of unsent characters
+SeeAlso: AH=88h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1487_0" name="1487_0"><b>1487</b></a> - INT 14 - COMM-DRV v14.0 - TURN ON DTR<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - TURN ON DTR
+	AH = 87h
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AX=8000h"COMM-DRV",AH=88h"COMM-DRV",AH=89h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1488" name="1488"><b>1488</b></a> - INT 14 - COURIERS.COM - ABORT OUTPUT<br />
+<pre>
+INT 14 - COURIERS.COM - ABORT OUTPUT
+	AH = 88h
+SeeAlso: AH=09h"FOSSIL",AH=85h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1488_0" name="1488_0"><b>1488</b></a> - INT 14 - COMM-DRV v14.0 - TURN OFF DTR<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - TURN OFF DTR
+	AH = 88h
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+SeeAlso: AX=8000h"COMM-DRV",AH=87h"COMM-DRV",AH=8Ah"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1489" name="1489"><b>1489</b></a> - INT 14 - COURIERS.COM - SEND SINGLE CHARACTER<br />
+<pre>
+INT 14 - COURIERS.COM - SEND SINGLE CHARACTER
+	AH = 89h
+	CL = character to send
+Return: nothing
+SeeAlso: AH=01h,AH=84h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1489_0" name="1489_0"><b>1489</b></a> - INT 14 - COMM-DRV v14.0 - TURN ON RTS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - TURN ON RTS
+	AH = 89h
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AX=8000h"COMM-DRV",AH=87h"COMM-DRV",AH=8Ah"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148A" name="148A"><b>148A</b></a> - INT 14 - COURIERS.COM - SEND BREAK<br />
+<pre>
+INT 14 - COURIERS.COM - SEND BREAK
+	AH = 8Ah
+Return: nothing
+SeeAlso: AH=89h"COURIERS",AH=FAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148A_0" name="148A_0"><b>148A</b></a> - INT 14 - COMM-DRV v14.0 - TURN OFF RTS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - TURN OFF RTS
+	AH = 8Ah
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AX=8000h"COMM-DRV",AH=88h"COMM-DRV",AH=89h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148B" name="148B"><b>148B</b></a> - INT 14 - COMM-DRV v14.0 - SET USER INTERRUPT ROUTINE<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - SET USER INTERRUPT ROUTINE
+	AH = 8Bh
+	CX = bitmask of interrupt to process
+	    00h = deinstall
+	BX:DI -&gt; DWORD containing address of function to be called
+Return: AH bit 7 clear if successful
+	AH bit 7 set on error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148C" name="148C"><b>148C</b></a> - INT 14 - COURIERS.COM - SET SPEED<br />
+<pre>
+INT 14 - COURIERS.COM - SET SPEED
+	AH = 8Ch
+	BX = speed in bps
+Return: nothing
+SeeAlso: AH=00h,AH=82h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148C_0" name="148C_0"><b>148C</b></a> - INT 14 - COMM-DRV v14.0 - READ UART REGISTER<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ UART REGISTER
+	AH = 8Ch
+	AL = register offset
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+	    AL = contents of UART register
+SeeAlso: AH=8Dh"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148D" name="148D"><b>148D</b></a> - INT 14 - COURIERS.COM - DECONFIGURE PORT<br />
+<pre>
+INT 14 - COURIERS.COM - DECONFIGURE PORT
+	AH = 8Dh
+Return: nothing
+SeeAlso: AH=82h"COURIERS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148D_0" name="148D_0"><b>148D</b></a> - INT 14 - COMM-DRV v14.0 - WRITE UART REGISTER<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - WRITE UART REGISTER
+	AH = 8Dh
+	AL = register offset
+	BL = new value for UART register
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AH=8Ch"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#148E" name="148E"><b>148E</b></a> - INT 14 - COMM-DRV v14.0 - READ PACKET NONDESTRUCTIVELY<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - READ PACKET NONDESTRUCTIVELY
+	AH = 8Eh
+	CX = length of packet in bytes
+	DX = port number
+	ES:DI -&gt; buffer for packet
+Return: AH = line status (see #00304)
+	    bit 7 set on error (see AX=8000h"COMM-DRV")
+	AL destroyed
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+Desc:	retrieve a packet from the input buffer without removing it from the
+	  buffer
+Note:	this call requires that at least the requested number of bytes are
+	  already present in the input buffer, and will fail if there are
+	  fewer bytes available
+SeeAlso: AX=8000h"COMM-DRV",AH=84h"COMM-DRV",AH=85h"COMM-DRV",AH=86h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A0" name="14A0"><b>14A0</b></a> - INT 14 - 3com BAPI SERIAL I/O - CONNECT TO PORT<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - CONNECT TO PORT
+	AH = A0h
+	ES:BX -&gt; ASCIZ internet host name
+	CX = length of name
+Return: AH = return code (00h,04h-06h,08h,0Ah-0Ch) (see #00394)
+	CL = session ID
+Program: the Bridge Application Program Interface is a set of functions which
+	  makes many of the details of LAN communications transparent
+Note:	Novell TELAPI.EXE returns AH=09h (not supported) and CL=00h
+SeeAlso: AH=A1h"BAPI",AH=A2h"BAPI",AH=A5h"BAPI",AX=AF00h
+
+(Table 00394)
+Values for 3com BAPI return code:
+ 00h	successful
+ 01h	no characters written
+ 02h	no characters read
+ 03h	no such session
+ 04h	clearinghouse name not found
+ 05h	no response from host
+ 06h	no more sessions available
+ 07h	session aborted
+ 08h	invalid clearinghouse name
+ 09h	not supported
+ 0Ah	internal (general) network error
+ 0Bh	out of memory
+ 0Ch	invalid IP address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A0--CXFFFF" name="14A0--CXFFFF"><b>14A0--CXFFFF</b></a> - INT 14 - Interconnections Inc. TES - INSTALLATION CHECK/STATUS REPORT<br />
+<pre>
+INT 14 - Interconnections Inc. TES - INSTALLATION CHECK/STATUS REPORT
+	AH = A0h
+	CX = FFFFh
+Return: CF clear if successful
+	    AX = 5445h ('TE')
+	    CX &lt;&gt; FFFFh
+	    DX = port number
+	CF set on error
+Program: TES is a network serial port emulation program
+SeeAlso: AH=A1h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A1" name="14A1"><b>14A1</b></a> - INT 14 - 3com BAPI SERIAL I/O - DISCONNECT FROM PORT<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - DISCONNECT FROM PORT
+	AH = A1h
+	DH = session ID (00h for external session managment)
+Return: AH = return code (00h,03h,07h,0Ah,0Bh) (see #00394)
+	AL destroyed (Novell TELAPI.EXE)
+SeeAlso: AH=A0h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A1_0" name="14A1_0"><b>14A1</b></a> - INT 14 - Interconnections Inc. TES - GET LIST OF SESSIONS WITH STATUS<br />
+<pre>
+INT 14 - Interconnections Inc. TES - GET LIST OF SESSIONS WITH STATUS
+	AH = A1h
+Return: CX = number of active sessions
+	ES:SI -&gt; status array (see #00395)
+SeeAlso: AH=A2h"TES",AH=A3h"TES"
+
+Format of Interconnections TES status array entry:
+Offset	Size	Description	(Table 00395)
+ 00h	BYTE	status
+ 01h	WORD	offset of name
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A2" name="14A2"><b>14A2</b></a> - INT 14 - 3com BAPI SERIAL I/O - WRITE CHARACTER<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - WRITE CHARACTER
+	AH = A2h
+	AL = character
+	DH = session ID (00h for external session managment)
+Return: AH = return code (00h,01h,03h,07h,0Ah,0Bh) (see #00394)
+SeeAlso: AH=A0h"BAPI",AH=A3h"BAPI",AH=A4h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A2_0" name="14A2_0"><b>14A2</b></a> - INT 14 - Interconnections Inc. TES - GET LIST OF SERVER NAMES<br />
+<pre>
+INT 14 - Interconnections Inc. TES - GET LIST OF SERVER NAMES
+	AH = A2h
+Return: CX = number of servers
+	ES:SI -&gt; array of offsets from ES for server names
+SeeAlso: AH=A1h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A3" name="14A3"><b>14A3</b></a> - INT 14 - 3com BAPI SERIAL I/O - READ CHARACTER<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - READ CHARACTER
+	AH = A3h
+	DH = session ID (00h for external session managment)
+Return: AH = return code (00h,02h,03h,07h,0Ah,0Bh) (see #00394)
+	AL = character read or 00h if none available
+SeeAlso: AH=A0h"BAPI",AH=A2h"BAPI",AH=A5h"BAPI",AH=A7h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A3_0" name="14A3_0"><b>14A3</b></a> - INT 14 - Interconnections Inc. TES - START A NEW SESSION<br />
+<pre>
+INT 14 - Interconnections Inc. TES - START A NEW SESSION
+	AH = A3h
+	ES:SI -&gt; ???
+Return: CF clear if successful
+	    AX = 5445h ('TE')
+	    CX &lt;&gt; FFFFh
+	    DX = port number
+	CF set on error
+SeeAlso: AH=A1h"TES",AH=A4h"TES",AH=A6h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A4" name="14A4"><b>14A4</b></a> - INT 14 - 3com BAPI SERIAL I/O - WRITE BLOCK<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - WRITE BLOCK
+	AH = A4h
+	CX = length of buffer in bytes
+	DH = session ID (00h for external session managment)
+	ES:BX -&gt; buffer containing data
+Return: AH = return code (00h,01h,03h,07h,0Ah,0Bh) (see #00394)
+	CX = number of bytes actually sent
+SeeAlso: AH=19h,AH=86h,AH=A0h"BAPI",AH=A5h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A4_0" name="14A4_0"><b>14A4</b></a> - INT 14 - Interconnections Inc. TES - HOLD CURRENTLY ACTIVE SESSION<br />
+<pre>
+INT 14 - Interconnections Inc. TES - HOLD CURRENTLY ACTIVE SESSION
+	AH = A4h
+	???
+Return: ???
+SeeAlso: AH=A3h"TES",AH=A5h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A5" name="14A5"><b>14A5</b></a> - INT 14 - 3com BAPI SERIAL I/O - READ BLOCK<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - READ BLOCK
+	AH = A5h
+	CX = length of buffer
+	DH = session ID (00h for external session managment)
+	ES:BX -&gt; buffer for data
+Return: AH = return code (00h,02h,03h,07h,0Ah,0Bh) (see #00394)
+	CX = number of bytes actually read
+SeeAlso: AH=18h,AH=83h"COURIERS",AH=A0h"BAPI",AH=A3h"BAPI",AH=A4h"BAPI"
+SeeAlso: AH=A7h"BAPI",AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A5_0" name="14A5_0"><b>14A5</b></a> - INT 14 - Interconnections Inc. TES - RESUME A SESSION<br />
+<pre>
+INT 14 - Interconnections Inc. TES - RESUME A SESSION
+	AH = A5h
+	AL = session number
+Return: ???
+SeeAlso: AH=A4h"TES",AH=A6h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A6" name="14A6"><b>14A6</b></a> - INT 14 - 3com BAPI SERIAL I/O - SEND SHORT BREAK<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - SEND SHORT BREAK
+	AH = A6h
+	DH = session ID (00h for external session managment)
+Return: AH = return code (00h,03h,07h,0Ah,0Bh) (see #00394)
+Desc:	generate a short break signal; if data delivery was turned off by the
+	  break, wait for the host to turn it on again
+SeeAlso: AH=1Ah,AH=8Ah,AH=FAh,AH=A0h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A6_0" name="14A6_0"><b>14A6</b></a> - INT 14 - Interconnections Inc. TES - DROP A SESSION<br />
+<pre>
+INT 14 - Interconnections Inc. TES - DROP A SESSION
+	AH = A6h
+	AL = session number
+Return: AH = status
+	    00h successful
+	    else error
+SeeAlso: AH=A3h"TES",AH=A5h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A7" name="14A7"><b>14A7</b></a> - INT 14 - 3com BAPI SERIAL I/O - READ STATUS<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - READ STATUS
+	AH = A7h
+	DH = session ID (00h for external session managment)
+Return: AH = return code (00h,03h,07h,0Ah,0Bh) (see #00394)
+	CX = number of bytes available for reading
+Note:	Novell TELAPI.EXE v4.01 always returns either 0 or 1 bytes available
+SeeAlso: AH=A5h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A7_0" name="14A7_0"><b>14A7</b></a> - INT 14 - Interconnections Inc. TES - SWITCH TO NEXT ACTIVE SESSION<br />
+<pre>
+INT 14 - Interconnections Inc. TES - SWITCH TO NEXT ACTIVE SESSION
+	AH = A7h
+	???
+Return: ???
+SeeAlso: AH=A3h"TES",AH=A5h"TES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14A8" name="14A8"><b>14A8</b></a> - INT 14 - Interconnections Inc. TES - SEND STRING TO COMMAND INTERPRETER<br />
+<pre>
+INT 14 - Interconnections Inc. TES - SEND STRING TO COMMAND INTERPRETER
+	AH = A8h
+	AL = 00h no visible response
+	ES:SI -&gt; ASCIZ command
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14AF00BXAAAA" name="14AF00BXAAAA"><b>14AF00BXAAAA</b></a> - INT 14 - 3com BAPI SERIAL I/O - INSTALLATION CHECK<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - INSTALLATION CHECK
+	AX = AF00h
+	BX = AAAAh
+Return: AX = AF01h if installed
+	    BH = protocol type (if BX=AAAAh on entry)
+		01h NetManage TCP/IP
+	    BL = version for protocol type (if BX=AAAAh on entry)
+Note:	early versions of the BAPI and the ROM BIOS simply destroy AX; this
+	  behavior is used to determine whether the newer functions (AH=B0h,
+	  AH=B1h,etc) are available
+SeeAlso: AH=A0h"BAPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14B0" name="14B0"><b>14B0</b></a> - INT 14 - 3com BAPI SERIAL I/O - EN/DISABLE "ENTER COMMAND MODE" (ECM) CHARACTER<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - EN/DISABLE "ENTER COMMAND MODE" (ECM) CHARACTER
+	AH = B0h
+	AL = new state (00h disabled, 01h enabled)
+Return: AH = return code (00h,07h,0Ah) (see #00394)
+Note:	disabling the ECM character allows applications to send data which
+	  includes the ECM character
+SeeAlso: AX=AF00h"BAPI",AH=B1h,AH=B2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14B1" name="14B1"><b>14B1</b></a> - INT 14 - 3com BAPI SERIAL I/O - ENTER COMMAND MODE<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - ENTER COMMAND MODE
+	AH = B1h
+Return: AH = return code (00h,07h,0Ah) (see #00394)
+Desc:	provide a means for the application or terminal emulator to perform
+	  the same action normally caused by the ECM character
+SeeAlso: AH=B0h,AH=B2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14B2" name="14B2"><b>14B2</b></a> - INT 14 - 3com BAPI SERIAL I/O - GET ECM WATCH STATE<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - GET ECM WATCH STATE
+	AH = B2h
+Return: AH = return code (00h,07h,0Ah) (see #00394)
+	AL = watch flag (00h disabled, 01h enabled)
+Desc:	determine whether the ECM character is enabled
+SeeAlso: AH=B0h,AH=B1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14B3" name="14B3"><b>14B3</b></a> - INT 14 - 3com BAPI SERIAL I/O - GET/SET CONFIGURATION INFO<br />
+<pre>
+INT 14 - 3com BAPI SERIAL I/O - GET/SET CONFIGURATION INFO
+	AH = B3h
+	AL = direction (00h get, 01h set)
+	DH = session ID (00h for external session managment)
+	DL = configuration item (00h = end-of-line mapping)
+	CX = new configuration item value (if AL=01h)
+	    ---if DL=00h---
+	    CH = application EOL type (app to Telnet client)
+		01h application will send lone CR
+		02h application will send CR-? pair
+	    CL = driver EOL type (Telnet client to Telnet server)
+		01h driver should send CR-NUL pair
+		02h driver should send CR-LF pair
+Return: AH = return code (00h,03h,09h-0Bh) (see #00394)
+	---if AL=00h---
+	CX = configuration item value (above)
+SeeAlso: AH=B2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E000" name="14E000"><b>14E000</b></a> - INT 14 - MX5 Extended FOSSIL - GET MNP STATUS BLOCK<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - GET MNP STATUS BLOCK
+	AX = E000h
+	DX = port number (0-3)
+Return: ES:BX -&gt; status block (see #00398)
+Program: MX5 is a FOSSIL driver by MagicSoft which emulates MNP Level 5, and
+	  ships with the METZ terminal program as MTEMNP.DRV (a TSR despite
+	  the .DRV extension)
+SeeAlso: AX=E006h
+
+Format of MX5 Extended FOSSIL status block:
+Offset	Size	Description	(Table 00398)
+ 00h	BYTE	flag: active (00h no, 01h yes)
+ 01h	BYTE	MNP level (2,4,5)
+ 02h	BYTE	series ID from remote MNP
+ 03h	DWORD	total packets transmitted
+ 07h	DWORD	duplicate packets transmitted
+ 0Bh	DWORD	maximum speed
+ 0Fh	DWORD	total packets received
+ 13h	DWORD	duplicate packets received
+ 17h	DWORD	maximum speed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E001" name="14E001"><b>14E001</b></a> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP LEVEL<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - GET/SET MNP LEVEL
+	AX = E001h
+	BH = function
+	    00h get MNP level
+	    01h set MNP level
+		BL = new level (00h none, 02h/04h/05h MNP level N)
+	DX = port number (0-3)
+Return: BL = MNP level
+SeeAlso: AX=E002h,AX=E003h,AX=E004h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E002" name="14E002"><b>14E002</b></a> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP ANSWER/ORIGINATE MODE<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - GET/SET MNP ANSWER/ORIGINATE MODE
+	AX = E002h
+	BH = function
+	    00h get answer/originate mode
+	    01h set mode
+		BL = new mode (00h originate [default], 01h answer)
+	DX = port number (0-3)
+Return: BL = answer/originate mode
+SeeAlso: AX=E001h,AX=E003h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E003" name="14E003"><b>14E003</b></a> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP WAIT TICKS<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - GET/SET MNP WAIT TICKS
+	AX = E003h
+	BH = function
+	    00h get wait ticks
+	    01h set wait ticks
+		BL = MNP wait ticks (default 0Eh)
+	DX = port number (0-3)
+Return: BL = wait ticks
+SeeAlso: AX=E001h,AX=E002h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E004" name="14E004"><b>14E004</b></a> - INT 14 - MX5 Extended FOSSIL - GET/SET MNP CONNECT SOUND LEVEL<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - GET/SET MNP CONNECT SOUND LEVEL
+	AX = E004h
+	BH = function
+	    00h get sound level
+	    01h set sound level
+		BL = new sound level (00h off, 01h on [default])
+	DX = port number
+Return: BL = sound state
+Desc:	specify whether MX5 should generate beeps after an MNP connection
+	  (three high beeps if successful, high then low on connection failure)
+SeeAlso: AX=E002h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E005" name="14E005"><b>14E005</b></a> - INT 14 - MX5 Extended FOSSIL - UNINSTALL<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - UNINSTALL
+	AX = E005h
+Return: BX = segment of MX5's memory block or 0000h on failure
+Note:	caller must free the returned memory block to complete the uninstall
+SeeAlso: AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E006BX0000" name="14E006BX0000"><b>14E006BX0000</b></a> - INT 14 - MX5 Extended FOSSIL - INSTALLATION CHECK<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - INSTALLATION CHECK
+	AX = E006h
+	BX = 0000h
+Return: BX = 4D58h ('MX') if installed
+	    AH = major version
+	    AL = minor version
+SeeAlso: AX=E000h,AX=E001h,AX=E005h,AX=E007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14E007" name="14E007"><b>14E007</b></a> - INT 14 - MX5 Extended FOSSIL - WAIT SPECIFIED NUMBER OF TICKS<br />
+<pre>
+INT 14 - MX5 Extended FOSSIL - WAIT SPECIFIED NUMBER OF TICKS
+	AX = E007h
+	CX = number of ticks to wait
+Return: nothing
+SeeAlso: AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14F4FF" name="14F4FF"><b>14F4FF</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - INSTALLATION CHECK<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - INSTALLATION CHECK
+	AX = F4FFh
+	DX = port (00h-03h)
+Return: CF clear if present
+	    AX = 0000h
+	CF set if not present
+	    AX &lt;&gt; 0000h
+SeeAlso: AH=36h"ComShare",AH=F9h,AH=FCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14F9" name="14F9"><b>14F9</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - REGAIN CONTROL<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - REGAIN CONTROL
+	AH = F9h
+	DX = port (00h-03h)
+Return: nothing
+SeeAlso: AX=F4FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FA" name="14FA"><b>14FA</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SEND BREAK<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - SEND BREAK
+	AH = FAh
+	DX = port (00h-03h)
+Return: nothing
+SeeAlso: AH=07h"MBBIOS",AH=1Ah,AH=8Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FB" name="14FB"><b>14FB</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET OUTGOING MODEM SIGNALS<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - SET OUTGOING MODEM SIGNALS
+	AH = FBh
+	AL = modem control register (see #00334 at AH=05h"SERIAL")
+	DX = port (00h-03h)
+Return: nothing
+SeeAlso: AH=05h"SERIAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FC" name="14FC"><b>14FC</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - READ CHARACTER, NO WAIT<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - READ CHARACTER, NO WAIT
+	AH = FCh
+	DX = port (00h-03h)
+Return: AH = RS232 status bits (see #00304 at AH=03h)
+	AL = character
+SeeAlso: AH=02h,AH=0Ch,AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FD02" name="14FD02"><b>14FD02</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - READ STATUS<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - READ STATUS
+	AX = FD02h
+Return: CX = number of characters available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FF01" name="14FF01"><b>14FF01</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET SEND BUFFER<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - SET SEND BUFFER
+	AX = FF01h
+	CX = length of buffer (0000h to cancel buffer assignment)
+	DX = port (00h-03h)
+	ES:BX -&gt; send buffer
+Return: nothing
+SeeAlso: AH=18h,AH=83h"COURIERS",AH=A5h"BAPI",AH=FCh,AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FF02" name="14FF02"><b>14FF02</b></a> - INT 14 - IBM/Yale EBIOS SERIAL I/O - SET RECEIVE BUFFER<br />
+<pre>
+INT 14 - IBM/Yale EBIOS SERIAL I/O - SET RECEIVE BUFFER
+	AX = FF02h
+	CX = length of buffer (0000h to cancel buffer assignment)
+	DX = port (00h-03h)
+	ES:BX -&gt; receive buffer
+Return: nothing
+SeeAlso: AH=18h,AH=83h"COURIERS",AH=A5h"BAPI",AH=FCh,AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFF8" name="14FFF8"><b>14FFF8</b></a> - INT 14 - COMM-DRV v14.0 - SET BAUD RATE DIVISOR<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - SET BAUD RATE DIVISOR
+	AX = FFF8h
+	BX = card type (sub-device number)
+	CX = new baudrate divisor
+	DX = index to baud rate
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+SeeAlso: AX=8000h"COMM-DRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFFB" name="14FFFB"><b>14FFFB</b></a> - INT 14 - COMM-DRV v14.0 - GET HIGHEST ALLOWED PORT NUMBER<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - GET HIGHEST ALLOWED PORT NUMBER
+	AX = FFFBh
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+	    BX = highest port number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFFC" name="14FFFC"><b>14FFFC</b></a> - INT 14 - COMM-DRV v14.0 - GET INT 14 FLAGS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - GET INT 14 FLAGS
+	AX = FFFCh
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+	    BX = flags (see #00403)
+SeeAlso: AX=FFFDh
+
+Bitfields for INT 14h flags:
+Bit(s)	Description	(Table 00403)
+ 0	port active for INT 14h
+ 1	interface behaving like a FOSSIL driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFFD" name="14FFFD"><b>14FFFD</b></a> - INT 14 - COMM-DRV v14.0 - SET INT 14 FLAGS<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - SET INT 14 FLAGS
+	AX = FFFDh
+	BX = flags (see #00403)
+	DX = port number
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+SeeAlso: AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFFE" name="14FFFE"><b>14FFFE</b></a> - INT 14 - COMM-DRV v14.0 - RESTORE INT 14 VECTOR TO ORIGINAL<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - RESTORE INT 14 VECTOR TO ORIGINAL
+	AX = FFFEh
+Return: AH bit 7 set on error
+	AH bit 7 clear if successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14FFFF" name="14FFFF"><b>14FFFF</b></a> - INT 14 - COMM-DRV v14.0 - GET INT 14 INFORMATION AREA<br />
+<pre>
+INT 14 - COMM-DRV v14.0 - GET INT 14 INFORMATION AREA
+	AX = FFFFh
+	BX:SI -&gt; DWORD buffer for address of information area (see #00404)
+		  (initialized to zeros)
+Return: BX:SI buffer filled with nonzero value if installed
+Program: COMM-DRV is a universal serial communications driver by Willies'
+	  Computer Software Company, which supports standard INT 14 and
+	  FOSSIL calls as well as its own interfaces
+Index:	installation check;COMM-DRV
+
+Format of COMM-DRV information area:
+Offset	Size	Description	(Table 00404)
+ 00h  8 BYTEs	signature "COMM-DRV"
+ 08h  2 BYTEs	00h,00h
+ 0Ah	DWORD	-&gt; direct address mapping table
+ 0Eh	DWORD	previous INT 14 vector
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1549" name="1549"><b>1549</b></a> - INT 15 U - HP 100LX/200LX - SERIAL INTERFACE SELECT<br />
+<pre>
+INT 15 U - HP 100LX/200LX - SERIAL INTERFACE SELECT
+	AH = 49h
+	AL = serial interface
+	    00h wired (COM1)
+	    01h infrared
+Note:	interface should only be changed in deactivated state (see AH=4Ah)
+SeeAlso: AH=4Ah"HP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#154A" name="154A"><b>154A</b></a> - INT 15 U - HP 100LX/200LX - SERIAL INTERFACE CONTROL<br />
+<pre>
+INT 15 U - HP 100LX/200LX - SERIAL INTERFACE CONTROL
+	AH = 4Ah
+	AL = control
+	    00h deactivate
+	    01h activate
+Note:	interface selected with AH=49h will be (de)activated
+SeeAlso: AH=49h"HP",AH=4Bh"HP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX6269_0" name="212B--CX6269_0"><b>212B--CX6269</b></a> - INT 21 - bitFOSS - INSTALLATION CHECK<br />
+<pre>
+INT 21 - bitFOSS - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 6269h ('bi')
+	DX = 7446h ('tF')
+Return: AL = FFh if not installed
+	AL = 4Fh ('O') if bitFOSS is installed
+	    CX = 5353h ('SS')
+	    DX = 494Ch ('IL')
+	    ES = resident code segment
+	    ES:DI -&gt; identification data
+Program: bitFOSS is a revision 5 FOSSIL driver
+SeeAlso: AH=2Bh/CX=6269h"bitFOSSI",INT 11/AH=BCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX6269_1" name="212B--CX6269_1"><b>212B--CX6269</b></a> - INT 21 - bitFOSSI - INSTALLATION CHECK<br />
+<pre>
+INT 21 - bitFOSSI - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 6269h ('bi')
+	DX = 7449h ('tI')
+Return: AL = FFh if not installed
+	AL = 53h ('S') if bitFOSSI is installed
+	    CX = 444Eh ('DN')
+	    DX = 2D46h ('-F')
+	    ES = resident code segment
+	    ES:DI -&gt; identification data
+Program: bitFOSSI is a revision 5 FOSSIL driver for ???'s ISDN board
+SeeAlso: AH=2Bh/CX=6269h"bitFOSS",INT 11/AH=BCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1A42BX4156" name="2F1A42BX4156"><b>2F1A42BX4156</b></a> - INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ3 HANDLER<br />
+<pre>
+INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ3 HANDLER
+	AX = 1A42h
+	BX = 4156h ('AV')
+	ES:DI -&gt; FAR handler for serial port using IRQ3
+	DS = data segment needed by handler
+Return: AX = status/return value
+	    0000h if no more room
+	    1A42h if ASD not installed
+	    else handle to use when uninstalling
+Notes:	the handler need not save/restore registers or signal EOI to the
+	  interrupt controller
+	the handler should return AX=0000h if the interrupt was meant for it,
+	  and either leave AX unchanged or return a non-zero value otherwise
+	the most recently installed handler will be called first, continuing
+	  to earlier handlers until one returns AX=0000h
+SeeAlso: AX=1A43h,AX=1A62h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1A43BX4156" name="2F1A43BX4156"><b>2F1A43BX4156</b></a> - INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ4 HANDLER<br />
+<pre>
+INT 2F - AVATAR Serial Dispatcher - INSTALL IRQ4 HANDLER
+	AX = 1A43h
+	BX = 4156h ('AV')
+	ES:DI -&gt; FAR handler for serial port using IRQ4
+	DS = data segment needed by handler
+Return: AX = status/return value
+	    0000h if no more room
+	    1A43h if ASD not installed
+	    else handle to use when uninstalling
+Notes:	(see AX=1A42h)
+SeeAlso: AX=1A42h,AX=1A63h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1A62BX4156" name="2F1A62BX4156"><b>2F1A62BX4156</b></a> - INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ3 HANDLER<br />
+<pre>
+INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ3 HANDLER
+	AX = 1A62h
+	BX = 4156h ('AV')
+	CX = handle for IRQ routine returned by AX=1A42h
+SeeAlso: AX=1A42h,AX=1A63h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1A63BX4156" name="2F1A63BX4156"><b>2F1A63BX4156</b></a> - INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ4 HANDLER<br />
+<pre>
+INT 2F - AVATAR Serial Dispatcher - UNINSTALL IRQ4 HANDLER
+	AX = 1A63h
+	BX = 4156h ('AV')
+	CX = handle for IRQ routine returned by AX=1A43h
+SeeAlso: AX=1A43h,AX=1A62h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFEEF" name="2FFEEF"><b>2FFEEF</b></a> - INT 2F - RTS Control TSR - INSTALLATION CHECK<br />
+<pre>
+INT 2F - RTS Control TSR - INSTALLATION CHECK
+	AX = FEEFh
+Return: AX = EFFEh if installed
+	    BX = port address
+Program: RTS Control TSR is a utility by Michal Szokolo to lower the RTS
+	  signal on a COM port during disk accesses to avoid losing incoming
+	  data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_8" name="65_8"><b>65</b></a> - INT 65 U - EZRECV v1.0 - API<br />
+<pre>
+INT 65 U - EZRECV v1.0 - API
+	AX = function
+	    0000h ???
+		Return: AX = ??? or FFFFh
+	    0001h ???
+		Return: AX = status (0000h or 0001h)
+	    0002h ???
+		Return: AX = status (0000h or 0001h)
+	    0003h set ??? to 0001h
+		Return: AX = 0000h
+	    0004h ???
+		Return: AX = ???
+Return: BH = COM port being used
+	BL = speed???
+	CH = ???
+	CL = ???
+	DX = ???
+	DS = ???
+	ES = EZRECV data segment
+Program: EZRECV is a background Zmodem file receiver by Express Consulting
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0000" name="6B0000"><b>6B0000</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE
+	AX = 0000h
+	CX = length
+	ES:BX -&gt; buffer
+Return: CX = number of bytes written
+Program: NASI is Novell's NetWare Asynchronous Services Interface (purchased
+	  from Network Products Corp, who call it NCSI) which runs on
+	  workstations; NACS is the NetWare Asynchronous Communications
+	  Services module which runs on servers
+InstallCheck:	test for the signature string "NCSI" three bytes past the
+	  interrupt handler; see also AH=02h.
+	As of version 3.0, Novell's NASI can be distinguished from NPC's
+	  NCSI by the presence of an 'A' immediately following the signature
+Notes:	this function is also supported by TelAPI, NPC NCSI, and Connection
+	  Manager CLIENT.EXE; for TelAPI, nonzero values in AL specify a
+	  connection ID
+	Connection Manager returns CF set/AL=FFh if called while an INT 6B
+	  call is already in progress
+SeeAlso: AX=0100h,AH=18h,INT 14/AH=19h,INT 14/AH=E3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0100" name="6B0100"><b>6B0100</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ
+	AX = 0100h
+	CX = length of buffer
+	ES:BX -&gt; buffer
+Return: CX = number of bytes read
+Note:	also supported by TelAPI and NPC NCSI; for TelAPI, nonzero values in
+	  AL specify a connection ID
+SeeAlso: AX=0000h,AH=19h,INT 14/AH=18h,INT 14/AH=E2h,INT 14/AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B02" name="6B02"><b>6B02</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK
+	AH = 02h
+	AL nonzero
+Return: AL = 00h if present and OK
+Note:	this function is also supported by TelAPI and NPC NCSI
+SeeAlso: AX=0700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0600" name="6B0600"><b>6B0600</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL
+	AX = 0600h
+	CX = command
+	    02h send break
+	    04h disconnect
+	    06h hold
+Return: CF clear if successful
+	    AL = 00h
+	CF set on error
+	    AX &lt; 0
+Note:	this function is also supported by TelAPI and NPC NCSI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0700" name="6B0700"><b>6B0700</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS
+	AX = 0700h
+Return: CH &lt;&gt; 00h if connection active
+Notes:	this function is also supported by TelAPI and NPC NCSI
+	Novell TelAPI returns CX=FF01h and CF clear
+SeeAlso: AH=02h,AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B10" name="6B10"><b>6B10</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS
+	AH = 10h
+	AL = connection ID (Novell TELAPI.EXE)
+	CX = ???
+	ES:BX -&gt; buffer for status (see #03730)
+Return: CF clear if successful
+	    CL = ???
+	    CH = ???
+	CF set on error
+	???
+Notes:	this function is also supported by TelAPI
+	when shelled out to an external protocol from Novell NASI, the circuit
+	  whose status indicates that it is connected is the currently active
+	  circuit
+SeeAlso: AX=0700h,AH=12h,AH=1Fh
+
+Format of NASI status:
+Offset	Size	Description	(Table 03730)
+ 00h	BYTE	number of allocated virtual circuits
+ 01h	BYTE	reserved
+ 02h  9 BYTEs	states of emulated circuits 0-8
+		00h idle
+		01h attached Telnet session, in command state
+		02h attached Telnet session, connected with host
+		03h-06h ??? (not returned by TelAPI)
+Note:	this description is derived from the Novell TelAPI emulation of NASI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B11--DX0001" name="6B11--DX0001"><b>6B11--DX0001</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT
+	AH = 11h
+	DX = 0001h
+	AL = 00h
+	ES:BX -&gt; service name string (8 characters, blank-padded)
+Return: CF clear if successful
+	    AL = virtual circuit number allocated (01h for Novell TELAPI.EXE)
+	    CL = ??? (01h for Novell TELAPI.EXE)
+	    CH = ??? (01h for Novell TELAPI.EXE)
+	CF set on error
+	    ???
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=12h,AH=15h,AH=16h,AH=17h,AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B12" name="6B12"><b>6B12</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS
+	AH = 12h
+	AL = virtual circuit number (0-8)
+Return: CF clear if successful
+	    AL = virtual circuit number
+	    CL = virtual circuit's state
+		00h idle
+		01h Telnet session, in command state
+		02h Telnet session, connected to host
+		03h-06h ??? (not returned by TelAPI)
+	CF set on error
+	    AL = error code
+		E2h invalid virtual circuit number
+		E4h specified virtual circuit not allocated
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=10h,AH=15h,AH=1Ah,AH=1Bh,AH=1Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B13" name="6B13"><b>6B13</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME
+	AH = 13h
+	AL = virtual circuit number
+	CL = direction (00h get, nonzero set)
+	ES:BX -&gt; buffer for/containing service name
+Return: ???
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=14h,AH=15h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B14" name="6B14"><b>6B14</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS
+	AH = 14h
+	AL = virtual circuit number
+	ES:BX -&gt; buffer for/containing service address
+Return: ???
+Note:	this function is also supported by TelAPI, which only supports
+	  retrieving the address
+SeeAlso: AH=13h,AH=15h,AH=21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B15" name="6B15"><b>6B15</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG
+	AH = 15h
+	AL = virtual circuit number
+	CL = direction (00h get, nonzero set)
+	ES:BX -&gt; buffer for/containing virtual circuit config (see #03731)
+Return: ES:BX buffer filled
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=13h"NCSI",AH=14h"NCSI"
+
+Format of virtual circuit configuration:
+Offset	Size	Description	(Table 03731)
+ 00h	WORD	buffer length
+ 02h	WORD	port ID
+ 04h	WORD	receive rate
+ 06h	WORD	receive word length
+ 08h	WORD	receive stop bits
+ 0Ah	WORD	receive parity
+ 0Ch	WORD	transmit rate
+ 0Eh	WORD	transmit word length
+ 10h	WORD	transmit stop bits
+ 12h	WORD	transmit parity
+ 14h	WORD	DTR
+ 16h	WORD	RTS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B16" name="6B16"><b>6B16</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT
+	AH = 16h
+	AL = virtual circuit number
+	CL = ??? switch (00h, ???)
+Return: CF clear if successful
+	    AL = virtual circuit number
+	CF set on error
+	    ???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=00h
+SeeAlso: AH=11h,AH=12h,AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B17" name="6B17"><b>6B17</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT
+	AH = 17h
+	AL = virtual circuit number
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=00h
+SeeAlso: AH=11h,AH=16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B18" name="6B18"><b>6B18</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT
+	AH = 18h
+	AL = virtual circuit number
+	CX = number of characters to send
+	ES:BX -&gt; buffer containing characters to be sent
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=30h
+SeeAlso: AX=0000h,AH=12h,AH=19h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B19" name="6B19"><b>6B19</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT
+	AH = 19h
+	AL = virtual circuit number
+	CX = number of characters to read
+	ES:BX -&gt; buffer for received characters
+Return: CX = 0000h if failed
+	CX = nonzero (possibly number of characters received) if successful
+Note:	this function is also supported by TelAPI
+SeeAlso: AX=0100h,AH=12h,AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1A" name="6B1A"><b>6B1A</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS
+	AH = 1Ah
+	???
+Return: ???
+SeeAlso: AH=12h,AH=1Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1B" name="6B1B"><b>6B1B</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS
+	AH = 1Bh
+	???
+Return: ???
+SeeAlso: AH=12h,AH=1Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1C" name="6B1C"><b>6B1C</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER
+	AH = 1Ch
+	AL = circuit number
+Return: nothing
+SeeAlso: AH=1Dh"NCSI",AH=1Eh"NCSI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1D" name="6B1D"><b>6B1D</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL
+	AH = 1Dh
+	???
+Return: ???
+SeeAlso: AH=1Ch,AH=1Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1E" name="6B1E"><b>6B1E</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST
+	AH = 1Eh
+	???
+Return: ???
+SeeAlso: AH=1Ch,AH=1Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1F" name="6B1F"><b>6B1F</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS
+	AH = 1Fh
+	???
+Return: ???
+SeeAlso: AH=10h,AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B20" name="6B20"><b>6B20</b></a> - INT 6B - Connection Manager CLIENT.EXE - ???<br />
+<pre>
+INT 6B - Connection Manager CLIENT.EXE - ???
+	AH = 20h
+	???
+Return: ???
+Program: Connection Manager by Softwarehouse Corp. permits the sharing of
+	  serial ports over an IPX or NetBIOS-based network
+Note:	CLIENT.EXE returns CF set/AL=F9h if AH is not 00h to 21h on entry
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B21" name="6B21"><b>6B21</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE
+	AH = 21h
+	AL = virtual circuit number
+	CL = ??? (00h or 01h)
+	ES:BX -&gt; buffer for service name structure (see #03732)
+Return: CF clear if successful
+	    ES:BX buffer filled
+	CF set on error
+Notes:	a program should call this function after allocating a virtual circuit
+	  and check that the general name matches the requested service
+	prior to version 3.0, Novell's NASI returned the first available port;
+	  v3.0+ returns the first port found--check the returned status to
+	  determine whether the port is available
+SeeAlso: AH=14h"NCSI"
+
+Format of NCSI service name structure:
+Offset	Size	Description	(Table 03732)
+ 00h	WORD	buffer length
+ 02h  8 BYTEs	service name
+ 0Ah  8 BYTEs	general name
+ 12h  8 BYTEs	specific name
+ 1Ah  4 BYTEs	???
+---Novell NASI v3.0+ ---
+ 1Eh	BYTE	port number
+ 1Fh	BYTE	port status
+		00h idle (available)
+		01h allocated (available)
+		02h connected
+		03h on hold
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D_0" name="7D_0"><b>7D</b></a> - INT 7D U - YTERM 1.4 - CLOCK SUPPORT<br />
+<pre>
+INT 7D U - YTERM 1.4 - CLOCK SUPPORT
+SeeAlso: INT 7E"YTERM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7E_0" name="7E_0"><b>7E</b></a> - INT 7E U - YTERM 1.4 - ???<br />
+<pre>
+INT 7E U - YTERM 1.4 - ???
+SeeAlso: INT 7D"YTERM",INT 7F"YTERM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F_1" name="7F_1"><b>7F</b></a> - INT 7F - Telebit ACS SERIAL I/O<br />
+<pre>
+INT 7F - Telebit ACS SERIAL I/O
+	ES:SI-&gt; parameter block (see #03867)
+Return: CF set on error
+	CF clear on success
+InstallCheck:	test for the signature "PDGATEWRKSTNIF" just prior to the
+	  interrupt handler
+Index:	installation check;Telebit ACS Serial I/O
+
+Format of Telebit ACS parameter block:
+Offset	Size	Description	(Table 03867)
+ 00h	BYTE	command (see #03868)
+ 01h	BYTE	gateway number
+ 02h	BYTE	reserved
+ 03h	BYTE	port
+ 04h 17 BYTEs	auxiliary buffer
+ 15h	BYTE	session
+ 16h	WORD	count of bytes passed to API
+ 18h	DWORD	buffer pointer passed to/from API
+ 1Ch	WORD	count of bytes passed from API
+ 1Eh	BYTE	return code (see #03869)
+
+(Table 03868)
+Values for Telebit ACS command:
+ 3Ch	status
+ 3Dh	connect
+ 3Eh	disconnect
+ 3Fh	read
+ 40h	data/command write
+ 41h	clear receive buffer
+ 42h	get configuration
+ 43h	get receiver status
+ 44h	raw write
+ 45h	search servers
+ 46h	set transmit buffer size
+
+(Table 03869)
+Values for Telebit ACS return code:
+ 00h	success
+ 01h	invalid session
+ 05h	servername invalid
+ 06h	NetWare fileserver bindery is locked
+ 07h	communication server not active
+ 08h	general failure in NetWare fileserver
+ 09h	not logged into a fileserver
+ 10h	connection table full
+ 11h	no response from communication server
+ 12h	connection attempt terminated abnormally
+ 13h	connection refused - no sessions available
+ 14h	gateway number/port already in use
+ 15h	invalid connection response
+ 16h	port invalid
+ 17h	incorrect version in server response
+ 18h	gateway number/port combination not configured
+ 19h	initialization has not been completed
+ 20h	no more sockets are available
+ 21h	no active poolname
+ 23h	FATAL internal interface error
+ 24h	registration of host workstation failed - name is already in use
+ 25h	registration of host workstation failed - workstation name table full
+ 26h	registration of host workstation failed - only one session may be
+	  registered for dial-in
+ FFh	Telebit ACS API is busy - retry later
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F_3" name="7F_3"><b>7F</b></a> - INT 7F U - YTERM - ???<br />
+<pre>
+INT 7F U - YTERM - ???
+SeeAlso: INT 7E"YTERM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_2" name="FD_2"><b>FD</b></a> - INT FD - TFPCX - INSTALLATION CHECK<br />
+<pre>
+INT FD - TFPCX - INSTALLATION CHECK
+	AH = function (also see separate entries below)
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+InstallCheck:	test for the string "N5NX" three bytes beyond the interrupt
+	  handler
+Range:	INT FD is the default, but may be changed, so the full installation
+	 check consists of scanning for the signature
+Note:	TFPCX returns AX=FFFFh on any unsupported function call
+SeeAlso: AH=01h,AH=03h,AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD01" name="FD01"><b>FD01</b></a> - INT FD - TFPCX - TEST FOR CHARACTER WAITING<br />
+<pre>
+INT FD - TFPCX - TEST FOR CHARACTER WAITING
+	AH = 01h
+Return: AX = status
+	    0000h no characters waiting
+	    0001h character available for input
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD02" name="FD02"><b>FD02</b></a> - INT FD - TFPCX - GET CHARACTER<br />
+<pre>
+INT FD - TFPCX - GET CHARACTER
+	AH = 02h
+Return: AL = character
+Notes:	this call is only allowed if AH=01h indicated that a character is
+	  available
+	all available characters should be read before sending any additional
+	  characters
+SeeAlso: AH=01h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD03" name="FD03"><b>FD03</b></a> - INT FD - TFPCX - OUTPUT CHARACTER<br />
+<pre>
+INT FD - TFPCX - OUTPUT CHARACTER
+	AH = 03h
+	AL = character to send
+Return: nothing
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FDFE" name="FDFE"><b>FDFE</b></a> - INT FD - TFPCX - GET VERSION<br />
+<pre>
+INT FD - TFPCX - GET VERSION
+	AH = FEh
+Return: AH = major version
+	AL = minor version
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+SeeAlso: AH=01h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

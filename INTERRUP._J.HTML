@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._J</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category J - Japanese
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#1013_0"><b>1013</b> - INT 10 - DOS/V - READ/WRITE DOUBLE-BYTE CHARACTER SET CHARACTERS/ATTRIBUTES</a><br />
+<a href="#1018"><b>1018</b> - INT 10 - VIDEO - DOS/V - GET/SET FONT PATTERN</a><br />
+<a href="#101D"><b>101D</b> - INT 10 - VIDEO - DOS/V - SHIFT STATUS LINE CONTROL</a><br />
+<a href="#105000"><b>105000</b> - INT 10 - VIDEO - AX PC - SET SCREEN COUNTRY CODE</a><br />
+<a href="#105001"><b>105001</b> - INT 10 - VIDEO - AX PC - GET SCREEN COUNTRY CODE</a><br />
+<a href="#105100"><b>105100</b> - INT 10 - VIDEO - AX PC - REGISTER EXTERNAL CHARACTER</a><br />
+<a href="#105101"><b>105101</b> - INT 10 - VIDEO - AX PC - READ CHARACTER</a><br />
+<a href="#105200"><b>105200</b> - INT 10 - VIDEO - AX PC - SET VIRTUAL TEXT RAM BUFFER</a><br />
+<a href="#105201"><b>105201</b> - INT 10 - VIDEO - AX PC - GET VIRTUAL TEXT RAM BUFFER</a><br />
+<a href="#108200"><b>108200</b> - INT 10 - VIDEO - AX PC - GET/SET SCROLL MODE</a><br />
+<a href="#108300"><b>108300</b> - INT 10 - VIDEO - AX PC - GET VIDEO RAM ADDRESS</a><br />
+<a href="#154900"><b>154900</b> - INT 15 - Far East MS-DOS - GET BIOS TYPE</a><br />
+<a href="#1550"><b>1550</b> - INT 15 - DOS/V - FONT SUBSYSTEM ACCESS</a><br />
+<a href="#1613"><b>1613</b> - INT 16 - DOS/V - DOUBLE-BYTE CHARACTER SET SHIFT CONTROL</a><br />
+<a href="#1614"><b>1614</b> - INT 16 - DOS/V - SHIFT STATUS DISPLAY CONTROL</a><br />
+<a href="#165000"><b>165000</b> - INT 16 - KEYBOARD - AX PC - SET KEYBOARD COUNTRY CODE</a><br />
+<a href="#165001"><b>165001</b> - INT 16 - KEYBOARD - AX PC - GET KEYBOARD COUNTRY CODE</a><br />
+<a href="#1651"><b>1651</b> - INT 16 - KEYBOARD - AX PC - READ SHIFT KEY STATUS</a><br />
+<a href="#175000"><b>175000</b> - INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE</a><br />
+<a href="#175001"><b>175001</b> - INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE</a><br />
+<a href="#1751"><b>1751</b> - INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION</a><br />
+<a href="#1752"><b>1752</b> - INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION</a><br />
+<a href="#1784_0"><b>1784</b> - INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION</a><br />
+<a href="#1785"><b>1785</b> - INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION</a><br />
+<a href="#1800"><b>1800</b> - INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE</a><br />
+<a href="#1801"><b>1801</b> - INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE</a><br />
+<a href="#1802"><b>1802</b> - INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS</a><br />
+<a href="#1803"><b>1803</b> - INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE</a><br />
+<a href="#1804"><b>1804</b> - INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED</a><br />
+<a href="#18_0"><b>18</b> - INT 18 - NEC PC-9800 series - VIDEO</a><br />
+<a href="#180E"><b>180E</b> - INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA</a><br />
+<a href="#181B"><b>181B</b> - INT 18 - NEC PC-9800 series - SET DISPLAY MODE</a><br />
+<a href="#1A10"><b>1A10</b> - INT 1A - NEC PC-9800 series - PRINTER - INITIALIZE</a><br />
+<a href="#1A1000"><b>1A1000</b> - INT 1A - NEC PC-9800 series - INSTALLATION CHECK</a><br />
+<a href="#1A11"><b>1A11</b> - INT 1A - NEC PC-9800 series - PRINTER - OUTPUT CHARACTER</a><br />
+<a href="#1A12"><b>1A12</b> - INT 1A - NEC PC-9800 series - PRINTER - SENSE STATUS</a><br />
+<a href="#1F90"><b>1F90</b> - INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY</a><br />
+
+<hr />
+
+<a href="#1013_0" name="1013_0"><b>1013</b></a> - INT 10 - DOS/V - READ/WRITE DOUBLE-BYTE CHARACTER SET CHARACTERS/ATTRIBUTES<br />
+<pre>
+INT 10 - DOS/V - READ/WRITE DOUBLE-BYTE CHARACTER SET CHARACTERS/ATTRIBUTES
+	AH = 13h
+	AL = function
+	    10h read characters and standard attributes
+	    11h read characters and extended attributes
+	    12h write characters and standard attributes
+	    13h write characters and extended attributes
+	BH = 00h
+	CX = number of characters to transfer
+	DH,DL = row,column at which to start transfer
+	ES:BP -&gt; buffer for/containing characters and attributes (see #00036)
+Return: ES:BP buffer filled if reading
+Program: DOS/V is a Japanese-language version of MS-DOS which can run on
+	  standard (non-Japanese) ATs and compatible equipped with a VGA or
+	  newer video adapter
+Notes:	subfunctions 11h and 13h are only valid when DOS/V is using video
+	  mode 73h
+	the cursor position is not changed by these functions
+	extended attributes consist of three bytes; the first is the standard
+	  character attribute byte, the second is as described below, and the
+	  third is always zero in current versions
+SeeAlso: AH=00h,AH=13h"VIDEO"
+
+Bitfields for DOS/V second extended attribute byte:
+Bit(s)	Description	(Table 00036)
+ 7	underline using foreground color
+ 6	reverse foreground/background specified in standard attribute byte
+ 5-4	unused
+ 3	vertical white grid line in cell
+ 2	horizontal white grid line in cell
+ 1-0	unused
+SeeAlso: #00014,#00026
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1018" name="1018"><b>1018</b></a> - INT 10 - VIDEO - DOS/V - GET/SET FONT PATTERN<br />
+<pre>
+INT 10 - VIDEO - DOS/V - GET/SET FONT PATTERN
+	AH = 18h
+	AL = subfunction
+	    00h get font pattern
+	    01h set font pattern
+	BX = 0000h
+	CL = character size in bytes (01h,02h)
+	CH = 00h
+	DH = character width in pixels
+	DL = character height in pixels
+	ES:DI -&gt; buffer for/containing font image
+Return: AL = status (00h successful, else error)
+	ES:DI buffer filled for function 00h if successful
+Note:	the supported font sizes are 8x16 single-byte, 8x19 single-byte,
+	  16x16 double-byte, and 24x24 double-byte
+SeeAlso: AH=19h,INT 16/AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#101D" name="101D"><b>101D</b></a> - INT 10 - VIDEO - DOS/V - SHIFT STATUS LINE CONTROL<br />
+<pre>
+INT 10 - VIDEO - DOS/V - SHIFT STATUS LINE CONTROL
+	AH = 1Dh
+	AL = function
+	    00h enable shift status line(s)
+		BX = number of lines to reserve at bottom of screen (usu. 1)
+	    01h disable shift status line
+		BX = number of lines reserved at bottom of screen (usually 1)
+	    02h get number of status lines
+		Return: BX = number of lines reserved for shift status
+SeeAlso: AH=19h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105000" name="105000"><b>105000</b></a> - INT 10 - VIDEO - AX PC - SET SCREEN COUNTRY CODE<br />
+<pre>
+INT 10 - VIDEO - AX PC - SET SCREEN COUNTRY CODE
+	AX = 5000h
+	BX = country code
+	    0001h USA (English), 0051h Japan
+Return: AL = status
+	    00h successful
+	    01h bad country code
+	    02h other error
+Note:	This function is called with BX=0051h by Japanese versions of
+	  MS-DOS/PC DOS/DR DOS IO.SYS/IBMBIO.COM at initialization time.
+SeeAlso: AX=5001h,INT 16/AX=5000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105001" name="105001"><b>105001</b></a> - INT 10 - VIDEO - AX PC - GET SCREEN COUNTRY CODE<br />
+<pre>
+INT 10 - VIDEO - AX PC - GET SCREEN COUNTRY CODE
+	AX = 5001h
+Return: AL = status
+	    00h successful
+		BX = country code
+	    02h error
+SeeAlso: AH=00h,AX=5000h,INT 16/AX=5001h,INT 21/AH=38h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105100" name="105100"><b>105100</b></a> - INT 10 - VIDEO - AX PC - REGISTER EXTERNAL CHARACTER<br />
+<pre>
+INT 10 - VIDEO - AX PC - REGISTER EXTERNAL CHARACTER
+	AX = 5100h
+	BH = character width in bits (10h)
+	BL = character height (10h)
+	DX = character code (DH = F0h-F3h, DL=40h-7Eh,80h-FCh)
+	ES:BP -&gt; character bitmap
+Return: AL = status (00h successful, 01h failed)
+SeeAlso: AX=5101h,INT 1F"SYSTEM DATA"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105101" name="105101"><b>105101</b></a> - INT 10 - VIDEO - AX PC - READ CHARACTER<br />
+<pre>
+INT 10 - VIDEO - AX PC - READ CHARACTER
+	AX = 5101h
+	BH = character width in bits
+	BL = character height
+	DX = character code (DH = 00h if 8-bit character)
+	ES:BP -&gt; buffer for character bitmap
+Return: AL = status (00h successful, 01h failed)
+SeeAlso: AH=09h,AX=5100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105200" name="105200"><b>105200</b></a> - INT 10 - VIDEO - AX PC - SET VIRTUAL TEXT RAM BUFFER<br />
+<pre>
+INT 10 - VIDEO - AX PC - SET VIRTUAL TEXT RAM BUFFER
+	AX = 5200h
+	BX = segment of buffer
+Return: nothing
+SeeAlso: AX=5201h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105201" name="105201"><b>105201</b></a> - INT 10 - VIDEO - AX PC - GET VIRTUAL TEXT RAM BUFFER<br />
+<pre>
+INT 10 - VIDEO - AX PC - GET VIRTUAL TEXT RAM BUFFER
+	AX = 5201h
+Return: BX = segment of buffer or 0000h if failed
+SeeAlso: AX=8300h,AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#108200" name="108200"><b>108200</b></a> - INT 10 - VIDEO - AX PC - GET/SET SCROLL MODE<br />
+<pre>
+INT 10 - VIDEO - AX PC - GET/SET SCROLL MODE
+	AX = 8200h
+	BL = new scroll mode or FFh to get current mode
+	    00h dynamic, 01h software
+Return: AL = scroll mode (current mode if BL=FFh, previous mode otherwise)
+SeeAlso: AH=06h,AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#108300" name="108300"><b>108300</b></a> - INT 10 - VIDEO - AX PC - GET VIDEO RAM ADDRESS<br />
+<pre>
+INT 10 - VIDEO - AX PC - GET VIDEO RAM ADDRESS
+	AX = 8300h
+Return: AX = offset of video RAM
+	ES:BX -&gt; virtual text RAM buffer
+SeeAlso: AX=5201h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#154900" name="154900"><b>154900</b></a> - INT 15 - Far East MS-DOS - GET BIOS TYPE<br />
+<pre>
+INT 15 - Far East MS-DOS - GET BIOS TYPE
+	AX = 4900h
+Return: CF clear if successful
+	    AH = 00h
+	    BL = BIOS mode
+		00h DOS/V
+		01h standard DBCS DOS (hardware DBCS support)
+	CF set on error
+	    AH = 86h (function not supported)
+Note:	in practice, DOS/J returns AH=86h; AX DOS does not support this call
+SeeAlso: AH=50h,INT 21/AH=30h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1550" name="1550"><b>1550</b></a> - INT 15 - DOS/V - FONT SUBSYSTEM ACCESS<br />
+<pre>
+INT 15 - DOS/V - FONT SUBSYSTEM ACCESS
+	AH = 50h
+	AL = which function address to retrieve
+	    00h "read font" function
+	    01h "write font" function
+	BL = 00h
+	BH = character size (00h single-byte, 01h double-byte)
+	DH = width of character cell
+	DL = height of character cell
+	BP = code page (see #00470)
+Return: CF clear if successful
+	    AH = 00h
+	    ES:BX -&gt; requested function's address
+	CF set on error
+	    AH = error code (see #00471)
+SeeAlso: AH=49h
+
+(Table 00470)
+Values for DOS/V code page:
+ 0	default
+ 437	US English
+ 932	Japanese
+ 934	Korea
+ 936	China
+ 938	Taiwan
+SeeAlso: #01757
+
+(Table 00471)
+Values for DOS/V error code:
+ 01h	invalid font type in BH
+ 02h	BL not zero
+ 03h	invalid font size
+ 04h	invalid code page
+ 80h	unsupported function (PC)
+ 86h	unsupported function (XT)
+SeeAlso: #01680
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1613" name="1613"><b>1613</b></a> - INT 16 - DOS/V - DOUBLE-BYTE CHARACTER SET SHIFT CONTROL<br />
+<pre>
+INT 16 - DOS/V - DOUBLE-BYTE CHARACTER SET SHIFT CONTROL
+	AH = 13h
+	AL = function
+	    00h set shift status
+		DX = shift status (see #00589), must preserve internal status
+			  bits
+	    01h get shift status
+		Return: DX = current shift status (see #00589)
+Note:	these functions are supplied by the Japanese Front-End Processor
+SeeAlso: AH=14h,INT 21/AX=6301h
+
+Bitfields for DOS/V shift status:
+Bit(s)	Description	(Table 00589)
+ 0	full-size rather than half-size
+ 2-1	character input mode
+	00 alphanumeric, 01 Katakana, 10 Hiragana, 11 unused
+ 5-3	internal status
+ 6	Romaji enabled
+ 7	Katakana to Kanji conversion enabled
+ 15-8	internal status
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1614" name="1614"><b>1614</b></a> - INT 16 - DOS/V - SHIFT STATUS DISPLAY CONTROL<br />
+<pre>
+INT 16 - DOS/V - SHIFT STATUS DISPLAY CONTROL
+	AH = 14h
+	AL = function
+	    00h enable display
+	    01h disable display
+	    02h get display state
+		Return: AL = current state (00h enabled, 01h disabled)
+Desc:	control the screen-bottom shift status row(s) for the Japanese
+	  Front-End Processor
+SeeAlso: AH=13h,INT 10/AH=19h,INT 10/AH=1Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165000" name="165000"><b>165000</b></a> - INT 16 - KEYBOARD - AX PC - SET KEYBOARD COUNTRY CODE<br />
+<pre>
+INT 16 - KEYBOARD - AX PC - SET KEYBOARD COUNTRY CODE
+	AX = 5000h
+	BX = country code
+	    0001h USA (English), 0051h Japan
+Return: AL = status
+	    00h successful
+	    01h bad country code
+	    02h other error
+Notes:	This function is called with BX=0051h by Japanese versions of
+	  MS-DOS/PC DOS/DR DOS IO.SYS/IBMBIO.COM at initialization time.
+	the K3PLUS v6.00+ INT 16 BIOS replacement will switch between the
+	  supported country specific layout (e.g. BX=0031h Germany, BX=001Fh
+	  Netherlands, BX=0020h Belgium, BX=0022h Spain) (as with &lt;Ctrl&gt;+
+	  &lt;Alt&gt;+&lt;F2&gt;) and K3PLUS' transparent mode (as with &lt;Ctrl&gt;+&lt;Alt&gt;+&lt;F1&gt;).
+	In transparent mode (BX=0001h), K3PLUS chains to the underlying
+	  driver (normally the BIOS driver with US-layout). K3PLUS beeps on
+	  mode changes
+SeeAlso: AX=5001h,AX=AF4Dh,INT 10/AX=5000h,INT 17/AX=5000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165001" name="165001"><b>165001</b></a> - INT 16 - KEYBOARD - AX PC - GET KEYBOARD COUNTRY CODE<br />
+<pre>
+INT 16 - KEYBOARD - AX PC - GET KEYBOARD COUNTRY CODE
+	AX = 5001h
+Return: AL = status
+	    00h successful
+		BX = country code
+	    02h error
+Note:	also supported by K3PLUS v6.00+
+SeeAlso: AX=5000h,INT 10/AX=5001h,INT 17/AX=5001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1651" name="1651"><b>1651</b></a> - INT 16 - KEYBOARD - AX PC - READ SHIFT KEY STATUS<br />
+<pre>
+INT 16 - KEYBOARD - AX PC - READ SHIFT KEY STATUS
+	AH = 51h
+Return: AL = standard shift key states (see #00582,#00587)
+	AH = Kana lock (00h off, 01h on)
+Note:	also supported by K3PLUS v6.00+, but K3PLUS always returns AH=00h
+SeeAlso: AH=02h,AH=12h,AH=22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175000" name="175000"><b>175000</b></a> - INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - SET PRINTER COUNTRY CODE
+	AX = 5000h
+	BX = country code
+	    0001h USA (English), 0051h Japan
+Return: AL = status
+	    00h successful
+	    01h bad country code
+	    02h other error
+SeeAlso: AX=5001h,AH=51h,INT 10/AX=5000h,INT 16/AX=5000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175001" name="175001"><b>175001</b></a> - INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - GET PRINTER COUNTRY CODE
+	AX = 5001h
+Return: AL = status
+	    00h successful
+		BX = country code
+	    02h error
+SeeAlso: AX=5000h,AH=51h,INT 10/AX=5001h,INT 16/AX=5001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1751" name="1751"><b>1751</b></a> - INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - JIS to Shift-JIS CONVERSION
+	AH = 51h
+	DX = 2-byte JIS code
+Return: DX = shift-JIS value or 0000h on error
+Note:	one of AH=51h and AH=52h converts from JIS (Japanese Industry Standard)
+	  characters to Shift-JIS characters, and the other performs the
+	  opposite conversion
+SeeAlso: AX=5000h,AH=52h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1752" name="1752"><b>1752</b></a> - INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - Shift-JIS to JIS CONVERSION
+	AH = 52h
+	DX = 2-byte shift-JIS code
+Return: DX = JIS code or 0000h on error
+Note:	one of AH=51h and AH=52h converts from JIS (Japanese Industry Standard)
+	  characters to Shift-JIS characters, and the other performs the
+	  opposite conversion
+SeeAlso: AH=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1784_0" name="1784_0"><b>1784</b></a> - INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - OUTPUT CHARACTER WITHOUT CONVERSION
+	AH = 84h
+	AL = character
+	DX = printer number
+Return: AH = printer status (see #00631)
+SeeAlso: AH=00h,AH=85h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1785" name="1785"><b>1785</b></a> - INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION<br />
+<pre>
+INT 17 - AX (Japanese AT) PRINTER - ENABLE/DISABLE CHARACTER CONVERSION
+	AH = 85h
+	AL = new state (00h enabled, 01h disabled)
+SeeAlso: AH=84h"AX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1800" name="1800"><b>1800</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE
+	AH = 00h
+Return: AX = keystroke
+SeeAlso: AH=01h,AH=02h,INT 16/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1801" name="1801"><b>1801</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE
+	AH = 01h
+Return: BH = status
+	    00h no keystrokes available
+	    01h keystroke available
+		AX = keystroke
+SeeAlso: AH=00h,AH=02h,INT 16/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1802" name="1802"><b>1802</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS
+	AH = 02h
+Return: AL = shift flags
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,INT 16/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1803" name="1803"><b>1803</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE
+	AH = 03h
+	???
+Return: ???
+SeeAlso: AH=00h,AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1804" name="1804"><b>1804</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED
+	AH = 04h
+	???
+Return: ???
+Note:	details are not available at this time
+SeeAlso: AH=00h,AH=02h,INT 16/AH=00h,INT 16/AH=01h,INT 16/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18_0" name="18_0"><b>18</b></a> - INT 18 - NEC PC-9800 series - VIDEO<br />
+<pre>
+INT 18 - NEC PC-9800 series - VIDEO
+	AH = function
+	    0Ah set video mode
+	    0Bh get video mode
+	    0Ch start text screen display
+	    0Dh end text screen display
+	    0Eh set single display area
+	    0Fh set multiple display area
+	    10h set cursor shape
+	    11h display cursor
+	    12h terminate cursor
+	    13h set cursor position
+	    14h read font patter
+	    16h initialize text video RAM
+	    1Ah define user character
+	    others
+	???
+Return: ???
+Notes:	details are not available at this time
+	text video RAM is located at segments A000h (characters) and A200h
+	  (attributes), graphics video RAM at segment C000h
+
+Bitfields for NEC PC-9800 series video attributes:
+Bit(s)	Description	(Table 00648)
+ 0	disable drawing character
+ 1	blinking
+ 2	reverse video
+ 3	underline
+ 4	vertical line
+ 7-5	color
+	(0=black, 1=blue, 2=red, 3=purple, 4=green, 5=cyan, 6=yellow, 7=white)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#180E" name="180E"><b>180E</b></a> - INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA<br />
+<pre>
+INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA
+	AH = 0Eh
+	DX = offset of first byte to display???
+Return: ???
+SeeAlso: AH=1Bh,MEM 0050h:0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#181B" name="181B"><b>181B</b></a> - INT 18 - NEC PC-9800 series - SET DISPLAY MODE<br />
+<pre>
+INT 18 - NEC PC-9800 series - SET DISPLAY MODE
+	AH = 1Bh
+	AL = ??? (00h for text mode)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A10" name="1A10"><b>1A10</b></a> - INT 1A - NEC PC-9800 series - PRINTER - INITIALIZE<br />
+<pre>
+INT 1A - NEC PC-9800 series - PRINTER - INITIALIZE
+	AH = 10h
+	???
+Return: ???
+SeeAlso: AH=11h,AH=12h,INT 17/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A1000" name="1A1000"><b>1A1000</b></a> - INT 1A - NEC PC-9800 series - INSTALLATION CHECK<br />
+<pre>
+INT 1A - NEC PC-9800 series - INSTALLATION CHECK
+	AX = 1000h
+Return: AX &lt;&gt; 1000h if NEC
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A11" name="1A11"><b>1A11</b></a> - INT 1A - NEC PC-9800 series - PRINTER - OUTPUT CHARACTER<br />
+<pre>
+INT 1A - NEC PC-9800 series - PRINTER - OUTPUT CHARACTER
+	AH = 11h
+	???
+Return: ???
+SeeAlso: AH=10h,AH=12h,INT 17/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A12" name="1A12"><b>1A12</b></a> - INT 1A - NEC PC-9800 series - PRINTER - SENSE STATUS<br />
+<pre>
+INT 1A - NEC PC-9800 series - PRINTER - SENSE STATUS
+	AH = 12h
+	???
+Return: ???
+SeeAlso: AH=10h,AH=11h,INT 17/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F90" name="1F90"><b>1F90</b></a> - INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY<br />
+<pre>
+INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY
+	AH = 90h
+	ES:BX -&gt; global descriptor table (see #00499 at INT 15/AH=87h)
+	CX = number of bytes to copy
+	SI = 0000h
+	DI = 0000h
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: INT 15/AH=87h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

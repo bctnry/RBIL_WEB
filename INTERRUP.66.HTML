@@ -1,0 +1,1626 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._66</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 66
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#66"><b>66</b> - INT 66 - reserved for user interrupt</a><br />
+<a href="#66_0"><b>66</b> - INT 66 - Adaptec controllers - DRIVE 1 DATA</a><br />
+<a href="#66_1"><b>66</b> - INT 66 - TI Professional PC - SYSTEM INFORMATION (NOT A VECTOR!)</a><br />
+<a href="#66_2"><b>66</b> - INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#66_3"><b>66</b> - INT 66 C - Nanosoft, Inc. TurboNET - NETWORK PROCESSING ???</a><br />
+<a href="#66_4"><b>66</b> - INT 66 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information</a><br />
+<a href="#66_5"><b>66</b> - INT 66 - Microsoft Windows VITD.386 Virtual Interval Timer</a><br />
+<a href="#66_6"><b>66</b> - INT 66 - Newkey v5.4 - INSTALLATION VECTOR</a><br />
+<a href="#66_7"><b>66</b> - INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER</a><br />
+<a href="#66_8"><b>66</b> - INT 66 - PC-Magazin - INCA</a><br />
+<a href="#6601"><b>6601</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#6602"><b>6602</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#6603"><b>6603</b> - INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS</a><br />
+<a href="#6604"><b>6604</b> - INT 66 - BitFax Scheduler - GET STATUS???</a><br />
+<a href="#6605"><b>6605</b> - INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX</a><br />
+<a href="#6606"><b>6606</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#660688"><b>660688</b> - INT 66 - IBMSND driver, DIGPAK - PLAY 8-BIT DIGITIZED SOUND</a><br />
+<a href="#660689"><b>660689</b> - INT 66 - IBMSND driver, DIGPAK - REPORT SOUND DRIVER STATUS</a><br />
+<a href="#66068A"><b>66068A</b> - INT 66 - IBMSND driver, DIGPAK - PREFORMAT SOUND</a><br />
+<a href="#66068B"><b>66068B</b> - INT 66 - IBMSND driver, DIGPAK - PLAY PREFORMATTED SOUND</a><br />
+<a href="#66068C"><b>66068C</b> - INT 66 - IBMSND driver, DIGPAK - REPORT AUDIO DRIVER CAPABILITIES</a><br />
+<a href="#66068D"><b>66068D</b> - INT 66 - IBMSND driver, DIGPAK - REPORT CURRENT SAMPLE ADDRESS</a><br />
+<a href="#66068E"><b>66068E</b> - INT 66 - IBMSND driver, DIGPAK - SET CALLBACK ADDRESS</a><br />
+<a href="#66068F"><b>66068F</b> - INT 66 - IBMSND driver, DIGPAK - STOP CURRENT SOUND</a><br />
+<a href="#660690"><b>660690</b> - INT 66 - IBMSND driver, DIGPAK - "SetAudioHardware" - SET UP HARDWARE INFO</a><br />
+<a href="#660691"><b>660691</b> - INT 66 - IBMSND driver, DIGPAK - REPORT CALLBACK ADDRESS</a><br />
+<a href="#660693"><b>660693</b> - INT 66 - DIGPAK - SET TIMER DIVISOR RATE</a><br />
+<a href="#660694"><b>660694</b> - INT 66 - DIGPAK - PLAY PREFORMATTED DATA</a><br />
+<a href="#660695"><b>660695</b> - INT 66 - DIGPAK - POST AUDIO PENDING</a><br />
+<a href="#660696"><b>660696</b> - INT 66 - DIGPAK - GET AUDIO PENDING STATUS</a><br />
+<a href="#660697"><b>660697</b> - INT 66 - DIGPAK - SET STEREO PANNING</a><br />
+<a href="#660698"><b>660698</b> - INT 66 - DIGPAK - SET PLAY MODE</a><br />
+<a href="#660699"><b>660699</b> - INT 66 - DIGPAK - GET ADDRESSES</a><br />
+<a href="#66069A"><b>66069A</b> - INT 66 - DIGPAK - SET RECORD MODE</a><br />
+<a href="#66069B"><b>66069B</b> - INT 66 - DIGPAK - STOP NEXT LOOP</a><br />
+<a href="#66069C"><b>66069C</b> - INT 66 - DIGPAK - SET DMA BACKFILL MODE</a><br />
+<a href="#66069D"><b>66069D</b> - INT 66 - DIGPAK - REPORT DMA COUNTER</a><br />
+<a href="#66069E"><b>66069E</b> - INT 66 - DIGPAK - VERIFY DMA BLOCK</a><br />
+<a href="#66069F"><b>66069F</b> - INT 66 - DIGPAK - SET PCM VOLUME</a><br />
+<a href="#6606A0"><b>6606A0</b> - INT 66 - DIGPAK - SET DPMI MODE</a><br />
+<a href="#660700"><b>660700</b> - INT 66 - MIDPAK - UNINSTALL</a><br />
+<a href="#660701"><b>660701</b> - INT 66 - IBM Digitized Sound Package MIDI driver - GET DIGITIZED SOUND CAPABIL</a><br />
+<a href="#660702"><b>660702</b> - INT 66 - MIDPAK - PLAY SEQUENCE</a><br />
+<a href="#660703"><b>660703</b> - INT 66 - MIDPAK - SEGUE SEQUENCE</a><br />
+<a href="#660704"><b>660704</b> - INT 66 - MIDPAK - REGISTER XMIDI</a><br />
+<a href="#660705"><b>660705</b> - INT 66 - MIDPAK - STOP MIDI</a><br />
+<a href="#660706"><b>660706</b> - INT 66 O - MIDPAK - REMAP CHANNEL</a><br />
+<a href="#660707"><b>660707</b> - INT 66 - MIDPAK - REPORT TRIGGER EVENT COUNTER</a><br />
+<a href="#660708"><b>660708</b> - INT 66 - MIDPAK - RESET EVENT TRIGGER COUNTER</a><br />
+<a href="#660709"><b>660709</b> - INT 66 O - MIDPAK - MIDI SLEEP</a><br />
+<a href="#66070A"><b>66070A</b> - INT 66 O - MIDPAK - MIDI AWAKE</a><br />
+<a href="#66070B"><b>66070B</b> - INT 66 - MIDPAK - RESUME PLAYING</a><br />
+<a href="#66070C"><b>66070C</b> - INT 66 - MIDPAK - GET SEQUENCE STATUS</a><br />
+<a href="#66070D"><b>66070D</b> - INT 66 - MIDPAK - REGISTER XMIDI FILE</a><br />
+<a href="#66070E"><b>66070E</b> - INT 66 - MIDPAK - GET RELATIVE VOLUME</a><br />
+<a href="#66070F"><b>66070F</b> - INT 66 - MIDPAK - SET RELATIVE VOLUME</a><br />
+<a href="#660710"><b>660710</b> - INT 66 - MIDPAK - LOAD MIDPAK DRIVER</a><br />
+<a href="#660711"><b>660711</b> - INT 66 - MIDPAK - POLL MIDPAK</a><br />
+<a href="#660712"><b>660712</b> - INT 66 - MIDPAK - GET MIDI CLOCK</a><br />
+<a href="#660713"><b>660713</b> - INT 66 - MIDPAK - GET TRIGGER COUNT ADDRESS</a><br />
+<a href="#660714"><b>660714</b> - INT 66 - MIDPAK - GET EVENT ID ADDRESS</a><br />
+<a href="#660716"><b>660716</b> - INT 66 - MIDPAK - REPORT SEQUENCE NUMBER</a><br />
+<a href="#6610"><b>6610</b> - INT 66 - PenDOS - TDMOUSE.EXE - GET ???</a><br />
+<a href="#6611"><b>6611</b> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER</a><br />
+<a href="#6612"><b>6612</b> - INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE</a><br />
+<a href="#6613"><b>6613</b> - INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???</a><br />
+<a href="#6614"><b>6614</b> - INT 66 - PenDOS - TDMOUSE.EXE - ???</a><br />
+<a href="#6615"><b>6615</b> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER</a><br />
+<a href="#6616"><b>6616</b> - INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS</a><br />
+<a href="#6621"><b>6621</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6622"><b>6622</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6623"><b>6623</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6624"><b>6624</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6625"><b>6625</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6627"><b>6627</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6628"><b>6628</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6629"><b>6629</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662A"><b>662A</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662B"><b>662B</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662F"><b>662F</b> - INT 66 - PenDOS - PINK - INITIALIZE</a><br />
+<a href="#663345"><b>663345</b> - INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY</a><br />
+<a href="#6640"><b>6640</b> - INT 66 - PenDOS - PKEYUS - GET VERSION</a><br />
+<a href="#6641"><b>6641</b> - INT 66 - PenDOS - PKEYUS - SET ???</a><br />
+<a href="#6642"><b>6642</b> - INT 66 - PenDOS - PKEYUS - ???</a><br />
+<a href="#6643"><b>6643</b> - INT 66 - PenDOS - PKEYUS - ???</a><br />
+<a href="#6644"><b>6644</b> - INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS</a><br />
+<a href="#6650"><b>6650</b> - INT 66 - PenDOS - PMOUSE - SET ???</a><br />
+<a href="#6651"><b>6651</b> - INT 66 - PenDOS - PMOUSE - NOP</a><br />
+<a href="#6652"><b>6652</b> - INT 66 - PenDOS - PMOUSE - ???</a><br />
+<a href="#6653"><b>6653</b> - INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS</a><br />
+<a href="#66_9"><b>66</b> - INT 66 - PenDOS - PMOUSE - ALTERNATE API</a><br />
+<a href="#66AA02"><b>66AA02</b> - INT 66 - HelpTSR v2.10 - INSTALLATION CHECK</a><br />
+<a href="#66C5"><b>66C5</b> - INT 66 - PenDOS - VLOAD - API</a><br />
+<a href="#66FFFBBXFFFB"><b>66FFFBBXFFFB</b> - INT 66 - MicroHelp Stay-Res Plus - ???</a><br />
+<a href="#66FFFEBXFFFE"><b>66FFFEBXFFFE</b> - INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL</a><br />
+<a href="#66FFFFBXFFF0"><b>66FFFFBXFFF0</b> - INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME</a><br />
+
+<hr />
+
+<a href="#66" name="66"><b>66</b></a> - INT 66 - reserved for user interrupt<br />
+<pre>
+INT 66 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_0" name="66_0"><b>66</b></a> - INT 66 - Adaptec controllers - DRIVE 1 DATA<br />
+<pre>
+INT 66 - Adaptec controllers - DRIVE 1 DATA
+Desc:	this vector stores the third four bytes of the parameter table for
+	  hard disk 1
+SeeAlso: INT 64"Adaptec",INT 65"Adaptec",INT 67"Adaptec"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_1" name="66_1"><b>66</b></a> - INT 66 - TI Professional PC - SYSTEM INFORMATION (NOT A VECTOR!)<br />
+<pre>
+INT 66 - TI Professional PC - SYSTEM INFORMATION (NOT A VECTOR!)
+Desc:	the low word of this vector contains the system memory size in
+	  paragraphs; the third byte contains the number of outstanding
+	  interrupt requests, and the fourth byte contains a description
+	  of the installed drive types (see #03517)
+SeeAlso: INT 60"TI Professional PC",INT 67"TI Professional"
+
+Bitfields for TI Professional drive type information:
+Bit(s)	Description	(Table 03517)
+ 7	floppy drive D: has 80 tracks
+ 6	floppy drive D: is double-sided
+ 5	floppy drive C: has 80 tracks
+ 4	floppy drive C: is double-sided
+ 3	floppy drive B: has 80 tracks
+ 2	floppy drive B: is double-sided
+ 1	floppy drive A: has 80 tracks
+ 0	floppy drive A: is double-sided
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_2" name="66_2"><b>66</b></a> - INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 66 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 64"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_3" name="66_3"><b>66</b></a> - INT 66 C - Nanosoft, Inc. TurboNET - NETWORK PROCESSING ???<br />
+<pre>
+INT 66 C - Nanosoft, Inc. TurboNET - NETWORK PROCESSING ???
+Program: TurboNET is a NetBIOS-based file redirector and server
+Note:	hooked but not used (IRET) by both redirector and server; called from
+	  server's INT 28 handler
+SeeAlso: INT 2F/AX=8100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_4" name="66_4"><b>66</b></a> - INT 66 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information<br />
+<pre>
+INT 66 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information
+SeeAlso: INT 64"Pdisk",INT 67"Pdisk"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_5" name="66_5"><b>66</b></a> - INT 66 - Microsoft Windows VITD.386 Virtual Interval Timer<br />
+<pre>
+INT 66 - Microsoft Windows VITD.386 Virtual Interval Timer
+Note:	This Windows 3.x Virtual Device Driver implements a virtual timer
+	  which will expire and call INT 66.  This timer can be used to
+	  calculate elapsed execution time etc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_6" name="66_6"><b>66</b></a> - INT 66 - Newkey v5.4 - INSTALLATION VECTOR<br />
+<pre>
+INT 66 - Newkey v5.4 - INSTALLATION VECTOR
+Return: immediately (IRET)
+Program: Newkey is a shareware keyboard macro program by Frank A. Bell
+InstallCheck:	test for the signature bytes FDh FCh FFh FEh at offset 03h in
+	  the interrupt handlers segment
+Range:	INT 60h to INT 67h, selected by scanning for highest unused vector
+BUG:	the code obviously intends to use INT F0-FE, INT 70-77, and INT 68-6F
+	  before falling back to INT 60-67, but only uses the last of these
+	  ranges in v5.4
+SeeAlso: INT 2F/AX=E300h
+Index: installation checks;Newkey|Newkey;installation check
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_7" name="66_7"><b>66</b></a> - INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER<br />
+<pre>
+INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 64"PC-DRAFT",INT 65"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_8" name="66_8"><b>66</b></a> - INT 66 - PC-Magazin - INCA<br />
+<pre>
+INT 66 - PC-Magazin - INCA
+	details not yet availble
+Program: INCA is a utility from PC-Magazin (the German edition of PC Magazine)
+	  issue 51-52/85.
+SeeAlso: INT 61"SWAPx"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6601" name="6601"><b>6601</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 01h
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6602" name="6602"><b>6602</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 02h
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6603" name="6603"><b>6603</b></a> - INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS<br />
+<pre>
+INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS
+	AH = 03h
+	???
+Return: ???
+SeeAlso: AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6604" name="6604"><b>6604</b></a> - INT 66 - BitFax Scheduler - GET STATUS???<br />
+<pre>
+INT 66 - BitFax Scheduler - GET STATUS???
+	AH = 04h
+Return: AX = ??? (0000h or 0001h)
+	DX = BitSched version???  (for versions &gt;= 3.00)
+	    9796h (ver. 3.00)
+	    97E6h (ver. 3.02)
+	    92D0h (ver. 3.04.06)
+	    9510h (ver. 3.06.02)
+SeeAlso: AH=06h,AX=3345h,INT 2F/AX=8000h"FaxBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6605" name="6605"><b>6605</b></a> - INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX<br />
+<pre>
+INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX
+	AH = 05h
+	BX:CX -&gt; command block (see #03518)
+	???
+Return: ???
+SeeAlso: AH=03h
+
+Format of BitFax command block:
+Offset	Size	Description	(Table 03518)
+ 00h 18 BYTEs	configuration bytes???
+ 12h	BYTEs	ASCIZ temporary file name to place converted fax
+ 52h	BYTEs	ASCIZ directory containing BitFax executables
+ 92h	BYTEs	ASCIZ telephone number
+ C2h	BYTE	cover page control (00h don't send, 01h do send cover page)
+ C3h 15 BYTEs	configuration bytes???
+ E2h	BYTEs	ASCIZ path of BITFAX.TRA file (containing additional
+		  configuration information???)
+122h	BYTEs	configuration bytes???
+12Ch	BYTE	00h don't send cover page
+		01h send cover page
+12Dh  7 BYTEs	configuration bytes???
+134h	BYTEs	ASCIZ path of file to send
+174h	BYTEs	more configuration bytes???
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6606" name="6606"><b>6606</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 06h
+Return: DX = BitSched version??? (same as AH=04h)
+SeeAlso: AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660688" name="660688"><b>660688</b></a> - INT 66 - IBMSND driver, DIGPAK - PLAY 8-BIT DIGITIZED SOUND<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - PLAY 8-BIT DIGITIZED SOUND
+	AX = 0688h
+	DS:SI -&gt; SNDSTRUC (see #03519)
+Return: ???
+Program: The IBMSND driver is part of John W. Ratcliff's
+	   The IBM Digitized Sound Package
+	DIGPAK is a set of digitized sound drivers written by
+	  John W. Ratcliff, The Audio Solution, Inc.
+InstallCheck:	test for a valid signature string six bytes prior to the
+	  interrupt handler; this string may be either "KERN" or "MIDI" (in
+	  the latter case, call AX=0701h to determine whether IBMSND is
+	  installed)
+SeeAlso: AX=068Bh,AX=068Fh,AX=0701h
+
+Format of IBMSND driver SNDSTRUC:
+Offset	Size	Description	(Table 03519)
+ 00h	DWORD	-&gt; audio data
+ 04h	WORD	length of audio data in bytes
+ 06h	DWORD	-&gt; playback status flag
+ 0Ah	WORD	playback frequency
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660689" name="660689"><b>660689</b></a> - INT 66 - IBMSND driver, DIGPAK - REPORT SOUND DRIVER STATUS<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - REPORT SOUND DRIVER STATUS
+	AX = 0689h
+Return: AX = status
+	    0000h no sound playing
+	    0001h sound effect is currently playing
+	---DIGPAK---
+	BX = version number (v3.1+)
+	DX = looping status
+	    0000h no sound looping
+	    0001h sound effect is currently looping
+SeeAlso: AX=0688h,AX=068Bh,AX=068Ch
+Index:	version check;DIGPAK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068A" name="66068A"><b>66068A</b></a> - INT 66 - IBMSND driver, DIGPAK - PREFORMAT SOUND<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - PREFORMAT SOUND
+	AX = 068Ah
+	DS:SI -&gt; SNDSTRUC (see #03519)
+Desc:	convert audio data into output hardware format
+SeeAlso: AX=068Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068B" name="66068B"><b>66068B</b></a> - INT 66 - IBMSND driver, DIGPAK - PLAY PREFORMATTED SOUND<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - PLAY PREFORMATTED SOUND
+	AX = 068Bh
+	DS:SI -&gt; SNDSTRUC (see #03519)
+Return: AX = ???
+SeeAlso: AX=0688h,AX=068Ah,AX=068Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068C" name="66068C"><b>66068C</b></a> - INT 66 - IBMSND driver, DIGPAK - REPORT AUDIO DRIVER CAPABILITIES<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - REPORT AUDIO DRIVER CAPABILITIES
+	AX = 068Ch
+Return: AX = capabilities (see #03520)
+	DX = playback rate if fixed-frequency playback
+	---DIGPAK---
+	BX:CX -&gt; ASCIZ ID string
+SeeAlso: AX=0689h,AX=068Dh
+
+Bitfields for IBMSND driver capabilities:
+Bit(s)	Description	(Table 03520)
+ 0	can play audio in background
+ 1	data is massaged for output device
+ 2	driver plays at fixed frequency, resampling input data to fit
+ 3	driver uses timer interrupt
+---DIGPAK---
+ 4	device supports timer sharing
+ 5	supports looped sounds and pending
+ 6	supports stereo panning
+ 7	supports 8-bit PCM stereo playback
+ 8	supports audio recording
+ 9	supports DMA bakcfilling
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068D" name="66068D"><b>66068D</b></a> - INT 66 - IBMSND driver, DIGPAK - REPORT CURRENT SAMPLE ADDRESS<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - REPORT CURRENT SAMPLE ADDRESS
+	AX = 068Dh
+Return: AX = current playback address
+Desc:	determine what point in the audio data the playback has reached, for
+	  synchronization with video or animation effects
+Notes:	this function applies to background playback only
+	the reported address may be an approximation rather than the exact
+	  address
+SeeAlso: AX=068Ch,AX=0691h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068E" name="66068E"><b>66068E</b></a> - INT 66 - IBMSND driver, DIGPAK - SET CALLBACK ADDRESS<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - SET CALLBACK ADDRESS
+	AX = 068Eh
+	BX:DX -&gt; callback function
+	    0000h:0000h to disable callback
+	DS = value to load into DS when calling the callback function
+Desc:	specify the function to be called when playback of a sound effect is
+	  completed
+Note:	the callback function will typically be called during a hardware
+	  interrupt, so all the usual precautions should be taken except for
+	  preserving registers
+SeeAlso: AX=0691h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66068F" name="66068F"><b>66068F</b></a> - INT 66 - IBMSND driver, DIGPAK - STOP CURRENT SOUND<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - STOP CURRENT SOUND
+	AX = 068Fh
+Desc:	cause any currently-playing sound effect to be terminated
+SeeAlso: AX=0688h,AX=068Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660690" name="660690"><b>660690</b></a> - INT 66 - IBMSND driver, DIGPAK - "SetAudioHardware" - SET UP HARDWARE INFO<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - "SetAudioHardware" - SET UP HARDWARE INFO
+	AX = 0690h
+	BX = IRQ
+	CX = base address
+	DX = other setup value (device-dependent???)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660691" name="660691"><b>660691</b></a> - INT 66 - IBMSND driver, DIGPAK - REPORT CALLBACK ADDRESS<br />
+<pre>
+INT 66 - IBMSND driver, DIGPAK - REPORT CALLBACK ADDRESS
+	AX = 0691h
+Return: AX:DX -&gt; current callback function
+	BX = original caller's DS register
+Program: The IBMSND driver is part of John W. Ratcliff's
+	   The IBM Digitized Sound Package
+	DIGPAK is a set of digitized sound drivers written by
+	  John W. Ratcliff, The Audio Solution, Inc.
+SeeAlso: AX=068Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660693" name="660693"><b>660693</b></a> - INT 66 - DIGPAK - SET TIMER DIVISOR RATE<br />
+<pre>
+INT 66 - DIGPAK - SET TIMER DIVISOR RATE
+	AX = 0693h
+	DX = rate
+Program: DIGPAK is a set of digitized sound drivers written by
+	  John W. Ratcliff, The Audio Solution, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660694" name="660694"><b>660694</b></a> - INT 66 - DIGPAK - PLAY PREFORMATTED DATA<br />
+<pre>
+INT 66 - DIGPAK - PLAY PREFORMATTED DATA
+	AX = 0694h
+	DS:SI -&gt; Sound Data structure (see #03519)
+Return: AX = status???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660695" name="660695"><b>660695</b></a> - INT 66 - DIGPAK - POST AUDIO PENDING<br />
+<pre>
+INT 66 - DIGPAK - POST AUDIO PENDING
+	AX = 0695h
+	DS:SI -&gt; Sound Data structure (***)
+Return: AX = status
+	    0000h sound started playing
+	    0001h sound was posted as pending to play
+	    0002h sound effect already pending, this one not posted
+SeeAlso: AX=0696h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660696" name="660696"><b>660696</b></a> - INT 66 - DIGPAK - GET AUDIO PENDING STATUS<br />
+<pre>
+INT 66 - DIGPAK - GET AUDIO PENDING STATUS
+	AX = 0696h
+Return: AX = status
+	    0000h no sound is playing
+	    0001h sound playing, and a sound is pending
+	    0002h sound playing, no sound pending
+SeeAlso: AX=0695h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660697" name="660697"><b>660697</b></a> - INT 66 - DIGPAK - SET STEREO PANNING<br />
+<pre>
+INT 66 - DIGPAK - SET STEREO PANNING
+	AX = 0697h
+	DX = panning position (0 = right, 127 = left)
+Return: AX = status
+	    0000h command ignored (not supported)
+	    0001h panning set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660698" name="660698"><b>660698</b></a> - INT 66 - DIGPAK - SET PLAY MODE<br />
+<pre>
+INT 66 - DIGPAK - SET PLAY MODE
+	AX = 0698h
+	DX = playback mode
+	    0000h 8-bit PCM
+	    0001h 8-bit stereo PCM
+	    0002h 16-bit PCM
+	    0003h 16-bit stereo PCM
+Return: AX = status
+	    0000h command ignored
+	    0001h mode set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660699" name="660699"><b>660699</b></a> - INT 66 - DIGPAK - GET ADDRESSES<br />
+<pre>
+INT 66 - DIGPAK - GET ADDRESSES
+	AX = 0699h
+Return: AX = pending address
+	BX = semaphore address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069A" name="66069A"><b>66069A</b></a> - INT 66 - DIGPAK - SET RECORD MODE<br />
+<pre>
+INT 66 - DIGPAK - SET RECORD MODE
+	AX = 069Ah
+	DX = recording mode
+	    0000h turn audio recording on
+	    0001h turn audio recording off
+Return: AX = status
+	    0000h command ignored
+	    0001h audio recording mode set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069B" name="66069B"><b>66069B</b></a> - INT 66 - DIGPAK - STOP NEXT LOOP<br />
+<pre>
+INT 66 - DIGPAK - STOP NEXT LOOP
+	AX = 069Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069C" name="66069C"><b>66069C</b></a> - INT 66 - DIGPAK - SET DMA BACKFILL MODE<br />
+<pre>
+INT 66 - DIGPAK - SET DMA BACKFILL MODE
+	AX = 069Ch
+	DX = mode
+	    0000h turn backfill mode on
+	    0001h turn backfill mode off
+Return: AX = status
+	    0000h command ignored
+	    0001h backfill mode set
+SeeAlso: AX=069Dh,AX=069Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069D" name="66069D"><b>66069D</b></a> - INT 66 - DIGPAK - REPORT DMA COUNTER<br />
+<pre>
+INT 66 - DIGPAK - REPORT DMA COUNTER
+	AX = 069Dh
+Return: AX = DMA counter
+SeeAlso: AX=069Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069E" name="66069E"><b>66069E</b></a> - INT 66 - DIGPAK - VERIFY DMA BLOCK<br />
+<pre>
+INT 66 - DIGPAK - VERIFY DMA BLOCK
+	AX = 069Eh
+	CX = length of buffer
+	ES:BX -&gt; buffer containing sound data
+Return: AX = status
+	    0000h block crosses 64K bounadary
+	    0001h block is OK
+SeeAlso: AX=069Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66069F" name="66069F"><b>66069F</b></a> - INT 66 - DIGPAK - SET PCM VOLUME<br />
+<pre>
+INT 66 - DIGPAK - SET PCM VOLUME
+	AX = 069Fh
+	BX = left channel volume (0-100)
+	CX = right channel volume (0-100)
+Return: AX =  status
+	    0000h command ignored
+	    0001h volume set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6606A0" name="6606A0"><b>6606A0</b></a> - INT 66 - DIGPAK - SET DPMI MODE<br />
+<pre>
+INT 66 - DIGPAK - SET DPMI MODE
+	AX = 06A0h
+	DX = mode
+	    0000h 32-bit register addressing on
+	    0001h 32-bit register addressing off
+SeeAlso: INT 31/AX=0400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660700" name="660700"><b>660700</b></a> - INT 66 - MIDPAK - UNINSTALL<br />
+<pre>
+INT 66 - MIDPAK - UNINSTALL
+	AX = 0700h
+Note:	this function should NOT be called by applications
+Program: MIDPAK is a set of MIDI sound drivers developed by Miles Design
+	  Incorporated.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660701" name="660701"><b>660701</b></a> - INT 66 - IBM Digitized Sound Package MIDI driver - GET DIGITIZED SOUND CAPABIL<br />
+<pre>
+INT 66 - IBM Digitized Sound Package MIDI driver - GET DIGITIZED SOUND CAPABIL
+	AX = 0701h
+Return: AX = digitized sound capabilities
+	    0000h if digitized sound driver (functions 06xxh) not available
+InstallCheck:	test for the signature "MIDI" six bytes before the interrupt
+	  handler
+Note:	also supported by MIDPAK, the successor to the Digitized Sound
+	  Package's MIDI driver
+SeeAlso: AX=0688h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660702" name="660702"><b>660702</b></a> - INT 66 - MIDPAK - PLAY SEQUENCE<br />
+<pre>
+INT 66 - MIDPAK - PLAY SEQUENCE
+	AX = 0702h
+	BX = Sequence number
+Return: AX = status
+	    0000h Sequence is being played
+	    0001h Sequence not available
+SeeAlso: AX=0703h,AX=0705h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660703" name="660703"><b>660703</b></a> - INT 66 - MIDPAK - SEGUE SEQUENCE<br />
+<pre>
+INT 66 - MIDPAK - SEGUE SEQUENCE
+	AX = 0703h
+	BX = sequence number
+	CX = activation code (FFFFh is next trigger)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660704" name="660704"><b>660704</b></a> - INT 66 - MIDPAK - REGISTER XMIDI<br />
+<pre>
+INT 66 - MIDPAK - REGISTER XMIDI
+	AX = 0704h
+	CX:BX -&gt; XMIDI sequence data
+	DI:SI = length of XMIDI data
+Return: AX = status
+	    0000h unable to register XMIDI data
+	    0001h XMIDI file registered resident
+	    0002h XMIDI file was registered to the application
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660705" name="660705"><b>660705</b></a> - INT 66 - MIDPAK - STOP MIDI<br />
+<pre>
+INT 66 - MIDPAK - STOP MIDI
+	AX = 0705h
+SeeAlso: AX=0702h,AX=0709h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660706" name="660706"><b>660706</b></a> - INT 66 O - MIDPAK - REMAP CHANNEL<br />
+<pre>
+INT 66 O - MIDPAK - REMAP CHANNEL
+	AX = 0706h
+	BX = sequence
+	CX = physical
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660707" name="660707"><b>660707</b></a> - INT 66 - MIDPAK - REPORT TRIGGER EVENT COUNTER<br />
+<pre>
+INT 66 - MIDPAK - REPORT TRIGGER EVENT COUNTER
+	AX = 0707h
+Return: AX = count of number of callbacks since last reset
+	DX = ID
+SeeAlso: AX=0708h,AX=0713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660708" name="660708"><b>660708</b></a> - INT 66 - MIDPAK - RESET EVENT TRIGGER COUNTER<br />
+<pre>
+INT 66 - MIDPAK - RESET EVENT TRIGGER COUNTER
+	AX = 0708h
+SeeAlso: AX=0707h,AX=0713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660709" name="660709"><b>660709</b></a> - INT 66 O - MIDPAK - MIDI SLEEP<br />
+<pre>
+INT 66 O - MIDPAK - MIDI SLEEP
+	AX = 0709h
+SeeAlso: AX=070Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070A" name="66070A"><b>66070A</b></a> - INT 66 O - MIDPAK - MIDI AWAKE<br />
+<pre>
+INT 66 O - MIDPAK - MIDI AWAKE
+	AX = 070Ah
+SeeAlso: AX=0709h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070B" name="66070B"><b>66070B</b></a> - INT 66 - MIDPAK - RESUME PLAYING<br />
+<pre>
+INT 66 - MIDPAK - RESUME PLAYING
+	AX = 070Bh
+SeeAlso: AX=070Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070C" name="66070C"><b>66070C</b></a> - INT 66 - MIDPAK - GET SEQUENCE STATUS<br />
+<pre>
+INT 66 - MIDPAK - GET SEQUENCE STATUS
+	AX = 070Ch
+Return: AX = status
+	    0000h sequence stopped
+	    0001h sequence playing
+	    0002h sequence done
+SeeAlso: AX=070Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070D" name="66070D"><b>66070D</b></a> - INT 66 - MIDPAK - REGISTER XMIDI FILE<br />
+<pre>
+INT 66 - MIDPAK - REGISTER XMIDI FILE
+	AX = 070Dh
+	CX:BX -&gt; ASCII filename
+SeeAlso: AX=0704h,AX=0710h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070E" name="66070E"><b>66070E</b></a> - INT 66 - MIDPAK - GET RELATIVE VOLUME<br />
+<pre>
+INT 66 - MIDPAK - GET RELATIVE VOLUME
+	AX = 070Eh
+Return: AX = current volume
+SeeAlso: AX=070Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66070F" name="66070F"><b>66070F</b></a> - INT 66 - MIDPAK - SET RELATIVE VOLUME<br />
+<pre>
+INT 66 - MIDPAK - SET RELATIVE VOLUME
+	AX = 070Fh
+	BX = new volume
+	CX = time
+SeeAlso: AX=070Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660710" name="660710"><b>660710</b></a> - INT 66 - MIDPAK - LOAD MIDPAK DRIVER<br />
+<pre>
+INT 66 - MIDPAK - LOAD MIDPAK DRIVER
+	AX = 0710h
+	BX = segment of .ADV driver
+	CX = 0000h (offset must be zero)
+	DX:SI -&gt; .AD driver
+SeeAlso: AX=070Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660711" name="660711"><b>660711</b></a> - INT 66 - MIDPAK - POLL MIDPAK<br />
+<pre>
+INT 66 - MIDPAK - POLL MIDPAK
+	AX = 0711h
+Return: AX = ???
+	???
+SeeAlso: AX=0712h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660712" name="660712"><b>660712</b></a> - INT 66 - MIDPAK - GET MIDI CLOCK<br />
+<pre>
+INT 66 - MIDPAK - GET MIDI CLOCK
+	AX = 0712h
+Return: AX:DX = clock counter
+	CX:BX = clock address
+SeeAlso: AX=0711h,AX=0713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660713" name="660713"><b>660713</b></a> - INT 66 - MIDPAK - GET TRIGGER COUNT ADDRESS<br />
+<pre>
+INT 66 - MIDPAK - GET TRIGGER COUNT ADDRESS
+	AX = 0713h
+Return: AX:DX -&gt; trigger counter address
+SeeAlso: AX=0707h,AX=0712h,AX=0714h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660714" name="660714"><b>660714</b></a> - INT 66 - MIDPAK - GET EVENT ID ADDRESS<br />
+<pre>
+INT 66 - MIDPAK - GET EVENT ID ADDRESS
+	AX = 0714h
+Return: AX:DX -&gt; event ID
+SeeAlso: AX=0713h,AX=0716h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#660716" name="660716"><b>660716</b></a> - INT 66 - MIDPAK - REPORT SEQUENCE NUMBER<br />
+<pre>
+INT 66 - MIDPAK - REPORT SEQUENCE NUMBER
+	AX = 0716h
+Return: AX = current sequence number
+SeeAlso: AX=0702h
+Program: MIDPAK is a set of MIDI sound drivers developed by Miles Design
+	  Incorporated.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6610" name="6610"><b>6610</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - GET ???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - GET ???
+	AH = 10h
+Return: CF clear
+	AX = 0000h
+	BX = ??? (0012h)
+	DX:CX -&gt; TDMOUSE INT 33 handler (IRET to hide mouse from other apps)
+Program: TDMOUSE is a PenDOS hardware driver which allows a mouse to emulate
+	  a touchpad; PenDOS is a set of programs by Communication Intelligence
+	  Corporation which makes applications pen-aware
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6611" name="6611"><b>6611</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER
+	AH = 11h
+	DX:BX -&gt; new handler for ???
+Return: CF clear
+	AX = 0000h
+	DX:BX -&gt; old handler for ??? (points at RETF by default)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6612" name="6612"><b>6612</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE
+	AH = 12h
+Return: CF clear
+	AX = 0000h
+Note:	this function calls the old mouse handler with functions 0000h, 0002h,
+	  0007h, 0008h, 000Fh, 0004h, and 000Ch (in that order)
+SeeAlso: AH=13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6613" name="6613"><b>6613</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???
+	AH = 13h
+Return: CF clear
+	other register as returned by INT 33/AX=0000h
+SeeAlso: AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6614" name="6614"><b>6614</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - ???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - ???
+	AH = 14h
+	BX = ???
+	CX = ???
+Return: CF clear
+	AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6615" name="6615"><b>6615</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER
+	AH = 15h
+	DX:BX -&gt; new handler for ???
+Return: CF clear
+	AX = 0000h
+	DX:BX -&gt; old handler (points at RETF by default)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6616" name="6616"><b>6616</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS
+	AH = 16h to 1Fh
+Return: CF set
+Program: TDMOUSE is a PenDOS hardware driver which allows a mouse to emulate
+	  a touchpad; PenDOS is a set of programs by Communication Intelligence
+	  Corporation which makes applications pen-aware
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6621" name="6621"><b>6621</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 21h
+Return: CF clear if successful
+	CF set on error
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6622" name="6622"><b>6622</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 22h
+	DX:BX -&gt; ???
+	CL = ???
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: AH=24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6623" name="6623"><b>6623</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 23h
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6624" name="6624"><b>6624</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 24h
+	DX:BX -&gt; ???
+	CL = ???
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: AH=22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6625" name="6625"><b>6625</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 25h
+	CL = ??? (NOP if 00h)
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6627" name="6627"><b>6627</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 27h
+	BL = ???
+	BH = ???
+	CL = ??? (0-3)
+	DL = ??? (&gt; BL)
+	DH = ??? (&gt; BH)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6628" name="6628"><b>6628</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 28h
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6629" name="6629"><b>6629</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 29h
+	???
+Return: ???
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662A" name="662A"><b>662A</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 2Ah
+	DL = ??? (nonzero)
+	DH = ??? (nonzero)
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662B" name="662B"><b>662B</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 2Bh
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662F" name="662F"><b>662F</b></a> - INT 66 - PenDOS - PINK - INITIALIZE<br />
+<pre>
+INT 66 - PenDOS - PINK - INITIALIZE
+	AH = 2Fh
+	???
+Return: AX = status
+	    0000h failed
+	    FFFFh successful
+	???
+Note:	this function sets ??? flag or counter to FFFFh and hooks INT 1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#663345" name="663345"><b>663345</b></a> - INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY<br />
+<pre>
+INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY
+	AX = 3345h
+Return: AX = FFFFh error removing TSR
+InstallCheck:	test for the signature "BitFax Scheduler" beginning two bytes
+	  past the interrupt handler
+SeeAlso: AH=04h,INT 2F/AH=2Ah,INT 2F/AX=CB00h
+Index:	installation check;BitFax Scheduler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6640" name="6640"><b>6640</b></a> - INT 66 - PenDOS - PKEYUS - GET VERSION<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - GET VERSION
+	AH = 40h
+Return: CF clear
+	AX = 0000h
+	BH = major version (02h for version bundled with IBM DOS 6.1)
+	BL = minor version (00h for version bundled with IBM DOS 6.1)
+	DL = ??? (4Eh)
+	DH = ??? (0Eh)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6641" name="6641"><b>6641</b></a> - INT 66 - PenDOS - PKEYUS - SET ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - SET ???
+	AH = 41h
+	BX = ???
+	CL = ??? (08h-20h)
+	DL = screen column??? (&lt;= 50h)
+	DH = screen row???  (&lt;= 3Ch)
+Return: AX = status (0000h successful, 0001h error)
+Note:	this function also sets an internal flag
+SeeAlso: AH=42h,AH=43h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6642" name="6642"><b>6642</b></a> - INT 66 - PenDOS - PKEYUS - ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - ???
+	AH = 42h
+Return: CF clear
+	AX = 0000h
+Note:	this function also clears the flag set by AH=41h
+SeeAlso: AH=41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6643" name="6643"><b>6643</b></a> - INT 66 - PenDOS - PKEYUS - ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - ???
+	AH = 43h
+	BX = ???
+	DX = ???
+Return: AX = status
+	    0000h if AH=41h flag set
+	    else
+		AH = ???
+		AL = ???
+		BX = ???
+		DX = ???
+SeeAlso: AH=41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6644" name="6644"><b>6644</b></a> - INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS
+	AH = 44h to 4Fh
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6650" name="6650"><b>6650</b></a> - INT 66 - PenDOS - PMOUSE - SET ???<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - SET ???
+	AH = 50h
+	BX = ???
+	CH = ???
+	DX = ???
+Return: CF clear
+	AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6651" name="6651"><b>6651</b></a> - INT 66 - PenDOS - PMOUSE - NOP<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - NOP
+	AH = 51h
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6652" name="6652"><b>6652</b></a> - INT 66 - PenDOS - PMOUSE - ???<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - ???
+	AH = 52h
+	BX = ???
+	CL = ???
+	DX = ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6653" name="6653"><b>6653</b></a> - INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS
+	AH = 53h to 57h
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_9" name="66_9"><b>66</b></a> - INT 66 - PenDOS - PMOUSE - ALTERNATE API<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - ALTERNATE API
+	AH = function (58h-5Fh)
+Note:	these functions exactly duplicate AH=50h-57h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66AA02" name="66AA02"><b>66AA02</b></a> - INT 66 - HelpTSR v2.10 - INSTALLATION CHECK<br />
+<pre>
+INT 66 - HelpTSR v2.10 - INSTALLATION CHECK
+	AX = AA02h
+Return: ES:DI -&gt; 7 byte signature "HelpTSR" if resident
+Program: HelpTSR is a resident viewer by David Jurgens for HelpPC
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66C5" name="66C5"><b>66C5</b></a> - INT 66 - PenDOS - VLOAD - API<br />
+<pre>
+INT 66 - PenDOS - VLOAD - API
+	AH = C5h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFBBXFFFB" name="66FFFBBXFFFB"><b>66FFFBBXFFFB</b></a> - INT 66 - MicroHelp Stay-Res Plus - ???<br />
+<pre>
+INT 66 - MicroHelp Stay-Res Plus - ???
+	AX = FFFBh
+	BX = FFFBh
+	???
+Return: ???
+SeeAlso: AX=FFFEh,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFEBXFFFE" name="66FFFEBXFFFE"><b>66FFFEBXFFFE</b></a> - INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL<br />
+<pre>
+INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL
+	AX = FFFEh
+	BX = FFFEh
+Return: only if unsuccessful
+InstallCheck:	test whether the interrupt handler begins with the bytes
+	  FBh 9Ch or 9Ch FAh, and the program name (not case-sensitive) appears
+	  at offset 0005h (older versions) or the offset returned by
+	  AX=FFFFh/BX=FFF0h in the interrupt handler segment
+Note:	Programs which use Stay-Res include ThesPlus (program name "THESPLUS")
+	  and Personal Calendar (program name "CAL") by Paul Mun~oz-Colman.
+SeeAlso: AX=FFFBh,AX=FFFFh,INT 2D"AMIS"
+Index:	installation check;MicroHelp Stay-Res|installation check;ThesPlus
+Index:	installation check;Personal Calendar|installation check;CAL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFFBXFFF0" name="66FFFFBXFFF0"><b>66FFFFBXFFF0</b></a> - INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME<br />
+<pre>
+INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME
+	AX = FFFFh
+	BX = FFF0h
+Return: DI = offset of program name in interrupt handler segment
+SeeAlso: AX=FFFBh,AX=FFFEh,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

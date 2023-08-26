@@ -1,0 +1,4505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._T</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category T - DOS-based task switchers/multitaskers
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#11FFFECXFFFE"><b>11FFFECXFFFE</b> - INT 11 - BACK&FORTH (before v1.62) API</a><br />
+<a href="#12FFFECXFFFE"><b>12FFFECXFFFE</b> - INT 12 - Back&Forth v1.62+ - API</a><br />
+<a href="#1500_2"><b>1500</b> - INT 15 - MultiDOS Plus - GIVE UP TIME SLICE</a><br />
+<a href="#1501_2"><b>1501</b> - INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE</a><br />
+<a href="#1502_2"><b>1502</b> - INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE</a><br />
+<a href="#1503_2"><b>1503</b> - INT 15 - MultiDOS Plus - SUSPEND TASK FOR INTERVAL</a><br />
+<a href="#1504_2"><b>1504</b> - INT 15 - MultiDOS Plus - SEND MESSAGE TO ANOTHER TASK</a><br />
+<a href="#1505_2"><b>1505</b> - INT 15 - MultiDOS Plus - CHECK MAILBOX</a><br />
+<a href="#1506_1"><b>1506</b> - INT 15 - MultiDOS Plus - READ MAILBOX</a><br />
+<a href="#1507_1"><b>1507</b> - INT 15 - MultiDOS Plus - SPAWN INTERNAL TASK (CREATE NEW THREAD)</a><br />
+<a href="#1508_1"><b>1508</b> - INT 15 - MultiDOS Plus - TERMINATE INTERNAL TASK (KILL THREAD)</a><br />
+<a href="#1509_1"><b>1509</b> - INT 15 - MultiDOS Plus - CHANGE TASK'S PRIORITY</a><br />
+<a href="#150A_0"><b>150A</b> - INT 15 - MultiDOS Plus - CHANGE TIME SLICE INTERVAL</a><br />
+<a href="#150B_0"><b>150B</b> - INT 15 - MultiDOS Plus - FORCE DISPLAY OUTPUT TO PHYSICAL SCREEN MEMORY</a><br />
+<a href="#150C_0"><b>150C</b> - INT 15 - MultiDOS Plus - RESTORE OLD VIDEO DISPLAY MEMORY</a><br />
+<a href="#150D_0"><b>150D</b> - INT 15 - MultiDOS Plus - DISABLE MULTITASKING</a><br />
+<a href="#150E_0"><b>150E</b> - INT 15 - MultiDOS Plus - ENABLE MULTITASKING</a><br />
+<a href="#150F_1"><b>150F</b> - INT 15 - MultiDOS Plus - EXECUTE A MULTIDOS PLUS COMMAND</a><br />
+<a href="#1510_0"><b>1510</b> - INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE</a><br />
+<a href="#1511_0"><b>1511</b> - INT 15 - VMiX - "sys_system" - EXECUTE SHELL SYSTEM COMMANDS</a><br />
+<a href="#1511_1"><b>1511</b> - INT 15 - MultiDOS Plus - TURN OFF AltZ TOGGLE</a><br />
+<a href="#1512"><b>1512</b> - INT 15 - VMiX - "sys_sleep" - PUT PROCESS TO SLEEP</a><br />
+<a href="#1512_0"><b>1512</b> - INT 15 - MultiDOS Plus - TURN ON AltZ TOGGLE</a><br />
+<a href="#1513"><b>1513</b> - INT 15 - VMiX - "sys_wake" - WAKE SLEEPING PROCESS</a><br />
+<a href="#1513_0"><b>1513</b> - INT 15 - MultiDOS Plus - GET TASK CONTROL BLOCK</a><br />
+<a href="#1514"><b>1514</b> - INT 15 - VMiX - "sys_clrwindow" - CLEAR WINDOW</a><br />
+<a href="#1514_0"><b>1514</b> - INT 15 - MultiDOS Plus - CHECK IF MultiDOS FOREGROUND OR BACKGROUND</a><br />
+<a href="#1515"><b>1515</b> - INT 15 - VMiX - "sys_setbwindow" - SET BANNER WINDOW MESSAGE</a><br />
+<a href="#1515_0"><b>1515</b> - INT 15 - MultiDOS Plus - GET SYSTEM BLOCK</a><br />
+<a href="#1516"><b>1516</b> - INT 15 - VMiX - "sys_setwindow" - SET ROOT WINDOW SIZE AND HOME CURSOR</a><br />
+<a href="#1516_0"><b>1516</b> - INT 15 - MultiDOS Plus - INITIALIZATION</a><br />
+<a href="#1517"><b>1517</b> - INT 15 - VMiX - "sys_getcolors" - GET CONSOLE WINDOW COLORS</a><br />
+<a href="#1517_0"><b>1517</b> - INT 15 - MultiDOS Plus - MAP IRQ</a><br />
+<a href="#1518"><b>1518</b> - INT 15 - VMiX - "sys_setcolors" - SET CONSOLE COLORS</a><br />
+<a href="#1518_0"><b>1518</b> - INT 15 - MultiDOS Plus - UNMAP IRQ</a><br />
+<a href="#1519"><b>1519</b> - INT 15 - VMiX v2+ - "sys_setconwn" - SET WINDOW COLORS</a><br />
+<a href="#1519_0"><b>1519</b> - INT 15 - MultiDOS Plus - UNMAP ALL IRQs</a><br />
+<a href="#151A"><b>151A</b> - INT 15 - VMiX v2+ - "sys_sint" - INVOKE SOFTWARE INTERRUPT</a><br />
+<a href="#151A_0"><b>151A</b> - INT 15 - MultiDOS Plus - MAP SEMAPHORE NAME TO NUMBER</a><br />
+<a href="#151B"><b>151B</b> - INT 15 - VMiX v2+ - "sys_blkmov" - MOVE MEMORY BLOCK</a><br />
+<a href="#151B_0"><b>151B</b> - INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE BY NAME</a><br />
+<a href="#151C"><b>151C</b> - INT 15 - VMiX v2+ - "sys_bitblt" - PUT GRAPHICAL OBJECT AT CURSOR POSITION</a><br />
+<a href="#151C_0"><b>151C</b> - INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE BY NAME</a><br />
+<a href="#151D"><b>151D</b> - INT 15 - VMiX v2+ - "sys_getfont" - GET CURRENT CONSOLE GRAPHICS FONT</a><br />
+<a href="#151D_0"><b>151D</b> - INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE BY NAME</a><br />
+<a href="#151E"><b>151E</b> - INT 15 - VMiX v2+ - "sys_setfont" - SET CONSOLE GRAPHICS FONT</a><br />
+<a href="#151E00"><b>151E00</b> - INT 15 - MultiDOS Plus - CLEAR EVENT COUNTER</a><br />
+<a href="#151E01"><b>151E01</b> - INT 15 - MultiDOS Plus - TRIGGER EVENT</a><br />
+<a href="#151E02"><b>151E02</b> - INT 15 - MultiDOS Plus - WAIT FOR EVENT</a><br />
+<a href="#151E08"><b>151E08</b> - INT 15 - MultiDOS Plus 4.01 - SET CONTEXT-SWITCH FUNCTIONS</a><br />
+<a href="#151F"><b>151F</b> - INT 15 - VMiX v2.???+ - "sys_scrollwin" - SCROLL WINDOW</a><br />
+<a href="#151F_0"><b>151F</b> - INT 15 - MultiDOS Plus v4.01 - GET MEMORY PARAMETERS</a><br />
+<a href="#1520"><b>1520</b> - INT 15 - MultiDOS Plus v4.01 - CHECK IF MULTITASKING ENABLED</a><br />
+<a href="#153000"><b>153000</b> - INT 15 - Object Kernel for DOS - INSTALLATION CHECK</a><br />
+<a href="#153001"><b>153001</b> - INT 15 - Object Kernel for DOS - GET STATUS BLOCK</a><br />
+<a href="#153002"><b>153002</b> - INT 15 - Object Kernel for DOS - KILL PROCESS</a><br />
+<a href="#153003"><b>153003</b> - INT 15 - Object Kernel for DOS - STOP PROCESS</a><br />
+<a href="#153004"><b>153004</b> - INT 15 - Object Kernel for DOS - START PROCESS</a><br />
+<a href="#153005"><b>153005</b> - INT 15 - Object Kernel for DOS - RESTART PROCESS</a><br />
+<a href="#153006"><b>153006</b> - INT 15 - Object Kernel for DOS - EXECUTE PROCESS</a><br />
+<a href="#153007"><b>153007</b> - INT 15 - Object Kernel for DOS - LIST PROCESSES</a><br />
+<a href="#153008"><b>153008</b> - INT 15 - Object Kernel for DOS - SWITCH ObjectKernel ON/OFF</a><br />
+<a href="#153009"><b>153009</b> - INT 15 - Object Kernel for DOS - RESERVED FOR FUTURE USE</a><br />
+<a href="#1550_0"><b>1550</b> - INT 15 - VMIX v2.???+ - "sys_vm_page" - SET NEW VIRTUAL PAGE TABLE</a><br />
+<a href="#1551"><b>1551</b> - INT 15 - VMiX v2.???+ - "sys_vm_func" - EXECUTE FUNCTION IN PROTECTED MODE</a><br />
+<a href="#1552"><b>1552</b> - INT 15 - VMiX v2.???+ - "sys_vm_init" - INITIALIZE PROTECTED-MODE ENVIRONMENT</a><br />
+<a href="#155400"><b>155400</b> - INT 15 C - Omniview Multitasker - INSTALLATION NOTIFICATION</a><br />
+<a href="#155401"><b>155401</b> - INT 15 C - Omniview Multitasker - PROCESS CREATION</a><br />
+<a href="#155402"><b>155402</b> - INT 15 C - Omniview Multitasker - PROCESS DESTRUCTION</a><br />
+<a href="#155403"><b>155403</b> - INT 15 C - Omniview Multitasker - SAVE</a><br />
+<a href="#155404"><b>155404</b> - INT 15 C - Omniview Multitasker - RESTORE</a><br />
+<a href="#155405"><b>155405</b> - INT 15 C - Omniview Multitasker - SWITCHING TO BACKGROUND</a><br />
+<a href="#155406"><b>155406</b> - INT 15 C - Omniview Multitasker - SWITCHING TO FOREGROUND</a><br />
+<a href="#155407"><b>155407</b> - INT 15 C - Omniview Multitasker - EXIT NOTIFICATION</a><br />
+<a href="#16FF80BX0000"><b>16FF80BX0000</b> - INT 16 U - PC Tools v8+ CPTASK - INSTALLATION CHECK</a><br />
+<a href="#16FF80BX0001"><b>16FF80BX0001</b> - INT 16 U - PC Tools v8+ CPTASK - GET ???</a><br />
+<a href="#16FF80BX0002"><b>16FF80BX0002</b> - INT 16 U - PC Tools v8+ CPTASK - GET ???</a><br />
+<a href="#16FF80BX0003"><b>16FF80BX0003</b> - INT 16 U - PC Tools v8+ CPTASK - GET ??? FLAGS</a><br />
+<a href="#16FF80BX0004"><b>16FF80BX0004</b> - INT 16 U - PC Tools v8+ CPTASK - SET ???</a><br />
+<a href="#16FF80BX0005"><b>16FF80BX0005</b> - INT 16 U - PC Tools v8+ CPTASK - GET NUMBER OF ACTIVE TASKS???</a><br />
+<a href="#16FF80BX0006"><b>16FF80BX0006</b> - INT 16 U - PC Tools v8+ CPTASK - GET AND CLEAR ??? FLAG</a><br />
+<a href="#16FF80BX0007"><b>16FF80BX0007</b> - INT 16 U - PC Tools v8+ CPTASK - ???</a><br />
+<a href="#16FF80BX0008"><b>16FF80BX0008</b> - INT 16 U - PC Tools v8+ CPTASK - ???</a><br />
+<a href="#16FF80BX0009"><b>16FF80BX0009</b> - INT 16 U - PC Tools v8+ CPTASK - GET ???</a><br />
+<a href="#16FF80BX000A"><b>16FF80BX000A</b> - INT 16 U - PC Tools v9+ CPTASK - SET ???</a><br />
+<a href="#16FF80BX000B"><b>16FF80BX000B</b> - INT 16 U - PC Tools v9+ CPTASK - SET ???</a><br />
+<a href="#16FF80BX000C"><b>16FF80BX000C</b> - INT 16 U - PC Tools v9+ CPTASK - SET IDLE??? DELAY</a><br />
+<a href="#16FF80BX4350"><b>16FF80BX4350</b> - INT 16 U - PC Tools v8+ CPTASK - UNINSTALL</a><br />
+<a href="#16FF9C"><b>16FF9C</b> - INT 16 U - PC Tools v8+ CPTASK - SET/CLEAR ??? POINTER</a><br />
+<a href="#212B01CX5441"><b>212B01CX5441</b> - INT 21 - TAME v2.10+ - INSTALLATION CHECK</a><br />
+<a href="#212D01CX7820"><b>212D01CX7820</b> - INT 21 - PC-Mix - INSTALLATION CHECK</a><br />
+<a href="#213000BX1234"><b>213000BX1234</b> - INT 21 - CTask 2.0+ - INSTALLATION CHECK</a><br />
+<a href="#21DF00DX534C"><b>21DF00DX534C</b> - INT 21 U - Software Carousel - INSTALLATION CHECK</a><br />
+<a href="#21DF01"><b>21DF01</b> - INT 21 - Software Carousel - SWITCH TO ANOTHER TASK</a><br />
+<a href="#21DF02"><b>21DF02</b> - INT 21 - Software Carousel - KILL PROGRAM IN MEMORY PARTITION</a><br />
+<a href="#21DF03"><b>21DF03</b> - INT 21 - Software Carousel - GET PARTITION SIZE AND PROGRAM STATUS</a><br />
+<a href="#21DF04"><b>21DF04</b> - INT 21 - Software Carousel - GET PARTITION NAME</a><br />
+<a href="#21DF05"><b>21DF05</b> - INT 21 - Software Carousel - CHANGE PARTITION SIZE</a><br />
+<a href="#21DF06"><b>21DF06</b> - INT 21 - Software Carousel - CHANGE PARTITION NAME</a><br />
+<a href="#21DF07"><b>21DF07</b> - INT 21 - Software Carousel - SEND COMMAND TO MEMORY SECTION</a><br />
+<a href="#21DF08"><b>21DF08</b> - INT 21 - Software Carousel - SELECTIVELY ENABLE/DISABLE MENU AND SWITCHING</a><br />
+<a href="#21DF09"><b>21DF09</b> - INT 21 - Software Carousel - BOOT THE SYSTEM</a><br />
+<a href="#21DF0A"><b>21DF0A</b> - INT 21 - Software Carousel - GET MEMORY SIZE/PARTITION NUMBER OF CURRENT TASK</a><br />
+<a href="#21DF0B"><b>21DF0B</b> - INT 21 - Software Carousel - SET TASK SWITCH CALLBACK</a><br />
+<a href="#21DF0C"><b>21DF0C</b> - INT 21 - Software Carousel - ENABLE DOS-CALL SAFETY NOTIFICATION</a><br />
+<a href="#21E0_1"><b>21E0</b> - INT 21 - DoubleDOS - MENU CONTROL</a><br />
+<a href="#21E1_0"><b>21E1</b> - INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB</a><br />
+<a href="#21E3_0"><b>21E3</b> - INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB</a><br />
+<a href="#21E400"><b>21E400</b> - INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS</a><br />
+<a href="#21E5_0"><b>21E5</b> - INT 21 - DoubleDOS - OTHER PROGRAM STATUS</a><br />
+<a href="#21E8_1"><b>21E8</b> - INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS</a><br />
+<a href="#21E9_0"><b>21E9</b> - INT 21 - DoubleDOS - SET TIMESHARING PRIORITY</a><br />
+<a href="#21EA_0"><b>21EA</b> - INT 21 - DoubleDOS - TURN OFF TASK SWITCHING</a><br />
+<a href="#21EB_0"><b>21EB</b> - INT 21 - DoubleDOS - TURN ON TASK SWITCHING</a><br />
+<a href="#21EC_0"><b>21EC</b> - INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS</a><br />
+<a href="#21EE_0"><b>21EE</b> - INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS</a><br />
+<a href="#21F0"><b>21F0</b> - INT 21 - DoubleDOS - MENU CONTROL</a><br />
+<a href="#21F1_0"><b>21F1</b> - INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB</a><br />
+<a href="#21F2_0"><b>21F2</b> - INT 21 - DoubleDOS - SEND CHARACTER TO KEYBOARD BUFFER OF OTHER JOB</a><br />
+<a href="#21F3_0"><b>21F3</b> - INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB</a><br />
+<a href="#21F400"><b>21F400</b> - INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS</a><br />
+<a href="#21F5"><b>21F5</b> - INT 21 - DoubleDOS - OTHER PROGRAM STATUS</a><br />
+<a href="#21F8_0"><b>21F8</b> - INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS</a><br />
+<a href="#21F9_0"><b>21F9</b> - INT 21 - DoubleDOS - SET TIMESHARING PRIORITY</a><br />
+<a href="#21FA_0"><b>21FA</b> - INT 21 - DoubleDOS - TURN OFF TASK SWITCHING</a><br />
+<a href="#21FB_0"><b>21FB</b> - INT 21 - DoubleDOS - TURN ON TASK SWITCHING</a><br />
+<a href="#21FC_0"><b>21FC</b> - INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS</a><br />
+<a href="#21FE_0"><b>21FE</b> - INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS</a><br />
+<a href="#2F2700"><b>2F2700</b> - INT 2F - DR DOS 6.0 TaskMAX - INSTALLATION CHECK</a><br />
+<a href="#2F2701"><b>2F2701</b> - INT 2F - DR DOS 6.0 TaskMAX - GET STATUS</a><br />
+<a href="#2F2702"><b>2F2702</b> - INT 2F - DR DOS 6.0 TaskMAX - GET PER-TASK EMS LIMIT</a><br />
+<a href="#2F2703"><b>2F2703</b> - INT 2F - DR DOS 6.0 TaskMAX - SET PER-TASK EMS LIMIT</a><br />
+<a href="#2F2704"><b>2F2704</b> - INT 2F - DR DOS 6.0 TaskMAX - REGISTER/UNREGISTER TASK MANAGER</a><br />
+<a href="#2F2705"><b>2F2705</b> - INT 2F - DR DOS 6.0 TaskMAX - ENABLE/DISABLE DIRECT SWITCHING</a><br />
+<a href="#2F2706"><b>2F2706</b> - INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO SPECIFIED TASK</a><br />
+<a href="#2F2707"><b>2F2707</b> - INT 2F - DR DOS 6.0 TaskMAX - CREATE NEW TASK</a><br />
+<a href="#2F2708"><b>2F2708</b> - INT 2F - DR DOS 6.0 TaskMAX - DELETE TASK</a><br />
+<a href="#2F2709"><b>2F2709</b> - INT 2F - DR DOS 6.0 TaskMAX - NAME TASK</a><br />
+<a href="#2F270A"><b>2F270A</b> - INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK INDEX TO TASK ID</a><br />
+<a href="#2F270B"><b>2F270B</b> - INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK ID TO TASK INDEX</a><br />
+<a href="#2F270C"><b>2F270C</b> - INT 2F - DR DOS 6.0 TaskMAX - CHECK OPEN FILES</a><br />
+<a href="#2F270D"><b>2F270D</b> - INT 2F - DR DOS 6.0 TaskMAX - CHECK IF TASK RUNNING PRIMARY COMMAND INTERPRETER</a><br />
+<a href="#2F270E"><b>2F270E</b> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET TEXT PASTE LEAD-IN</a><br />
+<a href="#2F270F"><b>2F270F</b> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE LEAD-IN</a><br />
+<a href="#2F2710"><b>2F2710</b> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET PASTE LINE TERMINATOR STRING</a><br />
+<a href="#2F2711"><b>2F2711</b> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE DECIMAL POINT</a><br />
+<a href="#2F2712"><b>2F2712</b> - INT 2F - DR DOS 6.0 TaskMAX - INITIATE EXPORTING TASK DATA</a><br />
+<a href="#2F2713"><b>2F2713</b> - INT 2F - DR DOS 6.0 TaskMAX - INITIATE PASTE OPERATION</a><br />
+<a href="#2F2714"><b>2F2714</b> - INT 2F - DR DOS 6.0 TaskMAX - GET SWAP SPACE INFO</a><br />
+<a href="#2F2715"><b>2F2715</b> - INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO TASK MANAGER</a><br />
+<a href="#2F2716"><b>2F2716</b> - INT 2F - DR DOS 6.0 TaskMAX - GET PASTE BUFFER STATUS</a><br />
+<a href="#2F2717"><b>2F2717</b> - INT 2F - DR DOS 6.0 TaskMAX - PASTE DATA DIRECTLY TO APPLICATION BUFFER</a><br />
+<a href="#2F2718"><b>2F2718</b> - INT 2F - DR DOS 6.0 TaskMAX - COPY DATA DIRECTLY INTO PASTE BUFFER</a><br />
+<a href="#2F2719"><b>2F2719</b> - INT 2F - Novell DOS 7 TaskMGR - NOP</a><br />
+<a href="#2F271C"><b>2F271C</b> - INT 2F U - Novell DOS 7 TaskMGR - ???</a><br />
+<a href="#2F2781"><b>2F2781</b> - INT 2F U - Novell DOS 7 TaskMGR - BEGIN CRITICAL SECTION???</a><br />
+<a href="#2F2782"><b>2F2782</b> - INT 2F U - Novell DOS 7 TaskMGR - END CRITICAL SECTION???</a><br />
+<a href="#2F278F"><b>2F278F</b> - INT 2F U - Novell DOS 7 TaskMGR - ??? API</a><br />
+<a href="#2F4A05"><b>2F4A05</b> - INT 2F U - DOS 5+ DOSSHELL - TASK SWITCHING API???</a><br />
+<a href="#2F4B01"><b>2F4B01</b> - INT 2F C - DOS 5+ TASK SWITCHER - BUILD CALLOUT CHAIN</a><br />
+<a href="#2F4B02BX0000"><b>2F4B02BX0000</b> - INT 2F - DOS 5+ TASK SWITCHER - INSTALLATION CHECK</a><br />
+<a href="#2F4B03"><b>2F4B03</b> - INT 2F - DOS 5+ TASK SWITCHER - ALLOCATE SWITCHER ID</a><br />
+<a href="#2F4B04"><b>2F4B04</b> - INT 2F - DOS 5+ TASK SWITCHER - FREE SWITCHER ID</a><br />
+<a href="#2F4B05"><b>2F4B05</b> - INT 2F C - DOS 5+ TASK SWITCHER - IDENTIFY INSTANCE DATA</a><br />
+<a href="#2FD600_0"><b>2FD600</b> - INT 2F U - VEDIT VSWAP - INSTALLATION CHECK</a><br />
+<a href="#2FD601"><b>2FD601</b> - INT 2F U - VEDIT VSWAP - ???</a><br />
+<a href="#2FD602"><b>2FD602</b> - INT 2F U - VEDIT VSWAP - EXEC PROGRAM WITH SWAP</a><br />
+<a href="#2FF1_0"><b>2FF1</b> - INT 2F U - RTKernel v4.0 - INSTALLATION CHECK</a><br />
+<a href="#33FFE6"><b>33FFE6</b> - INT 33 - Switch-It v3.23 - GET ??? PROGRAM</a><br />
+<a href="#33FFE7"><b>33FFE7</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFE8"><b>33FFE8</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+<a href="#33FFE9"><b>33FFE9</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFEA"><b>33FFEA</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFEB"><b>33FFEB</b> - INT 33 - Switch-It v3.23 - SET ??? FLAG</a><br />
+<a href="#33FFEC"><b>33FFEC</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFED"><b>33FFED</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFEE"><b>33FFEE</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFEF"><b>33FFEF</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF0"><b>33FFF0</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFF1"><b>33FFF1</b> - INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE</a><br />
+<a href="#33FFF2"><b>33FFF2</b> - INT 33 - Switch-It v3.23 - SET ??? FLAG</a><br />
+<a href="#33FFF3"><b>33FFF3</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF4"><b>33FFF4</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFF5"><b>33FFF5</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF6"><b>33FFF6</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF7"><b>33FFF7</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF8"><b>33FFF8</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+<a href="#33FFF9"><b>33FFF9</b> - INT 33 - Switch-It v3.23 - NOP</a><br />
+<a href="#33FFFA"><b>33FFFA</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFFB"><b>33FFFB</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFFC"><b>33FFFC</b> - INT 33 - Switch-It v3.23 - CLEAR ???</a><br />
+<a href="#33FFFD"><b>33FFFD</b> - INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???</a><br />
+<a href="#33FFFE"><b>33FFFE</b> - INT 33 - Switch-It v3.23 - INSTALLATION CHECK</a><br />
+<a href="#33FFFF"><b>33FFFF</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+<a href="#6201"><b>6201</b> - INT 62 - Cswitch - GIVE UP REST OF TIME-SLICE</a><br />
+<a href="#6202"><b>6202</b> - INT 62 - Cswitch - WAIT FOR SEMAPHORE</a><br />
+<a href="#6203"><b>6203</b> - INT 62 - Cswitch - CHECK SEMAPHORE</a><br />
+<a href="#6204"><b>6204</b> - INT 62 - Cswitch - TRIGGER SEMAPHORE</a><br />
+<a href="#6205"><b>6205</b> - INT 62 - Cswitch - SLEEP</a><br />
+<a href="#6206"><b>6206</b> - INT 62 - Cswitch - SUSPEND</a><br />
+<a href="#6207"><b>6207</b> - INT 62 - Cswitch - SPAWN</a><br />
+<a href="#6208"><b>6208</b> - INT 62 - Cswitch - WAKE UP TASK</a><br />
+<a href="#6209"><b>6209</b> - INT 62 - Cswitch - SET PRIORITY</a><br />
+<a href="#620A"><b>620A</b> - INT 62 - Cswitch - TEST MESSAGE QUEUE</a><br />
+<a href="#620B"><b>620B</b> - INT 62 - Cswitch - SEND MESSAGE</a><br />
+<a href="#620C"><b>620C</b> - INT 62 - Cswitch - READ MESSAGE</a><br />
+<a href="#620D"><b>620D</b> - INT 62 - Cswitch - DON'T ALLOW TASK TO BE SWAPPED OUT</a><br />
+<a href="#620E"><b>620E</b> - INT 62 - Cswitch - ALLOW TASK TO BE SWAPPED OUT</a><br />
+<a href="#620F"><b>620F</b> - INT 62 - Cswitch - LOAD AND RUN PROGRAM FROM DISK</a><br />
+<a href="#6210"><b>6210</b> - INT 62 - Cswitch - TERMINATE SPAWNED PROGRAM</a><br />
+<a href="#6211"><b>6211</b> - INT 62 - Cswitch - GET TCB INFORMATION</a><br />
+<a href="#6212"><b>6212</b> - INT 62 - Cswitch - GET TCB ADDRESS</a><br />
+<a href="#6213"><b>6213</b> - INT 62 - Cswitch - CHECK STATUS OF PREVIOUS LOAD_TASK</a><br />
+<a href="#7F00_0"><b>7F00</b> - INT 7F - MultiLink Advanced v1.0+ - ENQUEUE SYSTEM RESOURCE</a><br />
+<a href="#7F01_0"><b>7F01</b> - INT 7F - MultiLink Advanced v1.0+ - DEQUEUE SYSTEM RESOURCE</a><br />
+<a href="#7F02_0"><b>7F02</b> - INT 7F - MultiLink Advanced v1.0+ - RELEASE CPU</a><br />
+<a href="#7F09"><b>7F09</b> - INT 7F - MultiLink Advanced v1.0+ - SET TASK PRIORITY</a><br />
+<a href="#7F0A_0"><b>7F0A</b> - INT 7F - MultiLink Advanced v1.0+ - SET KEYBOARD TEST STATUS</a><br />
+<a href="#F4_0"><b>F4</b> - INT F4 - DoubleDOS - GIVE UP REST OF CURRENT CLOCK TICK AND ALL OF NEXT TICK</a><br />
+<a href="#F5_0"><b>F5</b> - INT F5 - DoubleDOS - ???</a><br />
+<a href="#F6_0"><b>F6</b> - INT F6 - DoubleDOS - ???</a><br />
+<a href="#F7_0"><b>F7</b> - INT F7 - DoubleDOS - ???</a><br />
+<a href="#F8_1"><b>F8</b> - INT F8 - DoubleDOS - ???</a><br />
+<a href="#F9_0"><b>F9</b> - INT F9 - DoubleDOS - ???</a><br />
+<a href="#FA_1"><b>FA</b> - INT FA - DoubleDOS - TURN OFF TIMESHARING</a><br />
+<a href="#FB_1"><b>FB</b> - INT FB - DoubleDOS - TURN ON TIMESHARING</a><br />
+<a href="#FC_0"><b>FC</b> - INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS</a><br />
+<a href="#FD_0"><b>FD</b> - INT FD - DoubleDOS - ???</a><br />
+<a href="#FE_0"><b>FE</b> - INT FE - DoubleDOS - GIVE UP TIME</a><br />
+
+<hr />
+
+<a href="#11FFFECXFFFE" name="11FFFECXFFFE"><b>11FFFECXFFFE</b></a> - INT 11 - BACK&FORTH (before v1.62) API<br />
+<pre>
+INT 11 - BACK&FORTH (before v1.62) API
+	AX = FFFEh
+	CX = FFFEh
+	BX = function
+	    00h installation check
+		Return: AX = installation state
+			    0001h BNFHIGH and BNFLOW both loaded
+			    0003h only BNFHIGH loaded
+			    else neither loaded
+	    01h ???
+		Return: DX:AX -&gt; ???
+	    02h ???
+	    03h ???
+	    04h ???
+	    05h ??? switches current PSP segment and stack if BNFLOW has not
+		    yet announced itself installed
+	    06h ???
+		Return: AX = ???
+SeeAlso: INT 12/AX=FFFEh
+Index:	installation check;BACK&FORTH
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12FFFECXFFFE" name="12FFFECXFFFE"><b>12FFFECXFFFE</b></a> - INT 12 - Back&Forth v1.62+ - API<br />
+<pre>
+INT 12 - Back&Forth v1.62+ - API
+	AX = FFFEh
+	CX = FFFEh
+	BX = function
+	    00h installation check
+		Return: AX = 0001h installed
+			     else  not loaded
+	    01h (reserved)
+	    02h build program ID list (shareware Back&Forth)
+		ES:DI -&gt; buffer of at least 100 bytes, to be filled with words
+		Return: AX = number of programs defined
+			ES:DI buffer filled with AX words
+	    02h get memory statistics (Back&Forth Professional)
+		Return: AX = available swap memory, KBytes
+			BX = maximum task size, KBytes
+			DX = fixed overhead per task, excluding video/macro
+			      storage
+	    03h switch to specified task (task need not be open yet)
+		DX = two-letter program ID
+		Return: AX = status
+			    0000h if task undefined
+			    0001h task switch will occur when safe
+	    04h (reserved)
+	    05h (reserved)
+	    06h get version (documented only for Back&Forth Professional)
+		Return: AX = version * 100 (v1.71 = 00ABh)
+	    07h spawn program (Back&Forth Professional only???)
+		ES:DI -&gt; BF_SPAWN record (see #00232)
+		Return: AX = status
+			    0000h if no task handles free
+			    0001h spawn will occur when safe
+	    08h get open tasks (documented only for Back&Forth Professional)
+		ES:DI -&gt; task info buffer (see #00231,#00233)
+		Return: AX = number of open tasks (max 20)
+		Note:	the supplied buffer must be large enough to hold 21
+			  task entries
+	    09h (reserved)
+	    ---Back&Forth Professional---
+	    0Ah get active clipboard filename
+		Return: DX:AX -&gt; ASCIZ clipboard filename
+	    0Bh get active task number
+		AX = active task number (00h-13h)
+		BX = number of tasks allocated
+		DX = maximum number of tasks
+	    0Ch (reserved)
+	    0Dh (reserved)
+	    0Eh (reserved)
+	    0Fh stuff string into keyboard buffer
+		ES:DI -&gt; ASCIZ string to be stuffed
+		Return: nothing
+	    10h check if in graphics mode
+		Return: AX = state
+			    0000h color text mode
+			    0004h mono text mode
+			    FFFFh graphics mode
+	    11h get Back&Forth Professional user number
+		Return: AX = user number (0000h-00FFh)
+	    12h switch task by task number
+		DX = task number
+		Return: AX = status
+			    0000h attempted to switch to active task
+			    0001h task switch will occur when safe
+			    FFFFh invalid task number
+	    13h delete (kill) task
+		DX = task number
+		Return: AX = status
+			    0000h attempted to delete the active task
+			    0001h successfully deleted
+			    FFFFh invalid task number
+		Note:	the active task number will change if the deleted task
+			  was lower in the task list than the active task
+	    14h get next available task handle
+		Return:	AX = next available task handle
+			    FFFFh if task table is full
+Program: Back & Forth is a task switcher by Progressive Solutions, Inc.
+SeeAlso: INT 11/AX=FFFEh
+Index:	installation check;BACK&FORTH
+
+Format of Back&Forth task info buffer:
+Offset	Size	Description	(Table 00231)
+ 00h 21 BYTEs	ASCIZ task name
+ 15h	BYTE	hotkey shift state (as for INT 16/AH=02h)
+ 16h	WORD	hotkey scan code (see also #00006)
+ 18h	WORD	program ID
+Index:	hotkeys;Back&Forth
+SeeAlso: #00232,#00233
+
+Format of Back&Forth Professional BF_SPAWN record:
+Offset	Size	Description	(Table 00232)
+ 00h 21 BYTEs	task description
+ 15h	BYTE	flag: disable hotkeys
+ 16h	WORD	environment size in bytes
+ 18h	BYTE	hotkey shift flags
+ 19h	WORD	hotkey scancode
+ 1Bh	WORD	maximum number of EMS pages
+ 1Dh	WORD	required memory in KBytes
+ 1Fh  3 BYTEs	DESQview-style two-letter program ID
+ 22h 13 BYTEs	base name of program to be run (no path or extension)
+ 2Fh 66 BYTEs	directory from which to start program
+ 71h 66 BYTEs	initial current directory for program
+SeeAlso: #00231,#00233
+
+Format of Back&Forth Professional BF_TASK record:
+Offset	Size	Description	(Table 00233)
+ 00h	DWORD	Unix-style task start time (seconds since 1970/1/1)
+ 04h 21 BYTEs	task description
+ 19h	DWORD	elapsed time in task (seconds)
+ 1Dh	WORD	task ID
+ 1Fh	BYTE	task hotkey keyboard flags
+ 20h	WORD	task hotkey scan code (see also #00006)
+ 22h	DWORD	time task was suspended/exited
+ 26h	WORD	task handle
+SeeAlso: #00231,#00232
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1500_2" name="1500_2"><b>1500</b></a> - INT 15 - MultiDOS Plus - GIVE UP TIME SLICE<br />
+<pre>
+INT 15 - MultiDOS Plus - GIVE UP TIME SLICE
+	AH = 00h
+Return: nothing
+Note:	if issued by the highest-priority task while MultiDOS is using
+	  priority-based rather than round-robin scheduling, control will be
+	  returned to the caller immediately
+SeeAlso: AH=03h"MultiDOS",AX=1000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1501_2" name="1501_2"><b>1501</b></a> - INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE<br />
+<pre>
+INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE
+	AH = 01h
+	AL = semaphore number (00h-3Fh)
+Return: AH = status
+	    00h successful
+	    02h invalid semaphore number
+Notes:	if the semaphore is not owned, ownership is assigned to the calling
+	  task and the call returns immediately
+	if the semaphore is already owned by another task, the calling task
+	  is placed on a queue for the semaphore and suspended until it can
+	  become owner of the semaphore
+	semaphore 0 is used internally by MultiDOS to synchronize DOS access
+SeeAlso: AH=02h"MultiDOS",AH=10h"MultiDOS",AH=1Bh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1502_2" name="1502_2"><b>1502</b></a> - INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE<br />
+<pre>
+INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE
+	AH = 02h
+	AL = semaphore number (00h-3Fh)
+Return: AH = status
+	    00h successful
+	    01h not semaphore owner
+	    02h invalid semaphore number
+Notes:	if any tasks are waiting for the semaphore, the first task on the wait
+	  queue will become the new owner and be reawakened
+	do not use within an interrupt handler
+SeeAlso: AH=01h"MultiDOS",AH=10h"MultiDOS",AH=1Ch"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1503_2" name="1503_2"><b>1503</b></a> - INT 15 - MultiDOS Plus - SUSPEND TASK FOR INTERVAL<br />
+<pre>
+INT 15 - MultiDOS Plus - SUSPEND TASK FOR INTERVAL
+	AH = 03h
+	DX = number of time slices to remain suspended
+Return: after specified interval has elapsed
+Note:	when priority-based scheduling is in use, high-priority tasks should
+	  use this function to yield the processor
+SeeAlso: AH=00h"MultiDOS",AH=0Ah"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1504_2" name="1504_2"><b>1504</b></a> - INT 15 - MultiDOS Plus - SEND MESSAGE TO ANOTHER TASK<br />
+<pre>
+INT 15 - MultiDOS Plus - SEND MESSAGE TO ANOTHER TASK
+	AH = 04h
+	AL = mailbox number (00h-3Fh)
+	CX = message length in bytes
+	DS:SI -&gt; message
+Return: AH = status
+	    00h successful
+	    01h out of message memory
+	    02h invalid mailbox number
+Note:	the message is copied into a system buffer; the caller may immediately
+	  reuse its buffer
+SeeAlso: AH=05h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1505_2" name="1505_2"><b>1505</b></a> - INT 15 - MultiDOS Plus - CHECK MAILBOX<br />
+<pre>
+INT 15 - MultiDOS Plus - CHECK MAILBOX
+	AH = 05h
+	AL = mailbox number (00h-3Fh)
+Return: AH = status
+	    00h successful
+		DX = length of first message in queue, 0000h if no message
+	    02h invalid mailbox number
+SeeAlso: AH=04h"MultiDOS",AH=06h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1506_1" name="1506_1"><b>1506</b></a> - INT 15 - MultiDOS Plus - READ MAILBOX<br />
+<pre>
+INT 15 - MultiDOS Plus - READ MAILBOX
+	AH = 06h
+	AL = mailbox number (00h-3Fh)
+	CX = size of buffer in bytes
+	ES:DI -&gt; buffer for message
+Return: AH = status
+	    00h successful
+		CX = number of bytes copied
+		DX = actual length of message
+	    02h invalid mailbox number
+Note:	if the caller's buffer is not large enough, the message is truncated
+	  and the remainder is lost
+SeeAlso: AH=04h"MultiDOS",AH=05h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1507_1" name="1507_1"><b>1507</b></a> - INT 15 - MultiDOS Plus - SPAWN INTERNAL TASK (CREATE NEW THREAD)<br />
+<pre>
+INT 15 - MultiDOS Plus - SPAWN INTERNAL TASK (CREATE NEW THREAD)
+	AH = 07h
+	BX:CX = entry point of new task
+	DX = stack size in paragraphs
+Return: AH = status
+	    00h successful
+	    01h no free task control blocks
+	    02h no free memory for task's stack
+Note:	execution returns immediately to calling task
+SeeAlso: AH=08h"MultiDOS",AH=09h"MultiDOS",AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1508_1" name="1508_1"><b>1508</b></a> - INT 15 - MultiDOS Plus - TERMINATE INTERNAL TASK (KILL THREAD)<br />
+<pre>
+INT 15 - MultiDOS Plus - TERMINATE INTERNAL TASK (KILL THREAD)
+	AH = 08h
+Return: calling task terminated, so execution never returns to caller
+Notes:	an internal task must be terminated with this function rather than a
+	  DOS termination function
+	task's stack space is returned to parent task's memory pool
+SeeAlso: AH=07h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1509_1" name="1509_1"><b>1509</b></a> - INT 15 - MultiDOS Plus - CHANGE TASK'S PRIORITY<br />
+<pre>
+INT 15 - MultiDOS Plus - CHANGE TASK'S PRIORITY
+	AH = 09h
+	AL = new priority
+Return: nothing
+Note:	the priority has different meanings depending on whether priority-
+	  based or round-robin scheduling is used
+SeeAlso: AH=07h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150A_0" name="150A_0"><b>150A</b></a> - INT 15 - MultiDOS Plus - CHANGE TIME SLICE INTERVAL<br />
+<pre>
+INT 15 - MultiDOS Plus - CHANGE TIME SLICE INTERVAL
+	AH = 0Ah
+	AL = new interval
+	    00h = 55.0 ms (default)
+	    80h = 27.5 ms
+	    40h = 13.75 ms
+	    20h = 6.88 ms
+	    10h = 3.44 ms
+	    08h = 1.72 ms
+SeeAlso: AH=03h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150B_0" name="150B_0"><b>150B</b></a> - INT 15 - MultiDOS Plus - FORCE DISPLAY OUTPUT TO PHYSICAL SCREEN MEMORY<br />
+<pre>
+INT 15 - MultiDOS Plus - FORCE DISPLAY OUTPUT TO PHYSICAL SCREEN MEMORY
+	AH = 0Bh
+Return: nothing
+Notes:	sets calling task's screen pointer to actual screen memory; the pointer
+	  may be restored with AH=0Ch
+	caller's video mode must be same as foreground task's video mode
+	any text written while in the background will be saved to the
+	  foreground task's virtual screen when it switches to the background
+	useful if a background task wants to display a message on the
+	  foreground screen
+SeeAlso: AH=0Ch"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150C_0" name="150C_0"><b>150C</b></a> - INT 15 - MultiDOS Plus - RESTORE OLD VIDEO DISPLAY MEMORY<br />
+<pre>
+INT 15 - MultiDOS Plus - RESTORE OLD VIDEO DISPLAY MEMORY
+	AH = 0Ch
+Return: nothing
+Note:	restores task's screen pointer saved by AH=0Bh; must not be called
+	  unless AH=0Bh has been called first
+SeeAlso: AH=0Bh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150D_0" name="150D_0"><b>150D</b></a> - INT 15 - MultiDOS Plus - DISABLE MULTITASKING<br />
+<pre>
+INT 15 - MultiDOS Plus - DISABLE MULTITASKING
+	AH = 0Dh
+Return: nothing
+Note:	calling task receives all time slices until AH=0Eh is called; this
+	  allows time-critical events or nonreentrant code to be processed
+SeeAlso: AH=0Eh"MultiDOS",AH=10h"MultiDOS",AX=101Bh,AH=20h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150E_0" name="150E_0"><b>150E</b></a> - INT 15 - MultiDOS Plus - ENABLE MULTITASKING<br />
+<pre>
+INT 15 - MultiDOS Plus - ENABLE MULTITASKING
+	AH = 0Eh
+Return: nothing
+SeeAlso: AH=0Dh"MultiDOS",AX=101Ch,AH=20h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#150F_1" name="150F_1"><b>150F</b></a> - INT 15 - MultiDOS Plus - EXECUTE A MULTIDOS PLUS COMMAND<br />
+<pre>
+INT 15 - MultiDOS Plus - EXECUTE A MULTIDOS PLUS COMMAND
+	AH = 0Fh
+	DS:BX -&gt; ASCIZ command
+Return: after command has been processed
+Notes:	specified string is executed as if it had been typed at the MultiDOS
+	  command prompt
+	the task is placed on a queue which MultiDOS examines periodically and
+	  is suspended until MultiDOS has processed the command
+	all lowercase characters up to the first blank are converted to upper
+	  case within the given buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1510_0" name="1510_0"><b>1510</b></a> - INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE<br />
+<pre>
+INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE
+	AH = 10h
+	AL = semaphore number (00h-3Fh)
+Return: AH = status
+	    00h semaphore not in use
+	    01h semaphore owned by another task
+	    02h invalid semaphore number
+	    03h semaphore owned by caller
+SeeAlso: AH=02h"MultiDOS",AH=0Dh"MultiDOS",AH=1Dh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1511_0" name="1511_0"><b>1511</b></a> - INT 15 - VMiX - "sys_system" - EXECUTE SHELL SYSTEM COMMANDS<br />
+<pre>
+INT 15 - VMiX - "sys_system" - EXECUTE SHELL SYSTEM COMMANDS
+	AH = 11h
+	STACK:	DWORD	pointer to ASCIZ string containing a VMiX shell
+			request (max len = 127)
+Return: AX = status (SYS_OK or SYS_ERROR)
+SeeAlso: AH=0Ch"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1511_1" name="1511_1"><b>1511</b></a> - INT 15 - MultiDOS Plus - TURN OFF AltZ TOGGLE<br />
+<pre>
+INT 15 - MultiDOS Plus - TURN OFF AltZ TOGGLE
+	AH = 11h
+Note:	disables the Alt-Z MultiDOS command/program-selection hotkey
+SeeAlso: AH=12h"MultiDOS"
+Index:	hotkeys;MultiDOS Plus
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1512" name="1512"><b>1512</b></a> - INT 15 - VMiX - "sys_sleep" - PUT PROCESS TO SLEEP<br />
+<pre>
+INT 15 - VMiX - "sys_sleep" - PUT PROCESS TO SLEEP
+	AH = 12h
+	STACK:	WORD	process ID
+Return: AX = status (SYS_OK or SYS_ERROR)
+SeeAlso: AH=03h"MultiDOS",AX=101Dh,AH=13h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1512_0" name="1512_0"><b>1512</b></a> - INT 15 - MultiDOS Plus - TURN ON AltZ TOGGLE<br />
+<pre>
+INT 15 - MultiDOS Plus - TURN ON AltZ TOGGLE
+	AH = 12h
+Note:	enables the Alt-Z MultiDOS command/program-selection hotkey
+SeeAlso: AH=11h"MultiDOS"
+Index:	hotkeys;MultiDOS Plus
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1513" name="1513"><b>1513</b></a> - INT 15 - VMiX - "sys_wake" - WAKE SLEEPING PROCESS<br />
+<pre>
+INT 15 - VMiX - "sys_wake" - WAKE SLEEPING PROCESS
+	AH = 13h
+	STACK:	WORD	process ID
+Return: AX = status (SYS_OK or SYS_ERROR)
+SeeAlso: AH=12h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1513_0" name="1513_0"><b>1513</b></a> - INT 15 - MultiDOS Plus - GET TASK CONTROL BLOCK<br />
+<pre>
+INT 15 - MultiDOS Plus - GET TASK CONTROL BLOCK
+	AH = 13h
+Return: BX:AX -&gt; task control block (see #00456)
+SeeAlso: AH=15h"MultiDOS"
+
+Format of MultiDOS Plus v4.0 task control block:
+Offset	Size	Description	(Table 00456)
+ 00h	DWORD	pointer to next TCB
+ 04h  8 BYTEs	ASCIZ task name
+ 0Ch  2 BYTEs	???
+ 0Eh	WORD	task PSP segment
+ 10h	WORD	abort/suspend flags
+ 12h	WORD	current screen segment (see AH=0Bh,AH=0Ch)
+ 14h	WORD	priority level (0000h-FFFEh)
+ 16h	WORD	time slice counter
+ 18h  2 BYTEs	???
+ 1Ah	WORD	suspend timer value
+ 1Ch	WORD	stack segment
+ 1Eh	WORD	stack pointer
+ 20h	WORD	display type
+ 22h	WORD	display memory
+ 24h  2 BYTEs	???
+ 26h	WORD	termination count
+ 28h	WORD	equipment flag for BIO10 driver
+ 2Ah	BYTE	background CRT mode
+ 2Bh	WORD	screen width in columns
+ 2Dh	WORD	screen size in bytes
+ 2Fh	WORD	segment of physical screen memory
+ 31h 16 BYTEs	eight cursor positions
+ 41h	WORD	current cursor shape
+ 43h	BYTE	active display page
+ 44h	WORD	CRT controller I/O port base
+ 46h  2 BYTEs	???
+ 48h	WORD	foreground task flag
+ 4Ah  6 BYTEs	???
+ 50h	WORD	saved video segment (see AH=0Bh,AH=0Ch)
+ 52h	DWORD	old INT 22
+ 56h	DWORD	old INT 23
+ 5Ah	DWORD	old INT 24
+ 5Eh	WORD	top of memory for task
+ 60h  4 BYTEs	???
+ 64h	WORD	DTA segment (see INT 21/AH=1Ah)
+ 66h	WORD	DTA offset
+ 68h  4 BYTEs	???
+ 6Ch	BYTE	current ANSI.SYS attribute
+ 6Dh	BYTE	current ANSI.SYS column
+ 6Eh	BYTE	current ANSI.SYS row
+ 6Fh	BYTE	current ANSI.SYS display state
+ 70h	BYTE	maximum ANSI.SYS columns
+ 71h	BYTE	current ANSI.SYS page
+ 72h	WORD	saved ANSI.SYS cursor position
+ 74h	BYTE	ANSI.SYS parameter buffer index
+ 75h	BYTE	current ANSI.SYS screen mode
+ 76h	BYTE	ANSI.SYS wrap flag
+ 77h  6 BYTEs	ANSI.SYS parameter buffer
+ 7Dh	BYTE	ANSI.SYS keyboard DSR state
+ 7Eh  7 BYTEs	ANSI.SYS keyboard DSR buffer
+ 85h  3 BYTEs	???
+ 88h 16 BYTEs	request header for DOS driver calls
+ 98h 14 BYTEs	???
+ A6h	WORD	segment of EMS map if EMS task
+ A8h	WORD	flag: task makes EMS calls
+ AAh	WORD	EMS handle for task
+ ACh	WORD	keyboard shift state
+ AEh 12 BYTEs	???
+ BAh	WORD	TCB of parent if child task
+ BCh	WORD	termination code
+ BEh	WORD	COM port number
+ C0h  4 BYTEs	???
+ C4h	WORD	current IRQ number
+ C6h  2 BYTEs	???
+ C8h	WORD	miscellaneous flag word
+ CAh  2 BYTEs	???
+ CCh	DWORD	old INT 10
+ D0h	WORD	EMS alternate map set number
+ D2h 414 BYTEs	DOS current disk and directory context (optional)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1514" name="1514"><b>1514</b></a> - INT 15 - VMiX - "sys_clrwindow" - CLEAR WINDOW<br />
+<pre>
+INT 15 - VMiX - "sys_clrwindow" - CLEAR WINDOW
+	AH = 14h
+	STACK:	WORD	top left corner of window (high byte = row, low = col)
+		WORD	bottom right corner of window (high = row, low = col)
+Return: AX = status (SYS_OK)
+Note:	clears window to color set with "sys_setcolors" (AH=18h)
+SeeAlso: AH=15h"VMiX",AH=16h"VMiX",AH=18h"VMiX",AH=1Fh"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1514_0" name="1514_0"><b>1514</b></a> - INT 15 - MultiDOS Plus - CHECK IF MultiDOS FOREGROUND OR BACKGROUND<br />
+<pre>
+INT 15 - MultiDOS Plus - CHECK IF MultiDOS FOREGROUND OR BACKGROUND
+	AH = 14h
+Return: AX = current state
+	    0000h MultiDOS Plus command prompt is background task
+	    0001h command prompt is foreground task
+SeeAlso: AH=0Bh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1515" name="1515"><b>1515</b></a> - INT 15 - VMiX - "sys_setbwindow" - SET BANNER WINDOW MESSAGE<br />
+<pre>
+INT 15 - VMiX - "sys_setbwindow" - SET BANNER WINDOW MESSAGE
+	AH = 15h
+	STACK:	DWORD	pointer to ASCIZ banner message for top of screen
+Return: AX = status (SYS_OK)
+SeeAlso: AH=14h"VMiX",AH=16h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1515_0" name="1515_0"><b>1515</b></a> - INT 15 - MultiDOS Plus - GET SYSTEM BLOCK<br />
+<pre>
+INT 15 - MultiDOS Plus - GET SYSTEM BLOCK
+	AH = 15h
+Return: BX:AX -&gt; system block (see #00457)
+SeeAlso: AH=13h"MultiDOS"
+
+Format of MultiDOS Plus 4.0 system block:
+Offset	Size	Description	(Table 00457)
+ 00h	WORD	segment of system control block
+ 02h	WORD	redirection flag set by /NOREDIRECT
+ 04h	WORD	no-INT 10 flag set by /NO10
+ 06h	DWORD	old INT 10
+ 0Ah	DWORD	new INT 10
+ 0Eh	DWORD	pointer to WORD with current TCB offset (see #00456)
+ 12h	DWORD	pointer to WORD with idle task TCB offset
+ 16h	DWORD	pointer to WORD with foreground TCB offset (see #00456)
+ 1Ah	DWORD	pointer to WORD with MultiDOS TCB offset (see #00456)
+ 1Eh	WORD	Task Control Block size
+ 20h	WORD	number of TCBs
+ 22h	WORD	flag: EMS present
+ 24h	WORD	EMS page frame base segment
+ 26h	WORD	16K pages in EMS page frame
+ 28h	WORD	base segment for conventional memory tasks
+ 2Ah	WORD	conventional memory size in paragraphs
+ 2Ch	DWORD	pointer to list of queue pointers
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1516" name="1516"><b>1516</b></a> - INT 15 - VMiX - "sys_setwindow" - SET ROOT WINDOW SIZE AND HOME CURSOR<br />
+<pre>
+INT 15 - VMiX - "sys_setwindow" - SET ROOT WINDOW SIZE AND HOME CURSOR
+	AH = 16h
+	STACK:	DWORD	pointer to I/O Request Packet
+		WORD	top left corner of window (high byte = row, low = col)
+		WORD	bottom right corner of window (high = row, low = col)
+Return: AX = status (SYS_OK or SYS_ERROR)
+SeeAlso: AH=14h"VMiX",AH=17h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1516_0" name="1516_0"><b>1516</b></a> - INT 15 - MultiDOS Plus - INITIALIZATION<br />
+<pre>
+INT 15 - MultiDOS Plus - INITIALIZATION
+	AH = 16h
+Note:	used internally during initialization; any other calls will cause
+	  unpredictable results
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1517" name="1517"><b>1517</b></a> - INT 15 - VMiX - "sys_getcolors" - GET CONSOLE WINDOW COLORS<br />
+<pre>
+INT 15 - VMiX - "sys_getcolors" - GET CONSOLE WINDOW COLORS
+	AH = 17h
+Return: AH = foreground color
+	AL = background color
+SeeAlso: AH=16h"VMiX",AH=18h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1517_0" name="1517_0"><b>1517</b></a> - INT 15 - MultiDOS Plus - MAP IRQ<br />
+<pre>
+INT 15 - MultiDOS Plus - MAP IRQ
+	AH = 17h
+	AL = IRQ to map (01h-0Fh)
+	BX = offset of task control block (see #00456) to associate with IRQ
+Return: AX = status
+	    0000h successful
+	    other invalid IRQ
+Note:	the EMS map of the specified TCB is associated with the given interrupt
+SeeAlso: AH=18h"MultiDOS",AH=19h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1518" name="1518"><b>1518</b></a> - INT 15 - VMiX - "sys_setcolors" - SET CONSOLE COLORS<br />
+<pre>
+INT 15 - VMiX - "sys_setcolors" - SET CONSOLE COLORS
+	AH = 18h
+	STACK:	WORD	new background/foreground colors
+			bits 3-0: foreground
+			bits 7-4: background
+			bits 15-8: unused
+Return: AX = color
+SeeAlso: AH=14h"VMiX",AH=17h"VMiX",AH=19h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1518_0" name="1518_0"><b>1518</b></a> - INT 15 - MultiDOS Plus - UNMAP IRQ<br />
+<pre>
+INT 15 - MultiDOS Plus - UNMAP IRQ
+	AH = 18h
+	AL = IRQ to unmap (01h-0Fh)
+Return: AX = status
+	    0000h successful
+	    0001h invalid IRQ
+Note:	results are unpredictable if the IRQ has not been mapped
+SeeAlso: AH=17h"MultiDOS",AH=19h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1519" name="1519"><b>1519</b></a> - INT 15 - VMiX v2+ - "sys_setconwn" - SET WINDOW COLORS<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_setconwn" - SET WINDOW COLORS
+	AH = 19h
+	STACK:	WORD	new background/foreground colors
+			bits 3-0: foreground
+			bits 7-4: background
+			bits 15-8: unused
+Return: AX = color
+SeeAlso: AH=18h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1519_0" name="1519_0"><b>1519</b></a> - INT 15 - MultiDOS Plus - UNMAP ALL IRQs<br />
+<pre>
+INT 15 - MultiDOS Plus - UNMAP ALL IRQs
+	AH = 19h
+Return: AX destroyed
+Note:	for MultiDOS internal use only
+SeeAlso: AH=17h"MultiDOS",AH=18h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151A" name="151A"><b>151A</b></a> - INT 15 - VMiX v2+ - "sys_sint" - INVOKE SOFTWARE INTERRUPT<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_sint" - INVOKE SOFTWARE INTERRUPT
+	AH = 1Ah
+	STACK:	WORD	interrupt number
+		DWORD	pointer to register structure
+Return: AX = returned flags
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151A_0" name="151A_0"><b>151A</b></a> - INT 15 - MultiDOS Plus - MAP SEMAPHORE NAME TO NUMBER<br />
+<pre>
+INT 15 - MultiDOS Plus - MAP SEMAPHORE NAME TO NUMBER
+	AH = 1Ah
+	DS:SI -&gt; 8-byte name
+Return: AL = status
+	    00h successful
+		AH = semaphore number (20h-3Fh)
+	    04h out of string space
+Notes:	all eight bytes of the name are significant
+	if the name does not already exist, it is added to the name table and
+	  associated with a free semaphore number
+	names cannot be destroyed
+SeeAlso: AH=1Bh"MultiDOS",AH=1Ch"MultiDOS",AH=1Dh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151B" name="151B"><b>151B</b></a> - INT 15 - VMiX v2+ - "sys_blkmov" - MOVE MEMORY BLOCK<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_blkmov" - MOVE MEMORY BLOCK
+	AH = 1Bh
+	STACK:	DWORD	source address
+		DWORD	destination address
+		WORD	number of words to move
+Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151B_0" name="151B_0"><b>151B</b></a> - INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE BY NAME<br />
+<pre>
+INT 15 - MultiDOS Plus - REQUEST RESOURCE SEMAPHORE BY NAME
+	AH = 1Bh
+	DS:SI -&gt; 8-byte name
+Return: AH = status
+	    00h successful
+	    02h invalid semaphore number
+	    03h caller already owns semaphore
+	    04h out of string space
+Notes:	(see AH=01h"MultiDOS")
+	equivalent to AH=1Ah followed by AH=01h
+SeeAlso: AH=01h"MultiDOS",AH=1Ah"MultiDOS",AH=1Ch"MultiDOS",AH=1Dh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151C" name="151C"><b>151C</b></a> - INT 15 - VMiX v2+ - "sys_bitblt" - PUT GRAPHICAL OBJECT AT CURSOR POSITION<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_bitblt" - PUT GRAPHICAL OBJECT AT CURSOR POSITION
+	AH = 1Ch
+	STACK:	WORD	AND/OR pixel with background (00h = OR, 01h = AND)
+		DWORD	pointer to object bitmap
+		WORD	object width in pixels
+		WORD	object height in pixels
+Return: nothing
+SeeAlso: AH=1Dh"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151C_0" name="151C_0"><b>151C</b></a> - INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE BY NAME<br />
+<pre>
+INT 15 - MultiDOS Plus - RELEASE RESOURCE SEMAPHORE BY NAME
+	AH = 1Ch
+	DS:SI -&gt; 8-byte name
+Return: AH = status
+	    00h successful
+	    01h not semaphore owner
+	    02h invalid semaphore number
+	    04h out of string space
+Notes:	(see AH=02h"MultiDOS")
+	equivalent to AH=1Ah followed by AH=02h
+SeeAlso: AH=02h"MultiDOS",AH=1Ah"MultiDOS",AH=1Bh"MultiDOS",AH=1Dh"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151D" name="151D"><b>151D</b></a> - INT 15 - VMiX v2+ - "sys_getfont" - GET CURRENT CONSOLE GRAPHICS FONT<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_getfont" - GET CURRENT CONSOLE GRAPHICS FONT
+	AH = 1Dh
+Return: AX = current font number (00h-03h)
+SeeAlso: AH=1Ch"VMiX",AH=1Eh"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151D_0" name="151D_0"><b>151D</b></a> - INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE BY NAME<br />
+<pre>
+INT 15 - MultiDOS Plus - TEST RESOURCE SEMAPHORE BY NAME
+	AH = 1Dh
+	DS:SI -&gt; 8-byte name
+Return: AH = status
+	    00h semaphore not in use
+	    01h semaphore owned by another task
+	    02h invalid semaphore number
+	    03h caller owns semaphore
+	    04h out of string space
+Notes:	(see AH=10h"MultiDOS")
+	equivalent to AH=1Ah followed by AH=10h
+SeeAlso: AH=10h"MultiDOS",AH=1Ah"MultiDOS",AH=1Bh"MultiDOS",AH=1Ch"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151E" name="151E"><b>151E</b></a> - INT 15 - VMiX v2+ - "sys_setfont" - SET CONSOLE GRAPHICS FONT<br />
+<pre>
+INT 15 - VMiX v2+ - "sys_setfont" - SET CONSOLE GRAPHICS FONT
+	AH = 1Eh
+	STACK: WORD new font number (00h-03h)
+Return: AX = current font number (00h-03h)
+SeeAlso: AH=1Dh"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151E00" name="151E00"><b>151E00</b></a> - INT 15 - MultiDOS Plus - CLEAR EVENT COUNTER<br />
+<pre>
+INT 15 - MultiDOS Plus - CLEAR EVENT COUNTER
+	AX = 1E00h
+	DX = event/trigger number (00h-3Fh)
+Return: AH = status
+	    00h successful
+SeeAlso: AX=1E01h,AX=1E02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151E01" name="151E01"><b>151E01</b></a> - INT 15 - MultiDOS Plus - TRIGGER EVENT<br />
+<pre>
+INT 15 - MultiDOS Plus - TRIGGER EVENT
+	AX = 1E01h
+	DX = event/trigger number (00h-3Fh)
+Return: AH = status
+	    00h successful
+	    01h invalid event/trigger number
+Notes:	schedules any task waiting for event; if no task is waiting, the event
+	  counter is incremented (and will roll over if it was 65535)
+	may be invoked by interrupt handler
+SeeAlso: AX=1E00h,AX=1E02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151E02" name="151E02"><b>151E02</b></a> - INT 15 - MultiDOS Plus - WAIT FOR EVENT<br />
+<pre>
+INT 15 - MultiDOS Plus - WAIT FOR EVENT
+	AX = 1E02h
+	DX = event/trigger number (00h-3Fh)
+Return: AH = status
+	    00h successful
+	    01h invalid event/trigger number
+Note:	if the event counter is zero, the task is suspended until the event is
+	  triggered with AX=1E01h; else, the counter is decremented and the
+	  call returns immediately
+SeeAlso: AX=1E00h,AX=1E01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151E08" name="151E08"><b>151E08</b></a> - INT 15 - MultiDOS Plus 4.01 - SET CONTEXT-SWITCH FUNCTIONS<br />
+<pre>
+INT 15 - MultiDOS Plus 4.01 - SET CONTEXT-SWITCH FUNCTIONS
+	AX = 1E08h
+	DX:BX -&gt; context save handler (see #00458)
+	DX:CX -&gt; context restore handler (see #00458)
+Return: nothing
+Note:	handlers may be removed by setting addresses to 0000h:0000h
+
+(Table 00458)
+Values MultiDOS Plus context-switch handlers are called with:
+	ES:BX -&gt; task's TCB
+Return: all registers preserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151F" name="151F"><b>151F</b></a> - INT 15 - VMiX v2.???+ - "sys_scrollwin" - SCROLL WINDOW<br />
+<pre>
+INT 15 - VMiX v2.???+ - "sys_scrollwin" - SCROLL WINDOW
+	AH = 1Fh
+	STACK:	WORD	top left corner of window (high byte = row, low = col)
+		WORD	bottom right corner of window
+Return: AX = status (SYS_OK)
+SeeAlso: AH=14h"VMiX",AH=18h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#151F_0" name="151F_0"><b>151F</b></a> - INT 15 - MultiDOS Plus v4.01 - GET MEMORY PARAMETERS<br />
+<pre>
+INT 15 - MultiDOS Plus v4.01 - GET MEMORY PARAMETERS
+	AH = 1Fh
+Return: BX = first segment of conventional memory
+	DX = first segment of EMS swap frame into which MultiDOS will load
+		programs
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1520" name="1520"><b>1520</b></a> - INT 15 - MultiDOS Plus v4.01 - CHECK IF MULTITASKING ENABLED<br />
+<pre>
+INT 15 - MultiDOS Plus v4.01 - CHECK IF MULTITASKING ENABLED
+	AH = 20h
+Return: AX = current state
+	    0000h multitasking enabled
+	    other TCB of task that disabled multitasking
+SeeAlso: AH=0Dh"MultiDOS",AH=13h"MultiDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153000" name="153000"><b>153000</b></a> - INT 15 - Object Kernel for DOS - INSTALLATION CHECK<br />
+<pre>
+INT 15 - Object Kernel for DOS - INSTALLATION CHECK
+	AX = 3000h
+Return: AX:BX = 4F42h:4A21h ('OBJ!') if installed
+	    CX = resident segment
+Program: the Object Kernel is a program by M.W. Pieters which is currently
+	  under development
+Note:	Central Point's CPBACKUP v9 calls INT 15/AX=3000h at startup, but it
+	  may be checking for a different program's presence
+SeeAlso: AX=3001h,AX=3008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153001" name="153001"><b>153001</b></a> - INT 15 - Object Kernel for DOS - GET STATUS BLOCK<br />
+<pre>
+INT 15 - Object Kernel for DOS - GET STATUS BLOCK
+	AX = 3001h
+Return: AX = FFFFh
+	ES:DI -&gt; status block
+SeeAlso: AX=3000h,AX=3008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153002" name="153002"><b>153002</b></a> - INT 15 - Object Kernel for DOS - KILL PROCESS<br />
+<pre>
+INT 15 - Object Kernel for DOS - KILL PROCESS
+	AX = 3002h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153003" name="153003"><b>153003</b></a> - INT 15 - Object Kernel for DOS - STOP PROCESS<br />
+<pre>
+INT 15 - Object Kernel for DOS - STOP PROCESS
+	AX = 3003h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153004" name="153004"><b>153004</b></a> - INT 15 - Object Kernel for DOS - START PROCESS<br />
+<pre>
+INT 15 - Object Kernel for DOS - START PROCESS
+	AX = 3004h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153005" name="153005"><b>153005</b></a> - INT 15 - Object Kernel for DOS - RESTART PROCESS<br />
+<pre>
+INT 15 - Object Kernel for DOS - RESTART PROCESS
+	AX = 3005h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153006" name="153006"><b>153006</b></a> - INT 15 - Object Kernel for DOS - EXECUTE PROCESS<br />
+<pre>
+INT 15 - Object Kernel for DOS - EXECUTE PROCESS
+	AX = 3006h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153007" name="153007"><b>153007</b></a> - INT 15 - Object Kernel for DOS - LIST PROCESSES<br />
+<pre>
+INT 15 - Object Kernel for DOS - LIST PROCESSES
+	AX = 3007h
+	(not yet implemented)
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153008" name="153008"><b>153008</b></a> - INT 15 - Object Kernel for DOS - SWITCH ObjectKernel ON/OFF<br />
+<pre>
+INT 15 - Object Kernel for DOS - SWITCH ObjectKernel ON/OFF
+	AX = 3008h
+	BH = new state (00h disabled, 01h enabled)
+Return: AX = FFFFh
+SeeAlso: AX=3000h,AX=3009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153009" name="153009"><b>153009</b></a> - INT 15 - Object Kernel for DOS - RESERVED FOR FUTURE USE<br />
+<pre>
+INT 15 - Object Kernel for DOS - RESERVED FOR FUTURE USE
+	AX = 3009h to 30FFh
+SeeAlso: AX=3000h
+Program: the Object Kernel is a program by M.W. Pieters which is currently
+	  under development
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1550_0" name="1550_0"><b>1550</b></a> - INT 15 - VMIX v2.???+ - "sys_vm_page" - SET NEW VIRTUAL PAGE TABLE<br />
+<pre>
+INT 15 - VMIX v2.???+ - "sys_vm_page" - SET NEW VIRTUAL PAGE TABLE
+	AH = 50h
+	BX = segment of page directory table
+	CX = page number of page table
+SeeAlso: AH=10h"VMiX",AH=51h"VMiX",AH=52h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1551" name="1551"><b>1551</b></a> - INT 15 - VMiX v2.???+ - "sys_vm_func" - EXECUTE FUNCTION IN PROTECTED MODE<br />
+<pre>
+INT 15 - VMiX v2.???+ - "sys_vm_func" - EXECUTE FUNCTION IN PROTECTED MODE
+	AH = 51h
+	STACK:	DWORD	selector:offset of function
+Return: registers as returned by function
+Note:	executes function with privilege level 0 (highest privilege)
+SeeAlso: AH=10h"VMiX",AH=52h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1552" name="1552"><b>1552</b></a> - INT 15 - VMiX v2.???+ - "sys_vm_init" - INITIALIZE PROTECTED-MODE ENVIRONMENT<br />
+<pre>
+INT 15 - VMiX v2.???+ - "sys_vm_init" - INITIALIZE PROTECTED-MODE ENVIRONMENT
+	AH = 52h
+SeeAlso: AH=50h"VMiX",AH=51h"VMiX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155400" name="155400"><b>155400</b></a> - INT 15 C - Omniview Multitasker - INSTALLATION NOTIFICATION<br />
+<pre>
+INT 15 C - Omniview Multitasker - INSTALLATION NOTIFICATION
+	AX = 5400h
+	ES:BX -&gt; device information tables
+	DI:DX -&gt; dispatcher entry point
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5407h,INT 2F/AX=DE00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155401" name="155401"><b>155401</b></a> - INT 15 C - Omniview Multitasker - PROCESS CREATION<br />
+<pre>
+INT 15 C - Omniview Multitasker - PROCESS CREATION
+	AX = 5401h
+	ES:BX = process handle
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5402h,INT 2F/AX=DE04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155402" name="155402"><b>155402</b></a> - INT 15 C - Omniview Multitasker - PROCESS DESTRUCTION<br />
+<pre>
+INT 15 C - Omniview Multitasker - PROCESS DESTRUCTION
+	AX = 5402h
+	ES:DX = process handle
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5401h,INT 2F/AX=DE05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155403" name="155403"><b>155403</b></a> - INT 15 C - Omniview Multitasker - SAVE<br />
+<pre>
+INT 15 C - Omniview Multitasker - SAVE
+	AX = 5403h
+	ES:DX = process swapping out
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5404h,INT 2F/AX=DE08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155404" name="155404"><b>155404</b></a> - INT 15 C - Omniview Multitasker - RESTORE<br />
+<pre>
+INT 15 C - Omniview Multitasker - RESTORE
+	AX = 5404h
+	ES:DX = process swapping in
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5403h,INT 2F/AX=DE09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155405" name="155405"><b>155405</b></a> - INT 15 C - Omniview Multitasker - SWITCHING TO BACKGROUND<br />
+<pre>
+INT 15 C - Omniview Multitasker - SWITCHING TO BACKGROUND
+	AX = 5405h
+	ES:DX = process swapping in
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5406h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155406" name="155406"><b>155406</b></a> - INT 15 C - Omniview Multitasker - SWITCHING TO FOREGROUND<br />
+<pre>
+INT 15 C - Omniview Multitasker - SWITCHING TO FOREGROUND
+	AX = 5406h
+	ES:DX = process swapping in
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5405h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155407" name="155407"><b>155407</b></a> - INT 15 C - Omniview Multitasker - EXIT NOTIFICATION<br />
+<pre>
+INT 15 C - Omniview Multitasker - EXIT NOTIFICATION
+	AX = 5407h
+Note:	called by OmniView to notify programs loaded before OmniView of state
+	  changes inside OmniView
+SeeAlso: AX=5400h,INT 2F/AX=DE03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0000" name="16FF80BX0000"><b>16FF80BX0000</b></a> - INT 16 U - PC Tools v8+ CPTASK - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - INSTALLATION CHECK
+	AX = FF80h
+	BX = 0000h
+	CX = 0000h
+	DX = 0000h
+Return: CX = 5555h if installed
+Program: CPTASK is a task switcher by Central Point Software
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0001" name="16FF80BX0001"><b>16FF80BX0001</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET ???
+	AX = FF80h
+	BX = 0001h
+	???
+Return: DX:SI -&gt; task list??? (ten entries of 70h bytes in v9.0)
+	BX = ??? (PSP segment of resident code???)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0002" name="16FF80BX0002"><b>16FF80BX0002</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET ???
+	AX = FF80h
+	BX = 0002h
+Return: DX:SI -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0003" name="16FF80BX0003"><b>16FF80BX0003</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET ??? FLAGS<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET ??? FLAGS
+	AX = FF80h
+	BX = 0003h
+Return: AX = flags (see #00617)
+SeeAlso: AX=FF80h/BX=0004h,AX=FF80h/BX=0006h
+
+Bitfields for CPTASK flags:
+Bit(s)	Description	(Table 00617)
+ 10	???
+ 13	???
+ 14	???
+ 15	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0004" name="16FF80BX0004"><b>16FF80BX0004</b></a> - INT 16 U - PC Tools v8+ CPTASK - SET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - SET ???
+	AX = FF80h
+	BX = 0004h
+	CX = new value of ???
+Return: ???
+Note:	this function also sets bit 14 of the flags word returned by
+	  AX=FF80h/BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0005" name="16FF80BX0005"><b>16FF80BX0005</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET NUMBER OF ACTIVE TASKS???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET NUMBER OF ACTIVE TASKS???
+	AX = FF80h
+	BX = 0005h
+Return: AX = number of active tasks???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0006" name="16FF80BX0006"><b>16FF80BX0006</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET AND CLEAR ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET AND CLEAR ??? FLAG
+	AX = FF80h
+	BX = 0006h
+Return: AX = old state (0000h clear, 0001h set)
+Note:	the tested flag is bit 13 of the flags returned by AX=FF80h/BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0007" name="16FF80BX0007"><b>16FF80BX0007</b></a> - INT 16 U - PC Tools v8+ CPTASK - ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - ???
+	AX = FF80h
+	BX = 0007h
+	ES:DI -&gt; ???
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0008" name="16FF80BX0008"><b>16FF80BX0008</b></a> - INT 16 U - PC Tools v8+ CPTASK - ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - ???
+	AX = FF80h
+	BX = 0008h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX0009" name="16FF80BX0009"><b>16FF80BX0009</b></a> - INT 16 U - PC Tools v8+ CPTASK - GET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - GET ???
+	AX = FF80h
+	BX = 0009h
+Return: CL = ???
+	CH = ??? (01h or 02h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX000A" name="16FF80BX000A"><b>16FF80BX000A</b></a> - INT 16 U - PC Tools v9+ CPTASK - SET ???<br />
+<pre>
+INT 16 U - PC Tools v9+ CPTASK - SET ???
+	AX = FF80h
+	BX = 000Ah
+	DS:SI -&gt; 128-byte buffer containing ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX000B" name="16FF80BX000B"><b>16FF80BX000B</b></a> - INT 16 U - PC Tools v9+ CPTASK - SET ???<br />
+<pre>
+INT 16 U - PC Tools v9+ CPTASK - SET ???
+	AX = FF80h
+	BX = 000Bh
+	DX = index of ??? task (1-10)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX000C" name="16FF80BX000C"><b>16FF80BX000C</b></a> - INT 16 U - PC Tools v9+ CPTASK - SET IDLE??? DELAY<br />
+<pre>
+INT 16 U - PC Tools v9+ CPTASK - SET IDLE??? DELAY
+	AX = FF80h
+	BX = 000Ch
+	CX = new delay time in minutes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF80BX4350" name="16FF80BX4350"><b>16FF80BX4350</b></a> - INT 16 U - PC Tools v8+ CPTASK - UNINSTALL<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - UNINSTALL
+	AX = FF80h
+	BX = 4350h ('CP')
+	CX = 5354h ('ST')
+Return: never returns; terminates all tasks and exits to program originally
+	  calling CPTASK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF9C" name="16FF9C"><b>16FF9C</b></a> - INT 16 U - PC Tools v8+ CPTASK - SET/CLEAR ??? POINTER<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK - SET/CLEAR ??? POINTER
+	AX = FF9Ch
+	BL = function
+	    00h set ??? pointer
+		DS:SI -&gt; ???
+	    01h clear pointer to 0000h:0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B01CX5441" name="212B01CX5441"><b>212B01CX5441</b></a> - INT 21 - TAME v2.10+ - INSTALLATION CHECK<br />
+<pre>
+INT 21 - TAME v2.10+ - INSTALLATION CHECK
+	AX = 2B01h
+	CX = 5441h ('TA')
+	DX = 4D45h ('ME')
+---v2.60---
+	BH = ???
+	    00h skip ???, else do
+Return: AL = 02h if installed
+	ES:DX -&gt; data area in TAME-RES (see #01382,#01386,#01388)
+Program: TAME is a shareware program by David G. Thomas which gives up CPU
+	  time to other partitions under a multitasker when the current
+	  partition's program incessantly polls the keyboard or system time
+
+Format of TAME 2.10-2.20 data area:
+Offset	Size	Description	(Table 01382)
+ 00h	BYTE	data structure minor version number (01h in TAME 2.20)
+ 01h	BYTE	data structure major version number (07h in TAME 2.20)
+ 02h	DWORD	number of task switches
+ 06h	DWORD	number of keyboard polls
+ 0Ah	DWORD	number of time polls
+ 0Eh	DWORD	number of times DESQview told program runs only in foreground
+ 12h	DWORD	original INT 10h
+ 16h	DWORD	original INT 14h
+ 1Ah	DWORD	original INT 15h
+ 1Eh	DWORD	original INT 16h
+ 22h	DWORD	original INT 17h
+ 26h	DWORD	original INT 21h
+ 2Ah	DWORD	original INT 28h
+ 2Eh	WORD	offset of TAME INT 10h handler
+ 30h	WORD	offset of TAME INT 14h handler
+ 32h	WORD	offset of TAME INT 15h handler
+ 34h	WORD	offset of TAME INT 16h handler
+ 36h	WORD	offset of TAME INT 17h handler
+ 38h	WORD	offset of TAME INT 21h handler
+ 3Ah	WORD	offset of TAME INT 28h handler
+ 3Ch	WORD	X in /max:X,Y or /freq:X,Y
+ 3Eh	WORD	Y in /max:X,Y or /freq:X,Y
+ 40h	WORD	number of polls remaining before next task switch
+ 42h	WORD	/KEYIDLE value
+ 44h	BYTE	interrupts already grabbed by TAME (see #01383)
+ 45h	BYTE	flags for interrupts which may be acted on (same bits as above)
+ 46h	BYTE	TAME enabled (01h) or disabled (00h)
+ 47h	BYTE	/TIMEPOLL (01h) or /NOTIMEPOLL (00h)
+ 48h	BYTE	/NOTIMER (01h) or /TIMER (00h)
+ 49h	BYTE	window or task number for this task
+ 4Ah	BYTE	multitasker type (see #01384)
+ 4Bh	BYTE	type of task switching selected
+		bit 0: DESQview???
+		bit 1: DoubleDOS???
+		bit 2: TopView???
+		bit 3: KeySwitch
+		bit 4: HLT instruction
+ 4Ch	BYTE	???
+ 4Dh	BYTE	flags
+		bit 1: /FREQ instead of /MAX
+ 4Eh	BYTE	/FG: value
+ 4Fh	BYTE	task switches left until next FGONLY DESQview API call
+ 50h	BYTE	???
+
+Bitfields for interrupts already grabbed by TAME:
+Bit(s)	Description	(Table 01383)
+ 0	INT 10h
+ 1	INT 14h
+ 2	INT 15h
+ 3	INT 16h
+ 4	INT 17h
+ 5	INT 21h
+ 6	INT 28h
+
+(Table 01384)
+Values for multitasker type:
+ 01h	DESQview
+ 02h	DoubleDOS
+ 03h	TopView
+ 04h	OmniView
+ 05h	VM/386
+
+Bitfields for type of task switching selected:
+Bit(s)	Description	(Table 01385)
+ 0	DESQview
+ 1	DoubleDOS
+ 2	TopView
+ 3	OmniView
+ 4	KeySwitch
+ 5	HLT instruction
+
+Format of TAME 2.30 data area:
+Offset	Size	Description	(Table 01386)
+ 00h	BYTE	data structure minor version number (02h in TAME 2.30)
+ 01h	BYTE	data structure major version number (0Ah in TAME 2.30)
+ 02h	DWORD	number of task switches
+ 06h	DWORD	number of keyboard polls
+ 0Ah	DWORD	number of time polls
+ 0Eh	DWORD	number of times DESQview told program runs only in foreground
+ 12h	DWORD	time of last /CLEAR or TAME-RES load
+ 16h	DWORD	time yielded
+ 1Ah	DWORD	time spent polling
+ 1Eh	DWORD	time spent waiting on key input with INT 16/AH=01h,11h
+ 22h	DWORD	original INT 10h
+ 26h	DWORD	original INT 14h
+ 2Ah	DWORD	original INT 15h
+ 2Eh	DWORD	original INT 16h
+ 32h	DWORD	original INT 17h
+ 36h	DWORD	original INT 21h
+ 3Ah	DWORD	original INT 28h
+ 3Eh	WORD	offset of TAME INT 10h handler
+ 40h	WORD	offset of TAME INT 14h handler
+ 42h	WORD	offset of TAME INT 15h handler
+ 44h	WORD	offset of TAME INT 16h handler
+ 46h	WORD	offset of TAME INT 17h handler
+ 48h	WORD	offset of TAME INT 21h handler
+ 4Ah	WORD	offset of TAME INT 28h handler
+ 4Ch	WORD	X in /max:X,Y or /freq:X,Y
+ 4Eh	WORD	Y in /max:X,Y or /freq:X,Y
+ 50h	WORD	number of polls remaining before next task switch
+ 52h	WORD	/KEYIDLE value
+ 54h	WORD	/FG: value
+ 56h	WORD	task switches left until next FGONLY DESQview API call
+ 58h	WORD	multitasker version
+ 5Ah	WORD	virtual screen segment
+ 5Ch	BYTE	interrupts already grabbed by TAME (see #01383)
+ 5Dh	BYTE	flags for interrupts which may be acted on (same bits as above)
+ 5Eh	BYTE	window or task number for this task
+ 5Fh	BYTE	multitasker type (see #01384)
+ 60h	BYTE	type of task switching selected (bit flags) (see #01385)
+ 61h	BYTE	watch_DOS
+ 62h	BYTE	action flags (see #01387)
+ 63h	BYTE	old status
+ 64h	WORD	signature DA34h
+
+Bitfields for TAME action flags:
+Bit(s)	Description	(Table 01387)
+ 0	TAME enabled
+ 1	/FREQ instead of /MAX (X and Y count fields are per tick)
+ 2	/TIMEPOLL
+ 3	/KEYPOLL
+ 4	inhibit timer
+ 5	enable status monitoring
+SeeAlso: #01386,#01388
+
+Format of TAME 2.60 data area:
+Offset	Size	Description	(Table 01388)
+ 00h	BYTE	data structure minor version number (02h in TAME 2.60)
+ 01h	BYTE	data structure major version number (0Bh in TAME 2.60)
+ 02h	DWORD	number of task switches
+ 06h	DWORD	number of keyboard polls
+ 0Ah	DWORD	number of time polls
+ 0Eh	DWORD	number of times DESQview told program runs only in foreground
+ 12h	DWORD	time of last /CLEAR or TAME-RES load
+ 16h	DWORD	time yielded
+ 1Ah	DWORD	time spent polling
+ 1Eh	DWORD	time spent waiting on key input with INT 16/AH=01h,11h
+ 22h  4 BYTEs	???
+ 26h	DWORD	original INT 10h
+ 2Ah	DWORD	original INT 14h
+ 2Eh	DWORD	original INT 15h
+ 32h	DWORD	original INT 16h
+ 36h	DWORD	original INT 17h
+ 3Ah	DWORD	original INT 21h
+ 3Eh	DWORD	original INT 28h
+ 42h	WORD	offset of TAME INT 10h handler
+ 44h	WORD	offset of TAME INT 14h handler
+ 46h	WORD	offset of TAME INT 15h handler
+ 48h	WORD	offset of TAME INT 16h handler
+ 4Ah	WORD	offset of TAME INT 17h handler
+ 4Ch	WORD	offset of TAME INT 21h handler
+ 4Eh	WORD	offset of TAME INT 28h handler
+ 50h	WORD	X in /max:X,Y or /freq:X,Y
+ 52h	WORD	Y in /max:X,Y or /freq:X,Y
+ 54h	WORD	number of polls remaining before next task switch
+ 56h	WORD	/KEYIDLE value
+ 58h  4 BYTEs	???
+ 5Ch	WORD	X in /boost:X,Y
+ 5Eh	WORD	Y in /boost:X,Y
+ 60h	WORD	/FG: value
+ 62h	WORD	task switches remaining until next FGONLY DESQview API call
+ 64h	WORD	multitasker version ???
+ 66h	WORD	virtual screen segment
+ 68h	BYTE	interrupts already grabbed by TAME (see #01383)
+ 69h	BYTE	flags for interrupts which may be acted on (same bits as above)
+ 6Ah	BYTE	window or task number for this task
+ 6Bh	BYTE	multitasker type (see #01384)
+ 6Ch	BYTE	type of task switching selected (bit flags) (see #01385)
+ 6Dh	BYTE	watch_DOS
+ 6Eh	BYTE	action flags (see #01387)
+ 6Fh	BYTE	old status
+ 70h	WORD	signature DA34h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212D01CX7820" name="212D01CX7820"><b>212D01CX7820</b></a> - INT 21 - PC-Mix - INSTALLATION CHECK<br />
+<pre>
+INT 21 - PC-Mix - INSTALLATION CHECK
+	AX = 2D01h
+	CX = 7820h ('X ')
+	DX = 6D69h ('MI')
+Return: AL = 00h if installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213000BX1234" name="213000BX1234"><b>213000BX1234</b></a> - INT 21 - CTask 2.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 21 - CTask 2.0+ - INSTALLATION CHECK
+	AX = 3000h
+	BX = 1234h
+	DS:DX -&gt; 8-byte version string (DX &lt; FFF0h) "CTask21",00h for v2.1-2.2
+Return: AL = DOS major version
+	AH = DOS minor version
+	CX:BX -&gt; Ctask global data block
+Program: CTask is a multitasking kernel for C written by Thomas Wagner
+Note:	if first eight bytes of returned data block equal eight bytes passed
+	  in, CTask is resident
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF00DX534C" name="21DF00DX534C"><b>21DF00DX534C</b></a> - INT 21 U - Software Carousel - INSTALLATION CHECK<br />
+<pre>
+INT 21 U - Software Carousel - INSTALLATION CHECK
+	AX = DF00h
+	DX = 534Ch ("SL")
+	DI = 534Ch ("SL")
+Return: AX = 00FFh if installed
+	    ???
+Program: Software Carousel is a task switcher by SoftLogic Solutions, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF01" name="21DF01"><b>21DF01</b></a> - INT 21 - Software Carousel - SWITCH TO ANOTHER TASK<br />
+<pre>
+INT 21 - Software Carousel - SWITCH TO ANOTHER TASK
+	AX = DF01h
+	BL = task number (00h = next task)
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h,02h) (see #01813)
+
+(Table 01813)
+Values for Software Carousel error code:
+ 00h	invalid subfunction in AL
+ 01h	invalid task number
+ 02h	tried to switch to task with no memory size
+ 03h	tried to kill program in partition with no program running
+ 04h	tried to change size of an active memory partition
+ 05h	invalid memory size
+ 06h	tried to send command to task with a pending previous command
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF02" name="21DF02"><b>21DF02</b></a> - INT 21 - Software Carousel - KILL PROGRAM IN MEMORY PARTITION<br />
+<pre>
+INT 21 - Software Carousel - KILL PROGRAM IN MEMORY PARTITION
+	AX = DF02h
+	BL = task number
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h,03h) (see #01813)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF03" name="21DF03"><b>21DF03</b></a> - INT 21 - Software Carousel - GET PARTITION SIZE AND PROGRAM STATUS<br />
+<pre>
+INT 21 - Software Carousel - GET PARTITION SIZE AND PROGRAM STATUS
+	AX = DF03h
+	BL = task number
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+		BL = partition state (00h no program running, 01h prog running)
+		DX = partition size in KB
+	    FFh unsucessful
+		AH = error code (01h) (see #01813)
+SeeAlso: AX=DF05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF04" name="21DF04"><b>21DF04</b></a> - INT 21 - Software Carousel - GET PARTITION NAME<br />
+<pre>
+INT 21 - Software Carousel - GET PARTITION NAME
+	AX = DF04h
+	BL = task number
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+		CX = length of name (00h if default partition name)
+		ES:BX -&gt; partition name (if CX nonzero)
+	    FFh unsucessful
+		AH = error code (01h) (see #01813)
+SeeAlso: AX=DF06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF05" name="21DF05"><b>21DF05</b></a> - INT 21 - Software Carousel - CHANGE PARTITION SIZE<br />
+<pre>
+INT 21 - Software Carousel - CHANGE PARTITION SIZE
+	AX = DF05h
+	BL = task number
+	DX = new size in KB
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h,04h,05h) (see #01813)
+	BX = minimum size allowed
+	CX = maximum size available
+SeeAlso: AX=DF03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF06" name="21DF06"><b>21DF06</b></a> - INT 21 - Software Carousel - CHANGE PARTITION NAME<br />
+<pre>
+INT 21 - Software Carousel - CHANGE PARTITION NAME
+	AX = DF06h
+	BL = task number
+	CX = length of new name (00h to use default, max 18h)
+	DS:SI -&gt; new name
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h) (see #01813)
+SeeAlso: AX=DF04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF07" name="21DF07"><b>21DF07</b></a> - INT 21 - Software Carousel - SEND COMMAND TO MEMORY SECTION<br />
+<pre>
+INT 21 - Software Carousel - SEND COMMAND TO MEMORY SECTION
+	AX = DF07h
+	BL = task number
+	CX = length of command (max 8 chars)
+	DS:SI -&gt; command line
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h,06h) (see #01813)
+Note:	the maximum length seems too small and may be a typo for 80 characters
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF08" name="21DF08"><b>21DF08</b></a> - INT 21 - Software Carousel - SELECTIVELY ENABLE/DISABLE MENU AND SWITCHING<br />
+<pre>
+INT 21 - Software Carousel - SELECTIVELY ENABLE/DISABLE MENU AND SWITCHING
+	AX = DF08h
+	BL = new state of keyboard (00h disabled, 01h enabled)
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+Program: Software Carousel is a task switcher by SoftLogic Solutions, Inc.
+Note:	when the keyboard is is disabled, the user may neither access the
+	  Carousel menu nor switch to another memory section
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF09" name="21DF09"><b>21DF09</b></a> - INT 21 - Software Carousel - BOOT THE SYSTEM<br />
+<pre>
+INT 21 - Software Carousel - BOOT THE SYSTEM
+	AX = DF09h
+Return: AL = status
+	    00h Carousel not running
+	    FFh unsucessful
+		AH = error code (01h,03h) (see #01813)
+Note:	this function never returns if successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF0A" name="21DF0A"><b>21DF0A</b></a> - INT 21 - Software Carousel - GET MEMORY SIZE/PARTITION NUMBER OF CURRENT TASK<br />
+<pre>
+INT 21 - Software Carousel - GET MEMORY SIZE/PARTITION NUMBER OF CURRENT TASK
+	AX = DF0Ah
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+		BL = task number
+		DX = memory size in KB
+	    FFh unsucessful
+		AH = error code (01h,03h) (see #01813)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF0B" name="21DF0B"><b>21DF0B</b></a> - INT 21 - Software Carousel - SET TASK SWITCH CALLBACK<br />
+<pre>
+INT 21 - Software Carousel - SET TASK SWITCH CALLBACK
+	AX = DF0Bh
+	BH = interrupt number or 00h
+	BL = function number to invoke on partition switch
+	CL = function number to call when it is safe for resident programs
+		to perform DOS calls
+	DS:DX -&gt; FAR function to call if BH=00h
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+	    FFh unsucessful
+		AH = error code (01h,03h) (see #01813)
+Notes:	the specified interrupt or FAR function is called with AH set to the
+	  appropriate one of the values specified in BL and CL, and BL set to
+	  the new task number
+	the function specified by CL will not be called until the notification
+	  is enabled with AX=DF0Ch
+SeeAlso: AX=DF0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21DF0C" name="21DF0C"><b>21DF0C</b></a> - INT 21 - Software Carousel - ENABLE DOS-CALL SAFETY NOTIFICATION<br />
+<pre>
+INT 21 - Software Carousel - ENABLE DOS-CALL SAFETY NOTIFICATION
+	AX = DF0Ch
+Return: AL = status
+	    00h Carousel not running
+	    01h successful
+Program: Software Carousel is a task switcher by SoftLogic Solutions, Inc.
+SeeAlso: AX=DF0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E0_1" name="21E0_1"><b>21E0</b></a> - INT 21 - DoubleDOS - MENU CONTROL<br />
+<pre>
+INT 21 - DoubleDOS - MENU CONTROL
+	AH = E0h
+	AL = subfunction
+	    01h exchange tasks
+	    73h resume invisible job if suspended
+	    74h kill other job
+	    75h suspend invisible job
+Note:	identical to AH=F0h
+SeeAlso: AH=F0h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E1_0" name="21E1_0"><b>21E1</b></a> - INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB<br />
+<pre>
+INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB
+	AH = E1h
+SeeAlso: AH=E2h"DoubleDOS",AH=E3h"DoubleDOS",AH=E8h"DoubleDOS"
+SeeAlso: AH=F1h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E3_0" name="21E3_0"><b>21E3</b></a> - INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB<br />
+<pre>
+INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB
+	AH = E3h
+	AL = character
+Return: AL = status
+	    00h successful
+	    01h buffer full (128 characters)
+SeeAlso: AH=E1h"DoubleDOS",AH=E2h"DoubleDOS",AH=E8h"DoubleDOS"
+SeeAlso: AH=F3h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E400" name="21E400"><b>21E400</b></a> - INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS<br />
+<pre>
+INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS
+	AX = E400h
+Return: AL = program status
+	    00h if DoubleDOS not present
+	    01h if running in visible DoubleDOS partition
+	    02h if running in the invisible DoubleDOS partition
+SeeAlso: AH=E5h"DoubleDOS",AX=F400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E5_0" name="21E5_0"><b>21E5</b></a> - INT 21 - DoubleDOS - OTHER PROGRAM STATUS<br />
+<pre>
+INT 21 - DoubleDOS - OTHER PROGRAM STATUS
+	AH = E5h
+Return: AL = status
+	    00h no program in other partition
+	    01h program in other partition is running
+	    02h program in other partition is suspended
+SeeAlso: AX=E400h"DoubleDOS",AH=F5h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E8_1" name="21E8_1"><b>21E8</b></a> - INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS<br />
+<pre>
+INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS
+	AH = E8h
+	AL = program for which to set flags (00h this program, 01h other)
+	DX = keyboard control flags (see #02088)
+Return: DX = previous flags
+Notes:	disabling Ctrl-PrtSc will allow the program to intercept the keystroke;
+	  disabling any of the other keystrokes disables them completely
+	identical to AH=F8h
+SeeAlso: AH=E1h"DoubleDOS",AH=E2h"DoubleDOS",AH=E3h"DoubleDOS"
+SeeAlso: AH=F8h"DoubleDOS"
+
+Bitfields for DoubleDOS keyboard control flags:
+Bit(s)	Description	(Table 02088)
+ 0	menu
+ 1	exchange
+ 2	entire keyboard enable/disable
+ 3	Ctrl-C
+ 4	Ctrl-PrtSc
+ 5	Alt/Erase
+ 6	Ctrl-Break
+ 7	Ctrl-NumLock
+ 8	shift-PrtSc
+ 9-13	undefined
+ 14	cancel key (clear keyboard buffer)
+ 15	suspend key
+Note:	setting a enables the corresponding key or operatin, clearing a
+	  disables it
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21E9_0" name="21E9_0"><b>21E9</b></a> - INT 21 - DoubleDOS - SET TIMESHARING PRIORITY<br />
+<pre>
+INT 21 - DoubleDOS - SET TIMESHARING PRIORITY
+	AH = E9h
+	AL = new priority (see #02089)
+Return: AL = priority setting if AL=05h on entry
+Note:	identical to AH=F9h
+SeeAlso: AH=EAh"DoubleDOS",AH=EBh"DoubleDOS",AH=F9h"DoubleDOS"
+
+(Table 02089)
+Values for DoubleDOS timesharing priority:
+ 00h	visible program gets 70%, invisible gets 30% (default)
+ 01h	visible program gets 50%, invisible gets 50%
+ 02h	visible program gets 30%, invisible gets 70%
+ 03h	Top program gets 70%, bottom program gets 30%
+ 04h	Top program gets 30%, bottom program gets 70%
+ 05h	get current priority
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EA_0" name="21EA_0"><b>21EA</b></a> - INT 21 - DoubleDOS - TURN OFF TASK SWITCHING<br />
+<pre>
+INT 21 - DoubleDOS - TURN OFF TASK SWITCHING
+	AH = EAh
+Return: task switching turned off
+SeeAlso: AH=E9h"DoubleDOS",AH=EBh"DoubleDOS",AH=FAh"DoubleDOS"
+SeeAlso: INT FA"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EB_0" name="21EB_0"><b>21EB</b></a> - INT 21 - DoubleDOS - TURN ON TASK SWITCHING<br />
+<pre>
+INT 21 - DoubleDOS - TURN ON TASK SWITCHING
+	AH = EBh
+Return: task switching turned on
+SeeAlso: AH=E9h"DoubleDOS",AH=EAh"DoubleDOS",AH=FBh"DoubleDOS"
+SeeAlso: INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EC_0" name="21EC_0"><b>21EC</b></a> - INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS<br />
+<pre>
+INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS
+	AH = ECh
+Return: ES = segment of virtual screen
+Desc:	determine the address of the virtual screen to which the program
+	  should write instead of the actual video memory, so that the
+	  multitasked programs do not interfere with each other's output
+Notes:	screen address can change if task-switching is on!
+	identical to AH=FCh
+SeeAlso: INT 10/AH=FEh,AH=FCh"DoubleDOS",INT FC"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21EE_0" name="21EE_0"><b>21EE</b></a> - INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS<br />
+<pre>
+INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS
+	AH = EEh
+	AL = number of 55ms time slices to give away
+Return: returns after giving away time slices
+SeeAlso: AH=FEh"DoubleDOS",INT FE"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F0" name="21F0"><b>21F0</b></a> - INT 21 - DoubleDOS - MENU CONTROL<br />
+<pre>
+INT 21 - DoubleDOS - MENU CONTROL
+	AH = F0h
+	AL = subfunction
+	    01h exchange tasks
+	    73h resume invisible job if suspended
+	    74h kill other job
+	    75h suspend invisible job
+Note:	identical to AH=E0h
+SeeAlso: AH=E0h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F1_0" name="21F1_0"><b>21F1</b></a> - INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB<br />
+<pre>
+INT 21 - DoubleDOS - CLEAR KEYBOARD BUFFER FOR CURRENT JOB
+	AH = F1h
+SeeAlso: AH=E1h"DoubleDOS",AH=F2h"DoubleDOS",AH=F3h"DoubleDOS"
+SeeAlso: AH=F8h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F2_0" name="21F2_0"><b>21F2</b></a> - INT 21 - DoubleDOS - SEND CHARACTER TO KEYBOARD BUFFER OF OTHER JOB<br />
+<pre>
+INT 21 - DoubleDOS - SEND CHARACTER TO KEYBOARD BUFFER OF OTHER JOB
+	AH = F2h
+	AL = character
+Return: AL = status (see #02860 at INT 2F/AX=7A20h/BX=0000h)
+	    00h successful
+	    01h buffer full (128 characters)
+SeeAlso: AH=E2h"DoubleDOS",AH=F1h"DoubleDOS",AH=F3h"DoubleDOS"
+SeeAlso: AH=F8h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F3_0" name="21F3_0"><b>21F3</b></a> - INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB<br />
+<pre>
+INT 21 - DoubleDOS - ADD CHARACTER TO KEYBOARD BUFFER OF CURRENT JOB
+	AH = F3h
+	AL = character
+Return: AL = 00h successful
+	     01h buffer full (128 characters)
+SeeAlso: AH=E3h"DoubleDOS",AH=F1h"DoubleDOS",AH=F2h"DoubleDOS"
+SeeAlso: AH=F8h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F400" name="21F400"><b>21F400</b></a> - INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS<br />
+<pre>
+INT 21 - DoubleDOS - INSTALLATION CHECK/PROGRAM STATUS
+	AX = F400h
+Return: AL = program status
+	    00h if DoubleDOS not present
+	    01h if running in visible DoubleDOS partition
+	    02h if running in the invisible DoubleDOS partition
+SeeAlso: AX=E400h,AH=F5h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F5" name="21F5"><b>21F5</b></a> - INT 21 - DoubleDOS - OTHER PROGRAM STATUS<br />
+<pre>
+INT 21 - DoubleDOS - OTHER PROGRAM STATUS
+	AH = F5h
+Return: AL = program status
+	    00h no program in other partition
+	    01h program in other partition is running
+	    02h program in other partition is suspended
+SeeAlso: AH=E5h"DoubleDOS",AX=F400h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F8_0" name="21F8_0"><b>21F8</b></a> - INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS<br />
+<pre>
+INT 21 - DoubleDOS - SET/RESET KEYBOARD CONTROL FLAGS
+	AH = F8h
+	AL = program for which to set flags
+	    00h this program
+	    01h other program
+	DX = keyboard control flags (see #02088 at AH=E8h"DoubleDOS")
+Return: DX = previous flags
+Notes:	disabling Ctrl-PrtSc will allow the program to intercept the keystroke;
+	  disabling any of the other keystrokes disables them completely
+	this function is identical to AH=E8h
+SeeAlso: AH=E8h"DoubleDOS",AH=F1h"DoubleDOS",AH=F2h"DoubleDOS"
+SeeAlso: AH=F3h"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21F9_0" name="21F9_0"><b>21F9</b></a> - INT 21 - DoubleDOS - SET TIMESHARING PRIORITY<br />
+<pre>
+INT 21 - DoubleDOS - SET TIMESHARING PRIORITY
+	AH = F9h
+	AL = priority
+	    00h visible program gets 70%, invisible gets 30% (default)
+	    01h visible program gets 50%, invisible gets 50%
+	    02h visible program gets 30%, invisible gets 70%
+	    03h Top program gets 70%, bottom program gets 30%
+	    04h Top program gets 30%, bottom program gets 70%
+	    05h get current priority
+		Return: AL = priority setting
+Note:	identical to AH=E9h
+SeeAlso: AH=E9h"DoubleDOS",AH=FAh"DoubleDOS",AH=FBh"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FA_0" name="21FA_0"><b>21FA</b></a> - INT 21 - DoubleDOS - TURN OFF TASK SWITCHING<br />
+<pre>
+INT 21 - DoubleDOS - TURN OFF TASK SWITCHING
+	AH = FAh
+Return: task switching turned off
+SeeAlso: AH=EAh"DoubleDOS",AH=F9h"DoubleDOS",AH=FBh"DoubleDOS"
+SeeAlso: INT FA"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FB_0" name="21FB_0"><b>21FB</b></a> - INT 21 - DoubleDOS - TURN ON TASK SWITCHING<br />
+<pre>
+INT 21 - DoubleDOS - TURN ON TASK SWITCHING
+	AH = FBh
+Return: task switching turned on
+SeeAlso: AH=EBh"DoubleDOS",AH=F9h"DoubleDOS",AH=FAh"DoubleDOS"
+SeeAlso: INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FC_0" name="21FC_0"><b>21FC</b></a> - INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS<br />
+<pre>
+INT 21 - DoubleDOS - GET VIRTUAL SCREEN ADDRESS
+	AH = FCh
+Return: ES = segment of virtual screen
+Desc:	Determine the address of the virtual screen to which the program
+	  should write instead of the actual video memory, so that the
+	  multitasked programs do not interfere with each other's output.
+Notes:	screen address can change if task-switching is on!
+	identical to AH=ECh
+SeeAlso: AH=ECh"DoubleDOS",INT FC"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FE_0" name="21FE_0"><b>21FE</b></a> - INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS<br />
+<pre>
+INT 21 - DoubleDOS - GIVE AWAY TIME TO OTHER TASKS
+	AH = FEh
+	AL = number of 55ms time slices to give away
+Return: returns after giving away time slices
+SeeAlso: AH=EEh"DoubleDOS",INT FE"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2700" name="2F2700"><b>2F2700</b></a> - INT 2F - DR DOS 6.0 TaskMAX - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - INSTALLATION CHECK
+	AX = 2700h
+Return: AL = status
+	    00h not installed
+	    FFh installed
+Note:	the TaskMAX API is also supported by Novell DOS 7 TASKMGR in both
+	  taskswitching and multitasking modes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2701" name="2F2701"><b>2F2701</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET STATUS<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET STATUS
+	AX = 2701h
+Return: AX = maximum simultaneous tasks
+	BX = index into TASK_IDS of current foreground task
+	CX = currently-active tasks
+	DX = version number (DL = major, DH = minor)
+	    (DR DOS 6.0 = 0001h, Novell DOS 7 = 0002h)
+	ES:SI -&gt; TASK_IDS
+	ES:DI -&gt; name table (array of 8-byte names, NUL-terminated if &lt;8 chars)
+Notes:	do not attempt to create a new task if CX == AX
+	the task's index is its position on the task menu, while its ID is the
+	  position within the internal task name table
+SeeAlso: AX=2714h,AX=2716h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2702" name="2F2702"><b>2F2702</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET PER-TASK EMS LIMIT<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET PER-TASK EMS LIMIT
+	AX = 2702h
+Return: DX = maximum pages INT 67/AH=42h will report available
+Note:	TaskMAX does not limit EMS allocations other than by limiting the
+	  amount which is reported as being available at a given time
+SeeAlso: AX=2703h,INT 67/AH=42h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2703" name="2F2703"><b>2F2703</b></a> - INT 2F - DR DOS 6.0 TaskMAX - SET PER-TASK EMS LIMIT<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - SET PER-TASK EMS LIMIT
+	AX = 2703h
+	DX = maximum pages INT 67/AH=42h should report available
+Return: DX = new maximum for reporting
+Note:	the TaskMAX API is also supported by Novell DOS 7 TASKMGR in
+	  both taskswitching and multitasking modes
+SeeAlso: AX=2702h,INT 67/AH=42h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2704" name="2F2704"><b>2F2704</b></a> - INT 2F - DR DOS 6.0 TaskMAX - REGISTER/UNREGISTER TASK MANAGER<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - REGISTER/UNREGISTER TASK MANAGER
+	AX = 2704h
+	DL = subfunction
+	    00h unregister task manager
+	    01h register task manager
+Return: DL = status
+	    00h registered
+	    01h unregistered
+Notes:	a task manager replaces TaskMAX's menu system with its own user
+	  interface; while one is registered, the TaskMAX hotkeys and
+	  Ctrl-Alt-Del invoke the manager rather than the built-in menu system
+	unregister the task manager before terminating it
+SeeAlso: AX=2705h
+Index:	hotkeys;TaskMAX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2705" name="2F2705"><b>2F2705</b></a> - INT 2F - DR DOS 6.0 TaskMAX - ENABLE/DISABLE DIRECT SWITCHING<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - ENABLE/DISABLE DIRECT SWITCHING
+	AX = 2705h
+	DL = subfunction
+	    00h disable keystrokes for switching to next/prev/specified task
+	    01h enable
+Return: nothing
+Note:	should only be called by a registered task manager (see AX=2704h)
+SeeAlso: AX=2704h,AX=2706h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2706" name="2F2706"><b>2F2706</b></a> - INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO SPECIFIED TASK<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO SPECIFIED TASK
+	AX = 2706h
+	DX = task index (see AX=2701h) of task to be activated
+Return: DX = task index of previously-active task
+Note:	the TaskMAX API is also supported by Novell DOS 7 TASKMGR in
+	  both taskswitching and multitasking modes
+SeeAlso: AX=2705h,AX=2707h,AX=2715h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2707" name="2F2707"><b>2F2707</b></a> - INT 2F - DR DOS 6.0 TaskMAX - CREATE NEW TASK<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - CREATE NEW TASK
+	AX = 2707h
+	DS:DX -&gt; ASCIZ pathname of executable
+	ES:BX -&gt; parameter block (see #02738)
+	CX = number of ticks before automatic return to task manager
+		(0000h = run until termination or explicitly switched)
+Return: DX = new task's task index (FFFFh if task terminated)
+SeeAlso: AX=2706h,AX=2708h
+
+Format of TaskMAX parameter block:
+Offset	Size	Description	(Table 02738)
+ 00h	WORD	reserved, should be 0000h
+ 02h	DWORD	pointer to command tail to be copied into child's PSP
+ 06h	DWORD	pointer to first FCB to be copied into child's PSP
+ 0Ah	DWORD	pointer to second FCB to be copied into child's PSP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2708" name="2F2708"><b>2F2708</b></a> - INT 2F - DR DOS 6.0 TaskMAX - DELETE TASK<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - DELETE TASK
+	AX = 2708h
+	DX = task index
+Return: DX = FFFFh (task deleted)
+Notes:	this call should only be used for abnormal task termination, after
+	  first checking for open files with AX=270Ch; should not be used
+	  with programs that allocate EMS or XMS memory
+	switches to specified task first
+SeeAlso: AX=2707h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2709" name="2F2709"><b>2F2709</b></a> - INT 2F - DR DOS 6.0 TaskMAX - NAME TASK<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - NAME TASK
+	AX = 2709h
+	DX = task index
+	DS:SI -&gt; 8-byte name (8 NULs = remove name)
+Return: AL = task flags
+	    00h ID unused or task terminated
+	    01h ID in use, task name table entry valid
+	    81h ID in use, task name fixed
+	BX = task ID
+	ES:DI -&gt; name in task name table (see AX=2701h)
+Note:	the task retains the given name until it terminates or the name is
+	  removed by specifying a name of 8 NULs.
+SeeAlso: AX=2701h,AX=2707h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270A" name="2F270A"><b>2F270A</b></a> - INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK INDEX TO TASK ID<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK INDEX TO TASK ID
+	AX = 270Ah
+	DX = task index
+Return: DX = task ID (FFFFh if index invalid)
+Note:	task IDs stay constant, while indexes can change when other tasks are
+	  deleted
+SeeAlso: AX=2701h,AX=270Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270B" name="2F270B"><b>2F270B</b></a> - INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK ID TO TASK INDEX<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - CONVERT TASK ID TO TASK INDEX
+	AX = 270Bh
+	DX = task ID
+Return: DX = task index (FFFFh if task not active)
+Note:	the TaskMAX API is also supported by Novell DOS 7 TASKMGR in both
+	  taskswitching and multitasking modes
+SeeAlso: AX=270Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270C" name="2F270C"><b>2F270C</b></a> - INT 2F - DR DOS 6.0 TaskMAX - CHECK OPEN FILES<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - CHECK OPEN FILES
+	AX = 270Ch
+	DX = task index
+Return: AX = number of files currently open for specified task
+SeeAlso: AX=2708h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270D" name="2F270D"><b>2F270D</b></a> - INT 2F - DR DOS 6.0 TaskMAX - CHECK IF TASK RUNNING PRIMARY COMMAND INTERPRETER<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - CHECK IF TASK RUNNING PRIMARY COMMAND INTERPRETER
+	AX = 270Dh
+	DX = task index
+Return: DX = status
+	    0000h if primary command interpreter (COMMAND.COM, etc.) running
+	    0001h if not in root shell for task
+Note:	TaskMAX will return 0001h if the specified task has spawned another
+	  command interpreter with AX=2707h
+SeeAlso: AX=2707h,AX=270Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270E" name="2F270E"><b>2F270E</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET TEXT PASTE LEAD-IN<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET/SET TEXT PASTE LEAD-IN
+	AX = 270Eh
+	CX = length of string (max 15 keystrokes, 0000h to get current string)
+	DS:SI -&gt; pasting lead-in string (character/scan-code pairs)
+Return: ES:DI -&gt; current lead-in string
+Note:	the specified sequence of keystrokes is sent to the application before
+	  every line of a text-mode spreadsheet paste
+SeeAlso: AX=270Fh,AX=2710h,AX=2713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F270F" name="2F270F"><b>2F270F</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE LEAD-IN<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE LEAD-IN
+	AX = 270Fh
+	CX = length of string (max 15 keystrokes, 0000h to get current string)
+	DS:SI -&gt; pasting lead-in string (character/scan-code pairs)
+Return: ES:DI -&gt; current lead-in string
+Note:	the specified sequence of keystrokes is sent to the application before
+	  every number in a numeric-mode spreadsheet paste
+SeeAlso: AX=270Eh,AX=2710h,AX=2711h,AX=2713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2710" name="2F2710"><b>2F2710</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET PASTE LINE TERMINATOR STRING<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET/SET PASTE LINE TERMINATOR STRING
+	AX = 2710h
+	CX = length of string (max 15 keystrokes, 0000h to get current string)
+	DS:SI -&gt; pasting terminator string (character/scan-code pairs)
+Return: ES:DI -&gt; current terminator string
+Note:	the specified sequence of keystrokes is sent to the application after
+	  every line of a spreadsheet paste operation
+SeeAlso: AX=270Eh,AX=270Fh,AX=2713h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2711" name="2F2711"><b>2F2711</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE DECIMAL POINT<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET/SET NUMERIC PASTE DECIMAL POINT
+	AX = 2711h
+	DX = ASCII code for separator (FFFFh to get current)
+Return: DL = current separator character
+SeeAlso: AX=270Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2712" name="2F2712"><b>2F2712</b></a> - INT 2F - DR DOS 6.0 TaskMAX - INITIATE EXPORTING TASK DATA<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - INITIATE EXPORTING TASK DATA
+	AX = 2712h
+	DX = task index
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2713" name="2F2713"><b>2F2713</b></a> - INT 2F - DR DOS 6.0 TaskMAX - INITIATE PASTE OPERATION<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - INITIATE PASTE OPERATION
+	AX = 2713h
+	DX = task index
+	CX = paste mode
+	    0000h alphanumeric
+	    0001h numeric
+	    0002h text
+SeeAlso: AX=270Eh,AX=270Fh,AX=2710h,AX=2711h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2714" name="2F2714"><b>2F2714</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET SWAP SPACE INFO<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET SWAP SPACE INFO
+	AX = 2714h
+Return: CX = total KB of swap space
+	DX = available KB of swap space
+Note:	the TaskMAX API is also supported by Novell DOS 7 TASKMGR in both
+	  taskswitching and multitasking modes
+SeeAlso: AX=2701h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2715" name="2F2715"><b>2F2715</b></a> - INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO TASK MANAGER<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - SWITCH TO TASK MANAGER
+	AX = 2715h
+Return: only after calling task is again selected
+SeeAlso: AX=2706h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2716" name="2F2716"><b>2F2716</b></a> - INT 2F - DR DOS 6.0 TaskMAX - GET PASTE BUFFER STATUS<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - GET PASTE BUFFER STATUS
+	AX = 2716h
+Return: AX = 0000h if AX=2716h,AX=2717h,AX=2718h supported
+	    CX = bytes in paste buffer
+	    DX = current generation number (updated after every copy operation)
+BUG:	Novell DOS 7 TASKMGR returns AX=0000h even though it does not support
+	  this call (it does support the remainder of the TaskMAX API)
+SeeAlso: AX=2701h,AX=2713h,AX=2714h,AX=2717h,AX=2718h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2717" name="2F2717"><b>2F2717</b></a> - INT 2F - DR DOS 6.0 TaskMAX - PASTE DATA DIRECTLY TO APPLICATION BUFFER<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - PASTE DATA DIRECTLY TO APPLICATION BUFFER
+	AX = 2717h
+	CX = bytes in destination buffer
+	ES:DI -&gt; destination buffer
+Return: AX = 0000h if function supported
+	    CX = bytes actually copied (FFFFh if buffer too small)
+	    DX = current generation number for paste buffer
+BUG:	Novell DOS 7 TASKMGR returns AX=0000h even though it does not support
+	  this call (it does support the remainder of the TaskMAX API)
+Note:	the destination buffer may be too small if another task adds more data
+	  to the paste buffer after the AX=2716h call but before this call
+SeeAlso: AX=2713h,AX=2716h,AX=2718h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2718" name="2F2718"><b>2F2718</b></a> - INT 2F - DR DOS 6.0 TaskMAX - COPY DATA DIRECTLY INTO PASTE BUFFER<br />
+<pre>
+INT 2F - DR DOS 6.0 TaskMAX - COPY DATA DIRECTLY INTO PASTE BUFFER
+	AX = 2718h
+	CX = bytes in source buffer
+	DS:SI -&gt; source buffer (plain ASCII, lines terminated with CR LF)
+Return: AX = 0000h if function supported
+	    CX = bytes actually copied
+	    DX = current generation number for paste buffer
+BUG:	Novell DOS 7 TASKMGR returns AX=0000h even though it does not support
+	  this call (it does support the remainder of the TaskMAX API)
+SeeAlso: AX=2712h,AX=2716h,AX=2717h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2719" name="2F2719"><b>2F2719</b></a> - INT 2F - Novell DOS 7 TaskMGR - NOP<br />
+<pre>
+INT 2F - Novell DOS 7 TaskMGR - NOP
+	AX = 2719h to 271Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F271C" name="2F271C"><b>2F271C</b></a> - INT 2F U - Novell DOS 7 TaskMGR - ???<br />
+<pre>
+INT 2F U - Novell DOS 7 TaskMGR - ???
+	AX = 271Ch
+	DX = ???
+	    bit 0: ???
+Return: ???
+	---if DX bit 0 set---
+	AX = 0031h
+	CX = 0000h
+BUG:	if the task switcher is running, and DX bit 0 is set on call, this
+	  function will crash because its exit code attempts to pop several
+	  registers which are not pushed when DX bit 0 is set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2781" name="2F2781"><b>2F2781</b></a> - INT 2F U - Novell DOS 7 TaskMGR - BEGIN CRITICAL SECTION???<br />
+<pre>
+INT 2F U - Novell DOS 7 TaskMGR - BEGIN CRITICAL SECTION???
+	AX = 2781h
+Return: ???
+SeeAlso: AX=2782h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2782" name="2F2782"><b>2F2782</b></a> - INT 2F U - Novell DOS 7 TaskMGR - END CRITICAL SECTION???<br />
+<pre>
+INT 2F U - Novell DOS 7 TaskMGR - END CRITICAL SECTION???
+	AX = 2782h
+Return: ???
+SeeAlso: AX=2781h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F278F" name="2F278F"><b>2F278F</b></a> - INT 2F U - Novell DOS 7 TaskMGR - ??? API<br />
+<pre>
+INT 2F U - Novell DOS 7 TaskMGR - ??? API
+	AX = 278Fh
+	as for INT 2F/AX=2780h
+Return: as for INT 2F/AX=2780h
+Note:	Novell DOS 7 TaskMGR passes this call through to INT 2F/AX=2780h
+	  without changing any other registers
+SeeAlso: AX=2780h/CL=01h,AX=2782h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A05" name="2F4A05"><b>2F4A05</b></a> - INT 2F U - DOS 5+ DOSSHELL - TASK SWITCHING API???<br />
+<pre>
+INT 2F U - DOS 5+ DOSSHELL - TASK SWITCHING API???
+	AX = 4A05h
+	SI = function
+	    0000h reset???
+	    0001h ???
+		ES:BP -&gt; 80-byte buffer containing ???
+	    0002h ???
+	    0003h ???
+	    0004h ???
+		BL = ???
+	    0005h ???
+	    0006h get ???
+		Return: ES:SI -&gt; ???
+	    0007h get ???
+		Return: AX = ???
+	    0008h get ???
+		Return: DX:AX -&gt; ??? (internal control data of some kind)
+	    0009h get ???
+		Return: ES:SI -&gt; ??? (apparently identical to function 0006h)
+	    000Ah ???
+		BL = length of buffer
+		ES:BP -&gt; buffer containing ???
+	    000Bh get ???
+		Return: AX = ???
+	    000Ch ???
+		BL = ???
+		Return: if BL nonzero on entry
+			    DX:AX -&gt; ???
+			if BL = 00h on entry
+			    ES:SI -&gt; ???
+Notes:	DOSSHELL chains to the previous handler if SI is not one of the values
+	  listed above
+	the DOSSWAP.EXE module calls functions 03h,04h,05h,07h,08h,09h,0Ch
+	the Windows 3.1 DSWAP.EXE and WSWAP.EXE task switchers use these calls
+SeeAlso: AX=4B01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B01" name="2F4B01"><b>2F4B01</b></a> - INT 2F C - DOS 5+ TASK SWITCHER - BUILD CALLOUT CHAIN<br />
+<pre>
+INT 2F C - DOS 5+ TASK SWITCHER - BUILD CALLOUT CHAIN
+	AX = 4B01h
+	CX:DX -&gt; task switcher entry point (see #02819)
+	ES:BX = 0000h:0000h
+Return: ES:BX -&gt; callback info structure (see #02817) or 0000h:0000h
+Notes:	called by the task switcher
+	this function is hooked by clients which require notification of task
+	  switcher activities; the call must first be passed on to the prior
+	  handler with registers unchanged using a simulated interrupt.	 On
+	  return, the client must build a callback info structure and store
+	  the returned ES:BX in the "next" field, then return the address of
+	  its own callback info structure.
+	a client program must add itself to the notification chain if it
+	  provides services to other programs; before terminating, it must
+	  remove itself from the chain by calling the task switcher's entry
+	  point with AX=0005h (see #02819)
+	the task switcher entry point should not be saved, as it is subject to
+	  change and will be provided on any notification call
+	the Windows 3.1 Standard Mode supports this API
+SeeAlso: AX=160Bh,AX=4B02h
+
+Format of task switcher callback info structure:
+Offset	Size	Description	(Table 02817)
+ 00h	DWORD	pointer to next callback info structure
+ 04h	DWORD	pointer to notification function (see #02818)
+ 08h	DWORD	reserved
+ 0Ch	DWORD	address of zero-terminated list of API info structures
+		(see #02821)
+
+(Table 02818)
+Values task switcher notification function is called with:
+	AX = function
+	    0000h switcher initialization
+		Return: AX = status
+			    0000h if OK to load
+			    nonzero to abort task switcher
+	    0001h query suspend
+		BX = session ID
+		Return: AX = status
+			    0000h if OK to switch session
+			    0001h if not
+	    0002h suspend session
+		BX = session ID
+		interrupts disabled
+		Return: AX = 0000h if OK to switch session
+			   = 0001h if not
+	    0003h activate session
+		BX = session ID
+		CX = session status flags
+			bit 0: set if first activation of session
+			bits 1-15: reserved (0)
+		interrupts disabled
+		Return: AX = 0000h
+	    0004h session active
+		BX = session ID
+		CX = session status flags
+			bit 0: set if first activation of session
+			bits 1-15: reserved (0)
+		Return: AX = 0000h
+	    0005h create session
+		BX = session ID
+		Return: AX = 0000h if OK to create session
+			   = 0001h if not
+	    0006h destroy session
+		BX = session ID
+		Return: AX = 0000h
+	    0007h switcher termination
+		BX = flags
+		    bit 0: set if calling switcher is only switcher loaded
+		    bits 1-15: reserved (0)
+		Return: AX = 0000h
+	ES:DI -&gt; task switcher entry point (see #02819)
+Notes:	function 0000h is generally called by the program which controls or
+	  invokes the task switcher, rather than by the task switcher itself;
+	  the entry point supplied to this function is not necessarily the
+	  entry point to the task switcher itself, and may be 0000h:0000h.  If
+	  any client indicates that loading is not possible, all clients will
+	  be called with function 0007h; thus it is possible for a client to
+	  receive a termination notice without a corresponding initialization
+	  notice.
+	except for functions 0002h and 0003h, the notification handler is
+	  called with interrupts enabled and may make any INT 21h function
+	  call; interrupts must not be enabled in functions 0002h and 0003h
+	function 0007h may be called with ES:DI = 0000h:0000h if the entry
+	  point is no longer valid
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B02BX0000" name="2F4B02BX0000"><b>2F4B02BX0000</b></a> - INT 2F - DOS 5+ TASK SWITCHER - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DOS 5+ TASK SWITCHER - INSTALLATION CHECK
+	AX = 4B02h
+	BX = 0000h
+	ES:DI = 0000h:0000h
+Return: ES:DI = 0000h:0000h if task switcher not loaded
+	ES:DI -&gt; task switcher entry point (see #02819) if loaded
+	    AX = 0000h
+Notes:	the returned entry point is that for the most-recently loaded task
+	  switcher; the entry points for prior task switchers may be determined
+	  with the "get version" call (see #02819)
+	this function is supported by PC Tools v8+ CPTASK
+SeeAlso: AX=4A05h,AX=4B03h
+
+(Table 02819)
+Call task switcher entry point with:
+	AX = 0000h get version
+		Return: CF clear if successful
+			    AX = 0000h
+			    ES:BX -&gt; task switcher version struct (see #02820)
+			CF set if unsupported function
+	AX = 0001h test memory region
+		ES:DI -&gt; first byte to be tested
+		CX = size of region to test
+		Return: CF clear if successful
+			    AX = memory type of tested region
+				0000h global
+				0001h global and local
+				0002h local (replaced on session switch)
+			CF set if unsupported function
+	AX = 0002h suspend switcher
+		ES:DI -&gt; new task switcher's entry point
+		Return: CF clear if successful
+			    AX = state
+				0000h switcher has been suspended
+				0001h switcher not suspended, new switcher must
+					abort
+				0002h switcher not suspended, but new switcher
+					may run anyway
+			CF set if unsupported function
+	AX = 0003h resume switcher
+		ES:DI -&gt; new task switcher's entry point
+		Return: CF clear if successful
+			    AX = 0000h
+			CF set if unsupported function
+	AX = 0004h hook notification chain
+		ES:DI -&gt; callback info structure to be added to chain
+			  (see #02817)
+		Return: CF clear if successful
+			    AX = 0000h
+			CF set if unsupported function
+	AX = 0005h unhook notification chain
+		ES:DI -&gt; callback info structure to be removed from chain
+			  (see #02817)
+		Return: CF clear if successful
+			    AX = 0000h
+			CF set if unsupported function
+	AX = 0006h query API support
+		BX = asynchronous API identifier
+		Return: CF clear if successful
+			    AX = 0000h
+			    ES:BX -&gt; API info structure (see #02821) for the
+				      client which provides the highest
+				      level of API support
+			CF set if unsupported function
+
+Format of task switcher version structure:
+Offset	Size	Description	(Table 02820)
+ 00h	WORD	major version of supported protocol  (current protocol is 1.0)
+ 02h	WORD	minor version of supported protocol
+ 04h	WORD	major version of task switcher
+ 06h	WORD	minor version of task switcher
+ 08h	WORD	task switcher ID (see AX=4B03h)
+ 0Ah	WORD	operation flags
+		bit 0: set if task switcher disabled
+		bits 1-15: reserved (0)
+ 0Ch	DWORD	pointer to ASCIZ task switcher name
+		("MS-DOS Shell Task Switcher" for DOSSHELL task switcher)
+ 10h	DWORD	pointer to previous task switcher's entry point or 0000h:0000h
+
+Format of API info structure:
+Offset	Size	Description	(Table 02821)
+ 00h	WORD	size of structure in bytes (000Ah)
+ 02h	WORD	API identifier
+		0001h NetBIOS
+		0002h 802.2
+		0003h TCP/IP
+		0004h LAN Manager named pipes
+		0005h Novell NetWare IPX
+ 04h	WORD	major version \ of highest version of API for which the support
+ 06h	WORD	minor version / level specified in the next field is provided
+ 08h	WORD	support level
+		0001h minimal support
+		0002h API-level support
+		0003h switcher compatibility
+		0004h seamless compatibility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B03" name="2F4B03"><b>2F4B03</b></a> - INT 2F - DOS 5+ TASK SWITCHER - ALLOCATE SWITCHER ID<br />
+<pre>
+INT 2F - DOS 5+ TASK SWITCHER - ALLOCATE SWITCHER ID
+	AX = 4B03h
+	ES:DI -&gt; task switcher entry point (see #02819)
+Return: AX = 0000h
+	BX = switcher ID (0001h-000Fh), or 0000h if no more available
+Notes:	if a task switcher has determined that it is the first to be loaded, it
+	  must allocate an identifier for itself and provide this function to
+	  all subsequent task switchers; if it is not the first to be loaded,
+	  it must call this function to allocate an ID.	 The switcher ID is
+	  used as the high four bits of all session identifiers to ensure
+	  unique session IDs.
+	if no more switcher IDs are available, the new task switcher making the
+	  call must terminate or disable itself
+	the task switcher providing the identifiers may call the new task
+	  switcher's entry point as needed
+	this call is available from within DOSSHELL even if the task switcher
+	  is not installed
+	this function is supported by PC Tools v8+ CPTASK, but appears to
+	  always return an ID of 0000h
+SeeAlso: AX=4B02h,AX=4B04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B04" name="2F4B04"><b>2F4B04</b></a> - INT 2F - DOS 5+ TASK SWITCHER - FREE SWITCHER ID<br />
+<pre>
+INT 2F - DOS 5+ TASK SWITCHER - FREE SWITCHER ID
+	AX = 4B04h
+	BX = switcher ID
+	ES:DI -&gt; task switcher entry point (see #02819)
+Return: AX = 0000h
+	BX = status
+	    0000h successful
+	    other error (invalid ID or ID not allocated)
+Notes:	called by a task switcher when it exits, unless it was the first loaded
+	  and is providing the support for AX=4B03h and AX=4B04h
+	the task switcher providing the identifiers may call the terminating
+	  task switcher's entry point as needed
+	this call is available from within DOSSHELL even if the task switcher
+	  is not installed
+	this call is supported by PC Tools v8+ CPTASK, but appears to return
+	  sucessfully no matter which ID is given
+SeeAlso: AX=4B02h,AX=4B03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B05" name="2F4B05"><b>2F4B05</b></a> - INT 2F C - DOS 5+ TASK SWITCHER - IDENTIFY INSTANCE DATA<br />
+<pre>
+INT 2F C - DOS 5+ TASK SWITCHER - IDENTIFY INSTANCE DATA
+	AX = 4B05h
+	ES:BX = 0000h:0000h
+	CX:DX -&gt; task switcher entry point (see #02819)
+Return: ES:BX -&gt; startup info structure (see #02822) or 0000h:0000h
+Notes:	called by task switcher
+	clients with instance data should hook this call, pass it through to
+	  the previous handler with unchanged registers using a simulated
+	  interrupt.  On return, the client should create a startup info
+	  structure (see #02822), store the returned ES:BX in the "next"
+	  field, and return the address of the created structure in ES:BX
+	all MS-DOS function calls are available from within this call
+	this function is supported by Novell DOS 7 DOSKEY, with structure v3.00
+SeeAlso: AX=1605h,AX=160Bh,AX=4B02h
+
+Format of task switcher startup info structure:
+Offset	Size	Description	(Table 02822)
+ 00h  2 BYTEs	major, minor version of info structure (03h,00h)
+ 02h	DWORD	pointer to next startup info structure or 0000h:0000h
+ 06h	DWORD	0000h:0000h (ignored)
+ 0Ah	DWORD	ignored
+ 0Eh	DWORD	pointer to instance data records (see #02823)
+
+Format of one instance data record in array:
+Offset	Size	Description	(Table 02823)
+ 00h	DWORD	address of instance data (end of array if 0000h:0000h)
+ 04h	WORD	size of instance data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD600_0" name="2FD600_0"><b>2FD600</b></a> - INT 2F U - VEDIT VSWAP - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - VEDIT VSWAP - INSTALLATION CHECK
+	AX = D600h
+Return: AL = D6h if installed
+Program: VSWAP is the resident portion of VEDIT's "swapper" capability; VEDIT
+	  is a programmer's text editor by Greenview Data.
+SeeAlso: AX=D601h,AX=D602h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD601" name="2FD601"><b>2FD601</b></a> - INT 2F U - VEDIT VSWAP - ???<br />
+<pre>
+INT 2F U - VEDIT VSWAP - ???
+	AX = D601h
+	BL = subfunction number???
+Return: BL = return code ???
+	ES = resident portion's data??? segment
+	DX = resident portion's code segment
+SeeAlso: AX=D600h"VSWAP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD602" name="2FD602"><b>2FD602</b></a> - INT 2F U - VEDIT VSWAP - EXEC PROGRAM WITH SWAP<br />
+<pre>
+INT 2F U - VEDIT VSWAP - EXEC PROGRAM WITH SWAP
+	AX = D602h
+	other registers set as for INT 21/AX=4B00h
+Return: CF set on error
+	    AL = error code
+		82h = failure due to ???
+	CF clear on success
+SeeAlso: AX=D600h"VSWAP",INT 21/AH=4Bh"EXEC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF1_0" name="2FF1_0"><b>2FF1</b></a> - INT 2F U - RTKernel v4.0 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - RTKernel v4.0 - INSTALLATION CHECK
+	AH = F1h
+	AL = 00h
+Return: AX = FFFFh if present
+	    CX = 00F1h
+Program: RTKernel is a DOS preemptive multitasking library for C/Pascal by
+	  On Time Informatik GmbH
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE6" name="33FFE6"><b>33FFE6</b></a> - INT 33 - Switch-It v3.23 - GET ??? PROGRAM<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ??? PROGRAM
+	AX = FFE6h
+	CX = length of buffer
+	ES:DI -&gt; buffer for program name
+Return: ES:DI buffer filled
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE7" name="33FFE7"><b>33FFE7</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFE7h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE8" name="33FFE8"><b>33FFE8</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFE8h
+	CX = length of name including terminating NUL
+	DS:SI -&gt; ASCIZ program pathname
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE9" name="33FFE9"><b>33FFE9</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFE9h
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEA" name="33FFEA"><b>33FFEA</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFEAh
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEB" name="33FFEB"><b>33FFEB</b></a> - INT 33 - Switch-It v3.23 - SET ??? FLAG<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ??? FLAG
+	AX = FFEBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEC" name="33FFEC"><b>33FFEC</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFECh
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFED" name="33FFED"><b>33FFED</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEDh
+Return: AX = ??? (0001h)
+	BX = ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEE" name="33FFEE"><b>33FFEE</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEEh
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEF" name="33FFEF"><b>33FFEF</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEFh
+Return: BX:AX -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF0" name="33FFF0"><b>33FFF0</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFF0h
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF1" name="33FFF1"><b>33FFF1</b></a> - INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE
+	AX = FFF1h
+Return: BX:AX -&gt; ASCIZ pathname of configuration file
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF2" name="33FFF2"><b>33FFF2</b></a> - INT 33 - Switch-It v3.23 - SET ??? FLAG<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ??? FLAG
+	AX = FFF2h
+Return: AL = 01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF3" name="33FFF3"><b>33FFF3</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF3h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF4" name="33FFF4"><b>33FFF4</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFF4h
+	BX = ???
+	CX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF5" name="33FFF5"><b>33FFF5</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF5h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF6" name="33FFF6"><b>33FFF6</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF6h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF7" name="33FFF7"><b>33FFF7</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF7h
+	BX = index of ???
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF8" name="33FFF8"><b>33FFF8</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFF8h
+	BX = ???
+	CX = length of program name, including terminating NUL
+	DS:SI -&gt; ASCIZ program pathname
+Return: ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF9" name="33FFF9"><b>33FFF9</b></a> - INT 33 - Switch-It v3.23 - NOP<br />
+<pre>
+INT 33 - Switch-It v3.23 - NOP
+	AX = FFF9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFA" name="33FFFA"><b>33FFFA</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFFAh
+	BX = index of program
+SeeAlso: AX=FFFBh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFB" name="33FFFB"><b>33FFFB</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFFBh
+	BX = index of program
+Return: AX = ??? (0000h or 0001h)
+SeeAlso: AX=FFFAh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFC" name="33FFFC"><b>33FFFC</b></a> - INT 33 - Switch-It v3.23 - CLEAR ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - CLEAR ???
+	AX = FFFCh
+	BX = index of program
+SeeAlso: AX=FFFAh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFD" name="33FFFD"><b>33FFFD</b></a> - INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???
+	AX = FFFDh
+Return: AX = first available segment???
+	BX = paragraph of top of conventional memory
+	DX = PSP segment of SI.EXE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFE" name="33FFFE"><b>33FFFE</b></a> - INT 33 - Switch-It v3.23 - INSTALLATION CHECK<br />
+<pre>
+INT 33 - Switch-It v3.23 - INSTALLATION CHECK
+	AX = FFFEh
+Return: BX = ???
+	DX = 5349h ("SI")
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFF" name="33FFFF"><b>33FFFF</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFFFh
+	BX = ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6201" name="6201"><b>6201</b></a> - INT 62 - Cswitch - GIVE UP REST OF TIME-SLICE<br />
+<pre>
+INT 62 - Cswitch - GIVE UP REST OF TIME-SLICE
+	AH = 01h
+Program: Cswitch is a set of multitasking functions by Herb Rose
+SeeAlso: AH=05h"Cswitch",AH=06h"Cswitch",INT 15/AX=1000h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6202" name="6202"><b>6202</b></a> - INT 62 - Cswitch - WAIT FOR SEMAPHORE<br />
+<pre>
+INT 62 - Cswitch - WAIT FOR SEMAPHORE
+	AH = 02h
+	DX = semaphore number (0-63)
+Return: AX = FFFFh bad semaphore number
+	     else  success
+SeeAlso: AH=03h"Cswitch",AH=04h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6203" name="6203"><b>6203</b></a> - INT 62 - Cswitch - CHECK SEMAPHORE<br />
+<pre>
+INT 62 - Cswitch - CHECK SEMAPHORE
+	AH = 03h
+	DX = semaphore number (0-63)
+Return: AX = status
+	    FFFFh not owned
+	    else  owned
+SeeAlso: AH=02h,AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6204" name="6204"><b>6204</b></a> - INT 62 - Cswitch - TRIGGER SEMAPHORE<br />
+<pre>
+INT 62 - Cswitch - TRIGGER SEMAPHORE
+	AH = 04h
+	DX = semaphore number (0-63)
+Return: AX = status
+	    FFFFh bad semaphore number
+	    else  success
+SeeAlso: AH=02h"Cswitch",AH=03h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6205" name="6205"><b>6205</b></a> - INT 62 - Cswitch - SLEEP<br />
+<pre>
+INT 62 - Cswitch - SLEEP
+	AH = 05h
+	BX = seconds to sleep
+SeeAlso: AH=01h"Cswitch",AH=06h"Cswitch",AH=08h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6206" name="6206"><b>6206</b></a> - INT 62 - Cswitch - SUSPEND<br />
+<pre>
+INT 62 - Cswitch - SUSPEND
+	AH = 06h
+SeeAlso: AH=05h"Cswitch",AH=08h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6207" name="6207"><b>6207</b></a> - INT 62 - Cswitch - SPAWN<br />
+<pre>
+INT 62 - Cswitch - SPAWN
+	AH = 07h
+	ES:BX -&gt; function address to start executing at
+	CX = priority (1-10)
+Return: AX = result/status
+	    FFFDh  no free memory control blocks
+	    FFFEh  no free task control blocks
+	    FFFFh  not enough memory to create new task stack
+	    &gt;0	   the tcb number of the new task, indicating no error
+SeeAlso: AH=0Fh"Cswitch",AH=10h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6208" name="6208"><b>6208</b></a> - INT 62 - Cswitch - WAKE UP TASK<br />
+<pre>
+INT 62 - Cswitch - WAKE UP TASK
+	AH = 08h
+	BX = tcb identifier
+SeeAlso: AH=05h,AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6209" name="6209"><b>6209</b></a> - INT 62 - Cswitch - SET PRIORITY<br />
+<pre>
+INT 62 - Cswitch - SET PRIORITY
+	AH = 09h
+	BX = new base priority (1-10)
+Note:	the lower the priority is numerically, the more often the task will run
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620A" name="620A"><b>620A</b></a> - INT 62 - Cswitch - TEST MESSAGE QUEUE<br />
+<pre>
+INT 62 - Cswitch - TEST MESSAGE QUEUE
+	AH = 0Ah
+	DX = queue number (0-63)
+Return: AX = result/message size
+	    0000h nothing on queue
+	    FFFFh bad queue number
+	    else  number of bytes in first message in queue
+SeeAlso: AH=0Bh"Cswitch",AH=0Ch"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620B" name="620B"><b>620B</b></a> - INT 62 - Cswitch - SEND MESSAGE<br />
+<pre>
+INT 62 - Cswitch - SEND MESSAGE
+	AH = 0Bh
+	CX = number of bytes to write
+	DS:SI -&gt; buffer
+	DX = queue number (0-63)
+Return: AX = result/message size
+	    0000h no message was on queue
+	    FFFEh triggered by something arriving, redo the call
+	    FFFFh bad queue number
+	    else  number of bytes in message
+SeeAlso: AH=0Ah"Cswitch",AH=0Ch"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620C" name="620C"><b>620C</b></a> - INT 62 - Cswitch - READ MESSAGE<br />
+<pre>
+INT 62 - Cswitch - READ MESSAGE
+	AH = 0Ch
+	CX = number of bytes to read
+	DS:SI -&gt; buffer
+	DX = queue number (0-63)
+Return: AX = status
+	    FFFFh bad queue number
+	    else  number of bytes transferred
+SeeAlso: AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620D" name="620D"><b>620D</b></a> - INT 62 - Cswitch - DON'T ALLOW TASK TO BE SWAPPED OUT<br />
+<pre>
+INT 62 - Cswitch - DON'T ALLOW TASK TO BE SWAPPED OUT
+	AH = 0Dh
+SeeAlso: AH=0Eh"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620E" name="620E"><b>620E</b></a> - INT 62 - Cswitch - ALLOW TASK TO BE SWAPPED OUT<br />
+<pre>
+INT 62 - Cswitch - ALLOW TASK TO BE SWAPPED OUT
+	AH = 0Eh
+SeeAlso: AH=0Dh"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#620F" name="620F"><b>620F</b></a> - INT 62 - Cswitch - LOAD AND RUN PROGRAM FROM DISK<br />
+<pre>
+INT 62 - Cswitch - LOAD AND RUN PROGRAM FROM DISK
+	AH = 0Fh
+	ES:BX -&gt; command line
+	CX = priority (1-10)
+	DX = background flag (nonzero allows loading to EMS)
+Return: AX = status
+	    0000h task loader queue is full
+	    0001h  no error
+SeeAlso: AH=07h"Cswitch",AH=10h"Cswitch",AH=13h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6210" name="6210"><b>6210</b></a> - INT 62 - Cswitch - TERMINATE SPAWNED PROGRAM<br />
+<pre>
+INT 62 - Cswitch - TERMINATE SPAWNED PROGRAM
+	AH = 10h
+SeeAlso: AH=07h"Cswitch",AH=0Fh"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6211" name="6211"><b>6211</b></a> - INT 62 - Cswitch - GET TCB INFORMATION<br />
+<pre>
+INT 62 - Cswitch - GET TCB INFORMATION
+	AH = 11h
+	ES:BX -&gt; a pointer which will be set to the tcb address
+Return: AX = tcb indentifier
+SeeAlso: AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6212" name="6212"><b>6212</b></a> - INT 62 - Cswitch - GET TCB ADDRESS<br />
+<pre>
+INT 62 - Cswitch - GET TCB ADDRESS
+	AH = 12h
+	ES:BX -&gt; a pointer which will be set to the tcb table address
+Return: AX = tcb indentifier
+SeeAlso: AH=11h"Cswitch"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6213" name="6213"><b>6213</b></a> - INT 62 - Cswitch - CHECK STATUS OF PREVIOUS LOAD_TASK<br />
+<pre>
+INT 62 - Cswitch - CHECK STATUS OF PREVIOUS LOAD_TASK
+	AH = 13h
+Return: AX = result
+	    FFFCh no Memory Control Blocks available
+	    FFFDh no TCBs available
+	    FFFEh insufficient memory
+	    FFFFh cannot open file
+	    0000h load in progress (not done yet)
+	    else  tcb indentifier
+SeeAlso: AH=0Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F00_0" name="7F00_0"><b>7F00</b></a> - INT 7F - MultiLink Advanced v1.0+ - ENQUEUE SYSTEM RESOURCE<br />
+<pre>
+INT 7F - MultiLink Advanced v1.0+ - ENQUEUE SYSTEM RESOURCE
+	AH = 00h
+	BX = resource identifier
+	AL = wait flag
+Return: AL = status
+	    00h successful
+	    01h resource not available
+	    02h user error
+InstallCheck:	ensure that the interrupt vector is not pointing at segment
+	  0000h, then test whether the byte at offset 0000h in the interrupt
+	  handler's segment is E9h
+Notes:	function will not return until the resource is available if AL is
+	  nonzero on entry
+	a maximum of 100 resources may be enqueued at once
+SeeAlso: AH=01h"MultiLink"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F01_0" name="7F01_0"><b>7F01</b></a> - INT 7F - MultiLink Advanced v1.0+ - DEQUEUE SYSTEM RESOURCE<br />
+<pre>
+INT 7F - MultiLink Advanced v1.0+ - DEQUEUE SYSTEM RESOURCE
+	AH = 01h
+	BX = resource identifier
+Return: AL = status
+	    00h successful
+	    02h user error
+Note:	the indicated resource may be dequeued even if it was enqueued by
+	  another task
+SeeAlso: AH=00h"MultiLink",AH=02h"MultiLink"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F02_0" name="7F02_0"><b>7F02</b></a> - INT 7F - MultiLink Advanced v1.0+ - RELEASE CPU<br />
+<pre>
+INT 7F - MultiLink Advanced v1.0+ - RELEASE CPU
+	AH = 02h
+Return: ???
+Desc:	yields CPU to other tasks
+SeeAlso: AH=00h"MultiLink",AH=09h"MultiLink",INT 15/AX=1000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F09" name="7F09"><b>7F09</b></a> - INT 7F - MultiLink Advanced v1.0+ - SET TASK PRIORITY<br />
+<pre>
+INT 7F - MultiLink Advanced v1.0+ - SET TASK PRIORITY
+	AH = 09h
+	AL = priority (0-7)
+Return: nothing
+InstallCheck:	ensure that the interrupt vector is not pointing at segment
+	  0000h, then test whether the byte at offset 0000h in the interrupt
+	  handler's segment is E9h
+Index:	installation check;MultiLink Advanced
+SeeAlso: AH=00h"MultiLink",AH=0Ah"MultiLink"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F0A_0" name="7F0A_0"><b>7F0A</b></a> - INT 7F - MultiLink Advanced v1.0+ - SET KEYBOARD TEST STATUS<br />
+<pre>
+INT 7F - MultiLink Advanced v1.0+ - SET KEYBOARD TEST STATUS
+	AH = 0Ah
+	AL = task-switch status
+	    00h normal (disable task when it repeatedly polls keyboard)
+	    01h disable task until keyboard input available
+	    FFh never disable task
+Return: ???
+SeeAlso: AH=09h"MultiLink"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F4_0" name="F4_0"><b>F4</b></a> - INT F4 - DoubleDOS - GIVE UP REST OF CURRENT CLOCK TICK AND ALL OF NEXT TICK<br />
+<pre>
+INT F4 - DoubleDOS - GIVE UP REST OF CURRENT CLOCK TICK AND ALL OF NEXT TICK
+SeeAlso: INT 21/AH=EEh"DoubleDOS",INT F5"DoubleDOS",INT FE"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F5_0" name="F5_0"><b>F5</b></a> - INT F5 - DoubleDOS - ???<br />
+<pre>
+INT F5 - DoubleDOS - ???
+SeeAlso: INT F4"DoubleDOS",INT F6"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F6_0" name="F6_0"><b>F6</b></a> - INT F6 - DoubleDOS - ???<br />
+<pre>
+INT F6 - DoubleDOS - ???
+SeeAlso: INT F5"DoubleDOS",INT F7"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F7_0" name="F7_0"><b>F7</b></a> - INT F7 - DoubleDOS - ???<br />
+<pre>
+INT F7 - DoubleDOS - ???
+SeeAlso: INT F6"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F8_1" name="F8_1"><b>F8</b></a> - INT F8 - DoubleDOS - ???<br />
+<pre>
+INT F8 - DoubleDOS - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F9_0" name="F9_0"><b>F9</b></a> - INT F9 - DoubleDOS - ???<br />
+<pre>
+INT F9 - DoubleDOS - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_1" name="FA_1"><b>FA</b></a> - INT FA - DoubleDOS - TURN OFF TIMESHARING<br />
+<pre>
+INT FA - DoubleDOS - TURN OFF TIMESHARING
+SeeAlso: INT 21/AH=EAh"DoubleDOS",INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FB_1" name="FB_1"><b>FB</b></a> - INT FB - DoubleDOS - TURN ON TIMESHARING<br />
+<pre>
+INT FB - DoubleDOS - TURN ON TIMESHARING
+SeeAlso: INT 21/AH=EBh"DoubleDOS",INT FA"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FC_0" name="FC_0"><b>FC</b></a> - INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS<br />
+<pre>
+INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS
+Return: ES = segment of display buffer
+Desc:	determine the address of the virtual screen to which the program
+	  should write instead of the actual video memory, so that the
+	  multitasked programs do not interfere with each other's output
+Note:	the display buffer may be moved if multitasking is enabled
+SeeAlso: INT 21/AH=ECh"DoubleDOS",INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_0" name="FD_0"><b>FD</b></a> - INT FD - DoubleDOS - ???<br />
+<pre>
+INT FD - DoubleDOS - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_0" name="FE_0"><b>FE</b></a> - INT FE - DoubleDOS - GIVE UP TIME<br />
+<pre>
+INT FE - DoubleDOS - GIVE UP TIME
+	AL = number of 55ms time slices to give away
+Return: after other program (if active) has run
+SeeAlso: INT 21/AH=EEh"DoubleDOS",INT F4"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

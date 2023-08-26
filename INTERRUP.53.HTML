@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._53</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 53
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#53"><b>53</b> - INT 53 - IRQ3 relocated by DESQview</a><br />
+<a href="#53_0"><b>53</b> - INT 53 - IRQ3 relocated by IBM 3278 emulation control program, OS/2 v1.x</a><br />
+<a href="#53_1"><b>53</b> - INT 53 - TI Professional PC - SVC INTERFACE</a><br />
+<a href="#53_2"><b>53</b> - INT 53 - Tandy 2000 - SERIAL COMMUNICATIONS</a><br />
+<a href="#53_3"><b>53</b> - INT 53 - WEB??? - API</a><br />
+
+<hr />
+
+<a href="#53" name="53"><b>53</b></a> - INT 53 - IRQ3 relocated by DESQview<br />
+<pre>
+INT 53 - IRQ3 relocated by DESQview
+Range:	INT 53 to INT FB, selected automatically
+Note:	this is the default location for older versions; see INT 50"DESQview"
+	  for details of interrupt relocation
+SeeAlso: INT 50"DESQview",INT 54"DESQview",INT 58"DESQview"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#53_0" name="53_0"><b>53</b></a> - INT 53 - IRQ3 relocated by IBM 3278 emulation control program, OS/2 v1.x<br />
+<pre>
+INT 53 - IRQ3 relocated by IBM 3278 emulation control program, OS/2 v1.x
+SeeAlso: INT 50"IBM 3278",INT 51"OS/2"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#53_1" name="53_1"><b>53</b></a> - INT 53 - TI Professional PC - SVC INTERFACE<br />
+<pre>
+INT 53 - TI Professional PC - SVC INTERFACE
+Notes:	documented as "for system use only"; intended for multi-tasking
+	  software
+	this interrupt is not used by the BIOS; the default handler generates
+	  a system error trap (see INT 51"TI Professional")
+SeeAlso: INT 50"TI Professional",INT 54"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#53_2" name="53_2"><b>53</b></a> - INT 53 - Tandy 2000 - SERIAL COMMUNICATIONS<br />
+<pre>
+INT 53 - Tandy 2000 - SERIAL COMMUNICATIONS
+Note:	this interrupt is identical to INT 14 on Tandy 2000
+SeeAlso: INT 14/AH=00h"SERIAL",INT 14/AH=01h,INT 14/AH=02h,INT 14/AH=03h
+SeeAlso: INT 14/AH=04h"Tandy 2000",INT 52"Tandy 2000",INT 54"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#53_3" name="53_3"><b>53</b></a> - INT 53 - WEB??? - API<br />
+<pre>
+INT 53 - WEB??? - API
+	BX = function
+	    0000h ???
+		AX = ???
+		Return: AX = ???
+	    0004h ???
+	    0009h ???
+	    0015h
+		AX = ???
+		DX = ???
+	    0017h
+Return: ???
+InstallCheck:	check for the signature "WEBCO" immediately prior to the
+	  interrupt handler
+Note:	the above calls are made by Show Partner F/X v3.6 (see INT 10/AH=53h)
+Index:	installation check;unknown|installation check;WEBCO
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

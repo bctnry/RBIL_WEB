@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._f</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category f - file manipulation
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#214E_0"><b>214E</b> - INT 21 - WILDUNIX.COM internal - INSTALLATION CHECK</a><br />
+<a href="#2F1000"><b>2F1000</b> - INT 2F - SHARE - INSTALLATION CHECK</a><br />
+<a href="#2F1040"><b>2F1040</b> - INT 2F U - DOS 4 only SHARE internal - ???</a><br />
+<a href="#2F1080"><b>2F1080</b> - INT 2F U - DOS 4 only SHARE internal - TURN ON FILE SHARING CHECKS</a><br />
+<a href="#2F1081"><b>2F1081</b> - INT 2F U - DOS 4 only SHARE internal - TURN OFF FILE SHARING CHECKS</a><br />
+<a href="#2FAB00"><b>2FAB00</b> - INT 2F - Btrieve Multi-User - INSTALLATION CHECK</a><br />
+<a href="#2FAB01"><b>2FAB01</b> - INT 2F - Btrieve Multi-User - EXECUTE Btrieve OPERATION</a><br />
+<a href="#2FAB02"><b>2FAB02</b> - INT 2F - Btrieve Multi-User - GET NEW PROCESS ID</a><br />
+<a href="#2FB700"><b>2FB700</b> - INT 2F - APPEND - INSTALLATION CHECK</a><br />
+<a href="#2FB701"><b>2FB701</b> - INT 2F U - APPEND v3.21 only - GET APPEND PATH</a><br />
+<a href="#2FB702"><b>2FB702</b> - INT 2F - APPEND - GET VERSION</a><br />
+<a href="#2FB703"><b>2FB703</b> - INT 2F U - DOS 3.3, DOS 5.0 APPEND - HOOK INT 21</a><br />
+<a href="#2FB704"><b>2FB704</b> - INT 2F - DOS 3.3+ APPEND - GET APPEND PATH</a><br />
+<a href="#2FB706"><b>2FB706</b> - INT 2F - DOS 4.0+ APPEND - GET APPEND FUNCTION STATE</a><br />
+<a href="#2FB707"><b>2FB707</b> - INT 2F - DOS 4.0+ APPEND - SET APPEND FUNCTION STATE</a><br />
+<a href="#2FB710"><b>2FB710</b> - INT 2F U - DOS 3.3+ APPEND - GET VERSION INFO</a><br />
+<a href="#2FB711"><b>2FB711</b> - INT 2F - DOS 4.0+ APPEND - SET RETURN FOUND NAME STATE</a><br />
+<a href="#2FC000_2"><b>2FC000</b> - INT 2F - FN32 32 character filename utilities - INSTALLATION CHECK</a><br />
+<a href="#2FE77EBX0000"><b>2FE77EBX0000</b> - INT 2F - CTDEMN - INSTALLATION CHECK</a><br />
+<a href="#2FFB_0"><b>2FFB</b> - INT 2F U - Conner Backup Exec AUTORES - API</a><br />
+<a href="#7B"><b>7B</b> - INT 7B - Btrieve API (single user)</a><br />
+<a href="#7F0200"><b>7F0200</b> - INT 7F - Btrieve Multi-User - GIVE UP TIME???</a><br />
+
+<hr />
+
+<a href="#214E_0" name="214E_0"><b>214E</b></a> - INT 21 - WILDUNIX.COM internal - INSTALLATION CHECK<br />
+<pre>
+INT 21 - WILDUNIX.COM internal - INSTALLATION CHECK
+	AH = 4Eh
+	DS:DX = 0000h:0000h
+Return: AH = 99h if installed
+Program: WILDUNIX.COM is a resident Unix-style wildcard expander by Steve
+	  Hosgood and Terry Barnaby
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1000" name="2F1000"><b>2F1000</b></a> - INT 2F - SHARE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - SHARE - INSTALLATION CHECK
+	AX = 1000h
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+	    FFh installed
+Notes:	supported by OS/2 v1.3+ compatibility box, which always returns AL=FFh
+	if DOS 4.01 SHARE was automatically loaded, file sharing is in an
+	  inactive state (due to the undocumented /NC flag used by the autoload
+	  code) until this call is made
+	DR DOS 5.0 SHARE 1.00 only checks for AH=10h and in this case does not
+	  chain to a previous handler, DR DOS 6.0 SHARE 1.02+ properly chains
+	  for any values other than AX=1000h and the private FDOS hook
+	  AX=1001h.  However, under DR PalmDOS and Novell DOS 7+, the
+	  SHARE 2.00+ only tests for the AX=1000h install check, since it no
+	  longer uses AX=1001h to hook into the system.
+	DOS 5+ chains to the previous handler if AL &lt;&gt; 00h on entry
+	Windows Enhanced mode hooks this call and reports that SHARE is
+	  installed even when it is not
+BUGS:	values of AL other than 00h put DOS 3.x SHARE into an infinite loop
+	  (08E9: OR  AL,AL
+	   08EB: JNZ 08EB) &lt;- the buggy instruction (DOS 3.3)
+	values of AL other than described here put PC-DOS 4.00 into the same
+	  loop (the buggy instructions are the same)
+SeeAlso: AX=1080h,INT 21/AH=52h,INT 21/AX=4457h/DX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1040" name="2F1040"><b>2F1040</b></a> - INT 2F U - DOS 4 only SHARE internal - ???<br />
+<pre>
+INT 2F U - DOS 4 only SHARE internal - ???
+	AX = 1040h
+	???
+Return: AL = FFh???
+SeeAlso: AX=1000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1080" name="2F1080"><b>2F1080</b></a> - INT 2F U - DOS 4 only SHARE internal - TURN ON FILE SHARING CHECKS<br />
+<pre>
+INT 2F U - DOS 4 only SHARE internal - TURN ON FILE SHARING CHECKS
+	AX = 1080h
+Return: AL = status
+	    F0h successful
+	    FFh checking was already on
+Note:	DOS 4.x SHARE has dual functions: FCB support for large (&gt;32M) media
+	  and file sharing checks.  The undocumented commandline flag /NC can
+	  be used to disable the sharing code.
+SeeAlso: AX=1000h,AX=1081h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1081" name="2F1081"><b>2F1081</b></a> - INT 2F U - DOS 4 only SHARE internal - TURN OFF FILE SHARING CHECKS<br />
+<pre>
+INT 2F U - DOS 4 only SHARE internal - TURN OFF FILE SHARING CHECKS
+	AX = 1081h
+Return: AL = status
+	    F0h successful
+	    FFh checking was already off
+Note:	(see AX=1080h)
+SeeAlso: AX=1000h,AX=1080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB00" name="2FAB00"><b>2FAB00</b></a> - INT 2F - Btrieve Multi-User - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Btrieve Multi-User - INSTALLATION CHECK
+	AX = AB00h
+Return: AL = 4Dh if installed
+SeeAlso: AX=AB01h,AX=AB02h,INT 7B"Btrieve"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB01" name="2FAB01"><b>2FAB01</b></a> - INT 2F - Btrieve Multi-User - EXECUTE Btrieve OPERATION<br />
+<pre>
+INT 2F - Btrieve Multi-User - EXECUTE Btrieve OPERATION
+	AX = AB01h
+	BX = process ID
+	DS:DX -&gt; 38-byte parameter record (see #03840 at INT 7B"Btrieve")
+Return: AL = status
+	    00h OK
+	    other retry after calling INT 7F/AX=0200h
+SeeAlso: AX=AB00h"Btrieve",AX=AB02h"Btrieve",INT 7B"Btrieve",INT 7F/AX=0200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB02" name="2FAB02"><b>2FAB02</b></a> - INT 2F - Btrieve Multi-User - GET NEW PROCESS ID<br />
+<pre>
+INT 2F - Btrieve Multi-User - GET NEW PROCESS ID
+	AX = AB02h
+Return: AL = 00h successful
+	    BX = process ID
+	AL &gt; 00h failed, retry after calling INT 7F/AX=0200h
+SeeAlso: AX=AB00h,AX=AB01h,INT 7B"Btrieve",INT 7F/AX=0200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB700" name="2FB700"><b>2FB700</b></a> - INT 2F - APPEND - INSTALLATION CHECK<br />
+<pre>
+INT 2F - APPEND - INSTALLATION CHECK
+	AX = B700h
+Return: AL = status
+	    00h not installed
+	    FFh installed
+Note:	MS-DOS 3.30 APPEND refuses to install itself when run inside TopView or
+	  a TopView-compatible environment
+SeeAlso: AX=B702h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB701" name="2FB701"><b>2FB701</b></a> - INT 2F U - APPEND v3.21 only - GET APPEND PATH<br />
+<pre>
+INT 2F U - APPEND v3.21 only - GET APPEND PATH
+	AX = B701h
+Return: ES:DI -&gt; active APPEND path
+Notes:	the only version of APPEND known to support this call is the APPEND
+	  shipped with Microtek MS-DOS 3.21; MS-DOS 3.30-6.00 APPEND displays
+	  "Incorrect APPEND Version" and aborts the caller
+	use AX=B704h first, and only call this function if that one is not
+	  supported
+SeeAlso: AX=B700h,AX=B704h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB702" name="2FB702"><b>2FB702</b></a> - INT 2F - APPEND - GET VERSION<br />
+<pre>
+INT 2F - APPEND - GET VERSION
+	AX = B702h
+Return: AX = FFFFh if not DOS 4.0 APPEND (also if DOS 5.0 APPEND)
+	AL = major version number
+	AH = minor version number, otherwise
+SeeAlso: AX=B700h,AX=B710h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB703" name="2FB703"><b>2FB703</b></a> - INT 2F U - DOS 3.3, DOS 5.0 APPEND - HOOK INT 21<br />
+<pre>
+INT 2F U - DOS 3.3, DOS 5.0 APPEND - HOOK INT 21
+	AX = B703h
+	ES:DI -&gt; INT 21 handler APPEND should chain to
+Return: ES:DI -&gt; APPEND's INT 21 handler
+Note:	each invocation of this function toggles a flag which APPEND uses to
+	  determine whether to chain to the user handler or the original
+	  INT 21
+SeeAlso: AX=B700h,AX=B706h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB704" name="2FB704"><b>2FB704</b></a> - INT 2F - DOS 3.3+ APPEND - GET APPEND PATH<br />
+<pre>
+INT 2F - DOS 3.3+ APPEND - GET APPEND PATH
+	AX = B704h
+Return: ES:DI -&gt; active APPEND path (128 bytes max)
+Note:	some versions of append do not support this call, and return ES
+	  unchanged; in this case, you should call AX=B701h to get the APPEND
+	  path
+SeeAlso: AX=B701h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB706" name="2FB706"><b>2FB706</b></a> - INT 2F - DOS 4.0+ APPEND - GET APPEND FUNCTION STATE<br />
+<pre>
+INT 2F - DOS 4.0+ APPEND - GET APPEND FUNCTION STATE
+	AX = B706h
+Return: BX = APPEND state (see #02980)
+SeeAlso: AX=B700h,AX=B707h
+
+Bitfields for APPEND state:
+Bit(s)	Description	(Table 02980)
+ 0	set if APPEND enabled
+ 1-11	reserved
+ 12	(DOS 5.0) set if APPEND applies directory search even if a drive has
+	  been specified
+ 13	set if /PATH flag active
+ 14	set if /E flag active (environment var APPEND exists)
+ 15	set if /X flag active
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB707" name="2FB707"><b>2FB707</b></a> - INT 2F - DOS 4.0+ APPEND - SET APPEND FUNCTION STATE<br />
+<pre>
+INT 2F - DOS 4.0+ APPEND - SET APPEND FUNCTION STATE
+	AX = B707h
+	BX = APPEND state bits (see #02980)
+SeeAlso: AX=B700h,AX=B706h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB710" name="2FB710"><b>2FB710</b></a> - INT 2F U - DOS 3.3+ APPEND - GET VERSION INFO<br />
+<pre>
+INT 2F U - DOS 3.3+ APPEND - GET VERSION INFO
+	AX = B710h
+Return: AX = current APPEND state (see #02980)
+	BX = ??? (0000h in MS-DOS 3.30 and 5.00)
+	CX = ??? (0000h in MS-DOS 3.30 and 5.00)
+	DL = major version
+	DH = minor version
+SeeAlso: AX=B700h,AX=B702h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FB711" name="2FB711"><b>2FB711</b></a> - INT 2F - DOS 4.0+ APPEND - SET RETURN FOUND NAME STATE<br />
+<pre>
+INT 2F - DOS 4.0+ APPEND - SET RETURN FOUND NAME STATE
+	AX = B711h
+Note:	if the next INT 21h call (and ONLY the next) is function 3Dh, 43h, or
+	  6Ch (also 4B03h and 4Eh if /X active), the fully qualified filename
+	  is written over top of the filename passed to the INT 21h call.  The
+	  application must provide a sufficiently large buffer.	 This state is
+	  reset after the next INT 21h call processed by APPEND.
+	APPEND uses the byte at offset 3Dh in the PSP
+	  (see #01378 at INT 21/AH=26h) to store the flag telling it to
+	  overwrite the filename
+BUG:	DOS 4.0 APPEND reportedly overwrites DS:DX instead of DS:SI for
+	  INT 21/AH=6Ch
+SeeAlso: INT 21/AH=26h,INT 21/AH=4Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000_2" name="2FC000_2"><b>2FC000</b></a> - INT 2F - FN32 32 character filename utilities - INSTALLATION CHECK<br />
+<pre>
+INT 2F - FN32 32 character filename utilities - INSTALLATION CHECK
+	AX = C000h
+Return: AL = FFh if installed
+	   ES:DI -&gt; signature string "FN32 32CHAR TSR"
+Program: FN32 is a TSR which supports 32 character filenames under PC/MS-DOS
+Note:	the TSR intercepts INT 21 calls and performs filename substitution by
+	  managing dictionary files in each directory which contains long
+	  filenames
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE77EBX0000" name="2FE77EBX0000"><b>2FE77EBX0000</b></a> - INT 2F - CTDEMN - INSTALLATION CHECK<br />
+<pre>
+INT 2F - CTDEMN - INSTALLATION CHECK
+	AX = E77Eh
+	BX = 0000h
+	CX = 4F4Dh ('OM')
+	DX = 5453h ('TS')
+Return: AX = 7EE7h if installed
+	    BX = resident code segment
+	    CX = 6F6Dh ('om')
+	    DX = 7473h ('ts')
+Program: CTDEMN is a file daemon TSR by Simultan AG
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB_0" name="2FFB_0"><b>2FFB</b></a> - INT 2F U - Conner Backup Exec AUTORES - API<br />
+<pre>
+INT 2F U - Conner Backup Exec AUTORES - API
+	AH = FBh
+	BL = function number (00h-07h)
+	???
+Return: ???
+Program: AUTORES is a resident program launcher for unattended backups
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B" name="7B"><b>7B</b></a> - INT 7B - Btrieve API (single user)<br />
+<pre>
+INT 7B - Btrieve API (single user)
+	DS:DX -&gt; 38-byte parameter record (see #03840)
+Return: return code field set
+Note:	Btrieve sets low byte of vector to 33h; this serves as the installation
+	  check
+SeeAlso: INT 2F/AX=AB01h,INT 7F/AX=0200h
+
+Format of Btrieve parameter record:
+Offset	Size	Description	(Table 03840)
+ 00h	DWORD	pointer to data buffer
+ 04h	WORD	data buffer length
+ 06h	DWORD	pointer to 90-byte record containing positioning info
+		(should be same for all calls for same file)
+ 0Ah	DWORD	pointer to 38-byte FCB info buffer
+		(should be same for all calls for same file)
+ 0Eh	WORD	function code (see #03841)
+ 10h	DWORD	pointer to file name/key buffer
+ 14h	BYTE	key length
+ 15h	BYTE	key number
+ 16h	DWORD	pointer to status code (see #03842)
+ 1Ah	WORD	interface code (version specific)
+		6176h version 5.10
+
+(Table 03841)
+Values for function code:
+ 00h	open
+ 01h	close
+ 02h	insert
+ 03h	update
+ 04h	delete
+ 05h	get_equal
+ 06h	get_next
+ 07h	get_prev
+ 08h	get_greater
+ 09h	get_gr_eql
+ 0Ah	get_less
+ 0Bh	get_less_eq
+ 0Ch	get_first
+ 0Dh	get_last
+ 0Eh	create
+ 0Fh	stat
+ 10h	extend
+ 11h	set_dir: set directory information
+ 12h	get_dir: get directory information
+ 13h	begin_trans
+ 14h	end_trans
+ 15h	abort_trans
+ 16h	get_pos: get record position number
+ 17h	get_direct: get data by sending record position
+ 18h	step_next
+ 19h	stop
+ 1Ah	version
+ 1Bh	unlock
+ 1Ch	reset
+ 1Dh	set owner
+ 1Eh	clear owner
+ 1Fh	create supplemental index
+ 20h	drop supplemental index
+ 21h	step first
+ 22h	step last
+ 23h	step previous
+ 24h	get next extended: get multiple records using a filter
+ 25h	get previous extended: get multiple records using a filter
+ 26h	step next extended: get multiple records using a filter
+ 27h	step previous extended: get multiple records using a filter
+ 28h	insert extended: insert one or more records
+ 31h	???
+Notes:	add 50 (32h) to any "get" operation to just return the key data
+	add 100 (64h) for a single-record wait lock (automatically released
+	  on next get)
+	add 200 (C8h) for a single-record nowait lock (nowait lock returns
+	  error 54h or 55h if record already locked)
+	add 300 (12Ch) for a multiple-record wait lock (not released until
+	  unlock called)
+	add 400 (190h) for a multiple-record nowait lock (nowait lock returns
+	  error 54h or 55h if record already locked)
+
+(Table 03842)
+Values for Btrieve status code:
+ 00h	successful
+ 01h	invalid operation
+ 02h	I/O error
+ 03h	file not open
+ 04h	key value not found
+ 05h	duplicate key value
+ 06h	invalid key number
+ 07h	different key number
+ 08h	invalid positioning
+ 09h	end of file
+ 0Ah	modifiable key value error
+ 0Bh	invalid file name
+ 0Ch	file not found
+ 0Dh	extended file error
+ 0Eh	pre-image open error
+ 0Fh	pre-image I/O error
+ 10h	expansion error
+ 11h	close error
+ 12h	disk full
+ 13h	unrecoverable error
+ 14h	record manager inactive
+ 15h	key buffer too short
+ 16h	data buffer length overrun
+ 17h	position block length
+ 18h	page size error
+ 19h	create I/O error
+ 1Ah	number of keys
+ 1Bh	invalid key position
+ 1Ch	invalid record length
+ 1Dh	invalid key length
+ 1Eh	not a Btrieve file
+ 1Fh	file already extended
+ 20h	extended I/O error
+ 22h	invalid extension name
+ 23h	directory error
+ 24h	transaction error
+ 25h	transaction is active
+ 26h	transaction control file I/O error
+ 27h	end/abort transaction error
+ 28h	transaction max files
+ 29h	operation not allowed
+ 2Ah	incomplete accelerated access
+ 2Bh	invalid record address
+ 2Ch	null key path
+ 2Dh	inconsistent key flags
+ 2Eh	access to file denied
+ 2Fh	maximum open files
+ 30h	invalid alternate sequence definition
+ 31h	key type error
+ 32h	owner already set
+ 33h	invalid owner
+ 34h	error writing cache
+ 35h	invalid interface
+ 36h	variable page error
+ 37h	autoincrement error
+ 38h	incomplete index
+ 39h	expanded memory error
+ 3Ah	compression buffer too short
+ 3Bh	file already exists
+ 3Ch	reject count reached
+ 3Dh	work space too small
+ 3Eh	incorrect descriptor
+ 3Fh	invalid extended insert
+ 40h	filter limit reached
+ 41h	incorrect field offset
+ 4Ah	automatic transaction abort
+ 4Dh	Btrieve engine busy or resource locked by another user
+ 4Eh	deadlock detected
+ 50h	conflict
+ 51h	lock error
+ 52h	lost position
+ 53h	read outside transaction
+ 54h	record in use
+ 55h	file in use
+ 56h	file table full
+ 57h	handle table full
+ 58h	incompatible open mode
+ 5Ah	redirected device table full
+ 5Bh	server error
+ 5Ch	transaction table full
+ 5Dh	incompatible lock type
+ 5Eh	permission error
+ 5Fh	session no longer valid
+ 60h	communications environment error
+ 61h	data message too small
+ 62h	internal transaction error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F0200" name="7F0200"><b>7F0200</b></a> - INT 7F - Btrieve Multi-User - GIVE UP TIME???<br />
+<pre>
+INT 7F - Btrieve Multi-User - GIVE UP TIME???
+	AX = 0200h
+SeeAlso: INT 2F/AX=AB01h,INT 2F/AX=AB02h,INT 7B"Btrieve"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

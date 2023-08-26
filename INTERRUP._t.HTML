@@ -1,0 +1,1549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._t</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category t - TSR libraries
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#10DAAD"><b>10DAAD</b> - INT 10 - TSRUNIT v1.10 - INSTALLATION CHECK</a><br />
+<a href="#144000"><b>144000</b> - INT 14 - I1541 - INSTALLATION CHECK</a><br />
+<a href="#144001"><b>144001</b> - INT 14 - I1541 - TEST IF 1541 CABLE CONNECTED</a><br />
+<a href="#144002"><b>144002</b> - INT 14 - I1541 - SELECT LPT PORT FOR OUTPUT</a><br />
+<a href="#144003"><b>144003</b> - INT 14 - I1541 - RESET ALL DEVICES</a><br />
+<a href="#144004"><b>144004</b> - INT 14 - I1541 - SEND LISTEN SIGNAL</a><br />
+<a href="#144005"><b>144005</b> - INT 14 - I1541 - SEND SECONDARY ADDRESS FOR LISTEN</a><br />
+<a href="#144006"><b>144006</b> - INT 14 - I1541 - SEND UNLISTEN SIGNAL</a><br />
+<a href="#144007"><b>144007</b> - INT 14 - I1541 - SEND TALK SIGNAL</a><br />
+<a href="#144008"><b>144008</b> - INT 14 - I1541 - SEND SECONDARY ADDRESS FOR TALK</a><br />
+<a href="#144009"><b>144009</b> - INT 14 - I1541 - SEND UNTALK SIGNAL</a><br />
+<a href="#14400A"><b>14400A</b> - INT 14 - I1541 - SEND A BYTE TO A DEVICE</a><br />
+<a href="#14400B"><b>14400B</b> - INT 14 - I1541 - RECEIVE A BYTE FROM A DEVICE</a><br />
+<a href="#14400C"><b>14400C</b> - INT 14 - I1541 - WAIT</a><br />
+<a href="#14400D"><b>14400D</b> - INT 14 - I1541 - LONGWAIT</a><br />
+<a href="#14400E"><b>14400E</b> - INT 14 - I1541 - GET INFO</a><br />
+<a href="#15"><b>15</b> - INT 15 - Microsoft TSR Specification</a><br />
+<a href="#165453BX5242"><b>165453BX5242</b> - INT 16 - TSRBONES - INSTALLATION CHECK</a><br />
+<a href="#16E0E0"><b>16E0E0</b> - INT 16 - TurboPower TSRs - ALTERNATE INSTALLATION CHECK</a><br />
+<a href="#16F0F0"><b>16F0F0</b> - INT 16 - TurboPower TSRs - INSTALLATION CHECK</a><br />
+<a href="#2D_0"><b>2D</b> - INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]</a><br />
+<a href="#2D--00"><b>2D--00</b> - INT 2D - AMIS v3.0+ - INSTALLATION CHECK</a><br />
+<a href="#2D--01"><b>2D--01</b> - INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT</a><br />
+<a href="#2D--02"><b>2D--02</b> - INT 2D - AMIS v3.0+ - UNINSTALL</a><br />
+<a href="#2D--03"><b>2D--03</b> - INT 2D - AMIS v3.0+ - REQUEST POP-UP</a><br />
+<a href="#2D--04"><b>2D--04</b> - INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS</a><br />
+<a href="#2D--05"><b>2D--05</b> - INT 2D - AMIS v3.5+ - GET HOTKEYS</a><br />
+<a href="#2D--06"><b>2D--06</b> - INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION</a><br />
+<a href="#2F_0"><b>2F</b> - INT 2F - BMB Compuscience Canada Utilities Interface - INSTALLATION CHECK</a><br />
+<a href="#2F_1"><b>2F</b> - INT 2F - Ross Wentworth's Turbo Pascal POPUP LIBRARY</a><br />
+<a href="#2F_2"><b>2F</b> - INT 2F - CiriSOFT Spanish University of Valladolid TSR's Interface</a><br />
+<a href="#2F3900"><b>2F3900</b> - INT 2F - Kingswood TSR INTERFACE - COMPATIBILITY MODE</a><br />
+<a href="#2F39--BL00"><b>2F39--BL00</b> - INT 2F - Kingswood TSR INTERFACE - INSTALLATION CHECK</a><br />
+<a href="#2F39--BL01"><b>2F39--BL01</b> - INT 2F - Kingswood TSR INTERFACE - REMOVAL CHECK</a><br />
+<a href="#2F39"><b>2F39</b> - INT 2F - Kingswood TSR INTERFACE - APPLICATION-SPECIFIC FUNCTION CALLS</a><br />
+<a href="#2F5453"><b>2F5453</b> - INT 2F - TesSeRact RAM-RESIDENT PROGRAM INTERFACE</a><br />
+<a href="#2F8000_1"><b>2F8000</b> - INT 2F - CS_TSR specification - TSR INSTALLATION CHECK</a><br />
+<a href="#2F8001_0"><b>2F8001</b> - INT 2F - CS_TSR specification - GET HANDLE (TSR-SPECIFIC INSTALLATION CHECK)</a><br />
+<a href="#2F8002"><b>2F8002</b> - INT 2F - CS_TSR specification - GET PROCESS BLOCK BY PROCESS HANDLE</a><br />
+<a href="#2F8003"><b>2F8003</b> - INT 2F - CS_TSR specification - CUSTOM SUBFUNCTION</a><br />
+<a href="#2FDD"><b>2FDD</b> - INT 2F - CappaCom programs - API</a><br />
+<a href="#66FFFBBXFFFB"><b>66FFFBBXFFFB</b> - INT 66 - MicroHelp Stay-Res Plus - ???</a><br />
+<a href="#66FFFEBXFFFE"><b>66FFFEBXFFFE</b> - INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL</a><br />
+<a href="#66FFFFBXFFF0"><b>66FFFFBXFFF0</b> - INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME</a><br />
+<a href="#7D"><b>7D</b> - INT 7D O - [obsoleted proposal] - ALTERNATE MULTIPLEX INTERRUPT</a><br />
+
+<hr />
+
+<a href="#10DAAD" name="10DAAD"><b>10DAAD</b></a> - INT 10 - TSRUNIT v1.10 - INSTALLATION CHECK<br />
+<pre>
+INT 10 - TSRUNIT v1.10 - INSTALLATION CHECK
+	AX = DAADh
+	BX = check signature (different for each TSR)
+	CX = 0000h
+Return: CX = return signature (nonzero) if installed
+	    ES = program segment prefix
+Program: TSRUNIT is a Turbo Pascal unit for creating TSRs by Nir Sofer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144000" name="144000"><b>144000</b></a> - INT 14 - I1541 - INSTALLATION CHECK<br />
+<pre>
+INT 14 - I1541 - INSTALLATION CHECK
+	AX = 4000h
+Return: AX = 1541h if installed
+	    BH = I1541 major version (BCD)
+	    BL = I1541 minor version (BCD)
+	    CX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144001" name="144001"><b>144001</b></a> - INT 14 - I1541 - TEST IF 1541 CABLE CONNECTED<br />
+<pre>
+INT 14 - I1541 - TEST IF 1541 CABLE CONNECTED
+	AX = 4001h
+Return: CF clear if connected
+	    BL = LPT number where 1541 cable is connected (1..3)
+	CF set if cable not connected
+Desc:	scan all the LPT ports searching for the adapter cable
+SeeAlso: AX=4000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144002" name="144002"><b>144002</b></a> - INT 14 - I1541 - SELECT LPT PORT FOR OUTPUT<br />
+<pre>
+INT 14 - I1541 - SELECT LPT PORT FOR OUTPUT
+	AX = 4002h
+	BL = LPT number (1..3)
+Return: CF clear if successful
+	CF set otherwise
+Desc:	force the input output routines to work on the cable placed on LPT BL
+SeeAlso: AX=4001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144003" name="144003"><b>144003</b></a> - INT 14 - I1541 - RESET ALL DEVICES<br />
+<pre>
+INT 14 - I1541 - RESET ALL DEVICES
+	AX = 4003h
+Return: nothing
+Desc:	send a reset pulse of 100ms to all CBM devices
+Note:	it is necessary to wait about 2 seconds after reset before executing
+	  other	instructions
+SeeAlso: AX=4000h,AX=4004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144004" name="144004"><b>144004</b></a> - INT 14 - I1541 - SEND LISTEN SIGNAL<br />
+<pre>
+INT 14 - I1541 - SEND LISTEN SIGNAL
+	AX = 4004h
+	BH = device number (0..15)
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see #00354)
+SeeAlso: AX=4005h,AX=4006h
+
+(Table 00354)
+Values for I1541 error number:
+ 00h	device not present
+ 01h	listener not ready
+ 02h	missing EOI time-out
+ 03h	EOI not completed
+ 04h	data not released
+ 05h	frame error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144005" name="144005"><b>144005</b></a> - INT 14 - I1541 - SEND SECONDARY ADDRESS FOR LISTEN<br />
+<pre>
+INT 14 - I1541 - SEND SECONDARY ADDRESS FOR LISTEN
+	AX = 4005h
+	BL = channel number and mode (see #00355)
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see #00354)
+SeeAlso: AX=4004h,AX=4006h
+
+Bitfields for I1541 channel number and mode:
+Bit(s)	Description	(Table 00355)
+ 7-4	mode
+	0110 read/write
+	1110 close channel
+	1111 open channel
+ 3-0	channel number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144006" name="144006"><b>144006</b></a> - INT 14 - I1541 - SEND UNLISTEN SIGNAL<br />
+<pre>
+INT 14 - I1541 - SEND UNLISTEN SIGNAL
+	AX = 4006h
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see #00354)
+SeeAlso: AX=4004h,AX=4005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144007" name="144007"><b>144007</b></a> - INT 14 - I1541 - SEND TALK SIGNAL<br />
+<pre>
+INT 14 - I1541 - SEND TALK SIGNAL
+	AX = 4007h
+	BH = device number (0-15)
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see #00354)
+SeeAlso: AX=4008h,AX=4009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144008" name="144008"><b>144008</b></a> - INT 14 - I1541 - SEND SECONDARY ADDRESS FOR TALK<br />
+<pre>
+INT 14 - I1541 - SEND SECONDARY ADDRESS FOR TALK
+	AX = 4008h
+	BL = channel number and mode (see #00355)
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see also #00354)
+		40h turn around time-out
+SeeAlso: AX=4007h,AX=4009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#144009" name="144009"><b>144009</b></a> - INT 14 - I1541 - SEND UNTALK SIGNAL<br />
+<pre>
+INT 14 - I1541 - SEND UNTALK SIGNAL
+	AX = 4009h
+Return: CF clear if successful
+	CF set on error
+	   AL = error number (see #00354)
+SeeAlso: AX=4007h,AX=4008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14400A" name="14400A"><b>14400A</b></a> - INT 14 - I1541 - SEND A BYTE TO A DEVICE<br />
+<pre>
+INT 14 - I1541 - SEND A BYTE TO A DEVICE
+	AX = 400Ah
+	BL = byte to send
+	CL = last-byte flag
+	    00h more bytes follow
+	    01h this is the last byte to be sent
+Return: CF clear if successful
+	CF set on error
+	    AL = error number (see #00354)
+SeeAlso: AX=4000h,AX=400Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14400B" name="14400B"><b>14400B</b></a> - INT 14 - I1541 - RECEIVE A BYTE FROM A DEVICE<br />
+<pre>
+INT 14 - I1541 - RECEIVE A BYTE FROM A DEVICE
+	AX = 400Bh
+Return: CF clear if successful
+	    AL = byte received
+	    CL = last-byte flag
+		00h more bytes to follow
+		01h received byte is the last
+	CF set on error
+	    AL = error number
+		80h EOI response required
+		81h talker not ready
+		82h clock not set
+		83h clock not released
+	    CL = 00h
+SeeAlso: AX=4000h,AX=400Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14400C" name="14400C"><b>14400C</b></a> - INT 14 - I1541 - WAIT<br />
+<pre>
+INT 14 - I1541 - WAIT
+	AX = 400Ch
+	CX = number of 838ns microticks to wait (0000h means 65536, ~55ms)
+Return: after wait period elapses
+SeeAlso: AX=4000h,AX=400Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14400D" name="14400D"><b>14400D</b></a> - INT 14 - I1541 - LONGWAIT<br />
+<pre>
+INT 14 - I1541 - LONGWAIT
+	AX = 400Dh
+	DX:CX = number of 838ns microticks to wait
+	     (0000h:0000h means 4294967296, about one hour)
+Example: To wait 1s you must set DX:CX=(1s/838ns)=1193180
+SeeAlso: AX=4000h,AX=400Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14400E" name="14400E"><b>14400E</b></a> - INT 14 - I1541 - GET INFO<br />
+<pre>
+INT 14 - I1541 - GET INFO
+	AX = 400Eh
+Return: AX = LPT port I/O address in use (0000h if no cable in use)
+	BL = LPT number (1..3) in use (00h if no cable in use)
+	CF set if the cable is auto-detectable
+	CF clear if cable could not be auto-detected or is not present
+SeeAlso: AX=4000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15" name="15"><b>15</b></a> - INT 15 - Microsoft TSR Specification<br />
+<pre>
+INT 15 - Microsoft TSR Specification
+	No additional information available at this time.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165453BX5242" name="165453BX5242"><b>165453BX5242</b></a> - INT 16 - TSRBONES - INSTALLATION CHECK<br />
+<pre>
+INT 16 - TSRBONES - INSTALLATION CHECK
+	AX = 5453h ('TS')
+	BX = 5242h ('RB')
+	CX = 4F4Eh ('ON')
+	DX = 4553h ('ES')
+Return: AX = 4553h if installed
+	BX = 4F4Eh if installed
+	CX = 5242h if installed
+	DX = 5453h if installed
+Program: TSRBONES is a skeletal TSR framework by Robert Curtis Davis
+Note:	these values are the default as the TSRBONES package is distributed,
+	  but will normally be changed when implementing an actual TSR with
+	  the TSRBONES skeleton
+SeeAlso: INT 2D/AL=00h"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16E0E0" name="16E0E0"><b>16E0E0</b></a> - INT 16 - TurboPower TSRs - ALTERNATE INSTALLATION CHECK<br />
+<pre>
+INT 16 - TurboPower TSRs - ALTERNATE INSTALLATION CHECK
+	AX = E0E0h
+Return: AX = 1F1Fh if installed
+	    DWORD 0040h:00F0h -&gt; last data block in TSR list (see #00615)
+Note:	the returned TSR list provides support for communication among TSRs
+	  built with TurboPower's Turbo Professional and Object Professional
+	  libraries for Turbo Pascal
+SeeAlso: AX=F0F0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16F0F0" name="16F0F0"><b>16F0F0</b></a> - INT 16 - TurboPower TSRs - INSTALLATION CHECK<br />
+<pre>
+INT 16 - TurboPower TSRs - INSTALLATION CHECK
+	AX = F0F0h
+Return: AX = 0F0Fh if installed
+	    ES:DI -&gt; last data block in TSR list (see #00615)
+Note:	the returned TSR list provides support for communication among TSRs
+	  built with TurboPower's Turbo Professional and Object Professional
+	  libraries for Turbo Pascal
+SeeAlso: AX=E0E0h
+
+Format of TurboPower TSR data block:
+Offset	Size	Description	(Table 00615)
+ 00h	DWORD	pointer to program tag (counted ASCII string)
+ 04h	WORD	interface version number (0400h)
+ 06h	DWORD	pointer to command entry point
+ 0Ah	DWORD	pointer to previous data block (0000h:0000h if none)
+ 0Eh	DWORD	pointer to next data block (0000h:0000h if none)
+---swappable TSRs only---
+ 12h	DWORD	pointer to swapping data
+ 16h	DWORD	pointer to user data
+	more???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D_0" name="2D_0"><b>2D</b></a> - INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]<br />
+<pre>
+INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]
+	AH = multiplex number
+	AL = function
+	    00h installation check
+	    01h get private entry point
+	    02h uninstall
+	    03h request popup
+	    04h determine chained interrupts
+	    05h get hotkey list
+	    06h get device-driver information
+	    07h-0Fh reserved for future enhancements
+		Return: AL = 00h (not implemented)
+	    other  application-dependent
+	other registers vary by function (also see individual entries below)
+Return: varies by function
+Notes:	programs should not use fixed multiplex numbers; rather, a program
+	  should scan all multiplex numbers from 00h to FFh, remembering the
+	  first unused multiplex in case the program is not yet installed.
+	  For multiplex numbers which are in use, the program should compare
+	  the first 16 bytes of the signature string to determine whether it
+	  is already installed on that multiplex number.  If not previously
+	  installed, it should use the first free multiplex number.
+	functions other than 00h are not valid unless a program is installed
+	  on the selected multiplex number
+	to be considered fully compliant with version 3.6 of the specification,
+	  programs must implement at least functions 00h, 02h (no resident
+	  uninstall code required), and 04h (return value 04h).	 TSRs that
+	  provide hotkeys with which the user can activate them must also
+	  implement function 05h.  TSRs which provide DOS device drivers must
+	  also implement function 06h.	The absolute minimum fully-compliant
+	  implementation has an overhead of 64 bytes (80 bytes with function
+	  05h) plus 22 bytes per hooked interrupt (for the interrupt sharing
+	  protocol header and hook list entry).
+	the signature string and description may be used by memory mappers
+	  to display the installed programs
+	to be considered fully compliant, users of this specification must
+	  adhere to the IBM interrupt sharing protocol (see #02568), which will
+	  permit removal of TSRs in arbitrary order and interrupt handler
+	  reordering.  All TSRs following this specification should be
+	  removable unless they are loaded from CONFIG.SYS, though they need
+	  not keep the code for removing themselves resident; it is acceptable
+	  for a separate program to perform the interrupt unhooking and
+	  memory-freeing steps of removal.
+	A sample public-domain implementation including example TSRs and
+	  utility programs may be found in a separate package distributed as
+	  AMISLnnn.ZIP (AMISL092.ZIP as of this writing).
+	Please let me know if you choose to follow this proposal.  The
+	  signature and a list of the private API calls you use would be
+	  appreciated, as well.
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=05h,INT 2D/AL=06h,INT 2F"NOTES"
+
+Format of interrupt sharing protocol interrupt handler entry point:
+Offset	Size	Description	(Table 02568)
+ 00h  2 BYTEs	short jump to actual start of interrupt handler, immediately
+		  following this data block (EBh 10h)
+ 02h	DWORD	address of next handler in chain
+ 06h	WORD	signature 424Bh
+ 08h	BYTE	EOI flag
+		00h software interrupt or secondary hardware interrupt handler
+		80h primary hardware interrupt handler (will issue EOI to
+		      interrupt controller)
+ 09h  2 BYTEs	short jump to hardware reset routine
+		must point at a valid FAR procedure (may be just RETF)
+ 0Bh  7 BYTEs	reserved (0) by IBM for future expansion
+Note:	when chaining to the prior handler, the interrupt handler must perform
+	  an indirect jump/call using the address at offset 02h in the
+	  ISP header.  This permits another AMIS TSR to hook itself into
+	  the chain at a position other than as the first handler to receive
+	  an interrupt.
+SeeAlso: INT F1/AH=01h"Common ISDN API",INT F1/AH=06h"CAPI",#04068
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--00" name="2D--00"><b>2D--00</b></a> - INT 2D - AMIS v3.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 2D - AMIS v3.0+ - INSTALLATION CHECK
+	AL = 00h
+	AH = multiplex number for program
+Return: AL = 00h if free
+	AL = FFh if multiplex number in use
+	    CX = binary version number (CH = major, CL = minor)
+	    DX:DI -&gt; signature string (see #02569) identifying the program
+		  using the multiplex number
+SeeAlso: INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	installation check;Alternate Multiplex Interrupt Specification
+Index:	installation check;AMIS|installation check;FASTMOUS
+Index:	installation check;SPELLER|installation check;Monitor
+Index:	installation check;NOLPT|installation check;NOTE
+Index:	installation check;RBkeyswp|installation check;SWITCHAR
+Index:	installation check;VGABLANK|installation check;EATMEM
+Index:	installation check;RECALL|installation check;XPTR2
+
+Format of AMIS signature string:
+Offset	Size	Description	(Table 02569)
+ 00h  8 BYTEs	blank-padded manufacturer's name (possibly abbreviated)
+ 08h  8 BYTEs	blank-padded product name
+ 10h 64 BYTEs	ASCIZ product description (optional, may be a single 00h)
+Note:	it is not necessary to reserve a full 64 bytes for the description,
+	  just enough to store the actual ASCIZ string
+SeeAlso: #02570
+
+(Table 02570)
+Values for AMIS signatures known to be in use:
+ 'Byrial J' 'EKLAVO  '	permits keyboard entry of Esperanto accented letters
+ 'CoveSoft' 'Burnout+'	shareware screen saver Burnout Plus
+ 'Crynwr  ' 'SPELLER '	TSR spelling-checker
+ 'CPH1995 ' 'CDTSR   '	resident CD-Audio player
+ 'CPH1996 ' 'DSAPI   '
+ 'CSJewell' 'Modula3L'	Curtis Jewell's Modula-3 compiler (non-TSR)
+ 'Cubbi...' 'ASCII...'	Example ASCII code view/enter TSR by Sergey Zubkov
+ 'Cubbi...' 'ScrnGrab'	Example screen grabber by Sergey Zubkov
+ 'DAISYCHA' 'INDRIVER'	Advanced Parallel Port daisy chain driver (vendor name
+			  in product description field, if desired)
+			(see also INT 2D/AL=DCh)
+ 'DTown SD' 'DTU     '	DTown Software Development's DTown Utilities
+			(see also INT 2D/AL=20h)
+ 'ECLIPSE ' 'PLUMP   '	Eclipse Software's printer and plotter spooler
+ 'GraySoft' 'GIPC    '	GraySoft's Inter-Process Communications driver
+ 'heathh  ' 'Monitor '
+ 'Helge O '		TSRs by Helge Olav Helgesen
+ 'IVALM SK' 'lmkey   '	Russian keyboard driver by Sergey Khabarov
+ 'IVALM SK' 'lmrus   '	Russian screen	 driver by Sergey Khabarov
+ 'J. Berry' 'RATSR   '	RemoteAccess Network Manager workstation module
+ 'JWB	  ' 'RAMLIGHT'	James Birdsall's on-screen RAMdisk activity indicator
+ 'M Better' 'iHPFS   '	Marcus Better's HPFS filesystem driver for DOS
+ 'M. Paul ' 'FREEVER '	DOS version-faking TSR by Matthias Paul
+ 'Nildram ' 'ST	     '	Screen Thief graphics screen grabber
+ 'NoBrain ' 'FlatReal'	Flat real mode monitor by Sergei Shtylyov
+ 'NoBrain ' 'Grabber '	Frame grabber drivers by Sergei Shtylyov
+ 'NoBrain ' 'SqrModes'	TSR providing some non-standard video modes
+			by Sergei Shtylyov
+ 'Pino Nav' 'ALTMENU '	activate any program's menu bar by pressing Alt key
+ 'Pino Nav' 'Keybit  '	Pino Navato's KEYBIT Lite Italian keyboard driver v4+
+ 'PowrQuot' 'CAPRILOG'
+ 'PowrQuot' 'CAPRITSR'
+ 'PowrQuot' 'CAPRIWIN'
+ 'R-Ware  ' 'dLite   '	run-time data decompression TSR
+ 'Ralf B  ' 'disaXXYY'	RBdisabl -- disable key scancode XX w/ shift states YY
+ 'Ralf B  ' 'DUALVGA '	dual-VGA support, screen blanker, and DPMS driver
+ 'Ralf B  ' 'FASTMOUS'	example TSR included with sample AMIS library code
+ 'Ralf B  ' 'NoBreak '	disable Ctrl-@, Ctrl-C, and Ctrl-Break keys
+ 'Ralf B  ' 'NOLPT n '	example TSR -- turn LPTn into bit-bucket
+ 'Ralf B  ' 'NOTE    '	example TSR -- popup note-taker
+ 'Ralf B  ' 'RBclock '	RBclock -- on-screen real-time clock
+ 'Ralf B  ' 'RBclockE'	RBclock -- on-screen elapsed-time clock
+ 'Ralf B  ' 'RBdvorak'	Dvorak keyboard mapping w/ opt Esc/~, LCtrl/CapsLk swap
+ 'Ralf B  ' 'RBkcount'	display count of keystrokes on screen
+ 'Ralf B  ' 'RBkeyswp'	RBkeyswap v3.0+ -- swap Esc/~ and LCtrl/CapsLock keys
+ 'Ralf B  ' 'RBnoboot'	disable Ctrl-Alt-Del key combination
+ 'Ralf B  ' 'ShftCaps'	require Shift-CapsLock to turn on CapsLock
+ 'Ralf B  ' 'ShftNumL'	require Shift-NumLock to turn off NumLock
+ 'Ralf B  ' 'SWITCHAR'	example TSR -- add switchar() support removed from DOS5
+ 'Ralf B  ' 'VGABLANK'	VGA-only screen blanker
+ 'Ralf B  ' 'WINTAME '	yield CPU when program in Win95 DOS box is idle
+ 'Sally IS' 'Mdisk   '	removeable, resizeable RAMdisk
+ 'Sally IS' 'Scr2Tex '	screen dumper with output in (La)Tex format
+ 'SRT	  ' 'STOPBOOT'	reboot preventer by Steve Talbot
+ 'Thaco	  ' 'NEST    '	Eirik Pedersen's programmer's delimiter matcher
+ 'TifaWARE' 'EATMEM  '	George A. Theall's public domain memory restrictor for
+			testing programs (v1.1+)
+ 'TifaWARE' 'RECALL  '	public domain commandline editor and history (v1.2+)
+ 'Todd	  ' 'XPTR2   '	PC-to-Transputer interface by Todd Radel
+ 'WlkngOwl' 'NoiseSYS'	NOISE.SYS random-number generator
+SeeAlso: #02569
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--01" name="2D--01"><b>2D--01</b></a> - INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT<br />
+<pre>
+INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT
+	AL = 01h
+	AH = multiplex number for program
+Return: AL = 00h if all API calls via INT 2D
+	AL = FFh if entry point supported
+	    DX:BX -&gt; entry point for bypassing interrupt chain
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	entry point;Alternate Multiplex Interrupt|entry point;AMIS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--02" name="2D--02"><b>2D--02</b></a> - INT 2D - AMIS v3.0+ - UNINSTALL<br />
+<pre>
+INT 2D - AMIS v3.0+ - UNINSTALL
+	AL = 02h
+	AH = multiplex number for program
+	DX:BX = return address for successful uninstall (may be	ignored by TSR)
+Return: AL = status
+	    00h not implemented (makes TSR non-compliant with specification)
+	    01h unsuccessful
+	    02h can not uninstall yet, will do so when able
+	    03h safe to remove, but no resident uninstaller
+		  (TSR still enabled)
+		BX = segment of memory block with resident code
+	    04h safe to remove, but no resident uninstaller
+		  (TSR now disabled)
+		BX = segment of memory block with resident code
+	    05h not safe to remove now, try again later
+	    06h disabled, but can not be removed from memory
+		  because loaded from CONFIG.SYS
+	    07h safe to remove, but no resident device-driver
+		  uninstaller.	Caller must unlink device
+		  drivers from DOS device chain as well as
+		  unhooking interrupts and freeing memory
+		BX = segment of memory block with resident code
+	    FFh successful
+	return at DX:BX with AX destroyed if successful and TSR honors
+	  specific return address
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	uninstall;Alternate Multiplex Interrupt Specification|uninstall;AMIS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--03" name="2D--03"><b>2D--03</b></a> - INT 2D - AMIS v3.0+ - REQUEST POP-UP<br />
+<pre>
+INT 2D - AMIS v3.0+ - REQUEST POP-UP
+	AL = 03h
+	AH = multiplex number for program
+Return: AL = status
+	    00h not implemented or TSR is not a pop-up
+	    01h can not pop up at this time, try again later
+	    02h can not pop up yet, will do so when able
+	    03h already popped up
+	    04h unable to pop up, user intervention required
+		BX = standard reason code
+		    0000h unknown failure
+		    0001h interrupt chain passes through memory
+			  which must be swapped out to pop up
+		    0002h swap-in failed
+		CX = application's reason code if nonzero
+	    FFh TSR popped up and was exited by user
+		BX = return value
+		    0000h no return value
+		    0001h TSR unloaded
+		    0002h-00FFh reserved
+		    0100h-FFFFh application-dependent
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--04" name="2D--04"><b>2D--04</b></a> - INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS<br />
+<pre>
+INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS
+	AL = 04h
+	AH = multiplex number for program
+	BL = interrupt number (except 2Dh)
+Return: AL = status
+	    00h not implemented (makes TSR non-compliant with specification)
+	    01h (obsolete) unable to determine
+	    02h (obsolete) interrupt hooked
+	    03h (obsolete) interrupt hooked, address returned
+		DX:BX -&gt; TSR's interrupt BL handler
+	    04h list of hooked interrupts returned
+		DX:BX -&gt; interrupt hook list (see #02571)
+	    FFh interrupt not hooked
+Notes:	BL is ignored if the TSR returns AL=04h; in that case, the caller
+	  needs to scan the return list rather than making additional calls
+	  to this function.  If the return is not 00h or 04h, then the caller
+	  must cycle through the remaining interrupt numbers it wishes to
+	  check.
+	return values 01h through 03h may not be used by AMIS v3.6-compliant
+	  programs; they are included here solely for compatibility with
+	  version 3.3, though they were probably never used in any
+	  implementation
+	for return values 01h through 03h, since INT 2D is known to be hooked,
+	  the resident code need not test for BL=2Dh (to minimize its size),
+	  and the return value is therefore undefined in that case.
+	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+
+Format of AMIS interrupt hook list [array]:
+Offset	Size	Description	(Table 02571)
+ 00h	BYTE	interrupt number (last entry in array is 2Dh)
+ 01h	WORD	offset within hook list's segment of the interrupt handler
+		this will point at the initial short jump of the interrupt
+		  sharing protocol header (see #02568)
+SeeAlso: #02572
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--05" name="2D--05"><b>2D--05</b></a> - INT 2D - AMIS v3.5+ - GET HOTKEYS<br />
+<pre>
+INT 2D - AMIS v3.5+ - GET HOTKEYS
+	AL = 05h
+	AH = multiplex number for program
+Return: AL = status
+	    00h not implemented
+	    FFh supported
+		DX:BX -&gt; hotkey list (see #02572)
+Notes:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+	programs which provide hotkeys are required to provide this function
+	  to be fully compliant with this specification
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=06h
+
+Format of AMIS hotkey list:
+Offset	Size	Description	(Table 02572)
+ 00h	BYTE	type of hotkey checking (see #02573)
+ 01h	BYTE	number of hotkeys (may be zero if TSR can disable hotkeys)
+ 02h 6N BYTEs	array of hotkey definitions
+		(one per hotkey, first should be primary hotkey)
+		Offset	Size	Description
+		 00h	BYTE	hotkey scan code (00h/80h if shift states only)
+				hotkey triggers on release if bit 7 set
+		 01h	WORD	required shift states (see #02574)
+		 03h	WORD	disallowed shift states (see #02574)
+		 05h	BYTE	hotkey flags (see #02575)
+Notes:	except for bit 7, the shift states correspond exactly to the return
+	  values from INT 16/AH=12h.  A set bit in the required states word
+	  indicates that the corresponding shift state must be active when the
+	  hotkey's scan code is received for the hotkey to be recognized; a
+	  clear bit means that the corresponding state may be ignored.	A set
+	  bit in the disallowed shift states word indicates that the
+	  corresponding shift state must be inactive.
+	for the disallowed-states word, if one of the "either" bits is set,
+	  then both the corresponding left bit and right bit must be set
+	examples:
+		Ctrl-Alt-Del monitoring: 53h 000Ch 0003h 06h
+		Alt-key tap (DESQview):	 B8h 0000h 0007h 08h
+		Shf-Shf-N (NOTE.COM):	 31h 0003h 000Ch 00h
+Index:	hotkeys;AMIS
+SeeAlso: #00006
+
+Bitfields for type of AMIS hotkey checking:
+Bit(s)	Description	(Table 02573)
+ 0	checks before chaining INT 09
+ 1	checks after chaining INT 09
+ 2	checks before chaining INT 15/AH=4Fh
+ 3	checks after chaining INT 15/AH=4Fh
+ 4	checks on INT 16/AH=00h,01h,02h
+ 5	checks on INT 16/AH=10h,11h,12h
+ 6	checks on INT 16/AH=20h,21h,22h
+ 7	reserved (0)
+SeeAlso: #02572
+
+Bitfields for AMIS shift states:
+Bit(s)	Description	(Table 02574)
+ 0	right shift pressed
+ 1	left shift pressed
+ 2	either control key pressed
+ 3	either Alt key pressed
+ 4	ScrollLock active
+ 5	NumLock active
+ 6	CapsLock active
+ 7	either shift key pressed
+ 8	left control key pressed
+ 9	left Alt key pressed
+ 10	right control key pressed
+ 11	right Alt key pressed
+ 12	ScrollLock pressed
+ 13	NumLock pressed
+ 14	CapsLock pressed
+ 15	SysReq key pressed
+Notes:	if bit 2 is set, either control key may be pressed for the hotkey; if
+	  bits 8 and 10 are both set, then both control keys must be pressed.
+	  Similarly for bits 3 and 9/11, as well as 7 and 0/1.
+	the SysReq key is often labeled SysRq
+SeeAlso: #02572,#02575
+
+Bitfields for AMIS hotkey flags:
+Bit(s)	Description	(Table 02575)
+ 0	hotkey chained before processing
+ 1	hotkey chained after processing
+ 2	others should pass through this hotkey so that it can be monitored
+ 3	hotkey will not activate if other keys pressed/released before hotkey
+	  press is completed
+ 4	this key is remapped into some other key
+ 5	this key is conditionally chained (sometimes passed on, sometimes
+	  swallowed)
+ 6-7	reserved (0)
+SeeAlso: #02572,#02574
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--06" name="2D--06"><b>2D--06</b></a> - INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION<br />
+<pre>
+INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION
+	AL = 06h
+	AH = multiplex number for program
+Return: AL = number of device driver headers supplied by prog.
+	AH = device-driver flags (see #02576)
+	DX:BX -&gt; first device driver header (see #01646)
+Program: AMIS is the Alternate Multiplex Interrupt Specification promulgated
+	  by Ralf Brown
+Notes:	if AL=00h, AH,BX,DX are meaningless and may be destroyed
+	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+	programs which provide device drivers are required to support this
+	  function to be considered fully compliant with v3.6+ of the
+	  specification
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=05h
+
+Bitfields for AMIS device-driver information flags:
+Bit(s)	Description	(Table 02576)
+ 0	program loaded from CONFIG.SYS, and thus can not be removed from memory
+	(leave clear if unable to determine)
+ 1	device driver headers have not been linked into DOS device chain
+ 2	reentrant device driver(s)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F_0" name="2F_0"><b>2F</b></a> - INT 2F - BMB Compuscience Canada Utilities Interface - INSTALLATION CHECK<br />
+<pre>
+INT 2F - BMB Compuscience Canada Utilities Interface - INSTALLATION CHECK
+	AH = xx (dynamically assigned based upon a search for a multiplex
+		 number which doesn't answer installed)
+	AL = 00h installation check
+	ES:DI = EBEBh:BEBEh
+Return: AL = 00h not installed
+	     01h not installed, not OK to install
+	     FFh installed; if ES:DI was EBEBh:BEBEh on entry, ES:DI will point
+		 to a string of the form 'MMMMPPPPPPPPvNNNN' where MMMM is a
+		 short form of the manufacturer's name, PPPPPPPP is a product
+		 name and NNNN is the product's version number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F_1" name="2F_1"><b>2F</b></a> - INT 2F - Ross Wentworth's Turbo Pascal POPUP LIBRARY<br />
+<pre>
+INT 2F - Ross Wentworth's Turbo Pascal POPUP LIBRARY
+	AH = programmer-selected multiplex number
+	AL = function
+	    00h installation check
+		Return: AL = FFh if installed
+	    01h get TSR interrupt vectors
+		Return: DX:AX -&gt; vector table (see #02587)
+	    02h get TSR code segment
+		Return: AX = code segment for all interrupt handlers
+	    03h call user exit routine and release TSR's memory
+	    04h get signature string
+		Return: DX:AX -&gt; counted string containing signature
+	    05h get TSR's INT 2F handler
+		Return: DX:AX -&gt; INT 2F handler
+	    06h enable/disable TSR
+		BL = new state (00h disabled, 01h enabled)
+	    07h activate TSR (popup if not disabled)
+	    08h get hotkeys
+		BL = which hotkey (00h = hotkey 1, 01h = hotkey 2)
+		Return: AX = hotkey (AH = keyflags, AL = scancode)
+	    09h set hotkey
+		BL = which hotkey (00h = hotkey 1, 01h = hotkey 2)
+		CX = new hotkey (CH = keyflags, CL = scancode)
+	    0Ah-1Fh reserved
+Index:	installation check;Ross Wentworth POPUP library
+Index:	hotkeys;Ross Wentworth POPUP library
+
+Format of POPUP vector table entry:
+Offset	Size	Description	(Table 02587)
+ 00h	BYTE	vector number (00h = end of table)
+ 01h	DWORD	original vector
+ 05h	WORD	offset of interrupt handler in TSR's code segment
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F_2" name="2F_2"><b>2F</b></a> - INT 2F - CiriSOFT Spanish University of Valladolid TSR's Interface<br />
+<pre>
+INT 2F - CiriSOFT Spanish University of Valladolid TSR's Interface
+	AH = xx (dynamically assigned based upon a search for a multiplex
+		 number from C0h to FFh which doesn't answer installed)
+	AL = 00h installation check
+	ES:DI = 1492h:1992h
+Return: AL = 00h not installed
+	     01h not installed, not OK to install
+	     FFh installed; and if ES:DI was 1492h:1992h on entry, ES:DI will
+		   point to author_name_ver table (see #02588)
+	AH = FFh
+Note:	this interface permits advanced communication with TSRs: it is possible
+	  to make a generic uninstall utility, advanced TSR relocator programs
+	  in order to fit fragmented memory areas, etc.
+See also: INT 2D"AMIS",INT 2F"Compuscience"
+Index:	installation check;CiriSOFT TSR interface
+Index:	uninstall;CiriSOFT TSR interface
+
+Format of CiriSOFT author_name_ver table:
+Offset	Size	Description	(Table 02588)
+ -16	WORD	segment of the start of the resident TSR code (CS in programs
+		  with PSP, XMS upper memory segment if installed as UMB...)
+ -14	WORD	offset of the start of the resident TSR code (frequently 100h
+		  in *.COM programs and 0 in upper memory TSR's).
+ -12	WORD	memory used by TSR (in paragraphs). Knowing the memory area
+		  used by TSR is possible to determine if hooked vectors are
+		  still pointing it (and if it is safe to uninstall).
+ -10	BYTE	characteristics byte (see #02589)
+ -9	BYTE	number of multiplex entry used (redefinition available). Note
+		  that the TSR must use THIS variable in it's INT 2Fh handler.
+ -8	WORD	offset to vector_area table (see #02590)
+ -6	WORD	offset to extra_area table (see #02591,#02589 [bit 7])
+ -4   4 BYTEs	signature string "*##*"
+ 00h	var	"AUTHOR:PROGRAM_NAME:VERSION",0	 (variable length, this area
+		  is used in order to determine if the TSR is already resident
+		  and it's version code; the ':' char is used as delimiter)
+
+Bitfields for CiriSOFT characteristics byte:
+Bit(s)	Description	(Table 02589)
+ 0-2	type
+	000 normal program (with PSP)
+	001 upper XMS memory block (needed HIMEM.SYS function to free memory
+	      when uninstalling)
+	010 device driver (*.SYS)
+	011 device driver in EXE format
+	1xx others (reserved)
+ 3-6	reserved
+ 7	set if extra_table defined and supported (see #02591)
+SeeAlso: #02588
+
+Format of CiriSOFT vector_area table:
+Offset	Size	Description	(Table 02590)
+ -1	BYTE	number of vectors intercepted by TSR
+ 00h	BYTE	first vector number
+ 01h	DWORD	first vector pointer before installing the TSR
+ 05h	BYTE	second vector number
+ 06h	DWORD	second vector pointer before installing the TSR
+ 0Ah	...	(and so on)
+Note:	the TSR must use these variables to invoke the previous interrupt
+	  handler routines
+SeeAlso: #02588
+
+Format of extra_area table (needed only to improve relocation feature):
+Offset	Size	Description	(Table 02591)
+ 00h	WORD	offset to external_ctrl table (see #02592)
+		0000h if not supported
+ 02h	WORD	reserved for future use (0)
+SeeAlso: #02588
+
+Format of CiriSOFT external_ctrl table:
+Offset	Size	Description	(Table 02592)
+ 00h	BYTE	bit 0: TSR is relocatable (no absolute segment references)
+ 01h	WORD	offset to a variable which can activate/inhibit the TSR
+ ---And if bit 0 in offset 00h is off:
+ 03h	DWORD	pointer to ASCIZ pathname for executable file which supports
+		  /SR parameter (silent installation & inhibit)
+ 07h	DWORD	pointer to first variable to initialize on the copy reloaded
+		  from the previous TSR still resident
+ 0Bh	DWORD	pointer to last variable (all variables packed in one block)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3900" name="2F3900"><b>2F3900</b></a> - INT 2F - Kingswood TSR INTERFACE - COMPATIBILITY MODE<br />
+<pre>
+INT 2F - Kingswood TSR INTERFACE - COMPATIBILITY MODE
+	AX = 3900h
+Return: AL = status
+	    00h not installed
+	    FFh one or more TSRs using this interface is installed
+		DX may be destroyed
+Note:	this function is provided to that the multiplex number will appear used
+	  to other programs
+SeeAlso: AH=39h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F39--BL00" name="2F39--BL00"><b>2F39--BL00</b></a> - INT 2F - Kingswood TSR INTERFACE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Kingswood TSR INTERFACE - INSTALLATION CHECK
+	AH = 39h
+	BL = 00h
+	AL = TSR ID number (01h-FFh, currently only 01h-1Bh used) (see #02742)
+Return: AL = status
+	    00h not installed
+	    FFh installed
+		DX = segment address of resident module
+Note:	All of Kingswood Software's TSRs use this interface.  Usually the
+	  resident module is installed by allocating a block of upper memory,
+	  setting its owner ID to 000Ah (used by DOS), and filling the MCB name
+	  field with the TSR's name.
+SeeAlso: #02743,AX=3900h,AH=39h/BL=01h
+
+(Table 02742)
+Values for Kingswood TSR ID number:
+ 01h	TSR Windows
+ 02h	NOBUSY
+ 03h	CD STACK
+ 04h	DISK WATCH
+ 05h	PUSHBP
+ 06h	ALIAS
+ 07h	KEYMACRO
+ 08h	SLOWDOWN
+ 09h	ANSIGRAB
+ 0Ah	TEE
+ 0Bh	FASTMOUS
+ 0Ch	EXTWILD
+ 0Dh	BREAKOUT
+ 0Eh	STOPDISK
+ 0Fh	MEMINIT
+ 10h	JANUSEXT
+ 11h	CAPS
+ 12h	ANSI
+ 13h	TRAPPER
+ 14h	EATMEM
+ 15h	WPJOKE
+ 16h	SHOWDOS
+ 17h	LOGINTS
+ 18h	BLANKVGA
+ 19h	SWAPEXEC
+ 1Ah	SHELL
+ 1Bh	TSRGAMES
+
+Format of Kingswood TSR modules:
+Offset	Size	Description	(Table 02743)
+ 00h  4 BYTEs	signature "FTSR"
+ 04h	WORD	segment address of this module (used to check validity)
+ 06h	WORD	number of words to skip (usually 0000h if no PSP present)
+ 08h  N WORDs	module-defined data that must be at a fixed segment offset
+		(usually only a PSP if file access is required)
+     5N BYTEs	interrupt list (see #02744)
+	BYTE	FFh terminator
+
+Format of Kingswood TSR interrupt list entry:
+Offset	Size	Description	(Table 02744)
+ 00h	BYTE	interrupt number (00h-FEh)
+ 01h	WORD	offset within segment of DWORD pointer to previous interrupt
+ 03h	WORD	offset within segment of begin of interrupt handler code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F39--BL01" name="2F39--BL01"><b>2F39--BL01</b></a> - INT 2F - Kingswood TSR INTERFACE - REMOVAL CHECK<br />
+<pre>
+INT 2F - Kingswood TSR INTERFACE - REMOVAL CHECK
+	AH = 39h
+	BL = 01h
+	AL = TSR ID number (01h-FFh) (see #02742)
+Return: AL = status
+	    00h not ready to be removed
+	    FFh resident module may be removed by deassigning the interrupts
+		  hooked by the TSR and deallocating the TSR's memory block
+	AH,BX,CX,DX,ES may be destroyed
+SeeAlso: AX=3900h,AH=39h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F39" name="2F39"><b>2F39</b></a> - INT 2F - Kingswood TSR INTERFACE - APPLICATION-SPECIFIC FUNCTION CALLS<br />
+<pre>
+INT 2F - Kingswood TSR INTERFACE - APPLICATION-SPECIFIC FUNCTION CALLS
+	AH = 39h
+	BL = function number (02h-FFh)
+	AL = TSR ID number (01h-FFh) (see #02742)
+	CX,DX,SI,DI,DS,ES may contain parameters
+	BH reserved for use by the function dispatcher
+Return: as appropriate for the called function
+SeeAlso: AX=3900h,AH=39h/BL=00h,AX=3901h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5453" name="2F5453"><b>2F5453</b></a> - INT 2F - TesSeRact RAM-RESIDENT PROGRAM INTERFACE<br />
+<pre>
+INT 2F - TesSeRact RAM-RESIDENT PROGRAM INTERFACE
+	AX = 5453h
+	BX = subfunction
+	    00h installation check
+		CX = 0000h
+		DS:SI -&gt; 8-char blank-padded name (see #02840)
+		Return: AX = FFFFh installed
+				CX = ID number of already-installed copy
+			AX = anything else, not installed
+				CX = ID number for TSR when installed
+	    01h get user parameters
+		CX = TSR ID number
+		Return: AX = status
+			    0000h successful
+				ES:BX -&gt; user parameter block (see #02841)
+			    nonzero failed
+	    02h check if hotkey in use
+		CL = scan code of hot key (see #00006)
+		Return: AX = FFFFh hot key conflicts with another TSR
+			     otherwise safe to use the hotkey
+	    03h replace default critical error handler
+		CX = TSR ID number
+		DS:SI -&gt; new routine for INT 24h
+		Return: AX = nonzero, unable to install new handler
+	    04h get internal data area
+		CX = TSR ID number
+		Return: AX = status
+			    0000h successful
+				ES:BX -&gt; TSR's internal data area (see #02842)
+			    nonzero, TSR not found
+	    05h set multiple hot keys
+		CX = TSR ID number
+		DL = number of additional hot keys to allocate
+		DS:SI -&gt; table of hot keys
+			BYTE  hotkey scan code (see #00006)
+			BYTE  hotkey shift state
+			BYTE  flag value to pass to TSR (nonzero)
+		Return: AX = nonzero, unable to install hot keys
+	    06h - 0Fh reserved
+	    10h enable TSR
+		CX = TSR ID number
+		Return: AX = nonzero, unable to enable
+	    11h disable TSR
+		CX = TSR ID number
+		Return: AX = nonzero, unable to disable
+	    12h unload TSR
+		CX = TSR ID number
+		Return: AX = nonzero, invalid TSR number
+		Note: if any interrupts used by TSR have been grabbed by
+			another TSR, the TesSeRact routines will wait until
+			it is safe to remove the indicated TSR from memory
+	    13h restart TSR
+		CX = TSR ID number of TSR which was unloaded but is still in
+		     memory
+		Return: AX = nonzero, unable to restart TSR
+	    14h get status word
+		CX = TSR ID number
+		Return: AX = FFFFh invalid ID number
+			   = other, successful
+				BX = bit flags
+	    15h set status word
+		CX = TSR ID number
+		DX = new bit flags
+		Return: AX = nonzero, unable to set status word
+	    16h get INDOS state at popup
+		CX = TSR ID number
+		Return: AX = 0000h successful
+			    BX = value of INDOS flag
+	    17h - 1Fh reserved
+	    20h call user procedure
+		CX = TSR ID number
+		ES:DI -&gt; user-defined data
+		Return: AX = 0000h successful
+	    21h stuff keystrokes into keyboard buffer
+		CX = TSR ID number
+		DL = speed
+		    00h stuff keystrokes only when buffer is empty
+		    01h stuff up to four keystrokes per clock tick
+		    02h stuff up to 15 keystrokes per clock tick
+		DH = scan code flag
+		    if zero, buffer contains alternating ASCII and scan codes
+		    if nonzero, buffer contains only ASCII codes
+		SI = number of keystrokes
+		ES:DI -&gt; buffer to stuff
+		Return: AX = 0000h success
+			     F0F0h user aborted with ^C or ^Break
+			     other unable to stuff keystrokes
+	    22h (v1.10) trigger popup
+		CX = TSR ID number
+		Return: AX = 0000h success, TSR will either pop up or beep to
+				   indicate that it is unable to pop up
+			     nonzero invalid ID number
+	    23h (v1.10) invoke TSR's background function
+		CX = TSR ID number
+		Return: AX = 0000h success
+			     FFFFh not safe to call background function
+			     nonzero invalid ID number
+	    24h - 2Fh reserved
+Notes:	Borland's THELP.COM popup help system for Turbo Pascal and Turbo C
+	  (versions 1.x and 2.x only) fully supports the TesSeRact API, as
+	  do the SWAP?? programs by Innovative Data Concepts.
+	AVATAR.SYS supports functions 00h and 01h (only the first three fields
+	  of the user parameter block) using the name "AVATAR  "
+SeeAlso: AX=CAFEh,INT 16/AX=55FFh,INT 2D"AMIS"
+Index:	installation check;TesSeRact TSR interface|uninstall;TesSeRact
+
+(Table 02840)
+Values for TesSeRact names:
+ "AVATAR  "	AVATAR.SYS
+ "QeditTSR"	TSR version of SemWare's Qedit editor
+ "SCRNBLNK"	Trusted Access screen blanker
+
+Format of TesSeRact User Parameter Block:
+Offset	Size	Description	(Table 02841)
+ 00h  8 BYTEs	blank-padded TSR name
+ 08h	WORD	TSR ID number
+ 0Ah	DWORD	bitmap of supported functions
+ 0Eh	BYTE	scan code of primary hotkey (see #00006)
+		00h = pop up when shift states match
+		FFh = no popup (if shift state also FFh)
+ 0Fh	BYTE	shift state of primary hotkey
+		FFh = no popup (if scan code also FFh)
+ 10h	BYTE	number of secondary hotkeys
+ 11h	DWORD	pointer to extra hotkeys set by func 05h
+ 15h	WORD	current TSR status flags
+ 17h	WORD	PSP segment of TSR
+ 19h	DWORD	DTA for TSR
+ 1Dh	WORD	default DS for TSR
+ 1Fh	DWORD	stack at popup
+ 23h	DWORD	stack at background invocation
+Index:	hotkeys;TesSeRact TSR interface
+
+Format of TSR internal data area:
+Offset	Size	Description	(Table 02842)
+ 00h	BYTE	revision level of TesSeRact library
+ 01h	BYTE	type of popup in effect
+ 02h	BYTE	INT 08 occurred since last invocation
+ 03h	BYTE	INT 13 occurred since last invocation
+ 04h	BYTE	active interrupts
+ 05h	BYTE	active soft interrupts
+ 06h	BYTE	DOS major version
+ 07h	BYTE	how long to wait before popping up
+ 08h	DWORD	pointer to INDOS flag
+ 0CH	DWORD	pointer to DOS critical error flag
+ 10h	WORD	PSP segment of interrupted program
+ 12h	WORD	PSP segment of prog interrupted by INT 28
+ 14h	DWORD	DTA of interrupted program
+ 18h	DWORD	DTA of program interrupted by INT 28
+ 1Ch	WORD	SS of interrupted program
+ 1Eh	WORD	SP of interrupted program
+ 20h	WORD	SS of program interrupted by INT 28
+ 22h	WORD	SP of program interrupted by INT 28
+ 24h	DWORD	INT 24 of interrupted program
+ 28h  3 WORDs	DOS 3.0+ extended error info
+ 2Eh	BYTE	old BREAK setting
+ 2Fh	BYTE	old VERIFY setting
+ 30h	BYTE	were running MS WORD 4.0 before popup
+ 31h	BYTE	MS WORD 4.0 special popup flag
+ 32h	BYTE	enhanced keyboard call in use
+ 33h	BYTE	delay for MS WORD 4.0
+11 times (for INTs 08h,09h,13h,16h,1Ch,21h,28h,2Fh,1Bh,23h, and 24h):
+	DWORD	old interrupt vector
+	BYTE	interrupt number
+	WORD	offset in TesSeRact code segment of new interrupt handler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8000_1" name="2F8000_1"><b>2F8000</b></a> - INT 2F - CS_TSR specification - TSR INSTALLATION CHECK<br />
+<pre>
+INT 2F - CS_TSR specification - TSR INSTALLATION CHECK
+	AX = 8000h
+	DS:SI -&gt; 4-byte CS_TSR signature (11h 43h 53h 10h)
+Return: AL = status
+	    00h no CS_TSR-compliant TSRs installed
+	    01h installed, but signature did not match
+	    FFh installed, signature matches
+		ES:DI -&gt; resident process block (see #02928) of last installed
+			  TSR (if DS:SI pointed at signature on entry)
+Program: the CS_TSR specification is a standardized TSR interface by Compact
+	  Soft group in Kiev, Ukraine
+Desc:	determine whether any CS_TSR-compliant TSRs are installed on the
+	  selected multiplex number
+Range:	AH=80h to AH=FFh
+SeeAlso: AX=8001h"CS_TSR",AX=8002h"CS_TSR",AX=8003h"CS_TSR"
+
+Format of CS_TSR process block:
+Offset	Size	Description	(Table 02928)
+ 00h  4 BYTEs	CS_TSR signature 11h 43h 53h 10h
+ 04h	BYTE	INT 2F multiplex number
+ 05h	WORD	virtual process handle (unique among loaded TSRs)
+ 07h  2 BYTEs	version (binary minor version, then major version)
+ 09h	WORD	PSP segment of TSR
+ 0Bh	DWORD	pointer to ASCIZ program name
+ 0Fh  3 BYTEs	program creation date (day, month, year)
+ 12h  3 BYTEs	process start time (seconds, minutes, hours)
+ 15h  3 BYTEs	process start date (day, month, year)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8001_0" name="2F8001_0"><b>2F8001</b></a> - INT 2F - CS_TSR specification - GET HANDLE (TSR-SPECIFIC INSTALLATION CHECK)<br />
+<pre>
+INT 2F - CS_TSR specification - GET HANDLE (TSR-SPECIFIC INSTALLATION CHECK)
+	AX = 8001h
+	DS:SI -&gt; ASCIZ signature string for desired TSR (see #02929)
+Return: BX = process handle or 0000h if specified TSR not installed
+	ES:DI -&gt; process block for TSR (see #02928) if BX&lt;&gt;0000h
+Note:	A widely-available copy of ASCII billing itself as "ASCII 2.OO by
+	  Nick Zaikin Jr." is in fact a hacked copy of the Compact Soft
+	  ASCII v4.23 which is identical except for the changed attribution
+	  and version (in fact, some instances of "4.23" were missed); the
+	  hacked copy requires the signature string
+	  "ASCII 2.OO by Nick Zaikin Jr." instead of the unhacked version's
+	  simple signature "ASCII"
+SeeAlso: AX=8000h"CS_TSR",AX=8002h"CS_TSR"
+
+(Table 02929)
+Values for CS_TSR signature strings:
+ "ASCII"	ASCII, a popup ASCII table with character input
+ "Halculator"	HALC, a 32-bit RPN WYSIWIH calculator with undo and ptr support
+ "AntiTurbo"	AT!, an intelligent system slow-down utility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8002" name="2F8002"><b>2F8002</b></a> - INT 2F - CS_TSR specification - GET PROCESS BLOCK BY PROCESS HANDLE<br />
+<pre>
+INT 2F - CS_TSR specification - GET PROCESS BLOCK BY PROCESS HANDLE
+	AX = 8002h
+	BX = process handle for TSR (see AX=8001h"CS_TSR")
+Return: ES:DI -&gt; process block for specified TSR (see #02928)
+		unchanged if no match for process handle
+Note:	This function is used to allocate a process handle when the TSR
+	  installs itself, by setting ES:DI to point at something other than
+	  a CS_TSR process block's signature string and iterating through the
+	  possible process handles (0001h to FFFFh) until ES:DI is returned
+	  unchanged
+SeeAlso: AX=8000h"CS_TSR",AX=8001h"CS_TSR",AX=8003h"CS_TSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8003" name="2F8003"><b>2F8003</b></a> - INT 2F - CS_TSR specification - CUSTOM SUBFUNCTION<br />
+<pre>
+INT 2F - CS_TSR specification - CUSTOM SUBFUNCTION
+	AX = 8003h
+	BX = process handle for TSR (see AX=8001h"CS_TSR")
+	other registers vary by TSR
+Return: vary by TSR, unchanged if not supported
+Program: the CS_TSR specification is a standardized TSR interface by Compact
+	  Soft group in Kiev, Ukraine
+SeeAlso: AX=8000h"CS_TSR",AX=8001h"CS_TSR",AX=8002h"CS_TSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDD" name="2FDD"><b>2FDD</b></a> - INT 2F - CappaCom programs - API<br />
+<pre>
+INT 2F - CappaCom programs - API
+	AH = DDh
+	AL = 00h general installation check
+	    Return: AL = FFh if any CappaCom programs are resident
+	AL = FEh get info
+	    Return: ES:BX -&gt; TSR info list (see #03098)
+	AL = program identifier
+	    BH = function
+		FDh get version
+		    Return: BX = version
+		FFh installation check
+		    Return: AL = FFh if installed
+				BX = version
+				ES = segment of resident code
+		others vary by program
+Return: AL = status
+	    bit 7 set on error
+	    AL = 81h unknown function
+Note:	CappaCom was originally SoftCom but changed its name due to a trademark
+	  conflict
+Index:	installation check;SoftCom programs
+Index:	installation check;CappaCom programs
+
+Format of CappaCom TSR info list:
+Offset	Size	Description	(Table 03098)
+ 00h  9 BYTEs	blank-padded ASCIZ program name
+ 09h	BYTE	program ID
+ 0Ah	WORD	program's PSP segment
+ 0Ch	WORD	program version (major in high byte)
+ 0Eh	DWORD	pointer to next item in info list or 0000h:0000h
+ 12h	BYTE	number of interrupts hooked
+ 13h  5 BYTEs	interrupt numbers hooked by program
+ 18h  8 BYTEs	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFBBXFFFB" name="66FFFBBXFFFB"><b>66FFFBBXFFFB</b></a> - INT 66 - MicroHelp Stay-Res Plus - ???<br />
+<pre>
+INT 66 - MicroHelp Stay-Res Plus - ???
+	AX = FFFBh
+	BX = FFFBh
+	???
+Return: ???
+SeeAlso: AX=FFFEh,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFEBXFFFE" name="66FFFEBXFFFE"><b>66FFFEBXFFFE</b></a> - INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL<br />
+<pre>
+INT 66 - MicroHelp Stay-Res/Stay-Res Plus - UNINSTALL
+	AX = FFFEh
+	BX = FFFEh
+Return: only if unsuccessful
+InstallCheck:	test whether the interrupt handler begins with the bytes
+	  FBh 9Ch or 9Ch FAh, and the program name (not case-sensitive) appears
+	  at offset 0005h (older versions) or the offset returned by
+	  AX=FFFFh/BX=FFF0h in the interrupt handler segment
+Note:	Programs which use Stay-Res include ThesPlus (program name "THESPLUS")
+	  and Personal Calendar (program name "CAL") by Paul Mun~oz-Colman.
+SeeAlso: AX=FFFBh,AX=FFFFh,INT 2D"AMIS"
+Index:	installation check;MicroHelp Stay-Res|installation check;ThesPlus
+Index:	installation check;Personal Calendar|installation check;CAL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66FFFFBXFFF0" name="66FFFFBXFFF0"><b>66FFFFBXFFF0</b></a> - INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME<br />
+<pre>
+INT 66 - MicroHelp Stay-Res Plus - FIND PROGRAM NAME
+	AX = FFFFh
+	BX = FFF0h
+Return: DI = offset of program name in interrupt handler segment
+SeeAlso: AX=FFFBh,AX=FFFEh,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D" name="7D"><b>7D</b></a> - INT 7D O - [obsoleted proposal] - ALTERNATE MULTIPLEX INTERRUPT<br />
+<pre>
+INT 7D O - [obsoleted proposal] - ALTERNATE MULTIPLEX INTERRUPT
+Note:	this interface has been moved to INT 2D; there are no known
+	  implementations on INT 7D
+SeeAlso: INT 2D"AMIS",INT 2F"NOTES"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

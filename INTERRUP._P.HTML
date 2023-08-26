@@ -1,0 +1,1815 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._P</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category P - printer enhancements
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#05454A"><b>05454A</b> - INT 05 U - PSPS v2.01 - EJECT PAGE</a><br />
+<a href="#054E57"><b>054E57</b> - INT 05 U - PSPS v2.01 - SET PARAMETERS</a><br />
+<a href="#055053"><b>055053</b> - INT 05 U - PSPS v2.01 - GET PARAMETERS</a><br />
+<a href="#05554E"><b>05554E</b> - INT 05 U - PSPS v2.01 - UNINSTALL</a><br />
+<a href="#104B_0"><b>104B</b> - INT 10 - FRIEZE - API</a><br />
+<a href="#17----DX0ABC"><b>17----DX0ABC</b> - INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0B90"><b>17----DX0B90</b> - INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0B91"><b>17----DX0B91</b> - INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK</a><br />
+<a href="#17----DX0F5F"><b>17----DX0F5F</b> - INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK</a><br />
+<a href="#1702--DX0000"><b>1702--DX0000</b> - INT 17 - INSET - INSTALLATION CHECK</a><br />
+<a href="#1703"><b>1703</b> - INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS</a><br />
+<a href="#1704"><b>1704</b> - INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT</a><br />
+<a href="#170500"><b>170500</b> - INT 17 U - Emulaser ELTSR - ???</a><br />
+<a href="#170501"><b>170501</b> - INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS</a><br />
+<a href="#170502"><b>170502</b> - INT 17 U - Emulaser ELTSR - SET ???</a><br />
+<a href="#170503"><b>170503</b> - INT 17 U - Emulaser ELTSR - DEACTIVATE???</a><br />
+<a href="#1706"><b>1706</b> - INT 17 U - Emulaser ELTSR - ???</a><br />
+<a href="#1707"><b>1707</b> - INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE</a><br />
+<a href="#1708"><b>1708</b> - INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE</a><br />
+<a href="#1709"><b>1709</b> - INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???</a><br />
+<a href="#170A"><b>170A</b> - INT 17 U - Emulaser ELTSR - SET ??? FILENAME</a><br />
+<a href="#170B"><b>170B</b> - INT 17 U - Emulaser ELTSR - GET ???</a><br />
+<a href="#170C"><b>170C</b> - INT 17 U - Emulaser ELTSR - SET ??? FLAG</a><br />
+<a href="#170D"><b>170D</b> - INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE</a><br />
+<a href="#170E"><b>170E</b> - INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING</a><br />
+<a href="#172000"><b>172000</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK</a><br />
+<a href="#172001"><b>172001</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG</a><br />
+<a href="#172002"><b>172002</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION</a><br />
+<a href="#172003"><b>172003</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???</a><br />
+<a href="#172004"><b>172004</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???</a><br />
+<a href="#172005"><b>172005</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE</a><br />
+<a href="#172006"><b>172006</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN</a><br />
+<a href="#172007"><b>172007</b> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED</a><br />
+<a href="#175555BXAAAA"><b>175555BXAAAA</b> - INT 17 - LR - SET CONFIGURATION</a><br />
+<a href="#175555BXBBBB"><b>175555BXBBBB</b> - INT 17 - LR - GET CONFIGURATION</a><br />
+<a href="#1762"><b>1762</b> - INT 17 U - T2PS v1.0 - UNINSTALL</a><br />
+<a href="#1763"><b>1763</b> - INT 17 U - T2PS v1.0 - SET PARAMETERS</a><br />
+<a href="#1764"><b>1764</b> - INT 17 U - T2PS v1.0 - GET PARAMETERS</a><br />
+<a href="#17CD00"><b>17CD00</b> - INT 17 - INSET - EXECUTE COMMAND STRING</a><br />
+<a href="#17CD01"><b>17CD01</b> - INT 17 - INSET - GET IMAGE SIZE</a><br />
+<a href="#17CD02"><b>17CD02</b> - INT 17 - INSET - INITIALIZE</a><br />
+<a href="#17CD03"><b>17CD03</b> - INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE</a><br />
+<a href="#17CD04"><b>17CD04</b> - INT 17 - INSET - INITIALIZE LINKED MODE</a><br />
+<a href="#17CD05"><b>17CD05</b> - INT 17 - INSET - START MERGING IMAGE INTO TEXT</a><br />
+<a href="#17CD06"><b>17CD06</b> - INT 17 - INSET - GRAPHICS LINE FEED</a><br />
+<a href="#17CD07"><b>17CD07</b> - INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER</a><br />
+<a href="#17CD08"><b>17CD08</b> - INT 17 - INSET - CANCEL LINK MODE</a><br />
+<a href="#17CD09"><b>17CD09</b> - INT 17 - INSET - ALTER TEXT LINE SPACING</a><br />
+<a href="#17CD0A"><b>17CD0A</b> - INT 17 - INSET - GET SETUP</a><br />
+<a href="#17CD0B"><b>17CD0B</b> - INT 17 - INSET - START GETTING SCALED IMAGE</a><br />
+<a href="#17CD0C"><b>17CD0C</b> - INT 17 - INSET - GET NEXT IMAGE STRIP</a><br />
+<a href="#17E0"><b>17E0</b> - INT 17 - EPP BIOS - INSTALLATION CHECK</a><br />
+<a href="#17E1"><b>17E1</b> - INT 17 - EPP BIOS - DISABLE EPP</a><br />
+<a href="#17E2"><b>17E2</b> - INT 17 - EPP BIOS - ENABLE EPP</a><br />
+<a href="#17F0"><b>17F0</b> - INT 17 - NorthNet Jetstream API - INSTALLATION CHECK</a><br />
+<a href="#17F1"><b>17F1</b> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER</a><br />
+<a href="#17F2"><b>17F2</b> - INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS</a><br />
+<a href="#17F3"><b>17F3</b> - INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION</a><br />
+<a href="#17F4"><b>17F4</b> - INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS</a><br />
+<a href="#17F5"><b>17F5</b> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY</a><br />
+<a href="#2A8700"><b>2A8700</b> - INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING</a><br />
+<a href="#2A8701"><b>2A8701</b> - INT 2A CU - PRINT - END BACKGROUND PRINTING</a><br />
+<a href="#2F00_0"><b>2F00</b> - INT 2F U - PSPRINT - PRINT JOB CONTROL</a><br />
+<a href="#2F7F00_0"><b>2F7F00</b> - INT 2F - PRINDIR v9.0 - INSTALLATION CHECK</a><br />
+<a href="#2F7F01_0"><b>2F7F01</b> - INT 2F - PRINDIR v9.0 - SET CAPTURE DEVICE</a><br />
+<a href="#2F7F02_0"><b>2F7F02</b> - INT 2F - PRINDIR v9.0 - SET DESTINATION DEVICE</a><br />
+<a href="#2F7F03_0"><b>2F7F03</b> - INT 2F - PRINDIR v9.0 - SET CAPTURE FILENAME</a><br />
+<a href="#2F7F04"><b>2F7F04</b> - INT 2F - PRINDIR v9.0 - SET LOCK FILENAME</a><br />
+<a href="#2F7F05"><b>2F7F05</b> - INT 2F - PRINDIR v9.0 - DUMP CAPTURE BUFFER</a><br />
+<a href="#2F7F06"><b>2F7F06</b> - INT 2F - PRINDIR v9.0 - SET NORMAL TEXT COLOR</a><br />
+<a href="#2F7F07"><b>2F7F07</b> - INT 2F - PRINDIR v9.0 - SET HIGHLIGHT TEXT COLOR</a><br />
+<a href="#2F7F08"><b>2F7F08</b> - INT 2F - PRINDIR v9.0 - SET POPUP HOTKEY</a><br />
+<a href="#2F7F09"><b>2F7F09</b> - INT 2F - PRINDIR v9.0 - SET BYTE COUNTER DISPLAY</a><br />
+<a href="#2F7F0A"><b>2F7F0A</b> - INT 2F - PRINDIR v9.0 - SET FLUSH DELAY</a><br />
+<a href="#2F7F0B"><b>2F7F0B</b> - INT 2F - PRINDIR v9.0 - SET MINIMUM DUMP SIZE</a><br />
+<a href="#2F7F0C"><b>2F7F0C</b> - INT 2F - PRINDIR v9.0 - SET ECHO STATE</a><br />
+<a href="#2F7F0D"><b>2F7F0D</b> - INT 2F - PRINDIR v9.0 - SHOW POPUP PARAMETER MENU</a><br />
+<a href="#2F7F0E"><b>2F7F0E</b> - INT 2F - PRINDIR v9.0 - SUBMIT BYTE TO CURRENT DESTINATION DEVICE</a><br />
+<a href="#2FCD00"><b>2FCD00</b> - INT 2F - Intel Image Processing Interface - INSTALLATION CHECK</a><br />
+<a href="#2FCD00_0"><b>2FCD00</b> - INT 2F - LaserPort Interface - INSTALLATION CHECK</a><br />
+<a href="#2FCD01"><b>2FCD01</b> - INT 2F - Intel Image Processing Interface - SET DEVICE NAME</a><br />
+<a href="#2FCD02"><b>2FCD02</b> - INT 2F - Intel Image Processing Interface - GET VERSION NUMBER</a><br />
+<a href="#2FCD03"><b>2FCD03</b> - INT 2F - Intel Image Processing Interface - SELECT SCAN LINE</a><br />
+<a href="#2FCD04"><b>2FCD04</b> - INT 2F - Intel Image Processing Interface - MOVE BITMAP TO SCANLINE</a><br />
+<a href="#2FCD05"><b>2FCD05</b> - INT 2F - Intel Image Processing Interface - PRINT PAGE</a><br />
+<a href="#2FCD06"><b>2FCD06</b> - INT 2F - Intel Image Processing Interface - CLEAR PAGE</a><br />
+<a href="#2FCD07"><b>2FCD07</b> - INT 2F - Intel Image Processing Interface - reserved</a><br />
+<a href="#2FCD08"><b>2FCD08</b> - INT 2F - Intel Image Processing Interface - SCREEN IMAGE</a><br />
+<a href="#2FCD09"><b>2FCD09</b> - INT 2F - Intel Image Processing Interface - LOAD SCREEN</a><br />
+<a href="#2FCD0A"><b>2FCD0A</b> - INT 2F - Intel Image Processing Interface - LOAD PALETTE</a><br />
+<a href="#2FCD0F"><b>2FCD0F</b> - INT 2F - LaserPort Interface - EXECUTE FUNCTION</a><br />
+<a href="#7A_2"><b>7A</b> - INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)</a><br />
+<a href="#7C_1"><b>7C</b> - INT 7C - PRINDIR v8.02-8.xx - API</a><br />
+
+<hr />
+
+<a href="#05454A" name="05454A"><b>05454A</b></a> - INT 05 U - PSPS v2.01 - EJECT PAGE<br />
+<pre>
+INT 05 U - PSPS v2.01 - EJECT PAGE
+	AX = 454Ah ('EJ')
+Program: PSPS is shareware PostScript PrintScreen utility by A.N.D.
+	  Technologies
+Note:	sends a ^D to the current printer
+SeeAlso: AX=4E57h,AX=5053h,AX=554Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#054E57" name="054E57"><b>054E57</b></a> - INT 05 U - PSPS v2.01 - SET PARAMETERS<br />
+<pre>
+INT 05 U - PSPS v2.01 - SET PARAMETERS
+	AX = 4E57h ('NW')
+	ES:SI -&gt; 11-byte buffer containing new settings
+Return: buffer filled
+SeeAlso: AX=454Ah,AX=5053h,INT 17/AH=63h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#055053" name="055053"><b>055053</b></a> - INT 05 U - PSPS v2.01 - GET PARAMETERS<br />
+<pre>
+INT 05 U - PSPS v2.01 - GET PARAMETERS
+	AX = 5053h ('PS')
+	ES:SI -&gt; 11-byte buffer for settings
+Return: buffer filled
+SeeAlso: AX=4E57h,AX=554Eh,INT 17/AH=64h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#05554E" name="05554E"><b>05554E</b></a> - INT 05 U - PSPS v2.01 - UNINSTALL<br />
+<pre>
+INT 05 U - PSPS v2.01 - UNINSTALL
+	AX = 554Eh ('UN')
+Program: PSPS is shareware PostScript PrintScreen utility by A.N.D.
+	  Technologies
+SeeAlso: AX=454Ah,AX=4E57h,INT 17/AH=62h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#104B_0" name="104B_0"><b>104B</b></a> - INT 10 - FRIEZE - API<br />
+<pre>
+INT 10 - FRIEZE - API
+	AH = 4Bh
+	CL = function
+	    00h (v6.x-) print window
+		AL = mode
+		    00h character
+		    01h normal
+		    02h sideways
+	    01h load window
+		ES:BX -&gt; ASCIZ filename from which to read
+	    02h save window
+		ES:BX -&gt; ASCIZ filename to which to write
+	    03h set print width
+		AL = width in 1/4 inches
+	    04h set print height
+		AL = height in 1/4 inches
+	    05h reserved
+	    06h set left margin
+		AL = printout margin in 1/4 inches
+	    07h set window size
+		ES:BX -&gt; four-WORD structure with Xmin, Ymin, Xmax, Ymax
+	    08h reserved
+	    09h set patterns
+		ES:BX -&gt; 16-BYTE vector of screen-&gt;printer color correspondnces
+	    0Ah get patterns
+		ES:BX -&gt; 16-BYTE buffer for color correspondences
+	    0Bh set mode
+		AL = mode
+	    0Ch (v7.41) ???
+		AL = ???
+		    00h ??? (calls original INT 05)
+		    else ???
+	    0Dh (v7.41) ???
+		AL = ???
+		    00h ??? (calls original INT 05)
+		    else ???
+	    0Eh (v7.41) ???
+		???
+	    0Fh get window
+		ES:BX -&gt; four-WORD buffer for Xmin, Ymin, Xmax, Ymax
+	    10h set print options
+		ES:BX -&gt; printer options in same format as FRIEZE cmdline
+	    11h initialize
+		ES:BX -&gt; three-WORD array from CARDS.DAT for HRes, VRes, code
+	    12h (v7.41) ???
+		???
+	    13h (v7.41) ???
+		???
+	    14h get version
+		Return: AH = major version (00h if FRIEZE version before 7)
+			AL = minor version
+	    15h set parameters
+		ES:BX -&gt; parameter table (see #00068)
+	    16h get parameters
+		ES:BX -&gt; buffer for parameter table (see #00068)
+	    17h get printer resolution
+		ES:BX -&gt; 12-WORD table for six horizontal/vertical resol pairs
+	    18h (v8.0 only) reserved
+	    50h (v7.41) get ???
+		Return: AX = ???
+	    51h (v7.41) get ???
+		Return: ES = ??? (seen 2348h)
+			AX = ??? (seen 8432h)
+Return: AX = status (see #00067)
+SeeAlso: AH=0Fh/SI=F123h
+
+(Table 00067)
+Values for FRIEZE function status:
+ 00h	successful
+ 01h	user aborted printout with ESC
+ 02h	reserved
+ 03h	file read error
+ 04h	file write error or printer error
+ 05h	file not found
+ 06h	invalid header (not an image or wrong screen mode) or can't create file
+ 07h	file close error
+ 08h	disk error
+ 09h	(v7.0+) printer error
+ 0Ah	invalid function
+ 0Bh	(v7.0+) can't create file
+ 0Ch	(v7.0+) wrong video mode
+
+Format of FRIEZE parameter table:
+Offset	Size	Description	(Table 00068)
+ 00h	WORD	top margin (1/100 inch)
+ 02h	WORD	left margin (1/100 inch)
+ 04h	WORD	horizontal size (1/100 inch)
+ 06h	WORD	vertical size (1/100 inch)
+ 08h	WORD	quality/draft mode
+		00h draft mode
+		01h quality mode
+		02h use horizontal/vertical resolution for output resolution
+ 0Ah	WORD	printer horizontal resolution (dots per inch)
+ 0Ch	WORD	printer vertical resolution (dots per inch)
+ 0Eh	WORD	reserved (FFFFh)
+Note:	any field which should remain unchanged may be filled with FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0ABC" name="17----DX0ABC"><b>17----DX0ABC</b></a> - INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v5.x INSTALLATION CHECK
+	DX = 0ABCh
+Return: AX = AAAAh
+	DX = BAAAh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0B90" name="17----DX0B90"><b>17----DX0B90</b></a> - INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v6.x INSTALLATION CHECK
+	DX = 0B90h
+Return: DX = ABBBh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0B91" name="17----DX0B91"><b>17----DX0B91</b></a> - INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v7.x INSTALLATION CHECK
+	DX = 0B91h
+Return: DX = ABCBh
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17----DX0F5F" name="17----DX0F5F"><b>17----DX0F5F</b></a> - INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK<br />
+<pre>
+INT 17 - PRINTER - LPTx v4.x INSTALLATION CHECK
+	DX = 0F5Fh
+Return: AX = AAAAh
+	DX = F555h
+	ES = code segment of resident portion
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1702--DX0000" name="1702--DX0000"><b>1702--DX0000</b></a> - INT 17 - INSET - INSTALLATION CHECK<br />
+<pre>
+INT 17 - INSET - INSTALLATION CHECK
+	AH = 02h
+	DX = 0000h
+	CX = 07C3h (1987d)
+Return: CX = 07C2h (1986d) if installed
+Program: INSET is a text/graphics integration program
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703" name="1703"><b>1703</b></a> - INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS<br />
+<pre>
+INT 17 U - Emulaser ELTSR - INSTALL INTERRUPT HANDLERS
+	AH = 03h
+Return: BX = ???
+	CX = ???
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+SeeAlso: AH=04h"Emulaser",AH=0Eh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1704" name="1704"><b>1704</b></a> - INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT<br />
+<pre>
+INT 17 U - Emulaser ELTSR - BEGIN CAPTURING OUTPUT
+	AH = 04h
+Note:	has no effect unless ELTSR is deactivated (see AX=0503h)
+SeeAlso: AH=03h"Emulaser",AX=0503h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170500" name="170500"><b>170500</b></a> - INT 17 U - Emulaser ELTSR - ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - ???
+	AX = 0500h
+	???
+Return: AX = unload status (0001h safe to unload, 0002h not safe)
+	BX = ???
+	CX = PSP segment of ELTSR
+	DX = activity flag (0000h disabled, 0001h capturing, 0002h ???printing)
+	SI = ???
+	DI = ???
+SeeAlso: AH=04h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170501" name="170501"><b>170501</b></a> - INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS<br />
+<pre>
+INT 17 U - Emulaser ELTSR - UNHOOK INTERRUPTS
+	AX = 0501h
+Return: (see AX=0500h)
+Note:	restores interrupt vectors without checking whether they have been
+	  hooked by later programs; should only be called if ELTSR reports
+	  that it is safe to unload
+SeeAlso: AH=04h,AX=0500h,AX=0503h,INT 1A/AH=E5h
+Index:	uninstall;Emulaser ELTSR
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170502" name="170502"><b>170502</b></a> - INT 17 U - Emulaser ELTSR - SET ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ???
+	AX = 0502h
+	BL = Emulaser port (31h = LPT1, 32h = LPT2, 33h = LPT3)
+	CL = ???
+	DL = ???
+Return: (see AX=0500h)
+SeeAlso: AH=04h,AX=0500h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170503" name="170503"><b>170503</b></a> - INT 17 U - Emulaser ELTSR - DEACTIVATE???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - DEACTIVATE???
+	AX = 0503h
+Return: (see AX=0500h)
+SeeAlso: AH=04h,AX=0500h,AX=0501h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1706" name="1706"><b>1706</b></a> - INT 17 U - Emulaser ELTSR - ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - ???
+	AH = 06h
+	???
+Return: ???
+SeeAlso: AX=0500h,AX=0503h,AH=07h"ELTSR",INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1707" name="1707"><b>1707</b></a> - INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - OPEN CAPTURE FILE
+	AH = 07h
+	ES:DX -&gt; ASCIZ filename to be opened
+Return: ???
+Note:	new output will be appended to the specified file
+SeeAlso: AH=08h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1708" name="1708"><b>1708</b></a> - INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - CLOSE CAPTURE FILE
+	AH = 08h
+	???
+Return: ???
+Desc:	close the file previously opened by function 07h
+SeeAlso: AH=07h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1709" name="1709"><b>1709</b></a> - INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - PRINT CAPTURE FILE???
+	AH = 09h
+	BX = ???
+	CX = ???
+	DX = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AX = status
+	    00h successful
+	    FFh failed
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+Note:	this function calls through to INT 1A/AX=E401h, and thus requires
+	  that either ELSPL or Disk Spool II be installed
+SeeAlso: AH=0Ah,INT 1A/AX=E401h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170A" name="170A"><b>170A</b></a> - INT 17 U - Emulaser ELTSR - SET ??? FILENAME<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ??? FILENAME
+	AH = 0Ah
+	ES:BX -&gt; ??? buffer
+	CX = length of ??? buffer
+Return: ???
+Note:	copies the specified name into the buffer passed to ELSPL as the
+	  filename by AH=09h
+SeeAlso: AH=09h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170B" name="170B"><b>170B</b></a> - INT 17 U - Emulaser ELTSR - GET ???<br />
+<pre>
+INT 17 U - Emulaser ELTSR - GET ???
+	AH = 0Bh
+Return: AX:BX -&gt; ???
+SeeAlso: AH=0Ah,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170C" name="170C"><b>170C</b></a> - INT 17 U - Emulaser ELTSR - SET ??? FLAG<br />
+<pre>
+INT 17 U - Emulaser ELTSR - SET ??? FLAG
+	AH = 0Ch
+	???
+Return: ???
+SeeAlso: AH=0Bh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170D" name="170D"><b>170D</b></a> - INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE<br />
+<pre>
+INT 17 U - Emulaser ELTSR - GET TRUE ScrlLk STATE
+	AH = 0Dh
+Return: AX = state (0000h off, 0010h on)
+Desc:	determine the actual state of ScrlLk even when Emulaser is controlling
+	  the ScrlLk light as its activity indicator
+SeeAlso: AH=0Ch,INT 16/AH=02h,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170E" name="170E"><b>170E</b></a> - INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING<br />
+<pre>
+INT 17 U - Emulaser ELTSR - BACKGROUND PROCESSING
+	AH = 0Eh
+Program: ELTSR is the resident portion of the Emulaser PostScript emulator by
+	  Vertisoft Systems, Inc.
+Note:	this function is called by ELTSR on every INT 08 to allow data to be
+	  processed in the background, but may also be called by applications
+	  to give Emulaser additional CPU time
+SeeAlso: AH=0Dh,INT 1A/AH=E5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172000" name="172000"><b>172000</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - INSTALLATION CHECK
+	AX = 2000h
+	BL = printer number???
+Return: AX = status (see #00639)
+	BX = driver version number (BH=major,BL=minor)
+	CH = ??? (00h)
+	CL = ???
+	DX = ??? (0100h)
+Note:	also enables the remaining printer driver functions (2001h-2007h)
+SeeAlso: AX=2001h,AX=2002h,AX=2003h,AX=2004h,AX=2005h,AX=2006h,AX=2007h
+
+(Table 00639)
+Values for PC Paint function status:
+ 0000h	successful
+ 0001h	invalid printer???
+ 0002h	???
+ 0003h	invalid subfunction
+ 0005h	driver disabled, must call function 00h first
+ 0009h	unknown printer error
+ 000Bh	printer not selected
+ 000Ch	printer out of paper
+ 000Eh	error while writing to serial printer
+ 000Fh	???
+ 0010h	invalid function number
+ 0011h	value out of range
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172001" name="172001"><b>172001</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - SET ??? FLAG
+	AX = 2001h
+	BL = printer number???
+Return: AX = status (see #00639)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172002" name="172002"><b>172002</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET INFORMATION
+	AX = 2002h
+	BL = printer number???
+	CL = desired information
+	    00h printer type
+		Return: ES:DI -&gt; ASCIZ printer name
+	    01h paper size
+		DX = size index
+		Return: ES:DI -&gt; ASCIZ paper size description
+	    02h ???
+		Return: BX = ???
+	    03h printer information???
+		DX = ???
+		ES:BX -&gt; buffer for ??? (min 134 bytes)
+Return: AX = status (see #00639)
+SeeAlso: AX=2000h,AX=2004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172003" name="172003"><b>172003</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ???
+	AX = 2003h
+	ES:BX -&gt; ???
+Return: AX = status (see #00639)
+SeeAlso: AX=2000h,AX=2004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172004" name="172004"><b>172004</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - GET ???
+	AX = 2004h
+	BL = printer number???
+Return: AX = status (see #00639)
+	ES:DI -&gt; ???
+SeeAlso: AX=2000h,AX=2003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172005" name="172005"><b>172005</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE PRINTER TO NEXT PAGE
+	AX = 2005h
+	BL = printer number???
+Return: AX = status (see #00639)
+Note:	this function also clears the flag set by AX=2001h
+SeeAlso: AX=2000h,AX=2001h,AX=2006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172006" name="172006"><b>172006</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - ADVANCE TO NEXT PAGE & SHUT DOWN
+	AX = 2006h
+	BL = printer number???
+Return: AX = status (see #00639)
+Note:	this function also clears the flag set by AX=2001h and disables
+	  functions other than AX=2000h
+SeeAlso: AX=2000h,AX=2001h,AX=2005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#172007" name="172007"><b>172007</b></a> - INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED<br />
+<pre>
+INT 17 - PC Paint Plus 2.0 - PRINTER DRIVER - UNIMPLEMENTED
+	AX = 2007h
+Return: AX unchanged
+SeeAlso: AX=2000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175555BXAAAA" name="175555BXAAAA"><b>175555BXAAAA</b></a> - INT 17 - LR - SET CONFIGURATION<br />
+<pre>
+INT 17 - LR - SET CONFIGURATION
+	AX = 5555h
+	BX = AAAAh
+	CL = configuration flags (see #04117)
+	DX = LPT number
+Return: AX = A55Ah
+	BX = BBBBh
+Program: LR_xxxx.COM files are a set of printer-hardware dependent printer
+	  drivers found in the LIR DOS/Windows 3.xx codepage support package
+	  develoved by LABAS u.a.b.  LIR supports several different screen and
+	  printer codepages and various keyboard layouts used in Lithuania.
+	  Download at: ftp://ftp.labas.com/pub/drivers/language/lir422.zip
+SeeAlso: AX=5555h/BX=BBBBh,INT 10/AX=5555h/BX=AAAAh
+
+Bitfields for LR_xxxx.COM configuration flags:
+Bit(s)	Description	(Table 04117)
+ 7	ESC sequence???
+ 6	ESC sequence???
+ 5-3	printer code page
+ 2	Lithuanian alphabet???
+ 1	Russian alphabet???
+ 0	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#175555BXBBBB" name="175555BXBBBB"><b>175555BXBBBB</b></a> - INT 17 - LR - GET CONFIGURATION<br />
+<pre>
+INT 17 - LR - GET CONFIGURATION
+	AX = 5555h
+	BX = BBBBh
+	DX = LPT number
+Return: AX = A55Ah
+	BX = CCCCh
+	CL = configuration flags (see #04117)
+SeeAlso: AX=5555h/BX=AAAAh,INT 10/AX=5555h/BX=BBBBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1762" name="1762"><b>1762</b></a> - INT 17 U - T2PS v1.0 - UNINSTALL<br />
+<pre>
+INT 17 U - T2PS v1.0 - UNINSTALL
+	AH = 62h
+Return: nothing
+SeeAlso: AH=63h,AH=64h,INT 05/AX=554Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1763" name="1763"><b>1763</b></a> - INT 17 U - T2PS v1.0 - SET PARAMETERS<br />
+<pre>
+INT 17 U - T2PS v1.0 - SET PARAMETERS
+	AH = 63h
+	ES:SI -&gt; settings (see #00641)
+Program: T2PS is a shareware ASCII-to-PostScript converter by A.N.D.
+	  Technologies
+SeeAlso: AH=62h,AH=64h,INT 05/AX=4E57h
+
+Format of T2PS settings:
+Offset	Size	Description	(Table 00641)
+ 00h	WORD	LPT port number (0=LPT1, etc.)
+ 02h	WORD	page heigh in points
+ 04h	WORD	page width in points
+ 06h	WORD	top margin in points
+ 08h	WORD	bottom margin in points
+ 0Ah	WORD	left margin in points
+ 0Ch	WORD	right margin in points
+ 0Eh	WORD	font size in points
+ 10h	WORD	tab size
+ 12h	WORD	timeout in clock ticks
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1764" name="1764"><b>1764</b></a> - INT 17 U - T2PS v1.0 - GET PARAMETERS<br />
+<pre>
+INT 17 U - T2PS v1.0 - GET PARAMETERS
+	AH = 64h
+	ES:SI -&gt; buffer for settings (see #00641)
+Return: ES:SI buffer filled
+SeeAlso: AH=62h,AH=63h,INT 05/AX=5053h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD00" name="17CD00"><b>17CD00</b></a> - INT 17 - INSET - EXECUTE COMMAND STRING<br />
+<pre>
+INT 17 - INSET - EXECUTE COMMAND STRING
+	AX = CD00h
+	DS:DX -&gt; ASCIZ command string (max 80 bytes)
+Return: CX = 07C2h (1986d)
+Note:	user interface menus pop up after last command, unless that command
+	exits INSET
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD01" name="17CD01"><b>17CD01</b></a> - INT 17 - INSET - GET IMAGE SIZE<br />
+<pre>
+INT 17 - INSET - GET IMAGE SIZE
+	AX = CD01h
+	DS:DX -&gt; ASCIZ name of image file
+Return: AX = height in 1/720th inch
+	BX = width in 1/720th inch
+	CX = 07C2h (1986d)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD02" name="17CD02"><b>17CD02</b></a> - INT 17 - INSET - INITIALIZE<br />
+<pre>
+INT 17 - INSET - INITIALIZE
+	AX = CD02h
+Return: CX = 07C2h (1986d)
+Note:	all open files are closed and the printer is reset
+SeeAlso: AX=CD04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD03" name="17CD03"><b>17CD03</b></a> - INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE<br />
+<pre>
+INT 17 - INSET - EXECUTE INSET MENU WITHIN OVERRIDE MODE
+	AX = CD03h
+Return: CX = 07C2h (1986d)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD04" name="17CD04"><b>17CD04</b></a> - INT 17 - INSET - INITIALIZE LINKED MODE<br />
+<pre>
+INT 17 - INSET - INITIALIZE LINKED MODE
+	AX = CD04h
+	ES:SI -&gt; FAR routine for linked mode (see #00647)
+Return: CX = 07C2h
+SeeAlso: AX=CD02h,AX=CD08h
+
+(Table 00647)
+Values INSET linked-mode routine is called with:
+	AL = function
+	    00h send character to printer
+		BL = character to send
+	    01h send string to printer
+		CX = number of bytes to send
+		DS:DX -&gt; buffer containing data
+	    02h move print head to horizontal starting position of image
+Return: AX = status
+	    0000h success
+	    0001h failure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD05" name="17CD05"><b>17CD05</b></a> - INT 17 - INSET - START MERGING IMAGE INTO TEXT<br />
+<pre>
+INT 17 - INSET - START MERGING IMAGE INTO TEXT
+	AX = CD05h
+	DS:DX -&gt; ASCIZ name of PIX file
+	CX = left margin of text in 1/720th inch
+Return: AH = printer type
+	    00h page-oriented (multiple images may be placed side-by-side)
+	    01h line-oriented (use AX=CD06h for vertical paper movement)
+	CX = 07C2h (1986d)
+SeeAlso: AX=CD07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD06" name="17CD06"><b>17CD06</b></a> - INT 17 - INSET - GRAPHICS LINE FEED<br />
+<pre>
+INT 17 - INSET - GRAPHICS LINE FEED
+	AX = CD06h
+Return: AH = completion status
+	    00h image complete
+	    01h image incomplete
+	CX = 07C2h (1986d)
+SeeAlso: AX=CD09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD07" name="17CD07"><b>17CD07</b></a> - INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER<br />
+<pre>
+INT 17 - INSET - FLUSH GRAPHICS FROM MERGE BUFFER
+	AX = CD07h
+Return: CX = 07C2h
+SeeAlso: AX=CD05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD08" name="17CD08"><b>17CD08</b></a> - INT 17 - INSET - CANCEL LINK MODE<br />
+<pre>
+INT 17 - INSET - CANCEL LINK MODE
+	AX = CD08h
+Return: CX = 07C2h
+SeeAlso: AX=CD04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD09" name="17CD09"><b>17CD09</b></a> - INT 17 - INSET - ALTER TEXT LINE SPACING<br />
+<pre>
+INT 17 - INSET - ALTER TEXT LINE SPACING
+	AX = CD09h
+	CX = line spacing in 1/720th inch
+Return: CX = 07C2h
+Note:	not yet implemented, line spacing is currently fixed at 1/6 inch
+SeeAlso: AX=CD06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0A" name="17CD0A"><b>17CD0A</b></a> - INT 17 - INSET - GET SETUP<br />
+<pre>
+INT 17 - INSET - GET SETUP
+	AX = CD0Ah
+	DS:DX -&gt; buffer for IN.SET data
+Return: CX = 07C2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0B" name="17CD0B"><b>17CD0B</b></a> - INT 17 - INSET - START GETTING SCALED IMAGE<br />
+<pre>
+INT 17 - INSET - START GETTING SCALED IMAGE
+	AX = CD0Bh
+	DS:SI -&gt; ASCIZ pathname of .PIX file
+	BX = number of bitplanes
+	CX = number of rows in output bitmap
+	DX = number of columns in output bitmap
+Return: AX = status
+	    0000h OK
+	    FFFFh error
+Note:	image is returned in strips by repeated calls to AX=CD0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17CD0C" name="17CD0C"><b>17CD0C</b></a> - INT 17 - INSET - GET NEXT IMAGE STRIP<br />
+<pre>
+INT 17 - INSET - GET NEXT IMAGE STRIP
+	AX = CD0Ch
+Return: AX = status
+	    0000h OK but not complete
+	    0001h OK and image complete
+	    FFFFh error
+	DS:SI -&gt; buffer (max 4K) for bit map strip
+	CX = start row
+	DX = number of rows
+	BX = offset in bytes between bit planes
+Note:	buffer may be overwritten by subsequent calls
+SeeAlso: AX=CD0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E0" name="17E0"><b>17E0</b></a> - INT 17 - EPP BIOS - INSTALLATION CHECK<br />
+<pre>
+INT 17 - EPP BIOS - INSTALLATION CHECK
+	AH = E0h
+Return: ??? (AH &lt;&gt; E0h if installed ???)
+SeeAlso: AX=0200h"EPP",AH=E1h,AH=E2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E1" name="17E1"><b>17E1</b></a> - INT 17 - EPP BIOS - DISABLE EPP<br />
+<pre>
+INT 17 - EPP BIOS - DISABLE EPP
+	AH = E1h
+	???
+Return: ???
+SeeAlso: AX=0200h"EPP",AH=E0h,AH=E2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17E2" name="17E2"><b>17E2</b></a> - INT 17 - EPP BIOS - ENABLE EPP<br />
+<pre>
+INT 17 - EPP BIOS - ENABLE EPP
+	AH = E2h
+	???
+Return: ???
+SeeAlso: AX=0200h"EPP",AH=E0h,AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F0" name="17F0"><b>17F0</b></a> - INT 17 - NorthNet Jetstream API - INSTALLATION CHECK<br />
+<pre>
+INT 17 - NorthNet Jetstream API - INSTALLATION CHECK
+	AH = F0h
+	DX = printer port (0-3)
+Return: AX = 0001h Jetstream present
+	     else  non-Jetstream port
+Note:	NorthNet Jetstream is a high-performance DMA-driven parallel card able
+	  to drive printers at up to 80000 characters per second
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F1" name="17F1"><b>17F1</b></a> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER<br />
+<pre>
+INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER
+	AH = F1h
+	CX = data buffer length
+	DX = printer port (0-3)
+	DS:SI -&gt; data buffer
+Return: AX = status
+	    0000h printer not ready (see also AH=02h)
+	    other printing started
+SeeAlso: AH=00h,AH=F2h,AH=F3h,AH=F5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F2" name="17F2"><b>17F2</b></a> - INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS<br />
+<pre>
+INT 17 - NorthNet Jetstream API - GET PRINT PROGRESS STATUS
+	AH = F2h
+	DX = printer port (0-3)
+Return: AX = status
+	    0000h prior print request finished
+	    other number of characters left to print
+SeeAlso: AH=02h,AH=F1h,AH=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F3" name="17F3"><b>17F3</b></a> - INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION<br />
+<pre>
+INT 17 - NorthNet Jetstream API - ABORT PRINT OPERATION
+	AH = F3h
+	DX = printer port (0-3)
+Return: AX = number of unprinted characters due to abort
+SeeAlso: AH=F1h,AH=F4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F4" name="17F4"><b>17F4</b></a> - INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS<br />
+<pre>
+INT 17 - NorthNet Jetstream API - SET COMPLETION (POST) ADDRESS
+	AH = F4h
+	DX = printer port (0-3)
+	DS:DS -&gt; FAR post address (called with interrupts on)
+SeeAlso: AH=F1h,AH=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17F5" name="17F5"><b>17F5</b></a> - INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY<br />
+<pre>
+INT 17 - NorthNet Jetstream API - PRINT DATA BUFFER FROM EXTENDED MEMORY
+	AH = F5h
+	CX = data buffer length
+	DX = printer port (0-3)
+	DS:SI -&gt; data buffer (32-bit physical address)
+Return: AX = status
+	    0000h printer not ready (see also AH=02h)
+	    other printing started
+SeeAlso: AH=F1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A8700" name="2A8700"><b>2A8700</b></a> - INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING<br />
+<pre>
+INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING
+	AX = 8700h
+	CF clear
+Return: CF clear if OK to print in background now
+	CF set if background printing not allowed at this time
+Desc:	used to inform interested programs that PRINT is about to start its
+	  background processing, and allow those programs to postpone the
+	  processing if necessary
+Notes:	when PRINT gains control and wants to begin printing, it calls this
+	  function.  If CF is clear on return, PRINT begins its background
+	  processing, and calls AX=8701h when it is done.  If CF is set on
+	  return, PRINT will relinquish control immediately, and will not
+	  call AX=8701h
+	PCVENUS (an early network shell by IBM and CMU) hooks this call to
+	  prevent background printing while its own code is active
+SeeAlso: AH=80h,AH=81h,AX=8701h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A8701" name="2A8701"><b>2A8701</b></a> - INT 2A CU - PRINT - END BACKGROUND PRINTING<br />
+<pre>
+INT 2A CU - PRINT - END BACKGROUND PRINTING
+	AX = 8701h
+Desc:	used to inform interested programs that PRINT has completed its
+	  background processing
+Note:	called by PRINT after it has performed some background printing; not
+	  called if AX=8700h returned with CF set.
+SeeAlso: AX=8700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F00_0" name="2F00_0"><b>2F00</b></a> - INT 2F U - PSPRINT - PRINT JOB CONTROL<br />
+<pre>
+INT 2F U - PSPRINT - PRINT JOB CONTROL
+	AH = 00h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F00_0" name="2F7F00_0"><b>2F7F00</b></a> - INT 2F - PRINDIR v9.0 - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PRINDIR v9.0 - INSTALLATION CHECK
+	AX = 7F00h
+Return: AL = FFh if installed
+	    BX = version (BH = major, BL = minor)
+	    CX:DX -&gt; ASCIZ signature "PRINDIR"
+Range:	AH=7Fh is the default, may be changed at installation time
+Note:	prior versions of PRINDIR used INT 7C or INT 7A
+SeeAlso: AX=7F01h"PRINDIR",AX=7F02h"PRINDIR",AX=7F03h"PRINDIR"
+SeeAlso: AX=7F06h"PRINDIR",AX=7F08h,AX=7F0Ah,AX=7F0Ch,AX=7F0Eh,INT 7C"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F01_0" name="2F7F01_0"><b>2F7F01</b></a> - INT 2F - PRINDIR v9.0 - SET CAPTURE DEVICE<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET CAPTURE DEVICE
+	AX = 7F01h
+	DX = capture device (as used by /GET commandline option)
+Return: AX = status
+	    0000h successful
+	    FFFFh invalid device
+SeeAlso: AX=7F00h"PRINDIR",AX=7F02h"PRINDIR",AX=7F03h"PRINDIR"
+SeeAlso: AX=7F05h"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F02_0" name="2F7F02_0"><b>2F7F02</b></a> - INT 2F - PRINDIR v9.0 - SET DESTINATION DEVICE<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET DESTINATION DEVICE
+	AX = 7F02h
+	DX = destination device number (as used by /PUT commandline option)
+Return: AX = status
+	    0000h successful
+	    FFFFh invalid device number
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F04h"PRINDIR"
+SeeAlso: AX=7F06h"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F03_0" name="2F7F03_0"><b>2F7F03</b></a> - INT 2F - PRINDIR v9.0 - SET CAPTURE FILENAME<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET CAPTURE FILENAME
+	AX = 7F03h
+	CX:DX -&gt; ASCIZ name of capture file
+Return: AX = status
+	    0000h successful
+	    FFFFh name too long
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F04h"PRINDIR"
+SeeAlso: AX=7F05h"PRINDIR",AX=7F07h"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F04" name="2F7F04"><b>2F7F04</b></a> - INT 2F - PRINDIR v9.0 - SET LOCK FILENAME<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET LOCK FILENAME
+	AX = 7F04h
+	CX:DX -&gt; ASCIZ name of lock file
+Return: AX = status
+	    0000h successful
+	    FFFFh invalid device number
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F03h"PRINDIR"
+SeeAlso: AX=7F05h,AX=7F06h,AX=7F08h,AX=7F0Ah,AX=7F0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F05" name="2F7F05"><b>2F7F05</b></a> - INT 2F - PRINDIR v9.0 - DUMP CAPTURE BUFFER<br />
+<pre>
+INT 2F - PRINDIR v9.0 - DUMP CAPTURE BUFFER
+	AX = 7F05h
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F04h"PRINDIR",AX=7F06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F06" name="2F7F06"><b>2F7F06</b></a> - INT 2F - PRINDIR v9.0 - SET NORMAL TEXT COLOR<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET NORMAL TEXT COLOR
+	AX = 7F06h
+	DH = new attribute for normal text
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F05h"PRINDIR",AX=7F07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F07" name="2F7F07"><b>2F7F07</b></a> - INT 2F - PRINDIR v9.0 - SET HIGHLIGHT TEXT COLOR<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET HIGHLIGHT TEXT COLOR
+	AX = 7F07h
+	DH = new attribute for highlighted text
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F01h"PRINDIR",AX=7F06h"PRINDIR",AX=7F08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F08" name="2F7F08"><b>2F7F08</b></a> - INT 2F - PRINDIR v9.0 - SET POPUP HOTKEY<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET POPUP HOTKEY
+	AX = 7F08h
+	DH = new scancode for hotkey
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F05h"PRINDIR",AX=7F09h,AX=7F0Bh,AX=7F0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F09" name="2F7F09"><b>2F7F09</b></a> - INT 2F - PRINDIR v9.0 - SET BYTE COUNTER DISPLAY<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET BYTE COUNTER DISPLAY
+	AX = 7F09h
+	DH = new state (00h off, 01h on)
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F07h"PRINDIR",AX=7F08h,AX=7F0Ah,AX=7F0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F0A" name="2F7F0A"><b>2F7F0A</b></a> - INT 2F - PRINDIR v9.0 - SET FLUSH DELAY<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET FLUSH DELAY
+	AX = 7F0Ah
+	DX = number of clock ticks before flushing
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F07h"PRINDIR",AX=7F09h,AX=7F0Bh,AX=7F0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F0B" name="2F7F0B"><b>2F7F0B</b></a> - INT 2F - PRINDIR v9.0 - SET MINIMUM DUMP SIZE<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET MINIMUM DUMP SIZE
+	AX = 7F0Bh
+	DX = number of kilobytes to accumulate before dumping
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F0Ah,AX=7F0Ch,AX=7F0Dh,AX=7F0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F0C" name="2F7F0C"><b>2F7F0C</b></a> - INT 2F - PRINDIR v9.0 - SET ECHO STATE<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SET ECHO STATE
+	AX = 7F0Ch
+	DX = new state (00h echo off, 01h echo on)
+Return: AX = status
+	    0000h successful
+SeeAlso: AX=7F00h"PRINDIR",AX=7F0Ah,AX=7F0Bh,AX=7F0Dh,AX=7F0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F0D" name="2F7F0D"><b>2F7F0D</b></a> - INT 2F - PRINDIR v9.0 - SHOW POPUP PARAMETER MENU<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SHOW POPUP PARAMETER MENU
+	AX = 7F0Dh
+Return: AX = status
+	    0000h successful
+	    else  failed
+SeeAlso: AX=7F00h"PRINDIR",AX=7F0Ah,AX=7F0Bh,AX=7F0Ch,AX=7F0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F0E" name="2F7F0E"><b>2F7F0E</b></a> - INT 2F - PRINDIR v9.0 - SUBMIT BYTE TO CURRENT DESTINATION DEVICE<br />
+<pre>
+INT 2F - PRINDIR v9.0 - SUBMIT BYTE TO CURRENT DESTINATION DEVICE
+	AX = 7F0Eh
+	DL = byte to send to destination device
+Return: AX = status
+	    0000h successful
+	    else  failed
+SeeAlso: AX=7F00h"PRINDIR",AX=7F0Ah,AX=7F0Bh,AX=7F0Ch,AX=7F0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD00" name="2FCD00"><b>2FCD00</b></a> - INT 2F - Intel Image Processing Interface - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Intel Image Processing Interface - INSTALLATION CHECK
+	AX = CD00h
+Return: AL = state
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+	    FFh installed
+SeeAlso: AX=CD02h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD00_0" name="2FCD00_0"><b>2FCD00</b></a> - INT 2F - LaserPort Interface - INSTALLATION CHECK<br />
+<pre>
+INT 2F - LaserPort Interface - INSTALLATION CHECK
+	AX = CD00h
+Return: AL = status
+	    FFh installed
+SeeAlso: AX=CD0Fh"LaserPort"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD01" name="2FCD01"><b>2FCD01</b></a> - INT 2F - Intel Image Processing Interface - SET DEVICE NAME<br />
+<pre>
+INT 2F - Intel Image Processing Interface - SET DEVICE NAME
+	AX = CD01h
+	CX:BX -&gt; ASCIZ character device name ("LPTn", "COMn", "PRN")
+Return: AL = status
+	    00h successful
+		CX:BX -&gt; internal character device name
+	    80h error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD02" name="2FCD02"><b>2FCD02</b></a> - INT 2F - Intel Image Processing Interface - GET VERSION NUMBER<br />
+<pre>
+INT 2F - Intel Image Processing Interface - GET VERSION NUMBER
+	AX = CD02h
+Return: AL = status
+	    00h/01h successful
+		BH = major version number (BCD)
+		BL = minor version number (BCD)
+	    80h error
+Note:	if return AL = 01h, the IPI supports network redirection
+SeeAlso: AX=CD00h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD03" name="2FCD03"><b>2FCD03</b></a> - INT 2F - Intel Image Processing Interface - SELECT SCAN LINE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - SELECT SCAN LINE
+	AX = CD03h
+	BX = scan line
+	CX = requested density in dots per inch (300, 600, or 1200)
+Return: AL = status (see also AX=CD04h"Image")
+	    00h successful
+		CX = density at which scan line was mapped
+		ES:DI -&gt; start of scan line
+	    80h unsuccessful
+	    81h scan line out of range
+	    82h unsupported scan line density
+	    83h out of memory
+SeeAlso: AX=CD04h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD04" name="2FCD04"><b>2FCD04</b></a> - INT 2F - Intel Image Processing Interface - MOVE BITMAP TO SCANLINE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - MOVE BITMAP TO SCANLINE
+	AX = CD04h
+	CX:BX -&gt; structure (see #03069)
+Return: AL = status (see #03068)
+SeeAlso: AX=CD03h"Image"
+
+(Table 03068)
+Values for IPI function status:
+ 00h	successful
+ 80h	unsuccessful
+ 81h	scan line out of range
+ 82h	unsupported scan line density
+ 83h	out of memory
+ 84h	unrecognized source
+ 85h	initialization error
+
+Format of structure:
+Offset	Size	Description	(Table 03069)
+ 00h	WORD	image source (0 = conventional memory, 1 = expanded memory)
+ 02h	DWORD	pointer to image data
+ 06h	WORD	scan line on which to place
+ 08h	WORD	bit offset from start of scan line at which to place
+ 0Ah	WORD	density of bitmap data (300, 600, or 1200 dpi)
+ 0Ch	WORD	width in bits of data
+ 0Eh	WORD	source logical page number
+ 10h	WORD	source handle (only if source in expanded memory)
+ 12h	WORD	source offset (only if source in expanded memory)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD05" name="2FCD05"><b>2FCD05</b></a> - INT 2F - Intel Image Processing Interface - PRINT PAGE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - PRINT PAGE
+	AX = CD05h
+Return: AL = status (00h,80h) (see #03068)
+Note:	page image is retained, so multiple calls will print multiple copies of
+	  the page
+SeeAlso: AX=CD06h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD06" name="2FCD06"><b>2FCD06</b></a> - INT 2F - Intel Image Processing Interface - CLEAR PAGE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - CLEAR PAGE
+	AX = CD06h
+Return: AL = status (00h,80h) (see #03068)
+Note:	palette is reset to default
+SeeAlso: AX=CD09h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD07" name="2FCD07"><b>2FCD07</b></a> - INT 2F - Intel Image Processing Interface - reserved<br />
+<pre>
+INT 2F - Intel Image Processing Interface - reserved
+	AX = CD07h
+SeeAlso: AX=CD00h"Image"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD08" name="2FCD08"><b>2FCD08</b></a> - INT 2F - Intel Image Processing Interface - SCREEN IMAGE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - SCREEN IMAGE
+	AX = CD08h
+	CX:BX -&gt; structure (see #03071)
+Return: AL = status (00h,80h-85h) (see #03068)
+SeeAlso: AX=CD05h"Image",AX=CD09h"Image"
+
+Format of IPI screen image structure:
+Offset	Size	Description	(Table 03071)
+ 00h	WORD	image source (0 = conventional memory, 1 = expanded memory)
+ 02h	DWORD	pointer to image data
+ 06h	WORD	horizontal position on paper of left edge (in 1200 dpi units)
+ 08h	WORD	vertical position on paper of top edge (in 1200 dpi units)
+ 0Ah	WORD	left cropping (currently must be zero)
+ 0Ch	WORD	top cropping (currently must be zero)
+ 0Eh	WORD	width (currently must be 8000h)
+ 10h	WORD	height (currently must be 8000h)
+ 12h	WORD	horizontal size of image in 1200 dpi units
+ 14h	WORD	vertical size of image in 1200 dpi units
+ 16h	WORD	aspect ratio (currently reserved)
+ 18h	WORD	initialization flag (if 01h, initialization is performed)
+ 1Ah	WORD	pixels per line of source data
+ 1Ch	WORD	number of scan lines in source data
+ 1Eh	WORD	number of scan lines in packet
+ 20h	WORD	bits per pixel (1,2,4,6, or 8)
+ 22h	WORD	pixels per byte (1,2,4, or 8)
+ 24h	WORD	compression type (currently only 00h [uncompressed] supported)
+ 26h	WORD	source page number (if in expanded memory)
+ 28h	WORD	source handle (if in expanded memory)
+ 2Ah	WORD	source offset (if in expanded memory)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD09" name="2FCD09"><b>2FCD09</b></a> - INT 2F - Intel Image Processing Interface - LOAD SCREEN<br />
+<pre>
+INT 2F - Intel Image Processing Interface - LOAD SCREEN
+	AX = CD09h
+	CX:BX -&gt; structure (see #03072)
+Return: AL = status (00h,80h) (see #03068)
+SeeAlso: AX=CD06h"Image Processing",AX=CD0Ah"Image Processing"
+
+Format of IPI load screen structure:
+Offset	Size	Description	(Table 03072)
+ 00h	BYTE	style
+		44h ('D') diamond style
+		4Ch ('L') line style
+ 01h	BYTE	reserved (00h)
+ 02h	WORD	frequency in lines per inch [sic]
+		currently, coerced to nearest of 50, 60, 68, 70, 75, 85, or 100
+ 04h	WORD	screen angle in degrees (-360 to 360)
+		currently coerced to nearest of -45, 0, 45, or 90
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD0A" name="2FCD0A"><b>2FCD0A</b></a> - INT 2F - Intel Image Processing Interface - LOAD PALETTE<br />
+<pre>
+INT 2F - Intel Image Processing Interface - LOAD PALETTE
+	AX = CD0Ah
+	CX:BX -&gt; palette structure (see #03073)
+Return: AL = status (00h,80h) (see #03068)
+SeeAlso: AX=CD09h"Image Processing"
+
+Format of IPI palette structure:
+Offset	Size	Description	(Table 03073)
+ 00h	BYTE	bits per pixel for which palette is to be used (1,2,4,6, or 8)
+ 01h	2**N	palette translation values, one per possible pixel value
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD0F" name="2FCD0F"><b>2FCD0F</b></a> - INT 2F - LaserPort Interface - EXECUTE FUNCTION<br />
+<pre>
+INT 2F - LaserPort Interface - EXECUTE FUNCTION
+	AX = CD0Fh
+	BL = function
+		01h enable
+		02h disable
+		03h ???
+Return: AL = status
+	    00h success
+SeeAlso: AX=CD00h"LaserPort"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A_2" name="7A_2"><b>7A</b></a> - INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)<br />
+<pre>
+INT 7A O - PRINDIR - API (moved to INT 7C, then INT 2F/AX=7F00h)
+SeeAlso: INT 7C"PRINDIR",INT 2F/AX=7F00h"PRINDIR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_1" name="7C_1"><b>7C</b></a> - INT 7C - PRINDIR v8.02-8.xx - API<br />
+<pre>
+INT 7C - PRINDIR v8.02-8.xx - API
+	AH = function
+	   00h set output to Invisible mode
+	   01h set output to LPT1
+	   02h set output to LPT2
+	   03h set output to LPT3
+	   04h set output to COM1
+	   05h set output to COM2
+	   06h set output to COM3
+	   07h set output to COM4
+	   08h set output to screen
+	   09h set output to file
+	   0Ah change file path
+	       ES:DI -&gt; new path
+	       CX = length of path (max 41, but not range-checked)
+	   0Bh change file name
+	       ES:DI -&gt; new filename
+	       CX = length of new name (max 41, but not range-checked)
+	   0Ch set redirected device
+		(01h = LPT1 ... 03h = LPT3, 04h = COM1 ... 07h = COM4)
+	   0Dh force buffer dump
+	   0Eh set display color
+	       AL = new color attribute (see #00014 at INT 10/AH=08h)
+	   0Fh set popup hotkey
+	       AL = hotkey scancode
+	   10h toggle byte display
+	       AL = new state (00h off, 01h on)
+	   11h change buffer flush delay
+	       AL = timer ticks before flush
+Return: AX = status
+	    0000h successful
+	    0001h invalid function or nothing in buffer to be dumped
+	    (documented as "nonzero = error")
+Program: PRINDIR is a shareware printer-redirection program by J.M. Allen
+	  Creations
+InstallCheck:	test for the ASCIZ signature "PRINDIR N.NN" (where N.NN is the
+	  version number) two bytes beyond the start of the interrupt handler
+Note:	prior versions of PRINDIR used INT 7A instead of INT 7C
+SeeAlso: INT 7A"PRINDIR",INT 2F/AX=7F00h"PRINDIR"
+Index:	hotkeys;PRINDIR
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

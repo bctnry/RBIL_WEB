@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._81</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 81
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#81"><b>81</b> - INT 81 - reserved for BASIC</a><br />
+<a href="#81_0"><b>81</b> - INT 81 - IBM TOKEN RING ADAPTER - ???</a><br />
+<a href="#81_1"><b>81</b> - INT 81 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)</a><br />
+<a href="#81_2"><b>81</b> - INT 81 - AMI WinBIOS - SECOND HARD DRIVE AUTODETECTION</a><br />
+<a href="#81_3"><b>81</b> - INT 81 - Paragon Technology PTS/DOS 6.5x, S/DOS 1.0 - API</a><br />
+<a href="#810200"><b>810200</b> - INT 81 - Gravis UltraSound - MegaEm - PROCESS COMMAND LINE</a><br />
+<a href="#810202"><b>810202</b> - INT 81 - Gravis UltraSound - MegaEm - ???</a><br />
+<a href="#810300"><b>810300</b> - INT 81 - Gravis UltraSound - MegaEm - LOAD SAMPLE ???</a><br />
+<a href="#810400"><b>810400</b> - INT 81 - Gravis UltraSound - MegaEm - ???</a><br />
+<a href="#812010"><b>812010</b> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - INT 78 REDIRECT</a><br />
+<a href="#812011"><b>812011</b> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - NMI REDIRECT</a><br />
+<a href="#812012"><b>812012</b> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - SOUNDCARD IRQ REDIRECT</a><br />
+<a href="#812015"><b>812015</b> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - ???</a><br />
+
+<hr />
+
+<a href="#81" name="81"><b>81</b></a> - INT 81 - reserved for BASIC<br />
+<pre>
+INT 81 - reserved for BASIC
+Note:	this vector is modified but not restored by Direct Access v4.0, and
+	  may be left dangling by other programs written with the same version
+	  of compiled BASIC
+SeeAlso: INT 80"BASIC",INT 82"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#81_0" name="81_0"><b>81</b></a> - INT 81 - IBM TOKEN RING ADAPTER - ???<br />
+<pre>
+INT 81 - IBM TOKEN RING ADAPTER - ???
+SeeAlso: INT 82"TOKEN RING",INT 91"TOKEN RING"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#81_1" name="81_1"><b>81</b></a> - INT 81 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)<br />
+<pre>
+INT 81 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)
+Note:	the factory-default location for the eight bytes of scratchpad RAM
+	  needed by the SCSI adapter is 0000h:0200h, which is interrupt
+	  vectors 80h and 81h
+SeeAlso: INT 80"BusLogic"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#81_2" name="81_2"><b>81</b></a> - INT 81 - AMI WinBIOS - SECOND HARD DRIVE AUTODETECTION<br />
+<pre>
+INT 81 - AMI WinBIOS - SECOND HARD DRIVE AUTODETECTION
+Notes:	used by WinBIOS with core version of July 1994 or later
+	QEMM 7.5 began using this interrupt internally after the QPAT3
+	  maintenance release when searching for "ROM holes", causing a
+	  lengthy delay during bootup.	Adding the QEMM parameter RH:N will
+	  avoid the QEMM call to INT 81 and speed up the boot process
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#81_3" name="81_3"><b>81</b></a> - INT 81 - Paragon Technology PTS/DOS 6.5x, S/DOS 1.0 - API<br />
+<pre>
+INT 81 - Paragon Technology PTS/DOS 6.5x, S/DOS 1.0 - API
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#810200" name="810200"><b>810200</b></a> - INT 81 - Gravis UltraSound - MegaEm - PROCESS COMMAND LINE<br />
+<pre>
+INT 81 - Gravis UltraSound - MegaEm - PROCESS COMMAND LINE
+	AX = 0200h
+	BX = PSP segment
+	SI = ??? (data area)
+Return: AX = status (see #03975)
+	BL = emulation state
+	    bit 1   Emulation is on
+	    bit 2   Emulation is off
+Program: MegaEm is a protected-mode SoundBlaster, SoundCanvas, and MT-32
+	  emulator for the Gravis UltraSound
+Range:	INT 81 to INT FF (see INT 21/AX=FD12h), selected by scanning for an
+	  interrupt with vector 0000h:0000h
+SeeAlso: AX=0202h,AX=0300h,AX=0400h,INT 21/AX=FD12h/BX=3457h
+
+(Table 03975)
+Values for MegaEm status:
+ 0000h	successful
+ 0001h	invalid command line optie
+ 0002h	display options
+ 0003h	???
+ 0004h	invalid number of voices specified
+ 0005h	could not load enough patches to provide acceptable emulation
+ 0006h	to many warnings on patch loading
+ 0007h	??? (not used anymore)
+ 0008h	/CO and SCSI don't work together
+ 0009h	invalid music volume
+ 000Ah	invalid master volume
+ 000Bh	/SC switch is no longer valid
+ 0100h	??? (some error on patch loading)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#810202" name="810202"><b>810202</b></a> - INT 81 - Gravis UltraSound - MegaEm - ???<br />
+<pre>
+INT 81 - Gravis UltraSound - MegaEm - ???
+	AX = 0202h
+Return: AX = ???
+SeeAlso: AX=0200h,AX=0300h,AX=0400h,INT 21/AX=FD12h/BX=3457h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#810300" name="810300"><b>810300</b></a> - INT 81 - Gravis UltraSound - MegaEm - LOAD SAMPLE ???<br />
+<pre>
+INT 81 - Gravis UltraSound - MegaEm - LOAD SAMPLE ???
+	AX = 0300h
+Return: AX = ???
+SeeAlso: AX=0200h,AX=0202h,AX=0400h,INT 21/AX=FD12h/BX=3457h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#810400" name="810400"><b>810400</b></a> - INT 81 - Gravis UltraSound - MegaEm - ???<br />
+<pre>
+INT 81 - Gravis UltraSound - MegaEm - ???
+	AX = 0400h
+	BX = ??? (segment)
+Return: AX = ???
+	BX = ???
+Program: MegaEm is a protected-mode SoundBlaster, SoundCanvas, and MT-32
+	  emulator for the Gravis UltraSound
+SeeAlso: AX=0200h,AX=0202h,AX=0300h,INT 21/AX=FD12h/BX=3457h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#812010" name="812010"><b>812010</b></a> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - INT 78 REDIRECT<br />
+<pre>
+INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - INT 78 REDIRECT
+	AX = 2010h
+	???
+Return: ???
+Note:	MegaEm calls this function from its INT 78 handler, and then
+	  immediately returns (via RETF in v3.10, thus leaving the flags on
+	  the stack); this permits it to operate while hooking only one
+	  interrupt through the memory manager in protected mode
+SeeAlso: AX=2011h,AX=2012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#812011" name="812011"><b>812011</b></a> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - NMI REDIRECT<br />
+<pre>
+INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - NMI REDIRECT
+	AX = 2011h
+	???
+Return: ???
+Note:	MegaEm calls this function from its NMI (INT 02) handler, and then
+	  immediately returns; this permits it to operate while hooking only
+	  one interrupt through the memory manager in protected mode
+SeeAlso: AX=2010h,AX=2012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#812012" name="812012"><b>812012</b></a> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - SOUNDCARD IRQ REDIRECT<br />
+<pre>
+INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - SOUNDCARD IRQ REDIRECT
+	AX = 2012h
+	???
+Return: ???
+Note:	MegaEm calls this function from its GUS IRQ handler, and then
+	  immediately returns; this permits it to operate while hooking only
+	  one interrupt through the memory manager in protected mode
+SeeAlso: AX=2010h,AX=2011h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#812015" name="812015"><b>812015</b></a> - INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - ???<br />
+<pre>
+INT 81 - Gravis UltraSound - MEGA_EM v3.0+ - ???
+	AX = 2015h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

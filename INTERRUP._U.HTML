@@ -1,0 +1,5993 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._U</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category U - resident utilities
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#03_3"><b>03</b> - INT 03 - DTown Utilities - POP UP</a><br />
+<a href="#1050"><b>1050</b> - INT 10 - SCROLOCK.COM - INSTALLATION CHECK</a><br />
+<a href="#1051"><b>1051</b> - INT 10 - SCROLOCK.COM - ENABLE/DISABLE</a><br />
+<a href="#10AA"><b>10AA</b> - INT 10 OU - Player's Tool 3.0 - UNINSTALL</a><br />
+<a href="#10AB"><b>10AB</b> - INT 10 OU - Player's Tool 3.0 - INSTALLATION CHECK</a><br />
+<a href="#10CCAB"><b>10CCAB</b> - INT 10 - HiFont - INSTALLATION CHECK</a><br />
+<a href="#13FFFFBHAA"><b>13FFFFBHAA</b> - INT 13 - UNIQUE UX Turbo Utility - SET TURBO MODE</a><br />
+<a href="#147000"><b>147000</b> - INT 14 - NEWCOM - INSTALLATION CHECK</a><br />
+<a href="#163577"><b>163577</b> - INT 16 U - TextWare TWTSR - API</a><br />
+<a href="#164252"><b>164252</b> - INT 16 - TEXTCAP 2.0 - INSTALLATION CHECK</a><br />
+<a href="#164253"><b>164253</b> - INT 16 - TEXTCAP 2.0 - UNINSTALL</a><br />
+<a href="#164254"><b>164254</b> - INT 16 - TEXTCAP 2.0 - DUMP TEXT SCREEN TO FILE</a><br />
+<a href="#1655FF"><b>1655FF</b> - INT 16 C - Microsoft Word - TSR COOPERATION???</a><br />
+<a href="#166969BX6968"><b>166969BX6968</b> - INT 16 - PC Tools v5.1+ BACKTALK - UNHOOK</a><br />
+<a href="#166969BX6969"><b>166969BX6969</b> - INT 16 - PC Tools v5.1+ BACKTALK - INSTALLATION CHECK</a><br />
+<a href="#166D74"><b>166D74</b> - INT 16 - MTRTSR - INSTALLATION CHECK</a><br />
+<a href="#167761"><b>167761</b> - INT 16 - WATCH.COM v2.x-v3.0 - INSTALLATION CHECK</a><br />
+<a href="#167788BX7789"><b>167788BX7789</b> - INT 16 - PC Magazine PUSHDIR.COM - INSTALLATION CHECK</a><br />
+<a href="#1680"><b>1680</b> - INT 16 - MAKEY.COM - INSTALLATION CHECK</a><br />
+<a href="#168765BX4321"><b>168765BX4321</b> - INT 16 - AT.COM version 8/26/87 - API</a><br />
+<a href="#1699"><b>1699</b> - INT 16 - SCOUT v5.4 - GET ???</a><br />
+<a href="#169E"><b>169E</b> - INT 16 - SCOUT v5.4 - INSTALLATION CHECK</a><br />
+<a href="#16AABBBXEEFF"><b>16AABBBXEEFF</b> - INT 16 U - JORJ v4.3 - INSTALLATION CHECK</a><br />
+<a href="#16CB00"><b>16CB00</b> - INT 16 - PUPClip v1.12+ - INSTALLATION CHECK</a><br />
+<a href="#16CB01"><b>16CB01</b> - INT 16 - PUPClip v1.12+ - GET CLIPBOARD CURSOR POSITION</a><br />
+<a href="#16CB02"><b>16CB02</b> - INT 16 - PUPClip v1.12+ - SET CLIPBOARD CURSOR POSITION</a><br />
+<a href="#16CB03"><b>16CB03</b> - INT 16 - PUPClip v1.12+ - GET CHARACTER FROM CURRENT CLIPBOARD CURSOR POSITION</a><br />
+<a href="#16CB04"><b>16CB04</b> - INT 16 - PUPClip v1.12+ - WRITE CHARACTER TO CURRENT CLIPBOARD CURSOR POSITION</a><br />
+<a href="#16CB05"><b>16CB05</b> - INT 16 - PUPClip v1.12+ - CLEAR CLIPBOARD CONTENTS</a><br />
+<a href="#16CB06"><b>16CB06</b> - INT 16 - PUPClip v1.12+ - SCROLL UP CLIPBOARD CONTENTS</a><br />
+<a href="#16CB07"><b>16CB07</b> - INT 16 - PUPClip v1.12+ - SCROLL DOWN CLIPBOARD CONTENTS</a><br />
+<a href="#16CB08"><b>16CB08</b> - INT 16 - PUPClip v1.12+ - POP UP</a><br />
+<a href="#16D724CX00CB"><b>16D724CX00CB</b> - INT 16 U - APCAL v3.20 - GET ???</a><br />
+<a href="#16D724CX00CC"><b>16D724CX00CC</b> - INT 16 U - APCAL v3.20 - GET ???</a><br />
+<a href="#16D724CX00CD"><b>16D724CX00CD</b> - INT 16 U - APCAL v3.20 - GET ???</a><br />
+<a href="#16ED--BHED"><b>16ED--BHED</b> - INT 16 - BORLAND TURBO LIGHTNING - API</a><br />
+<a href="#16EF"><b>16EF</b> - INT 16 - CALCULATOR - INSTALLATION CHECK</a><br />
+<a href="#16F398"><b>16F398</b> - INT 16 U - NORTON GUIDES - INSTALLATION CHECK</a><br />
+<a href="#16FE55"><b>16FE55</b> - INT 16 U - PC Tools v8+ programs - GET ???</a><br />
+<a href="#16FEA4"><b>16FEA4</b> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - RESET ???</a><br />
+<a href="#16FEC6"><b>16FEC6</b> - INT 16 U - PC Tools v7+ CPSCHED - ENABLE/DISABLE CPSCHED API</a><br />
+<a href="#16FED3"><b>16FED3</b> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - ???</a><br />
+<a href="#16FEDC"><b>16FEDC</b> - INT 16 U - PC Tools v7+ CPSCHED - UNHOOK INTERRUPTS</a><br />
+<a href="#16FEEFCX0000"><b>16FEEFCX0000</b> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - INSTALLATION CHECK</a><br />
+<a href="#16FEF1"><b>16FEF1</b> - INT 16 U - PC Tools v7 only CPSCHED/DESKTOP - ALTERNATE INSTALLATION CHECK</a><br />
+<a href="#16FF90"><b>16FF90</b> - INT 16 U - PC Tools v8+ DESKTOP - ???</a><br />
+<a href="#16FF91"><b>16FF91</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FF92"><b>16FF92</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FF93"><b>16FF93</b> - INT 16 U - PC Tools v7+ DESKTOP - SET ??? FLAG</a><br />
+<a href="#16FF94"><b>16FF94</b> - INT 16 U - PC Tools v7+ DESKTOP - SET ???</a><br />
+<a href="#16FF95"><b>16FF95</b> - INT 16 U - PC Tools v7+ DESKTOP - SET ???</a><br />
+<a href="#16FF96"><b>16FF96</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FF97"><b>16FF97</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FF98"><b>16FF98</b> - INT 16 U - PC Tools v7+ DESKTOP - OPEN \DESK.OVL FILE AND SEEK TO OVERLAY</a><br />
+<a href="#16FF99"><b>16FF99</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FF9A"><b>16FF9A</b> - INT 16 U - PC Tools v7+ DESKTOP - GET NAME OF COLOR SCHEME</a><br />
+<a href="#16FF9B"><b>16FF9B</b> - INT 16 U - PC Tools v7+ DESKTOP - UNUSED</a><br />
+<a href="#16FF9E"><b>16FF9E</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FFA1"><b>16FFA1</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FFA2"><b>16FFA2</b> - INT 16 U - PC Tools v7+ DESKTOP - ???</a><br />
+<a href="#16FFA4"><b>16FFA4</b> - INT 16 U - PC Tools v7-8 DESKTOP - ???</a><br />
+<a href="#16FFA6"><b>16FFA6</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFA7"><b>16FFA7</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ??? PATH</a><br />
+<a href="#16FFA8"><b>16FFA8</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???</a><br />
+<a href="#16FFA9"><b>16FFA9</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET VERSION STRING</a><br />
+<a href="#16FFAA"><b>16FFAA</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???</a><br />
+<a href="#16FFAB"><b>16FFAB</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET EDITOR SETTINGS???</a><br />
+<a href="#16FFAC"><b>16FFAC</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFAD"><b>16FFAD</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFAE"><b>16FFAE</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFAF"><b>16FFAF</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFB0"><b>16FFB0</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFB1"><b>16FFB1</b> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???</a><br />
+<a href="#16FFB2"><b>16FFB2</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFB3"><b>16FFB3</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - ???</a><br />
+<a href="#16FFB4"><b>16FFB4</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - SET ??? FLAG</a><br />
+<a href="#16FFB5"><b>16FFB5</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET WINDOW PARAMETERS</a><br />
+<a href="#16FFB6"><b>16FFB6</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFB7"><b>16FFB7</b> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET ???</a><br />
+<a href="#16FFB8"><b>16FFB8</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET/SET???</a><br />
+<a href="#16FFB9"><b>16FFB9</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFBA"><b>16FFBA</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFBB"><b>16FFBB</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLEAR ??? FLAG</a><br />
+<a href="#16FFBC"><b>16FFBC</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - RESTORE ORIGINAL SCREEN???</a><br />
+<a href="#16FFBD"><b>16FFBD</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ??? DATABASE INDEXING MESSAGES</a><br />
+<a href="#16FFBE"><b>16FFBE</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFBF"><b>16FFBF</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFC0"><b>16FFC0</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFC1"><b>16FFC1</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFC2"><b>16FFC2</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFC3"><b>16FFC3</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFC4"><b>16FFC4</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFC5"><b>16FFC5</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK WHETHER DESKTOP LOADED RESIDENT</a><br />
+<a href="#16FFC6"><b>16FFC6</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFC7"><b>16FFC7</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - REMOVE WINDOW</a><br />
+<a href="#16FFC8"><b>16FFC8</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFC9"><b>16FFC9</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY DATA TO CLIPBOARD</a><br />
+<a href="#16FFCA"><b>16FFCA</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFCB"><b>16FFCB</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SELECT WINDOW PARAMETERS???</a><br />
+<a href="#16FFCC"><b>16FFCC</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY ASCIZ STRING CENTERED IN WINDOW</a><br />
+<a href="#16FFCD"><b>16FFCD</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFCE"><b>16FFCE</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ??? DELAYS</a><br />
+<a href="#16FFCF"><b>16FFCF</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLOSE PRINTER/PRINT FILE</a><br />
+<a href="#16FFD0"><b>16FFD0</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO PRINT???</a><br />
+<a href="#16FFD1"><b>16FFD1</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY PRINT OPTIONS MENU</a><br />
+<a href="#16FFD2"><b>16FFD2</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFD3"><b>16FFD3</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFD4BH3C"><b>16FFD4BH3C</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CREATE/OPEN/DELETE FILE</a><br />
+<a href="#16FFD5"><b>16FFD5</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFD6"><b>16FFD6</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFD7"><b>16FFD7</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFD8"><b>16FFD8</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SAFE CREATE FILE</a><br />
+<a href="#16FFD9"><b>16FFD9</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFDA"><b>16FFDA</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET NAME OF LAST FILE OPENED</a><br />
+<a href="#16FFDB"><b>16FFDB</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFDC"><b>16FFDC</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - UNHOOK</a><br />
+<a href="#16FFDDBX0000"><b>16FFDDBX0000</b> - INT 16 U - PC Tools v5.1+ PCShell API - INSTALLATION CHECK</a><br />
+<a href="#16FFDDBX0001"><b>16FFDDBX0001</b> - INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP</a><br />
+<a href="#16FFDDBX0002"><b>16FFDDBX0002</b> - INT 16 U - PC Tools v5.1-5.5 PCShell API - GET ???</a><br />
+<a href="#16FFDDBX0003"><b>16FFDDBX0003</b> - INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP</a><br />
+<a href="#16FFDDBX0004"><b>16FFDDBX0004</b> - INT 16 U - PC Tools v5.1+ PCShell API - GET ???</a><br />
+<a href="#16FFDDBX0005"><b>16FFDDBX0005</b> - INT 16 U - PC Tools v5.1+ PCShell API - ???</a><br />
+<a href="#16FFDDBX0006"><b>16FFDDBX0006</b> - INT 16 U - PC Tools v5.1+ PCShell API - ???</a><br />
+<a href="#16FFDDBX0007"><b>16FFDDBX0007</b> - INT 16 U - PC Tools v5.1+ PCShell API - SET ??? FLAG</a><br />
+<a href="#16FFDDBX0008"><b>16FFDDBX0008</b> - INT 16 U - PC Tools v5.1+ PCShell API - CLEAR ??? FLAG</a><br />
+<a href="#16FFDDBX0009"><b>16FFDDBX0009</b> - INT 16 U - PC Tools v6.0+ PCShell API - GET PCRUN PARAMETERS</a><br />
+<a href="#16FFDDBX000A"><b>16FFDDBX000A</b> - INT 16 U - PC Tools v6.0+ PCRUN API - INSTALLATION CHECK</a><br />
+<a href="#16FFDDBX000B"><b>16FFDDBX000B</b> - INT 16 U - PC Tools v6.0+ PCRUN API - ???</a><br />
+<a href="#16FFDE"><b>16FFDE</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY POPUP MENU</a><br />
+<a href="#16FFDF"><b>16FFDF</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFE0"><b>16FFE0</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFE1"><b>16FFE1</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - BEEP</a><br />
+<a href="#16FFE2"><b>16FFE2</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFE3"><b>16FFE3</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PRINT CHARACTER</a><br />
+<a href="#16FFE4"><b>16FFE4</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFE5"><b>16FFE5</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - POP UP FILE SELECTION MENU</a><br />
+<a href="#16FFE6"><b>16FFE6</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK FOR AND GET KEYSTROKE</a><br />
+<a href="#16FFE7"><b>16FFE7</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFE8"><b>16FFE8</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY NUMBER</a><br />
+<a href="#16FFE9"><b>16FFE9</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET FILE LIST???</a><br />
+<a href="#16FFEA"><b>16FFEA</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY COUNTED STRING</a><br />
+<a href="#16FFEB"><b>16FFEB</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFEC"><b>16FFEC</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET KEY</a><br />
+<a href="#16FFED"><b>16FFED</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???</a><br />
+<a href="#16FFEE"><b>16FFEE</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE PULLDOWN MENUS</a><br />
+<a href="#16FFEFCX0000"><b>16FFEFCX0000</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - INSTALLATION CHECK</a><br />
+<a href="#16FFF0"><b>16FFF0</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???</a><br />
+<a href="#16FFF1BX0000"><b>16FFF1BX0000</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ALTERNATE INSTALLATION CHECK</a><br />
+<a href="#16FFF2"><b>16FFF2</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY HELP LINE</a><br />
+<a href="#16FFF3"><b>16FFF3</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO UNLOAD RESIDENT DESKTOP</a><br />
+<a href="#16FFF4"><b>16FFF4</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???</a><br />
+<a href="#16FFF5"><b>16FFF5</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET SCREEN ATTRIBUTE ARRAY</a><br />
+<a href="#16FFF6"><b>16FFF6</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - INVOKE NOTEPAD EDITOR</a><br />
+<a href="#16FFF7"><b>16FFF7</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS MENU BAR ENTRY???</a><br />
+<a href="#16FFF8"><b>16FFF8</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DRAW EMPTY WINDOW</a><br />
+<a href="#16FFF9"><b>16FFF9</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE SCREEN REFRESH ROUTINE</a><br />
+<a href="#16FFFA"><b>16FFFA</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE STANDARD PULLDOWN MENUS</a><br />
+<a href="#16FFFB"><b>16FFFB</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS STANDARD MENU BAR</a><br />
+<a href="#16FFFC"><b>16FFFC</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET HOTKEYS AND KEYBOARD VECTOR</a><br />
+<a href="#16FFFD"><b>16FFFD</b> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY ???</a><br />
+<a href="#1ACCCCBXCCCC"><b>1ACCCCBXCCCC</b> - INT 1A U - DATEFIX - INSTALLATION CHECK</a><br />
+<a href="#1AE11B"><b>1AE11B</b> - INT 1A - TheGrab v4.60 - ???</a><br />
+<a href="#1AE11D"><b>1AE11D</b> - INT 1A - TheGrab v4.60 - INSTALLATION CHECK</a><br />
+<a href="#1AF7"><b>1AF7</b> - INT 1A - RighTime v1.1 - TEMPORARILY DISABLE</a><br />
+<a href="#1AF8"><b>1AF8</b> - INT 1A - RighTime v1.1 - ENABLE</a><br />
+<a href="#1AFF_0"><b>1AFF</b> - INT 1A - RighTime v1.1 - PERMANENTLY DISABLE</a><br />
+<a href="#212B--CX454C"><b>212B--CX454C</b> - INT 21 - ELRES v1.1 - INSTALLATION CHECK</a><br />
+<a href="#214B_0"><b>214B</b> - INT 21 - ELRES v1.0 only - INSTALLATION CHECK</a><br />
+<a href="#215757BX5757"><b>215757BX5757</b> - INT 21 U - IBM Genie - Resident Manager - INSTALLATION CHECK</a><br />
+<a href="#216262SI1994"><b>216262SI1994</b> - INT 21 - ENVLOCK - INSTALLATION CHECK</a><br />
+<a href="#217761"><b>217761</b> - INT 21 - WATCH.COM v3.2+ - INSTALLATION CHECK</a><br />
+<a href="#289999"><b>289999</b> - INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK</a><br />
+<a href="#29E60DCL0E"><b>29E60DCL0E</b> - INT 29 - ShowGFX - INSTALLATION CHECK</a><br />
+<a href="#2D--10_4"><b>2D--10</b> - INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK</a><br />
+<a href="#2D--11_0"><b>2D--11</b> - INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK</a><br />
+<a href="#2D--12_1"><b>2D--12</b> - INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO</a><br />
+<a href="#2D--13_0"><b>2D--13</b> - INT 2D - FREEVER - SET VERSION NUMBERS</a><br />
+<a href="#2D--14"><b>2D--14</b> - INT 2D - FREEVER - ENABLE TSR</a><br />
+<a href="#2D--15"><b>2D--15</b> - INT 2D - FREEVER - DISABLE TSR</a><br />
+<a href="#2D--16"><b>2D--16</b> - INT 2D - FREEVER - GET TSR STATUS</a><br />
+<a href="#2D--17"><b>2D--17</b> - INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION</a><br />
+<a href="#2D--20"><b>2D--20</b> - INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS</a><br />
+<a href="#2D--21"><b>2D--21</b> - INT 2D - DTown Utilities v1.40+ - POP UP</a><br />
+<a href="#2D--50"><b>2D--50</b> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS</a><br />
+<a href="#2D--51"><b>2D--51</b> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE</a><br />
+<a href="#2F0600"><b>2F0600</b> - INT 2F - DOS 3.0+ ASSIGN - INSTALLATION CHECK</a><br />
+<a href="#2F0601"><b>2F0601</b> - INT 2F U - DOS 3.0+ ASSIGN - GET DRIVE ASSIGNMENT TABLE</a><br />
+<a href="#2F1400"><b>2F1400</b> - INT 2F C - NLSFUNC.COM - INSTALLATION CHECK</a><br />
+<a href="#2F1401"><b>2F1401</b> - INT 2F CU - NLSFUNC.COM - CHANGE CODE PAGE</a><br />
+<a href="#2F1402"><b>2F1402</b> - INT 2F CU - NLSFUNC.COM - GET EXTENDED COUNTRY INFO</a><br />
+<a href="#2F1403"><b>2F1403</b> - INT 2F CU - NLSFUNC.COM - SET CODE PAGE</a><br />
+<a href="#2F1404"><b>2F1404</b> - INT 2F CU - NLSFUNC.COM - GET COUNTRY INFO</a><br />
+<a href="#2F14FE"><b>2F14FE</b> - INT 2F U - DR DOS 5.0 NLSFUNC - GET EXTENDED COUNTRY INFORMATION</a><br />
+<a href="#2F14FF"><b>2F14FF</b> - INT 2F U - DR DOS 5.0+ NLSFUNC - PREPARE CODE PAGE</a><br />
+<a href="#2F1500"><b>2F1500</b> - INT 2F - DOS 4.00 GRAPHICS.COM - INSTALLATION CHECK</a><br />
+<a href="#2F48C1BL00"><b>2F48C1BL00</b> - INT 2F - PCED/VSTACK - INSTALLATION CHECK</a><br />
+<a href="#2F48C2BL00"><b>2F48C2BL00</b> - INT 2F - PCED/ATTRIB - INSTALLATION CHECK</a><br />
+<a href="#2F48C4BL00"><b>2F48C4BL00</b> - INT 2F - PCED/FLIST - INSTALLATION CHECK</a><br />
+<a href="#2F48C5BL00"><b>2F48C5BL00</b> - INT 2F - PCED/ASSOC - INSTALLATION CHECK</a><br />
+<a href="#2F48C5BL01"><b>2F48C5BL01</b> - INT 2F - PCED/ASSOC - GET VERSION</a><br />
+<a href="#2F48C5BL02"><b>2F48C5BL02</b> - INT 2F - PCED/ASSOC - ASSOCIATION TEST</a><br />
+<a href="#2F8900"><b>2F8900</b> - INT 2F - WHOA!.COM - INSTALLATION CHECK</a><br />
+<a href="#2F8901"><b>2F8901</b> - INT 2F - WHOA!.COM - UNINSTALL</a><br />
+<a href="#2F8902"><b>2F8902</b> - INT 2F - WHOA!.COM - SET DELAY COUNT</a><br />
+<a href="#2F9000"><b>2F9000</b> - INT 2F U - RAID - INSTALLATION CHECK</a><br />
+<a href="#2F9001"><b>2F9001</b> - INT 2F U - RAID - GET ???</a><br />
+<a href="#2F9002"><b>2F9002</b> - INT 2F U - RAID - GET RESIDENT SEGMENT</a><br />
+<a href="#2F9003"><b>2F9003</b> - INT 2F U - RAID - UNINSTALL</a><br />
+<a href="#2F9004"><b>2F9004</b> - INT 2F U - RAID - GET ???</a><br />
+<a href="#2FA4E0"><b>2FA4E0</b> - INT 2F - Futurus Team - INSTALLATION CHECK</a><br />
+<a href="#2FA900"><b>2FA900</b> - INT 2F - METZTSR.COM - INSTALLATION CHECK</a><br />
+<a href="#2FA901"><b>2FA901</b> - INT 2F - METZTSR.COM - GET TIME OF LAST KEYBOARD ACTIVITY</a><br />
+<a href="#2FA902"><b>2FA902</b> - INT 2F - METZTSR.COM - SET METZ Ctrl-Alt-Del FLAG</a><br />
+<a href="#2FA903"><b>2FA903</b> - INT 2F - METZTSR.COM - GET METZ Ctrl-Alt-Del FLAG</a><br />
+<a href="#2FAA"><b>2FAA</b> - INT 2F - Player's Tool 3.996b+ - UNINSTALL</a><br />
+<a href="#2FAA00"><b>2FAA00</b> - INT 2F - VIDCLOCK.COM - INSTALLATION CHECK</a><br />
+<a href="#2FAB"><b>2FAB</b> - INT 2F - Player's Tool 3.996b+ - INSTALLATION CHECK</a><br />
+<a href="#2FAC"><b>2FAC</b> - INT 2F u - Player's Tool 3.996b+ - POP UP</a><br />
+<a href="#2FBE00"><b>2FBE00</b> - INT 2F - REDVIEW - INSTALLATION CHECK</a><br />
+<a href="#2FC000_6"><b>2FC000</b> - INT 2F U - WANG_ER.COM - INSTALLATION CHECK</a><br />
+<a href="#2FC000_11"><b>2FC000</b> - INT 2F - Frank Kintrup TSR Utilities - INSTALLATION CHECK</a><br />
+<a href="#2FC001_2"><b>2FC001</b> - INT 2F - Frank Kintrup TSR Utilities - CLOCK - DISABLE DISPLAY UPDATE</a><br />
+<a href="#2FC002_2"><b>2FC002</b> - INT 2F - Frank Kintrup TSR Utilities - CLOCK - ENABLE DISPLAY UPDATE</a><br />
+<a href="#2FCAFEBX0000"><b>2FCAFEBX0000</b> - INT 2F U - THELP v3.0 - INSTALLATION CHECK</a><br />
+<a href="#2FCD00_1"><b>2FCD00</b> - INT 2F - SWELL.EXE - INSTALLATION CHECK</a><br />
+<a href="#2FCD01_0"><b>2FCD01</b> - INT 2F - SWELL.EXE - SUSPEND ONCE</a><br />
+<a href="#2FCD02_0"><b>2FCD02</b> - INT 2F - SWELL.EXE - SUSPEND</a><br />
+<a href="#2FCD03_0"><b>2FCD03</b> - INT 2F - SWELL.EXE - ACTIVATE</a><br />
+<a href="#2FCD04_0"><b>2FCD04</b> - INT 2F - SWELL.EXE - TURN OFF VERBOSE MODE</a><br />
+<a href="#2FCD05_0"><b>2FCD05</b> - INT 2F - SWELL.EXE - TURN ON VERBOSE MODE</a><br />
+<a href="#2FCD06_0"><b>2FCD06</b> - INT 2F - SWELL.EXE - UNINSTALL</a><br />
+<a href="#2FCD07_0"><b>2FCD07</b> - INT 2F - SWELL.EXE - GET INFO</a><br />
+<a href="#2FCD08_0"><b>2FCD08</b> - INT 2F - SWELL.EXE - UNUSED</a><br />
+<a href="#2FCD09_0"><b>2FCD09</b> - INT 2F - SWELL.EXE - TURN OFF "BORLAND SUPPORT"</a><br />
+<a href="#2FCD0A_0"><b>2FCD0A</b> - INT 2F - SWELL.EXE - TURN ON "BORLAND SUPPORT"</a><br />
+<a href="#2FD200"><b>2FD200</b> - INT 2F - PCL-838.EXE - INSTALLATION CHECK</a><br />
+<a href="#2FD201"><b>2FD201</b> - INT 2F - PCL-838.EXE - UNINSTALL</a><br />
+<a href="#2FD202"><b>2FD202</b> - INT 2F - PCL-838.EXE - EXECUTE PCL838 COMMANDS</a><br />
+<a href="#2FDB00_0"><b>2FDB00</b> - INT 2F U - WINGO.COM - INSTALLATION CHECK</a><br />
+<a href="#2FDB01_0"><b>2FDB01</b> - INT 2F U - WINGO.COM - SET CALLBACK FUNCTION POINTER</a><br />
+<a href="#2FDB02_0"><b>2FDB02</b> - INT 2F U - WINGO.COM - RESET CALLBACK FUNCTION POINTER</a><br />
+<a href="#2FDB03_0"><b>2FDB03</b> - INT 2F U - WINGO.COM - SET ??? FLAG</a><br />
+<a href="#2FDB04"><b>2FDB04</b> - INT 2F U - WINGO.COM - RESET ??? FLAG</a><br />
+<a href="#2FDB05"><b>2FDB05</b> - INT 2F U - WINGO.COM - GET ??? FLAG</a><br />
+<a href="#2FDB06"><b>2FDB06</b> - INT 2F U - WINGO.COM - CALL CALLBACK FUNCTION</a><br />
+<a href="#2FDE01BX5242"><b>2FDE01BX5242</b> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, Ralf Brown's XDI drivers</a><br />
+<a href="#2FDE01BX7474"><b>2FDE01BX7474</b> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVTXDI.COM</a><br />
+<a href="#2FDE01BX7575"><b>2FDE01BX7575</b> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVSIXDI.COM</a><br />
+<a href="#2FE000"><b>2FE000</b> - INT 2F - SETDRVER.COM v2.10+ - INSTALLATION CHECK</a><br />
+<a href="#2FE000DX4D50"><b>2FE000DX4D50</b> - INT 2F - FREEVER v1.0+ - INSTALLATION CHECK</a><br />
+<a href="#2FE001"><b>2FE001</b> - INT 2F - SETDRVER.COM v2.10+ - GET SETDRVER VERSION</a><br />
+<a href="#2FE002"><b>2FE002</b> - INT 2F - SETDRVER.COM v2.10+ - GET ORIGINAL DOS VERSION INFO</a><br />
+<a href="#2FE003"><b>2FE003</b> - INT 2F - SETDRVER.COM v2.10+ - RESET INTERNAL VARIABLES</a><br />
+<a href="#2FE004"><b>2FE004</b> - INT 2F - SETDRVER.COM v2.10+ - ENABLE TSR</a><br />
+<a href="#2FE005"><b>2FE005</b> - INT 2F - SETDRVER.COM v2.10+ - DISABLE TSR</a><br />
+<a href="#2FE006"><b>2FE006</b> - INT 2F - SETDRVER.COM v2.10+ - GET TSR STATUS</a><br />
+<a href="#2FE007"><b>2FE007</b> - INT 2F - SETDRVER.COM v2.10+ - GET TaskMAX STATUS AT INSTALLATION</a><br />
+<a href="#2FE0"><b>2FE0</b> - INT 2F - SETDRVER.COM - RESERVED FOR FUTURE USE</a><br />
+<a href="#2FE600CL30"><b>2FE600CL30</b> - INT 2F - Virtual 486 - INSTALLATION CHECK</a><br />
+<a href="#2FEE00_0"><b>2FEE00</b> - INT 2F - XVIEW - INSTALLATION CHECK</a><br />
+<a href="#2FEE01"><b>2FEE01</b> - INT 2F - XVIEW - POP UP GIVING TOPIC SEARCH KEYWORD</a><br />
+<a href="#2FEE02"><b>2FEE02</b> - INT 2F - XVIEW - POP UP GIVING A PAGE NUMBER</a><br />
+<a href="#2FEE03"><b>2FEE03</b> - INT 2F - XVIEW - POP UP GIVING FILENAME AND SEARCH TOPIC OR PAGE NUMBER</a><br />
+<a href="#2FEE04"><b>2FEE04</b> - INT 2F - XVIEW - POP UP AND READ SCREEN FOR SEARCH TOPIC KEYWORD</a><br />
+<a href="#2FEE05"><b>2FEE05</b> - INT 2F - XVIEW - POP UP TO MOST-RECENTLY VIEWED PAGE</a><br />
+<a href="#2FEE06"><b>2FEE06</b> - INT 2F - XVIEW - WAIT FOR POP-DOWN AND GET EXIT CODE</a><br />
+<a href="#2FFB00_0"><b>2FFB00</b> - INT 2F U - Jot-It! v1.50 - INSTALLATION CHECK</a><br />
+<a href="#2FFB01_0"><b>2FFB01</b> - INT 2F U - Jot-It! v1.50 - GET USER NAME</a><br />
+<a href="#2FFB02_0"><b>2FFB02</b> - INT 2F U - Jot-It! v1.50 - GET MESSAGE DIRECTORY</a><br />
+<a href="#2FFB03_0"><b>2FFB03</b> - INT 2F U - Jot-It! v1.50 - UNINSTALL</a><br />
+<a href="#2FFE00DI4E55"><b>2FFE00DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - INSTALLATION CHECK/STATUS REPORT</a><br />
+<a href="#2FFE00DX474F"><b>2FFE00DX474F</b> - INT 2F - GO! v3.22+ - API</a><br />
+<a href="#2FFE01DI4E55"><b>2FFE01DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - ENABLE</a><br />
+<a href="#2FFE02DI4E55"><b>2FFE02DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - DISABLE</a><br />
+<a href="#2FFE03DI4E55"><b>2FFE03DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - FLUSH BUFFERS</a><br />
+<a href="#2FFE04DI4E55"><b>2FFE04DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???</a><br />
+<a href="#2FFE05DI4E55"><b>2FFE05DI4E55</b> - INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???</a><br />
+<a href="#2FFE10DI4E55"><b>2FFE10DI4E55</b> - INT 2F U - NORTON UTILITIES 6.0 NCACHE - REBOOT</a><br />
+<a href="#5B5254DL04"><b>5B5254DL04</b> - INT 5B U - SitBack v3.02R - GET ???</a><br />
+<a href="#5B8485DL70"><b>5B8485DL70</b> - INT 5B U - SitBack v3.02R - INSTALLATION CHECK</a><br />
+<a href="#5B8485DL71"><b>5B8485DL71</b> - INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS</a><br />
+<a href="#5B8485DL72"><b>5B8485DL72</b> - INT 5B U - SitBack v3.02R - CLEAR ??? FLAG</a><br />
+<a href="#5B8485DL73"><b>5B8485DL73</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL74"><b>5B8485DL74</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL75"><b>5B8485DL75</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL76"><b>5B8485DL76</b> - INT 5B U - SitBack v3.02R - ???</a><br />
+<a href="#5B8485DL77"><b>5B8485DL77</b> - INT 5B U - SitBack v3.02R - SET ??? FLAG</a><br />
+<a href="#5B8485DL78"><b>5B8485DL78</b> - INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT</a><br />
+<a href="#5B8485DL79"><b>5B8485DL79</b> - INT 5B U - SitBack v3.02R - GET DTA</a><br />
+<a href="#5B8485DL7A"><b>5B8485DL7A</b> - INT 5B U - SitBack v3.02R - TOGGLE ???</a><br />
+<a href="#61_7"><b>61</b> - INT 61 - PC-Magazin - PAGE, SWAPx</a><br />
+<a href="#65_4"><b>65</b> - INT 65 - SD.COM v6.2</a><br />
+<a href="#66_8"><b>66</b> - INT 66 - PC-Magazin - INCA</a><br />
+<a href="#66AA02"><b>66AA02</b> - INT 66 - HelpTSR v2.10 - INSTALLATION CHECK</a><br />
+<a href="#67_3"><b>67</b> - INT 67 - CUCKOO.COM - INSTALLATION CHECK</a><br />
+<a href="#6A"><b>6A</b> - INT 6A - OPTHELP.COM</a><br />
+<a href="#7D_2"><b>7D</b> - INT 7D - HyperPAD v2.2 - API ACCESS</a><br />
+<a href="#7F_6"><b>7F</b> - INT 7F - SBS WinRun 1.00 - TRANSMITTER ENTRY POINT</a><br />
+<a href="#96_0"><b>96</b> - INT 96 U - KILL.COM, QKILL.COM - POP UP</a><br />
+<a href="#A4_0"><b>A4</b> - INT A4 U - Right Hand Man - API</a><br />
+<a href="#B370"><b>B370</b> - INT B3 - ZIPKEY - GET VERSION</a><br />
+<a href="#B371"><b>B371</b> - INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE</a><br />
+<a href="#B372"><b>B372</b> - INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION</a><br />
+<a href="#B373"><b>B373</b> - INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME</a><br />
+<a href="#B374"><b>B374</b> - INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS</a><br />
+<a href="#B375"><b>B375</b> - INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE</a><br />
+<a href="#B376"><b>B376</b> - INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE</a><br />
+<a href="#B377"><b>B377</b> - INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE</a><br />
+<a href="#B378"><b>B378</b> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY</a><br />
+<a href="#B379"><b>B379</b> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY</a><br />
+<a href="#B37A"><b>B37A</b> - INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP</a><br />
+<a href="#B37B"><b>B37B</b> - INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT</a><br />
+<a href="#B37C"><b>B37C</b> - INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT</a><br />
+<a href="#B37D"><b>B37D</b> - INT B3 - ZIPKEY - REQUEST POP UP</a><br />
+<a href="#B37E"><b>B37E</b> - INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION</a><br />
+<a href="#B37F"><b>B37F</b> - INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS</a><br />
+<a href="#B380"><b>B380</b> - INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE</a><br />
+<a href="#D0_1"><b>D0</b> - INT D0 - [not a vector!] - NJFRERAM SIGNATURE VECTOR</a><br />
+<a href="#F1_2"><b>F1</b> - INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS</a><br />
+
+<hr />
+
+<a href="#03_3" name="03_3"><b>03</b></a> - INT 03 - DTown Utilities - POP UP<br />
+<pre>
+INT 03 - DTown Utilities - POP UP
+Program: DTown Software Development's DTown Utilities contains various tools
+	  which are useful to programmers, such as a memory viewer and
+	  disassembler
+Note:	DTU pops up on INT 03 (if not hooked by a debugger) to allow the
+	  user to inspect memory or code when the machine crashes; various
+	  memory managers will invoke INT 03 when displaying a CPU exception
+	  error message (either automatically or when the user presses a
+	  particular key)
+SeeAlso: INT 2D/AL=20h"DTown"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1050" name="1050"><b>1050</b></a> - INT 10 - SCROLOCK.COM - INSTALLATION CHECK<br />
+<pre>
+INT 10 - SCROLOCK.COM - INSTALLATION CHECK
+	AH = 50h
+Return: BX = 1954h if installed
+	    AL = 00h if inactive, nonzero if active
+Program: SCROLOCK is a utility supplied with System Enhancement Associates'
+	  ARC archiver
+SeeAlso: AH=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1051" name="1051"><b>1051</b></a> - INT 10 - SCROLOCK.COM - ENABLE/DISABLE<br />
+<pre>
+INT 10 - SCROLOCK.COM - ENABLE/DISABLE
+	AH = 51h
+	AL = state
+	    00h disable
+	    nonzero enable
+Return: nothing
+Program: SCROLOCK is a utility supplied with System Enhancement Associates'
+	  ARC file archiver
+SeeAlso: AH=50h"SCROLOCK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10AA" name="10AA"><b>10AA</b></a> - INT 10 OU - Player's Tool 3.0 - UNINSTALL<br />
+<pre>
+INT 10 OU - Player's Tool 3.0 - UNINSTALL
+	AH = AAh
+Return: ???
+Note:	this call has been removed in PT 3.996b
+Program: Player's Tool is a game cheater by Dmitry Yakunin & Andy Robinson
+SeeAlso: AH=ABh,INT 2F/AH=AAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10AB" name="10AB"><b>10AB</b></a> - INT 10 OU - Player's Tool 3.0 - INSTALLATION CHECK<br />
+<pre>
+INT 10 OU - Player's Tool 3.0 - INSTALLATION CHECK
+	AH = ABh
+Return: BH = FFh
+	???
+Note:	this call has been removed in PT 3.996b
+SeeAlso: AH=AAh,INT 2F/AH=ABh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10CCAB" name="10CCAB"><b>10CCAB</b></a> - INT 10 - HiFont - INSTALLATION CHECK<br />
+<pre>
+INT 10 - HiFont - INSTALLATION CHECK
+	AX = CCABh
+Return: AX = ABCCh
+Program: HiFont is a 8x19 font driver for standard VGA by Solar Designer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13FFFFBHAA" name="13FFFFBHAA"><b>13FFFFBHAA</b></a> - INT 13 - UNIQUE UX Turbo Utility - SET TURBO MODE<br />
+<pre>
+INT 13 - UNIQUE UX Turbo Utility - SET TURBO MODE
+	AX = FFFFh
+	BH = AAh
+	BL = subfunction
+	    00h installation check
+		Return: AX = 1234h if installed
+	    01h turn on Turbo mode
+	    02h turn off Turbo mode
+	    03h set Turbo mode according to hardware switch
+	    04h set disk access to Turbo mode
+	    05h set disk access to Normal mode
+Return: nothing
+SeeAlso: INT 15/AH=DFh
+Index:	installation check;UNIQUE UX Turbo Utility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#147000" name="147000"><b>147000</b></a> - INT 14 - NEWCOM - INSTALLATION CHECK<br />
+<pre>
+INT 14 - NEWCOM - INSTALLATION CHECK
+	AX = 7000h
+Return: AX = 4E43h ('NC') if installed
+	BX = 4F4Dh ('OM') if installed
+	    CH = major version number
+	    CL = minor version number
+	    DH = patch level
+	    DL = language (currently: 00h English, 01h French)
+Program: Newcom is a DOS commandline-enhancer by kilobug@kali.isicom.fr
+SeeAlso: INT 2F/AX=D44Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#163577" name="163577"><b>163577</b></a> - INT 16 U - TextWare TWTSR - API<br />
+<pre>
+INT 16 U - TextWare TWTSR - API
+	AX = 3577h
+	CX = function
+	    00CBh ???
+		Return: AX = 0000h
+			BX = 0000h
+			DX:CX -&gt; ???
+	    00CCh uninstall
+		Return: AX = status
+			    0000h successful
+			    FFFDh unable to unload because vectors taken
+	    00CDh ???
+		Return: AX = 0000h
+			BX = 0000h
+			DX:CX -&gt; ???
+	    other
+		Return: AX = 5345h ('SE')
+Program: TWTSR is a TSR which allows the TextWare hypertext browser to be
+	  popped up via hotkey
+SeeAlso: AX=D724h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164252" name="164252"><b>164252</b></a> - INT 16 - TEXTCAP 2.0 - INSTALLATION CHECK<br />
+<pre>
+INT 16 - TEXTCAP 2.0 - INSTALLATION CHECK
+	AX = 4252h
+Return: AX = 5242h if installed
+Program: TEXTCAP 2.0 is a heavily modified (by Gisbert W. Selke) version of
+	  the PC Magazine utility CAPTURE written by Tom Kihlken
+SeeAlso: AX=4253h,AX=4254h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164253" name="164253"><b>164253</b></a> - INT 16 - TEXTCAP 2.0 - UNINSTALL<br />
+<pre>
+INT 16 - TEXTCAP 2.0 - UNINSTALL
+	AX = 4253h
+Return: AX = segment of resident code
+Notes:	the uninstall code does not check whether interrupt vectors have been
+	  chained by other programs
+	the caller must free the main memory block (using the returned segment)
+SeeAlso: AX=4252h,AX=4254h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164254" name="164254"><b>164254</b></a> - INT 16 - TEXTCAP 2.0 - DUMP TEXT SCREEN TO FILE<br />
+<pre>
+INT 16 - TEXTCAP 2.0 - DUMP TEXT SCREEN TO FILE
+	AX = 4254h
+Return: AX = status
+	    4254h if screen dump will be written as soon as disk becomes idle
+	    5442h if screen dump written
+SeeAlso: AX=4252h,AX=4253h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1655FF" name="1655FF"><b>1655FF</b></a> - INT 16 C - Microsoft Word - TSR COOPERATION???<br />
+<pre>
+INT 16 C - Microsoft Word - TSR COOPERATION???
+	AX = 55FFh
+	BX &gt;= 0004h (version of Microsoft Word [BL = major] ???)
+	CX = function
+	    0000h set ??? flag
+	    other clear ??? flag
+Notes:	hooks intercepting this call are present in SWAPSH and SWAPDT v1.77j,
+	  distributed with PC Tools v7, as well as the Trusted Access
+	  SCRNBLNK.COM; this may be part of the standard TesSeRact library
+	known to be called by the German edition of Microsoft Word 5.0
+SeeAlso: AX=5500h,INT 2F/AX=5453h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#166969BX6968" name="166969BX6968"><b>166969BX6968</b></a> - INT 16 - PC Tools v5.1+ BACKTALK - UNHOOK<br />
+<pre>
+INT 16 - PC Tools v5.1+ BACKTALK - UNHOOK
+	AX = 6969h
+	BX = 6968h
+Return: resident code unhooked, but not removed from memory
+Index:	uninstall;BACKTALK
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#166969BX6969" name="166969BX6969"><b>166969BX6969</b></a> - INT 16 - PC Tools v5.1+ BACKTALK - INSTALLATION CHECK<br />
+<pre>
+INT 16 - PC Tools v5.1+ BACKTALK - INSTALLATION CHECK
+	AX = 6969h
+	BX = 6969h
+	DX = 0000h
+Return: DX nonzero if installed
+	    BX = CS of resident code
+	    DX = PSP segment of resident code
+	    DS:SI -&gt; ASCIZ identification string "CPoint Talk"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#166D74" name="166D74"><b>166D74</b></a> - INT 16 - MTRTSR - INSTALLATION CHECK<br />
+<pre>
+INT 16 - MTRTSR - INSTALLATION CHECK
+	AX = 6D74h ('mt')
+Return: AX = 4D54h ('MT') if installed
+Program: MTRTSR is a part of the shareware MTR package by Mechon Mamre which
+	  permits searching the large corpus of classical Hebrew texts in the
+	  package
+SeeAlso: INT 10/AX=6D74h"MTRFONTS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167761" name="167761"><b>167761</b></a> - INT 16 - WATCH.COM v2.x-v3.0 - INSTALLATION CHECK<br />
+<pre>
+INT 16 - WATCH.COM v2.x-v3.0 - INSTALLATION CHECK
+	AX = 7761h ('wa')
+Return: AX = 5741h ('WA') if installed
+Note:	WATCH.COM is part of the "TSR" package by Kim Kokkonen
+SeeAlso: INT 21/AX=7761h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#167788BX7789" name="167788BX7789"><b>167788BX7789</b></a> - INT 16 - PC Magazine PUSHDIR.COM - INSTALLATION CHECK<br />
+<pre>
+INT 16 - PC Magazine PUSHDIR.COM - INSTALLATION CHECK
+	AX = 7788h
+	BX = 7789h
+	DS:SI -&gt; signature "PUSHDIR VERSION 1.0"
+Return: AX = 7789h if installed and signature correct
+	BX = 7788h
+	SI destroyed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1680" name="1680"><b>1680</b></a> - INT 16 - MAKEY.COM - INSTALLATION CHECK<br />
+<pre>
+INT 16 - MAKEY.COM - INSTALLATION CHECK
+	AH = 80h
+Return: AX = 1954h if installed
+Program: MAKEY is a utility by System Enhancement Associates
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#168765BX4321" name="168765BX4321"><b>168765BX4321</b></a> - INT 16 - AT.COM version 8/26/87 - API<br />
+<pre>
+INT 16 - AT.COM version 8/26/87 - API
+	AX = 8765h
+	BX = 4321h
+	CX = ??? or FFFFh
+	if CX = FFFFh
+		DX = number of event to remove or FFFFh
+Return: ES:BX -&gt; event record array (see #00607)
+Program: AT.COM is a resident scheduler by Bill Frolik
+
+Format of AT.COM event record:
+Offset	Size	Description	(Table 00607)
+ 00h	BYTE	in-use flag (00h free, 01h in use, FFh end of array)
+ 01h	BYTE	day of date on which to trigger
+ 02h	BYTE	month of date on which to trigger
+ 03h	BYTE	trigger time, minute
+ 04h	BYTE	trigger time, hour
+ 05h	WORD	offset of command to be executed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1699" name="1699"><b>1699</b></a> - INT 16 - SCOUT v5.4 - GET ???<br />
+<pre>
+INT 16 - SCOUT v5.4 - GET ???
+	AH = 99h
+Return: AX = ABCDh
+	BX:CX -&gt; ??? (appears to be start of PSP for resident portion)
+Program: Scout is a memory-resident file manager by New-Ware
+SeeAlso: AH=9Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#169E" name="169E"><b>169E</b></a> - INT 16 - SCOUT v5.4 - INSTALLATION CHECK<br />
+<pre>
+INT 16 - SCOUT v5.4 - INSTALLATION CHECK
+	AH = 9Eh
+Return: AX = ABCDh if installed
+Program: Scout is a memory-resident file manager by New-Ware
+SeeAlso: AH=99h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AABBBXEEFF" name="16AABBBXEEFF"><b>16AABBBXEEFF</b></a> - INT 16 U - JORJ v4.3 - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - JORJ v4.3 - INSTALLATION CHECK
+	AX = AABBh
+	BX = EEFFh
+Return: AX = EEFFh if installed
+	BX = AABBh if installed
+	    CL = hotkey name (default 6Ah 'j' for Alt-J)
+Program: JORJ is a shareware dictionary with phonetic lookup by Jorj Software
+	  Co.
+Index:	hotkeys;JORJ
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB00" name="16CB00"><b>16CB00</b></a> - INT 16 - PUPClip v1.12+ - INSTALLATION CHECK<br />
+<pre>
+INT 16 - PUPClip v1.12+ - INSTALLATION CHECK
+	AX = CB00h
+Return: BX = 4342h if installed
+	    AX = version (AH = major version, AL = BCD minor version)
+Program: PUPClip is the freeware PopUP Clipboard for DOS and Windows DOS
+	 sessions by SkullC0DEr
+SeeAlso: AX=CB01h,AX=CB02h,AX=CB03h,AX=CB04h,AX=CB05h,AX=CB06h,AX=CB08h
+SeeAlso: INT 2F/AX=1701h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB01" name="16CB01"><b>16CB01</b></a> - INT 16 - PUPClip v1.12+ - GET CLIPBOARD CURSOR POSITION<br />
+<pre>
+INT 16 - PUPClip v1.12+ - GET CLIPBOARD CURSOR POSITION
+	AX = CB01h
+Return: BL = column (0-79)
+	BH = row (0-49)
+SeeAlso: AX=CB00h,AX=CB02h,AX=CB03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB02" name="16CB02"><b>16CB02</b></a> - INT 16 - PUPClip v1.12+ - SET CLIPBOARD CURSOR POSITION<br />
+<pre>
+INT 16 - PUPClip v1.12+ - SET CLIPBOARD CURSOR POSITION
+	AX = CB02h
+	BL = column (0-79)
+	BH = row (0-49)
+Return: CF clear if successful
+	CF set on error (invalid position)
+SeeAlso: AX=CB00h,AX=CB01h,AX=CB04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB03" name="16CB03"><b>16CB03</b></a> - INT 16 - PUPClip v1.12+ - GET CHARACTER FROM CURRENT CLIPBOARD CURSOR POSITION<br />
+<pre>
+INT 16 - PUPClip v1.12+ - GET CHARACTER FROM CURRENT CLIPBOARD CURSOR POSITION
+	AX = CB03h
+Return: BL = ASCII character at current position
+SeeAlso: AX=CB00h,AX=CB02h,AX=CB04h,INT 2F/AX=1705h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB04" name="16CB04"><b>16CB04</b></a> - INT 16 - PUPClip v1.12+ - WRITE CHARACTER TO CURRENT CLIPBOARD CURSOR POSITION<br />
+<pre>
+INT 16 - PUPClip v1.12+ - WRITE CHARACTER TO CURRENT CLIPBOARD CURSOR POSITION
+	AX = CB04h
+	BL = ASCII character to store
+SeeAlso: AX=CB00h,AX=CB02h,AX=CB03h,AX=CB05h,INT 2F/AX=1703h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB05" name="16CB05"><b>16CB05</b></a> - INT 16 - PUPClip v1.12+ - CLEAR CLIPBOARD CONTENTS<br />
+<pre>
+INT 16 - PUPClip v1.12+ - CLEAR CLIPBOARD CONTENTS
+	AX = CB05h
+Return: nothing
+SeeAlso: AX=CB00h,AX=CB04h,AX=CB06h,AX=CB07h,INT 2F/AX=1702h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB06" name="16CB06"><b>16CB06</b></a> - INT 16 - PUPClip v1.12+ - SCROLL UP CLIPBOARD CONTENTS<br />
+<pre>
+INT 16 - PUPClip v1.12+ - SCROLL UP CLIPBOARD CONTENTS
+	AX = CB06h
+Return: nothing
+SeeAlso: AX=CB00h,AX=CB05h,AX=CB07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB07" name="16CB07"><b>16CB07</b></a> - INT 16 - PUPClip v1.12+ - SCROLL DOWN CLIPBOARD CONTENTS<br />
+<pre>
+INT 16 - PUPClip v1.12+ - SCROLL DOWN CLIPBOARD CONTENTS
+	AX = CB07h
+Return: nothing
+SeeAlso: AX=CB00h,AX=CB05h,AX=CB06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CB08" name="16CB08"><b>16CB08</b></a> - INT 16 - PUPClip v1.12+ - POP UP<br />
+<pre>
+INT 16 - PUPClip v1.12+ - POP UP
+	AX = CB08h
+Return: CF clear if successful
+	CF set on error (unsupported video mode)
+SeeAlso: AX=CB00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16D724CX00CB" name="16D724CX00CB"><b>16D724CX00CB</b></a> - INT 16 U - APCAL v3.20 - GET ???<br />
+<pre>
+INT 16 U - APCAL v3.20 - GET ???
+	AX = D724h
+	CX = 00CBh
+Return: AX = 0000h
+	BX = 0000h
+	DX:CX -&gt; ??? or 0000h:0000h
+Program: APCAL is an optionally-resident shareware appointment calendar by
+	  Gamma Software
+SeeAlso: AX=3577h,AX=D724h/CX=00CCh,AX=D724h/CX=00CDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16D724CX00CC" name="16D724CX00CC"><b>16D724CX00CC</b></a> - INT 16 U - APCAL v3.20 - GET ???<br />
+<pre>
+INT 16 U - APCAL v3.20 - GET ???
+	AX = D724h
+	CX = 00CCh
+Return: AX = 0000h
+	BX = 0000h
+	DX:CX -&gt; ??? (apparently an internal data area)
+SeeAlso: AX=D724h/CX=00CBh,AX=D724h/CX=00CDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16D724CX00CD" name="16D724CX00CD"><b>16D724CX00CD</b></a> - INT 16 U - APCAL v3.20 - GET ???<br />
+<pre>
+INT 16 U - APCAL v3.20 - GET ???
+	AX = D724h
+	CX = 00CDh
+Return: AX = ??? (5345h seen)
+SeeAlso: AX=D724h/CX=00CBh,AX=D724h/CX=00CCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16ED--BHED" name="16ED--BHED"><b>16ED--BHED</b></a> - INT 16 - BORLAND TURBO LIGHTNING - API<br />
+<pre>
+INT 16 - BORLAND TURBO LIGHTNING - API
+	AH = EDh
+	BH = EDh
+	BL = function
+	    00h installation check
+		Return: AX = 5205h
+			CH = major version
+			CL = minor version
+	    01h identical to function 00h???
+	    02h get resident data segment
+		Return: AX = data segment of resident portion
+	    03h get resident ???
+		Return: AX = offset of some buffer in resident code seg
+	    04h redefine auxiliary dictionary
+		DS:SI -&gt; counted filename string
+		Return: AL = result code
+	    05h select active environment
+		AL = environment (00h to 0Ch)
+		Return: AX = status
+			    0000h if OK
+			    0001h if out of range
+	    06h toggle AutoProof???
+		AL = state (00h off, 01h on)
+	    07h ???
+	    08h ???
+		AL = char???
+		CX = ???
+		DX = ???
+		Return: AX = 0, 1 or 2
+	    09h ???
+	    0Ah ???
+		CX = ???
+		DX = ???
+		Return: AX = ???
+	    0Bh check dictionary integrity???
+		DS:SI -&gt; counted dictionary filename string
+		Return: AX = 0, 40h, 80h
+	    0Ch spellcheck string (disk dictionary, possibly RAM dict as well)
+		DS:SI -&gt; counted string to check
+		Return: AH = 0
+			AL = result code
+			   00h string found in dictionary
+			   20h string begins more than one word
+			   40h string not found
+	    0Dh set ???
+		(sets an internal flag)
+	    0Eh spellcheck string (RAM dictionary only)
+		DS:SI -&gt; counted string to check
+		Return: AH = 00h
+			AL = result code
+			    00h string found in dictionary
+			    01h string not found
+			    02h ???
+	    0Fh ???
+	    10h ???
+Notes:	AX in general returns an error code from most functions.
+Index:	installation check;Turbo Lightning
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16EF" name="16EF"><b>16EF</b></a> - INT 16 - CALCULATOR - INSTALLATION CHECK<br />
+<pre>
+INT 16 - CALCULATOR - INSTALLATION CHECK
+	AH = EFh
+Return: AX = 0088h if installed
+Program: CALCULATOR is a shareware popup calculator by Andrzej Brzezinski and
+	  Marek Kosznik
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16F398" name="16F398"><b>16F398</b></a> - INT 16 U - NORTON GUIDES - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - NORTON GUIDES - INSTALLATION CHECK
+	AX = F398h
+Return: AX = 6A73h ("js")
+	BH = BIOS scan code of current hot key
+	BL = ASCII code of current hot key
+Note:	NG.EXE was written by John Socha
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FE55" name="16FE55"><b>16FE55</b></a> - INT 16 U - PC Tools v8+ programs - GET ???<br />
+<pre>
+INT 16 U - PC Tools v8+ programs - GET ???
+	AX = FE55h
+	CX = segment of resident program or 0000h for last loaded
+	DX = 0000h
+Return: DX = resident code segment (unchanged if CX=0000h on entry)
+	AX = ??? or 0000h
+Note:	this call is supported by CPSCHED, CPTASK, DATAMON, DPROTECT, DRIVEMAP,
+	  and DSKLIGHT beginning in PC Tools v8.0; programs other than CPTASK
+	  seem to hook it merely to return the same AX as the CPTASK loaded
+	  prior to them returned
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FEA4" name="16FEA4"><b>16FEA4</b></a> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - RESET ???<br />
+<pre>
+INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - RESET ???
+	AX = FEA4h
+Return: nothing
+Note:	this function is identical to AX=FFA4h, and is implemented by the same
+	  code in DESKTOP
+SeeAlso: AX=FFA4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FEC6" name="16FEC6"><b>16FEC6</b></a> - INT 16 U - PC Tools v7+ CPSCHED - ENABLE/DISABLE CPSCHED API<br />
+<pre>
+INT 16 U - PC Tools v7+ CPSCHED - ENABLE/DISABLE CPSCHED API
+	AX = FEC6h
+	BL = new state (00h enabled, nonzero disabled)
+Return: nothing
+Desc:	specify whether CPSCHED API calls other than this one and AX=FE55h will
+	  be honored
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FED3" name="16FED3"><b>16FED3</b></a> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - ???
+	AX = FED3h
+	DS:SI -&gt; 92-byte data record for ???
+Return: ???
+Note:	this function is identical to AX=FFD3h, and is implemented by the same
+	  code in DESKTOP
+SeeAlso: AX=FFD3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FEDC" name="16FEDC"><b>16FEDC</b></a> - INT 16 U - PC Tools v7+ CPSCHED - UNHOOK INTERRUPTS<br />
+<pre>
+INT 16 U - PC Tools v7+ CPSCHED - UNHOOK INTERRUPTS
+	AX = FEDCh
+Return: AX,DX destroyed
+Index:	uninstall;CPSCHED
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FEEFCX0000" name="16FEEFCX0000"><b>16FEEFCX0000</b></a> - INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v7+ CPSCHED/DESKTOP - INSTALLATION CHECK
+	AX = FEEFh
+	CX = 0000h
+Return: CX = ABCDh if PC Tools scheduler (CPSCHED or DESKTOP) installed
+	    BX = segment of resident portion
+	    DX = (CPSCHED v8.0) resident CS
+Note:	this function is identical to AX=FFD3h, and is implemented by the same
+	  code in DESKTOP
+SeeAlso: AX=FFEFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FEF1" name="16FEF1"><b>16FEF1</b></a> - INT 16 U - PC Tools v7 only CPSCHED/DESKTOP - ALTERNATE INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v7 only CPSCHED/DESKTOP - ALTERNATE INSTALLATION CHECK
+	AX = FEF1h
+	BX = ???
+Return: CX = 5555h if PC Tools scheduler (CPSCHED or DESKTOP) installed
+	DX = 5555h
+Note:	this function is identical to AX=FFD3h, and is implemented by the same
+	  code in DESKTOP
+SeeAlso: AX=FFF1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF90" name="16FF90"><b>16FF90</b></a> - INT 16 U - PC Tools v8+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v8+ DESKTOP - ???
+	AX = FF90h
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF91" name="16FF91"><b>16FF91</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF91h
+	???
+Return: AX = 0000h
+Note:	calls AX=FFFDh after ???
+SeeAlso: AX=FF92h,AX=FFFDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF92" name="16FF92"><b>16FF92</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF92h
+	???
+Return: AX = 0000h
+Note:	like AX=FF91h, but temporarily sets ??? to 3
+SeeAlso: AX=FF91h,AX=FFFDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF93" name="16FF93"><b>16FF93</b></a> - INT 16 U - PC Tools v7+ DESKTOP - SET ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - SET ??? FLAG
+	AX = FF93h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF94" name="16FF94"><b>16FF94</b></a> - INT 16 U - PC Tools v7+ DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - SET ???
+	AX = FF94h
+	CX = ??? (default 0017h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF95" name="16FF95"><b>16FF95</b></a> - INT 16 U - PC Tools v7+ DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - SET ???
+	AX = FF95h
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF96" name="16FF96"><b>16FF96</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF96h
+	CL = ???
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF97" name="16FF97"><b>16FF97</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF97h
+	DS:DX -&gt; buffer for ??? (see #00618)
+Return: ???
+
+Format of PC Tools DESKTOP buffer:
+Offset	Size	Description	(Table 00618)
+ 00h 48 BYTEs	???
+ 30h 128 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF98" name="16FF98"><b>16FF98</b></a> - INT 16 U - PC Tools v7+ DESKTOP - OPEN \DESK.OVL FILE AND SEEK TO OVERLAY<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - OPEN \DESK.OVL FILE AND SEEK TO OVERLAY
+	AX = FF98h
+	DX = byte offset in file of overlay header (see #00619)
+Return: BX = file handle for DESK.OVL file
+Desc:	open the DESK.OVL file, seek to the specified offset, read in the
+	  overlay header, and seek to the offset specified by the header
+
+Format of PC Tools DESKTOP overlay header:
+Offset	Size	Description	(Table 00619)
+ 00h 12 BYTEs	NUL-padded ASCII overlay filename
+ 0Ch	DWORD	offset within DESK.OVL file of actual overlay
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF99" name="16FF99"><b>16FF99</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF99h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF9A" name="16FF9A"><b>16FF9A</b></a> - INT 16 U - PC Tools v7+ DESKTOP - GET NAME OF COLOR SCHEME<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - GET NAME OF COLOR SCHEME
+	AX = FF9Ah
+Return: ES:BX -&gt; name of current color scheme
+Note:	available even if not popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF9B" name="16FF9B"><b>16FF9B</b></a> - INT 16 U - PC Tools v7+ DESKTOP - UNUSED<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - UNUSED
+	AX = FF9Bh
+Return: ???
+Note:	sounds triple-length beep
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF9E" name="16FF9E"><b>16FF9E</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FF9Eh
+	DL = ???
+	    bit 7: ???
+	    bits 6-0: function number??? (00h,01h,other)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA1" name="16FFA1"><b>16FFA1</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FFA1h
+	???
+Return: ???
+Note:	same as AX=FFA2h, except ??? set to FFh
+SeeAlso: AX=FFA2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA2" name="16FFA2"><b>16FFA2</b></a> - INT 16 U - PC Tools v7+ DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DESKTOP - ???
+	AX = FFA2h
+	???
+Return: ???
+Note:	calls AX=FFC7h (remove window) and AX=FFFDh
+SeeAlso: AX=FFA1h,AX=FFC7h,AX=FFFDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA4" name="16FFA4"><b>16FFA4</b></a> - INT 16 U - PC Tools v7-8 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v7-8 DESKTOP - ???
+	AX = FFA4h
+Return: ???
+Notes:	available even when not popped up
+	sets unknown flag if ??? conditions met
+SeeAlso: AX=FEA4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA6" name="16FFA6"><b>16FFA6</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???
+	AX = FFA6h
+Return: DS:SI -&gt; ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA7" name="16FFA7"><b>16FFA7</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ??? PATH<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ??? PATH
+	AX = FFA7h
+Return: DS:SI -&gt; ASCIZ path (directory from which PCTools was run???)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA8" name="16FFA8"><b>16FFA8</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???
+	AX = FFA8h
+	DS:SI -&gt; three consecutive ASCIZ strings for ??? (max 256 bytes total)
+	???
+Return: ???
+Notes:	available only when popped up
+	strings copied into internal buffer, among other actions
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA9" name="16FFA9"><b>16FFA9</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET VERSION STRING<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET VERSION STRING
+	AX = FFA9h
+Return: DS:SI -&gt; version string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAA" name="16FFAA"><b>16FFAA</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???
+	AX = FFAAh
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAB" name="16FFAB"><b>16FFAB</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET EDITOR SETTINGS???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET EDITOR SETTINGS???
+	AX = FFABh
+Return: DS:SI -&gt; editor setting strings???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAC" name="16FFAC"><b>16FFAC</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???
+	AX = FFACh
+	DL = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAD" name="16FFAD"><b>16FFAD</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???
+	AX = FFADh
+	DL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAE" name="16FFAE"><b>16FFAE</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - GET ???
+	AX = FFAEh
+Return: AL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFAF" name="16FFAF"><b>16FFAF</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???
+	AX = FFAFh
+	DL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB0" name="16FFB0"><b>16FFB0</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - SET ???
+	AX = FFB0h
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB1" name="16FFB1"><b>16FFB1</b></a> - INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v6.0-8.0 DESKTOP - ???
+	AX = FFB1h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB2" name="16FFB2"><b>16FFB2</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???
+	AX = FFB2h
+Return: DS:SI -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB3" name="16FFB3"><b>16FFB3</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - ???
+	AX = FFB3h
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB4" name="16FFB4"><b>16FFB4</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - SET ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - SET ??? FLAG
+	AX = FFB4h
+Note:	available only when popped up
+SeeAlso: AX=FFBBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB5" name="16FFB5"><b>16FFB5</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET WINDOW PARAMETERS<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET WINDOW PARAMETERS
+	AX = FFB5h
+	BX = window specifier (000Fh to 0019h) (see #00621)
+	DX = 0000h get, nonzero = set
+	ES:DI -&gt; window parameter buffer (see #00622)
+SeeAlso: AX=FFCBh
+
+(Table 00621)
+Values for PC Tools DESKTOP window specifier:
+ 000Fh	comm/FAX
+ 0014h	hotkey selection
+ 0015h	ASCII table
+ 0016h	system colors menu
+
+Format of PC Tools DESKTOP window parameters:
+Offset	Size	Description	(Table 00622)
+ 00h	BYTE	rows in window, not counting frame
+ 01h	BYTE	columns in window, not counting frame
+ 02h	BYTE	row number of top of window
+ 03h	BYTE	2*column number of left of window
+ 04h	BYTE	character attribute for ???
+ 05h	BYTE	character attribute for background/border
+ 06h	BYTE	character attribute for ???
+ 07h	DWORD	pointer to ??? on screen
+ 0Bh  4 BYTEs	???
+ 0Fh	BYTE	nonzero if window may be resized
+Note:	if running in monochrome mode, character attributes at offsets 04h to
+	  06h are stored unchanged, but attributes other than 07h, 0Fh, or 70h
+	  are changed to 07h on reading
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB6" name="16FFB6"><b>16FFB6</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET ???
+	AX = FFB6h
+Return: AH = ???
+	AL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB7" name="16FFB7"><b>16FFB7</b></a> - INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET ???<br />
+<pre>
+INT 16 U - PC Tools v5.5-8.0 DESKTOP - GET/SET ???
+	AX = FFB7h
+	BX = direction
+	    0000h copy to buffer
+	    else  copy from buffer
+	DS:SI -&gt; 70-byte buffer with ???
+Return: data copied
+Note:	available only when popped up under v6.0+
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB8" name="16FFB8"><b>16FFB8</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET/SET???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET/SET???
+	AX = FFB8h
+	BH = subfunction
+	    00h get
+		Return: BL = old value of ???
+			CL = old value of ??? (v6.0+)
+			CH = old value of ??? (v6.0+)
+	    nonzero set
+		BL = new value for ???
+		CL = new value for ??? (v6.0+)
+		CH = new value for ??? (v6.0+)
+		DH = ???
+		Return: AL = old value replaced by CL (v6.0+)
+			AH = old value replaced by CH (v6.0+)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFB9" name="16FFB9"><b>16FFB9</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFB9h
+	???
+Return: AX = ???
+	CX = ???
+	DS:SI -&gt; ???
+	ES:DI -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBA" name="16FFBA"><b>16FFBA</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFBAh
+	???
+Return: AX = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBB" name="16FFBB"><b>16FFBB</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLEAR ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLEAR ??? FLAG
+	AX = FFBBh
+Note:	available only when popped up
+SeeAlso: AX=FFB4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBC" name="16FFBC"><b>16FFBC</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - RESTORE ORIGINAL SCREEN???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - RESTORE ORIGINAL SCREEN???
+	AX = FFBCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBD" name="16FFBD"><b>16FFBD</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ??? DATABASE INDEXING MESSAGES<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ??? DATABASE INDEXING MESSAGES
+	AX = FFBDh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBE" name="16FFBE"><b>16FFBE</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFBEh
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFBF" name="16FFBF"><b>16FFBF</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFBFh
+	BX = DOS file handle to write on
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC0" name="16FFC0"><b>16FFC0</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFC0h
+	???
+Return: AX = 0000h if successful
+	AX = FFFFh on error
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC1" name="16FFC1"><b>16FFC1</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFC1h
+	BL = ???
+	ES:DI -&gt; data structure (see #00623)
+	???
+Return: AX = ???
+Note:	available only when popped up
+SeeAlso: AX=FFC2h,AX=FFC3h
+
+Format of PC Tools DESKTOP data structure:
+Offset	Size	Description	(Table 00623)
+ 00h	WORD	???
+ 02h	WORD	???
+ 04h	WORD	???
+ 06h	WORD	???
+ 08h	WORD	???
+ 0Ah	BYTE	???
+ 0Bh	BYTE	??? (zero/nonzero)
+---v7.1---
+ 0Ch	WORD	???
+ 0Eh	BYTE	???
+ 0Fh	WORD	???
+ 11h	WORD	???
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC2" name="16FFC2"><b>16FFC2</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFC2h
+	BL = ???
+	ES:DI -&gt; data structure (see #00623)
+	???
+Return: AH = ???
+	CX = ???
+	DH = ???
+	DL = ???
+Note:	available only when popped up
+SeeAlso: AX=FFC1h,AX=FFC3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC3" name="16FFC3"><b>16FFC3</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFC3h
+	BL = ???
+	ES:DI -&gt; data structure (see #00623)
+	???
+Return: AH = ???
+	CX = ???
+	DH = ???
+	DL = ???
+Note:	available only when popped up
+SeeAlso: AX=FFC1h,AX=FFC2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC4" name="16FFC4"><b>16FFC4</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???
+	AX = FFC4h
+Return: AL = ???
+	BX = segment of scratch space???
+	CX = segment of stored screen data (section covered by window???)
+	DX = segment of window parameters for ???
+	ES:BP -&gt; ???
+Note:	available only when popped up in versions prior to 6.0
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC5" name="16FFC5"><b>16FFC5</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK WHETHER DESKTOP LOADED RESIDENT<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK WHETHER DESKTOP LOADED RESIDENT
+	AX = FFC5h
+Return: BL = Desktop state
+	    00h if nonresident
+	    nonzero if loaded resident
+Note:	available only when popped up; should call AX=FFEFh first to ensure
+	  that DESKTOP is active
+SeeAlso: AX=FFEFh,AX=FFF3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC6" name="16FFC6"><b>16FFC6</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???
+	AX = FFC6h
+	BL = new value for ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC7" name="16FFC7"><b>16FFC7</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - REMOVE WINDOW<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - REMOVE WINDOW
+	AX = FFC7h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC8" name="16FFC8"><b>16FFC8</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???
+	AX = FFC8h
+Return: DS:SI -&gt; ???
+Note:	valid only while popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFC9" name="16FFC9"><b>16FFC9</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY DATA TO CLIPBOARD<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY DATA TO CLIPBOARD
+	AX = FFC9h
+	DS:SI -&gt; characters to store in clipboard
+	CX = size in bytes
+Return: CF set on error
+Notes:	available only when popped up
+	while copying, bytes of 00h and 0Ah are skipped
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCA" name="16FFCA"><b>16FFCA</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???
+	AX = FFCAh
+	DX = ???
+Return: AX destroyed
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCB" name="16FFCB"><b>16FFCB</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SELECT WINDOW PARAMETERS???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SELECT WINDOW PARAMETERS???
+	AX = FFCBh
+	DX = window specifier???
+Return: AX destroyed
+Note:	available only when popped up
+SeeAlso: AX=FFB5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCC" name="16FFCC"><b>16FFCC</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY ASCIZ STRING CENTERED IN WINDOW<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY ASCIZ STRING CENTERED IN WINDOW
+	AX = FFCCh
+	DS:SI -&gt; ASCIZ string
+Return: AX = ???
+	CX = ???
+	ES:DI -&gt; address past last character displayed (v5.1/5.5)
+	      -&gt; ??? on menu bar (v6.0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCD" name="16FFCD"><b>16FFCD</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFCDh
+	DS:DX -&gt; ???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCE" name="16FFCE"><b>16FFCE</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ??? DELAYS<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ??? DELAYS
+	AX = FFCEh
+	CX = ???
+Return: nothing???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFCF" name="16FFCF"><b>16FFCF</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLOSE PRINTER/PRINT FILE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - CLOSE PRINTER/PRINT FILE
+	AX = FFCFh
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD0" name="16FFD0"><b>16FFD0</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO PRINT???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO PRINT???
+	AX = FFD0h
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD1" name="16FFD1"><b>16FFD1</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY PRINT OPTIONS MENU<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY PRINT OPTIONS MENU
+	AX = FFD1h
+Return: BX = number of copies
+	DX = destination
+	    00h cancel
+	    01h LPT1
+	    02h LPT2
+	    03h LPT3
+	    04h COM1
+	    05h COM2
+	    06h disk file
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD2" name="16FFD2"><b>16FFD2</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFD2h
+	BX = ???
+Return: BL = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD3" name="16FFD3"><b>16FFD3</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFD3h
+	DS:SI -&gt; 92-byte data record for ???
+Return: ???
+SeeAlso: AX=FED3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD4BH3C" name="16FFD4BH3C"><b>16FFD4BH3C</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CREATE/OPEN/DELETE FILE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - CREATE/OPEN/DELETE FILE
+	AX = FFD4h
+	BH = 3Ch create file (with no attributes)
+	     3Dh open file
+	     41h delete file
+	BL = access mode
+	     00h read only
+	     01h write only
+	     02h read/write
+	DS:SI -&gt; ASCIZ filename
+Return: BX = file handle
+	    0000h on error
+Note:	operation is attempted in (in order) the directory from which the
+	  desktop was started/run???, the directory specified with the
+	  filename, X:\PCTOOLS\, and X:\
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD5" name="16FFD5"><b>16FFD5</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFD5h
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD6" name="16FFD6"><b>16FFD6</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFD6h
+	BX = ???
+	CX = ???
+	DX = offset in ???
+	???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD7" name="16FFD7"><b>16FFD7</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFD7h
+	???
+Return: BL = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD8" name="16FFD8"><b>16FFD8</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SAFE CREATE FILE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SAFE CREATE FILE
+	AX = FFD8h
+	DS:BX -&gt; ASCIZ filename
+Return: BX = file handle
+	    0000h on error
+Note:	pops up confirmation menu if file already exists
+	only available when popped up???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFD9" name="16FFD9"><b>16FFD9</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???
+	AX = FFD9h
+Return: AX = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDA" name="16FFDA"><b>16FFDA</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET NAME OF LAST FILE OPENED<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET NAME OF LAST FILE OPENED
+	AX = FFDAh
+	DS:SI -&gt; ??? (v5.1/5.5 only)
+Return: DS:SI -&gt; filename
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDB" name="16FFDB"><b>16FFDB</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???
+	AX = FFDBh
+	BL = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDC" name="16FFDC"><b>16FFDC</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - UNHOOK<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - UNHOOK
+	AX = FFDCh
+Return: interrupt vectors 09h, 10h (v6.0+), 16h, 1Ch, and 21h restored to
+	  original values
+Index:	uninstall;PC Tools DESKTOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0000" name="16FFDDBX0000"><b>16FFDDBX0000</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - INSTALLATION CHECK
+	AX = FFDDh
+	BX = 0000h
+Return: CX = 5555h
+	DX = 5555h if PCShell installed in resident mode
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0001" name="16FFDDBX0001"><b>16FFDDBX0001</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP
+	AX = FFDDh
+	BX = 0001h
+Return: CF clear if request successful (PCShell will pop up)
+	CF set on error
+SeeAlso: AX=FFDDh/BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0002" name="16FFDDBX0002"><b>16FFDDBX0002</b></a> - INT 16 U - PC Tools v5.1-5.5 PCShell API - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-5.5 PCShell API - GET ???
+	AX = FFDDh
+	BX = 0002h
+Return: AL =
+	    00h ???
+	    01h ???
+Note:	PCShell v6.0+ displays the error message "Incorrect PCRUN version",
+	  awaits a keystroke, and aborts the current process
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0003" name="16FFDDBX0003"><b>16FFDDBX0003</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - REQUEST POP-UP
+	AX = FFDDh
+	BX = 0003h
+SeeAlso: AX=FFDDh/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0004" name="16FFDDBX0004"><b>16FFDDBX0004</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - GET ???
+	AX = FFDDh
+	BX = 0004h
+Return: CF clear if successful
+	    DS:SI -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0005" name="16FFDDBX0005"><b>16FFDDBX0005</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - ???
+	AX = FFDDh
+	BX = 0005h
+	???
+Return: ???
+Note:	resets various variables if certain conditions are met
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0006" name="16FFDDBX0006"><b>16FFDDBX0006</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - ???
+	AX = FFDDh
+	BX = 0006h
+	???
+Return: ???
+Note:	resets various variables if certain conditions are met
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0007" name="16FFDDBX0007"><b>16FFDDBX0007</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - SET ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - SET ??? FLAG
+	AX = FFDDh
+	BX = 0007h
+Return: CF clear if successful
+SeeAlso: AX=FFDDh/BX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0008" name="16FFDDBX0008"><b>16FFDDBX0008</b></a> - INT 16 U - PC Tools v5.1+ PCShell API - CLEAR ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v5.1+ PCShell API - CLEAR ??? FLAG
+	AX = FFDDh
+	BX = 0008h
+Return: CF undefined
+SeeAlso: AX=FFDDh/BX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX0009" name="16FFDDBX0009"><b>16FFDDBX0009</b></a> - INT 16 U - PC Tools v6.0+ PCShell API - GET PCRUN PARAMETERS<br />
+<pre>
+INT 16 U - PC Tools v6.0+ PCShell API - GET PCRUN PARAMETERS
+	AX = FFDDh
+	BX = 0009h
+Return: CF clear if successful
+	    DS:SI -&gt; list of pointers (see #00624)
+
+Format of PC Tools PCShell returned pointer list:
+Offset	Size	Description	(Table 00624)
+ 00h	WORD	offset of WORD containing ???
+ 02h	WORD	offset of name of program to execute
+ 04h	WORD	offset of 80-byte buffer for ???
+ 06h	WORD	offset of buffer for ??? (length in WORD preceding buffer)
+ 08h	WORD	offset of buffer for ??? (length in WORD preceding buffer)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX000A" name="16FFDDBX000A"><b>16FFDDBX000A</b></a> - INT 16 U - PC Tools v6.0+ PCRUN API - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v6.0+ PCRUN API - INSTALLATION CHECK
+	AX = FFDDh
+	BX = 000Ah
+Return: CX = 5555h if running
+	DX = 5555h
+Note:	also sets a flag
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDDBX000B" name="16FFDDBX000B"><b>16FFDDBX000B</b></a> - INT 16 U - PC Tools v6.0+ PCRUN API - ???<br />
+<pre>
+INT 16 U - PC Tools v6.0+ PCRUN API - ???
+	AX = FFDDh
+	BX = 000Bh
+	???
+Return: CX = 5555h if PCRUN active
+	DX = 5555h
+Note:	also clears flag set by AX=FFDDh/BX=000Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDE" name="16FFDE"><b>16FFDE</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY POPUP MENU<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY POPUP MENU
+	AX = FFDEh
+	DS:DX -&gt; menu description (must be on a paragraph boundary)
+Return: AX = ???
+	    AL seems to be the number of the selected button
+Note:	available only when popped up
+SeeAlso: AX=FFEEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFDF" name="16FFDF"><b>16FFDF</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFDFh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE0" name="16FFE0"><b>16FFE0</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFE0h
+	CX = ???
+	DX = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE1" name="16FFE1"><b>16FFE1</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - BEEP<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - BEEP
+	AX = FFE1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE2" name="16FFE2"><b>16FFE2</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFE2h
+	DX = ???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE3" name="16FFE3"><b>16FFE3</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PRINT CHARACTER<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - PRINT CHARACTER
+	AX = FFE3h
+	BL = character to print to currently open printer or print file
+Return: CF set on error
+Note:	available only when popped up
+SeeAlso: INT 17/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE4" name="16FFE4"><b>16FFE4</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFE4h
+	DX = segment of ???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE5" name="16FFE5"><b>16FFE5</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - POP UP FILE SELECTION MENU<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - POP UP FILE SELECTION MENU
+	AX = FFE5h
+	DS:SI -&gt; ASCIZ wildcard filespec followed by ASCIZ menu title
+	DX = segment of window parameters???
+Return: AX = DOS file handle for file
+		DS:DX -&gt; filename???
+	    FFFFh if function cancelled by user
+Note:	available only when popped up
+SeeAlso: AX=FFDAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE6" name="16FFE6"><b>16FFE6</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK FOR AND GET KEYSTROKE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - CHECK FOR AND GET KEYSTROKE
+	AX = FFE6h
+Return: AX = 0000h if no key available
+	     else  BIOS keycode
+Notes:	available only when popped up
+	invokes INT 28 idle interrupt before checking for key
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE7" name="16FFE7"><b>16FFE7</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFE7h
+	BX = segment of ???
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE8" name="16FFE8"><b>16FFE8</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY NUMBER<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY NUMBER
+	AX = FFE8h
+	CX = number
+	DH = attribute
+	DS:SI -&gt; destination for ASCII number
+Return: DS:SI buffer filled in with alternating characters and attributes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFE9" name="16FFE9"><b>16FFE9</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET FILE LIST???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET FILE LIST???
+	AX = FFE9h
+Return: BX = segment of file/directory list (14 bytes per file, NUL-padded)
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFEA" name="16FFEA"><b>16FFEA</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY COUNTED STRING<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY COUNTED STRING
+	AX = FFEAh
+	DS:SI -&gt; counted string (count byte followed by string)
+Return: ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFEB" name="16FFEB"><b>16FFEB</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFEBh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFEC" name="16FFEC"><b>16FFEC</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET KEY<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET KEY
+	AX = FFECh
+	DS:SI -&gt; FAR routine to ???
+	BX = ???
+	???
+Return: AX = keystroke
+	    FFFFh if F10 pressed to go to menu
+Notes:	available only when popped up
+	invokes INT 28 while waiting for keystroke
+	F10 is hotkey to Desktop menu
+Index:	hotkeys;PC Tools DESKTOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFED" name="16FFED"><b>16FFED</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET ???
+	AX = FFEDh
+Return: AX = ???
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFEE" name="16FFEE"><b>16FFEE</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE PULLDOWN MENUS<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE PULLDOWN MENUS
+	AX = FFEEh
+	DS:SI -&gt; pulldown menu system description (see #00625)
+Return: AX destroyed
+Notes:	available only when popped up
+	if the accessory does not need any menu items of its own, it should
+	  call AX=FFFAh instead
+SeeAlso: AX=FFF7h,AX=FFFAh
+
+Format of PC Tools DESKTOP pulldown menu system description:
+Offset	Size	Description	(Table 00625)
+ 00h	WORD	offset of menu bar contents (counted string)
+ 02h	WORD	number of items on menu bar
+ 04h 10 BYTEs	scan codes for hotkeying to each of up to ten menu items
+ 0Eh 10 BYTEs	which character to highlight in each menu item (01h=first)
+ 18h	WORD	offset of first menu definition (see #00626)
+ 1Ah	WORD	offset of second menu definition
+	...
+
+Format of PC Tools DESKTOP menu definition:
+Offset	Size	Description	(Table 00626)
+ 00h	WORD	offset of menu contents (see #00627)
+ 02h	WORD	number of entries in menu
+ 04h	for each entry:
+		Offset	Size	Description
+		 00h	BYTE	scancode of Alt-key to invoke entry
+		 01h	BYTE	character to highlight (01h=first, etc)
+		 02h	WORD	offset of FAR routine to handle selection
+
+Format of PC Tools DESKTOP menu contents:
+Offset	Size	Description	(Table 00627)
+ 00h	BYTE	number of lines in menu
+ 01h	BYTE	width of menu
+ 02h  N BYTEs	counted strings, one for each line in menu
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFEFCX0000" name="16FFEFCX0000"><b>16FFEFCX0000</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - INSTALLATION CHECK
+	AX = FFEFh
+	CX = 0000h
+Return: CX = ABCDh if PC Tools DESKTOP.EXE installed
+	    BX = segment of resident portion
+	    AX = ??? (v5.1/5.5 only)
+SeeAlso: AX=FEEFh,AX=FFC5h,AX=FFF3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF0" name="16FFF0"><b>16FFF0</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - SET ???
+	AX = FFF0h
+	DX = ???
+Return: AX destroyed
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF1BX0000" name="16FFF1BX0000"><b>16FFF1BX0000</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ALTERNATE INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ALTERNATE INSTALLATION CHECK
+	AX = FFF1h
+	BX = 0000h  leave ??? flag as is
+	    nonzero set ??? flag
+Return: CX = 5555h if installed
+	DX = 5555h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF2" name="16FFF2"><b>16FFF2</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY HELP LINE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DISPLAY HELP LINE
+	AX = FFF2h
+	DS:SI -&gt; ASCIZ function key label string (each label preceded by '[')
+		or help text
+Return: AX destroyed
+Notes:	available only when popped up
+	if the specified string does not start with '[', it is displayed
+	  centered on the bottom line, else the function key labels are shown
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF3" name="16FFF3"><b>16FFF3</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO UNLOAD RESIDENT DESKTOP<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - PREPARE TO UNLOAD RESIDENT DESKTOP
+	AX = FFF3h
+Note:	releases any EMS being used; restores video mode, page, and cursor
+	  shape; and restores interrupt vectors
+SeeAlso: AX=FFC5h,AX=FFEFh
+Index:	uninstall;PC Tools DESKTOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF4" name="16FFF4"><b>16FFF4</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - ???
+	AX = FFF4h
+	???
+Return: ???
+Note:	available only when popped up
+SeeAlso: AX=FFF6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF5" name="16FFF5"><b>16FFF5</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET SCREEN ATTRIBUTE ARRAY<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET SCREEN ATTRIBUTE ARRAY
+	AX = FFF5h
+Return: ES:BX -&gt; screen attributes data structure (see #00628)
+	AL = ??? (v6.0+)
+
+Format of PC Tools DESKTOP attribute data structure:
+Offset	Size	Description	(Table 00628)
+ -1	BYTE	attribute for desktop background
+ 00h	BYTE	attribute for normal characters on desktop menu
+ 01h	BYTE	attribute for highlighted characters on desktop menu
+ 02h  5 BYTEs	???
+ 07h	BYTE	attribute for dialog boxes
+ 08h 15 BYTEs	???
+ 17h	BYTE	attribute for message boxes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF6" name="16FFF6"><b>16FFF6</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - INVOKE NOTEPAD EDITOR<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - INVOKE NOTEPAD EDITOR
+	AX = FFF6h
+	DS = segment of editor buffer structure (see #00629)
+	BX = ???
+	DX = segment of window parameters structure (see #00622)
+Return: ???
+Note:	available only when popped up
+SeeAlso: AX=FFF4h
+
+Format of PC Tools DESKTOP editor buffer structure:
+Offset	Size	Description	(Table 00629)
+ 00h	WORD	offset of current cursor position in buffer segment
+ 02h  2 BYTEs	???
+ 04h	WORD	offset of beginning of file data in buffer segment
+ 06h 10 BYTEs	???
+ 10h  N BYTEs	ASCIZ name of file being edited
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF7" name="16FFF7"><b>16FFF7</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS MENU BAR ENTRY???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS MENU BAR ENTRY???
+	AX = FFF7h
+	DS:SI -&gt; ???
+	???
+Return: ???
+Notes:	available only when popped up
+	performs input processing on the menu bar set up with AX=FFEEh
+SeeAlso: AX=FFEEh,AX=FFFBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF8" name="16FFF8"><b>16FFF8</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DRAW EMPTY WINDOW<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DRAW EMPTY WINDOW
+	AX = FFF8h
+	DS:0000h -&gt; window parameters structure (see #00622)
+	DS:BX -&gt; DWORD to store address of ??? on screen
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFF9" name="16FFF9"><b>16FFF9</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE SCREEN REFRESH ROUTINE<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE SCREEN REFRESH ROUTINE
+	AX = FFF9h
+	ES:BX -&gt; FAR routine to redisplay the utility's window
+Note:	available only when popped up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFFA" name="16FFFA"><b>16FFFA</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE STANDARD PULLDOWN MENUS<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - DEFINE STANDARD PULLDOWN MENUS
+	AX = FFFAh
+Notes:	available only when popped up
+	adds the "Window" option to the "Desktop" option which is the only one
+	  available when no accessories are active.  Unlike AX=FFEEh, no
+	  additional menu items are added between "Desktop" and "Window"
+SeeAlso: AX=FFEEh,AX=FFFBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFFB" name="16FFFB"><b>16FFFB</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS STANDARD MENU BAR<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - PROCESS STANDARD MENU BAR
+	AX = FFFBh
+Return: ???
+Notes:	available only when popped up
+	performs input processing on the standard menu bar set up with AX=FFFAh
+SeeAlso: AX=FFF7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFFC" name="16FFFC"><b>16FFFC</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET HOTKEYS AND KEYBOARD VECTOR<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - GET HOTKEYS AND KEYBOARD VECTOR
+	AX = FFFCh
+Return: ES:BX -&gt; hotkey table (see #00630)
+	DS:DX = original INT 09 vector
+
+Format of PC Tools DESKTOP hotkey table:
+Offset	Size	Description	(Table 00630)
+ 00h  2 BYTEs	scancode/shift state for desktop hotkey
+ 02h  2 BYTEs	scancode/shift state for clipboard paste key
+ 04h  2 BYTEs	scancode/shift state for clipboard copy key
+ 06h  2 BYTEs	scancode/shift state for screen autodial key
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFFD" name="16FFFD"><b>16FFFD</b></a> - INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY ???<br />
+<pre>
+INT 16 U - PC Tools v5.1-8.0 DESKTOP - COPY ???
+	AX = FFFDh
+Return: AX destroyed
+Note:	copies 4000 bytes from ??? to ??? under certain circumstances
+SeeAlso: AX=FF91h,AX=FF92h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1ACCCCBXCCCC" name="1ACCCCBXCCCC"><b>1ACCCCBXCCCC</b></a> - INT 1A U - DATEFIX - INSTALLATION CHECK<br />
+<pre>
+INT 1A U - DATEFIX - INSTALLATION CHECK
+	AX = CCCCh
+	BX = CCCCh
+	CX = 0000h
+Return: CX = CCCCh if installed
+	    ES:BX -&gt; original interrupt handler
+Program: DATEFIX is a public-domain TSR to correct the date on AT&T 6300
+	  machines, where the realtime clock's calendar wraps after 1991
+SeeAlso: AH=FEh,AH=FFh"AT&T"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE11B" name="1AE11B"><b>1AE11B</b></a> - INT 1A - TheGrab v4.60 - ???<br />
+<pre>
+INT 1A - TheGrab v4.60 - ???
+	AX = E11Bh
+	???
+Return: ??? (may destroy all registers)
+SeeAlso: AX=E11Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE11D" name="1AE11D"><b>1AE11D</b></a> - INT 1A - TheGrab v4.60 - INSTALLATION CHECK<br />
+<pre>
+INT 1A - TheGrab v4.60 - INSTALLATION CHECK
+	AX = E11Dh
+Return: ES:DI -&gt; signature block (see #01261) if installed
+	    CX = length of signature block (000Fh)
+Program: TheGrab is a resident ANSI screen grabber bundled with TheDraw
+SeeAlso: AX=E11Bh
+
+Format of TheGrab signature block:
+Offset	Size	Description	(Table 01261)
+ 00h	BYTE	08h
+ 01h  8 BYTEs	ASCIZ "THEGRAB"
+ 09h  6 BYTEs	??? (zeros)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AF7" name="1AF7"><b>1AF7</b></a> - INT 1A - RighTime v1.1 - TEMPORARILY DISABLE<br />
+<pre>
+INT 1A - RighTime v1.1 - TEMPORARILY DISABLE
+	AH = F7h
+Program: RighTime is a TSR by G.T. Becker which continuously adjusts the
+	  system time to correct for clock drift
+Note:	any AH value from F0h-F7h or F9h-FEh will perform this function in
+	  version 1.1, but F7h is the function called by transient portion
+SeeAlso: AH=F8h,AH=FFh"RighTime"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AF8" name="1AF8"><b>1AF8</b></a> - INT 1A - RighTime v1.1 - ENABLE<br />
+<pre>
+INT 1A - RighTime v1.1 - ENABLE
+	AH = F8h
+Program: RighTime is a TSR by G.T. Becker which continuously adjusts the
+	  system time to correct for clock drift
+Note:	RighTime is TeSseRact-compatible (see INT 2F/AX=5453h) and modifies its
+	  TeSseRact program identifier based on its current state: "RighTime"
+	  when enabled, "RighTim"F7h when disabled.
+SeeAlso: AH=F7h,AH=FFh"RighTime"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AFF_0" name="1AFF_0"><b>1AFF</b></a> - INT 1A - RighTime v1.1 - PERMANENTLY DISABLE<br />
+<pre>
+INT 1A - RighTime v1.1 - PERMANENTLY DISABLE
+	AH = FFh
+Program: RighTime is a TSR by G.T. Becker which continuously adjusts the
+	  system time to correct for clock drift
+Note:	upon being permanently disabled, RighTime closes the file handle
+	  referencing its executable (which is updated with time correction
+	  information every two minutes while RighTime is enabled).
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX454C" name="212B--CX454C"><b>212B--CX454C</b></a> - INT 21 - ELRES v1.1 - INSTALLATION CHECK<br />
+<pre>
+INT 21 - ELRES v1.1 - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 454Ch ('EL')
+	DX = 5253h ('RS')
+Return: ES:BX -&gt; ELRES history structure (see #01381)
+	DX = DABEh (signature, DAve BEnnett)
+Program: ELRES is an MS-DOS return code (errorlevel) recorder by David H.
+	  Bennett which stores recent errorlevel values, allows them to be
+	  retrieved for use in batch files, and can place them in an
+	  environment variable
+SeeAlso: AH=4Bh"ELRES",AH=4Dh
+
+Format of ELRES history structure:
+Offset	Size	Description	(Table 01381)
+ 00h	WORD	number of return codes which can be stored by following buffer
+ 02h	WORD	current position in buffer (treated as a ring)
+ 04h  N BYTEs	ELRES buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B_0" name="214B_0"><b>214B</b></a> - INT 21 - ELRES v1.0 only - INSTALLATION CHECK<br />
+<pre>
+INT 21 - ELRES v1.0 only - INSTALLATION CHECK
+	AH = 4Bh
+	DS:DX = 0000h:0000h
+Return: ES:BX -&gt; ELRES history structure (see #01381 at AH=2Bh/CX=454Ch)
+	DX = DABEh (signature, DAve BEnnett)
+Program: ELRES is an MS-DOS return code (errorlevel) recorder by David H.
+	  Bennett
+SeeAlso: AH=2Bh/CX=454Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215757BX5757" name="215757BX5757"><b>215757BX5757</b></a> - INT 21 U - IBM Genie - Resident Manager - INSTALLATION CHECK<br />
+<pre>
+INT 21 U - IBM Genie - Resident Manager - INSTALLATION CHECK
+	AX = 5757h
+	BX = 5757h
+Return: AX = 0000h if installed
+	    BX = ???
+	    DX = ???
+	    DS:SI -&gt; list of 27 DWORD entry point addresses
+Program: IBM Genie is a set of utility TSRs by Helix Software
+Note:	other functions possible if BX &lt;&gt; 5757h, but details not yet available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#216262SI1994" name="216262SI1994"><b>216262SI1994</b></a> - INT 21 - ENVLOCK - INSTALLATION CHECK<br />
+<pre>
+INT 21 - ENVLOCK - INSTALLATION CHECK
+	AX = 6262h
+	SI = 1994h
+Return: AX = 1994h if installed
+	    ES = ENVLOCK's resident segment
+Notes:	to deactivate ENVLOCK, zero out the byte at ES:[0102h]
+Program: ENVLOCK is a TSR by Alexander Yanovsky that forces other TSRs to
+	  deallocate their environment when they stay resident
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217761" name="217761"><b>217761</b></a> - INT 21 - WATCH.COM v3.2+ - INSTALLATION CHECK<br />
+<pre>
+INT 21 - WATCH.COM v3.2+ - INSTALLATION CHECK
+	AX = 7761h ('wa')
+Return: AX = 6177h
+Note:	WATCH.COM is part of the "TSR" package by TurboPower Software
+SeeAlso: INT 16/AX=7761h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#289999" name="289999"><b>289999</b></a> - INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK<br />
+<pre>
+INT 28 u - PCXDUMP v9.00+ - INSTALLATION CHECK
+	AX = 9999h
+Return: AX = AAAAh if installed
+	    CX = version number * 100 (example: 03A2h = 930 = v9.30)
+	    DL = interrupt used by the dump function (see #02553)
+		(00h if call not available)
+	    BX = CS of PCXDUMP's INT 28 handler (undocumented)
+	    ES = segment of PCXDUMP's memory block (v9.30, undocumented)
+Program: PCXDUMP is a shareware screen grabber saving in PCX format
+Notes:	if DL&lt;&gt;00h a dump can be requested by calling INT DL as shown
+	  below (the user can choose the interrupt number at installation
+	  time); if DL=00h the dump function can be called only by hotkeys
+	  (this is the default)
+
+(Table 02553)
+Call PCXDUMP screen-dump function with:
+	INT xx
+	AX = 1234h
+	BX = dump type
+	    0000h Color dump
+	    0001h Immediate color dump
+	    0002h Black/White dump
+	    0003h Immediate B/W dump
+	    0004h Inverted B/W dump
+	    0005h Gray scaled dump
+	    0006h Inverted gray scaled dump
+	    0007h Text screen dump to text file
+	    0008h Text screen dump to ansi file
+Return: nothing
+Notes:	if BX=0001h, 0003h, 0007h or 0008h the whole screen will be
+	  dumped; the other valid values will draw a selection frame
+	  on the screen except in text modes (text modes allow only
+	  full screen dumps)
+	this function doesn't perform the dump, it only requests it;
+	  the dump will be performed after a few milliseconds if it's
+	  safe to do so, thus the author recommends putting a 60 ms delay
+	  after this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#29E60DCL0E" name="29E60DCL0E"><b>29E60DCL0E</b></a> - INT 29 - ShowGFX - INSTALLATION CHECK<br />
+<pre>
+INT 29 - ShowGFX - INSTALLATION CHECK
+	AX = E60Dh
+	CL = 0Eh
+	DX = C0DEh
+Return: DX = DEC0h
+Program: ShowGFX is a PCBoard graphics driver by Solar Designer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_4" name="2D--10_4"><b>2D--10</b></a> - INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK
+	AL = 10h
+Return: AL = FFh
+	BL = extended API availability (00h no, 01h API is loaded)
+SeeAlso: INT 2D/AL=11h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--11_0" name="2D--11_0"><b>2D--11</b></a> - INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK
+	AL = 11h
+	BL = function
+	    00h get number of installed utilities
+		Return: BL = number of utilities
+	    01h get installed utilities
+		DX:DI -&gt; buffer containing one byte for each utility
+		Return: DX:DI buffer filled with flags (0=no,1=yes) indicating
+			  whether the corresponding utility is loaded
+Return: AL = FFh if supported
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--12_1" name="2D--12_1"><b>2D--12</b></a> - INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO<br />
+<pre>
+INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO
+	AL = 12h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BH = major DOS version
+	    BL = minor DOS version
+	    CH = DOS version flag
+	    CL = OEM number
+	    DH = major DR DOS version number (FFh if unknown)
+	    DL = minor DR DOS version number (FFh if unknown)
+Program: FREEVER is an AMIS-conformant freeware DOS version-faking TSR similar
+	  to SETVER for any DOS-compatible OS, written by Matthias Paul
+SeeAlso: INT 2D/AL=13h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--13_0" name="2D--13_0"><b>2D--13</b></a> - INT 2D - FREEVER - SET VERSION NUMBERS<br />
+<pre>
+INT 2D - FREEVER - SET VERSION NUMBERS
+	AL = 13h
+	AH = AMIS multiplex number for FREEVER
+	BH = new major DOS version
+	BL = new minor DOS version
+	CH = new DOS version flag
+	CL = new DOS revision number
+	DH = new OEM number
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--14" name="2D--14"><b>2D--14</b></a> - INT 2D - FREEVER - ENABLE TSR<br />
+<pre>
+INT 2D - FREEVER - ENABLE TSR
+	AL = 14h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--15" name="2D--15"><b>2D--15</b></a> - INT 2D - FREEVER - DISABLE TSR<br />
+<pre>
+INT 2D - FREEVER - DISABLE TSR
+	AL = 15h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--16" name="2D--16"><b>2D--16</b></a> - INT 2D - FREEVER - GET TSR STATUS<br />
+<pre>
+INT 2D - FREEVER - GET TSR STATUS
+	AL = 16h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BL = status
+		01h resident and active
+		02h resident and inactive
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--17" name="2D--17"><b>2D--17</b></a> - INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION<br />
+<pre>
+INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION
+	AL = 17h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BL = status
+		00h if TaskMAX not loaded before SETDRVER
+		FFh if TaskMAX was loaded before SETDRVER
+Program: FREEVER is an AMIS-conformant freeware DOS version-faking TSR similar
+	  to SETVER for any DOS-compatible OS, written by Matthias Paul
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--20" name="2D--20"><b>2D--20</b></a> - INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS
+	AL = 20h
+Return: AL = FFh if available
+	    DX:DI -&gt; DTU popup-handler
+Program: DTown Utilities is a freeware programmer's utility TSR by Jeroen van
+	  Disseldorp
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=21h,INT 2D/AL=50h,INT 2D/AL=51h
+SeeAlso: INT 03"DTown"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--21" name="2D--21"><b>2D--21</b></a> - INT 2D - DTown Utilities v1.40+ - POP UP<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - POP UP
+	AL = 21h
+	BL = which utility to bring up
+	    00h active utility
+	    01h help screen
+	    0Ah ASCII table
+	    0Bh memory view
+	    0Ch CPU status
+	    0Dh calculator
+	    0Eh miscellaneous
+	    0Fh file viewer
+	    10h disassembler
+Return: AL = status
+	    00h already active
+	    FFh popped up successfully
+	BX = 0000h
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--50" name="2D--50"><b>2D--50</b></a> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS
+	AL = 50h
+	CX:DX = new address for start of memory view utility's display
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+Return: AL = FFh if supported
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=21h,INT 2D/AL=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--51" name="2D--51"><b>2D--51</b></a> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE
+	AL = 51h
+	BL = reference ("bookmark") number
+	CX:DX = new address for reference
+Return: AL = status
+	    00h invalid index
+	    FFh reference set
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+Program: DTown Utilities is a shareware programmer's utility TSR by Jeroen van
+	  Disseldorp
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0600" name="2F0600"><b>2F0600</b></a> - INT 2F - DOS 3.0+ ASSIGN - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DOS 3.0+ ASSIGN - INSTALLATION CHECK
+	AX = 0600h
+Return: AL = status
+	    00h not installed
+	    01h not installed, but not OK to install
+	    FFh installed
+Notes:	ASSIGN is not a TSR in DR DOS 5.0; it is internally replaced by SUBST
+	  (see INT 21/AH=52h)
+	undocumented prior to the release of DOS 5.0
+SeeAlso: AX=0601h,INT 21/AH=52h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0601" name="2F0601"><b>2F0601</b></a> - INT 2F U - DOS 3.0+ ASSIGN - GET DRIVE ASSIGNMENT TABLE<br />
+<pre>
+INT 2F U - DOS 3.0+ ASSIGN - GET DRIVE ASSIGNMENT TABLE
+	AX = 0601h
+Return: ES = segment of ASSIGN work area and assignment table
+Note:	the 26 bytes starting at ES:0103h specify which drive each of A: to Z:
+	  is mapped to.	 Initially set to 01h 02h 03h....
+SeeAlso: AX=0600h,AX=AF14h"WinDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1400" name="2F1400"><b>2F1400</b></a> - INT 2F C - NLSFUNC.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F C - NLSFUNC.COM - INSTALLATION CHECK
+	AX = 1400h
+	BX &lt;&gt; 0EDCh
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+	    FFh installed
+Notes:	this function is called by the DOS v3.3+ kernel
+	supported by OS/2 v1.3+ compatibility box, which always returns AL=FFh
+	supported by DR DOS 5.0+ NLSFUNC v3.0+
+	documented for MS-DOS 5+, but undocumented in prior versions
+	DR DOS 5.0+ NLSFUNC 3.00+ returns CF set and AX=0001h, if AL was not
+	  00h, FEh, or FFh on entry.
+SeeAlso: AX=1400h/BX=0EDCh,AX=1401h"NLSFUNC",AX=1402h"NLSFUNC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1401" name="2F1401"><b>2F1401</b></a> - INT 2F CU - NLSFUNC.COM - CHANGE CODE PAGE<br />
+<pre>
+INT 2F CU - NLSFUNC.COM - CHANGE CODE PAGE
+	AX = 1401h
+	DS:SI -&gt; internal code page structure (see #02618)
+	BX = new code page (see #01757 at INT 21/AX=6602h)
+	DX = country code???
+Return: AL = status
+	     00h successful
+	     else DOS error code
+Note:	this function is called by the DOS v3.3+ kernel
+SeeAlso: AX=1400h"NLSFUNC",AX=1402h"NLSFUNC",INT 21/AH=66h
+
+Format of DOS 3.30 internal code page structure:
+Offset	Size	Description	(Table 02618)
+ 00h  8 BYTEs	???
+ 08h 64 BYTEs	name of country information file (see #02619)
+ 48h	WORD	system code page (see #01757 at INT 21/AX=6602h)
+ 4Ah	WORD	number of supported subfunctions
+ 4Ch  5 BYTEs	data to return for INT 21/AX=6502h
+ 51h  5 BYTEs	data to return for INT 21/AX=6504h
+ 56h  5 BYTEs	data to return for INT 21/AX=6505h
+ 5Bh  5 BYTEs	data to return for INT 21/AX=6506h
+ 60h 41 BYTEs	data to return for INT 21/AX=6501h
+
+Format of MS-DOS/PC-DOS/OS2/WinNT/PTS-DOS COUNTRY.SYS file:
+Offset	Size	Description	(Table 02619)
+ 00h	BYTE	ID tag (FFh)
+ 01h  7 BYTEs	ASCII "COUNTRY"
+ 08h  8 BYTEs	??? (00h)
+ 10h	BYTE	??? (01h)
+ 11h	BYTE	??? (00h)
+ 12h	BYTE	??? (01h)
+ 13h	DWORD	offset of first entry in file (see #02620)
+SeeAlso: #02623
+
+Format of MS-DOS/PC-DOS/OS2/WinNT/PTS-DOS COUNTRY.SYS entry:
+Offset	Size	Description	(Table 02620)
+ 00h	WORD	number of country-codepage entries following
+ 02h		N Country-Codepage entries:
+		Offset	Size	Description
+		 00h	WORD	length of entry, not counting this word (000Ch)
+		 02h	WORD	country ID
+		 04h	WORD	codepage ID
+		 06h	WORD	??? (0000h)
+		 08h	WORD	??? (0000h)
+		 0Ah	DWORD	offset of country-subfunction-header in file
+				  (see #02621)
+Notes:	multiple codepages for a country are stored consecutively
+	PTS/DOS places a copyright string immediately following this structure,
+	  though a copyright at the end of the file is preferable
+SeeAlso: #02619
+
+Format of MS-DOS/PC-DOS/OS2/WinNT/PTS-DOS COUNTRY.SYS country-subfunc header:
+Offset	Size	Description	(Table 02621)
+ 00h	WORD	number of subfunction entries following
+ 02h		N subfunction entries
+		Offset	Size	Description
+		 00h	WORD	length of subfunction entry, not counting this
+				  word (usually 06h)
+		 02h	WORD	subfunction ID
+				(value passed to INT 21/AH=65h in AL)
+		 04h	DWORD	offset within file of subfunction data entry
+				  (see #02622)
+SeeAlso: #02620
+
+Format of MS-DOS/PC-DOS/OS2/WinNT/PTS-DOS COUNTRY.SYS country-subfunc data::
+Offset	Size	Description	(Table 02622)
+ 00h	BYTE	ID-tag (FFh)
+ 01h  7 BYTEs	table-type signature (blank-padded)
+		"CTYINFO"	general country info (subfn 01h)
+		"UCASE	"	uppercase table (subfn 02h)
+		"LCASE	"	lowercase table (subfn 03h) (DOS 6.2_)
+		"FUCASE "	filename uppercase table (subfn 04h)
+		"FCHAR	"	filename terminator table (subfn 05h)
+		"COLLATE"	collating sequence (subfn 06h)
+		"DBCS	"	double-byte character table (subfn 07h)
+ 08h	WORD	length of following table in bytes
+		(if 0000h for DBCS table, there will still be a word of 0000h)
+---country info (01h)---
+ 0Ah	WORD	country ID (see #01400 at AH=38h)
+ 0Ch	WORD	code page (see #01757)
+ 0Eh 34 BYTEs	country-dependent info (see #01399 at AH=38h)
+---uppercase table (02h)---
+ 0Ah 128 BYTEs	uppercase equivalents (if any) of chars 80h to FFh
+---lowercase table (03h)---
+ 0Ah 256 BYTEs	lowercase equivalents (if any) of chars 00h to FFh
+---filename uppercase table (04h)---
+ 0Ah 128 BYTEs	uppercase equivalents (if any) of chars 80h to FFh
+---filename terminator table (05h)---
+ 0Ah	BYTE	??? (01h for MS-DOS 3.30-6.00)
+ 0Bh	BYTE	lowest permissible character value for filename
+ 0Ch	BYTE	highest permissible character value for filename
+ 0Dh	BYTE	??? (00h for MS-DOS 3.30-6.00)
+ 0Eh	BYTE	first excluded character in range \ all characters in this
+ 0Fh	BYTE	last excluded character in range  / range are illegal
+ 10h	BYTE	??? (02h for MS-DOS 3.30-6.00)
+ 11h	BYTE	number of illegal (terminator) characters
+ 12h  N BYTEs	characters which terminate a filename:	."/\[]:|&lt;&gt;+=;,
+---collating sequence (06h)---
+ 0Ah 256 BYTEs	values used to sort characters 00h to FFh
+---DBCS table (07h)---
+ 0Ah 2N BYTEs	start/end for N lead byte ranges
+	WORD	0000h	(end of table)
+SeeAlso: #02621,#01750,#01751,#01753,#01754,#01755,#01756
+
+Format of DR DOS/Novell DOS/OpenDOS COUNTRY.SYS file:
+Offset	Size	Description	(Table 02623)
+ 00h 126 BYTEs	copyright notice (terminated with Ctrl-Z; NUL-padded)
+		the copyright notice starts with the signature
+		"COUNTRY.SYS Rx.xx" where "x.xx" indicates the file format
+		revision, which is checked by the OS (revision is 2.00 for
+		DR DOS 3.41 and 2.01 for all newer versions of DR DOS,
+		Novell DOS, and OpenDOS)
+ 7Eh	WORD	signature of file format revision
+		0EDCh = 2.00 (DR DOS 3.41)
+		EDC1h = 2.01 (all newer versions)
+ 80h	var	country pointer records (see #02624)
+		(packed array of variable-size records)
+SeeAlso: #02619
+
+Format of DR DOS/Novell DOS/OpenDOS COUNTRY.SYS country pointer record::
+Offset	Size	Description	(Table 02624)
+ 00h	WORD	country code (0000h if end of array)
+ 02h	WORD	code page (see #01757)
+ 04h	WORD	??? (0000h)
+ 06h  7	WORDs	offsets in file for INT 21/AH=65h subfunctions 01h to 07h, or
+		  0000h if no table for that subfunction
+ 14h	var	country information
+Notes:	the end-of-file marker is a country pointer record filled entirely with
+	  zeros
+	the data at which the pointers point is in the same format as the
+	  tables returned by INT 21/AH=65h, except that the general-info
+	  table for subfunction 01h does not contain the length word at the
+	  beginning
+SeeAlso: #02623
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1402" name="2F1402"><b>2F1402</b></a> - INT 2F CU - NLSFUNC.COM - GET EXTENDED COUNTRY INFO<br />
+<pre>
+INT 2F CU - NLSFUNC.COM - GET EXTENDED COUNTRY INFO
+	AX = 1402h
+	BP = subfunction (same as AL for INT 21/AH=65h)
+	BX = code page (see #01757 at INT 21/AX=6602h)
+	DX = country code (see #01400 at INT 21/AH=38h)
+	DS:SI -&gt; internal code page structure (see #02618)
+	ES:DI -&gt; user buffer
+	CX = size of user buffer
+Return: AL = status
+	    00h successful
+	    else DOS error code
+Notes:	this function is called by the DOS v3.3+ kernel on INT 21/AH=65h
+	code page structure apparently only needed for COUNTRY.SYS pathname
+SeeAlso: AX=1401h"NLSFUNC",AX=1403h"NLSFUNC",AX=1404h,INT 21/AH=65h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1403" name="2F1403"><b>2F1403</b></a> - INT 2F CU - NLSFUNC.COM - SET CODE PAGE<br />
+<pre>
+INT 2F CU - NLSFUNC.COM - SET CODE PAGE
+	AX = 1403h
+	DS:SI -&gt; internal code page structure (see #02618)
+	BX = code page (see #01757 at INT 21/AX=6602h)
+	DX = country code (see #01400 at INT 21/AH=38h)
+Return: AL = status
+	     ???
+Note:	this function is called by the DOS v3.3+ kernel on INT 21/AH=38h
+SeeAlso: AX=1402h"NLSFUNC",AX=1404h,INT 21/AH=38h"SET"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1404" name="2F1404"><b>2F1404</b></a> - INT 2F CU - NLSFUNC.COM - GET COUNTRY INFO<br />
+<pre>
+INT 2F CU - NLSFUNC.COM - GET COUNTRY INFO
+	AX = 1404h
+	BX = code page (see #01757 at INT 21/AX=6602h)
+	DX = country code (see #01400 at INT 21/AH=38h)
+	DS:SI -&gt; internal code page structure (see #02618)
+	ES:DI -&gt; user buffer
+Return: AL = status
+	     ???
+Notes:	this function is called by the DOS v3.3+ kernel on INT 21/AH=38h
+	code page structure apparently only needed for COUNTRY.SYS pathname
+SeeAlso: AX=1402h,AX=1403h,INT 21/AH=38h"GET"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F14FE" name="2F14FE"><b>2F14FE</b></a> - INT 2F U - DR DOS 5.0 NLSFUNC - GET EXTENDED COUNTRY INFORMATION<br />
+<pre>
+INT 2F U - DR DOS 5.0 NLSFUNC - GET EXTENDED COUNTRY INFORMATION
+	AX = 14FEh
+	BX = code page (FFFFh=global code page) (see #01757 at INT 21/AX=6602h)
+	DX = country ID (FFFFh=current country) (see #01400 at INT 21/AH=38h)
+	ES:DI -&gt; country information buffer
+	CL = info ID
+	    01h get general internationalization info
+	    02h get pointer to uppercase table
+	    04h get pointer to filename uppercase table
+	    05h get pointer to filename terminator table
+	    06h get pointer to collating sequence table
+	    07h get pointer to Double-Byte Character Set table
+	CF set (used to return error if not installed)
+Return: CF clear if successful
+	    DS:SI -&gt; requested information
+	CF set on error
+Notes:	DR DOS 5.0 NLSFUNC returns CF set and AX=0001h if AL was not 00h, FEh,
+	  or FFh on entry.
+	the DR DOS kernel calls this function on INT 21/AX=6501h
+	the value in CL is not range-checked by the DR DOS 5.0 NLSFUNC
+SeeAlso: #02626,AX=14FFh,INT 21/AH=65h
+
+Format of DR DOS COUNTRY.SYS file:
+Offset	Size	Description	(Table 02626)
+ 00h 126 BYTEs	copyright notice (terminated with Ctrl-Z, padded with NULs)
+ 7Eh	WORD	signature EDC1h
+ 80h	var	country pointer records
+	Offset	Size	Description
+	 00h	WORD	country code (0000h if end of array)
+	 02h	WORD	code page (see #01757 at INT 21/AX=6602h)
+	 04h	WORD	??? (0000h)
+	 06h  7 WORDs	offsets in file for data tables for subfunctions
+			  01h-07h
+ var	var	country information
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F14FF" name="2F14FF"><b>2F14FF</b></a> - INT 2F U - DR DOS 5.0+ NLSFUNC - PREPARE CODE PAGE<br />
+<pre>
+INT 2F U - DR DOS 5.0+ NLSFUNC - PREPARE CODE PAGE
+	AX = 14FFh
+	BX = code page (see #01757 at INT 21/AX=6602h)
+Return: AX = ???
+	ZF set if AX=0000h
+Notes:	DR DOS 5.0 NLSFUNC returns CF set and AX=0001h if AL was not 00h, FEh,
+	  or FFh on entry.
+	passes codepage preparation request to each character device supporting
+	  the generic IOCTL call
+BUG:	DR DOS 5.0 NLSFUNC 3.00 - Novell DOS 7 NLSFUNC 3.03, and OpenDOS 7.01 -
+	  DR-OpenDOS 7.02 NLSFUNC 3.02 requires DF cleared on entry, otherwise
+	  the system may crash.  However, since this function is called only by
+	  the BDOS, the problem never actually occurs.  DR-DOS 7.02/7.03
+	  NLSFUNC 4.00+ always clears DF by itself.
+SeeAlso: AX=1400h/BX=0EDCh,AX=14FEh,INT 21/AX=440Ch,INT 21/AX=6602h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500" name="2F1500"><b>2F1500</b></a> - INT 2F - DOS 4.00 GRAPHICS.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DOS 4.00 GRAPHICS.COM - INSTALLATION CHECK
+	AX = 1500h
+Return: AX = FFFFh
+	ES:DI -&gt; ??? (graphics data?)
+Note:	this installation check conflicts with the CD-ROM Extensions
+	  installation check; moved to AX=AC00h in later versions
+SeeAlso: AX=AC00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C1BL00" name="2F48C1BL00"><b>2F48C1BL00</b></a> - INT 2F - PCED/VSTACK - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED/VSTACK - INSTALLATION CHECK
+	AX = 48C1h
+	BL = 00h
+Return: AX = 0000h if installed
+	    BX = VSTACK resident segment
+Program: VSTACK is a resident backscroll utility included as part of the PCED
+	  package by Cove Software
+Note:	chains if BL &lt;&gt; 00h on entry
+SeeAlso: AX=48C0h,AX=48C2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C2BL00" name="2F48C2BL00"><b>2F48C2BL00</b></a> - INT 2F - PCED/ATTRIB - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED/ATTRIB - INSTALLATION CHECK
+	AX = 48C2h
+	BL = 00h
+Return: AX = 0000h if installed
+	    BX = ATTRIB resident segment
+Program: ATTRIB is a resident file attribute changer included as part of the
+	  PCED package by Cove Software
+Note:	chains if BL &lt;&gt; 00h on entry
+SeeAlso: AX=48C0h,AX=48C1h,AX=48C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C4BL00" name="2F48C4BL00"><b>2F48C4BL00</b></a> - INT 2F - PCED/FLIST - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED/FLIST - INSTALLATION CHECK
+	AX = 48C4h
+	BL = 00h
+Return: AX = 0000h if installed
+	    BX = FLIST resident segment
+Program: FLIST is a resident filelist processor included as part of the PCED
+	  package by Cove Software
+Note:	chains if BL &lt;&gt; 00h on entry
+SeeAlso: AX=48C0h,AX=48C3h,AX=48C5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C5BL00" name="2F48C5BL00"><b>2F48C5BL00</b></a> - INT 2F - PCED/ASSOC - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED/ASSOC - INSTALLATION CHECK
+	AX = 48C5h
+	BL = 00h
+Return: AX = 0000h if installed
+	    BX = ASSOC resident segment
+Program: ASSOC is a resident utility included as part of the PCED package which
+	  associates files with executable programs based on their extensions
+Note:	chains if BL &gt; 02h on entry
+SeeAlso: AX=48C0h,AX=48C4h,AX=48C5h/BL=01h,AX=48C5h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C5BL01" name="2F48C5BL01"><b>2F48C5BL01</b></a> - INT 2F - PCED/ASSOC - GET VERSION<br />
+<pre>
+INT 2F - PCED/ASSOC - GET VERSION
+	AX = 48C5h
+	BL = 01h
+Return: AX = 0000h if installed
+	    BX = binary ASSOC version (BL = major, BH = minor)
+Note:	chains if BL &gt; 02h on entry
+SeeAlso: AX=48C0h,AX=48C5h/BL=00h,AX=48C5h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C5BL02" name="2F48C5BL02"><b>2F48C5BL02</b></a> - INT 2F - PCED/ASSOC - ASSOCIATION TEST<br />
+<pre>
+INT 2F - PCED/ASSOC - ASSOCIATION TEST
+	AX = 48C5h
+	BL = 02h
+	DS:SI -&gt; ASCIZ filename
+Return: AX = status
+	    0000h if filename is unknown
+	    0001h if there is an association defined for the file
+	BX destroyed
+Program: ASSOC is a resident utility included as part of the PCED package which
+	  associates files with executable programs based on their extensions
+Note:	chains if BL &gt; 02h on entry
+SeeAlso: AX=48C0h,AX=48C5h/BL=00h,AX=48C5h/BL=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8900" name="2F8900"><b>2F8900</b></a> - INT 2F - WHOA!.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - WHOA!.COM - INSTALLATION CHECK
+	AX = 8900h
+Return: AL = state
+	    00h not installed
+	    FFh installed
+Program: WHOA!.COM is a system slow-down utility by Brad D Crandall
+SeeAlso: AX=8901h,AX=8902h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8901" name="2F8901"><b>2F8901</b></a> - INT 2F - WHOA!.COM - UNINSTALL<br />
+<pre>
+INT 2F - WHOA!.COM - UNINSTALL
+	AX = 8901h
+Return: AL = status
+	    FDh successful
+	    FEh error
+SeeAlso: AX=8900h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8902" name="2F8902"><b>2F8902</b></a> - INT 2F - WHOA!.COM - SET DELAY COUNT<br />
+<pre>
+INT 2F - WHOA!.COM - SET DELAY COUNT
+	AX = 8902h
+	BX = delay count (larger values slow system down more)
+Return: AL = status
+	    FDh successful
+	    FEh error
+Program: WHOA!.COM is a system slow-down utility by Brad D Crandall
+SeeAlso: AX=8900h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9000" name="2F9000"><b>2F9000</b></a> - INT 2F U - RAID - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - RAID - INSTALLATION CHECK
+	AX = 9000h
+Return: AL = FFh if installed
+Program: RAID (Resident AID) is a TSR utility program by Ross Neilson
+	  Wentworth that resides mostly in EMS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9001" name="2F9001"><b>2F9001</b></a> - INT 2F U - RAID - GET ???<br />
+<pre>
+INT 2F U - RAID - GET ???
+	AX = 9001h
+Return: DX:AX -&gt; ???
+SeeAlso: AX=9000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9002" name="2F9002"><b>2F9002</b></a> - INT 2F U - RAID - GET RESIDENT SEGMENT<br />
+<pre>
+INT 2F U - RAID - GET RESIDENT SEGMENT
+	AX = 9002h
+Return: AX = segment of resident (conventional memory) portion
+SeeAlso: AX=9000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9003" name="2F9003"><b>2F9003</b></a> - INT 2F U - RAID - UNINSTALL<br />
+<pre>
+INT 2F U - RAID - UNINSTALL
+	AX = 9003h
+Return: ???
+SeeAlso: AX=9000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9004" name="2F9004"><b>2F9004</b></a> - INT 2F U - RAID - GET ???<br />
+<pre>
+INT 2F U - RAID - GET ???
+	AX = 9004h
+Return: AX = first available paragraph past end of resident portion???
+	CX destroyed
+SeeAlso: AX=9000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FA4E0" name="2FA4E0"><b>2FA4E0</b></a> - INT 2F - Futurus Team - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Futurus Team - INSTALLATION CHECK
+	AX = A4E0h
+Return: AL = 52h ("R") if installed
+	    AH = major version plus 30h ("0")
+	    ES:BX -&gt; ??? (INT A4 handler???)
+Note:	older versions of Right Hand Man (from which Team evolved) store the
+	  signature "RH" at offset 103h in the INT 2F handler's segment
+SeeAlso: INT A4"Right Hand Man"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FA900" name="2FA900"><b>2FA900</b></a> - INT 2F - METZTSR.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - METZTSR.COM - INSTALLATION CHECK
+	AX = A900h
+	CF set
+Return: CF clear if resident
+	    AX = 97FFh
+	CF set if not present
+Notes:	METZTSR.COM prevents METZ applications (such as the MAGIC screen
+	  saver) inactivity timeout while running a DOSapp under MS Windows.
+	the default multiplex number is A9h, but may be set to any value from
+	  80h to FFh with a commandline switch
+SeeAlso: AX=A901h,AX=A902h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FA901" name="2FA901"><b>2FA901</b></a> - INT 2F - METZTSR.COM - GET TIME OF LAST KEYBOARD ACTIVITY<br />
+<pre>
+INT 2F - METZTSR.COM - GET TIME OF LAST KEYBOARD ACTIVITY
+	AX = A901h
+	CF set
+Return: CF clear if successful
+	    AX:DX = BIOS time at which INT 09 was last invoked
+	CF set if not present
+SeeAlso: INT 09,INT 1A/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FA902" name="2FA902"><b>2FA902</b></a> - INT 2F - METZTSR.COM - SET METZ Ctrl-Alt-Del FLAG<br />
+<pre>
+INT 2F - METZTSR.COM - SET METZ Ctrl-Alt-Del FLAG
+	AX = A902h
+	BL = new value
+	    00h Ctrl-Alt-Del not allowed
+	    else Ctrl-Alt-Del allowed (startup default is 01h)
+	CF set
+Return: CF clear if successful
+	    AX = 97FFh
+	CF set if not resident
+SeeAlso: AX=A903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FA903" name="2FA903"><b>2FA903</b></a> - INT 2F - METZTSR.COM - GET METZ Ctrl-Alt-Del FLAG<br />
+<pre>
+INT 2F - METZTSR.COM - GET METZ Ctrl-Alt-Del FLAG
+	AX = A903h
+	CF set
+Return: CF clear if successful
+	    AX = 97FFh if Ctrl-Alt-Del allowed
+	    AX = 0000h if Ctrl-Alt-Del not allowed
+	CF set if not resident
+SeeAlso: AX=A902h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAA" name="2FAA"><b>2FAA</b></a> - INT 2F - Player's Tool 3.996b+ - UNINSTALL<br />
+<pre>
+INT 2F - Player's Tool 3.996b+ - UNINSTALL
+	AH = AAh
+Return: AL = status
+	    00h unloaded successfully
+	    01h unable to unload: in DOS shell
+Program: Player's Tool is a game cheater by Dima Yakunin & Andy Robinson
+SeeAlso: AH=ABh"Player's Tool",AH=ACh"Player's Tool",INT 10/AH=AAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAA00" name="2FAA00"><b>2FAA00</b></a> - INT 2F - VIDCLOCK.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - VIDCLOCK.COM - INSTALLATION CHECK
+	AX = AA00h
+Return: AL = 00h not installed
+	     FFh installed
+Program: VIDCLOCK.COM is a memory-resident clock by Thomas G. Hanlin III
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB" name="2FAB"><b>2FAB</b></a> - INT 2F - Player's Tool 3.996b+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Player's Tool 3.996b+ - INSTALLATION CHECK
+	AH = ABh
+Return: BH = FFh if installed
+	    BL = DOS shell state
+		01h in DOS shell
+		00h not in DOS shell
+SeeAlso: AH=AAh"Player's Tool",AH=ACh"Player's Tool",INT 10/AH=ABh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAC" name="2FAC"><b>2FAC</b></a> - INT 2F u - Player's Tool 3.996b+ - POP UP<br />
+<pre>
+INT 2F u - Player's Tool 3.996b+ - POP UP
+	AH = ACh
+Return: AX = 1001h
+SeeAlso: AH=AAh"Player's Tool",AH=ABh"Player's Tool"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBE00" name="2FBE00"><b>2FBE00</b></a> - INT 2F - REDVIEW - INSTALLATION CHECK<br />
+<pre>
+INT 2F - REDVIEW - INSTALLATION CHECK
+	AX = BE00h
+Return: AL = FFh if installed
+Program: REDVIEW is a public-domain TSR by Alexandr Novy and Petr Horak which
+	  copies data sent to standard output to standard error when the
+	  former has been redirected to a file, thus allowing the data to
+	  be seen on the screen at the same time it is captured in a file
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000_6" name="2FC000_6"><b>2FC000</b></a> - INT 2F U - WANG_ER.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - WANG_ER.COM - INSTALLATION CHECK
+	AX = C000h
+Return: AL = FFh if installed
+	    ES = segment of resident code
+Program: WANG_ER is a TSR from Compaq which permits Compaq systems equipped
+	  with 3-mode floppy drives to read Wang document diskettes
+Range:	AH=C0h to AH=FFh, selected by scanning for first free multiplex number
+Note:	The installation check is completed by comparing the resident code
+	  with the copy in the transient program
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000_11" name="2FC000_11"><b>2FC000</b></a> - INT 2F - Frank Kintrup TSR Utilities - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Frank Kintrup TSR Utilities - INSTALLATION CHECK
+	AX = C000h
+Return: AL = FFh if installed
+	    BX = program ID (see #03031)
+	    CX = 464Bh (signature "FK")
+	    DX = revision number (DH = major, DL = minor)
+	    ES = resident segment of TSR
+Range:	AH=C0h to AH=FFh, selected by searching for a free multiplex number
+SeeAlso: AX=C001h"Kintrup",AX=C002h"Kintrup"
+
+(Table 03031)
+Values for Frank Kintrup TSR program ID:
+ 4153h	"AS"	ASCII.COM	ASCII table with paste function
+ 434Ch	"CL"	CLOCK.COM	clock with date/time display and alarm
+ 5043h	"PC"	PCALC.COM	programmer's calculator with paste function
+ 5343h	"SC"	SCRSAVE.COM	screen saver with mouse support and hotkey
+ 5544h	"UD"	UNDEL.COM	undelete program like SMARTCAN or DPROTECT
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC001_2" name="2FC001_2"><b>2FC001</b></a> - INT 2F - Frank Kintrup TSR Utilities - CLOCK - DISABLE DISPLAY UPDATE<br />
+<pre>
+INT 2F - Frank Kintrup TSR Utilities - CLOCK - DISABLE DISPLAY UPDATE
+	AX = C001h
+Range:	AH=C0h to AH=FFh, selected by searching for a free multiplex number
+SeeAlso: AX=C000h"Kintrup",AX=C002h"Kintrup"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC002_2" name="2FC002_2"><b>2FC002</b></a> - INT 2F - Frank Kintrup TSR Utilities - CLOCK - ENABLE DISPLAY UPDATE<br />
+<pre>
+INT 2F - Frank Kintrup TSR Utilities - CLOCK - ENABLE DISPLAY UPDATE
+	AX = C002h
+Range:	AH=C0h to AH=FFh, selected by searching for a free multiplex number
+SeeAlso: AX=C000h"Kintrup",AX=C002h"Kintrup"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCAFEBX0000" name="2FCAFEBX0000"><b>2FCAFEBX0000</b></a> - INT 2F U - THELP v3.0 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - THELP v3.0 - INSTALLATION CHECK
+	AX = CAFEh
+	BX = 0000h
+Return: BX = segment of resident code if installed
+	    0000h if not installed
+SeeAlso: AX=5453h,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD00_1" name="2FCD00_1"><b>2FCD00</b></a> - INT 2F - SWELL.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - SWELL.EXE - INSTALLATION CHECK
+	AX = CD00h
+Return: AX = 00FFh installed
+	    BH = major version
+	    BL = minor version
+Program: SWELL.EXE is a TSR which swaps programs to disk when they EXEC a
+	  child process with INT 21/AH=4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD01_0" name="2FCD01_0"><b>2FCD01</b></a> - INT 2F - SWELL.EXE - SUSPEND ONCE<br />
+<pre>
+INT 2F - SWELL.EXE - SUSPEND ONCE
+	AX = CD01h
+Return: AX = 0000h
+SeeAlso: AX=CD02h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD02_0" name="2FCD02_0"><b>2FCD02</b></a> - INT 2F - SWELL.EXE - SUSPEND<br />
+<pre>
+INT 2F - SWELL.EXE - SUSPEND
+	AX = CD02h
+Return: AX = 0000h
+SeeAlso: AX=CD03h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD03_0" name="2FCD03_0"><b>2FCD03</b></a> - INT 2F - SWELL.EXE - ACTIVATE<br />
+<pre>
+INT 2F - SWELL.EXE - ACTIVATE
+	AX = CD03h
+Return: AX = 0000h
+SeeAlso: AX=CD02h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD04_0" name="2FCD04_0"><b>2FCD04</b></a> - INT 2F - SWELL.EXE - TURN OFF VERBOSE MODE<br />
+<pre>
+INT 2F - SWELL.EXE - TURN OFF VERBOSE MODE
+	AX = CD04h
+Return: AX = 0000h
+SeeAlso: AX=CD05h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD05_0" name="2FCD05_0"><b>2FCD05</b></a> - INT 2F - SWELL.EXE - TURN ON VERBOSE MODE<br />
+<pre>
+INT 2F - SWELL.EXE - TURN ON VERBOSE MODE
+	AX = CD05h
+Return: AX = 0000h
+SeeAlso: AX=CD04h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD06_0" name="2FCD06_0"><b>2FCD06</b></a> - INT 2F - SWELL.EXE - UNINSTALL<br />
+<pre>
+INT 2F - SWELL.EXE - UNINSTALL
+	AX = CD06h
+Return: AX = status
+	    0000h uninstalled
+	    8002h programs still swapped, not uninstalled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD07_0" name="2FCD07_0"><b>2FCD07</b></a> - INT 2F - SWELL.EXE - GET INFO<br />
+<pre>
+INT 2F - SWELL.EXE - GET INFO
+	AX = CD07h
+	ES:BX -&gt; 32-byte buffer for info (see #03070)
+Return: AX = status
+	    0000h successful
+		ES:BX buffer filled
+	    8001h buffer wrong size
+
+Format of SWELL.EXE info buffer:
+Offset	Size	Description	(Table 03070)
+ 00h	WORD	20h  (total size of buffer)
+ 02h	BYTE	suspend-once mode active if nonzero
+ 03h	BYTE	00h active, 01h suspended
+ 04h	BYTE	00h quiet, 01h verbose
+ 05h	BYTE	"Borland support" (allowing INT 21/AX=4B01h) on if nonzero
+ 06h 26 BYTEs	unused???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD08_0" name="2FCD08_0"><b>2FCD08</b></a> - INT 2F - SWELL.EXE - UNUSED<br />
+<pre>
+INT 2F - SWELL.EXE - UNUSED
+	AX = CD08h
+Return: AX = FFFFh (error)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD09_0" name="2FCD09_0"><b>2FCD09</b></a> - INT 2F - SWELL.EXE - TURN OFF "BORLAND SUPPORT"<br />
+<pre>
+INT 2F - SWELL.EXE - TURN OFF "BORLAND SUPPORT"
+	AX = CD09h
+Return: AX = 0000h
+SeeAlso: AX=CD0Ah"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCD0A_0" name="2FCD0A_0"><b>2FCD0A</b></a> - INT 2F - SWELL.EXE - TURN ON "BORLAND SUPPORT"<br />
+<pre>
+INT 2F - SWELL.EXE - TURN ON "BORLAND SUPPORT"
+	AX = CD0Ah
+Return: AX = 0000h
+SeeAlso: AX=CD09h"SWELL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD200" name="2FD200"><b>2FD200</b></a> - INT 2F - PCL-838.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCL-838.EXE - INSTALLATION CHECK
+	AX = D200h
+Return: AL = FFh if installed??? (documented as AX = return value)
+Program: PCL-838 is a resident utility for controlling a stepmotor adapter
+	  board by Advantec
+SeeAlso: AX=D201h"PCL-838",AX=D202h"PCL-838"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD201" name="2FD201"><b>2FD201</b></a> - INT 2F - PCL-838.EXE - UNINSTALL<br />
+<pre>
+INT 2F - PCL-838.EXE - UNINSTALL
+	AX = D201h
+Return: AX = return value
+SeeAlso: AX=D200h"PCL-838",AX=D202h"PCL-838"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD202" name="2FD202"><b>2FD202</b></a> - INT 2F - PCL-838.EXE - EXECUTE PCL838 COMMANDS<br />
+<pre>
+INT 2F - PCL-838.EXE - EXECUTE PCL838 COMMANDS
+	AX = D202h
+	CX:BX -&gt; parameter table
+Return: AX = return value
+SeeAlso: AX=D200h"PCL-838",AX=D201h"PCL-838"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB00_0" name="2FDB00_0"><b>2FDB00</b></a> - INT 2F U - WINGO.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - WINGO.COM - INSTALLATION CHECK
+	AX = DB00h
+Return: AX = FFFFh if installed
+	CX = 5749h ('WI') if installed
+	DX = 4E47h ('NG') if installed
+	    ES = segment of resident code
+Program: WINGO.COM is TSR for starting Windows programs from DOS
+	  prompt (together with companion Windows program
+	  WINSTART.EXE) written by Douglas Boling, contributing editor of
+	  PC Magazine
+Range:	AH=DBh to AH=FFh, selected by scanning for a free multiplex number
+SeeAlso: AX=DB01h"WINGO",AX=DB02h"WINGO",AX=DB03h"WINGO",AX=DB04h"WINGO"
+SeeAlso: AX=DB05h"WINGO",AX=DB06h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB01_0" name="2FDB01_0"><b>2FDB01</b></a> - INT 2F U - WINGO.COM - SET CALLBACK FUNCTION POINTER<br />
+<pre>
+INT 2F U - WINGO.COM - SET CALLBACK FUNCTION POINTER
+	AX = DB01h
+	CX:DX -&gt; new callback function
+Return: AX = 0000h
+	CX:DX -&gt; end of resident code (stack ???)
+Desc:	the callback function is used for WINGO &lt;-&gt; WINSTART communication
+SeeAlso: AX=DB00h"WINGO",AX=DB02h"WINGO",AX=DB03h"WINGO",AX=DB04h"WINGO"
+SeeAlso: AX=DB05h"WINGO",AX=DB06h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB02_0" name="2FDB02_0"><b>2FDB02</b></a> - INT 2F U - WINGO.COM - RESET CALLBACK FUNCTION POINTER<br />
+<pre>
+INT 2F U - WINGO.COM - RESET CALLBACK FUNCTION POINTER
+	AX = DB02h
+Return: AX = 0000h
+Desc:	the callback function is used for WINGO &lt;-&gt; WINSTART communication
+SeeAlso: AX=DB00h"WINGO",AX=DB01h"WINGO",AX=DB03h"WINGO",AX=DB04h"WINGO"
+SeeAlso: AX=DB05h"WINGO",AX=DB06h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB03_0" name="2FDB03_0"><b>2FDB03</b></a> - INT 2F U - WINGO.COM - SET ??? FLAG<br />
+<pre>
+INT 2F U - WINGO.COM - SET ??? FLAG
+	AX = DB03h
+Return: AX = 0000h
+SeeAlso: AX=DB00h"WINGO",AX=DB04h"WINGO",AX=DB05h"WINGO",AX=DB06h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB04" name="2FDB04"><b>2FDB04</b></a> - INT 2F U - WINGO.COM - RESET ??? FLAG<br />
+<pre>
+INT 2F U - WINGO.COM - RESET ??? FLAG
+	AX = DB04h
+Return: AX = 0000h
+SeeAlso: AX=DB00h"WINGO",AX=DB03h"WINGO",AX=DB05h"WINGO",AX=DB06h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB05" name="2FDB05"><b>2FDB05</b></a> - INT 2F U - WINGO.COM - GET ??? FLAG<br />
+<pre>
+INT 2F U - WINGO.COM - GET ??? FLAG
+	AX = DB05h
+Return: AX = 0000h
+	DX = unknown flag - 0 or 1
+Program: WINGO.COM is TSR for starting Windows programs from DOS
+	  prompt (together with companion Windows program
+	  WINSTART.EXE) written by Douglas Boling, contributing editor of
+	  PC Magazine
+SeeAlso: AX=DB00h"WINGO",AX=DB03h"WINGO",AX=DB04h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB06" name="2FDB06"><b>2FDB06</b></a> - INT 2F U - WINGO.COM - CALL CALLBACK FUNCTION<br />
+<pre>
+INT 2F U - WINGO.COM - CALL CALLBACK FUNCTION
+	AX = DB06h
+Return: AX = return value of INT 2F/AX=1685h
+Note:	uses Windows service INT 2F/AX=1685h (SWITCH VMs AND CALLBACK) to
+	  call the callback function previously set by AX=DB01h
+	used for WINGO &lt;-&gt; WINSTART communication
+SeeAlso: AX=1685h, AX=DB00h"WINGO",AX=DB01h"WINGO",AX=DB02h"WINGO",
+SeeAlso: AX=DB03h"WINGO",AX=DB04h"WINGO",AX=DB05h"WINGO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDE01BX5242" name="2FDE01BX5242"><b>2FDE01BX5242</b></a> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, Ralf Brown's XDI drivers<br />
+<pre>
+INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, Ralf Brown's XDI drivers
+	AX = DE01h
+	BX = 5242h ("RB")
+	CX:DX = program identifier
+		656F7000h ("eop",0) for DVeop
+Return: AX = 5242h ("RB") if installed
+	    ES:BX -&gt; data or entry point (see #03100)
+	    CX = version number (CH = major, CL = minor)
+
+(Table 03100)
+Call DVeop entry point with:
+	ES:DI -&gt; callback address or 0000h:0000h to remove callback
+Return: AX = status
+	    0000h failed (callback table full or attempted to remove non-
+		  existent callback)
+	    0001h successful
+		ES:DI -&gt; chaining address
+	BX,CX,DX destroyed
+Notes:	the callback function is called with a simulated interrupt when the
+	  DESQview window containing it is closed; it should perform all
+	  necessary cleanup and then perform a FAR jump to the chaining address
+	  or an IRET if the chaining address is 0000h:0000h
+	if the program wishes to remove itself before the window is closed, it
+	  should call the DVeop entry point with the previously returned
+	  chaining address and ignore the returned chaining address.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDE01BX7474" name="2FDE01BX7474"><b>2FDE01BX7474</b></a> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVTXDI.COM<br />
+<pre>
+INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVTXDI.COM
+	AX = DE01h
+	BX = 7474h
+	CL = function
+	    00h installation check
+		Return: AL = FFh
+	    01h get process handle
+		DX = keys on Open Window menu (DL = first, DH = second)
+		Return: AX = process handle or 0000h if not running
+	    02h (v1.3+) set TMAN handle
+		DX = TMAN process handle
+	    03h (v1.3+) set open keys to ignore on next CL=01h call
+		DX = keys on Open Window menu (DL = first, DH = second)
+Return: BX = 4F4Bh ("OK")
+	DL destroyed
+Note:	DVTXDI is distributed as part of the shareware products DVTree (DOS
+	 shell/DESQview process manager) and DVTMAN by Mike Weaver
+Index:	installation check;DVTXDI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDE01BX7575" name="2FDE01BX7575"><b>2FDE01BX7575</b></a> - INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVSIXDI.COM<br />
+<pre>
+INT 2F - DESQview v2.26+ XDI - CUSTOM SUBFUNCTION, DVSIXDI.COM
+	AX = DE01h
+	BX = 7575h
+	CX = function
+	    0000h installation check
+		Return: AX = 00FFh if installed
+	    0001h turn on notification (currently unused)
+		Return: AX = 0001h
+	    0002h turn off notification (currently unused)
+		Return: AX = 0001h
+	    0003h get process information
+		Return: AX = status
+			    0000h failed
+			    0001h successful
+				BX = last instantaneous time slice
+				    in 1/100s (v1.10)
+				    in 1/18s (v1.11+)
+				CX = number of processes
+				DX = number of "(starting)" records (v2.00+)
+				SI = number of records in process info array
+				      (v2.00+) (always 15 for v1.x)
+				ES:DI -&gt; process info array (see #03101,#03102)
+	    0004h get version
+		Return: AH = major version
+			AL = minor version
+	    0005h (v1.10+) get time since DESQview started
+		Return: DX:AX = 1/100s since DV start (v1.10)
+			DX:AX = 1/18s since DV start (v1.11+)
+	    0006h (v1.10+) get number of task switches
+		Return: DX:AX = total task switches
+			CX = task switches in last instantaneous interval
+Notes:	DVSIXDI is part of the DVSI (DESQview System Information) package by
+	  Daniel J. Bodoh
+	for v1.00, function 0003h allocates common memory, which the caller
+	  must deallocate after reading the process information; only the
+	  currently used records are placed in the buffer
+	for v1.10+, function 0003h merely returns a pointer to the internal
+	  array of process information; the caller should make a copy of the
+	  array while inside a critical section (see INT 15/AX=101Bh).	Only
+	  those records with bit 7 of the first byte set are valid.
+Index:	installation check;DVSIXDI
+
+Format of DVSIXDI v1.00 information for one process:
+Offset	Size	Description	(Table 03101)
+ 00h	BYTE	flags
+		bit 7: process slot is valid
+ 01h	WORD	offset into DESQVIEW.DVO of program's record if started from
+		  Open Windows menu, else undefined
+ 03h	WORD	Switch Windows window number
+ 05h	WORD	segment of process handle
+ 07h	WORD	number of tasks owned by process
+ 09h	WORD	mapping context of process (see #00416 at INT 15/AX=1016h)
+ 0Bh	DWORD	hook for other programs
+
+Format of DVSIXDI v1.10-v2.00 information for one process:
+Offset	Size	Description	(Table 03102)
+ 00h	BYTE	process flags (see #03103)
+ 01h	WORD	Open Window keys
+ 03h	WORD	Switch Windows number
+ 05h	WORD	segment of process handle
+ 07h	WORD	number of tasks for process
+ 09h	WORD	process mapping context
+ 0Bh	DWORD	time process started (relative to start of DESQview)
+ 0Fh	DWORD	time process last got CPU (relative to start of DESQview)
+ 13h	DWORD	time process last gave up CPU (relative to start of DESQview)
+ 17h	DWORD	total CPU time since process started
+ 1Bh	DWORD	CPU time at start of current instantaneous interval
+ 1Fh	DWORD	CPU time in current instantaneous interval
+ 23h	DWORD	hook for other programs
+Note:	all times are in 1/100s for v1.10, in 1/18s for v1.11+
+
+Bitfields for DVSIXDI process flags:
+Bit(s)	Description	(Table 03103)
+ 7	valid record
+ 6	(v2.00+) record is allocated; if bit 7 clear, process is "(starting)"
+	  and only offsets 01h and 09h are valid
+ 5	(v2.00+) this app currently owns the CPU
+ 4	reserved (0)
+ 3	DESQview system task
+ 2	reserved (0)
+ 1	task has keyboard (currently unused)
+ 0	task swapped out (currently unused)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE000" name="2FE000"><b>2FE000</b></a> - INT 2F - SETDRVER.COM v2.10+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - INSTALLATION CHECK
+	AX = E000h
+Return: AX = 4A52h ("JR") if present
+Program: SETDRVER is a public domain TSR by Jacob Rieper which sets the
+	  apparent DOS version analogously to MS-DOS SETVER
+Notes:	this installation check differs from the usual one of returning AL=FFh
+	the SETDRVER API is fully emulated by Matthias Paul's FREEVER
+SeeAlso: AX=E000h/DX=4D50h,AX=E001h,INT 21/AH=52h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE000DX4D50" name="2FE000DX4D50"><b>2FE000DX4D50</b></a> - INT 2F - FREEVER v1.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - FREEVER v1.0+ - INSTALLATION CHECK
+	AX = E000h
+	DX = 4D50h ('MP')
+Return: AL = FFh if installed
+	    AH = AMIS INT 2Dh multiplex ID
+	    CX = FREEVER version (CH=major, CL=minor)
+	    DX:DI -&gt; AMIS-compliant signature (see #02569)
+		(vendor ID is "M. Paul ", program name is "FREEVER ")
+Program: FREEVER is an AMIS-conformant freeware DOS version-faking TSR similar
+	  to SETVER for any DOS-compatible OS, written by Matthias Paul
+Note:	FREEVER emulates INT 21/AH=30h, INT 21/AX=3306h, INT 21/AX=4412h,
+	  INT 21/AX=4452h, and SETDRVER's API on INT 2F/AX=E00xh, as well as
+	  providing an AMIS API on INT 2Dh
+SeeAlso: AX=E000h"SETDRVER",INT 21/AH=30h,INT 21/AX=3306h,INT 21/AX=4452h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE001" name="2FE001"><b>2FE001</b></a> - INT 2F - SETDRVER.COM v2.10+ - GET SETDRVER VERSION<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - GET SETDRVER VERSION
+	AX = E001h
+Return: AH = major version
+	AL = minor version
+Note:	the SETDRVER API is fully emulated by Matthias Paul's FREEVER, which
+	  returns version 2.10 for this call; use AX=E000h/DX=45D0h to get
+	  FREEVER's version number
+SeeAlso: AX=E000h,AX=E000h/DX=45D0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE002" name="2FE002"><b>2FE002</b></a> - INT 2F - SETDRVER.COM v2.10+ - GET ORIGINAL DOS VERSION INFO<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - GET ORIGINAL DOS VERSION INFO
+	AX = E002h
+Return: AL = FFh if successful
+	    BH = major DOS version
+	    BL = minor DOS version
+	    CH = DOS version flag
+	    CL = OEM number
+	    DH = major DR DOS version number (FFh if unknown)
+	    DL = minor DR DOS version number (FFh if unknown)
+SeeAlso: AX=E003h,AX=E007h,INT 21/AH=30h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE003" name="2FE003"><b>2FE003</b></a> - INT 2F - SETDRVER.COM v2.10+ - RESET INTERNAL VARIABLES<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - RESET INTERNAL VARIABLES
+	AX = E003h
+	BH = new major DOS version
+	BL = new minor DOS version
+	CH = new DOS version flag
+	CL = new DOS revision number
+	DH = new OEM number
+SeeAlso: AX=E002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE004" name="2FE004"><b>2FE004</b></a> - INT 2F - SETDRVER.COM v2.10+ - ENABLE TSR<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - ENABLE TSR
+	AX = E004h
+Return: AL = FFh if successful
+SeeAlso: AX=E000h,AX=E005h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE005" name="2FE005"><b>2FE005</b></a> - INT 2F - SETDRVER.COM v2.10+ - DISABLE TSR<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - DISABLE TSR
+	AX = E005h
+Return: AL = FFh if successful
+SeeAlso: AX=E000h,AX=E004h,AX=E006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE006" name="2FE006"><b>2FE006</b></a> - INT 2F - SETDRVER.COM v2.10+ - GET TSR STATUS<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - GET TSR STATUS
+	AX = E006h
+Return: AL = FFh if successful
+	    BL = status
+		01h resident and active
+		02h resident and inactive
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE007" name="2FE007"><b>2FE007</b></a> - INT 2F - SETDRVER.COM v2.10+ - GET TaskMAX STATUS AT INSTALLATION<br />
+<pre>
+INT 2F - SETDRVER.COM v2.10+ - GET TaskMAX STATUS AT INSTALLATION
+	AX = E007h
+Return: AL = FFh if successful
+	    BL = status
+		00h if TaskMAX not loaded before SETDRVER
+		FFh if TaskMAX was loaded before SETDRVER
+SeeAlso: AX=E003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE0" name="2FE0"><b>2FE0</b></a> - INT 2F - SETDRVER.COM - RESERVED FOR FUTURE USE<br />
+<pre>
+INT 2F - SETDRVER.COM - RESERVED FOR FUTURE USE
+	AH = E0h
+	AL = 08h-10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE600CL30" name="2FE600CL30"><b>2FE600CL30</b></a> - INT 2F - Virtual 486 - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Virtual 486 - INSTALLATION CHECK
+	AX = E600h
+	CL = 30h
+	BX = C0DEh
+Return: BX = DEC0h if installed
+Program: Virtual 486 is a 80486 CPU emulator for an 80386 by Solar Designer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE00_0" name="2FEE00_0"><b>2FEE00</b></a> - INT 2F - XVIEW - INSTALLATION CHECK<br />
+<pre>
+INT 2F - XVIEW - INSTALLATION CHECK
+	AX = EE00h
+Return: AX = 00FFh if installed
+Program: XVIEW is a hypertext viewer by Flambeaux Software, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE01" name="2FEE01"><b>2FEE01</b></a> - INT 2F - XVIEW - POP UP GIVING TOPIC SEARCH KEYWORD<br />
+<pre>
+INT 2F - XVIEW - POP UP GIVING TOPIC SEARCH KEYWORD
+	AX = EE01h
+	DS:DX -&gt; ASCIZ string containing case-insensitive keyword to look up
+Return: AX = status (see #03111)
+Note:	the specified keyword should be a hyperlink in the _IndexPage of some
+	  database; the current database is searched first
+SeeAlso: AX=EE00h"XVIEW",AX=EE02h,AX=EE03h,AX=EE04h,AX=EE06h
+
+(Table 03111)
+Values for XVIEW function status:
+ 0000h	successful
+ 00F1h	unknown subfunction
+ 00F2h	unable to pop up
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE02" name="2FEE02"><b>2FEE02</b></a> - INT 2F - XVIEW - POP UP GIVING A PAGE NUMBER<br />
+<pre>
+INT 2F - XVIEW - POP UP GIVING A PAGE NUMBER
+	AX = EE02h
+	DX = physical page number or anchor page number (see #03112)
+Return: AX = status (see #03111)
+Note:	physical page numbers are assigned by the hypertext compiler, and
+	  will change if a page is inserted in the middle
+SeeAlso: AX=EE00h"XVIEW",AX=EE01h,AX=EE05h,AX=EE06h
+
+(Table 03112)
+Values for XVIEW anchor page number:
+ FFEAh	_Credits
+ FFECh	_SearchTopics
+ FFEDh	_SearchText
+ FFF0h	_ManualList
+ FFF5h	_HelpOnHelp
+ FFF8h	_HomePage
+ FFF9h	_IndexPage
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE03" name="2FEE03"><b>2FEE03</b></a> - INT 2F - XVIEW - POP UP GIVING FILENAME AND SEARCH TOPIC OR PAGE NUMBER<br />
+<pre>
+INT 2F - XVIEW - POP UP GIVING FILENAME AND SEARCH TOPIC OR PAGE NUMBER
+	AX = EE03h
+	DS:DX -&gt; data packet (see #03113)
+Return: AX = status (see #03111)
+SeeAlso: AX=EE00h"XVIEW",AX=EE01h,AX=EE02h,AX=EE06h
+
+Format of XVIEW data packet:
+Offset	Size	Description	(Table 03113)
+ 00h	DWORD	-&gt; ASCIZ database filespec (0000h:0000h for current database)
+ 04h	DWORD	-&gt; ASCIZ text to look up or 0000h:0000h
+ 08h	WORD	page number (0000h if keyword used)
+ 0Ah  6 BYTEs	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE04" name="2FEE04"><b>2FEE04</b></a> - INT 2F - XVIEW - POP UP AND READ SCREEN FOR SEARCH TOPIC KEYWORD<br />
+<pre>
+INT 2F - XVIEW - POP UP AND READ SCREEN FOR SEARCH TOPIC KEYWORD
+	AX = EE04h
+Return: AX = status (see #03111)
+Note:	equivalent to the action taken when the user presses the Alt-L hotkey
+SeeAlso: AX=EE00h"XVIEW",AX=EE01h,AX=EE03h,AX=EE06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE05" name="2FEE05"><b>2FEE05</b></a> - INT 2F - XVIEW - POP UP TO MOST-RECENTLY VIEWED PAGE<br />
+<pre>
+INT 2F - XVIEW - POP UP TO MOST-RECENTLY VIEWED PAGE
+	AX = EE05h
+Return: AX = status (see #03111)
+Note:	equivalent to the action taken when the user presses the Alt-H hotkey
+SeeAlso: AX=EE00h"XVIEW",AX=EE02h,AX=EE06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE06" name="2FEE06"><b>2FEE06</b></a> - INT 2F - XVIEW - WAIT FOR POP-DOWN AND GET EXIT CODE<br />
+<pre>
+INT 2F - XVIEW - WAIT FOR POP-DOWN AND GET EXIT CODE
+	AX = EE06h
+Return: AX = status (see also AX=EE01h)
+	    0001h specified filename is not an xText database
+	    0002h no databases found
+	    0003h bad data in file
+	    0004h memory shortage
+	    0005h unable to open the requested file
+	    0007h invalid page number for file
+Note:	although this call is not required, the exit code can alert the
+	  caller to problems; if the call is not made, the program should
+	  enforce a delay of about 1/2 second to allow the viewer to pop up,
+	  and should not get keyboard input or attempt disk accesses during
+	  the delay
+SeeAlso: AX=EE00h"XVIEW",AX=EE01h,AX=EE02h,AX=EE03h,AX=EE04h,AX=EE05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB00_0" name="2FFB00_0"><b>2FFB00</b></a> - INT 2F U - Jot-It! v1.50 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - Jot-It! v1.50 - INSTALLATION CHECK
+	AX = FB00h
+Return: AX = FFFFh if installed
+	    BX = version (BCD, BH=major, BL=minor)
+SeeAlso: AX=FB03h"Jot-It",AX=FB01h"Jot-It"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB01_0" name="2FFB01_0"><b>2FFB01</b></a> - INT 2F U - Jot-It! v1.50 - GET USER NAME<br />
+<pre>
+INT 2F U - Jot-It! v1.50 - GET USER NAME
+	AX = FB01h
+Return: DX:BX -&gt; ASCIZ user name
+SeeAlso: AX=FB02h"Jot-It"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB02_0" name="2FFB02_0"><b>2FFB02</b></a> - INT 2F U - Jot-It! v1.50 - GET MESSAGE DIRECTORY<br />
+<pre>
+INT 2F U - Jot-It! v1.50 - GET MESSAGE DIRECTORY
+	AX = FB02h
+Return: DX:BX -&gt; ASCIZ name of directory in which messages are stored
+SeeAlso: AX=FB01h"Jot-It"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB03_0" name="2FFB03_0"><b>2FFB03</b></a> - INT 2F U - Jot-It! v1.50 - UNINSTALL<br />
+<pre>
+INT 2F U - Jot-It! v1.50 - UNINSTALL
+	AX = FB03h
+Return: resident code removed from memory
+Note:	CAUTION: NO checks are performed to ensure that the interrupt vectors
+	  being unhooked (08h,09h,28h,2Fh) actually point at the Jot-It! code
+SeeAlso: AX=FB00h"Jot-It"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE00DI4E55" name="2FFE00DI4E55"><b>2FFE00DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - INSTALLATION CHECK/STATUS REPORT<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ TSRs - INSTALLATION CHECK/STATUS REPORT
+	AX = FE00h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply
+	    lowercase version of SI on entry (i.e. SI ORed with 2020h)
+	    execpt SMARTCAN v8.0, which returns SI=6673h ('fs')
+	AH = status
+	    00h installed but disabled internally
+	    01h installed and enabled
+	AL = installed product
+	    00h NCACHE-x or DISKREET
+	    01h SPEEDRV / FILESAVE / EP / DISKMON v6+ installed
+	    02h NCACHE2 / SMARTCAN
+	    45h DISKMON v5 installed
+	BX = length of *.INI file (DISKMON and FILESAVE/EP/SMARTCAN only)
+	      (see #03141,#03142)
+	CX = segment of resident portion
+	    FFFFh if completely loaded high (NCACHE)
+	DI may be destroyed
+---FILESAVE/EP---
+	DL = ??? (apparently always 00h)
+---DISKMON---
+	DX = ??? (apparently always 1AE6h [v5] / 1B86h [v6] / 1C26h [v7])
+Notes:	the value returned in CX is incorrect for NCACHE 6.00
+	all Norton Caches install as SMARTAAR drivers like SMARTDRV v3
+	NCACHE2 and SPEEDRV both support the SMARTDRV v4+ installation check
+	to detect Diskreet NDisk drives use CDS/DPB (see INT 21/AH=52h)
+SeeAlso: AX=4A10h/BX=0000h,AX=FE01h,AX=FE02h,AX=FE03h,AX=FE04h,AX=FE05h
+SeeAlso: INT 21/AX=4402h"SMARTDRV"
+
+(Table 03140)
+Values for Norton Utilities TSR identifier:
+ 4346h	("CF") NCACHE-F (v5) / NCACHE (v6) / NCACHE2 (v7+) / SPEEDRV
+ 4353h	("CS") NCACHE-S (v5 only)
+ 4443h	("DC") DISKREET
+ 444Dh	("DM") DISKMON
+ 4653h	("FS") FILESAVE (v5) / EP (v6) / SMARTCAN (v7+)
+
+Format of DISKMON.INI file:
+Offset	Size	Description	(Table 03141)
+-6Ch 108 BYTEs	(in memory copy only)
+		list of filenames which are always protected:
+		  IBMBIO.COM/IBMDOS.COM, IO.SYS/MSDOS.SYS, TBIOS.SYS/TDOS.SYS,
+		  MIO.SYS/IO.BIN, COMMAND.COM
+ 00h	BYTE	??? always 01h
+ 01h	BYTE	disk light (00h off, 01h on)
+ 02h	BYTE	disk protection (00h off, 01h on)
+ 03h	BYTE	protected areas
+		01h system area
+		02h files
+		03h system area and files
+		04h entire disk
+ 04h	BYTE	floppy access (00h not allowed, 01h allowed)
+ 05h 27 BYTEs	filename extension list (9 entries)
+		(lowercase, blank padded or = 000000h)
+ 20h 240 BYTEs	filename list (20 entries)
+		(lowercase, name and extension blank padded, with '.')
+Note:	CX:0508h -&gt; copy in installed TSR (v5)
+	CX:052Fh -&gt; copy in installed TSR (v6)
+	CX:04E0h -&gt; copy in installed TSR (v7-v8)
+
+Format of FILESAVE.INI / EP.INI / SMARTCAN.INI file:
+Offset	Size	Description	(Table 03142)
+ 00h 26 BITs	drive list (bit set: file protection on, cleared: off):
+ 00h	BYTE	drives	A: - H:
+ 01h	BYTE	drives	I: - P:
+ 02h	BYTE	drives	Q: - X:
+ 03h	BYTE	drives	Y: - Z:
+ 04h	BYTE	which files to protect
+		00h all files
+		01h all files with extension in list
+		02h all files except those with extension in list
+ 05h 27 BYTEs	filename extension list (9 entries, uppercase, ASCIZ)
+ 20h	BYTE	include files with archive bit clear (00h no, 01h yes)
+ 21h	WORD	number of days after which files are purged (0 = never)
+ 23h	WORD	max kilobytes of erased file space to hold (0 = all)
+Note:	CX:03D2h -&gt; copy in installed TSR (v5)
+	CX:03F5h -&gt; copy in installed TSR (v6)
+	CX:0434h -&gt; copy in installed TSR (v7-v8)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE00DX474F" name="2FFE00DX474F"><b>2FFE00DX474F</b></a> - INT 2F - GO! v3.22+ - API<br />
+<pre>
+INT 2F - GO! v3.22+ - API
+	AX = FE00h
+	DX = 474Fh ('GO')
+	SI = function number
+	    0063h (BCD for '?') installation check
+	    0078h (BCD for 'N') non-registered search (two levels only)
+	    0082h (BCD for 'R') reserved for registered version
+	    0083h (BCD for 'S') reserved for registered version
+	    0085h (BCD for 'U') uninstall
+	BX:CX -&gt; buffer (for search functions)
+		buffer filled with search spec, i.e. "APL" to get first
+		  directory containing the substring APL, ":\APL" to find
+		  the first top-level directory beginning with the letters
+		  APL
+Return: BX:CX buffer filled with result (search functions only)
+		result is counted ASCIZ directory name, empty string if
+		no matches (i.e. first byte is length of name, followed by
+		name)
+Program: GO! is a shareware directory locator TSR by Steve Ryckman
+Note:	the application-supplied buffer for the requests and results which
+	  BX:CX points at must lie outside the conventional (low-640K)
+	  memory, since the TSR swaps memory on pop-up; a common location is
+	  the last 96 bytes of the video memory or a UMB
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE01DI4E55" name="2FFE01DI4E55"><b>2FFE01DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - ENABLE<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ TSRs - ENABLE
+	AX = FE01h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI OR 2020h)
+	AX = status
+	    0002h successful (DISKMON, FILESAVE, EP)
+	    FE00h successful (NCACHE-x, DISKREET)
+Notes:	if the enable/disable calls are used on DISKMON or NCACHE-x, the status
+	  report generated by the programs still indicates the previous state,
+	  and DISKMON.INI is not updated
+	apparently has no effect on DISKREET
+SeeAlso: AX=FE00h,AX=FE02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE02DI4E55" name="2FFE02DI4E55"><b>2FFE02DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - DISABLE<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ TSRs - DISABLE
+	AX = FE02h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI OR 2020h)
+	AX = status
+	    0004h successful (DISKMON, FILESAVE)
+	    FE00h successful (NCACHE-x, DISKREET)
+Notes:	(see also AX=FE01h)
+	this function appears to be unsafe, as the cache buffers are not
+	  flushed
+SeeAlso: AX=FE00h,AX=FE01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE03DI4E55" name="2FFE03DI4E55"><b>2FFE03DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ TSRs - FLUSH BUFFERS<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ TSRs - FLUSH BUFFERS
+	AX = FE03h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI OR 2020h)
+	AX = status
+	    0006h successful???
+Notes:	only supported by DISKMON, FILESAVE, and NCACHE-x
+	useful for flushing NCACHE before rebooting
+SeeAlso: AX=FE00h,AX=FE10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE04DI4E55" name="2FFE04DI4E55"><b>2FFE04DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???
+	AX = FE04h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI or 2020h)
+	AX = status
+	    0008h successful???
+SeeAlso: AX=FE00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE05DI4E55" name="2FFE05DI4E55"><b>2FFE05DI4E55</b></a> - INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???<br />
+<pre>
+INT 2F U - NORTON UTILITIES 5.0+ DISKMON, FILESAVE / EP - internal - ???
+	AX = FE05h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI or 2020h)
+	AX = status
+	    000Ah successful???
+Note:	reportedly dangerous
+SeeAlso: AX=FE00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFE10DI4E55" name="2FFE10DI4E55"><b>2FFE10DI4E55</b></a> - INT 2F U - NORTON UTILITIES 6.0 NCACHE - REBOOT<br />
+<pre>
+INT 2F U - NORTON UTILITIES 6.0 NCACHE - REBOOT
+	AX = FE10h
+	DI = 4E55h ("NU")
+	SI = TSR identifier (see #03140)
+Return: SI = TSR reply (lowercase version of entry SI, i.e. SI or 2020h)
+	AX = status
+Note:	probably used to flush NCACHE buffers and reboot when Ctrl-Alt-Del is
+	  detected
+SeeAlso: AX=FE03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B5254DL04" name="5B5254DL04"><b>5B5254DL04</b></a> - INT 5B U - SitBack v3.02R - GET ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET ???
+	AX = 5254h
+	DL = 04h
+Return: ES:BX -&gt; ??? in resident portion
+Program: SitBack is a background file backup utility by SitBack Technologies,
+	  Inc. which initiates backups whenever the system is idle
+SeeAlso: AX=8485h/DL=71h,AX=8485h/DL=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL70" name="5B8485DL70"><b>5B8485DL70</b></a> - INT 5B U - SitBack v3.02R - INSTALLATION CHECK<br />
+<pre>
+INT 5B U - SitBack v3.02R - INSTALLATION CHECK
+	AX = 8485h
+	DL = 70h
+Return: CX = 8485h if installed
+	    DX:AX -&gt; ??? (configuration data?)
+Program: SitBack is a background file backup utility by SitBack Technologies,
+	  Inc. which initiates backups whenever the system is idle
+SeeAlso: AX=5254h/DL=04h,AX=8485h/DL=78h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL71" name="5B8485DL71"><b>5B8485DL71</b></a> - INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS<br />
+<pre>
+INT 5B U - SitBack v3.02R - SET ??? FLAG AND GET ??? ADDRESS
+	AX = 8485h
+	DL = 71h
+Return: ES:BX -&gt; FAR entry point to ???
+Note:	the flag which is modified is located at the address returned by
+	   AX=5254h/DL=04h
+SeeAlso: AX=8485h/DL=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL72" name="5B8485DL72"><b>5B8485DL72</b></a> - INT 5B U - SitBack v3.02R - CLEAR ??? FLAG<br />
+<pre>
+INT 5B U - SitBack v3.02R - CLEAR ??? FLAG
+	AX = 8485h
+	DL = 72h
+Note:	the flag which is modified is located at the address returned by
+	   AX=5254h/DL=04h
+SeeAlso: AX=8485h/DL=71h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL73" name="5B8485DL73"><b>5B8485DL73</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 73h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL74" name="5B8485DL74"><b>5B8485DL74</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 74h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL75" name="5B8485DL75"><b>5B8485DL75</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 75h
+	CX = ???
+Return: ???
+SeeAlso: AX=8485h/DL=76h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL76" name="5B8485DL76"><b>5B8485DL76</b></a> - INT 5B U - SitBack v3.02R - ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - ???
+	AX = 8485h
+	DL = 76h
+	CX = ???
+Return: ???
+Note:	conditionally calls the code for AX=8485h/DL=75h
+SeeAlso: AX=8485h/DL=75h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL77" name="5B8485DL77"><b>5B8485DL77</b></a> - INT 5B U - SitBack v3.02R - SET ??? FLAG<br />
+<pre>
+INT 5B U - SitBack v3.02R - SET ??? FLAG
+	AX = 8485h
+	DL = 77h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL78" name="5B8485DL78"><b>5B8485DL78</b></a> - INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET RESIDENT DATA SEGMENT
+	AX = 8485h
+	DL = 78h
+Return: CX = 5342h if supported
+	    ES = AX = segment of TSR data
+SeeAlso: AX=8485h/DL=70h,AX=8485h/DL=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL79" name="5B8485DL79"><b>5B8485DL79</b></a> - INT 5B U - SitBack v3.02R - GET DTA<br />
+<pre>
+INT 5B U - SitBack v3.02R - GET DTA
+	AX = 8485h
+	DL = 79h
+Return: CX = 5342h if supported
+	    ES:BX -&gt; DTA set by last INT 21/AH=1Ah
+Note:	this function is provided by SBOS.EXE rather than SB.EXE
+SeeAlso: INT 21/AH=1Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5B8485DL7A" name="5B8485DL7A"><b>5B8485DL7A</b></a> - INT 5B U - SitBack v3.02R - TOGGLE ???<br />
+<pre>
+INT 5B U - SitBack v3.02R - TOGGLE ???
+	AX = 8485h
+	DL = 7Ah
+Return: CX = 5342h if supported
+	    AL = new value of ??? (00h or 01h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#61_7" name="61_7"><b>61</b></a> - INT 61 - PC-Magazin - PAGE, SWAPx<br />
+<pre>
+INT 61 - PC-Magazin - PAGE, SWAPx
+	details not yet available
+Program: PAGE and SWAPx are utilities from PC-Magazin, the German edition of
+	  PC Magazine, issue 47/85, page 31
+SeeAlso: INT 66"INCA"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_4" name="65_4"><b>65</b></a> - INT 65 - SD.COM v6.2<br />
+<pre>
+INT 65 - SD.COM v6.2
+Desc:	The unregistered version of SD62.COM uses the low byte of this vector
+	  to count the number of invocations, displaying a registration
+	  reminder each time after the 20th use.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_8" name="66_8"><b>66</b></a> - INT 66 - PC-Magazin - INCA<br />
+<pre>
+INT 66 - PC-Magazin - INCA
+	details not yet availble
+Program: INCA is a utility from PC-Magazin (the German edition of PC Magazine)
+	  issue 51-52/85.
+SeeAlso: INT 61"SWAPx"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66AA02" name="66AA02"><b>66AA02</b></a> - INT 66 - HelpTSR v2.10 - INSTALLATION CHECK<br />
+<pre>
+INT 66 - HelpTSR v2.10 - INSTALLATION CHECK
+	AX = AA02h
+Return: ES:DI -&gt; 7 byte signature "HelpTSR" if resident
+Program: HelpTSR is a resident viewer by David Jurgens for HelpPC
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#67_3" name="67_3"><b>67</b></a> - INT 67 - CUCKOO.COM - INSTALLATION CHECK<br />
+<pre>
+INT 67 - CUCKOO.COM - INSTALLATION CHECK
+Program: CUCKOO is a resident on-screen clock with optional hourly chime or
+	  cuckoo by an unknown author with revisions by Thomas A. Lundin
+Note:	this is not a vector; when loaded for the first time, CUCKOO.COM uses
+	  the last unused (0000h:0000h) vector in the range 60h-67h to store
+	  the signature value 434Ch:4F4Bh ('CLOK')
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6A" name="6A"><b>6A</b></a> - INT 6A - OPTHELP.COM<br />
+<pre>
+INT 6A - OPTHELP.COM
+Program: OPTHELP is an optionally-resident help system for SLR Systems's OPTASM
+	  assembler
+Range:	INT 60h to INT 7Fh, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D_2" name="7D_2"><b>7D</b></a> - INT 7D - HyperPAD v2.2 - API ACCESS<br />
+<pre>
+INT 7D - HyperPAD v2.2 - API ACCESS
+Note:	this vector is hooked but immediately passed on (without checking
+	  whether the previous handler was 0000h:0000h).  The sole purpose of
+	  this vector is to provide the address of the data area described
+	  below (see #03862).
+
+Format of HyperPAD data area:
+Offset	Size	Description	(Table 03862)
+ -16h	DWORD	pointer to ??? FAR function
+ -12h	DWORD	pointer to callback setting function
+		[C calling conventions, (*callback)(int (_loadds far *)()) ]
+ -0Eh 6 BYTEs	signature "BRC001"
+ -08h	DWORD	pointer to previous INT 7D handler
+ -04h	DWORD	pointer to ??? data
+ 00h		HyperPAD INT 7D handler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F_6" name="7F_6"><b>7F</b></a> - INT 7F - SBS WinRun 1.00 - TRANSMITTER ENTRY POINT<br />
+<pre>
+INT 7F - SBS WinRun 1.00 - TRANSMITTER ENTRY POINT
+	DS:SI -&gt; WinRun control block (WCB) (see #03870)
+Return: WinRun receiver status returned in WCB
+Program: WinRun is a DOS/Windows utility written by Sven B. Schreiber to start
+	  Windows applications from a virtual DOS machine under Windows
+Note:	The WinRun transmitter (WINRUN-T.COM) and receiver (WINRUN-R.EXE) need
+	  to be up and running
+
+Format of the WinRun control block (WCB):
+Offset	Size	Description	(Table 03870)
+ 00h	DWORD	pointer to ASCIZ command string
+ 04h	WORD	(ret) WinRun receiver status
+		0000h-001Fh WinExec() error
+		0020h-FFFEh WinExec() instance handle
+		FFFFh	    Windows not running or WinRun receiver not
+				  installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#96_0" name="96_0"><b>96</b></a> - INT 96 U - KILL.COM, QKILL.COM - POP UP<br />
+<pre>
+INT 96 U - KILL.COM, QKILL.COM - POP UP
+Program: KILL.COM is a TSR utility that allows you to terminate programs
+	 by calling INT 21/AH=4Ch or reboot the computer (author unknown);
+	 QKILL.COM is a modification of KILL.COM by Solar Designer that
+	 supports QEMM's Quick Boot feature
+Notes:	This interrupt is intercepted but not chained by KILL.COM; it is never
+	  called by KILL.COM itself. It points into the middle of KILL.COM's
+	  INT 09 handler and assumes specific values have been placed on the
+	  stack (thus it can't be called as an interrupt).
+	To invoke KILL, use the following code:
+		pushf
+		push cs
+		push offset $+0Dh
+		push ax
+		push es
+		push 0
+		pop  es
+		jmp  dword ptr es:[96h*4]
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A4_0" name="A4_0"><b>A4</b></a> - INT A4 U - Right Hand Man - API<br />
+<pre>
+INT A4 U - Right Hand Man - API
+	AH = function number (v3.3 supports functions 00h-52h)
+Return: CF set on error
+	CF clear if successful
+Program: Right Hand Man is a TSR desk-top utility originally by Red E Products
+	  which has evolved into Futurus Team
+Note:	this interrupt is only hooked while popped up
+SeeAlso: INT 2F/AX=A4E0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B370" name="B370"><b>B370</b></a> - INT B3 - ZIPKEY - GET VERSION<br />
+<pre>
+INT B3 - ZIPKEY - GET VERSION
+	AH = 70h
+Return: AH = major version
+	AL = minor version
+	CL = number of states and territories in current database
+	DH = year of current database - 1900
+	DL = month of current database's file date
+Program: ZIPKEY is a resident ZIPCODE database by Eric Isaacson
+Note:	if installed, the string "ZIPKEY" is present at offset 75h in the
+	  interrupt handler's segment, and the byte at 7Bh contains the API
+	  version number (00h for v1.x, 01h for v2.0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B371" name="B371"><b>B371</b></a> - INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE
+	AH = 71h
+	BX = abbreviation, in either case (first letter in BL)
+Return: CF set on error
+	    AL = FFh
+	CF clear if successful
+	    AL = ZIPKEY state code
+SeeAlso: AH=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B372" name="B372"><b>B372</b></a> - INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION
+	AH = 72h
+	BL = ZIPKEY state code
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    AX = abbreviation, in upper case
+SeeAlso: AH=71h,AH=73h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B373" name="B373"><b>B373</b></a> - INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME
+	AH = 73h
+	BL = ZIPKEY state code
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B374" name="B374"><b>B374</b></a> - INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS
+	AH = 74h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    ES:DI points one byte beyond end of digit string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B375" name="B375"><b>B375</b></a> - INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE
+	AH = 75h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+Return: CF set on error (zipcode not found)
+	    AL = suggested state code, FFh if none
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    BX = area code (v2.0+)
+SeeAlso: AH=76h,AH=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B376" name="B376"><b>B376</b></a> - INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE
+	AH = 76h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AL = suggested state code, FFh if none
+	    ES:DI buffer filled with suggested city name
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    BX = area code (v2.0+)
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=75h,AH=78h,AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B377" name="B377"><b>B377</b></a> - INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE
+	AH = 77h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	BX = 16-bit BIOS keycode for a defined ZIPKEY alternate exit key
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    zipcode specification as defined by the BX keystroke is placed in
+	      keyboard buffer, as if the user had popped up ZIPKEY and exited
+	      by pressing the key specified by BX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B378" name="B378"><b>B378</b></a> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY
+	AH = 78h
+	BL = ZIPKEY state code
+	DS:SI -&gt; city name, terminated with 0Dh if complete name, 00h if prefix
+Return: BH = number of matching entries (set to 51 if more than 50)
+	DX = zipcode region of first match (0-999)
+	CL = last two digits of first zipcode in the range (0-99)
+	CH = last two digits of last zipcode in the range (0-99)
+	AX destroyed
+SeeAlso: AH=79h,AH=7Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B379" name="B379"><b>B379</b></a> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY
+	AH = 79h
+	BL = ZIPKEY state code of first state to search
+	DS:SI -&gt; city name, terminated with 0Dh if complete name, 00h if prefix
+Return: AL = ZIPKEY state code of first matching state
+	BH = number of matching entries (set to 51 if more than 50)
+	DX = zipcode region of first match (0-999)
+	CL = last two digits of first zipcode in first range (0-99)
+	CH = last two digits of last zipcode in first range (0-99)
+Note:	to find all matching cities, repeat search with BL set to one more than
+	  the returned AL
+SeeAlso: AH=78h,AH=7Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37A" name="B37A"><b>B37A</b></a> - INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP<br />
+<pre>
+INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP
+	AH = 7Ah
+	BL = case number (0 to one less than value returned in BH by lookup)
+Return: AL = ZIPKEY state code
+	DX = zipcode region (0-999)
+	CL = last two digits of first zipcode in the range (0-99)
+	CH = last two digits of last zipcode in the range (0-99)
+SeeAlso: AH=78h,AH=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37B" name="B37B"><b>B37B</b></a> - INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT<br />
+<pre>
+INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT
+	AH = 7Bh
+Return: BL = maximum number of characters for a city name
+	BH = ZIPKEY state code for last city-name search, or FFh if none
+	CX:DX = internal code identifying last city search
+	AX destroyed
+SeeAlso: AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37C" name="B37C"><b>B37C</b></a> - INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT<br />
+<pre>
+INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT
+	AH = 7Ch
+	BL = maximum number of characters for a city name
+	BH = ZIPKEY state code for last city-name search, or FFh if none
+	CX:DX = internal code returned by AH=7Bh
+Return: CF set on error
+	CF clear if successful
+	AX destroyed
+SeeAlso: AH=7Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37D" name="B37D"><b>B37D</b></a> - INT B3 - ZIPKEY - REQUEST POP UP<br />
+<pre>
+INT B3 - ZIPKEY - REQUEST POP UP
+	AH = 7Dh
+	BL = index number to simulate pressing a hotkey
+	    FFh for immediate popup with no playback on return
+Return: CF set on error
+	    AL = error code
+		FDh already busy with another request
+		FEh illegal function
+	CF clear if successful
+	    AX destroyed
+	    window popped up and was closed by the user
+SeeAlso: AH=70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37E" name="B37E"><b>B37E</b></a> - INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION<br />
+<pre>
+INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION
+	AH = 7Eh
+	DX = zipcode region (0-999)
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AL = FFh region does not exist
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=76h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37F" name="B37F"><b>B37F</b></a> - INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS<br />
+<pre>
+INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS
+	AH = 7Fh
+	BL = function
+	    00h turn off hotkeys
+	    01h turn on hotkeys
+	    02h return hotkey status
+	    03h toggle hotkey status
+Return: AL = hotkey status
+	    00h off
+	    01h on
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B380" name="B380"><b>B380</b></a> - INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE<br />
+<pre>
+INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE
+	AH = 80h
+	BX = telephone area code (decimal)
+Return: CF clear if successful
+	    AL = ZIPKEY state code
+	    DX = first ZIP region for state (03E8h if Canada)
+	    CX = number of ZIP regions in state
+	CF set on error
+	    AL = FFh
+	    DX = 03E9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D0_1" name="D0_1"><b>D0</b></a> - INT D0 - [not a vector!] - NJFRERAM SIGNATURE VECTOR<br />
+<pre>
+INT D0 - [not a vector!] - NJFRERAM SIGNATURE VECTOR
+Program: NJFRERAM is a resident free-memory display utility by Mike "Nifty
+	  James" Blaszczak
+Note:	if NJFRERAM is installed, this vector points at the signature "NJ"
+Index:	installation check;NJFRERAM
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_2" name="F1_2"><b>F1</b></a> - INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS<br />
+<pre>
+INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS
+Return: AX:BX -&gt; data area
+Program: AQUEDUCT and PIPELINE are TSRs by James W. Birdsall to connect COM1
+	  and COM2 in software
+Note:	The installation check consists of testing for the following signature
+	  immediately preceding the interrupt handler: "JWBtvv" where 't' is
+	  either "A" for AQUEDUCT or "P" for PIPELINE and "vv" is a two-digit
+	  version number
+Index:	installation check;AQUEDUCT|installation check;PIPELINE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

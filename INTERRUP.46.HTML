@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._46</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 46
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#46"><b>46</b> - INT 46 - SYSTEM DATA - HARD DISK 1 DRIVE PARAMETER TABLE ADDRESS [NOT A VECTOR!]</a><br />
+<a href="#46_0"><b>46</b> - INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen</a><br />
+<a href="#46_1"><b>46</b> - INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER</a><br />
+<a href="#46_2"><b>46</b> - INT 46 - Acorn BBC Master 512 - "OSRDCH" - GET CHARACTER FROM CUR INPUT STREAM</a><br />
+
+<hr />
+
+<a href="#46" name="46"><b>46</b></a> - INT 46 - SYSTEM DATA - HARD DISK 1 DRIVE PARAMETER TABLE ADDRESS [NOT A VECTOR!]<br />
+<pre>
+INT 46 - SYSTEM DATA - HARD DISK 1 DRIVE PARAMETER TABLE ADDRESS [NOT A VECTOR!]
+Note:	not used by some PS/2 models
+SeeAlso: INT 13/AH=09h,INT 41"HARD DISK 0",INT 60"Adaptec",INT C0"AMI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#46_0" name="46_0"><b>46</b></a> - INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen<br />
+<pre>
+INT 46 - Z100 - Master 8259 - Keyboard, Retrace, and Light Pen
+SeeAlso: INT 45"Z100",INT 47"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#46_1" name="46_1"><b>46</b></a> - INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER<br />
+<pre>
+INT 46 - TI Professional PC - IRQ6 - FLOPPY DISK CONTROLLER
+Note:	on the TI Pro, IRQ6 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ7
+SeeAlso: INT 0F"IRQ7",INT 45"TI Professional",INT 47"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#46_2" name="46_2"><b>46</b></a> - INT 46 - Acorn BBC Master 512 - "OSRDCH" - GET CHARACTER FROM CUR INPUT STREAM<br />
+<pre>
+INT 46 - Acorn BBC Master 512 - "OSRDCH" - GET CHARACTER FROM CUR INPUT STREAM
+Return: CF clear if successful
+	    AL = character read
+	CF set on error
+	    AL = error code
+SeeAlso: INT 40"Acorn",INT 43"Acorn",INT 47"Acorn",INT 49"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

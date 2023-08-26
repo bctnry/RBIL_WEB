@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._FC</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT FC
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#FC"><b>FC</b> - INT FC - reserved for user interrupt</a><br />
+<a href="#FC_0"><b>FC</b> - INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS</a><br />
+<a href="#FC_1"><b>FC</b> - INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT</a><br />
+
+<hr />
+
+<a href="#FC" name="FC"><b>FC</b></a> - INT FC - reserved for user interrupt<br />
+<pre>
+INT FC - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FC_0" name="FC_0"><b>FC</b></a> - INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS<br />
+<pre>
+INT FC - DoubleDOS - GET CURRENT SCREEN BUFFER ADDRESS
+Return: ES = segment of display buffer
+Desc:	determine the address of the virtual screen to which the program
+	  should write instead of the actual video memory, so that the
+	  multitasked programs do not interfere with each other's output
+Note:	the display buffer may be moved if multitasking is enabled
+SeeAlso: INT 21/AH=ECh"DoubleDOS",INT FB"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FC_1" name="FC_1"><b>FC</b></a> - INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT<br />
+<pre>
+INT FC - Sanyo MBC-550/555 - IRQ4 - PRINTER READY INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0C"IRQ4",INT FB"Sanyo",INT FD"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

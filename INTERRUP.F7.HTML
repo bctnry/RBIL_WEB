@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._F7</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT F7
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#F7"><b>F7</b> - INT F7 - reserved for user interrupt</a><br />
+<a href="#F7_0"><b>F7</b> - INT F7 - DoubleDOS - ???</a><br />
+<a href="#F700"><b>F700</b> - INT F7 - FSBBS 2.0 - CONFIGURATION RECORD</a><br />
+<a href="#F701"><b>F701</b> - INT F7 - FSBBS 2.0 - USER RECORD</a><br />
+<a href="#F702"><b>F702</b> - INT F7 - FSBBS 2.0 - GET ACCOUNT NAME</a><br />
+<a href="#F703"><b>F703</b> - INT F7 - FSBBS 2.0 - TERMINAL NUMBER</a><br />
+<a href="#F704"><b>F704</b> - INT F7 - FSBBS 2.0 - PASSDATA BUFFER</a><br />
+<a href="#F705"><b>F705</b> - INT F7 - FSBBS 2.0 - TIMER FUNCTIONS</a><br />
+<a href="#F706"><b>F706</b> - INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY</a><br />
+<a href="#F707"><b>F707</b> - INT F7 - FSBBS 2.0 - DUMP FUNCTIONS</a><br />
+
+<hr />
+
+<a href="#F7" name="F7"><b>F7</b></a> - INT F7 - reserved for user interrupt<br />
+<pre>
+INT F7 - reserved for user interrupt
+SeeAlso: INT F6"user"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F7_0" name="F7_0"><b>F7</b></a> - INT F7 - DoubleDOS - ???<br />
+<pre>
+INT F7 - DoubleDOS - ???
+SeeAlso: INT F6"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F700" name="F700"><b>F700</b></a> - INT F7 - FSBBS 2.0 - CONFIGURATION RECORD<br />
+<pre>
+INT F7 - FSBBS 2.0 - CONFIGURATION RECORD
+	AH = 00h
+	AL = function
+	    00h get configuration record
+		Return: DS:DX -&gt; configuration record
+	    01h set configuration record
+		Return: nothing
+	    02h get path for option
+		DS:DX -&gt; option name
+		Return: DS:DX -&gt; path
+	    03h determine whether configuration record set
+		Return: AX = status
+			    0000h set
+			    0001h not yet set
+	    04h get link state
+		Return: AX = state
+			    0000h unlinked
+			    0001h linked
+Notes:	this information is preliminary and still subject to change
+	all of the INT F7 calls for FSBBS are used for interprogram
+	  communication between the BBS kernel and the programs it spawns
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F701" name="F701"><b>F701</b></a> - INT F7 - FSBBS 2.0 - USER RECORD<br />
+<pre>
+INT F7 - FSBBS 2.0 - USER RECORD
+	AH = 01h
+	AL = function
+	    00h get user record for user currently online
+		Return: DS:DX -&gt; user record
+	    01h set user record
+		DS:DX -&gt; user record
+		Return: nothing
+SeeAlso: AH=00h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F702" name="F702"><b>F702</b></a> - INT F7 - FSBBS 2.0 - GET ACCOUNT NAME<br />
+<pre>
+INT F7 - FSBBS 2.0 - GET ACCOUNT NAME
+	AH = 02h
+Return: DS:DX -&gt; 8-character blank-padded account name
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F703" name="F703"><b>F703</b></a> - INT F7 - FSBBS 2.0 - TERMINAL NUMBER<br />
+<pre>
+INT F7 - FSBBS 2.0 - TERMINAL NUMBER
+	AH = 03h
+	AL = function
+	    00h get terminal index number
+		Return: DX = index number
+	    01h set terminal index number
+		DX = terminal index
+		Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F704" name="F704"><b>F704</b></a> - INT F7 - FSBBS 2.0 - PASSDATA BUFFER<br />
+<pre>
+INT F7 - FSBBS 2.0 - PASSDATA BUFFER
+	AH = 04h
+	AL = function
+	    00h get PassData buffer contents
+		DS:DX -&gt; buffer for PassData contents
+		Return: DS:DX buffer filled
+	    01h set PassData contents
+		DS:DX -&gt; buffer containing new PassData
+		CH = length of data in buffer
+		Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F705" name="F705"><b>F705</b></a> - INT F7 - FSBBS 2.0 - TIMER FUNCTIONS<br />
+<pre>
+INT F7 - FSBBS 2.0 - TIMER FUNCTIONS
+	AH = 05h
+	AL = function
+	    00h get time remaining
+		Return: DX = number of minutes remaining
+	    01h get current time
+		Return: DS:DX -&gt; 8-character time string
+	    02h increment time
+		DX = number of additional minutes
+	    03h decrement time
+		DX = number of minutes
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F706" name="F706"><b>F706</b></a> - INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY<br />
+<pre>
+INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY
+	AH = 06h
+	AL = function
+	    00h determine whether function is available
+		DX = index of function
+	    01h set function availability
+		DX = index of function
+		???
+Return: nothing
+SeeAlso: AH=05h,AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F707" name="F707"><b>F707</b></a> - INT F7 - FSBBS 2.0 - DUMP FUNCTIONS<br />
+<pre>
+INT F7 - FSBBS 2.0 - DUMP FUNCTIONS
+	AH = 07h
+	AL = function
+	    00h get current dump mode
+		Return: DL = mode
+	    01h set dump mode
+		DL = mode
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._45</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 45
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#45"><b>45</b> - INT 45 - Z100 - Master 8259 - Serial B</a><br />
+<a href="#45_0"><b>45</b> - INT 45 - TI Professional PC - IRQ5</a><br />
+<a href="#45_1"><b>45</b> - INT 45 - Acorn BBC Master 512 - "OSFILE" - READ/WRITE FILE OR DIRECTORY INFO</a><br />
+
+<hr />
+
+<a href="#45" name="45"><b>45</b></a> - INT 45 - Z100 - Master 8259 - Serial B<br />
+<pre>
+INT 45 - Z100 - Master 8259 - Serial B
+SeeAlso: INT 44"Z100",INT 46"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#45_0" name="45_0"><b>45</b></a> - INT 45 - TI Professional PC - IRQ5<br />
+<pre>
+INT 45 - TI Professional PC - IRQ5
+Note:	on the TI Pro, IRQ5 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ6
+SeeAlso: INT 0E"IRQ6",INT 44"TI Professional",INT 46"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#45_1" name="45_1"><b>45</b></a> - INT 45 - Acorn BBC Master 512 - "OSFILE" - READ/WRITE FILE OR DIRECTORY INFO<br />
+<pre>
+INT 45 - Acorn BBC Master 512 - "OSFILE" - READ/WRITE FILE OR DIRECTORY INFO
+	AL = function
+	    00h save block of memory as file
+	    01h update directory entry for existing file
+	    02h set load address for existing file
+	    03h set execution address for existing file
+	    04h set attributes for existing file
+	    05h read directory
+	    06h delete file
+	    FFh load file
+	DS:BX -&gt; control block (see #03201)
+Return: FLAGS destroyed
+	AL = file type
+	    00h not found
+	    01h file found
+	    02h directory found
+	    FFh protected file
+SeeAlso: INT 40"Acorn",INT 41"Acorn",INT 44"Acorn",INT 46"Acorn"
+
+Format of BBC Master control block:
+Offset	Size	Description	(Table 03201)
+ 00h	WORD	address of CR-terminated filename
+ 02h	DWORD	load address of file
+ 06h	DWORD	execution address of file
+ 0Ah	DWORD	start address of data to save
+ 0Eh	DWORD	end address of data to save, or file attributes
+		file attributes in low byte (see #03202)
+		other three bytes are filing-system specific file attributes
+
+Bitfields for BBC Master file attributes:
+Bit(s)	Description	(Table 03202)
+ 0	no owner read access
+ 1	no owner write access
+ 2	not executable by owner
+ 3	not deletable by owner
+ 4	no public read access
+ 5	no public write access
+ 6	not executable with public access
+ 7	not deletable with public access
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

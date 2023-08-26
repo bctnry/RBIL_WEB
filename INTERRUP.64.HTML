@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._64</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 64
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#64"><b>64</b> - INT 64 - reserved for user interrupt</a><br />
+<a href="#64_0"><b>64</b> - INT 64 - Adaptec controllers - DRIVE 1 DATA</a><br />
+<a href="#64_1"><b>64</b> - INT 64 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)</a><br />
+<a href="#64_2"><b>64</b> - INT 64 - Oracle SQL Protected Mode Executive - ???</a><br />
+<a href="#64_3"><b>64</b> - INT 64 - Novell NetWare to v2.0a - LOW-LEVEL API</a><br />
+<a href="#64_4"><b>64</b> - INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#64_5"><b>64</b> - INT 64 - Extended Batch Language v3.14+</a><br />
+<a href="#64_6"><b>64</b> - INT 64 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information</a><br />
+<a href="#64_7"><b>64</b> - INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER</a><br />
+<a href="#6401"><b>6401</b> - INT 64 U - BW-NFS - BWRPC - ???</a><br />
+<a href="#6402"><b>6402</b> - INT 64 U - BW-NFS - BWRPC - ???</a><br />
+<a href="#6403"><b>6403</b> - INT 64 U - BW-NFS - BWRPC - ADD ???</a><br />
+<a href="#6404"><b>6404</b> - INT 64 U - BW-NFS - BWRPC - REMOVE ???</a><br />
+<a href="#6405"><b>6405</b> - INT 64 U - BW-NFS - BWRPC - ???</a><br />
+<a href="#6406"><b>6406</b> - INT 64 U - BW-NFS - BWRPC - ???</a><br />
+<a href="#6407"><b>6407</b> - INT 64 U - BW-NFS - BWRPC - GET IP ADDRESS</a><br />
+<a href="#6410"><b>6410</b> - INT 64 U - BW-NFS - BWRPC - CALL ETHDEV.SYS</a><br />
+<a href="#6411"><b>6411</b> - INT 64 U - BW-NFS - BWRPC - NOP???</a><br />
+<a href="#64FE"><b>64FE</b> - INT 64 - BW-NFS - BWRPC - MAP EMS PAGE FRAME</a><br />
+
+<hr />
+
+<a href="#64" name="64"><b>64</b></a> - INT 64 - reserved for user interrupt<br />
+<pre>
+INT 64 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_0" name="64_0"><b>64</b></a> - INT 64 - Adaptec controllers - DRIVE 1 DATA<br />
+<pre>
+INT 64 - Adaptec controllers - DRIVE 1 DATA
+Desc:	this vector stores the first four bytes of the parameter table for
+	  hard disk 1
+Notes:	these vectors are used by the following Adaptec controllers:
+	    ACB 2370 A/B/C, ACB 2372 A/B/C, ACB 2333 A/B, 2322B-8, 2322B-16
+	these vectors are NOT used by the following Adaptec controllers:
+	    ACB 2310, ACB 2312, ACB 2320D, ACB 2322D
+SeeAlso: INT 60"Adaptec",INT 65"Adaptec",INT 66"Adaptec",INT 67"Adaptec"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_1" name="64_1"><b>64</b></a> - INT 64 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)<br />
+<pre>
+INT 64 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)
+Desc:	the low word of this vector contains the segment of the RAM data area
+	  to be used by the expansion ROM at F400h:6000h, and the high word
+	  contains the length of the data area; this segment and size are
+	  both set to 0000h if no ROM is installed at F400h:6000h
+SeeAlso: INT 60"TI Professional PC",INT 63"TI Professional"
+SeeAlso: INT 65"TI Professional PC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_2" name="64_2"><b>64</b></a> - INT 64 - Oracle SQL Protected Mode Executive - ???<br />
+<pre>
+INT 64 - Oracle SQL Protected Mode Executive - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_3" name="64_3"><b>64</b></a> - INT 64 - Novell NetWare to v2.0a - LOW-LEVEL API<br />
+<pre>
+INT 64 - Novell NetWare to v2.0a - LOW-LEVEL API
+Note:	equivalent to INT 7A for NetWare versions through 2.0a only; later
+	  versions do not use this interrupt for IPX/SPX access, instead
+	  getting an entry point from INT 2F/AX=7A00h
+SeeAlso: INT 2F/AX=7A00h,INT 7A"LOW-LEVEL API"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_4" name="64_4"><b>64</b></a> - INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 64 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 65"DG10",INT 66"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_5" name="64_5"><b>64</b></a> - INT 64 - Extended Batch Language v3.14+<br />
+<pre>
+INT 64 - Extended Batch Language v3.14+
+	AH = function
+	    00h to 5Fh chained to previous handler
+	    60h to 6Ch reserved, return immediately
+	    80h to FFh chained to previous handler
+	    6Dh (v4.01+) insert tone in queue
+		AL = ???
+		CX = frequency in Hertz
+		DL = duration in clock ticks
+		Return: AL = 00h if note stored
+			   = 01h if no room to store
+	    6Eh clear ??? counter/flag
+	    6Fh return counter/flag that AH=6Eh clears
+	    70h ???
+		AL = ???
+	    71h ???
+		AL = ???
+	    72h ???
+	    73h insert byte at end of keyboard buffer
+		AL = byte to insert
+		Return: AL = 00h if byte inserted
+			   = 01h if no room to store
+	    74h insert byte at front of keyboard buffer
+		AL = byte to insert
+		Return: AL = 00h if byte inserted
+			   = 01h if no room to store
+	    75h ???
+	    76h get keyboard "stack" status
+		AL = 'K' if kbd read will read physical keyboard
+		     'S' if it will read EBL internal keyboard buffer
+		AH = ???
+	    77h clear internal keyboard buffer
+	    78h ???
+		AL = ???
+	    79h ???
+	    7Ah ???
+		AL = ???
+	    7Bh ???
+		AL = ???
+	    7Ch ???
+		AL = ???
+	    7Dh ???
+		AL = ???
+	    7Eh clear buffer for ???
+	    7Fh installation check
+		Return: CX = version in BCD
+			DI = segment of ???
+			BX = segment of next program's PSP???
+Program: Extended Batch Language is a batch-file enhancer by Seaware
+Notes:	the chaining does not check whether the interrupt had been hooked
+	  before, so if you try to chain when the previous vector was
+	  0000h:0000h, you'll be in trouble
+	functions 72h and 7Ah-7Dh appear to be interfaces to the optional
+	  floating-point and extended function packages
+Index:	installation check;EBL|installation check;Extended Batch Language
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_6" name="64_6"><b>64</b></a> - INT 64 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information<br />
+<pre>
+INT 64 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information
+Note:	This vector is overwritten by Pdisk to install custom harddrive types.
+	  It can either destroy 4 vectors and take no memory or TSR and take
+	  up some memory.
+SeeAlso: INT 65"Pdisk"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_7" name="64_7"><b>64</b></a> - INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER<br />
+<pre>
+INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 65"PC-DRAFT",INT 66"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6401" name="6401"><b>6401</b></a> - INT 64 U - BW-NFS - BWRPC - ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - ???
+	AH = 01h
+	ES:BX -&gt; ??? (at least 8 bytes)
+	ES:BP -&gt; DWORD ???
+	???
+Return: CF clear if successful
+	    ???
+	CF set on error
+	    CX = 0000h
+Range:	INT 4E to INT FD, selected by configuration
+Notes:	the Beame&Whiteside TCP/IP protocol stack uses two consecutive
+	  interrupts (62h and 63h by default); the BW-NFS client uses a third
+	  consecutive interrupt (64h by default) if it is loaded
+	the BWRPC installation check consists of determining the interrupt
+	  vector assigned to it (two more than the value returned by reading
+	  the ETHDEV27 device), and testing whether the word immediately
+	  preceding the interrupt handler is 4257h ('BW')
+SeeAlso: INT 62/AH=00h"ETHDEV",INT 63/AH=03h"BW-TCP",INT 63/AH=24h
+Index:	installation checks;BWRPC
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6402" name="6402"><b>6402</b></a> - INT 64 U - BW-NFS - BWRPC - ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - ???
+	AH = 02h
+	DS:DI -&gt; ???
+Return: ???
+Note:	this call is passed directly through to INT 62/AH=07h
+SeeAlso: INT 62/AH=07h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6403" name="6403"><b>6403</b></a> - INT 64 U - BW-NFS - BWRPC - ADD ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - ADD ???
+	AH = 03h
+	AL = ???
+	BP = ???
+	ES:SI -&gt; ???
+Return: ???
+Note:	this call is passed directly through to INT 62/AH=0Bh
+SeeAlso: AH=04h,INT 62/AH=0Bh"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6404" name="6404"><b>6404</b></a> - INT 64 U - BW-NFS - BWRPC - REMOVE ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - REMOVE ???
+	AH = 04h
+	BP = ???
+Return: ???
+Range:	INT 4E to INT FD, selected by configuration
+Note:	this call is passed directly through to INT 62/AH=0Ch
+SeeAlso: AH=03h,INT 62/AH=0Ch"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6405" name="6405"><b>6405</b></a> - INT 64 U - BW-NFS - BWRPC - ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - ???
+	AH = 05h
+	CX = ???
+Return: ???
+Note:	this call is passed directly through to INT 62/AH=13h
+SeeAlso: INT 62/AH=13h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6406" name="6406"><b>6406</b></a> - INT 64 U - BW-NFS - BWRPC - ???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - ???
+	AH = 06h
+	ES:SI -&gt; ???
+Return: AL = 00h if CF clear
+Range:	INT 4E to INT FD, selected by configuration
+Note:	this call is passed directly through to INT 62/AH=14h
+SeeAlso: INT 62/AH=14h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6407" name="6407"><b>6407</b></a> - INT 64 U - BW-NFS - BWRPC - GET IP ADDRESS<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - GET IP ADDRESS
+	AH = 07h
+Return: CX:DX = IP address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6410" name="6410"><b>6410</b></a> - INT 64 U - BW-NFS - BWRPC - CALL ETHDEV.SYS<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - CALL ETHDEV.SYS
+	AH = 10h
+	AL = ETHDEV function number
+	other registers as appropriate for ETHDEV call
+Return: as returned by ETHDEV
+Note:	this call is passed directly through to INT 62
+SeeAlso: INT 62/AH=00h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6411" name="6411"><b>6411</b></a> - INT 64 U - BW-NFS - BWRPC - NOP???<br />
+<pre>
+INT 64 U - BW-NFS - BWRPC - NOP???
+	AH = 11h
+Return: CF clear
+Range:	INT 4E to INT FD, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64FE" name="64FE"><b>64FE</b></a> - INT 64 - BW-NFS - BWRPC - MAP EMS PAGE FRAME<br />
+<pre>
+INT 64 - BW-NFS - BWRPC - MAP EMS PAGE FRAME
+	AH = FEh
+	AL = direction
+	    00h map in driver's memory block
+	    01h map out driver's memory block
+Return: CF clear if successful
+	CF set on error
+	    AL = error code
+Range:	INT 4E to INT FD, selected by configuration
+Note:	this call is passed through directly to ETHDEV.SYS (see INT 62/AH=FEh)
+SeeAlso: INT 21/AH=3Fh"BW-TCP",INT 62/AH=FEh,INT 63/AH=03h"BW-TCP"
+SeeAlso: INT 63/AH=24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

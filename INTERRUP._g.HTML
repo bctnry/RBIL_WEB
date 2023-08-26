@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._g</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category g - games,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#E00000"><b>E00000</b> - INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN</a><br />
+<a href="#E00001"><b>E00001</b> - INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING</a><br />
+<a href="#E00002"><b>E00002</b> - INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION</a><br />
+<a href="#E00003"><b>E00003</b> - INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT</a><br />
+<a href="#E00010"><b>E00010</b> - INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION</a><br />
+<a href="#E00011"><b>E00011</b> - INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT</a><br />
+<a href="#E00012"><b>E00012</b> - INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS</a><br />
+<a href="#E00013"><b>E00013</b> - INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED</a><br />
+<a href="#E00014"><b>E00014</b> - INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING</a><br />
+<a href="#E00015"><b>E00015</b> - INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT</a><br />
+<a href="#E00016"><b>E00016</b> - INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED</a><br />
+<a href="#E00017"><b>E00017</b> - INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE</a><br />
+<a href="#E00018"><b>E00018</b> - INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE</a><br />
+<a href="#E00019"><b>E00019</b> - INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE</a><br />
+<a href="#E0001A"><b>E0001A</b> - INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT</a><br />
+<a href="#E0001B"><b>E0001B</b> - INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER</a><br />
+<a href="#E0001C"><b>E0001C</b> - INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE</a><br />
+<a href="#E0001D"><b>E0001D</b> - INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME</a><br />
+<a href="#E0001E"><b>E0001E</b> - INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT</a><br />
+<a href="#E0001F"><b>E0001F</b> - INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS</a><br />
+<a href="#E00020"><b>E00020</b> - INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS</a><br />
+<a href="#E00021"><b>E00021</b> - INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"</a><br />
+<a href="#E00022"><b>E00022</b> - INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE</a><br />
+<a href="#E00023"><b>E00023</b> - INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL</a><br />
+<a href="#E00024"><b>E00024</b> - INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE</a><br />
+<a href="#E00025"><b>E00025</b> - INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT</a><br />
+<a href="#E00026"><b>E00026</b> - INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER</a><br />
+<a href="#E00027"><b>E00027</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING</a><br />
+<a href="#E00028"><b>E00028</b> - INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING</a><br />
+<a href="#E00029"><b>E00029</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME</a><br />
+<a href="#E0002A"><b>E0002A</b> - INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME</a><br />
+<a href="#E0002B"><b>E0002B</b> - INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT</a><br />
+<a href="#E0002C"><b>E0002C</b> - INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL</a><br />
+<a href="#E0002D"><b>E0002D</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES</a><br />
+<a href="#E0002E"><b>E0002E</b> - INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES</a><br />
+<a href="#E00080"><b>E00080</b> - INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT</a><br />
+
+<hr />
+
+<a href="#E00000" name="E00000"><b>E00000</b></a> - INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SWAPTASK" - END CURRENT ROBOT'S TURN
+	AX = 0000h
+Return: nothing
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00001" name="E00001"><b>E00001</b></a> - INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "MOVEMENT" - START MOVING
+	AX = 0001h
+	BX = speed (0-maximum for robot)
+	CX = direction (0-359 degrees)
+Return: nothing
+Notes:	the speed will change to the specified value at the maximum
+	  acceleration the robot is capable of; if the robot is already moving
+	  faster than its maximum maneuverability speed, it will not be able
+	  to change direction
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0002h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00002" name="E00002"><b>E00002</b></a> - INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SCAN" - SCAN FOR OTHER ROBOTS IN THE GIVEN DIRECTION
+	AX = 0002h
+	BX = direction (0-359 degrees)
+	CX = resolution (0-45 degrees)
+Return: AX = status
+	    FFFFh if nothing detected
+	    else robot ID (0-19)
+		BX = range to detected robot
+Notes:	the scan searches within CX degrees to either side of the specified
+	  direction
+	the scanner will see right through walls, but shells will not pass
+	  through walls
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0001h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00003" name="E00003"><b>E00003</b></a> - INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SHOOT" - FIRE A SHELL AT ANOTHER ROBOT
+	AX = 0003h
+	BX = direction (0-359 degrees)
+	CX = range (0-700)
+Return: AX = status (0000h not fired, else ID of shell fired)
+Notes:	up to seven shells may be in flight for a robot at one time; the cannon
+	  takes 50 ticks to reload
+	this call also terminates the current robot's turn
+SeeAlso: AX=0000h,AX=0001h,AX=0002h,AX=002Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00010" name="E00010"><b>E00010</b></a> - INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GETXY" - GET ROBOT'S CURRENT POSITION
+	AX = 0010h
+Return: BX = current X coordinate (0-999)
+	CX = current Y coordinate (0-999)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00011" name="E00011"><b>E00011</b></a> - INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "TRANSMIT" - SEND DATA TO ANOTHER ROBOT
+	AX = 0011h
+	BX = target robot ID
+	CX = data to be sent
+Return: AX = status (0000h data could not be sent, 0001h data sent)
+Note:	this call costs one unit of battery power
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00012" name="E00012"><b>E00012</b></a> - INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "RECEIVE" - GET DATA FROM OTHER ROBOTS
+	AX = 0012h
+Return: AX = status
+	    0000h no data available
+	    0001h data retrieved
+		BX = sender's ID
+		CX = data
+Note:	each robot has a 20-word receive FIFO; if the FIFO is full, other
+	  robots will be unable to send more data until some is read
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00013" name="E00013"><b>E00013</b></a> - INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "DAMAGE" - DETERMINE HOW MUCH DAMAGE SUSTAINED
+	AX = 0013h
+Return: BX = damage status
+Note:	the initial value depends on configuration, but is typically 100; as
+	  the robot is damaged, it decreases
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00014" name="E00014"><b>E00014</b></a> - INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SPEED" - DETERMINE HOW FAST ROBOT IS MOVING
+	AX = 0014h
+Return: BX = current speed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00015" name="E00015"><b>E00015</b></a> - INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BATTERY" - DETERMINE HOW MUCH BATTERY POWER LEFT
+	AX = 0015h
+Return: BX = current battery charge
+Note:	the battery starts off with 1000 units of charge, and is constantly
+	  being charged by solar panels and constantly discharged by motion;
+	  the battery is charged at 4 units per turn and discharged at
+	  0.1*speed units per turn.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00016" name="E00016"><b>E00016</b></a> - INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "TICKS" - DETERMINE HOW LONG SINCE GAME STARTED
+	AX = 0016h
+Return: BX:CX = number of game ticks elapsed (not related to real time)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00017" name="E00017"><b>E00017</b></a> - INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_SIN" - GET SCALED SINE OF AN ANGLE
+	AX = 0017h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*sine of angle
+SeeAlso: AX=0018h,AX=0019h,AX=001Ah,AX=001Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00018" name="E00018"><b>E00018</b></a> - INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_COS" - GET SCALED COSINE OF AN ANGLE
+	AX = 0018h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*cosine of angle
+SeeAlso: AX=0017h,AX=0019h,AX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00019" name="E00019"><b>E00019</b></a> - INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_TAN" - GET SCALED TANGENT OF AN ANGLE
+	AX = 0019h
+	BX = angle (0-359 degrees)
+Return: BX:CX = 100000*tangent of angle
+SeeAlso: AX=0017h,AX=0018h,AX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001A" name="E0001A"><b>E0001A</b></a> - INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_ATAN" - GET ANGLE GIVEN SCALED TANGENT
+	AX = 001Ah
+	BX:CX = 100000*tangent of an angle
+Return: AX = angle (-90 to +90 degrees)
+SeeAlso: AX=0017h,AX=0018h,AX=0019h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001B" name="E0001B"><b>E0001B</b></a> - INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SQRT" - DETERMINE SQUARE ROOT OF A NUMBER
+	AX = 001Bh
+	BX:CX = value
+Return: BX:CX = square root
+SeeAlso: AX=0017h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001C" name="E0001C"><b>E0001C</b></a> - INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SET_PATTERN" - SPECIFY ROBOT'S DISPLAY IMAGE
+	AX = 001Ch
+	BX:CX -&gt; pattern array
+Return: nothing
+Note:	the pattern array consists of five bytes, the low five bits of each
+	  specifying the bit pattern for one line of the robot's screen display
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001D" name="E0001D"><b>E0001D</b></a> - INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "DEBUG_FLAG" - SET/CLEAR MARKERS NEXT TO ROBOT'S NAME
+	AX = 001Dh
+	BX = flag number (0 or 1)
+	CX = new value (0 reset, 1 set)
+Return: nothing
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+Note:	the two flag markers may be used for any purpose, typically for
+	  debugging to provide a visual display of progress
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001E" name="E0001E"><b>E0001E</b></a> - INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BUY_ARMOUR" - BUY OR SELL ARMOR FOR ROBOT
+	AX = 001Eh
+	BX = number of armor units to buy (negative to sell)
+Return: nothing
+Note:	each armor unit is worth 50 battery units; the robot's armor rating
+	  will not go above its initial rating, so attempts to purchase more
+	  will waste battery units
+SeeAlso: AX=001Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0001F" name="E0001F"><b>E0001F</b></a> - INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "BUY_SHELLS" - BUY ADDITIONAL CANNON SHELLS
+	AX = 001Fh
+	BX = number of shells to buy
+Return: nothing
+Note:	each shell costs ten battery units
+SeeAlso: AX=001Eh,AX=0020h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00020" name="E00020"><b>E00020</b></a> - INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "SHELLS LEFT" - DETERMINE HOW MANY SHELLS ROBOT HAS
+	AX = 0020h
+Return: BX = number of shells remaining
+SeeAlso: AX=001Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00021" name="E00021"><b>E00021</b></a> - INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET LOCAL MAP"
+	AX = 0021h
+	BX:CX -&gt; 81-byte buffer for map (see #04060)
+Return: buffer filled with 9x9 area of map centered on robot's position
+
+(Table 04060)
+Values for PCROBOTS map squares:
+ 2Eh '.' empty square
+ 44h 'D' damaging trap
+ 52h 'R' refueling point
+ 58h 'X' wall
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00022" name="E00022"><b>E00022</b></a> - INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "INVISIBILITY" - CONTROL ROBOT'S INVISIBILITY DEVICE
+	AX = 0022h
+	BX = new state (0000h become visible, 0001h become invisible)
+Return: nothing
+Notes:	this function has no effect if the robot is not capable of invisibility
+	the robot can only stay invisible for 100 turns, after which it will
+	  automatically become visible; it must also be remain visible for
+	  as many turns as it was invisible before it can turn invisible
+	  again
+SeeAlso: AX=0024h,AX=0080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00023" name="E00023"><b>E00023</b></a> - INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_SHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL
+	AX = 0023h
+Return: BX = status of last shell to land
+	    0000h missed completely
+	    0001h hit a wall
+	    0002h hit a robot within 50-square radius
+	    0003h hit a robot within 25-square radius
+	    0004h hit a robot within 5-square radius
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00024" name="E00024"><b>E00024</b></a> - INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "IS_INVISIBLE" - DETERMINE WHETHER ROBOT IS INVISIBLE
+	AX = 0024h
+Return: BX = visibility (0000h visible, 0001h invisible)
+SeeAlso: AX=0022h,AX=0080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00025" name="E00025"><b>E00025</b></a> - INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "L_ATAN2" - GET ARCTANGENT
+	AX = 0025h
+	BX = Y
+	CX = X
+Return: AX = angle (arctangent of Y/X)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00026" name="E00026"><b>E00026</b></a> - INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_ROBOT_ID" - DETERMINE CURRENT ROBOT'S IDENTIFIER
+	AX = 0026h
+Return: AX = robot ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00027" name="E00027"><b>E00027</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_IFF" - REGISTER FRIEND/FOE IDENT STRING
+	AX = 0027h
+	BX:CX = ASCIZ IFF string
+Return: nothing
+Note:	the IFF string may only be set once
+SeeAlso: AX=0028h,AX=0029h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00028" name="E00028"><b>E00028</b></a> - INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "CHECK_IFF" - QUERY FRIEND/FOE IDENTIFICATION STRING
+	AX = 0028h
+	BX = robot ID to test
+Return: AX = status
+	    0000h IFF strings match
+	    0001h IFF strings differ or invalid robot ID
+SeeAlso: AX=0027h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00029" name="E00029"><b>E00029</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_NAME" - SPECIFY ROBOT'S NAME
+	AX = 0029h
+	BX:CX -&gt; ASCIZ name string
+Return: nothing
+Note:	the name may only be set once
+SeeAlso: AX=0027h,AX=002Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002A" name="E0002A"><b>E0002A</b></a> - INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "FIND_NAME" - SEARCH FOR ROBOT WITH GIVEN NAME
+	AX = 002Ah
+	BX:CX -&gt; ASCIZ name string
+	DX = first ID to check
+Return: AX = robot ID or FFFFh if no robot with specified name
+SeeAlso: AX=0028h,AX=0029h,AX=002Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002B" name="E0002B"><b>E0002B</b></a> - INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_TEAM_ID" - DETERMINE TEAM MEMBERSHIP OF ROBOT
+	AX = 002Bh
+Return: AX = team ID (0-2) or FFFFh if 'loner'
+SeeAlso: AX=0029h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002C" name="E0002C"><b>E0002C</b></a> - INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "GET_ASHELL_STATUS" - FIND OUT WHAT HAPPENED TO SHELL
+	AX = 002Ch
+	BX = shell ID
+Return: AX = status
+	    0000h missed completely
+	    0001h hit a wall
+	    0002h hit a robot within a 50-square radius
+	    0003h hit a robot within a 25-square radius
+	    0004h hit a robot within a 5-square radius
+	    0005h shell not known (too old or not yet fired)
+	    0006h shell still in flight
+SeeAlso: AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002D" name="E0002D"><b>E0002D</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_X" - SELECT AUTOMATIC X POSITION UPDATES
+	AX = 002Dh
+	BX:CX -&gt; X word variable
+Return: AX = status (0001h OK, 0000h problem with address)
+Note:	after this call, PCROBOTS will automatically update the specified
+	  word whenever the robot moves
+SeeAlso: AX=002Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0002E" name="E0002E"><b>E0002E</b></a> - INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "REGISTER_Y" - SELECT AUTOMATIC Y POSITION UPDATES
+	AX = 002Eh
+	BX:CX -&gt; Y word variable
+Return: AX = status (0001h OK, 0000h problem with address)
+Note:	after this call, PCROBOTS will automatically update the specified
+	  word whenever the robot moves
+SeeAlso: AX=002Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E00080" name="E00080"><b>E00080</b></a> - INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT<br />
+<pre>
+INT E0 - PCROBOTS v1.41 - "CONFIGURE" - CUSTOMIZE ROBOT
+	AX = 0080h
+	BX = basic configuration (see #04061)
+	CX = advanced configuration (see #04062)
+Return: AX = status (0001h OK, 0000h not first call in program)
+Program: PCROBOTS is P.D. Smith's adaptation of Tom Poindexter's CROBOTS, in
+	  which specially-written .COM or .EXE programs form robots battling
+	  each other in a user-defined arena
+Notes:	a maximum of ten points may be allocated to the robot; if you attempt
+	  to allocate more, some items will be given a value of zero.  If this
+	  function is not called, each attribute is set to the default value
+	  of 2.
+	if the invisibility option is chosen, the robot will start with only
+	  900 cannon shells instead of the default 1000
+
+Bitfields for PCROBOTS basic configuration:
+Bit(s)	Description	(Table 04061)
+ 0-3	maximum speed (0-4 = 50,75,100,150,200)
+ 4-7	maneuverability (0-4 = 20%,35%,50%,75%,100%)
+ 8-11	cannon range (0-4 = 300,500,700,1000,1500)
+ 12-15	robot armor (0-4 = 50,75,100,150,200)
+
+Bitfields for PCROBOTS advanced configuration:
+Bit(s)	Description	(Table 04062)
+ 0-2	robot acceleration (0-4 = 5,7,10,15,20)
+ 3	capable of invisibility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

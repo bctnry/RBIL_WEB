@@ -1,0 +1,5652 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._60</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 60
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#60"><b>60</b> - INT 60 - reserved for user interrupt</a><br />
+<a href="#60_0"><b>60</b> - INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK</a><br />
+<a href="#60_1"><b>60</b> - INT 60 - Adaptec and OMTI controllers - DRIVE 0 DATA</a><br />
+<a href="#60_2"><b>60</b> - INT 60 - TI Professional PC - SYSTEM ROM DATA AREA POINTER (NOT A VECTOR!)</a><br />
+<a href="#60_3"><b>60</b> - INT 60 - Atari Portfolio - USER INTERFACE FUNCTIONS</a><br />
+<a href="#60_4"><b>60</b> - INT 60 - Nabbit v2.0 - (NOT A VECTOR!) - INSTALLATION CHECK</a><br />
+<a href="#60_5"><b>60</b> - INT 60 - ATI M64VBE.COM - INSTALLATION SIGNATURE</a><br />
+<a href="#60_6"><b>60</b> - INT 60 U - Buffit v3.0 - (NOT A VECTOR!) - INSTALLATION CHECK</a><br />
+<a href="#60_7"><b>60</b> - INT 60 - PC-IPC API</a><br />
+<a href="#60_8"><b>60</b> - INT 60 - Tangram Arbiter - API</a><br />
+<a href="#60_9"><b>60</b> - INT 60 - Excelan LAN Workplace for DOS 3.5 - API</a><br />
+<a href="#60_10"><b>60</b> - INT 60 - TCPDRV 2.01 - TCP/IP Application Binary Interface (ABI)</a><br />
+<a href="#60_11"><b>60</b> - INT 60 U - INTRSPY/CMDSPY v1.0 only - API</a><br />
+<a href="#60_12"><b>60</b> - INT 60 U - PC/370 v4.2 - ???</a><br />
+<a href="#60_13"><b>60</b> - INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP</a><br />
+<a href="#60_14"><b>60</b> - INT 60 - FTP Packet Driver - PC/TCP Packet Driver Specification</a><br />
+<a href="#60_15"><b>60</b> - INT 60 u - 3270-PC CONTROL PROGRAM - ???</a><br />
+<a href="#60----DI0100"><b>60----DI0100</b> - INT 60 u - HP 95LX System Manager - WAIT FOR EVENT</a><br />
+<a href="#60----DI0101"><b>60----DI0101</b> - INT 60 u - HP 95LX System Manager - CHECK FOR EVENT</a><br />
+<a href="#60----DI0102"><b>60----DI0102</b> - INT 60 u - HP 95LX System Manager - "SH_STATUS"</a><br />
+<a href="#60----DI0104"><b>60----DI0104</b> - INT 60 u - HP 95LX System Manager - LOTUS 1-2-3 BRIDGE SERVICES</a><br />
+<a href="#60----DI0105"><b>60----DI0105</b> - INT 60 u - HP 95LX System Manager - FLUSH KEYBOARD BUFFER</a><br />
+<a href="#60----DI0106"><b>60----DI0106</b> - INT 60 u - HP 95LX System Manager - YIELD CPU</a><br />
+<a href="#60----DI0107"><b>60----DI0107</b> - INT 60 u - HP 95LX System Manager - "NO_FINI" - REFUSE TERMINATION REQUEST</a><br />
+<a href="#60----DI0200"><b>60----DI0200</b> - INT 60 u - HP 95LX System Manager - SETUP MENU</a><br />
+<a href="#60----DI0201"><b>60----DI0201</b> - INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY MENU</a><br />
+<a href="#60----DI0202"><b>60----DI0202</b> - INT 60 u - HP 95LX System Manager - "MENU_ON" - ENABLE PROCESSING OF MENU</a><br />
+<a href="#60----DI0203"><b>60----DI0203</b> - INT 60 u - HP 95LX System Manager - REMOVE MENU</a><br />
+<a href="#60----DI0204"><b>60----DI0204</b> - INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER HANDLE MENU KEYSTROKE</a><br />
+<a href="#60----DI0205"><b>60----DI0205</b> - INT 60 u - HP 95LX System Manager - INITIALIZE FILE SELECTION MENU</a><br />
+<a href="#60----DI0206"><b>60----DI0206</b> - INT 60 u - HP 95LX System Manager - DISPLAY/REDISPLAY FILE SELECTION MENU</a><br />
+<a href="#60----DI0207"><b>60----DI0207</b> - INT 60 u - HP 95LX System Manager - LET SYSMGR PROCESS FILE SEL MENU KEYSTROKE</a><br />
+<a href="#60----DI0208"><b>60----DI0208</b> - INT 60 u - HP 95LX System Manager - REMOVE FILE SELECTION MENU</a><br />
+<a href="#60----DI0300"><b>60----DI0300</b> - INT 60 u - HP 95LX System Manager - DISPLAY STRING</a><br />
+<a href="#60----DI0301"><b>60----DI0301</b> - INT 60 u - HP 95LX System Manager - CLEAR PORTION OF SCREEN</a><br />
+<a href="#60----DI0302"><b>60----DI0302</b> - INT 60 u - HP 95LX System Manager - SCROLL PORTION OF SCREEN</a><br />
+<a href="#60----DI0303"><b>60----DI0303</b> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_XCHG"</a><br />
+<a href="#60----DI0304"><b>60----DI0304</b> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRATTR"</a><br />
+<a href="#60----DI0305"><b>60----DI0305</b> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRRVRT"</a><br />
+<a href="#60----DI0307"><b>60----DI0307</b> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRINV"</a><br />
+<a href="#60----DI0308"><b>60----DI0308</b> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_ROWS_COLS"</a><br />
+<a href="#60----DI0309"><b>60----DI0309</b> - INT 60 u - HP 95LX System Manager - SET SCREEN (VIDEO???) MODE</a><br />
+<a href="#60----DI030A"><b>60----DI030A</b> - INT 60 u - HP 95LX System Manager - GET SCREEN (VIDEO???) MODE</a><br />
+<a href="#60----DI030B"><b>60----DI030B</b> - INT 60 u - HP 95LX System Manager - SET CURSOR POSITION</a><br />
+<a href="#60----DI0400"><b>60----DI0400</b> - INT 60 u - HP 95LX System Manager - "EDIT_INIT"</a><br />
+<a href="#60----DI0401"><b>60----DI0401</b> - INT 60 u - HP 95LX System Manager - EDIT ON TOP LINE</a><br />
+<a href="#60----DI0402"><b>60----DI0402</b> - INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY EDIT FIELD</a><br />
+<a href="#60----DI0403"><b>60----DI0403</b> - INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER PROCESS EDITING KEYSTROK</a><br />
+<a href="#60----DI0404"><b>60----DI0404</b> - INT 60 u - HP 95LX System Manager - "MDIT_INI"</a><br />
+<a href="#60----DI0405"><b>60----DI0405</b> - INT 60 u - HP 95LX System Manager - "MDIT_DIS"</a><br />
+<a href="#60----DI0406"><b>60----DI0406</b> - INT 60 u - HP 95LX System Manager - "MDIT_KEY"</a><br />
+<a href="#60----DI0407"><b>60----DI0407</b> - INT 60 u - HP 95LX System Manager - "MDIT_FIL"</a><br />
+<a href="#60----DI0408"><b>60----DI0408</b> - INT 60 u - HP 95LX System Manager - "MDIT_MARK"</a><br />
+<a href="#60----DI0409"><b>60----DI0409</b> - INT 60 u - HP 95LX System Manager - "MDIT_UNMARK"</a><br />
+<a href="#60----DI040A"><b>60----DI040A</b> - INT 60 u - HP 95LX System Manager - "MDIT_CUTMARK"</a><br />
+<a href="#60----DI040B"><b>60----DI040B</b> - INT 60 u - HP 95LX System Manager - "MDIT_INS_STR"</a><br />
+<a href="#60----DI0500"><b>60----DI0500</b> - INT 60 u - HP 95LX System Manager - OPEN FILE</a><br />
+<a href="#60----DI0501"><b>60----DI0501</b> - INT 60 u - HP 95LX System Manager - OPEN FILE IN READ-ONLY MODE</a><br />
+<a href="#60----DI0502"><b>60----DI0502</b> - INT 60 u - HP 95LX System Manager - CREATE NEW FILE</a><br />
+<a href="#60----DI0503"><b>60----DI0503</b> - INT 60 u - HP 95LX System Manager - CREATE OR TRUNCATE FILE</a><br />
+<a href="#60----DI0504"><b>60----DI0504</b> - INT 60 u - HP 95LX System Manager - READ FROM FILE</a><br />
+<a href="#60----DI0505"><b>60----DI0505</b> - INT 60 - HP 95LX System Manager - WRITE TO FILE</a><br />
+<a href="#60----DI0506"><b>60----DI0506</b> - INT 60 u - HP 95LX System Manager - SET FILE POSITION</a><br />
+<a href="#60----DI0507"><b>60----DI0507</b> - INT 60 u - HP 95LX System Manager - GET FILE POSITION</a><br />
+<a href="#60----DI0508"><b>60----DI0508</b> - INT 60 u - HP 95LX System Manager - CLOSE FILE</a><br />
+<a href="#60----DI0509"><b>60----DI0509</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETPAT"</a><br />
+<a href="#60----DI050A"><b>60----DI050A</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_MATCH"</a><br />
+<a href="#60----DI050B"><b>60----DI050B</b> - INT 60 u - HP 95LX System Manager - IDENTIFY FILENAME REFERENT</a><br />
+<a href="#60----DI050C"><b>60----DI050C</b> - INT 60 u - HP 95LX System Manager - DELETE FILE</a><br />
+<a href="#60----DI050D"><b>60----DI050D</b> - INT 60 u - HP 95LX System Manager - RENAME FILE</a><br />
+<a href="#60----DI050E"><b>60----DI050E</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETDIR"</a><br />
+<a href="#60----DI050F"><b>60----DI050F</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETDIR"</a><br />
+<a href="#60----DI0510"><b>60----DI0510</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_VOLUME"</a><br />
+<a href="#60----DI0511"><b>60----DI0511</b> - INT 60 u - HP 95LX System Manager - MAKE A SUBDIRECTORY</a><br />
+<a href="#60----DI0512"><b>60----DI0512</b> - INT 60 u - HP 95LX System Manager - REMOVE A SUBDIRECTORY</a><br />
+<a href="#60----DI0513"><b>60----DI0513</b> - INT 60 u - HP 95LX System Manager - GET DEFAULT DRIVE</a><br />
+<a href="#60----DI0514"><b>60----DI0514</b> - INT 60 u - HP 95LX System Manager - SET DEFAULT DRIVE</a><br />
+<a href="#60----DI0515"><b>60----DI0515</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_FDATE"</a><br />
+<a href="#60----DI0516"><b>60----DI0516</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GET_SYSDIR"</a><br />
+<a href="#60----DI0517"><b>60----DI0517</b> - INT 60 u - HP 95LX System Manager - GET FILE ATTRIBUTES</a><br />
+<a href="#60----DI0518"><b>60----DI0518</b> - INT 60 u - HP 95LX System Manager - SET FILE ATTRIBUTES</a><br />
+<a href="#60----DI0519"><b>60----DI0519</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COMMON_OPEN"</a><br />
+<a href="#60----DI051A"><b>60----DI051A</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COPYDT"</a><br />
+<a href="#60----DI051B"><b>60----DI051B</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETFDT"</a><br />
+<a href="#60----DI051C"><b>60----DI051C</b> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_PUTFDT"</a><br />
+<a href="#60----DI0600"><b>60----DI0600</b> - INT 60 u - HP 95LX System Manager - PROCESS INITIALIZING</a><br />
+<a href="#60----DI0601"><b>60----DI0601</b> - INT 60 u - HP 95LX System Manager - PROCESS TERMINATION</a><br />
+<a href="#60----DI0602"><b>60----DI0602</b> - INT 60 u - HP 95LX System Manager - "M_LOCK" - PREVENT TASK SWITCHES</a><br />
+<a href="#60----DI0603"><b>60----DI0603</b> - INT 60 u - HP 95LX System Manager - "M_UNLOCK" - ALLOW TASK SWITCHES</a><br />
+<a href="#60----DI0604"><b>60----DI0604</b> - INT 60 u - HP 95LX System Manager - "M_SPAWN"</a><br />
+<a href="#60----DI0605"><b>60----DI0605</b> - INT 60 u - HP 95LX System Manager - "M_APPCOUNT"</a><br />
+<a href="#60----DI0606"><b>60----DI0606</b> - INT 60 u - HP 95LX System Manager - "M_REBOOT"</a><br />
+<a href="#60----DI0607"><b>60----DI0607</b> - INT 60 u - HP 95LX System Manager - "M_SPAWNARG"</a><br />
+<a href="#60----DI0608"><b>60----DI0608</b> - INT 60 u - HP 95LX System Manager - "M_REG_APP_NAME"</a><br />
+<a href="#60----DI0609"><b>60----DI0609</b> - INT 60 u - HP 95LX System Manager - "M_APP_NAME"</a><br />
+<a href="#60----DI0700"><b>60----DI0700</b> - INT 60 u - HP 95LX System Manager - OPEN CLIPBOARD</a><br />
+<a href="#60----DI0701"><b>60----DI0701</b> - INT 60 u - HP 95LX System Manager - CLOSE CLIPBOARD</a><br />
+<a href="#60----DI0702"><b>60----DI0702</b> - INT 60 u - HP 95LX System Manager - RESET CLIPBOARD</a><br />
+<a href="#60----DI0704"><b>60----DI0704</b> - INT 60 u - HP 95LX System Manager - "M_NEW_REP" - START A NEW REPRESENTATION???</a><br />
+<a href="#60----DI0705"><b>60----DI0705</b> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_FINI_REP"</a><br />
+<a href="#60----DI0706"><b>60----DI0706</b> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_NAME"</a><br />
+<a href="#60----DI0707"><b>60----DI0707</b> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_INDEX"</a><br />
+<a href="#60----DI0708"><b>60----DI0708</b> - INT 60 u - HP 95LX System Manager - WRITE TO CLIPBOARD</a><br />
+<a href="#60----DI0709"><b>60----DI0709</b> - INT 60 u - HP 95LX System Manager - READ FROM CLIPBOARD</a><br />
+<a href="#60----DI0800"><b>60----DI0800</b> - INT 60 u - HP 95LX System Manager - BEEP</a><br />
+<a href="#60----DI0801"><b>60----DI0801</b> - INT 60 u - HP 95LX System Manager - SOUND SERVICE "M_THUD"</a><br />
+<a href="#60----DI0802"><b>60----DI0802</b> - INT 60 u - HP 95LX System Manager - MAKE A SOUND PATTERN</a><br />
+<a href="#60----DI0803"><b>60----DI0803</b> - INT 60 u - HP 95LX System Manager - TURN OFF SOUND</a><br />
+<a href="#60----DI0900"><b>60----DI0900</b> - INT 60 - HP 95LX System Manager - ALLOCATE REGULAR MEMORY BLOCK</a><br />
+<a href="#60----DI0902"><b>60----DI0902</b> - INT 60 u - HP 95LX System Manager - FREE REGULAR MEMORY BLOCK</a><br />
+<a href="#60----DI0903"><b>60----DI0903</b> - INT 60 u - HP 95LX System Manager - ALLOCATE LARGE MEMORY BLOCK</a><br />
+<a href="#60----DI0904"><b>60----DI0904</b> - INT 60 u - HP 95LX System Manager - FREE LARGE MEMORY BLOCK</a><br />
+<a href="#60----DI0B00"><b>60----DI0B00</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DTINFO"</a><br />
+<a href="#60----DI0B01"><b>60----DI0B01</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GETDTM"</a><br />
+<a href="#60----DI0B02"><b>60----DI0B02</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SETDTM"</a><br />
+<a href="#60----DI0B03"><b>60----DI0B03</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_XALARM"</a><br />
+<a href="#60----DI0B04"><b>60----DI0B04</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_ALARM"</a><br />
+<a href="#60----DI0B05"><b>60----DI0B05</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_SW"</a><br />
+<a href="#60----DI0B06"><b>60----DI0B06</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SW"</a><br />
+<a href="#60----DI0B07"><b>60----DI0B07</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_SW"</a><br />
+<a href="#60----DI0B08"><b>60----DI0B08</b> - INT 60 u - HP 95LX System Manager - "M_TELLTIME" - DISPLAY TIMESTAMP</a><br />
+<a href="#60----DI0B09"><b>60----DI0B09</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SETTINGS"</a><br />
+<a href="#60----DI0B0A"><b>60----DI0B0A</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SET_SETTINGS"</a><br />
+<a href="#60----DI0B0B"><b>60----DI0B0B</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_TIMER"</a><br />
+<a href="#60----DI0B0C"><b>60----DI0B0C</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_TIMER"</a><br />
+<a href="#60----DI0B0D"><b>60----DI0B0D</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_TIMER"</a><br />
+<a href="#60----DI0B0E"><b>60----DI0B0E</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_TELL_ANYTIME"</a><br />
+<a href="#60----DI0B0F"><b>60----DI0B0F</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVCE "M_GET_SETTINGS_ADDR"</a><br />
+<a href="#60----DI0B10"><b>60----DI0B10</b> - INT 60 u - HP 95LX System Manager - PARSE DATE SPECIFICATION</a><br />
+<a href="#60----DI0B11"><b>60----DI0B11</b> - INT 60 u - HP 95LX System Manager - PARSE TIME SPECIFICATION</a><br />
+<a href="#60----DI0B12"><b>60----DI0B12</b> - INT 60 u - HP 95LX System Manager - SET DATE PARSING RULE</a><br />
+<a href="#60----DI0B13"><b>60----DI0B13</b> - INT 60 u - HP 95LX System Manager - SET TIME PARSING RULE</a><br />
+<a href="#60----DI0B14"><b>60----DI0B14</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_POST_TIME"</a><br />
+<a href="#60----DI0B15"><b>60----DI0B15</b> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DAY_TRIGGER"</a><br />
+<a href="#60----DI0C00"><b>60----DI0C00</b> - INT 60 u - HP 95LX System Manager - OPEN PRINTER</a><br />
+<a href="#60----DI0C01"><b>60----DI0C01</b> - INT 60 u - HP 95LX System Manager - CLOSE PRINTER</a><br />
+<a href="#60----DI0C02"><b>60----DI0C02</b> - INT 60 u - HP 95LX System Manager - WRITE TO PRINTER</a><br />
+<a href="#60----DI0C03"><b>60----DI0C03</b> - INT 60 u - HP 95LX System Manager - INITIALIZE PRINTER</a><br />
+<a href="#60----DI0C04"><b>60----DI0C04</b> - INT 60 u - HP 95LX System Manager - "M_TRANS_PRINTER"</a><br />
+<a href="#60----DI0C05"><b>60----DI0C05</b> - INT 60 u - HP 95LX System Manager - "M_FALL_PRINTER"</a><br />
+<a href="#60----DI0E00"><b>60----DI0E00</b> - INT 60 u - HP 95LX System Manager - COMMUNICATIONS SERVICE "M_COMM_INIT"</a><br />
+<a href="#60----DI0E01"><b>60----DI0E01</b> - INT 60 u - HP 95LX System Manager - OPEN COMMUNICATIONS CHANNEL</a><br />
+<a href="#60----DI0E02"><b>60----DI0E02</b> - INT 60 u - HP 95LX System Manager - CLOSE COMMUNICATIONS CHANNEL</a><br />
+<a href="#60----DI0E03"><b>60----DI0E03</b> - INT 60 u - HP 95LX System Manager - "M_COMM_GETMDM"</a><br />
+<a href="#60----DI0E04"><b>60----DI0E04</b> - INT 60 u - HP 95LX System Manager - "M_COMM_ANSWER"</a><br />
+<a href="#60----DI0E05"><b>60----DI0E05</b> - INT 60 u - HP 95LX System Manager - "M_COMM_DIAL"</a><br />
+<a href="#60----DI0E06"><b>60----DI0E06</b> - INT 60 u - HP 95LX System Manager - RESET COMMUNICATIONS CHANNEL</a><br />
+<a href="#60----DI0E07"><b>60----DI0E07</b> - INT 60 u - HP 95LX System Manager - "M_COMM_HANGUP"</a><br />
+<a href="#60----DI0E08"><b>60----DI0E08</b> - INT 60 u - HP 95LX System Manager - SEND DATA OVER COMM CHANNEL</a><br />
+<a href="#60----DI0E09"><b>60----DI0E09</b> - INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL TRANSMIT QUEUE</a><br />
+<a href="#60----DI0E0A"><b>60----DI0E0A</b> - INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL RECEIVE QUEUE</a><br />
+<a href="#60----DI0E0B"><b>60----DI0E0B</b> - INT 60 u - HP 95LX System Manager - RECEIVE DATA FROM COMM CHANNEL</a><br />
+<a href="#60----DI0E0C"><b>60----DI0E0C</b> - INT 60 u - HP 95LX System Manager - "M_COMM_HAZCMD"</a><br />
+<a href="#60----DI0E0D"><b>60----DI0E0D</b> - INT 60 u - HP 95LX System Manager - "M_COMM_COMAND"</a><br />
+<a href="#60----DI0E0E"><b>60----DI0E0E</b> - INT 60 u - HP 95LX System Manager - "M_COMM_BREAK"</a><br />
+<a href="#60----DI0E0F"><b>60----DI0E0F</b> - INT 60 u - HP 95LX System Manager - "M_COMM_FRCXON"</a><br />
+<a href="#60----DI0E10"><b>60----DI0E10</b> - INT 60 u - HP 95LX System Manager - "M_COMM_FRCXOF"</a><br />
+<a href="#60----DI0E11"><b>60----DI0E11</b> - INT 60 u - HP 95LX System Manager - "M_COMM_SETDTR"</a><br />
+<a href="#60----DI0E12"><b>60----DI0E12</b> - INT 60 u - HP 95LX System Manager - "M_COMM_XMITNG"</a><br />
+<a href="#60----DI0E13"><b>60----DI0E13</b> - INT 60 u - HP 95LX System Manager - "M_COMM_STATUS"</a><br />
+<a href="#60----DI0E14"><b>60----DI0E14</b> - INT 60 u - HP 95LX System Manager - SET COMMUNICATIONS SETTINGS</a><br />
+<a href="#60----DI0E15"><b>60----DI0E15</b> - INT 60 u - HP 95LX System Manager - GET COMMUNICATIONS SETTINGS</a><br />
+<a href="#60----DI0E16"><b>60----DI0E16</b> - INT 60 u - HP 95LX System Manager - "M_COMM_CNFGUR"</a><br />
+<a href="#60----DI0E17"><b>60----DI0E17</b> - INT 60 u - HP 95LX System Manager - "M_COMM_QRYERR"</a><br />
+<a href="#60----DI0F00"><b>60----DI0F00</b> - INT 60 u - HP 95LX System Manager - "M_ERRMSG"</a><br />
+<a href="#60----DI0F01"><b>60----DI0F01</b> - INT 60 u - HP 95LX System Manager - DRAW STANDARD TITLE BOX</a><br />
+<a href="#60----DI0F02"><b>60----DI0F02</b> - INT 60 u - HP 95LX System Manager - "SHOWNAME"</a><br />
+<a href="#60----DI0F03"><b>60----DI0F03</b> - INT 60 u - HP 95LX System Manager - DISPLAY TWO-LINE MESSAGE BOX</a><br />
+<a href="#60----DI0F04"><b>60----DI0F04</b> - INT 60 u - HP 95LX System Manager - REMOVE MESSAGE BOX</a><br />
+<a href="#60----DI0F05"><b>60----DI0F05</b> - INT 60 u - HP 95LX System Manager - "M_COM_TIMER_ADDR"</a><br />
+<a href="#60----DI0F06"><b>60----DI0F06</b> - INT 60 u - HP 95LX System Manager - "M_COM_TIMER_COUNT_ADDR"</a><br />
+<a href="#60----DI0F07"><b>60----DI0F07</b> - INT 60 u - HP 95LX System Manager - "M_SYS_RSRC_ADDR"</a><br />
+<a href="#60----DI0F08"><b>60----DI0F08</b> - INT 60 u - HP 95LX System Manager - "M_BIOS_OUTSTR"</a><br />
+<a href="#60----DI0F09"><b>60----DI0F09</b> - INT 60 u - HP 95LX System Manager - DISPLAY THREE-LINE MESSAGE BOX</a><br />
+<a href="#60----DI0F0A"><b>60----DI0F0A</b> - INT 60 u - HP 95LX System Manager - DISABLE MACROS</a><br />
+<a href="#60----DI0F0B"><b>60----DI0F0B</b> - INT 60 u - HP 95LX System Manager - ENABLE MACROS</a><br />
+<a href="#60----DI0F0C"><b>60----DI0F0C</b> - INT 60 u - HP 95LX System Manager - "M_DATE_TIME_SEPS"</a><br />
+<a href="#60----DI0F0D"><b>60----DI0F0D</b> - INT 60 u - HP 95LX System Manager - "M_FORM_FT"</a><br />
+<a href="#60----DI0F0E"><b>60----DI0F0E</b> - INT 60 u - HP 95LX System Manager - "M_RAM_IV_INFO"</a><br />
+<a href="#60----DI1005"><b>60----DI1005</b> - INT 60 u - HP 95LX System Manager - "M_DIRTY_SYNC" - FORCE SCREEN UPDATE</a><br />
+<a href="#60----DI1200"><b>60----DI1200</b> - INT 60 u - HP 95LX System Manager - RESOURCE SERVICE "MAP_RESOURCE_FILE"</a><br />
+<a href="#60----DI1201"><b>60----DI1201</b> - INT 60 u - HP 95LX System Manager - "GET_RESOURCE_PTR"</a><br />
+<a href="#60----DI1202"><b>60----DI1202</b> - INT 60 u - HP 95LX System Manager - "GET_RSRC_TAB_PTR"</a><br />
+<a href="#60----DI1203"><b>60----DI1203</b> - INT 60 u - HP 95LX System Manager - "INIT_SYSMGR_RSRCS"</a><br />
+<a href="#60----DI1300"><b>60----DI1300</b> - INT 60 u - HP 95LX System Manager - INITIALIZE HELP SYSTEM</a><br />
+<a href="#60----DI1301"><b>60----DI1301</b> - INT 60 u - HP 95LX System Manager - DISPLAY HELP</a><br />
+<a href="#60----DI1302"><b>60----DI1302</b> - INT 60 u - HP 95LX System Manager - "M_HELP_KEY"</a><br />
+<a href="#60----DI1303"><b>60----DI1303</b> - INT 60 u - HP 95LX System Manager - "M_HELP_TERM"</a><br />
+<a href="#60----DI1400"><b>60----DI1400</b> - INT 60 u - HP 95LX System Manager - "M_ColInit"</a><br />
+<a href="#60----DI1401"><b>60----DI1401</b> - INT 60 u - HP 95LX System Manager - "M_ColCpStr"</a><br />
+<a href="#60----DI1402"><b>60----DI1402</b> - INT 60 u - HP 95LX System Manager - "M_ColLicsStr"</a><br />
+<a href="#60----DI1403"><b>60----DI1403</b> - INT 60 u - HP 95LX System Manager - "M_ColLicsChar"</a><br />
+<a href="#60----DI1404"><b>60----DI1404</b> - INT 60 u - HP 95LX System Manager - "M_ColToLower"</a><br />
+<a href="#60----DI1405"><b>60----DI1405</b> - INT 60 u - HP 95LX System Manager - "M_ColCpSearch"</a><br />
+<a href="#60----DI1406"><b>60----DI1406</b> - INT 60 u - HP 95LX System Manager - "M_ColToUpper"</a><br />
+<a href="#60----DI1500"><b>60----DI1500</b> - INT 60 u - HP 95LX System Manager - "GrDispInit"</a><br />
+<a href="#60----DI1501"><b>60----DI1501</b> - INT 60 u - HP 95LX System Manager - "GrDispClear"</a><br />
+<a href="#60----DI1502"><b>60----DI1502</b> - INT 60 u - HP 95LX System Manager - "GrDispDot"</a><br />
+<a href="#60----DI1503"><b>60----DI1503</b> - INT 60 u - HP 95LX System Manager - "GrDispDraw"</a><br />
+<a href="#60----DI1504"><b>60----DI1504</b> - INT 60 u - HP 95LX System Manager - "GrDispFill"</a><br />
+<a href="#60----DI1505"><b>60----DI1505</b> - INT 60 u - HP 95LX System Manager - "GrDispRead"</a><br />
+<a href="#60----DI1506"><b>60----DI1506</b> - INT 60 u - HP 95LX System Manager - "GrDispString"</a><br />
+<a href="#60----DI1507"><b>60----DI1507</b> - INT 60 u - HP 95LX System Manager - "GrDispPan"</a><br />
+<a href="#60----DI1508"><b>60----DI1508</b> - INT 60 u - HP 95LX System Manager - "GrDispZoom"</a><br />
+<a href="#60----DI1509"><b>60----DI1509</b> - INT 60 u - HP 95LX System Manager - "GrDispSave"</a><br />
+<a href="#60----DI150A"><b>60----DI150A</b> - INT 60 u - HP 95LX System Manager - "GrDispRestore"</a><br />
+<a href="#60----DI150B"><b>60----DI150B</b> - INT 60 u - HP 95LX System Manager - "GrDispCorner"</a><br />
+<a href="#60----DI1604"><b>60----DI1604</b> - INT 60 u - HP 95LX System Manager - "CP_TO_LICS"</a><br />
+<a href="#6000"><b>6000</b> - INT 60 - SYS_PROF.EXE - PROFILER STATUS</a><br />
+<a href="#6000_0"><b>6000</b> - INT 60 - MDEBUG - GET STATUS</a><br />
+<a href="#600000"><b>600000</b> - INT 60 - RIFS - CLIENT - INSTALLATION CHECK</a><br />
+<a href="#600001"><b>600001</b> - INT 60 - RIFS - CLIENT - UNINSTALL</a><br />
+<a href="#600002"><b>600002</b> - INT 60 - RIFS - CLIENT - REMAP DRIVE</a><br />
+<a href="#600003"><b>600003</b> - INT 60 - RIFS - CLIENT - UNMAP DRIVE</a><br />
+<a href="#600004"><b>600004</b> - INT 60 - RIFS - CLIENT - UNMAP ALL DRIVES</a><br />
+<a href="#600005"><b>600005</b> - INT 60 - RIFS - CLIENT - GET TRANSLATION TABLE</a><br />
+<a href="#600006"><b>600006</b> - INT 60 - RIFS - CLIENT - GET STATISTICS TABLE</a><br />
+<a href="#600007"><b>600007</b> - INT 60 - RIFS - CLIENT - GET PORT TRANSLATION TABLE</a><br />
+<a href="#600008"><b>600008</b> - INT 60 - RIFS - SERVER - INSTALLATION CHECK</a><br />
+<a href="#600009"><b>600009</b> - INT 60 - RIFS - SERVER - UNINSTALL</a><br />
+<a href="#60000A"><b>60000A</b> - INT 60 - RIFS - SERVER - GET STATISTICS TABLE</a><br />
+<a href="#60000B"><b>60000B</b> - INT 60 - RIFS - SERVER - RESET</a><br />
+<a href="#6001"><b>6001</b> - INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS</a><br />
+<a href="#6001_0"><b>6001</b> - INT 60 - SYS_PROF.EXE - TURN PROFILING OFF</a><br />
+<a href="#6001FF"><b>6001FF</b> - INT 60 - FTP Packet Driver - BASIC FUNC - GET DRIVER INFO</a><br />
+<a href="#6002"><b>6002</b> - INT 60 - MDEBUG - SET STATUS</a><br />
+<a href="#6002_0"><b>6002</b> - INT 60 - FTP Packet Driver - BASIC FUNC - ACCESS TYPE</a><br />
+<a href="#6002_1"><b>6002</b> - INT 60 - SYS_PROF.EXE - TURN PROFILING ON</a><br />
+<a href="#6003"><b>6003</b> - INT 60 - MDEBUG - POP UP</a><br />
+<a href="#6003_0"><b>6003</b> - INT 60 - FTP Packet Driver - BASIC FUNC - RELEASE TYPE</a><br />
+<a href="#6003_1"><b>6003</b> - INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE</a><br />
+<a href="#6004"><b>6004</b> - INT 60 - FTP Packet Driver - BASIC FUNC - SEND PACKET</a><br />
+<a href="#6004_0"><b>6004</b> - INT 60 - MDEBUG - POP UP</a><br />
+<a href="#6004_1"><b>6004</b> - INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE</a><br />
+<a href="#6005"><b>6005</b> - INT 60 - FTP Packet Driver - BASIC FUNC - TERMINATE DRIVER FOR HANDLE</a><br />
+<a href="#6005_0"><b>6005</b> - INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS</a><br />
+<a href="#6006"><b>6006</b> - INT 60 - FTP Packet Driver - BASIC FUNC - GET ADDRESS</a><br />
+<a href="#6006_0"><b>6006</b> - INT 60 - MDEBUG - GET PASSWORD STATUS</a><br />
+<a href="#6007"><b>6007</b> - INT 60 - FTP Packet Driver - BASIC FUNC - RESET INTERFACE</a><br />
+<a href="#6007_0"><b>6007</b> - INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG</a><br />
+<a href="#6008"><b>6008</b> - INT 60 - MDEBUG - UNUSED</a><br />
+<a href="#600A"><b>600A</b> - INT 60 - FTP Packet Driver 1.09+ - HIGH-PERF FUNC - GET PARAMETERS</a><br />
+<a href="#600B"><b>600B</b> - INT 60 - FTP Packet Driver 1.09 - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET</a><br />
+<a href="#600C"><b>600C</b> - INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET</a><br />
+<a href="#600C_0"><b>600C</b> - INT 60 - Banyan VINES, 3com - GET STATION ADDRESS</a><br />
+<a href="#600D"><b>600D</b> - INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - DROP PACKET FROM QUEUE</a><br />
+<a href="#6011"><b>6011</b> - INT 60 - 3com, 10NET, Banyan VINES - LOCK AND WAIT</a><br />
+<a href="#6012"><b>6012</b> - INT 60 - 3com, 10NET, Banyan VINES - LOCK</a><br />
+<a href="#6013"><b>6013</b> - INT 60 - 3com, 10NET, Banyan VINES - UNLOCK</a><br />
+<a href="#6014"><b>6014</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET RECEIVE MODE</a><br />
+<a href="#6015"><b>6015</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET RECEIVE MODE</a><br />
+<a href="#6016"><b>6016</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET MULTICAST LIST</a><br />
+<a href="#6017"><b>6017</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET MULTICAST LIST</a><br />
+<a href="#6018"><b>6018</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET STATISTICS</a><br />
+<a href="#6019"><b>6019</b> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET NETWORK ADDRESS</a><br />
+<a href="#601A"><b>601A</b> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - SEND RAW BYTES</a><br />
+<a href="#601B"><b>601B</b> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FLUSH RAW BYTES RECEIVED</a><br />
+<a href="#601C"><b>601C</b> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FETCH RAW BYTES RECEIVED</a><br />
+<a href="#60899B"><b>60899B</b> - INT 60 U - Agfa TTSR.EXE - API</a><br />
+<a href="#60AD"><b>60AD</b> - INT 60 - AccessDOS - API</a><br />
+<a href="#60E9"><b>60E9</b> - INT 60 - FTP Packet Driver - Crynwr Software - AUTOSELECT TRANSCEIVER</a><br />
+
+<hr />
+
+<a href="#60" name="60"><b>60</b></a> - INT 60 - reserved for user interrupt<br />
+<pre>
+INT 60 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_0" name="60_0"><b>60</b></a> - INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK<br />
+<pre>
+INT 60 - VIRUS - "Zero Bug" - INSTALLATION CHECK
+Desc:	The "Zero Bug" virus hooks this vector.	 It considers itself installed
+	  if offset 103h of the handler's segment contains the bytes "ZE"
+SeeAlso: INT 32"VIRUS",INT 44"VIRUS",INT 61"SEMTEX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_1" name="60_1"><b>60</b></a> - INT 60 - Adaptec and OMTI controllers - DRIVE 0 DATA<br />
+<pre>
+INT 60 - Adaptec and OMTI controllers - DRIVE 0 DATA
+SeeAlso: INT 41"HARD DISK 0",INT 61"Adaptec",INT 62"Adaptec",INT 63"Adaptec"
+SeeAlso: INT 64"Adaptec",INT C0"AMI",#00732 at INT 1A/AX=B102h
+Notes:	this vector stores the first four bytes of the parameter table for
+	  hard disk 0
+	these vectors are used by the following Adaptec controllers:
+	    ACB 2370 A/B/C, ACB 2372 A/B/C, ACB 2333 A/B, 2322B-8, 2322B-16
+	these vectors are NOT used by the following Adaptec controllers:
+	    ACB 2310, ACB 2312, ACB 2320D, ACB 2322D
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_2" name="60_2"><b>60</b></a> - INT 60 - TI Professional PC - SYSTEM ROM DATA AREA POINTER (NOT A VECTOR!)<br />
+<pre>
+INT 60 - TI Professional PC - SYSTEM ROM DATA AREA POINTER (NOT A VECTOR!)
+Desc:	the low word of this vector contains the segment of the RAM data area
+	  to be used by the system ROM at F400h:A000h, and the high word
+	  contains the length of the data area (see #03263)
+SeeAlso: INT 61"TI Professional PC",INT 66"TI Professional PC"
+
+Format of TI Professional System ROM data area:
+Offset	Size	Description	(Table 03263)
+ 00h	BYTE	port 00h shadow
+ 01h	BYTE	port 03h shadow
+ 02h	BYTE	port 04h shadow
+ 03h	WORD	system configuration word (see #03266)
+ 05h	BYTE	25ms count
+ 06h	WORD	offset of timing event 1 (0008h)
+ 08h	WORD	(event 1) offset of timing event 2 (0010h)
+ 0Ah	BYTE	(event 1) unused (FFh)
+ 0Bh	BYTE	(event 1) active flag (bit 7 set if on)
+ 0Ch	WORD	(event 1) count-down until end of event
+ 0Eh	WORD	(event 1) event routine (in segment F400h) to call at timeout
+ 10h	WORD	(event 2) offset of timing event 3 (0018h)
+ 12h	BYTE	(event 2) unused (FFh)
+ 13h	BYTE	(event 2) active flag (bit 7 set if on)
+ 14h	WORD	(event 2) count-down until end of event
+ 16h	WORD	(event 2) event routine (in segment F400h) to call at timeout
+ 18h	WORD	(event 3) offset of timing event 3 (0020h)
+ 1Ah	BYTE	(event 3) unused (FFh)
+ 1Bh	BYTE	(event 3) active flag (bit 7 set if on)
+ 1Ch	WORD	(event 3) count-down until end of event
+ 1Eh	WORD	(event 3) event routine (in segment F400h) to call at timeout
+ 20h	WORD	(event 4) 0000h - last event
+ 22h	BYTE	(event 4) unused (FFh)
+ 23h	BYTE	(event 4) active flag (bit 7 set if on)
+ 24h	WORD	(event 4) count-down until end of event
+ 26h	WORD	(event 4) event routine (in segment F400h) to call at timeout
+ 28h	WORD	offset of start of text display within segment DE00h
+ 2Ah	WORD	end of display
+ 2Ch	WORD	current absolute cursor position
+ 2Eh	WORD	start of current character row
+ 30h	WORD	current cursor column
+ 32h	WORD	cursor type and size (see #03264)
+ 34h	WORD	start of protected status region on screen (0000h = none)
+ 36h	BYTE	pop flag used by some ROM routines
+		00h pop registers before return
+		nonzero: do not pop
+ 37h	BYTE	unused (FFh)
+ 38h	BYTE	PAUSE flag
+		00h off
+		FFh on
+ 39h	BYTE	temp: current attribute while moving characters on screen
+ 3Ah	WORD	start of keyboard queue (next key at start+2 or 0042h if 0060h)
+ 3Ch	WORD	end of keyboard queue (next key inserted at end+2 or 0042h)
+ 3Eh	BYTE	number of characters in buffer
+ 3Fh	BYTE	keyboard mode flags (see #03265)
+ 40h	BYTE	Alt-digit-digit-digit accumulator
+ 41h	BYTE	Alt-digit-digit-digit count of digits (mod 3)
+ 42h 16 WORDs	keyboard buffer (circular queue)
+ 62h  8 DWORDs	Drive Interface Table pointers for floppies A:-D: + four others
+		(0000h:0000h if pointer not in use)
+ 82h	BYTE	disk-error retry count (incremented on each disk error)
+ 83h  2	BYTEs	BIOS scratch space
+ 85h  8 BYTEs	current cylinder number for drives 0-7
+		FFh = unknown
+ 8Dh	BYTE	BIOS scratch space
+ 8Eh	BYTE	hard error code for last disk access
+		00h operation successful
+ 8Fh  8 BYTEs	save area for disk DSR parameters
+ 97h  6 BYTEs	current drive status
+ 9Dh	BYTE	retry error status
+ 9Eh	BYTE	BIOS scratch space
+ 9Fh  7 BYTEs	???
+ A6h  2	WORDs	INT 47 save area for SS,SP
+ AAh  2	WORDs	INT 46 save area for SS,SP
+ AEh  2	WORDs	INT 43 save area for SS,SP
+ B2h  2	WORDs	save area for SS,SP to be restored by common intr. exit routine
+ B6h 24 WORDs	stack for INT 47
+ E6h 24 WORDs	stack for INT 46
+116h 17 WORDs	stack for INT 43
+13Ah  6 BYTEs	system date and time (hundredths, seconds, minutes, hours, and
+		  WORD days since 01jan1980)
+Note:	timing event 1 is the disk I/O timeout, event 2 is the floppy disk
+	  motor timeout, event 3 is the floppy disk motor spin-up time, and
+	  event 4 is used to turn off the speaker after a delay
+
+Bitfields for TI Professional PC cursor size and type:
+Bit(s)	Description	(Table 03264)
+ 15	reserved (0)
+ 14-13	cursor type
+	00 nonblinking
+	01 off
+	10 slow blink
+	11 fast blink
+ 12-8	starting scan line (0-11)
+ 7-5	reserved (0)
+ 4-0	ending scan line (0-11)
+SeeAlso: #03263
+
+Bitfields for TI Professional PC keyboard mode flags:
+Bit(s)	Description	(Table 03265)
+ 7	CapsLock was ON at last keypress
+ 6-4	reserved (0)
+ 3	repeat key
+ 2	Shift was down at last keypress
+ 1	Alt was down at last keypress
+ 0	Ctrl was down at last keypress
+SeeAlso: #03263
+
+Bitfields for TI Professional System Configuration Word:
+Bit(s)	Description	(Table 03266)
+ 0	drive A: installed
+ 1	drive B: installed
+ 2	drive C: installed
+ 3	drive D: installed
+ 4	drive A: is 80-track
+ 5	drive A: is double-sided
+ 6	60-Hz (USA,etc.) system instead of 50-Hz (Europe)
+ 7	hard disk installed
+ 8	serial port 1 installed
+ 9	serial port 2 installed
+ 10	serial port 3 installed
+ 11	serial port 4 installed
+ 14-12	installed graphics planes
+	000 none
+	001 plane A
+	111 planes A, B, and C
+ 15	clock installed
+SeeAlso: #03263
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_3" name="60_3"><b>60</b></a> - INT 60 - Atari Portfolio - USER INTERFACE FUNCTIONS<br />
+<pre>
+INT 60 - Atari Portfolio - USER INTERFACE FUNCTIONS
+Desc:	supplies a number of subfunctions which perform such functions as
+	  drawing boxes and menus, and provide input line editing
+SeeAlso: INT 61/AH=00h"Atari",INT 61"EXTENDED BIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_4" name="60_4"><b>60</b></a> - INT 60 - Nabbit v2.0 - (NOT A VECTOR!) - INSTALLATION CHECK<br />
+<pre>
+INT 60 - Nabbit v2.0 - (NOT A VECTOR!) - INSTALLATION CHECK
+Program: Nabbit is a shareware resident screen data grabber by RSE Inc.
+Range:	INT 60 to INT 66, selected by searching for first free vector
+Note:	the Nabbit installation check consists of testing whether the
+	  interrupt vector points at the ASCIZ signature string "iG"
+	  (69h 47h 00h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_5" name="60_5"><b>60</b></a> - INT 60 - ATI M64VBE.COM - INSTALLATION SIGNATURE<br />
+<pre>
+INT 60 - ATI M64VBE.COM - INSTALLATION SIGNATURE
+Program: M64VBE is a VESA VBE 2.0 driver TSR for ATI's Mach64 video chip
+InstallCheck:	scan for an interrupt with the ASCIZ signature "M64VBE" three
+	  bytes past the interrupt handler
+Range:	INT 60 to INT 66, selected by searching for first free vector
+SeeAlso: INT 10/AX=4FDDh"M64VBE",INT 10/AX=4FFFh/BX=364Dh"M64VBE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_6" name="60_6"><b>60</b></a> - INT 60 U - Buffit v3.0 - (NOT A VECTOR!) - INSTALLATION CHECK<br />
+<pre>
+INT 60 U - Buffit v3.0 - (NOT A VECTOR!) - INSTALLATION CHECK
+Program: Buffit is a shareware scrollback utility by D.T. Hamilton
+Range:	INT 60 to INT 6F, selected by searching for first free vector
+Notes:	the Buffit installation check consists of testing whether the
+	  interrupt vector points at the ASCII signature "Buffit  "
+	there is a private entry point (see #03267) immediately following the
+	  signature string, i.e. eight bytes beyond the address pointed at
+	  by the interrupt vector
+
+(Table 03267)
+Call Buffit private entry point with:
+	AH = function
+	    00h get information and hotkey state
+	    01h get information and toggle hotkey state
+Return: AH = new hotkey state (00h enabled, 01h disabled)
+	AL = hotkey scan code (see #00006)
+	BH = hotkey shift states
+	BL = ??? (01h)
+	CX = segment of resident code
+	DH = interrupt number used for signature pointer
+	DL = ??? (00h)
+	SI = INT 09 handler offset
+	DI = INT 21 handler offset
+Index:	hotkeys;Buffit
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_7" name="60_7"><b>60</b></a> - INT 60 - PC-IPC API<br />
+<pre>
+INT 60 - PC-IPC API
+	STACK:	DWORD	pointer to parameter block (see #03268)
+Return: STACK:	unchanged
+Program: PC-IPC is a shareware TSR by Donnelly Software Engineering which
+	  allows communication between independent programs
+Range:	INT 00 to INT FF, selected by commandline switch
+
+Format of PC-IPC parameter block:
+Offset	Size	Description	(Table 03268)
+ 00h	WORD	caller's ID
+ 02h	WORD	to ID
+ 04h	WORD	command code (see #03269)
+ 06h	WORD	returned status (see #03270)
+ 08h	WORD	returned error code (see #03271)
+ 0Ah	WORD	size of data
+ 0Ch	DWORD	pointer to data buffer
+
+(Table 03269)
+Values for PC-IPC command code:
+ 01h "IPC_CMND_INQUIRE"	 inquire current status
+	set status field, writes WORD to data buffer containing free
+	  message space in bytes, and sets the "size" field to the
+	  number of messages waiting
+ 02h "IPC_CMND_ENABLE"	reenable PC-IPC
+	ignored unless called with the same ID that disabled PC-IPC
+ 03h "IPC_CMND_DISABLE" disable PC-IPC
+ 04h "IPC_CMND_INSTALL" reset PC-IPC
+ 06h "IPC_CMND_RDATA"	read data
+	returns first message in data buffer, sets "size" to message length
+	  and "to ID" field to sender's ID
+	if no messages available, bit 4 of status is cleared and "size" is
+	  set to zero
+ 07h "IPC_CMND_SDATA"	send data
+ 08h "IPC_CMND_REQID"	require user ID
+	create a new recognized ID and return in "caller's ID" field
+ 09h "IPC_CMND_DELID"	cancel user ID
+	delete caller's ID from pool of recognized IDs
+ 0Ah "IPC_CMND_RDATAW"	read data, wait if no messages available
+ 0Bh "IPC_CMND_VERS"	get PC-IPC version
+	string representing version returned in data buffer, "size" field
+	  set to length of string
+
+Bitfields for returned status:
+Bit(s)	Description	(Table 03270)
+ 0	unused
+ 1	IPC enabled
+ 2	IPC installed
+ 3	error
+ 4	message(s) available
+
+(Table 03271)
+Values for PC-IPC error code:
+ 00h	no error
+ 01h	invalid command or parameter
+ 02h	only process 0 can install/reset IPC
+ 03h	process can not install/reset IPC
+ 04h	IPC is not enabled
+ 05h	process can not disable IPC
+ 06h	invalid destination process ID
+ 07h	invalid sending process ID
+ 08h	invalid data destination
+ 09h	no more process IDs available
+ 0Ah	can not relinquish that process ID
+ 0Bh	message space is full
+ 0Ch	IPC is not installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_8" name="60_8"><b>60</b></a> - INT 60 - Tangram Arbiter - API<br />
+<pre>
+INT 60 - Tangram Arbiter - API
+Desc:	Arbiter makes a PC disk look like a slow disk over an SNA link to an
+	  IBM mainframe
+Range:	INT 60h to INT 66h, selected by configuration parameter
+Notes:	identified by string "@ARB_API" immediately following a short jump at
+	  the interrupt handler address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_9" name="60_9"><b>60</b></a> - INT 60 - Excelan LAN Workplace for DOS 3.5 - API<br />
+<pre>
+INT 60 - Excelan LAN Workplace for DOS 3.5 - API
+	ES:BX -&gt; request packet (see #03272)
+Return: request packet updated
+InstallCheck:	test for the WORD 4142h ('AB') immediately preceding the
+	  interrupt handler
+Note:	this interrupt is also supported by Beame&Whiteside's BWLWP35 shim,
+	  which was used in creating this description
+BUG:	because BWLWP35 range-checks only the low byte of the function number,
+	  and has a fencepost error even in that test, functions 000Bh and
+	  XX01h-XX0Bh (XX nonzero) branch to random locations
+SeeAlso: INT 2F/AX=7A40h
+
+Format of Excelan request packet:
+Offset	Size	Description	(Table 03272)
+ 00h 12 BYTEs	???
+ 0Ch	WORD	(ret) error code (see #03273)
+ 0Eh	DWORD	-&gt; FAR function for ???
+ 12h	WORD	function number
+		0001h ???
+		0002h NOP
+		0003h NOP
+		0004h NOP
+		0005h ???
+		0006h get ??? record
+		0007h NOP
+		0008h reset ???
+		0009h NOP
+		000Ah set ???
+	???
+---function 01h---
+ 20h	BYTE	(call) subfunction (32h-3Bh)
+		3Bh non-blocking I/O request (will be tested every clock tick)
+ 21h	BYTE	(ret) error code
+		00h successful
+		09h invalid connection number
+		2Ah bad connection type
+		45h ???
+---function 01h, subfunction 32h---
+ 3Ah	WORD	(call) connection type (01h stream, 02h datagram)
+---function 01h, subfunction 34h---
+ 26h	WORD	(call) ???
+ 28h	WORD	(call) ???
+ 2Ah	WORD	(call) ???
+---function 01h, subfunction 35h---
+ 1Ah	WORD	(call) connection number???
+ 26h	WORD	(ret) ???
+---function 01h, subfunction 36h---
+ 1Ah	WORD	(call) connection number???
+ 38h	WORD	???
+---function 01h, subfunction 37h---
+ 24h	WORD	(ret) ???
+ 26h	WORD	(ret) ???
+---function 01h, subfunction 38h---
+ 1Ah	WORD	(call) connection number???
+---function 01h, subfunction 3Ah---
+ 22h	WORD	(call) ???
+		667Eh ???
+		667Fh ???
+ 24h	BYTE	(call 667Eh) ???
+ 24h	WORD	(return 667Fh) ???
+---function 01h, subfunction 3Bh---
+ 0Eh	DWORD	(call) -&gt; function to invoke for I/O or 0000h:0000h
+		function called with AX = 0000h
+				     STACK: DWORD -&gt; request packet
+					    WORD 0000h
+			should return STACK unchanged
+ 1Ah	WORD	(call) connection number???
+ 21h	BYTE	(ret) set to 01h when I/O becomes possible
+ 22h	BYTE	(call) direction (00h write, 01h read)
+ 34h	DWORD	(ret) -&gt; next pending request packet
+---function 05h---
+ 1Eh	WORD	(call) ???
+ 20h	WORD	(call) ???
+ 34h	DWORD	(call) -&gt; ???
+---function 06h---
+ 16h	DWORD	(call) -&gt; buffer for ??? record (see #03274)
+ 1Ah	WORD	(call) number of bytes to copy
+ 22h	WORD	(ret) number of bytes transferred
+---function 08h---
+ 14h	WORD	(ret) ??? (0001h)
+---function 0Ah---
+ 16h	DWORD	(call) -&gt; WORD ???
+ 1Ch	WORD	(call) must be 000Ah for BWLWP35
+
+(Table 03273)
+Values for Excelan error code:
+ 0000h	successful
+ 002Dh	invalid function
+ 0050h	???
+
+Format of ??? record:
+Offset	Size	Description	(Table 03274)
+ 00h	WORD	offset of ???
+ 02h  4 BYTEs	???
+ 06h	DWORD	IP address (big-endian)
+ 0Ah  6 BYTEs	physical address (big-endian)
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_10" name="60_10"><b>60</b></a> - INT 60 - TCPDRV 2.01 - TCP/IP Application Binary Interface (ABI)<br />
+<pre>
+INT 60 - TCPDRV 2.01 - TCP/IP Application Binary Interface (ABI)
+Note:	The handler for the interrupt will start with a 2-byte NEAR jump
+	  instruction, followed by the ASCIZ signature string "TCP DRVR".
+	To find the interrupt being used by the driver, an application
+	  should scan through interrupt vectors 60h to 7Fh until it finds
+	  one with the "TCP DRVR" string.
+	This specification is being proposed by Peter R. Tattam from the
+	  University of Tasmania.
+Index:	installation check;TCPDRV
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_11" name="60_11"><b>60</b></a> - INT 60 U - INTRSPY/CMDSPY v1.0 only - API<br />
+<pre>
+INT 60 U - INTRSPY/CMDSPY v1.0 only - API
+Program: INTRSPY is a script-driven debugger included with the book
+	  _Undocumented_DOS_.
+InstallCheck:	determine that a) the handler is an IRET instruction, and
+	  b) the signature 0Dh "INTRSPY vN.NN" immediately precedes the handler
+Notes:	INTRSPY will hook the first available interrupt in the range 60h-67h.
+	If INTRSPY is installed, the DWORD immediately after the IRET stores
+	  its entry point (see #03275)
+	INTRSPY v2.0 (included with the second edition of the book) no longer
+	  supports this API
+Index:	installation check;INTRSPY
+
+(Table 03275)
+Call INTRSPY v1.0 entry point with:
+	AH = function
+	    00h ???
+	    01h set current directory (for use in reporting)
+		ES:DI -&gt; counted string containing directory name (max 79 char)
+	    02h set name of script file
+		ES:DI -&gt; counted string containing file name (max 79 chars)
+	    03h set script arguments
+		ES:DI -&gt; counted string containing arguments (max 79 chars)
+	    04h get directory set with function 01h
+		ES:DI -&gt; 80-byte buffer for directory name
+	    05h get name of script file
+		ES:DI -&gt; 80-byte buffer for script filename
+	    06h get script arguments
+		ES:DI -&gt; 80-byte buffer for script arguments
+	    07h get ???
+		CL = 00h-15h specifies what to get
+		ES:DI -&gt; WORD to be set with desired value on return
+	    08h get ???
+		ES:DI -&gt; WORD to be set with returned value
+	    09h get ???
+		ES:DI -&gt; WORD to be set with returned value
+	    0Bh store code for interrupt handler???
+		ES:DI -&gt; data
+		CX = number of bytes
+	    0Ch ???
+		ES:DI -&gt; ???
+	    0Dh get ???
+		ES:DI -&gt; BYTE to be set with returned value
+	    0Eh set ??? flag
+	    0Fh clear ??? flag
+	    10h ???
+		Return: AL = 04h or 05h if failed
+	    11h ???
+		Return: AL = 05h if failed
+	    12h get ???
+		ES:DI -&gt; buffer
+		Return: CX = number of bytes returned in buffer
+	    13h ???
+Return: AH = 00h
+	AL = status
+	    00h successful
+	    01h invalid function
+	    02h ???
+	    03h ???
+	    04h ???
+	    05h ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_12" name="60_12"><b>60</b></a> - INT 60 U - PC/370 v4.2 - ???<br />
+<pre>
+INT 60 U - PC/370 v4.2 - ???
+	???
+Return: ???
+Program: PC/370 is an IBM 370 emulator by Donald S. Higgins
+Range:	INT 00 to INT FF, selected by patching the executable
+Note:	the documentation includes instructions for patching the system for
+	  another interrupt
+SeeAlso: INT 2F/AX=7F24h,INT DC"PC/370"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_13" name="60_13"><b>60</b></a> - INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP<br />
+<pre>
+INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP
+SeeAlso: INT 61"JPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_14" name="60_14"><b>60</b></a> - INT 60 - FTP Packet Driver - PC/TCP Packet Driver Specification<br />
+<pre>
+INT 60 - FTP Packet Driver - PC/TCP Packet Driver Specification
+Range:	INT 20 to INT FF
+Notes:	The handler for the interrupt will start with a 3-byte jump
+	  instruction, followed by the ASCIZ string "PKT DRVR" (the
+	  terminating NUL is significant).
+	To find the interrupt being used by the driver, an application should
+	  scan through interrupt vectors 20h to FFh (60h through 80h for
+	  v1.09- of the specification) until it finds one with the "PKT DRVR"
+	  string.
+	AH values of 80h to FFh have been reserved for user-defined additions.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_15" name="60_15"><b>60</b></a> - INT 60 u - 3270-PC CONTROL PROGRAM - ???<br />
+<pre>
+INT 60 u - 3270-PC CONTROL PROGRAM - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0100" name="60----DI0100"><b>60----DI0100</b></a> - INT 60 u - HP 95LX System Manager - WAIT FOR EVENT<br />
+<pre>
+INT 60 u - HP 95LX System Manager - WAIT FOR EVENT
+	DI = 0100h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to event record (see #03277)
+Return: event record filled
+	STACK unchanged
+Note:	this call will timeout after about 500ms
+SeeAlso: INT 15/AX=4DD4h,INT 60/DI=0101h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+(Table 03276)
+Values for HP 95LX event type:
+ 00h	no events
+ 01h	keystroke available
+ 02h	Ctrl-Break
+ 03h	reactivation (always follows deactivation event)
+ 04h	about to deactivate (sleep)
+	next get-event call will not return until reactivated
+ 05h	forced application termination
+ 06h	1-2-3 bridge service request (only given to 1-2-3)
+ 07h	request to grow
+ 08h	request to shrink
+ 09h	application's alarm expired
+ 0Ah	daily chance to set an alarm
+ 0Bh	system date or time has been changed
+
+Format of HP 95LX event record:
+Offset	Size	Description	(Table 03277)
+ 00h	WORD	event type (see #03276)
+ 02h	WORD	ASCII code page 850 translation of keystroke
+		or grow/shrink amount in paragraphs or 0000h if error
+		or alarm expiration data
+ 04h	BYTE	scan code from BIOS
+ 05h	BYTE	shift key states at time keystroke is retrieved
+ 06h	WORD	LICS translation of keystroke
+ 08h	BYTE	function key number (1-2-3 only)
+ 09h	DWORD	pointer to 1-2-3 bridge record (see #03279)
+		or pointer to time change structure (see #03278)
+Note:	if the System Manager is awaiting the conclusion of a bridge service
+	  or grow/shrink call and the event type field is set to FFFFh on
+	  entry, the SysMgr will resume
+
+Format of HP 95LX time change structure:
+Offset	Size	Description	(Table 03278)
+ 00h	WORD	old year
+ 02h	BYTE	old month
+ 03h	BYTE	old date
+ 04h	BYTE	old day
+ 05h	BYTE	old hour
+ 06h	BYTE	old minute
+ 07h	BYTE	old second
+ 08h	BYTE	old hundredth of a second
+ 09h  9 BYTEs	new time in same format as old time
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0101" name="60----DI0101"><b>60----DI0101</b></a> - INT 60 u - HP 95LX System Manager - CHECK FOR EVENT<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CHECK FOR EVENT
+	DI = 0101h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD pointer to event record (INT 60/DI=0100h)
+Return: event record filled
+	STACK unchanged
+Note:	this call returns immediately if no event is available
+SeeAlso: INT 60/DI=0100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0102" name="60----DI0102"><b>60----DI0102</b></a> - INT 60 u - HP 95LX System Manager - "SH_STATUS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "SH_STATUS"
+	DI = 0102h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0104" name="60----DI0104"><b>60----DI0104</b></a> - INT 60 u - HP 95LX System Manager - LOTUS 1-2-3 BRIDGE SERVICES<br />
+<pre>
+INT 60 u - HP 95LX System Manager - LOTUS 1-2-3 BRIDGE SERVICES
+	DI = 0104h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD pointer to bridge record (see #03279)
+Return: ???
+	STACK unchanged
+
+Format of HP 95LX bridge record:
+Offset	Size	Description	(Table 03279)
+ 00h	WORD	function code (see #03280)
+ 02h	WORD	return code from 1-2-3
+ 04h 16 BYTEs	ASCII range name
+ 14h	WORD	start column of range
+ 16h	WORD	start row of range
+ 18h	WORD	end column of range
+ 1Ah	WORD	end row of range
+ 1Ch	WORD	order in which data is placed in buffer
+ 1Eh	WORD	buffer size
+ 20h	WORD	offset within bridge record's segment of buffer for cell data
+
+(Table 03280)
+Values for HP 95LX function code:
+ 00h	test
+ 01h	get range
+ 02h	"GETRANGE_ADDR"
+ 03h	"SETRANGE_ADDR"
+ 04h	"GETRANGE_DATA"
+ 05h	"SETRANGE_DATA"
+ 06h	recalculate
+ 07h	get cursor
+ 08h	set cursor
+ 09h	redisplay
+ 0Ah	cell type
+ 0Bh	"CALCTYPE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0105" name="60----DI0105"><b>60----DI0105</b></a> - INT 60 u - HP 95LX System Manager - FLUSH KEYBOARD BUFFER<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FLUSH KEYBOARD BUFFER
+	DI = 0105h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0106" name="60----DI0106"><b>60----DI0106</b></a> - INT 60 u - HP 95LX System Manager - YIELD CPU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - YIELD CPU
+	DI = 0106h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=1000h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0107" name="60----DI0107"><b>60----DI0107</b></a> - INT 60 u - HP 95LX System Manager - "NO_FINI" - REFUSE TERMINATION REQUEST<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "NO_FINI" - REFUSE TERMINATION REQUEST
+	DI = 0107h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0200" name="60----DI0200"><b>60----DI0200</b></a> - INT 60 u - HP 95LX System Manager - SETUP MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SETUP MENU
+	DI = 0200h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to menu data (see #03281)
+		DWORD	pointer to ???
+		WORD	number of items on menu???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 60/DI=0201h,INT 60/DI=0203h,INT 60/DI=0205h
+
+Format of HP 95LX menu data:
+Offset	Size	Description	(Table 03281)
+ 00h 80 BYTEs	first line of menu text
+ 50h 80 BYTEs	second line of menu text
+ A0h 80 BYTEs	third line of menu text
+ F0h	WORD	number of keywords
+ F2h	WORD	index of currently highlighted keyword or FFFFh
+ F4h	WORD	single prompt on top line if nonzero
+ F6h 20 BYTEs	which line each of 20 keywords is located on
+10Ah 20 BYTEs	offset of each of 20 keywords within its line
+11Eh 20 BYTEs	length of each of 20 keywords
+132h 20 BYTEs	first letter of each of 20 keywords
+146h 20 WORDs	offsets of long prompts for each of 20 keywords
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0201" name="60----DI0201"><b>60----DI0201</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY MENU
+	DI = 0201h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to menu data (see #03281)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0200h,INT 60/DI=0202h,INT 60/DI=0206h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0202" name="60----DI0202"><b>60----DI0202</b></a> - INT 60 u - HP 95LX System Manager - "MENU_ON" - ENABLE PROCESSING OF MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MENU_ON" - ENABLE PROCESSING OF MENU
+	DI = 0202h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to menu data (see #03281)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0200h,INT 60/DI=0201h,INT 60/DI=0203h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0203" name="60----DI0203"><b>60----DI0203</b></a> - INT 60 u - HP 95LX System Manager - REMOVE MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - REMOVE MENU
+	DI = 0203h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to menu data (see #03281)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0201h,INT 60/DI=0202h,INT 60/DI=0204h,INT 60/DI=0208h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0204" name="60----DI0204"><b>60----DI0204</b></a> - INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER HANDLE MENU KEYSTROKE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER HANDLE MENU KEYSTROKE
+	DI = 0204h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to menu data (see #03281)
+		WORD	keystroke
+		DWORD	pointer to WORD to receive selection number
+Return: buffer for selection number filled with index of selected menu item or
+	  FFFFh if no final selection yet
+	STACK unchanged
+SeeAlso: INT 60/DI=0200h,INT 60/DI=0202h,INT 60/DI=0207h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0205" name="60----DI0205"><b>60----DI0205</b></a> - INT 60 u - HP 95LX System Manager - INITIALIZE FILE SELECTION MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - INITIALIZE FILE SELECTION MENU
+	DI = 0205h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file menu structure (see #03282)
+		DWORD	pointer to edit record (see #03285 at INT 60/DI=0400h)
+		DWORD	pointer to wildcard filespec for initial file list
+		WORD	row???
+		WORD	column???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0200h,INT 60/DI=0206h,INT 60/DI=0208h
+
+Format of HP 95LX file menu structure:
+Offset	Size	Description	(Table 03282)
+ 00h	DWORD	pointer to ASCIZ base directory name
+ 04h	DWORD	pointer to ASCIZ file pattern (wildcard filespec)
+ 08h	DWORD	pointer to file list workspace, at least 1024 bytes (see #03283)
+ 0Ch	WORD	size of file list workspace in bytes
+ 0Eh	WORD	starting row (-3 is topmost, 0 is first non-"reserved" line)
+ 10h	WORD	starting column
+ 12h	WORD	number of lines
+ 14h	WORD	number of columns
+ 16h	WORD	number of files displayed on each line
+---the remaining fields are initialized by the System Manager---
+ 18h	WORD	0000h if first edit character, else multiline
+ 1Ah	WORD	number of files in file list
+ 1Ch	WORD	max files workspace has room for
+ 1Eh	WORD	file at top of list
+ 20h	WORD	index of file to highlight
+ 22h	WORD	index of file to unhighlight
+ 24h	WORD	current focus (01h FMENU, 02h EDIT)
+
+Format of HP 95LX file list workspace entry:
+Offset	Size	Description	(Table 03283)
+ 00h	BYTE	file attributes
+ 01h	WORD	file time (see #01665 at INT 21/AX=5700h)
+ 03h	WORD	file date (see #01666 at INT 21/AX=5700h)
+ 05h	DWORD	file size
+ 09h 13 BYTEs	ASCIZ filename
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0206" name="60----DI0206"><b>60----DI0206</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY/REDISPLAY FILE SELECTION MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY/REDISPLAY FILE SELECTION MENU
+	DI = 0206h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file menu structure (see #03282)
+		DWORD	pointer to edit record (see #03285 at INT 60/DI=0400h)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0205h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0207" name="60----DI0207"><b>60----DI0207</b></a> - INT 60 u - HP 95LX System Manager - LET SYSMGR PROCESS FILE SEL MENU KEYSTROKE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - LET SYSMGR PROCESS FILE SEL MENU KEYSTROKE
+	DI = 0207h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file menu structure (see #03282)
+		DWORD	pointer to edit record (see #03285 at INT 60/DI=0400h)
+		WORD	keystroke
+Return: AX = status (see #03284)
+	STACK unchanged
+SeeAlso: INT 60/DI=0205h,INT 60/DI=0208h
+
+(Table 03284)
+Values for HP 95LX System Manager status:
+ 0000h	keystroke processed, call INT 60/DI=0206h to refresh menu
+ 0001h	redisplay application area before refreshing menu
+ 0002h	user confirmed selection, filename is in edit record's buffer
+ 0003h	user aborted menu
+ FFFBh	bad filename
+ FFFCh	bad directory
+ FFFDh	bad drive
+ FFFEh	unknown keystroke
+ FFFFh	keystroke known but invalid in current context
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0208" name="60----DI0208"><b>60----DI0208</b></a> - INT 60 u - HP 95LX System Manager - REMOVE FILE SELECTION MENU<br />
+<pre>
+INT 60 u - HP 95LX System Manager - REMOVE FILE SELECTION MENU
+	DI = 0208h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file menu structure (see #03282)
+		DWORD	pointer to edit record (see #03285 at INT 60/DI=0400h)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 60/DI=0205h,INT 60/DI=0206h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0300" name="60----DI0300"><b>60----DI0300</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY STRING<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY STRING
+	DI = 0300h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	starting row (-3 is topmost, 0 is first user line)
+		WORD	starting column
+		DWORD	pointer to string
+		WORD	length of string
+		WORD	display style: 0000h normal, 0001h reverse video
+		WORD	"OSTYLE"
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0F03h,INT 60/DI=1005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0301" name="60----DI0301"><b>60----DI0301</b></a> - INT 60 u - HP 95LX System Manager - CLEAR PORTION OF SCREEN<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLEAR PORTION OF SCREEN
+	DI = 0301h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	starting row (-3 is topmost, 0 is first user line)
+		WORD	starting column
+		WORD	number of rows
+		WORD	number of columns
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0302h,INT 60/DI=1005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0302" name="60----DI0302"><b>60----DI0302</b></a> - INT 60 u - HP 95LX System Manager - SCROLL PORTION OF SCREEN<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCROLL PORTION OF SCREEN
+	DI = 0302h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	starting row???
+		WORD	starting column???
+		WORD	height of scroll region???
+		WORD	width of scroll region???
+		WORD	number of lines to scroll region???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0301h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0303" name="60----DI0303"><b>60----DI0303</b></a> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_XCHG"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_XCHG"
+	DI = 0303h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0304" name="60----DI0304"><b>60----DI0304</b></a> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRATTR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRATTR"
+	DI = 0304h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0305" name="60----DI0305"><b>60----DI0305</b></a> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRRVRT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRRVRT"
+	DI = 0305h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0307" name="60----DI0307"><b>60----DI0307</b></a> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRINV"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_CHRINV"
+	DI = 0307h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0308" name="60----DI0308"><b>60----DI0308</b></a> - INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_ROWS_COLS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SCREEN SERVICE "M_ROWS_COLS"
+	DI = 0308h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0309" name="60----DI0309"><b>60----DI0309</b></a> - INT 60 u - HP 95LX System Manager - SET SCREEN (VIDEO???) MODE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET SCREEN (VIDEO???) MODE
+	DI = 0309h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	new mode
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI030A" name="60----DI030A"><b>60----DI030A</b></a> - INT 60 u - HP 95LX System Manager - GET SCREEN (VIDEO???) MODE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - GET SCREEN (VIDEO???) MODE
+	DI = 030Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI030B" name="60----DI030B"><b>60----DI030B</b></a> - INT 60 u - HP 95LX System Manager - SET CURSOR POSITION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET CURSOR POSITION
+	DI = 030Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	row (-3 is topmost, 0 is first non-reserved line)
+		WORD	column
+Return: ???
+	STACK unchanged
+Note:	cursor is hidden if the specified position is not on the physical
+	  display
+SeeAlso: INT 10/AH=02h,INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0400" name="60----DI0400"><b>60----DI0400</b></a> - INT 60 u - HP 95LX System Manager - "EDIT_INIT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "EDIT_INIT"
+	DI = 0400h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to edit record (see #03285)
+		DWORD	pointer to string to be edited
+		WORD	initial length of string being edited
+		WORD	maximum length of edited string
+		WORD	row of edit field
+		WORD	leftmost column of edit field
+Return: ???
+	STACK unchanged
+
+Format of HP 95LX edit record:
+Offset	Size	Description	(Table 03285)
+ 00h	WORD	current length of edit buffer
+ 02h	BYTE	flag for special processing on first character
+ 03h	BYTE	flags
+		bit 0: tab handling
+ 04h	WORD	editing in prompt window?
+ 06h	DWORD	pointer to top line of prompt window message
+ 0Ah	WORD	length of top line of prompt
+ 0Ch	DWORD	pointer to second line of prompt window message
+ 10h	WORD	length of second line of prompt
+ 12h 80 BYTEs	workspace for editing
+ 62h  2 WORDs	line array needed for multi-line editing
+ 66h 36 BYTEs	multi-line edit record (see #03286)
+ 8Ah	WORD	displayable columns
+
+Format of HP 95LX multi-line edit record:
+Offset	Size	Description	(Table 03286)
+ 00h	DWORD	pointer to user-supplied edit buffer
+ 04h	WORD	length of edit buffer
+ 06h	WORD	current cursor position
+ 08h	WORD	starting row of edit area (-3 is topmost, 0 is first user line)
+ 0Ah	WORD	starting column of edit area
+ 0Ch	WORD	height of edit area
+ 0Eh	WORD	width of edit area
+ 10h	WORD	current top row (-3 is topmost, 0 is first user line)
+ 12h	WORD	number of rows displayable
+ 14h	BYTE	cursor column
+ 15h	BYTE	01h if buffer has been modified
+ 16h	BYTE	first displayable column (ticker fields only)
+ 17h	BYTE	01h if wordwrap enabled, FFh if ticker field
+ 18h	DWORD	pointer to array of line starts (at least one bigger than edit
+		  area is high)
+ 1Ch	BYTE	currently marking?
+ 1Dh	BYTE	flag
+ 1Eh	WORD	offset of mark start
+ 20h	WORD	offset of mark end (inclusive)
+ 22h	WORD	displayable columns
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0401" name="60----DI0401"><b>60----DI0401</b></a> - INT 60 u - HP 95LX System Manager - EDIT ON TOP LINE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - EDIT ON TOP LINE
+	DI = 0401h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to edit record (see #03285)
+		DWORD	pointer to string to edit
+		WORD	initial length of string being edited
+		WORD	maximum length of edited string
+		DWORD	pointer to first line of prompt
+		WORD	length of first line
+		DWORD	pointer to second line of prompt
+		WORD	length of second line
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0402" name="60----DI0402"><b>60----DI0402</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY EDIT FIELD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY OR REDISPLAY EDIT FIELD
+	DI = 0402h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to edit record (see #03285)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0403" name="60----DI0403"><b>60----DI0403</b></a> - INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER PROCESS EDITING KEYSTROK<br />
+<pre>
+INT 60 u - HP 95LX System Manager - LET SYSTEM MANAGER PROCESS EDITING KEYSTROK
+	DI = 0403h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to edit record (see #03285)
+		WORD	keystroke
+		DWORD	pointer to WORD buffer for result code
+Return: result code buffer filled with 0001h if editing complete
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0404" name="60----DI0404"><b>60----DI0404</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_INI"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_INI"
+	DI = 0404h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0405" name="60----DI0405"><b>60----DI0405</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_DIS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_DIS"
+	DI = 0405h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0406" name="60----DI0406"><b>60----DI0406</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_KEY"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_KEY"
+	DI = 0406h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0407" name="60----DI0407"><b>60----DI0407</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_FIL"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_FIL"
+	DI = 0407h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0408" name="60----DI0408"><b>60----DI0408</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_MARK"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_MARK"
+	DI = 0408h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0409" name="60----DI0409"><b>60----DI0409</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_UNMARK"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_UNMARK"
+	DI = 0409h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI040A" name="60----DI040A"><b>60----DI040A</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_CUTMARK"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_CUTMARK"
+	DI = 040Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI040B" name="60----DI040B"><b>60----DI040B</b></a> - INT 60 u - HP 95LX System Manager - "MDIT_INS_STR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "MDIT_INS_STR"
+	DI = 040Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0500" name="60----DI0500"><b>60----DI0500</b></a> - INT 60 u - HP 95LX System Manager - OPEN FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - OPEN FILE
+	DI = 0500h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to filename
+		WORD	length of filename
+		WORD	???
+		WORD	suppress buffering if nonzero
+Return: AX = status
+	STACK unchanged
+SeeAlso: INT 60/DI=0501h,INT 60/DI=0502h,INT 60/DI=0508h
+
+Format of HP 95LX file state record:
+Offset	Size	Description	(Table 03287)
+ 00h	WORD	DOS file handle
+ 02h	WORD	state flags (see #03288)
+ 04h	DWORD	current DOS physical file offset (FFFFFFFFh if unknown)
+ 08h	DWORD	DOS file offset of start of buffer
+ 0Ch	DWORD	effective file offset as seen by caller
+ 10h	WORD	number of bytes in file buffer
+---buffered I/O only---
+ 12h 512 BYTEs	file buffer
+
+Bitfields for HP 95LX file state flags:
+Bit(s)	Description	(Table 03288)
+ 0	buffer contents valid
+ 1	buffer is dirty and must be written
+ 2	unbuffered I/O
+ 3	file is a character device
+SeeAlso: #03287
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0501" name="60----DI0501"><b>60----DI0501</b></a> - INT 60 u - HP 95LX System Manager - OPEN FILE IN READ-ONLY MODE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - OPEN FILE IN READ-ONLY MODE
+	DI = 0501h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to filename
+		WORD	length of filename
+		WORD	???
+		WORD	suppress buffering if nonzero
+Return: AX = status
+	STACK unchanged
+SeeAlso: INT 60/DI=0500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0502" name="60----DI0502"><b>60----DI0502</b></a> - INT 60 u - HP 95LX System Manager - CREATE NEW FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CREATE NEW FILE
+	DI = 0502h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to filename
+		WORD	length of filename
+		WORD	???
+		WORD	suppress buffering if nonzero
+Return: AX = status
+	STACK unchanged
+SeeAlso: INT 60/DI=0500h,INT 60/DI=0503h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0503" name="60----DI0503"><b>60----DI0503</b></a> - INT 60 u - HP 95LX System Manager - CREATE OR TRUNCATE FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CREATE OR TRUNCATE FILE
+	DI = 0503h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to filename
+		WORD	length of filename
+		WORD	???
+		WORD	suppress buffering if nonzero
+Return: AX = status
+	STACK unchanged
+SeeAlso: INT 60/DI=0502h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0504" name="60----DI0504"><b>60----DI0504</b></a> - INT 60 u - HP 95LX System Manager - READ FROM FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - READ FROM FILE
+	DI = 0504h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to data buffer
+		WORD	number of bytes to read
+		DWORD	pointer to WORD in which to return actual bytes read
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0505h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0505" name="60----DI0505"><b>60----DI0505</b></a> - INT 60 - HP 95LX System Manager - WRITE TO FILE<br />
+<pre>
+INT 60 - HP 95LX System Manager - WRITE TO FILE
+	DI = 0505h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to data
+		WORD	length of data
+Return: AX = status
+	STACK unchanged
+SeeAlso: INT 60/DI=0504h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0506" name="60----DI0506"><b>60----DI0506</b></a> - INT 60 u - HP 95LX System Manager - SET FILE POSITION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET FILE POSITION
+	DI = 0506h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		2 WORDs	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0507h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0507" name="60----DI0507"><b>60----DI0507</b></a> - INT 60 u - HP 95LX System Manager - GET FILE POSITION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - GET FILE POSITION
+	DI = 0507h "M_TELL"
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+		DWORD	pointer to DWORD buffer for file position???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0506h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0508" name="60----DI0508"><b>60----DI0508</b></a> - INT 60 u - HP 95LX System Manager - CLOSE FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOSE FILE
+	DI = 0508h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to file state record (see #03287)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0509" name="60----DI0509"><b>60----DI0509</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETPAT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETPAT"
+	DI = 0509h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050A" name="60----DI050A"><b>60----DI050A</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_MATCH"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_MATCH"
+	DI = 050Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ??? (see #03289)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+Format of HP 95LX pattern match control block:
+Offset	Size	Description	(Table 03289)
+ 00h 43 BYTEs	FindFirst data block (see #01626 at INT 21/AH=4Eh)
+ 2Bh 80 BYTEs	full path name
+ 7Bh	BYTE	offset of last component of filename
+ 7Ch	BYTE	DOS function number (4Eh or 4Fh)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050B" name="60----DI050B"><b>60----DI050B</b></a> - INT 60 u - HP 95LX System Manager - IDENTIFY FILENAME REFERENT<br />
+<pre>
+INT 60 u - HP 95LX System Manager - IDENTIFY FILENAME REFERENT
+	DI = 050Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+Return: ??? = result (see #03290)
+	???
+	STACK unchanged
+
+(Table 03290)
+Values returned by HP 95LX System Manager:
+ 0000h	nonexistent
+ 0001h	file
+ 0002h	directory
+ 0003h	character device
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050C" name="60----DI050C"><b>60----DI050C</b></a> - INT 60 u - HP 95LX System Manager - DELETE FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DELETE FILE
+	DI = 050Ch "M_DELETE"
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050D" name="60----DI050D"><b>60----DI050D</b></a> - INT 60 u - HP 95LX System Manager - RENAME FILE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - RENAME FILE
+	DI = 050Dh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050E" name="60----DI050E"><b>60----DI050E</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETDIR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETDIR"
+	DI = 050Eh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI050F" name="60----DI050F"><b>60----DI050F</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETDIR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_SETDIR"
+	DI = 050Fh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0510" name="60----DI0510"><b>60----DI0510</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_VOLUME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_VOLUME"
+	DI = 0510h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0511" name="60----DI0511"><b>60----DI0511</b></a> - INT 60 u - HP 95LX System Manager - MAKE A SUBDIRECTORY<br />
+<pre>
+INT 60 u - HP 95LX System Manager - MAKE A SUBDIRECTORY
+	DI = 0511h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AH=39h,INT 60/DI=0512h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0512" name="60----DI0512"><b>60----DI0512</b></a> - INT 60 u - HP 95LX System Manager - REMOVE A SUBDIRECTORY<br />
+<pre>
+INT 60 u - HP 95LX System Manager - REMOVE A SUBDIRECTORY
+	DI = 0512h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AH=3Ah,INT 60/DI=0511h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0513" name="60----DI0513"><b>60----DI0513</b></a> - INT 60 u - HP 95LX System Manager - GET DEFAULT DRIVE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - GET DEFAULT DRIVE
+	DI = 0513h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ??? buffer for current drive
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AH=19h,INT 60/DI=0514h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0514" name="60----DI0514"><b>60----DI0514</b></a> - INT 60 u - HP 95LX System Manager - SET DEFAULT DRIVE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET DEFAULT DRIVE
+	DI = 0514h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	new drive
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AH=0Eh"DOS 1+",INT 60/DI=0513h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0515" name="60----DI0515"><b>60----DI0515</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_FDATE"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_FDATE"
+	DI = 0515h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0516" name="60----DI0516"><b>60----DI0516</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GET_SYSDIR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GET_SYSDIR"
+	DI = 0516h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0517" name="60----DI0517"><b>60----DI0517</b></a> - INT 60 u - HP 95LX System Manager - GET FILE ATTRIBUTES<br />
+<pre>
+INT 60 u - HP 95LX System Manager - GET FILE ATTRIBUTES
+	DI = 0517h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ??? buffer for file's attributes???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AX=4300h,INT 60/DI=0518h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0518" name="60----DI0518"><b>60----DI0518</b></a> - INT 60 u - HP 95LX System Manager - SET FILE ATTRIBUTES<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET FILE ATTRIBUTES
+	DI = 0518h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		WORD	new attributes???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AX=4301h,INT 60/DI=0517h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0519" name="60----DI0519"><b>60----DI0519</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COMMON_OPEN"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COMMON_OPEN"
+	DI = 0519h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI051A" name="60----DI051A"><b>60----DI051A</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COPYDT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_COPYDT"
+	DI = 051Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI051B" name="60----DI051B"><b>60----DI051B</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETFDT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_GETFDT"
+	DI = 051Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI051C" name="60----DI051C"><b>60----DI051C</b></a> - INT 60 u - HP 95LX System Manager - FILE SERVICE "M_PUTFDT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FILE SERVICE "M_PUTFDT"
+	DI = 051Ch
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0600" name="60----DI0600"><b>60----DI0600</b></a> - INT 60 u - HP 95LX System Manager - PROCESS INITIALIZING<br />
+<pre>
+INT 60 u - HP 95LX System Manager - PROCESS INITIALIZING
+	DI = 0600h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 60/DI=0601h,INT 61"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0601" name="60----DI0601"><b>60----DI0601</b></a> - INT 60 u - HP 95LX System Manager - PROCESS TERMINATION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - PROCESS TERMINATION
+	DI = 0601h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: never
+	STACK unchanged
+SeeAlso: INT 21/AH=4Ch,INT 2F/AX=1122h,INT 60/DI=0600h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0602" name="60----DI0602"><b>60----DI0602</b></a> - INT 60 u - HP 95LX System Manager - "M_LOCK" - PREVENT TASK SWITCHES<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_LOCK" - PREVENT TASK SWITCHES
+	DI = 0602h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=101Bh,INT 2F/AX=1681h,INT 60/DI=0603h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0603" name="60----DI0603"><b>60----DI0603</b></a> - INT 60 u - HP 95LX System Manager - "M_UNLOCK" - ALLOW TASK SWITCHES<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_UNLOCK" - ALLOW TASK SWITCHES
+	DI = 0603h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=101Ch,INT 2F/AX=1682h,INT 60/DI=0602h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0604" name="60----DI0604"><b>60----DI0604</b></a> - INT 60 u - HP 95LX System Manager - "M_SPAWN"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_SPAWN"
+	DI = 0604h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 21/AH=4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0605" name="60----DI0605"><b>60----DI0605</b></a> - INT 60 u - HP 95LX System Manager - "M_APPCOUNT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_APPCOUNT"
+	DI = 0605h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0606" name="60----DI0606"><b>60----DI0606</b></a> - INT 60 u - HP 95LX System Manager - "M_REBOOT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_REBOOT"
+	DI = 0606h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 14/AH=17h"FOSSIL",INT 19
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0607" name="60----DI0607"><b>60----DI0607</b></a> - INT 60 u - HP 95LX System Manager - "M_SPAWNARG"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_SPAWNARG"
+	DI = 0607h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0608" name="60----DI0608"><b>60----DI0608</b></a> - INT 60 u - HP 95LX System Manager - "M_REG_APP_NAME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_REG_APP_NAME"
+	DI = 0608h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0609" name="60----DI0609"><b>60----DI0609</b></a> - INT 60 u - HP 95LX System Manager - "M_APP_NAME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_APP_NAME"
+	DI = 0609h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: DX:AX -&gt; ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0700" name="60----DI0700"><b>60----DI0700</b></a> - INT 60 u - HP 95LX System Manager - OPEN CLIPBOARD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - OPEN CLIPBOARD
+	DI = 0700h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ??? = error code (see #03291)
+	???
+	STACK unchanged
+SeeAlso: INT 60/DI=0701h,INT 60/DI=0702h
+
+(Table 03291)
+Values for HP 95LX error code:
+ 0000h	successful
+ FFF8h	transfer request out of bounds
+ FFF9h	no such representation
+ FFFAh	no representation open
+ FFFBh	a representation is already open
+ FFFCh	representation already exists
+ FFFDh	heap allocation failure
+ FFFEh	clipboard not open
+ FFFFh	clipboard access denied
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0701" name="60----DI0701"><b>60----DI0701</b></a> - INT 60 u - HP 95LX System Manager - CLOSE CLIPBOARD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOSE CLIPBOARD
+	DI = 0701h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0700h,INT 60/DI=0702h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0702" name="60----DI0702"><b>60----DI0702</b></a> - INT 60 u - HP 95LX System Manager - RESET CLIPBOARD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - RESET CLIPBOARD
+	DI = 0702h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0704" name="60----DI0704"><b>60----DI0704</b></a> - INT 60 u - HP 95LX System Manager - "M_NEW_REP" - START A NEW REPRESENTATION???<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_NEW_REP" - START A NEW REPRESENTATION???
+	DI = 0704h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0705h,INT 60/DI=0706h,INT 60/DI=0707h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0705" name="60----DI0705"><b>60----DI0705</b></a> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_FINI_REP"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_FINI_REP"
+	DI = 0705h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0704h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0706" name="60----DI0706"><b>60----DI0706</b></a> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_NAME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_NAME"
+	DI = 0706h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0704h,INT 60/DI=0707h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0707" name="60----DI0707"><b>60----DI0707</b></a> - INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_INDEX"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLIPBOARD SERVICE "M_REP_INDEX"
+	DI = 0707h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0704h,INT 60/DI=0706h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0708" name="60----DI0708"><b>60----DI0708</b></a> - INT 60 u - HP 95LX System Manager - WRITE TO CLIPBOARD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - WRITE TO CLIPBOARD
+	DI = 0708h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to data to be written???
+		WORD	length of data???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0709h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0709" name="60----DI0709"><b>60----DI0709</b></a> - INT 60 u - HP 95LX System Manager - READ FROM CLIPBOARD<br />
+<pre>
+INT 60 u - HP 95LX System Manager - READ FROM CLIPBOARD
+	DI = 0709h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		DWORD	pointer to buffer for data???
+		WORD	length of buffer???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0708h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0800" name="60----DI0800"><b>60----DI0800</b></a> - INT 60 u - HP 95LX System Manager - BEEP<br />
+<pre>
+INT 60 u - HP 95LX System Manager - BEEP
+	DI = 0800h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0801h,INT 60/DI=0802h,INT 60/DI=0803h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0801" name="60----DI0801"><b>60----DI0801</b></a> - INT 60 u - HP 95LX System Manager - SOUND SERVICE "M_THUD"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SOUND SERVICE "M_THUD"
+	DI = 0801h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0800h,INT 60/DI=0802h,INT 60/DI=0803h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0802" name="60----DI0802"><b>60----DI0802</b></a> - INT 60 u - HP 95LX System Manager - MAKE A SOUND PATTERN<br />
+<pre>
+INT 60 u - HP 95LX System Manager - MAKE A SOUND PATTERN
+	DI = 0802h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	pattern number (00h-06h)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0800h,INT 60/DI=0801h,INT 60/DI=0803h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0803" name="60----DI0803"><b>60----DI0803</b></a> - INT 60 u - HP 95LX System Manager - TURN OFF SOUND<br />
+<pre>
+INT 60 u - HP 95LX System Manager - TURN OFF SOUND
+	DI = 0803h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0800h,INT 60/DI=0801h,INT 60/DI=0802h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0900" name="60----DI0900"><b>60----DI0900</b></a> - INT 60 - HP 95LX System Manager - ALLOCATE REGULAR MEMORY BLOCK<br />
+<pre>
+INT 60 - HP 95LX System Manager - ALLOCATE REGULAR MEMORY BLOCK
+	DI = 0900h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	size of block in bytes
+Return: AX -&gt; memory block
+	STACK unchanged
+Note:	System Manager-compliant applications are always small-model (64K code,
+	  64K data)
+SeeAlso: INT 15/AX=4DD4h,INT 60/DI=0902h,INT 60/DI=0903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0902" name="60----DI0902"><b>60----DI0902</b></a> - INT 60 u - HP 95LX System Manager - FREE REGULAR MEMORY BLOCK<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FREE REGULAR MEMORY BLOCK
+	DI = 0902h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	offset of memory block???
+Return: ???
+	STACK unchanged
+Note:	System Manager-compliant applications are always small-model (64K code,
+	  64K data)
+SeeAlso: INT 60/DI=0900h,INT 60/DI=0904h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0903" name="60----DI0903"><b>60----DI0903</b></a> - INT 60 u - HP 95LX System Manager - ALLOCATE LARGE MEMORY BLOCK<br />
+<pre>
+INT 60 u - HP 95LX System Manager - ALLOCATE LARGE MEMORY BLOCK
+	DI = 0903h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	size of block in bytes???
+Return: AX -&gt; memory block???
+	STACK unchanged
+SeeAlso: INT 60/DI=0900h,INT 60/DI=0904h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0904" name="60----DI0904"><b>60----DI0904</b></a> - INT 60 u - HP 95LX System Manager - FREE LARGE MEMORY BLOCK<br />
+<pre>
+INT 60 u - HP 95LX System Manager - FREE LARGE MEMORY BLOCK
+	DI = 0904h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	segment of memory block???
+Return: AX -&gt; ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0902h,INT 60/DI=0903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B00" name="60----DI0B00"><b>60----DI0B00</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DTINFO"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DTINFO"
+	DI = 0B00h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B01" name="60----DI0B01"><b>60----DI0B01</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GETDTM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GETDTM"
+	DI = 0B01h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B02" name="60----DI0B02"><b>60----DI0B02</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SETDTM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SETDTM"
+	DI = 0B02h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B03" name="60----DI0B03"><b>60----DI0B03</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_XALARM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_XALARM"
+	DI = 0B03h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B04" name="60----DI0B04"><b>60----DI0B04</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_ALARM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_ALARM"
+	DI = 0B04h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to alarm record??? (see #03292)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+Format of HP 95LX alarm record:
+Offset	Size	Description	(Table 03292)
+ 00h	BYTE	hour
+ 01h	BYTE	minute
+ 02h	BYTE	second
+ 03h	BYTE	unused padding
+ 04h	WORD	rescheduling interval, in seconds
+ 06h	BYTE	are seconds significant?
+ 07h	BYTE	alarm sound
+ 08h 40 BYTEs	message displayed when alarm activates
+ 30h	BYTE	task ID of owner
+ 31h	BYTE	application's own use for sub-class
+ 32h  4 BYTEs	application's own use for private data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B05" name="60----DI0B05"><b>60----DI0B05</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_SW"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_SW"
+	DI = 0B05h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B06" name="60----DI0B06"><b>60----DI0B06</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SW"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SW"
+	DI = 0B06h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B07" name="60----DI0B07"><b>60----DI0B07</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_SW"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_SW"
+	DI = 0B07h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B08" name="60----DI0B08"><b>60----DI0B08</b></a> - INT 60 u - HP 95LX System Manager - "M_TELLTIME" - DISPLAY TIMESTAMP<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_TELLTIME" - DISPLAY TIMESTAMP
+	DI = 0B08h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	timestamp format (see #03293)
+		WORD	row (-3 is topmost, 0 is first non-reserved line)
+		WORD	column
+Return: ???
+	STACK unchanged
+
+Bitfields for HP 95LX timestamp format:
+Bit(s)	Description	(Table 03293)
+ 1-0	timestamp components
+	00 date only
+	01 time only
+	10 date and time
+	11 day and date
+ 4	supply am/pm
+ 5	supply seconds
+ 6	show year
+ 7	four-digit year
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B09" name="60----DI0B09"><b>60----DI0B09</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SETTINGS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_SETTINGS"
+	DI = 0B09h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ??? (see #03294)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B0Ah,INT 60/DI=0B0Fh
+
+Format of HP 95LX system settings:
+Offset	Size	Description	(Table 03294)
+ 00h	WORD	country code
+ 02h	WORD	speaker volume (00h-03h or FFh for off)
+ 04h	WORD	contrast level (00h-0Fh)
+ 06h	WORD	week start (00h Sunday, 01h Monday)
+ 08h	WORD	punctuation format (see #03295)
+ 0Ah	WORD	two-character language code (only 5355h = "US" byte-swapped)
+ 0Ch	WORD	current date format (see #03296)
+ 0Eh	WORD	current time format (see #03297)
+ 10h	WORD	collating sequence
+		00h numbers first, 01h letters first, 02h ASCII
+ 12h 80 BYTEs	name of picture file
+ 62h 30 BYTEs	name
+ 80h 30 BYTEs	title
+ 9Eh 28 BYTEs	company name
+ BAh	WORD	number of languages
+ BCh  6 BYTEs	available languages
+ C2h 66 BYTEs	language menu
+104h  2 BYTEs	ASCIZ date separator
+106h  2 BYTEs	ASCIZ time separator
+108h	BYTE	date order
+109h	BYTE	use 24 hour time?
+10Ah 16 BYTEs	currency string
+11Ah	WORD	currency string position (00h prefix, 01h suffix)
+11Ch	WORD	keyboard (see #03298)
+11Eh	WORD	printer baud rate
+		00h 300, 01h 1200, 02h 2400, 03h 4800, 04h 9600, 05h 19200
+120h	WORD	printer driver code
+		00h Epson FX80, 01h HP Laserjet, 02h IBM ProPrinter
+122h	WORD	printer interface (00h COM1, 01h COM2, 02h IR, 03h LPT1)
+124h	WORD	system manager interrupt (60h by default)
+126h	WORD	code page (01h CP850, 02h CP437)
+128h	WORD	active exit key
+12Ah	WORD	active menu key
+12Ch	WORD	active CHAR key toggle
+12Eh  6 BYTEs	alarm
+
+(Table 03295)
+Values for HP 95LX punctuation format:
+ code	decimal arg	thousands
+ 00h	.	,	,
+ 01h	,	.	.
+ 02h	.	;	;
+ 03h	,	;	.
+ 04h	.	,	" "
+ 05h	,	.	" "
+ 06h	.	;	" "
+ 07h	,	;	" "
+
+(Table 03296)
+Values for HP 95LX current date format:
+ 00h	dd-mmm-yy
+ 01h	dd-mmm
+ 02h	mmm-yy
+ 03h	mm/dd/yy
+ 04h	dd/mm/yy
+ 05h	dd.mm.yy
+ 06h	yy-mm-dd
+ 07h	mm/dd
+ 08h	dd/mm
+ 09h	dd.mm
+ 0Ah	mm-dd
+
+(Table 03297)
+Values for HP 95LX current time format:
+ 00h	HH:MM:SS am/pm
+ 01h	HH:MM am/pm
+ 02h	HH:MM:SS
+ 03h	HH.MM.SS
+ 04h	HH,MM,SS
+ 05h	HHhMMmSSs
+ 06h	HH:MM
+ 07h	HH.MM
+ 08h	HH,MM
+ 09h	HHhMMm
+
+(Table 03298)
+Values for HP 95LX keyboard layout:
+ 0001h	Belgium
+ 0002h	French Canadian
+ 0004h	Denmark
+ 0008h	Finland
+ 0010h	French
+ 0020h	Finland
+ 0040h	Italy
+ 0080h	Netherlands
+ 0100h	Norway
+ 0200h	Portugal
+ 0400h	Spain
+ 0800h	Sweden
+ 1000h	Swiss French
+ 2000h	Swiss German
+ 4000h	United Kingdom
+ 8000h	USA
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0A" name="60----DI0B0A"><b>60----DI0B0A</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SET_SETTINGS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_SET_SETTINGS"
+	DI = 0B0Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0B" name="60----DI0B0B"><b>60----DI0B0B</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_TIMER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_START_TIMER"
+	DI = 0B0Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B0Ch,INT 60/DI=0B0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0C" name="60----DI0B0C"><b>60----DI0B0C</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_TIMER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_STOP_TIMER"
+	DI = 0B0Ch
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B0Bh,INT 60/DI=0B0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0D" name="60----DI0B0D"><b>60----DI0B0D</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_TIMER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_GET_TIMER"
+	DI = 0B0Dh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B0Bh,INT 60/DI=0B0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0E" name="60----DI0B0E"><b>60----DI0B0E</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_TELL_ANYTIME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_TELL_ANYTIME"
+	DI = 0B0Eh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		WORD	???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B0F" name="60----DI0B0F"><b>60----DI0B0F</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVCE "M_GET_SETTINGS_ADDR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVCE "M_GET_SETTINGS_ADDR"
+	DI = 0B0Fh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: DX:AX -&gt; system settings record (see #03294)
+	STACK unchanged
+SeeAlso: INT 60/DI=0B09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B10" name="60----DI0B10"><b>60----DI0B10</b></a> - INT 60 u - HP 95LX System Manager - PARSE DATE SPECIFICATION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - PARSE DATE SPECIFICATION
+	DI = 0B10h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B11" name="60----DI0B11"><b>60----DI0B11</b></a> - INT 60 u - HP 95LX System Manager - PARSE TIME SPECIFICATION<br />
+<pre>
+INT 60 u - HP 95LX System Manager - PARSE TIME SPECIFICATION
+	DI = 0B11h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B12" name="60----DI0B12"><b>60----DI0B12</b></a> - INT 60 u - HP 95LX System Manager - SET DATE PARSING RULE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET DATE PARSING RULE
+	DI = 0B12h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	new parsing rule (see #03299)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B13h
+
+(Table 03299)
+Values for HP 95LX date parsing rule:
+ 01h	day-month-year
+ 02h	month-day-year
+ 03h	year-month-day
+ 04h	"DMYO"
+ 05h	"MDYO"
+ OR with 08h to get any year
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B13" name="60----DI0B13"><b>60----DI0B13</b></a> - INT 60 u - HP 95LX System Manager - SET TIME PARSING RULE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET TIME PARSING RULE
+	DI = 0B13h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	new parsing rule (see #03300)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0B12h
+
+(Table 03300)
+Values for HP 95LX time parsing rule:
+ 01h	HH:MM:SS (am/pm)
+ 02h	HH:MM:SS (24hr)
+ 03h	HHMM:SS (24hr)
+ 04h	HH:MM:SS.hh (24hr)
+ 05h	HH:MM (am/pm)
+ 06h	HH:MM (24hr)
+ 07h	HHMM (24hr)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B14" name="60----DI0B14"><b>60----DI0B14</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_POST_TIME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_POST_TIME"
+	DI = 0B14h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0B15" name="60----DI0B15"><b>60----DI0B15</b></a> - INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DAY_TRIGGER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOCK/CALENDAR SERVICE "M_DAY_TRIGGER"
+	DI = 0B15h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C00" name="60----DI0C00"><b>60----DI0C00</b></a> - INT 60 u - HP 95LX System Manager - OPEN PRINTER<br />
+<pre>
+INT 60 u - HP 95LX System Manager - OPEN PRINTER
+	DI = 0C00h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0C01h,INT 60/DI=0C02h,INT 60/DI=0C03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C01" name="60----DI0C01"><b>60----DI0C01</b></a> - INT 60 u - HP 95LX System Manager - CLOSE PRINTER<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOSE PRINTER
+	DI = 0C01h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+Note:	relinquishes control of printer
+SeeAlso: INT 60/DI=0C00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C02" name="60----DI0C02"><b>60----DI0C02</b></a> - INT 60 u - HP 95LX System Manager - WRITE TO PRINTER<br />
+<pre>
+INT 60 u - HP 95LX System Manager - WRITE TO PRINTER
+	DI = 0C02h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to data to be written
+		WORD	length of data
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0C00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C03" name="60----DI0C03"><b>60----DI0C03</b></a> - INT 60 u - HP 95LX System Manager - INITIALIZE PRINTER<br />
+<pre>
+INT 60 u - HP 95LX System Manager - INITIALIZE PRINTER
+	DI = 0C03h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0C00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C04" name="60----DI0C04"><b>60----DI0C04</b></a> - INT 60 u - HP 95LX System Manager - "M_TRANS_PRINTER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_TRANS_PRINTER"
+	DI = 0C04h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0C05" name="60----DI0C05"><b>60----DI0C05</b></a> - INT 60 u - HP 95LX System Manager - "M_FALL_PRINTER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_FALL_PRINTER"
+	DI = 0C05h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E00" name="60----DI0E00"><b>60----DI0E00</b></a> - INT 60 u - HP 95LX System Manager - COMMUNICATIONS SERVICE "M_COMM_INIT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - COMMUNICATIONS SERVICE "M_COMM_INIT"
+	DI = 0E00h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: #03301,INT 60/DI=0E01h,INT 60/DI=0E02h
+
+(Table 03301)
+Values for HP 95LX error code:
+ 0000h	successful
+ FFF1h	"E_BUSY"
+ FFF2h	timeout
+ FFF3h	framing error
+ FFF4h	parity error
+ FFF5h	overrun error
+ FFF6h	"E_EMPTY"
+ FFF7h	"E_CONECT"
+ FFF8h	not open
+ FFF9h	out of memory
+ FFFAh	buffer overflow
+ FFFBh	"E_NOFIT"
+ FFFCh	unsupported
+ FFFDh	"E_IVOPR"
+ FFFEh	"E_IVCHN"
+ FFFFh	"E_REOPEN"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E01" name="60----DI0E01"><b>60----DI0E01</b></a> - INT 60 u - HP 95LX System Manager - OPEN COMMUNICATIONS CHANNEL<br />
+<pre>
+INT 60 u - HP 95LX System Manager - OPEN COMMUNICATIONS CHANNEL
+	DI = 0E01h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to WORD buffer for comm channel handle
+		WORD	communications line number (01h-04h)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E00h,INT 60/DI=0E02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E02" name="60----DI0E02"><b>60----DI0E02</b></a> - INT 60 u - HP 95LX System Manager - CLOSE COMMUNICATIONS CHANNEL<br />
+<pre>
+INT 60 u - HP 95LX System Manager - CLOSE COMMUNICATIONS CHANNEL
+	DI = 0E02h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E00h,INT 60/DI=0E01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E03" name="60----DI0E03"><b>60----DI0E03</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_GETMDM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_GETMDM"
+	DI = 0E03h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E04" name="60----DI0E04"><b>60----DI0E04</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_ANSWER"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_ANSWER"
+	DI = 0E04h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E05" name="60----DI0E05"><b>60----DI0E05</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_DIAL"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_DIAL"
+	DI = 0E05h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E06" name="60----DI0E06"><b>60----DI0E06</b></a> - INT 60 u - HP 95LX System Manager - RESET COMMUNICATIONS CHANNEL<br />
+<pre>
+INT 60 u - HP 95LX System Manager - RESET COMMUNICATIONS CHANNEL
+	DI = 0E06h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+		WORD	reset options (see #03302)
+Return: ???
+	STACK unchanged
+
+Bitfields for HP 95LX reset options:
+Bit(s)	Description	(Table 03302)
+ 0	reset line
+ 1	flush transmit buffer
+ 2	flush receive buffer
+ 3	reset modem
+ 4	reset receiver's ^S state
+ 5	reset transmitter's ^S state
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E07" name="60----DI0E07"><b>60----DI0E07</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_HANGUP"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_HANGUP"
+	DI = 0E07h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E08" name="60----DI0E08"><b>60----DI0E08</b></a> - INT 60 u - HP 95LX System Manager - SEND DATA OVER COMM CHANNEL<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SEND DATA OVER COMM CHANNEL
+	DI = 0E08h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+		DWORD	pointer to data to be sent
+		WORD	option flags
+			bit 0: send partial buffer
+			bit 1: turn on receiver after sending
+		DWORD	pointer to WORD containing length of data to be sent
+Return: length WORD updated to contain number of bytes actually sent???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E09h,INT 60/DI=0E0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E09" name="60----DI0E09"><b>60----DI0E09</b></a> - INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL TRANSMIT QUEUE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL TRANSMIT QUEUE
+	DI = 0E09h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ??? WORD
+		DWORD	pointer to ??? WORD
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0A" name="60----DI0E0A"><b>60----DI0E0A</b></a> - INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL RECEIVE QUEUE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - QUERY COMM CHANNEL RECEIVE QUEUE
+	DI = 0E0Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+		DWORD	pointer to WORD to get receive buffer size
+		DWORD	pointer to WORD to get free bytes in receive buffer
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E09h,INT 60/DI=0E0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0B" name="60----DI0E0B"><b>60----DI0E0B</b></a> - INT 60 u - HP 95LX System Manager - RECEIVE DATA FROM COMM CHANNEL<br />
+<pre>
+INT 60 u - HP 95LX System Manager - RECEIVE DATA FROM COMM CHANNEL
+	DI = 0E0Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+		DWORD	pointer to data buffer
+		DWORD	pointer to WORD (call) length of data buffer
+					(ret) number of bytes received
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E08h,INT 60/DI=0E0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0C" name="60----DI0E0C"><b>60----DI0E0C</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_HAZCMD"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_HAZCMD"
+	DI = 0E0Ch
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0D" name="60----DI0E0D"><b>60----DI0E0D</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_COMAND"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_COMAND"
+	DI = 0E0Dh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0E" name="60----DI0E0E"><b>60----DI0E0E</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_BREAK"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_BREAK"
+	DI = 0E0Eh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E0F" name="60----DI0E0F"><b>60----DI0E0F</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_FRCXON"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_FRCXON"
+	DI = 0E0Fh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E10" name="60----DI0E10"><b>60----DI0E10</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_FRCXOF"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_FRCXOF"
+	DI = 0E10h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E11" name="60----DI0E11"><b>60----DI0E11</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_SETDTR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_SETDTR"
+	DI = 0E11h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E12" name="60----DI0E12"><b>60----DI0E12</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_XMITNG"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_XMITNG"
+	DI = 0E12h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E13" name="60----DI0E13"><b>60----DI0E13</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_STATUS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_STATUS"
+	DI = 0E13h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E14" name="60----DI0E14"><b>60----DI0E14</b></a> - INT 60 u - HP 95LX System Manager - SET COMMUNICATIONS SETTINGS<br />
+<pre>
+INT 60 u - HP 95LX System Manager - SET COMMUNICATIONS SETTINGS
+	DI = 0E14h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	comm channel handle
+		DWORD	pointer to communications settings (see #03303)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E15h
+
+Format of HP 95LX communications settings:
+Offset	Size	Description	(Table 03303)
+ 00h	BYTE	dial type ('T' tone, 'P' pulse)
+ 01h	WORD	baud rate divisor (115200/baud_rate)
+ 03h	BYTE	parity (00h none, 08h odd, 18h even, 28h mark, 38h space)
+ 04h	BYTE	stop bits (00h one, 04h two)
+ 05h	BYTE	data bits - 5
+ 06h	BYTE	software handshake
+		01h none, 02h XOFF/XON, 04h XOFF/any, 08h ENQ/ACK
+ 07h	BYTE	infrared (01h off, 02h on)
+ 08h	BYTE	duplex (01h half, 02h full)
+ 09h	BYTE	echo (01h echo, 02h no echo)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E15" name="60----DI0E15"><b>60----DI0E15</b></a> - INT 60 u - HP 95LX System Manager - GET COMMUNICATIONS SETTINGS<br />
+<pre>
+INT 60 u - HP 95LX System Manager - GET COMMUNICATIONS SETTINGS
+	DI = 0E15h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to buffer for settings (see #03303)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0E14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E16" name="60----DI0E16"><b>60----DI0E16</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_CNFGUR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_CNFGUR"
+	DI = 0E16h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0E17" name="60----DI0E17"><b>60----DI0E17</b></a> - INT 60 u - HP 95LX System Manager - "M_COMM_QRYERR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COMM_QRYERR"
+	DI = 0E17h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F00" name="60----DI0F00"><b>60----DI0F00</b></a> - INT 60 u - HP 95LX System Manager - "M_ERRMSG"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ERRMSG"
+	DI = 0F00h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F01" name="60----DI0F01"><b>60----DI0F01</b></a> - INT 60 u - HP 95LX System Manager - DRAW STANDARD TITLE BOX<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DRAW STANDARD TITLE BOX
+	DI = 0F01h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ASCIZ title string
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F02" name="60----DI0F02"><b>60----DI0F02</b></a> - INT 60 u - HP 95LX System Manager - "SHOWNAME"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "SHOWNAME"
+	DI = 0F02h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F03" name="60----DI0F03"><b>60----DI0F03</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY TWO-LINE MESSAGE BOX<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY TWO-LINE MESSAGE BOX
+	DI = 0F03h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to first line of message
+		WORD	length of first line
+		DWORD	pointer to second line of message
+		WORD	length of second line
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0300h,INT 60/DI=0F04h,INT 60/DI=0F09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F04" name="60----DI0F04"><b>60----DI0F04</b></a> - INT 60 u - HP 95LX System Manager - REMOVE MESSAGE BOX<br />
+<pre>
+INT 60 u - HP 95LX System Manager - REMOVE MESSAGE BOX
+	DI = 0F04h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0F03h,INT 60/DI=0F09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F05" name="60----DI0F05"><b>60----DI0F05</b></a> - INT 60 u - HP 95LX System Manager - "M_COM_TIMER_ADDR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COM_TIMER_ADDR"
+	DI = 0F05h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F06" name="60----DI0F06"><b>60----DI0F06</b></a> - INT 60 u - HP 95LX System Manager - "M_COM_TIMER_COUNT_ADDR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_COM_TIMER_COUNT_ADDR"
+	DI = 0F06h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F07" name="60----DI0F07"><b>60----DI0F07</b></a> - INT 60 u - HP 95LX System Manager - "M_SYS_RSRC_ADDR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_SYS_RSRC_ADDR"
+	DI = 0F07h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F08" name="60----DI0F08"><b>60----DI0F08</b></a> - INT 60 u - HP 95LX System Manager - "M_BIOS_OUTSTR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_BIOS_OUTSTR"
+	DI = 0F08h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F09" name="60----DI0F09"><b>60----DI0F09</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY THREE-LINE MESSAGE BOX<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY THREE-LINE MESSAGE BOX
+	DI = 0F09h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to first line of message
+		WORD	length of first line
+		DWORD	pointer to second line of message
+		WORD	length of second line
+		DWORD	pointer to third line of message
+		WORD	length of third line
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0F03h,INT 60/DI=0F04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F0A" name="60----DI0F0A"><b>60----DI0F0A</b></a> - INT 60 u - HP 95LX System Manager - DISABLE MACROS<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISABLE MACROS
+	DI = 0F0Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0F0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F0B" name="60----DI0F0B"><b>60----DI0F0B</b></a> - INT 60 u - HP 95LX System Manager - ENABLE MACROS<br />
+<pre>
+INT 60 u - HP 95LX System Manager - ENABLE MACROS
+	DI = 0F0Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 60/DI=0F0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F0C" name="60----DI0F0C"><b>60----DI0F0C</b></a> - INT 60 u - HP 95LX System Manager - "M_DATE_TIME_SEPS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_DATE_TIME_SEPS"
+	DI = 0F0Ch
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F0D" name="60----DI0F0D"><b>60----DI0F0D</b></a> - INT 60 u - HP 95LX System Manager - "M_FORM_FT"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_FORM_FT"
+	DI = 0F0Dh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI0F0E" name="60----DI0F0E"><b>60----DI0F0E</b></a> - INT 60 u - HP 95LX System Manager - "M_RAM_IV_INFO"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_RAM_IV_INFO"
+	DI = 0F0Eh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: DX:AX -&gt; ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1005" name="60----DI1005"><b>60----DI1005</b></a> - INT 60 u - HP 95LX System Manager - "M_DIRTY_SYNC" - FORCE SCREEN UPDATE<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_DIRTY_SYNC" - FORCE SCREEN UPDATE
+	DI = 1005h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+SeeAlso: INT 10/AH=FFh,INT 60/DI=0300h,INT 60/DI=0301h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1200" name="60----DI1200"><b>60----DI1200</b></a> - INT 60 u - HP 95LX System Manager - RESOURCE SERVICE "MAP_RESOURCE_FILE"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - RESOURCE SERVICE "MAP_RESOURCE_FILE"
+	DI = 1200h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1201" name="60----DI1201"><b>60----DI1201</b></a> - INT 60 u - HP 95LX System Manager - "GET_RESOURCE_PTR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GET_RESOURCE_PTR"
+	DI = 1201h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		WORD	???
+Return: DX:AX -&gt; ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1202" name="60----DI1202"><b>60----DI1202</b></a> - INT 60 u - HP 95LX System Manager - "GET_RSRC_TAB_PTR"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GET_RSRC_TAB_PTR"
+	DI = 1202h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: DX:AX -&gt; ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1203" name="60----DI1203"><b>60----DI1203</b></a> - INT 60 u - HP 95LX System Manager - "INIT_SYSMGR_RSRCS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "INIT_SYSMGR_RSRCS"
+	DI = 1203h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1300" name="60----DI1300"><b>60----DI1300</b></a> - INT 60 u - HP 95LX System Manager - INITIALIZE HELP SYSTEM<br />
+<pre>
+INT 60 u - HP 95LX System Manager - INITIALIZE HELP SYSTEM
+	DI = 1300h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1301" name="60----DI1301"><b>60----DI1301</b></a> - INT 60 u - HP 95LX System Manager - DISPLAY HELP<br />
+<pre>
+INT 60 u - HP 95LX System Manager - DISPLAY HELP
+	DI = 1301h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1302" name="60----DI1302"><b>60----DI1302</b></a> - INT 60 u - HP 95LX System Manager - "M_HELP_KEY"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_HELP_KEY"
+	DI = 1302h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1303" name="60----DI1303"><b>60----DI1303</b></a> - INT 60 u - HP 95LX System Manager - "M_HELP_TERM"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_HELP_TERM"
+	DI = 1303h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1400" name="60----DI1400"><b>60----DI1400</b></a> - INT 60 u - HP 95LX System Manager - "M_ColInit"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColInit"
+	DI = 1400h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+Return: AX = ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1401" name="60----DI1401"><b>60----DI1401</b></a> - INT 60 u - HP 95LX System Manager - "M_ColCpStr"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColCpStr"
+	DI = 1401h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1402" name="60----DI1402"><b>60----DI1402</b></a> - INT 60 u - HP 95LX System Manager - "M_ColLicsStr"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColLicsStr"
+	DI = 1402h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1403" name="60----DI1403"><b>60----DI1403</b></a> - INT 60 u - HP 95LX System Manager - "M_ColLicsChar"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColLicsChar"
+	DI = 1403h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1404" name="60----DI1404"><b>60----DI1404</b></a> - INT 60 u - HP 95LX System Manager - "M_ColToLower"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColToLower"
+	DI = 1404h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1405" name="60----DI1405"><b>60----DI1405</b></a> - INT 60 u - HP 95LX System Manager - "M_ColCpSearch"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColCpSearch"
+	DI = 1405h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+		DWORD	pointer to ???
+		WORD	???
+		WORD	???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1406" name="60----DI1406"><b>60----DI1406</b></a> - INT 60 u - HP 95LX System Manager - "M_ColToUpper"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "M_ColToUpper"
+	DI = 1406h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		DWORD	pointer to ???
+		WORD	???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1500" name="60----DI1500"><b>60----DI1500</b></a> - INT 60 u - HP 95LX System Manager - "GrDispInit"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispInit"
+	DI = 1500h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1501" name="60----DI1501"><b>60----DI1501</b></a> - INT 60 u - HP 95LX System Manager - "GrDispClear"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispClear"
+	DI = 1501h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1502" name="60----DI1502"><b>60----DI1502</b></a> - INT 60 u - HP 95LX System Manager - "GrDispDot"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispDot"
+	DI = 1502h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1503" name="60----DI1503"><b>60----DI1503</b></a> - INT 60 u - HP 95LX System Manager - "GrDispDraw"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispDraw"
+	DI = 1503h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1504" name="60----DI1504"><b>60----DI1504</b></a> - INT 60 u - HP 95LX System Manager - "GrDispFill"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispFill"
+	DI = 1504h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1505" name="60----DI1505"><b>60----DI1505</b></a> - INT 60 u - HP 95LX System Manager - "GrDispRead"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispRead"
+	DI = 1505h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1506" name="60----DI1506"><b>60----DI1506</b></a> - INT 60 u - HP 95LX System Manager - "GrDispString"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispString"
+	DI = 1506h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1507" name="60----DI1507"><b>60----DI1507</b></a> - INT 60 u - HP 95LX System Manager - "GrDispPan"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispPan"
+	DI = 1507h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1508" name="60----DI1508"><b>60----DI1508</b></a> - INT 60 u - HP 95LX System Manager - "GrDispZoom"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispZoom"
+	DI = 1508h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1509" name="60----DI1509"><b>60----DI1509</b></a> - INT 60 u - HP 95LX System Manager - "GrDispSave"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispSave"
+	DI = 1509h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI150A" name="60----DI150A"><b>60----DI150A</b></a> - INT 60 u - HP 95LX System Manager - "GrDispRestore"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispRestore"
+	DI = 150Ah
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI150B" name="60----DI150B"><b>60----DI150B</b></a> - INT 60 u - HP 95LX System Manager - "GrDispCorner"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "GrDispCorner"
+	DI = 150Bh
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60----DI1604" name="60----DI1604"><b>60----DI1604</b></a> - INT 60 u - HP 95LX System Manager - "CP_TO_LICS"<br />
+<pre>
+INT 60 u - HP 95LX System Manager - "CP_TO_LICS"
+	DI = 1604h
+	STACK:	2 WORDs unused dummies (for calls from high level languages)
+		???
+Return: ???
+	STACK unchanged
+SeeAlso: INT 15/AX=4DD4h,INT 61"HP 95LX",INT 62"HP 95LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6000" name="6000"><b>6000</b></a> - INT 60 - SYS_PROF.EXE - PROFILER STATUS<br />
+<pre>
+INT 60 - SYS_PROF.EXE - PROFILER STATUS
+	AH = 00h
+Return: AX = 0000h    profiling is off
+	    otherwise profiling is on
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=01h"SYS_PROF",AH=02h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6000_0" name="6000_0"><b>6000</b></a> - INT 60 - MDEBUG - GET STATUS<br />
+<pre>
+INT 60 - MDEBUG - GET STATUS
+	AH = 00h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		ES = value of the monitor register SE
+		DI = value of the monitor register OF
+		CH = monitor color
+		CL = interpreter color
+		BH = monitor start line
+		BL = interpreter start line
+		AH = makecode of the hotkey
+		AL = ASCII code of the hotkey
+		DL = status of special keys (only SHIFT, ALT, CTRL) for the
+		      hotkey (coded as for the keyboard flag at 0040h:0017h)
+		DH = basic process number for the communication with drivers
+		      process number for the display driver, DH+1 = process
+		      number for the command driver(s)
+	DS:SI -&gt; MDEBUG identification table (see #03304)
+Program: MDEBUG is a shareware memory-resident debugging tool by Bernd
+	  Schemmer, including a memory monitor, an interpreter, and a
+	  disassembler
+Notes:	MDEBUG uses INT 60 by default, but may be directed to any of INT 60
+	  through INT 67; the interrupt handler is preceded by the signature
+	  "USERINT" and is not chained
+	if DS:SI points at a null byte, MDEBUG will prompt for a password if
+	  passwords are active; enough stack space must be provided for an
+	  INT 10h call (which MDEBUG uses while prompting for the password)
+SeeAlso: AH=02h"MDEBUG"
+Index:	hotkeys;MDEBUG
+
+Format of MDEBUG identification table:
+Offset	Size	Description	(Table 03304)
+ -2	WORD	entry offset
+ 00h	WORD	CS of MDEBUG
+ 02h	DWORD	old INT 08h vector
+ 06h	DWORD	old INT 09h vector
+ 0Ah	DWORD	address INT 16h routine used by MDEBUG
+ 0Eh	BYTE	length of version string
+ 0Fh  N BYTEs	version string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600000" name="600000"><b>600000</b></a> - INT 60 - RIFS - CLIENT - INSTALLATION CHECK<br />
+<pre>
+INT 60 - RIFS - CLIENT - INSTALLATION CHECK
+	AX = 0000h
+Return: AX = 1234h if installed
+	CF clear
+Program: RIFS is the Remote Installable File System by "kyle"
+InstallCheck:	test for the signature "RIFS" immediately preceding the
+	  interrupt handler
+Range:	INT 60 to INT 66 and INT 18,selected by scanning for 0000h:0000h vector
+SeeAlso: AX=0001h,AX=0005h,AX=0007h,AX=0008h,INT 2F/AX=5600h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600001" name="600001"><b>600001</b></a> - INT 60 - RIFS - CLIENT - UNINSTALL<br />
+<pre>
+INT 60 - RIFS - CLIENT - UNINSTALL
+	AX = 0001h
+Return: CF clear if successful
+SeeAlso: AX=0000h,AX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600002" name="600002"><b>600002</b></a> - INT 60 - RIFS - CLIENT - REMAP DRIVE<br />
+<pre>
+INT 60 - RIFS - CLIENT - REMAP DRIVE
+	AX = 0002h
+	BH = local drive number
+	BL = remote drive number
+Return: CF clear if successful
+	CF set on error
+SeeAlso: AX=0000h,AX=0003h,AX=0004h,INT 21/AX=5F03h,INT 21/AX=5F05h"STARLITE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600003" name="600003"><b>600003</b></a> - INT 60 - RIFS - CLIENT - UNMAP DRIVE<br />
+<pre>
+INT 60 - RIFS - CLIENT - UNMAP DRIVE
+	AX = 0003h
+	BL = drive to unmap
+Return: CF clear if successful
+	CF set on error
+SeeAlso: AX=0000h,AX=0002h,AX=0004h,INT 21/AX=5F04h,INT 21/AX=5F06h"STARLITE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600004" name="600004"><b>600004</b></a> - INT 60 - RIFS - CLIENT - UNMAP ALL DRIVES<br />
+<pre>
+INT 60 - RIFS - CLIENT - UNMAP ALL DRIVES
+	AX = 0004h
+Return: CF clear if successful
+	CF set on error
+SeeAlso: AX=0000h,AX=0002h,AX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600005" name="600005"><b>600005</b></a> - INT 60 - RIFS - CLIENT - GET TRANSLATION TABLE<br />
+<pre>
+INT 60 - RIFS - CLIENT - GET TRANSLATION TABLE
+	AX = 0005h
+Return: CF clear if successful
+	    ES:BX -&gt; translation table
+	CF set on error
+SeeAlso: AX=0000h,AX=0006h,AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600006" name="600006"><b>600006</b></a> - INT 60 - RIFS - CLIENT - GET STATISTICS TABLE<br />
+<pre>
+INT 60 - RIFS - CLIENT - GET STATISTICS TABLE
+	AX = 0006h
+Return: CF clear if successful
+	    ES:BX -&gt; statistics table
+	CF set on error
+SeeAlso: AX=0000h,AX=0005h,AX=0007h,AX=000Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600007" name="600007"><b>600007</b></a> - INT 60 - RIFS - CLIENT - GET PORT TRANSLATION TABLE<br />
+<pre>
+INT 60 - RIFS - CLIENT - GET PORT TRANSLATION TABLE
+	AX = 0007h
+Return: CF clear if successful
+	    CX = number of entries
+	    ES:BX -&gt; port mapping table
+	CF set on error
+SeeAlso: AX=0000h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600008" name="600008"><b>600008</b></a> - INT 60 - RIFS - SERVER - INSTALLATION CHECK<br />
+<pre>
+INT 60 - RIFS - SERVER - INSTALLATION CHECK
+	AX = 0008h
+Return: CF clear if successful
+	CF set on error
+InstallCheck:	test for the signature "RIFS" immediately preceding the
+	  interrupt handler
+Range:	INT 60 to INT 66 and INT 18,selected by scanning for 0000h:0000h vector
+SeeAlso: AX=0000h,AX=0009h,AX=000Ah,AX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600009" name="600009"><b>600009</b></a> - INT 60 - RIFS - SERVER - UNINSTALL<br />
+<pre>
+INT 60 - RIFS - SERVER - UNINSTALL
+	AX = 0009h
+Return: CF clear if successful
+	CF set on error
+SeeAlso: AX=0001h,AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60000A" name="60000A"><b>60000A</b></a> - INT 60 - RIFS - SERVER - GET STATISTICS TABLE<br />
+<pre>
+INT 60 - RIFS - SERVER - GET STATISTICS TABLE
+	AX = 000Ah
+Return: CF clear if successful
+	    ES:BX -&gt; statistics table
+	CF set on error
+SeeAlso: AX=0006h,AX=0008h,AX=0009h,AX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60000B" name="60000B"><b>60000B</b></a> - INT 60 - RIFS - SERVER - RESET<br />
+<pre>
+INT 60 - RIFS - SERVER - RESET
+	AX = 000Bh
+Return: CF clear if successful
+	CF set on error
+Note:	closes all open files
+SeeAlso: AX=0008h,AX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6001" name="6001"><b>6001</b></a> - INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS<br />
+<pre>
+INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS
+	AH = 01h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		ES:DI point to the help registers of MDEBUG
+	       ES:DI-02h  -&gt; R0 (WORD)
+	       ES:DI	  -&gt; R1 (WORD)
+	       ES:DI+02h  -&gt; R2 (WORD)
+	       ES:DI+04h  -&gt; R3 (WORD)
+	       ...
+	       ES:DI+0Eh  -&gt; R8 (WORD)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6001_0" name="6001_0"><b>6001</b></a> - INT 60 - SYS_PROF.EXE - TURN PROFILING OFF<br />
+<pre>
+INT 60 - SYS_PROF.EXE - TURN PROFILING OFF
+	AH = 01h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=00h"SYS_PROF",AH=02h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6001FF" name="6001FF"><b>6001FF</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - GET DRIVER INFO<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - GET DRIVER INFO
+	AX = 01FFh
+	BX = handle returned by function 02h
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+	    BX = version
+	    CH = network interface class (see #03306)
+	    DX = interface type (see #03306)
+	    CL = number
+	    DS:SI -&gt; name
+	    AL = driver functions supported
+		01h basic
+		02h basic and extended
+		05h basic and high-performance
+		06h basic, high-performance, and extended
+		FFh not installed
+Note:	the handle in BX is optional for drivers written to v1.07 or later of
+	  the packet driver specification
+
+(Table 03305)
+Values for Packet Driver error code:
+ 01h "BAD_HANDLE"	invalid handle number
+ 02h "NO_CLASS"		no interfaces of the specified class found
+ 03h "NO_TYPE"		no interfaces of the specified type found
+ 04h "NO_NUMBER"	no interfaces of the specified number found
+ 05h "BAD_TYPE"		bad packet type
+ 06h "NO_MULTICAST"	interface does not support multicast messages
+ 07h "CANT_TERMINATE"	this packet driver cannot terminate
+ 08h "BAD_MODE"		invalid receiver mode
+ 09h "NO_SPACE"		insufficient space
+ 0Ah "TYPE_INUSE"	type accessed but never released
+ 0Bh "BAD_COMMAND"	bad command
+ 0Ch "CANT_SEND"	packet could not be sent
+ 0Dh "CANT_SET"		hardware address could not be changed
+ 0Eh "BAD_ADDRESS"	hardware address has a bad length or format
+ 0Fh "CANT_RESET"	could not reset interface
+
+(Table 03306)
+Values for Packet Driver network interface classes/types:
+    Class 01h  Ethernet/IEEE 802.3
+	01h 3COM 3C500/3C501
+	02h 3COM 3C505
+	03h MICOM-Interlan NI5010
+	04h BICC Data Networks 4110
+	05h BICC Data Networks 4117
+	06h MICOM-Interlan NP600
+	08h Ungermann-Bass PC-NIC
+	09h Univation NC-516
+	0Ah TRW PC-2000
+	0Bh MICOM-Interlan NI5210
+	0Ch 3COM 3C503
+	0Dh 3COM 3C523
+	0Eh Western Digital WD8003
+	0Fh Spider Systems S4
+	10h Torus Frame Level
+	11h 10Net Communications
+	12h Gateway PC-bus
+	13h Gateway AT-bus
+	14h Gateway MCA-bus
+	15h IMC PCnic
+	16h IMC PCnic II
+	17h IMC PCnic 8-bit
+	18h Tigan Communications
+	19h Micromatic Research
+	1Ah Clarkson "Multiplexor"
+	1Bh D-Link 8-bit
+	1Ch D-Link 16-bit
+	1Dh D-Link PS/2
+	1Eh Research Machines 8
+	1Fh Research Machines 16
+	20h Research Machines MCA
+	21h Radix Microsystems EXM1 16-bit
+	22h Interlan Ni9210
+	23h Interlan Ni6510
+	24h Vestra LANMASTER 16-bit
+	25h Vestra LANMASTER 8-bit
+	26h Allied Telesis PC/XT/AT
+	27h Allied Telesis NEC PC-98
+	28h Allied Telesis Fujitsu FMR
+	29h Ungermann-Bass NIC/PS2
+	2Ah Tiara LANCard/E AT
+	2Bh Tiara LANCard/E MC
+	2Ch Tiara LANCard/E TP
+	2Dh Spider Communications SpiderComm 8
+	2Eh Spider Communications SpiderComm 16
+	2Fh AT&T Starlan NAU
+	30h AT&T Starlan-10 NAU
+	31h AT&T Ethernet NAU
+	32h Intel smart card
+	33h Xircom Packet Adapter
+	34h Aquila Ethernet
+	35h Novell NE1000
+	36h Novell NE2000
+	37h SMC PC-510
+	38h AT&T Fiber NAU
+	39h NDIS to Packet Driver adapter
+	3Ah Racal-InterLan ES3210
+	3Bh General Systems ISDN simulated Ethernet
+	3Ch Hewlett-Packard
+	3Dh IMC EtherNic-8
+	3Eh IMC EtherNic-16
+	3Fh IMC EtherNic-MCA
+	40h NetWorth EtherNext
+	41h Dataco Scanet
+	42h DEC DEPCA
+	43h C-Net
+	44h Gandalf LANLine
+	45h Apricot built-in
+	46h David Systems Ether-T
+	47h ODI to Packet Driver adapter (see also INT 2F/AX=5100h)
+	48h AMD Am21110-16
+	49h Intel ICD Network controller family
+	4Ah Intel ICD PCL2
+	4Bh Intel ICD PCL2A
+	4Ch AT&T LANPacer
+	4Dh AT&T LANPacer+
+	4Eh AT&T EVB
+	4Fh AT&T StarStation
+	50h SLIP simulated ethernet
+	51h Racal-Interlan NIA310
+	52h Racal-Interlan NISE
+	53h Racal-Interlan NISE30
+	54h Racal-Interlan NI6610
+	55h Ethernet over IP/UDP
+	56h ICL EtherTeam 16
+	57h David Systems
+	58h NCR WaveLAN
+	59h Thomas Contrad TC5045
+	5Ah Russ Nelson's Parallel Port driver
+	5Bh Intell EtherExpress 16
+	5Ch IBMTOKEN
+	5Dh Zenith Z-Note
+	5Eh 3Com 3C509
+	5Fh Mylex LNE390
+	60h Madge Smart Ringnode
+	61h Novell NE2100
+	62h Allied Telesis 1500
+	63h Allied Telesis 1700
+	64h Fujitsu EtherCoupler
+    Class 02h  ProNET-10
+	01h Proteon p1300
+	02h Proteon p1800
+    Class 03h  IEEE 802.5/ProNet-4 (without expanded RIFs)
+	01h IBM Token-Ring Adapter
+	02h Proteon p1340
+	03h Proteon p1344
+	04h Gateway PC-bus
+	05h Gateway AT-bus
+	06h Gateway MCA-bus
+	07h Madge board
+	39h NDIS to Packet Driver adapter
+	47h ODI to Packet Driver adapter
+    Class 04h  Omninet
+    Class 05h  Appletalk
+	01h ATALK.SYS adapter
+    Class 06h  Serial Line
+	01h Clarkson 8250-SLIP
+	02h Clarkson "Multiplexor"
+	03h Eicon Technologies
+    Class 07h  StarLAN (subsumed by Ethernet class)
+    Class 08h  ARCnet
+	01h Datapoint RIM
+    Class 09h  AX.25
+	01h Ottawa PI card
+	02h Eicon Technologies
+    Class 0Ah  KISS
+    Class 0Bh  IEEE 802.3 with 802.2 headers
+	types same as for class 01h
+    Class 0Ch  FDDI with 802.2 headers
+	01h Western Digital
+	02h Frontier Technology
+    Class 0Dh  Internet X.25
+	01h Western Digital
+	02h Frontier Technology
+	03h Emerging Technologies
+	04h The Software Forge
+	05h Link Data Intelligent X.25
+	06h Eicon Technologies
+    Class 0Eh  N.T. LANSTAR (encapsulating DIX Ethernet)
+	01h NT LANSTAR/8
+	02h NT LANSTAR/MC
+    Class 0Fh  SLFP (MIT serial specification)
+	01h MERIT
+    Class 10h  PPP (Point-to-Point Protocol)
+	01h 8250/16550 UART
+	02h Niwot Networks synch
+	03h Eicon Technologies
+    Class 11h  802.5 with expanded RIFs
+	types same as for class 3
+    Class 12h  reserved for LCP/NCPs
+Note: class and type numbers are cleared through FTP Software
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6002" name="6002"><b>6002</b></a> - INT 60 - MDEBUG - SET STATUS<br />
+<pre>
+INT 60 - MDEBUG - SET STATUS
+	AH = 02h
+	DS:SI -&gt; password or a null byte
+	ES = new value for the register SE
+	DI = new value for the register OF
+	CH = new monitor color if nonzero
+	CL = new interpreter color if nonzero
+	BH = new monitor start line if nonzero
+	BL = new interpreter start line if nonzero
+	AL = new ASCII code for the hotkey ('A'..'Z', 'a'..'z') if nonzero
+	DL = new status of the special keys (SHIFT, ALT, CTRL) for the hotkey
+	      if nonzero
+	DH = if nonzero, new basic process number for communication with the
+	      drivers (DH = multiplex number for the display driver,
+	      DH+1 = multiplex number for the command driver or drivers)
+Return: AX = return code
+	    FFFFh call not allowed
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    0000h successful, status changed
+	    else AL = error reasons (see #03307)
+Note:	the values of the registers SE and OF are always changed, the other
+	  values are only changed if they are valid
+SeeAlso: AH=00h"MDEBUG"
+Index:	hotkeys;MDEBUG
+
+Bitfields for MDEBUG error reasons:
+Bit(s)	Description	(Table 03307)
+ 0	invalid monitor start line
+ 1	invalid interpreter start line
+ 2	invalid hotkey
+ 3	invalid process number
+ 4-7	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6002_0" name="6002_0"><b>6002</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - ACCESS TYPE<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - ACCESS TYPE
+	AH = 02h
+	AL = interface class
+	BX = interface type
+	DL = interface number
+	DS:SI -&gt; type
+	CX = length of type (0000h for all packets)
+	ES:DI -&gt; receiver function (see #03308)
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+	    AX = handle
+SeeAlso: AH=03h"FTP"
+
+(Table 03308)
+Values packet driver receiver is called with when a packet is received:
+	AX = subfunction
+	    00h get packet buffer
+		CX = buffer length
+		DX = lookahead length (v1.10+)
+		DS:SI -&gt; lookahead buffer if DX nonzero (v1.10+)
+		DI = error flags (class dependent) (v1.10+)
+		Return: ES:DI -&gt; packet buffer
+				0000h:0000h means throw away packet
+			CX = size of buffer (v1.10+), may be smaller than
+			      incoming data
+	    01h copy completed
+		DS:SI -&gt; buffer
+		CX = bytes actually copied (v1.10+)
+	BX = handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6002_1" name="6002_1"><b>6002</b></a> - INT 60 - SYS_PROF.EXE - TURN PROFILING ON<br />
+<pre>
+INT 60 - SYS_PROF.EXE - TURN PROFILING ON
+	AH = 02h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=00h"SYS_PROF",AH=01h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6003" name="6003"><b>6003</b></a> - INT 60 - MDEBUG - POP UP<br />
+<pre>
+INT 60 - MDEBUG - POP UP
+	AH = 03h
+	DS:SI -&gt; password or a null byte
+	ES -&gt; new value for the register SE
+	DI -&gt; new value for the register OF
+Return: AX = return code (see #03309)
+SeeAlso: AH=04h"MDEBUG"
+
+(Table 03309)
+Values for MDEBUG return code:
+ FFFFh	call not allowed
+ FFFEh	password is invalid
+ FFFDh	display mode is invalid
+ else	successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6003_0" name="6003_0"><b>6003</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - RELEASE TYPE<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - RELEASE TYPE
+	AH = 03h
+	BX = handle
+Return: CF set on error
+	   DH = error code (see #03305)
+	CF clear if successful
+SeeAlso: AH=02h"FTP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6003_1" name="6003_1"><b>6003</b></a> - INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE<br />
+<pre>
+INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE
+	AH = 03h
+Return: ES:BX -&gt; profiling table
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=04h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6004" name="6004"><b>6004</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - SEND PACKET<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - SEND PACKET
+	AH = 04h
+	DS:SI -&gt; buffer
+	CX = length
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+Note:	the buffer may be modified immediately upon return from this call
+SeeAlso: AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6004_0" name="6004_0"><b>6004</b></a> - INT 60 - MDEBUG - POP UP<br />
+<pre>
+INT 60 - MDEBUG - POP UP
+	AH = 04h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code (see #03309)
+SeeAlso: AH=03h"MDEBUG",AH=07h"MDEBUG"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6004_1" name="6004_1"><b>6004</b></a> - INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE<br />
+<pre>
+INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE
+	AH = 04h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=03h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6005" name="6005"><b>6005</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - TERMINATE DRIVER FOR HANDLE<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - TERMINATE DRIVER FOR HANDLE
+	AH = 05h
+	BX = handle (optional for v1.10+)
+Return: CF set on error
+	   DH = error code (see #03305)
+	CF clear if successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6005_0" name="6005_0"><b>6005</b></a> - INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS<br />
+<pre>
+INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS
+	AH = 05h
+	DS:SI -&gt; password or a null byte
+	BL = new value for the semaphor of MDEBUG
+	     00h  enable popup of MDEBUG
+	     else disable popup of MDEBUG
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		BL = old value of the semaphor of MDEBUG
+		BH = old value of the INT 08h semaphor
+		    (this semaphor is always reset after this function)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6006" name="6006"><b>6006</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - GET ADDRESS<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - GET ADDRESS
+	AH = 06h
+	BX = handle (optional for v1.10+)
+	ES:DI -&gt; buffer
+	CX = length
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+	    CX = length
+Note:	copies the local net address associated with the handle into the buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6006_0" name="6006_0"><b>6006</b></a> - INT 60 - MDEBUG - GET PASSWORD STATUS<br />
+<pre>
+INT 60 - MDEBUG - GET PASSWORD STATUS
+	AH = 06h
+Return: AL = status
+	    00h password inactive
+	    01h password active
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6007" name="6007"><b>6007</b></a> - INT 60 - FTP Packet Driver - BASIC FUNC - RESET INTERFACE<br />
+<pre>
+INT 60 - FTP Packet Driver - BASIC FUNC - RESET INTERFACE
+	AH = 07h
+	BX = handle (optional for v1.10+)
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6007_0" name="6007_0"><b>6007</b></a> - INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG<br />
+<pre>
+INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG
+	AH = 07h
+Return: AL = active part for the next popup session of MDEBUG:
+	    bit 0: the next popup session will start in the interpreter rather
+		  than in the monitor
+	    bit 1: the next popup session will sart in the online-help
+SeeAlso: AH=03h"MDEBUG",AH=04h"MDEBUG"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6008" name="6008"><b>6008</b></a> - INT 60 - MDEBUG - UNUSED<br />
+<pre>
+INT 60 - MDEBUG - UNUSED
+	AH = 08h-FFh
+Return: AX = FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600A" name="600A"><b>600A</b></a> - INT 60 - FTP Packet Driver 1.09+ - HIGH-PERF FUNC - GET PARAMETERS<br />
+<pre>
+INT 60 - FTP Packet Driver 1.09+ - HIGH-PERF FUNC - GET PARAMETERS
+	AH = 0Ah
+Return: CF set on error
+	    DH = error code (0Bh) (see #03305)
+	CF clear if successful
+	    ES:DI -&gt; parameter table (see #03310)
+
+Format of packet driver parameter table:
+Offset	Size	Description	(Table 03310)
+ 00h	BYTE	major revision of packet driver spec driver conforms to
+ 01h	BYTE	minor revision of packet driver spec
+ 02h	BYTE	length of this structure in bytes
+ 03h	BYTE	length of a MAC-layer address
+ 04h	WORD	maximum transfer unit, including MAC headers
+ 06h	WORD	buffer size for multicast addr
+ 08h	WORD	number of receive buffers (one less than back-to-back MTU rcvs)
+ 0Ah	WORD	number of transmit buffers
+ 0Ch	WORD	interrupt number to hook for post-EOI processing, 00h=none
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600B" name="600B"><b>600B</b></a> - INT 60 - FTP Packet Driver 1.09 - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET<br />
+<pre>
+INT 60 - FTP Packet Driver 1.09 - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET
+	AH = 0Bh
+	DS:SI -&gt; buffer
+	CX = length of buffer
+	ES:DI -&gt; FAR function to call when buffer becomes available (see #03311)
+Return: CF set on error
+	    DH = error code (0Bh,0Ch) (see #03305)
+	CF clear if successful
+Notes:	unlike function 04h, the buffer is not available for modification as
+	  soon as the call returns; the buffer may be queued by the driver and
+	  not processed until later
+	this function has been dropped from v1.10+ of the specification and
+	  replaced by function 0Ch
+SeeAlso: AH=04h"Packet Driver",AH=0Ch"Packet Driver"
+
+(Table 03311)
+Values packet driver completion function is called with:
+	AX = result
+	    00h copy OK
+	    nonzero error
+	ES:DI -&gt; buffer passed to INT 60/AH=0Bh call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600C" name="600C"><b>600C</b></a> - INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET<br />
+<pre>
+INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - ASYNCHRONOUS SEND PACKET
+	AH = 0Ch
+	ES:DI -&gt; pointer to IOCB (see #03312)
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+SeeAlso: AH=04h"Packet Driver",AH=0Bh"Packet Driver"
+
+Format of packet driver IOCB:
+Offset	Size	Description	(Table 03312)
+ 00h	DWORD	pointer to buffer
+ 04h	WORD	length of buffer
+ 06h	BYTE	flags
+		bit 0: packet driver is finished with IOCB
+		bit 1: application requests upcall when driver completes
+ 07h	DWORD	function address for upcall (see #03313)
+ 0Bh  4 BYTEs	future gather write
+ 0Fh	BYTE	???
+ 10h  8 BYTEs	private driver workspace
+
+(Table 03313)
+Values completion function is called with:
+	ES:DI -&gt; IOCB passed to INT 60/AH=0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600C_0" name="600C_0"><b>600C</b></a> - INT 60 - Banyan VINES, 3com - GET STATION ADDRESS<br />
+<pre>
+INT 60 - Banyan VINES, 3com - GET STATION ADDRESS
+	AH = 0Ch
+Return: AL = status
+	    00h successful
+		ES:SI -&gt; 6-byte station address
+	    02h semaphore service is unavailable
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#600D" name="600D"><b>600D</b></a> - INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - DROP PACKET FROM QUEUE<br />
+<pre>
+INT 60 - FTP Packet Driver 1.10+ - HIGH-PERF FUNC - DROP PACKET FROM QUEUE
+	AH = 0Dh
+	ES:DI -&gt; IOCB
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+SeeAlso: AH=0Ch"Packet Driver"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6011" name="6011"><b>6011</b></a> - INT 60 - 3com, 10NET, Banyan VINES - LOCK AND WAIT<br />
+<pre>
+INT 60 - 3com, 10NET, Banyan VINES - LOCK AND WAIT
+	AH = 11h
+	AL = drive number or 0
+	DX = number of seconds to wait
+	ES:SI = Ethernet address or 0
+	DS:BX -&gt; 31-byte ASCIZ semaphore name
+Return: AL = status (see #03314)
+SeeAlso: AH=12h,AH=13h
+
+(Table 03314)
+Values for 3com semaphore status:
+ 00h	successful
+ 01h	timeout
+ 02h	server not responding
+ 03h	invalid semaphore name
+ 04h	semaphore list is full
+ 05h	invalid drive ID
+ 06h	invalid Ethernet address
+ 07h	not logged in
+ 08h	write to network failed
+ 09h	semaphore already logged for this CPU
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6012" name="6012"><b>6012</b></a> - INT 60 - 3com, 10NET, Banyan VINES - LOCK<br />
+<pre>
+INT 60 - 3com, 10NET, Banyan VINES - LOCK
+	AH = 12h
+	AL = drive number or 00h
+	ES:SI = Ethernet address or 0000h:0000h
+	DS:BX -&gt; 31-byte ASCIZ semaphore name
+Return: AL = status (see also #03314)
+	    01h semaphore currently locked by another PC
+Note:	unlike function 11h, this function returns immediately
+SeeAlso: AH=11h,AH=13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6013" name="6013"><b>6013</b></a> - INT 60 - 3com, 10NET, Banyan VINES - UNLOCK<br />
+<pre>
+INT 60 - 3com, 10NET, Banyan VINES - UNLOCK
+	AH = 13h
+	AL = drive number or 00h
+	ES:SI = Ethernet address or 0000h:0000h
+	DS:BX -&gt; 31-byte ASCIZ semaphore name
+Return: AL = status (see also #03314)
+	    01h semaphore not locked
+SeeAlso: AH=11h,AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6014" name="6014"><b>6014</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET RECEIVE MODE<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - SET RECEIVE MODE
+	AH = 14h
+	BX = handle (optional for v1.10+)
+	CX = mode (see #03315)
+Return: CF set on error
+	   DH = error code (01h,08h) (see #03305)
+	CF clear if successful
+SeeAlso: AH=15h
+
+(Table 03315)
+Values for packet driver receive mode:
+ 01h	turn off receiver
+ 02h	receive only packets sent to this interface
+ 03h	mode 2 plus broadcast packets
+ 04h	mode 3 plus limited multicast packets
+ 05h	mode 3 plus all multicast packets
+ 06h	all packets
+ 07h	raw mode for serial line only (v1.10+)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6015" name="6015"><b>6015</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET RECEIVE MODE<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - GET RECEIVE MODE
+	AH = 15h
+	BX = handle (optional for v1.10+)
+Return: CF set on error
+	    DH = error code (01h) (see #03305)
+	CF clear if successful
+	    AX = receive mode (see #03315)
+SeeAlso: AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6016" name="6016"><b>6016</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET MULTICAST LIST<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - SET MULTICAST LIST
+	AH = 16h
+	ES:DI -&gt; multicast list
+	CX = length of list in bytes
+Return: CF set on error
+	    DH = error code (06h,09h,0Eh) (see #03305)
+	CF clear if successful
+SeeAlso: AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6017" name="6017"><b>6017</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET MULTICAST LIST<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - GET MULTICAST LIST
+	AH = 17h
+Return: CF set on error
+	    DH = error code (06h,09h) (see #03305 at AX=01FFh)
+	CF clear if successful
+	    ES:DI -&gt; multicast addresses (do not modify)
+	    CX = bytes of multicast addresses currently in use
+SeeAlso: AH=16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6018" name="6018"><b>6018</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - GET STATISTICS<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - GET STATISTICS
+	AH = 18h
+	BX = handle (optional for v1.10+)
+Return: CF set on error
+	    DH = error code (01h) (see #03305)
+	CF clear if successful
+	    DS:SI -&gt; statistics (see #03316)
+
+Format of packet driver statistics:
+Offset	Size	Description	(Table 03316)
+ 00h	DWORD	packets in
+ 04h	DWORD	packets out
+ 08h	DWORD	bytes in
+ 0Ch	DWORD	bytes out
+ 10h	DWORD	errors in
+ 14h	DWORD	errors out
+ 18h	DWORD	packets dropped
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6019" name="6019"><b>6019</b></a> - INT 60 - FTP Packet Driver - EXTENDED FUNC - SET NETWORK ADDRESS<br />
+<pre>
+INT 60 - FTP Packet Driver - EXTENDED FUNC - SET NETWORK ADDRESS
+	AH = 19h
+	ES:DI -&gt; address
+	CX = length of address
+Return: CF set on error
+	    DH = error code (0Dh,0Eh) (see #03305)
+	CF clear if successful
+	    CX = length
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#601A" name="601A"><b>601A</b></a> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - SEND RAW BYTES<br />
+<pre>
+INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - SEND RAW BYTES
+	AH = 1Ah
+	DS:SI -&gt; buffer
+	CX = length of buffer
+Return: CF set on error
+	    DH = error code (see #03305 at AX=01FFh)
+	CF clear if successful
+SeeAlso: AH=1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#601B" name="601B"><b>601B</b></a> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FLUSH RAW BYTES RECEIVED<br />
+<pre>
+INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FLUSH RAW BYTES RECEIVED
+	AH = 1Bh
+Return: CF set on error
+	    DH = error code (see #03305)
+	CF clear if successful
+SeeAlso: AH=1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#601C" name="601C"><b>601C</b></a> - INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FETCH RAW BYTES RECEIVED<br />
+<pre>
+INT 60 - FTP Packet Driver v1.10+ - EXTENDED FUNC - FETCH RAW BYTES RECEIVED
+	AH = 1Ch
+	DS:SI -&gt; buffer
+	CX = length of buffer
+	DX = timeout in clock ticks
+Return: CF set on error
+	    DH = error code (see #03305 at AX=01FFh)
+	CF clear if successful
+	    CX = number of bytes transferred to buffer
+SeeAlso: AH=1Ah,AH=1Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60899B" name="60899B"><b>60899B</b></a> - INT 60 U - Agfa TTSR.EXE - API<br />
+<pre>
+INT 60 U - Agfa TTSR.EXE - API
+	AX = 899Bh
+	BX = function
+	    0001h installation check
+		Return: BX = 899Bh if installed
+	    0002h ???
+	    0003h ???
+	???
+Return: ???
+Note:	TTSR.EXE is found in FotoLook 2.09 (16-bit), which is available from
+	  agfa.com; it appears to provide DOS ASPI support
+!!!
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60AD" name="60AD"><b>60AD</b></a> - INT 60 - AccessDOS - API<br />
+<pre>
+INT 60 - AccessDOS - API
+	AH = ADh
+	AL = function
+	    E1h ???
+		Return: AX = ???
+	    E2h get configuration
+		Return: BX:AX -&gt; configuration data
+Program: AccessDOS is a public domain TSR developed at The Trace Research and
+	  Development Center which provides extensions for keyboard, mouse,
+	  and sound access by the visually, hearing, or motor-control
+	  impaired.
+InstallCheck:	test for the signature "ACCESSv1.00" beginning three bytes
+	  past the start of the interrupt handler (this same signature is also
+	  present in v1.10)
+Range:	INT 60 to INT 66, selected by scanning for 0000h:0000h vector
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60E9" name="60E9"><b>60E9</b></a> - INT 60 - FTP Packet Driver - Crynwr Software - AUTOSELECT TRANSCEIVER<br />
+<pre>
+INT 60 - FTP Packet Driver - Crynwr Software - AUTOSELECT TRANSCEIVER
+	AH = E9h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

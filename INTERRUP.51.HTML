@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._51</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 51
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#51"><b>51</b> - INT 51 - IRQ1 relocated by DESQview</a><br />
+<a href="#51_0"><b>51</b> - INT 51 - IRQ1 relocated by IBM 3278 emulation control program</a><br />
+<a href="#51_1"><b>51</b> - INT 51 - IRQ1 relocated by OS/2 v1.x</a><br />
+<a href="#51_2"><b>51</b> - INT 51 - TI Professional PC - RESTART TIMING EVENT</a><br />
+<a href="#51_3"><b>51</b> - INT 51 - Tandy 2000 - KEYBOARD SERVICES</a><br />
+
+<hr />
+
+<a href="#51" name="51"><b>51</b></a> - INT 51 - IRQ1 relocated by DESQview<br />
+<pre>
+INT 51 - IRQ1 relocated by DESQview
+Range:	INT 51 to INT F9, selected automatically
+Note:	this is the default location for older versions; see INT 50"DESQview"
+	  for details of interrupt relocation
+SeeAlso: INT 50"DESQview",INT 54"DESQview",INT 58"DESQview"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#51_0" name="51_0"><b>51</b></a> - INT 51 - IRQ1 relocated by IBM 3278 emulation control program<br />
+<pre>
+INT 51 - IRQ1 relocated by IBM 3278 emulation control program
+SeeAlso: INT 50"IBM 3278",INT 54"IBM 3278"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#51_1" name="51_1"><b>51</b></a> - INT 51 - IRQ1 relocated by OS/2 v1.x<br />
+<pre>
+INT 51 - IRQ1 relocated by OS/2 v1.x
+SeeAlso: INT 50"OS/2",INT 54"OS/2"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#51_2" name="51_2"><b>51</b></a> - INT 51 - TI Professional PC - RESTART TIMING EVENT<br />
+<pre>
+INT 51 - TI Professional PC - RESTART TIMING EVENT
+	AX = timer count in 25ms intervals
+	DS:DI -&gt; timing-event table (see #03244)
+Note:	documented as "for system use only"; intended for multi-tasking
+	  software
+SeeAlso: INT 50"TI Professional",INT 52"TI Professional"
+
+Format of TI Professional PC timing event table:
+Offset	Size	Description	(Table 03244)
+ 00h	WORD	offset of next event table entry
+ 02h	BYTE	normally unused (FFh)
+ 03h	BYTE	flags:
+		bit 7 set if timing event active
+		bits 6-0 not used by BIOS (0), but could be used by option ROMs
+ 04h	WORD	timeout count (decremented every 25ms when active)
+ 06h	WORD	offset of event handler (in segment F400h) to call on event
+		  timeout; the F400h segment allows addressing both system ROMs
+		  and the first 16K of memory (due to the 1M memory wraparound)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#51_3" name="51_3"><b>51</b></a> - INT 51 - Tandy 2000 - KEYBOARD SERVICES<br />
+<pre>
+INT 51 - Tandy 2000 - KEYBOARD SERVICES
+Note:	this interrupt is identical to INT 16 on Tandy 2000
+SeeAlso: INT 16/AH=00h,INT 16/AH=01h,INT 16/AH=02h,INT 16/AH=04h"Tandy"
+SeeAlso: INT 16/AH=04h,INT 4A"Tandy 2000",INT 4C"Tandy 2000",INT 52"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

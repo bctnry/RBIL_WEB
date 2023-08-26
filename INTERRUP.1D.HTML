@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._1D</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 1D
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#1D"><b>1D</b> - INT 1D - SYSTEM DATA - VIDEO PARAMETER TABLES</a><br />
+
+<hr />
+
+<a href="#1D" name="1D"><b>1D</b></a> - INT 1D - SYSTEM DATA - VIDEO PARAMETER TABLES<br />
+<pre>
+INT 1D - SYSTEM DATA - VIDEO PARAMETER TABLES
+Notes:	the default parameter table (see #01263) is located at F000h:F0A4h for
+	  100% compatible BIOSes
+	Under PhysTechSoft's PTS ROM-DOS this table is fictitious.
+SeeAlso: INT 10/AH=00h
+
+Format of video parameters:
+Offset	Size	Description	(Table 01263)
+ 00h 16 BYTEs	6845 register values for modes 00h and 01h
+ 10h 16 BYTEs	6845 register values for modes 02h and 03h
+ 20h 16 BYTEs	6845 register values for modes 04h and 05h
+ 30h 16 BYTEs	6845 register values for modes 06h and 07h
+ 40h	WORD	bytes in video buffer for modes 00h and 01h (0800h)
+ 42h	WORD	bytes in video buffer for modes 02h and 03h (1000h)
+ 44h	WORD	bytes in video buffer for modes 04h and 05h (4000h)
+ 46h	WORD	bytes in video buffer for mode 06h (4000h)
+ 48h  8 BYTEs	columns on screen for each of modes 00h through 07h
+ 50h  8 BYTEs	CRT controller mode bytes for each of modes 00h through 07h
+Note:	QEMM v7.5 Stealth appears to copy only the first 40h bytes of this
+	  table into always-accessible memory
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

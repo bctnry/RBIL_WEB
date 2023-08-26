@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._2B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 2B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#2B"><b>2B</b> - INT 2B - DOS 2+ - RESERVED</a><br />
+<a href="#2B_0"><b>2B</b> - INT 2B - IBM ROM-DOS v4.0 - ???</a><br />
+
+<hr />
+
+<a href="#2B" name="2B"><b>2B</b></a> - INT 2B - DOS 2+ - RESERVED<br />
+<pre>
+INT 2B - DOS 2+ - RESERVED
+Note:	this vector is not used in MS-DOS versions &lt;= 6.22, and points at an
+	  IRET instruction
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2B_0" name="2B_0"><b>2B</b></a> - INT 2B - IBM ROM-DOS v4.0 - ???<br />
+<pre>
+INT 2B - IBM ROM-DOS v4.0 - ???
+	AH = function
+	    00h ??? (modifies data in IBMBIO.COM)
+	    01h internal operations
+	    02h ???
+		AL = index (00h-0Ch)
+		Return: AX = ??? or (CMOS 2Dh and CMOS 2Eh)
+	    03h get ??? data
+		Return: AX = (CMOS 2Dh and CMOS 2Eh)
+			BX = FFFFh
+	    other does nothing
+Note:	function 03h is called by ROMSHELL.COM; if BX != 0, then the ES:DI from
+	  INT 2F/AX=1982h points at valid data
+SeeAlso: INT 2F/AX=1982h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._54</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 54
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#54"><b>54</b> - INT 54 - IRQ4 relocated by DESQview</a><br />
+<a href="#54_0"><b>54</b> - INT 54 - IRQ4 relocated by IBM 3278 emulation control program, OS/2 v1.x</a><br />
+<a href="#54_1"><b>54</b> - INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE</a><br />
+<a href="#54_2"><b>54</b> - INT 54 - Tandy 2000 - LINE PRINTER</a><br />
+<a href="#545400"><b>545400</b> - INT 54 U - Toshiba PCMCIA2 - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#54" name="54"><b>54</b></a> - INT 54 - IRQ4 relocated by DESQview<br />
+<pre>
+INT 54 - IRQ4 relocated by DESQview
+Range:	INT 54 to INT FC, selected automatically
+Note:	this is the default location for older versions; see INT 50"DESQview"
+	  for details of interrupt relocation
+SeeAlso: INT 50"DESQview",INT 58"DESQview"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#54_0" name="54_0"><b>54</b></a> - INT 54 - IRQ4 relocated by IBM 3278 emulation control program, OS/2 v1.x<br />
+<pre>
+INT 54 - IRQ4 relocated by IBM 3278 emulation control program, OS/2 v1.x
+SeeAlso: INT 51"IBM 3278",INT 51"OS/2"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#54_1" name="54_1"><b>54</b></a> - INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE<br />
+<pre>
+INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE
+Notes:	documented as "for system use only"; intended for multi-tasking
+	  software
+	this interrupt is not used by the BIOS; the default handler generates
+	  a system error trap (see INT 51"TI Professional")
+SeeAlso: INT 50"TI Professional",INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#54_2" name="54_2"><b>54</b></a> - INT 54 - Tandy 2000 - LINE PRINTER<br />
+<pre>
+INT 54 - Tandy 2000 - LINE PRINTER
+Note:	this interrupt is identical to INT 17 on Tandy 2000
+SeeAlso: INT 17/AH=00h,INT 17/AH=01h,INT 17/AH=02h,INT 4A"Tandy 2000"
+SeeAlso: INT 53"Tandy 2000",INT 55"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#545400" name="545400"><b>545400</b></a> - INT 54 U - Toshiba PCMCIA2 - INSTALLATION CHECK<br />
+<pre>
+INT 54 U - Toshiba PCMCIA2 - INSTALLATION CHECK
+	AX = 5400h
+Return: AX = 0054h if installed
+	    CX:DX -&gt; INT function handler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

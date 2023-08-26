@@ -1,0 +1,3013 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._r</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category r - runtime support,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#185350BX4849"><b>185350BX4849</b> - INT 18 - SPHINX C-- - WB.COM - API</a><br />
+<a href="#2F3901BL02"><b>2F3901BL02</b> - INT 2F - Kingswood TSR Windows - OPEN WINDOW</a><br />
+<a href="#2F3901BL03"><b>2F3901BL03</b> - INT 2F - Kingswood TSR Windows - HIDE WINDOWS</a><br />
+<a href="#2F3901BL04"><b>2F3901BL04</b> - INT 2F - Kingswood TSR Windows - SHOW WINDOWS</a><br />
+<a href="#2F3901BL05"><b>2F3901BL05</b> - INT 2F - Kingswood TSR Windows - CLOSE WINDOW</a><br />
+<a href="#2F3901BL06"><b>2F3901BL06</b> - INT 2F - Kingswood TSR Windows - SET WINDOW TITLE</a><br />
+<a href="#2F3901BL07"><b>2F3901BL07</b> - INT 2F - Kingswood TSR Windows - POSITION CURSOR</a><br />
+<a href="#2F3901BL08"><b>2F3901BL08</b> - INT 2F - Kingswood TSR Windows - DISPLAY STRING</a><br />
+<a href="#2F3901BL09"><b>2F3901BL09</b> - INT 2F - Kingswood TSR Windows - SCROLL WINDOW</a><br />
+<a href="#2F3901BL0A"><b>2F3901BL0A</b> - INT 2F - Kingswood TSR Windows - SOUND BEEPER</a><br />
+<a href="#2F3901BL0B"><b>2F3901BL0B</b> - INT 2F - Kingswood TSR Windows - ADD OR REMOVE USER</a><br />
+<a href="#2FC9FF"><b>2FC9FF</b> - INT 2F C - StackMan - INSTALLATION BROADCAST</a><br />
+<a href="#34"><b>34</b> - INT 34 - FLOATING POINT EMULATION - OPCODE D8h</a><br />
+<a href="#35"><b>35</b> - INT 35 - FLOATING POINT EMULATION - OPCODE D9h</a><br />
+<a href="#36"><b>36</b> - INT 36 - FLOATING POINT EMULATION - OPCODE DAh</a><br />
+<a href="#37"><b>37</b> - INT 37 - FLOATING POINT EMULATION - OPCODE DBh</a><br />
+<a href="#38"><b>38</b> - INT 38 - FLOATING POINT EMULATION - OPCODE DCh</a><br />
+<a href="#39"><b>39</b> - INT 39 - FLOATING POINT EMULATION - OPCODE DDh</a><br />
+<a href="#3A"><b>3A</b> - INT 3A - FLOATING POINT EMULATION - OPCODE DEh</a><br />
+<a href="#3B"><b>3B</b> - INT 3B - FLOATING POINT EMULATION - OPCODE DFh</a><br />
+<a href="#3C"><b>3C</b> - INT 3C - FLOATING POINT EMULATION - INSTRUCTIONS WITH SEGMENT OVERRIDE</a><br />
+<a href="#3D"><b>3D</b> - INT 3D - FLOATING POINT EMULATION - STANDALONE FWAIT</a><br />
+<a href="#3E"><b>3E</b> - INT 3E - FLOATING POINT EMULATION - Borland LANGUAGES "SHORTCUT" CALL</a><br />
+<a href="#3F"><b>3F</b> - INT 3F - Overlay manager interrupt (Microsoft LINK.EXE, Borland TLINK VROOMM)</a><br />
+<a href="#3F_0"><b>3F</b> - INT 3F - Microsoft Dynamic Link Library manager</a><br />
+<a href="#60_7"><b>60</b> - INT 60 - PC-IPC API</a><br />
+<a href="#60_13"><b>60</b> - INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP</a><br />
+<a href="#61_3"><b>61</b> - INT 61 - JPI TopSPEED Modula-2 v1 - PROCEDURE EXIT TRAP</a><br />
+<a href="#64_5"><b>64</b> - INT 64 - Extended Batch Language v3.14+</a><br />
+<a href="#7C"><b>7C</b> - INT 7C U - IBM REXX88PC command language</a><br />
+<a href="#80_0"><b>80</b> - INT 80 - reserved for BASIC</a><br />
+<a href="#81"><b>81</b> - INT 81 - reserved for BASIC</a><br />
+<a href="#82"><b>82</b> - INT 82 - reserved for BASIC</a><br />
+<a href="#83"><b>83</b> - INT 83 - reserved for BASIC</a><br />
+<a href="#84"><b>84</b> - INT 84 - reserved for BASIC</a><br />
+<a href="#85"><b>85</b> - INT 85 - reserved for BASIC</a><br />
+<a href="#86_0"><b>86</b> - INT 86 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#86_1"><b>86</b> - INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS</a><br />
+<a href="#87"><b>87</b> - INT 87 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#87_0"><b>87</b> - INT 87 - APL*PLUS/PC - ???</a><br />
+<a href="#88"><b>88</b> - INT 88 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#88--00"><b>88--00</b> - INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE</a><br />
+<a href="#88--01"><b>88--01</b> - INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--02"><b>88--02</b> - INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--08"><b>88--08</b> - INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX <64K IN SIZE</a><br />
+<a href="#88--F5"><b>88--F5</b> - INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL</a><br />
+<a href="#88--F6"><b>88--F6</b> - INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING</a><br />
+<a href="#88--F7"><b>88--F7</b> - INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING</a><br />
+<a href="#88--F8"><b>88--F8</b> - INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING</a><br />
+<a href="#88--F9"><b>88--F9</b> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS</a><br />
+<a href="#88--FC"><b>88--FC</b> - INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION</a><br />
+<a href="#88--FD"><b>88--FD</b> - INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY</a><br />
+<a href="#88--FE"><b>88--FE</b> - INT 88 - APL*PLUS/PC - CREATE NAME</a><br />
+<a href="#88--FF"><b>88--FF</b> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS</a><br />
+<a href="#89"><b>89</b> - INT 89 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#89_0"><b>89</b> - INT 89 - APL*PLUS/PC - ???</a><br />
+<a href="#8A"><b>8A</b> - INT 8A - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8A_0"><b>8A</b> - INT 8A - APL*PLUS/PC - PRINT SCREEN</a><br />
+<a href="#8B"><b>8B</b> - INT 8B - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8B_0"><b>8B</b> - INT 8B - APL*PLUS/PC - BEEP</a><br />
+<a href="#8C"><b>8C</b> - INT 8C - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8C_0"><b>8C</b> - INT 8C - APL*PLUS/PC - CLEAR SCREEN MEMORY</a><br />
+<a href="#8D"><b>8D</b> - INT 8D - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8E"><b>8E</b> - INT 8E - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8F"><b>8F</b> - INT 8F - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#90"><b>90</b> - INT 90 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#90_0"><b>90</b> - INT 90 - APL*PLUS/PC - USED BY PORT 10 PRINTER DRIVER</a><br />
+<a href="#91"><b>91</b> - INT 91 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#92"><b>92</b> - INT 92 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#93"><b>93</b> - INT 93 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#94"><b>94</b> - INT 94 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#95"><b>95</b> - INT 95 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#95_0"><b>95</b> - INT 95 - APL*PLUS/PC - DETERMINE R= SPACE</a><br />
+<a href="#96"><b>96</b> - INT 96 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#97"><b>97</b> - INT 97 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#98"><b>98</b> - INT 98 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#99"><b>99</b> - INT 99 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9A"><b>9A</b> - INT 9A - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9B"><b>9B</b> - INT 9B - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9C"><b>9C</b> - INT 9C - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9D"><b>9D</b> - INT 9D - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9E"><b>9E</b> - INT 9E - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#9F"><b>9F</b> - INT 9F - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A0"><b>A0</b> - INT A0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A0_0"><b>A0</b> - INT A0 - APL*PLUS/PC - USED BY APL/GSS*CGI GRAPHICS INTERFACE</a><br />
+<a href="#A1"><b>A1</b> - INT A1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A2"><b>A2</b> - INT A2 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A3"><b>A3</b> - INT A3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A4"><b>A4</b> - INT A4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A5"><b>A5</b> - INT A5 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A6"><b>A6</b> - INT A6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A7"><b>A7</b> - INT A7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A8"><b>A8</b> - INT A8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#A9"><b>A9</b> - INT A9 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AA"><b>AA</b> - INT AA - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AB"><b>AB</b> - INT AB - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AC"><b>AC</b> - INT AC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AD"><b>AD</b> - INT AD - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AE"><b>AE</b> - INT AE - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#AF"><b>AF</b> - INT AF - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B0"><b>B0</b> - INT B0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B1"><b>B1</b> - INT B1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B2"><b>B2</b> - INT B2 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B3"><b>B3</b> - INT B3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B4"><b>B4</b> - INT B4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B4_0"><b>B4</b> - INT B4 - StackMan - REQUEST NEW STACK</a><br />
+<a href="#B5"><b>B5</b> - INT B5 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B5_0"><b>B5</b> - INT B5 - StackMan - RESTORE ORIGINAL STACK</a><br />
+<a href="#B6"><b>B6</b> - INT B6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B7"><b>B7</b> - INT B7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B8"><b>B8</b> - INT B8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B9"><b>B9</b> - INT B9 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BA"><b>BA</b> - INT BA - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BB"><b>BB</b> - INT BB - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BC"><b>BC</b> - INT BC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BD"><b>BD</b> - INT BD - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BE"><b>BE</b> - INT BE - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#BF"><b>BF</b> - INT BF - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C0"><b>C0</b> - INT C0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C1"><b>C1</b> - INT C1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C2"><b>C2</b> - INT C2 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C3"><b>C3</b> - INT C3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C4"><b>C4</b> - INT C4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C5"><b>C5</b> - INT C5 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C6"><b>C6</b> - INT C6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C6_0"><b>C6</b> - INT C6 - APL*PLUS/PC - IDENTICAL TO INT 86</a><br />
+<a href="#C7"><b>C7</b> - INT C7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C7_0"><b>C7</b> - INT C7 - APL*PLUS/PC - ???</a><br />
+<a href="#C8"><b>C8</b> - INT C8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C8_0"><b>C8</b> - INT C8 - APL*PLUS/PC - IDENTICAL TO INT 88</a><br />
+<a href="#C9"><b>C9</b> - INT C9 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C9_0"><b>C9</b> - INT C9 - APL*PLUS/PC - ???</a><br />
+<a href="#CA"><b>CA</b> - INT CA - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CA_0"><b>CA</b> - INT CA - APL*PLUS/PC - PRINT SCREEN</a><br />
+<a href="#CB"><b>CB</b> - INT CB - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CB_0"><b>CB</b> - INT CB - APL*PLUS/PC - BEEP</a><br />
+<a href="#CC"><b>CC</b> - INT CC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CC_0"><b>CC</b> - INT CC - APL*PLUS/PC - CLEAR SCREEN MEMORY</a><br />
+<a href="#CD"><b>CD</b> - INT CD - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CD_0"><b>CD</b> - INT CD - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#CE"><b>CE</b> - INT CE - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CE_0"><b>CE</b> - INT CE - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#CF"><b>CF</b> - INT CF - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#CF_0"><b>CF</b> - INT CF - APL*PLUS/PC - DEFAULT LOW-RESOLUTION TIMER FOR QUAD MF FUNCTION</a><br />
+<a href="#D0"><b>D0</b> - INT D0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D0_0"><b>D0</b> - INT D0 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D1"><b>D1</b> - INT D1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D1_0"><b>D1</b> - INT D1 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D2"><b>D2</b> - INT D2 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D2_0"><b>D2</b> - INT D2 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D3"><b>D3</b> - INT D3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D3_0"><b>D3</b> - INT D3 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D4"><b>D4</b> - INT D4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D4_0"><b>D4</b> - INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D5"><b>D5</b> - INT D5 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D5_0"><b>D5</b> - INT D5 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D6"><b>D6</b> - INT D6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D6_0"><b>D6</b> - INT D6 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D7"><b>D7</b> - INT D7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D7_0"><b>D7</b> - INT D7 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D8"><b>D8</b> - INT D8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D8_0"><b>D8</b> - INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D9"><b>D9</b> - INT D9 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D9_0"><b>D9</b> - INT D9 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#DA"><b>DA</b> - INT DA - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DA_0"><b>DA</b> - INT DA - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#DB"><b>DB</b> - INT DB - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DB_0"><b>DB</b> - INT DB - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#DC_0"><b>DC</b> - INT DC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DC_1"><b>DC</b> - INT DC - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#DD"><b>DD</b> - INT DD - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DD_0"><b>DD</b> - INT DD - STSC APL*PLUS/PC v9.0 - PLACE KEYSTROKE EVENTS IN INPUT BUFFER</a><br />
+<a href="#DE"><b>DE</b> - INT DE - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DE_0"><b>DE</b> - INT DE - APL*PLUS/PC - ???</a><br />
+<a href="#DF_0"><b>DF</b> - INT DF - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DF_1"><b>DF</b> - INT DF - APL*PLUS/PC - SAME AS INT 10</a><br />
+<a href="#E0"><b>E0</b> - INT E0 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E0_0"><b>E0</b> - INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION</a><br />
+<a href="#E1"><b>E1</b> - INT E1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E2"><b>E2</b> - INT E2 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E3"><b>E3</b> - INT E3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E40005"><b>E40005</b> - INT E4 - Logitech Modula v2.0 - MonitorEntry</a><br />
+<a href="#E40006"><b>E40006</b> - INT E4 - Logitech Modula v2.0 - MonitorExit</a><br />
+<a href="#E4"><b>E4</b> - INT E4 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E5"><b>E5</b> - INT E5 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E6"><b>E6</b> - INT E6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E7"><b>E7</b> - INT E7 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E8"><b>E8</b> - INT E8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E9"><b>E9</b> - INT E9 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EA"><b>EA</b> - INT EA - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EB"><b>EB</b> - INT EB - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EC"><b>EC</b> - INT EC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EC_1"><b>EC</b> - INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR</a><br />
+<a href="#ED"><b>ED</b> - INT ED - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EE"><b>EE</b> - INT EE - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EF"><b>EF</b> - INT EF - BASIC - ORIGINAL INT 09 VECTOR</a><br />
+<a href="#F0"><b>F0</b> - INT F0 - BASICA.COM, GWBASIC, compiled BASIC - ORIGINAL INT 08 VECTOR</a><br />
+
+<hr />
+
+<a href="#185350BX4849" name="185350BX4849"><b>185350BX4849</b></a> - INT 18 - SPHINX C-- - WB.COM - API<br />
+<pre>
+INT 18 - SPHINX C-- - WB.COM - API
+	AX = 5350h ('SP')
+	BX = 4849h ('HI')
+	CX = 4E58h ('NX')
+	DH = function
+	    01h set ???
+		DL = ???
+	    02h get ???
+		Return: DL = ???
+	    03h get ???
+		Return: ES:DI -&gt; ??? data buffer
+	    06h ???
+Return: AX = 7370h ('sp') if installed
+	BX = 6869h ('hi') if installed
+	CX = 6E78h ('nx') if installed
+Program: SPHINX C-- is a shareware compiler by Peter Cellik for a language
+	  which is a cross between C and assembler; WB.COM is the driver which
+	  launches the WorkBench
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL02" name="2F3901BL02"><b>2F3901BL02</b></a> - INT 2F - Kingswood TSR Windows - OPEN WINDOW<br />
+<pre>
+INT 2F - Kingswood TSR Windows - OPEN WINDOW
+	AX = 3901h
+	BL = 02h
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Notes:	opens the next TSR window on top of any others.	 Only three
+	  TSR windows can be opened at any one time.  The three windows
+	  are all 40x11 characters, partly overlapping.
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=03h,AX=3901h/BL=05h,AX=3901h/BL=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL03" name="2F3901BL03"><b>2F3901BL03</b></a> - INT 2F - Kingswood TSR Windows - HIDE WINDOWS<br />
+<pre>
+INT 2F - Kingswood TSR Windows - HIDE WINDOWS
+	AX = 3901h
+	BL = 03h
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Notes:	Hide any visible TSR windows from view.
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=02h,AX=3901h/BL=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL04" name="2F3901BL04"><b>2F3901BL04</b></a> - INT 2F - Kingswood TSR Windows - SHOW WINDOWS<br />
+<pre>
+INT 2F - Kingswood TSR Windows - SHOW WINDOWS
+	AX = 3901h
+	BL = 04h
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Notes:	Re-display all TSR windows after a HIDE WINDOWS call.
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=02h,AX=3901h/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL05" name="2F3901BL05"><b>2F3901BL05</b></a> - INT 2F - Kingswood TSR Windows - CLOSE WINDOW<br />
+<pre>
+INT 2F - Kingswood TSR Windows - CLOSE WINDOW
+	AX = 3901h
+	BL = 05h
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Notes:	Close the last opened TSR window.
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL06" name="2F3901BL06"><b>2F3901BL06</b></a> - INT 2F - Kingswood TSR Windows - SET WINDOW TITLE<br />
+<pre>
+INT 2F - Kingswood TSR Windows - SET WINDOW TITLE
+	AX = 3901h
+	BL = 06h
+	DS:SI -&gt; title string
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL07" name="2F3901BL07"><b>2F3901BL07</b></a> - INT 2F - Kingswood TSR Windows - POSITION CURSOR<br />
+<pre>
+INT 2F - Kingswood TSR Windows - POSITION CURSOR
+	AX = 3901h
+	BL = 07h
+	CH = Y coordinate (0-10)
+	CL = X coordinate (0-39)
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Note:	the hardware cursor is always disabled when a TSR window is opened;
+	  this call only sets a text position
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=08h,AX=3901h/BL=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL08" name="2F3901BL08"><b>2F3901BL08</b></a> - INT 2F - Kingswood TSR Windows - DISPLAY STRING<br />
+<pre>
+INT 2F - Kingswood TSR Windows - DISPLAY STRING
+	AX = 3901h
+	BL = 08h
+	DS:SI -&gt; string
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Notes:	The text is not clipped.
+	This routine understands Tab, NewLine and Carriage Return
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL09" name="2F3901BL09"><b>2F3901BL09</b></a> - INT 2F - Kingswood TSR Windows - SCROLL WINDOW<br />
+<pre>
+INT 2F - Kingswood TSR Windows - SCROLL WINDOW
+	AX = 3901h
+	BL = 09h
+	CL = scroll direction: 01h up, FFh down, 00h clear window
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL0A" name="2F3901BL0A"><b>2F3901BL0A</b></a> - INT 2F - Kingswood TSR Windows - SOUND BEEPER<br />
+<pre>
+INT 2F - Kingswood TSR Windows - SOUND BEEPER
+	AX = 3901h
+	BL = 0Ah
+	DX = sound divisor, or 0 for silence.
+	     (divide 1843200 by required frequency to get value for DX)
+	CL = sound length in 18.2 Hz clock ticks
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+SeeAlso: AH=39h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F3901BL0B" name="2F3901BL0B"><b>2F3901BL0B</b></a> - INT 2F - Kingswood TSR Windows - ADD OR REMOVE USER<br />
+<pre>
+INT 2F - Kingswood TSR Windows - ADD OR REMOVE USER
+	AX = 3901h
+	BL = 0Bh
+	CL = number of users increment: +1 if adding a new user
+					-1 if removing a user
+Return: AX = error code (0000h if successful)
+	SI,DI,DS,ES preserved
+Note:	the TSR windows resident module may only be removed when the internal
+	  user count is zero
+SeeAlso: AH=39h/BL=00h,AX=3901h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC9FF" name="2FC9FF"><b>2FC9FF</b></a> - INT 2F C - StackMan - INSTALLATION BROADCAST<br />
+<pre>
+INT 2F C - StackMan - INSTALLATION BROADCAST
+	AX = C9FFh
+	BL = BCD version number
+	CX = number of stacks
+	DX = stack size in bytes
+Program: StackMan is a freeware stack manager by Franz Veldman of ESaSS B.V.
+	  which functions as a replacement for the DOS STACK= command as well
+	  as permitting multiple TSRs to share a pool of stack space
+InstallCheck:	test for the string "STACKXXX" at offset 0Ah from the INT B4
+	  handler
+Note:	called by StackMan when it goes resident to inform interested TSRs that
+	  its API is available
+SeeAlso: INT B4"StackMan",INT B5"StackMan"
+Index:	installation check;STACKMAN|broadcasts;STACKMAN installation
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#34" name="34"><b>34</b></a> - INT 34 - FLOATING POINT EMULATION - OPCODE D8h<br />
+<pre>
+INT 34 - FLOATING POINT EMULATION - OPCODE D8h
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of D8h
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 35,INT 3E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#35" name="35"><b>35</b></a> - INT 35 - FLOATING POINT EMULATION - OPCODE D9h<br />
+<pre>
+INT 35 - FLOATING POINT EMULATION - OPCODE D9h
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of D9h
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 34,INT 36
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#36" name="36"><b>36</b></a> - INT 36 - FLOATING POINT EMULATION - OPCODE DAh<br />
+<pre>
+INT 36 - FLOATING POINT EMULATION - OPCODE DAh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DAh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 35,INT 37
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#37" name="37"><b>37</b></a> - INT 37 - FLOATING POINT EMULATION - OPCODE DBh<br />
+<pre>
+INT 37 - FLOATING POINT EMULATION - OPCODE DBh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DBh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 36,INT 38
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#38" name="38"><b>38</b></a> - INT 38 - FLOATING POINT EMULATION - OPCODE DCh<br />
+<pre>
+INT 38 - FLOATING POINT EMULATION - OPCODE DCh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DCh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 37,INT 39
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#39" name="39"><b>39</b></a> - INT 39 - FLOATING POINT EMULATION - OPCODE DDh<br />
+<pre>
+INT 39 - FLOATING POINT EMULATION - OPCODE DDh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DDh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 38,INT 3A
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3A" name="3A"><b>3A</b></a> - INT 3A - FLOATING POINT EMULATION - OPCODE DEh<br />
+<pre>
+INT 3A - FLOATING POINT EMULATION - OPCODE DEh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DEh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 39,INT 3B
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3B" name="3B"><b>3B</b></a> - INT 3B - FLOATING POINT EMULATION - OPCODE DFh<br />
+<pre>
+INT 3B - FLOATING POINT EMULATION - OPCODE DFh
+Desc:	this interrupt is used to emulate floating-point instructions with
+	  an opcode of DFh
+Note:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+SeeAlso: INT 3A,INT 3C
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3C" name="3C"><b>3C</b></a> - INT 3C - FLOATING POINT EMULATION - INSTRUCTIONS WITH SEGMENT OVERRIDE<br />
+<pre>
+INT 3C - FLOATING POINT EMULATION - INSTRUCTIONS WITH SEGMENT OVERRIDE
+Notes:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+	the generated code is  CD 3C xy mm ....
+	  where xy is a modified ESC instruction and mm is the modR/M byte.
+	  The xy byte appears to be encoded as
+		s s 0 1 1 x x x	  or	s s 0 0 0 x x x
+	  where "ss" specifies the segment override:
+		00 -&gt; DS:
+		01 -&gt; SS:
+		10 -&gt; CS:
+		11 -&gt; ES:
+SeeAlso: INT 3B,INT 3D
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3D" name="3D"><b>3D</b></a> - INT 3D - FLOATING POINT EMULATION - STANDALONE FWAIT<br />
+<pre>
+INT 3D - FLOATING POINT EMULATION - STANDALONE FWAIT
+Notes:	the floating-point emulators in Borland and Microsoft languages and
+	  Lahey FORTRAN use this interrupt
+	this vector is modified but not restored by Direct Access v4.0, and
+	  may be left dangling by other programs written with the same version
+	  of compiled BASIC
+SeeAlso: INT 3C,INT 3E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3E" name="3E"><b>3E</b></a> - INT 3E - FLOATING POINT EMULATION - Borland LANGUAGES "SHORTCUT" CALL<br />
+<pre>
+INT 3E - FLOATING POINT EMULATION - Borland LANGUAGES "SHORTCUT" CALL
+Notes:	the two bytes following the INT 3E instruction are the subcode
+	  (see #03195) and a NOP (90h), except for subcodes DCh and DEh, where
+	  the second byte is a register count (01h-08h)
+	this vector is modified but not restored by Direct Access v4.0, and
+	  may be left dangling by other programs written with the same version
+	  of compiled BASIC
+SeeAlso: INT 3D
+
+(Table 03195)
+Values for Borland floating-point shortcut subcode:
+Subcode		Function
+ DCh	load 8086 stack with 8087 registers; overwrites the 10*N bytes at the
+	  top of the stack prior to the INT 3E with the 8087 register contents
+ DEh	load 8087 registers from top of 8086 stack; ST0 is furthest from top
+	  of 8086 stack
+ E0h	round TOS and R1 to single precision, compare, pop twice
+	  returns AX=8087 status word, FLAGS=8087 condition bits
+ E2h	round TOS and R1 to double precision, compare, pop twice
+	  returns AX=8087 status word, FLAGS=8087 condition bits
+	Note: buggy in TPas5.5, because it sets the 8087 precision control
+	  field to the undocumented value 01h; this results in actually
+	  rounding to single precision
+ E4h	compare TOS/R1 with two POP's
+	  returns FLAGS=8087 condition bits
+ E6h	compare TOS/R1 with POP
+	  returns FLAGS=8087 condition bits
+ E8h	FTST (check TOS value)
+	  returns FLAGS=8087 condition bits
+ EAh	FXAM (check TOS value)
+	  returns AX=8087 status word
+ ECh	sine(ST0)
+ EEh	cosine(ST0)
+ F0h	tangent(ST0)
+ F2h	arctangent(ST0)
+ F4h	ST0 = ln(ST0)
+ F6h	ST0 = log2(ST0)
+ F8h	ST0 = log10(ST0)
+ FAh	ST0 = e**ST0
+ FCh	ST0 = 2**ST0
+ FEh	ST0 = 10**ST0
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3F" name="3F"><b>3F</b></a> - INT 3F - Overlay manager interrupt (Microsoft LINK.EXE, Borland TLINK VROOMM)<br />
+<pre>
+INT 3F - Overlay manager interrupt (Microsoft LINK.EXE, Borland TLINK VROOMM)
+Notes:	INT 3F is the default, and may be overridden while linking
+	this vector is modified but not restored by Direct Access v4.0, and
+	  may be left dangling by other programs written with the same version
+	  of compiled BASIC
+SeeAlso: INT FE"OVERLAY"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3F_0" name="3F_0"><b>3F</b></a> - INT 3F - Microsoft Dynamic Link Library manager<br />
+<pre>
+INT 3F - Microsoft Dynamic Link Library manager
+SeeAlso: INT 21/AH=4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_7" name="60_7"><b>60</b></a> - INT 60 - PC-IPC API<br />
+<pre>
+INT 60 - PC-IPC API
+	STACK:	DWORD	pointer to parameter block (see #03268)
+Return: STACK:	unchanged
+Program: PC-IPC is a shareware TSR by Donnelly Software Engineering which
+	  allows communication between independent programs
+Range:	INT 00 to INT FF, selected by commandline switch
+
+Format of PC-IPC parameter block:
+Offset	Size	Description	(Table 03268)
+ 00h	WORD	caller's ID
+ 02h	WORD	to ID
+ 04h	WORD	command code (see #03269)
+ 06h	WORD	returned status (see #03270)
+ 08h	WORD	returned error code (see #03271)
+ 0Ah	WORD	size of data
+ 0Ch	DWORD	pointer to data buffer
+
+(Table 03269)
+Values for PC-IPC command code:
+ 01h "IPC_CMND_INQUIRE"	 inquire current status
+	set status field, writes WORD to data buffer containing free
+	  message space in bytes, and sets the "size" field to the
+	  number of messages waiting
+ 02h "IPC_CMND_ENABLE"	reenable PC-IPC
+	ignored unless called with the same ID that disabled PC-IPC
+ 03h "IPC_CMND_DISABLE" disable PC-IPC
+ 04h "IPC_CMND_INSTALL" reset PC-IPC
+ 06h "IPC_CMND_RDATA"	read data
+	returns first message in data buffer, sets "size" to message length
+	  and "to ID" field to sender's ID
+	if no messages available, bit 4 of status is cleared and "size" is
+	  set to zero
+ 07h "IPC_CMND_SDATA"	send data
+ 08h "IPC_CMND_REQID"	require user ID
+	create a new recognized ID and return in "caller's ID" field
+ 09h "IPC_CMND_DELID"	cancel user ID
+	delete caller's ID from pool of recognized IDs
+ 0Ah "IPC_CMND_RDATAW"	read data, wait if no messages available
+ 0Bh "IPC_CMND_VERS"	get PC-IPC version
+	string representing version returned in data buffer, "size" field
+	  set to length of string
+
+Bitfields for returned status:
+Bit(s)	Description	(Table 03270)
+ 0	unused
+ 1	IPC enabled
+ 2	IPC installed
+ 3	error
+ 4	message(s) available
+
+(Table 03271)
+Values for PC-IPC error code:
+ 00h	no error
+ 01h	invalid command or parameter
+ 02h	only process 0 can install/reset IPC
+ 03h	process can not install/reset IPC
+ 04h	IPC is not enabled
+ 05h	process can not disable IPC
+ 06h	invalid destination process ID
+ 07h	invalid sending process ID
+ 08h	invalid data destination
+ 09h	no more process IDs available
+ 0Ah	can not relinquish that process ID
+ 0Bh	message space is full
+ 0Ch	IPC is not installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_13" name="60_13"><b>60</b></a> - INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP<br />
+<pre>
+INT 60 - JPI TopSPEED Modula-2 v1 - PROCEDURE ENTRY TRAP
+SeeAlso: INT 61"JPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#61_3" name="61_3"><b>61</b></a> - INT 61 - JPI TopSPEED Modula-2 v1 - PROCEDURE EXIT TRAP<br />
+<pre>
+INT 61 - JPI TopSPEED Modula-2 v1 - PROCEDURE EXIT TRAP
+SeeAlso: INT 60"JPI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_5" name="64_5"><b>64</b></a> - INT 64 - Extended Batch Language v3.14+<br />
+<pre>
+INT 64 - Extended Batch Language v3.14+
+	AH = function
+	    00h to 5Fh chained to previous handler
+	    60h to 6Ch reserved, return immediately
+	    80h to FFh chained to previous handler
+	    6Dh (v4.01+) insert tone in queue
+		AL = ???
+		CX = frequency in Hertz
+		DL = duration in clock ticks
+		Return: AL = 00h if note stored
+			   = 01h if no room to store
+	    6Eh clear ??? counter/flag
+	    6Fh return counter/flag that AH=6Eh clears
+	    70h ???
+		AL = ???
+	    71h ???
+		AL = ???
+	    72h ???
+	    73h insert byte at end of keyboard buffer
+		AL = byte to insert
+		Return: AL = 00h if byte inserted
+			   = 01h if no room to store
+	    74h insert byte at front of keyboard buffer
+		AL = byte to insert
+		Return: AL = 00h if byte inserted
+			   = 01h if no room to store
+	    75h ???
+	    76h get keyboard "stack" status
+		AL = 'K' if kbd read will read physical keyboard
+		     'S' if it will read EBL internal keyboard buffer
+		AH = ???
+	    77h clear internal keyboard buffer
+	    78h ???
+		AL = ???
+	    79h ???
+	    7Ah ???
+		AL = ???
+	    7Bh ???
+		AL = ???
+	    7Ch ???
+		AL = ???
+	    7Dh ???
+		AL = ???
+	    7Eh clear buffer for ???
+	    7Fh installation check
+		Return: CX = version in BCD
+			DI = segment of ???
+			BX = segment of next program's PSP???
+Program: Extended Batch Language is a batch-file enhancer by Seaware
+Notes:	the chaining does not check whether the interrupt had been hooked
+	  before, so if you try to chain when the previous vector was
+	  0000h:0000h, you'll be in trouble
+	functions 72h and 7Ah-7Dh appear to be interfaces to the optional
+	  floating-point and extended function packages
+Index:	installation check;EBL|installation check;Extended Batch Language
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C" name="7C"><b>7C</b></a> - INT 7C U - IBM REXX88PC command language<br />
+<pre>
+INT 7C U - IBM REXX88PC command language
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_0" name="80_0"><b>80</b></a> - INT 80 - reserved for BASIC<br />
+<pre>
+INT 80 - reserved for BASIC
+Note:	this vector and INT 81 through INT ED are modified but not restored by
+	  Direct Access v4.0, and may be left dangling by other programs
+	  written with the same version of compiled BASIC
+SeeAlso: INT 81"BASIC",INT 86"BASIC",INT EF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#81" name="81"><b>81</b></a> - INT 81 - reserved for BASIC<br />
+<pre>
+INT 81 - reserved for BASIC
+Note:	this vector is modified but not restored by Direct Access v4.0, and
+	  may be left dangling by other programs written with the same version
+	  of compiled BASIC
+SeeAlso: INT 80"BASIC",INT 82"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#82" name="82"><b>82</b></a> - INT 82 - reserved for BASIC<br />
+<pre>
+INT 82 - reserved for BASIC
+SeeAlso: INT 81"BASIC",INT 83"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#83" name="83"><b>83</b></a> - INT 83 - reserved for BASIC<br />
+<pre>
+INT 83 - reserved for BASIC
+SeeAlso: INT 82"BASIC",INT 84"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#84" name="84"><b>84</b></a> - INT 84 - reserved for BASIC<br />
+<pre>
+INT 84 - reserved for BASIC
+SeeAlso: INT 83"BASIC",INT 85"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#85" name="85"><b>85</b></a> - INT 85 - reserved for BASIC<br />
+<pre>
+INT 85 - reserved for BASIC
+Note:	INT 80 through INT ED are modified but not restored by Direct Access
+	  v4.0, and may be left dangling by other programs written with the
+	  same version of compiled BASIC
+SeeAlso: INT 84"BASIC",INT 86"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#86_0" name="86_0"><b>86</b></a> - INT 86 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 86 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 85"BASIC",INT 87"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#86_1" name="86_1"><b>86</b></a> - INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS<br />
+<pre>
+INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS
+SeeAlso: INT 21/AH=4Ch,INT 87"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#87" name="87"><b>87</b></a> - INT 87 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 87 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 86"BASIC",INT 88"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#87_0" name="87_0"><b>87</b></a> - INT 87 - APL*PLUS/PC - ???<br />
+<pre>
+INT 87 - APL*PLUS/PC - ???
+SeeAlso: INT 86"APL",INT 88/AL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88" name="88"><b>88</b></a> - INT 88 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 88 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 87"BASIC",INT 89"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--00" name="88--00"><b>88--00</b></a> - INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE OBJECT OF ARBITRARY RANK OR SHAPE
+	AL = 00h
+	BX = STPTR of the variable to be assigned
+	ES:SI -&gt; model of type, rank, and shape (see #03978)
+Return: ES:DI -&gt; first data byte of object
+	DX:CX = number of elements in the object
+SeeAlso: INT 88/AL=01h,INT 88/AL=08h,INT C8"APL"
+
+Format of APL*PLUS/PC shape model:
+Offset	Size	Description	(Table 03978)
+ 00h	BYTE	type
+		01h character (2-byte dimension sizes)
+		02h integer (2-byte dimension sizes)
+		08h floating point (2-byte dimension sizes)
+		11h character (4-byte dimension sizes)
+		12h integer (4-byte dimension sizes)
+		18h floating point (4-byte dimension sizes)
+ 01h	BYTE	rank
+ 02h	(D)WORD first dimension of shape
+ N	(D)WORD second dimension of shape
+	...
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--01" name="88--01"><b>88--01</b></a> - INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE CHARACTER SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 01h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=00h,AL=02h,AL=08h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--02" name="88--02"><b>88--02</b></a> - INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE INTEGER SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 02h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=01h,AL=08h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--08" name="88--08"><b>88--08</b></a> - INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX <64K IN SIZE<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE FLOATING POINT SCALAR/VECTOR/MATRIX &lt;64K IN SIZE
+	AL = 08h
+	AH = rank
+	BX = STPTR of the variable to be assigned
+	CX = first dimension (if any)
+	DX = second dimension (if any)
+Return: ES:DI -&gt; object
+	CX = number of elements in the object
+Note:	each dimension must be 32767 or smaller
+SeeAlso: AL=01h,AL=02h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F5" name="88--F5"><b>88--F5</b></a> - INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL<br />
+<pre>
+INT 88 - APL*PLUS/PC - FORCE OBJECT INTO REAL WORKSPACE FROM VIRTUAL
+	AL = F5h
+	BX = STPTR of object
+SeeAlso: INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F6" name="88--F6"><b>88--F6</b></a> - INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - MAKE NAME IMMUNE FROM OUTSWAPPING
+	AL = F6h
+	BX = STPTR of object
+SeeAlso: AL=F7h,AL=F8h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F7" name="88--F7"><b>88--F7</b></a> - INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - MAKE NAME ELIGIBLE FOR OUTSWAPPING
+	AL = F7h
+	BX = STPTR of object
+SeeAlso: AL=F6h,AL=F8h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F8" name="88--F8"><b>88--F8</b></a> - INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING<br />
+<pre>
+INT 88 - APL*PLUS/PC - REPORT WHETHER NAME IS ELIGIBLE FOR OUTSWAPPING
+	AL = F8h
+	BX = STPTR of object
+Return: BX = name's outswapping status
+	    0000h eligible
+	    0001h not eligible
+SeeAlso: AL=F6h,AL=F7h,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--F9" name="88--F9"><b>88--F9</b></a> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS
+	AL = F9h
+	ES:SI -&gt; name
+	CX = length of name
+Return: CF set if name ill-formed or already in use
+	    BX = STPTR if already in symbol table
+	CF clear if name is available for use
+	    BX = 0000h
+Note:	does not force the name into the workspace
+SeeAlso: AL=FEh,AL=FFh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FC" name="88--FC"><b>88--FC</b></a> - INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE IF MEMORY AVAIL WITHOUT GARBAGE COLLECTION
+	AL = FCh
+	BX = amount of memory needed (paragraphs)
+Return: CF clear if memory available
+	CF set if a workspace compaction is required
+SeeAlso: AL=FDh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FD" name="88--FD"><b>88--FD</b></a> - INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY<br />
+<pre>
+INT 88 - APL*PLUS/PC - PERFORM GARBAGE COLLECTION AND RETURN AVAILABLE MEMORY
+	AL = FDh
+Return: BX = number of paragraphs available in workspace
+SeeAlso: AL=FCh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FE" name="88--FE"><b>88--FE</b></a> - INT 88 - APL*PLUS/PC - CREATE NAME<br />
+<pre>
+INT 88 - APL*PLUS/PC - CREATE NAME
+	AL = FEh
+	ES:SI -&gt; name
+	CX = length of name
+Return: BX = STPTR of name
+	DX = interpreter's data segment
+SeeAlso: AL=F9h,AL=FFh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88--FF" name="88--FF"><b>88--FF</b></a> - INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS<br />
+<pre>
+INT 88 - APL*PLUS/PC - DETERMINE NAME STATUS
+	AL = FFh
+	ES:SI -&gt; name
+	CX = length of name
+Return: CF set if name ill-formed or already in use
+	    BX = STPTR if already in symbol table
+	CF clear if name is available for use
+	    BX = 0000h
+Note:	forces the name into the workspace and makes it immune from outswapping
+SeeAlso: AL=F9h,AL=FEh,INT C8"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#89" name="89"><b>89</b></a> - INT 89 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 89 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 88"BASIC",INT 8A"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#89_0" name="89_0"><b>89</b></a> - INT 89 - APL*PLUS/PC - ???<br />
+<pre>
+INT 89 - APL*PLUS/PC - ???
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT C9"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8A" name="8A"><b>8A</b></a> - INT 8A - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8A - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 89"BASIC",INT 8B"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8A_0" name="8A_0"><b>8A</b></a> - INT 8A - APL*PLUS/PC - PRINT SCREEN<br />
+<pre>
+INT 8A - APL*PLUS/PC - PRINT SCREEN
+Note:	same as INT 05
+SeeAlso: INT 05"PRINT SCREEN",INT 8C"APL",INT CA"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8B" name="8B"><b>8B</b></a> - INT 8B - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8B - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8A"BASIC",INT 8C"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8B_0" name="8B_0"><b>8B</b></a> - INT 8B - APL*PLUS/PC - BEEP<br />
+<pre>
+INT 8B - APL*PLUS/PC - BEEP
+Note:	same as printing a ^G via INT 21/AH=02h
+SeeAlso: INT 21/AH=02h,INT CB"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8C" name="8C"><b>8C</b></a> - INT 8C - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8C - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8B"BASIC",INT 8D
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8C_0" name="8C_0"><b>8C</b></a> - INT 8C - APL*PLUS/PC - CLEAR SCREEN MEMORY<br />
+<pre>
+INT 8C - APL*PLUS/PC - CLEAR SCREEN MEMORY
+	AX = flag
+	    0000h do not save display attributes
+	    0001h save attributes
+SeeAlso: INT CC"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8D" name="8D"><b>8D</b></a> - INT 8D - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8D - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8C,INT 8E
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8E" name="8E"><b>8E</b></a> - INT 8E - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8E - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8D,INT 8F
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8F" name="8F"><b>8F</b></a> - INT 8F - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8F - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8E,INT 90
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#90" name="90"><b>90</b></a> - INT 90 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 90 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8F,INT 91
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#90_0" name="90_0"><b>90</b></a> - INT 90 - APL*PLUS/PC - USED BY PORT 10 PRINTER DRIVER<br />
+<pre>
+INT 90 - APL*PLUS/PC - USED BY PORT 10 PRINTER DRIVER
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#91" name="91"><b>91</b></a> - INT 91 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 91 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 90,INT 92
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#92" name="92"><b>92</b></a> - INT 92 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 92 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#93" name="93"><b>93</b></a> - INT 93 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 93 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#94" name="94"><b>94</b></a> - INT 94 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 94 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#95" name="95"><b>95</b></a> - INT 95 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 95 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#95_0" name="95_0"><b>95</b></a> - INT 95 - APL*PLUS/PC - DETERMINE R= SPACE<br />
+<pre>
+INT 95 - APL*PLUS/PC - DETERMINE R= SPACE
+Note:	use only when the R= option is invoked on entering APL
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#96" name="96"><b>96</b></a> - INT 96 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 96 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#97" name="97"><b>97</b></a> - INT 97 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 97 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#98" name="98"><b>98</b></a> - INT 98 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 98 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#99" name="99"><b>99</b></a> - INT 99 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 99 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9A" name="9A"><b>9A</b></a> - INT 9A - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9A - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 99,INT 9B
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9B" name="9B"><b>9B</b></a> - INT 9B - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9B - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9A,INT 9C"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9C" name="9C"><b>9C</b></a> - INT 9C - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9C - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9B,INT 9D"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9D" name="9D"><b>9D</b></a> - INT 9D - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9D - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9C"BASIC",INT 9E"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9E" name="9E"><b>9E</b></a> - INT 9E - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9E - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9D"BASIC",INT 9F"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#9F" name="9F"><b>9F</b></a> - INT 9F - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 9F - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9D"BASIC",INT A0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A0" name="A0"><b>A0</b></a> - INT A0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT 9F"BASIC",INT A1"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A0_0" name="A0_0"><b>A0</b></a> - INT A0 - APL*PLUS/PC - USED BY APL/GSS*CGI GRAPHICS INTERFACE<br />
+<pre>
+INT A0 - APL*PLUS/PC - USED BY APL/GSS*CGI GRAPHICS INTERFACE
+SeeAlso: INT 59"GSS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A1" name="A1"><b>A1</b></a> - INT A1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A0"BASIC",INT A2"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A2" name="A2"><b>A2</b></a> - INT A2 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A2 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A1"BASIC",INT A3"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A3" name="A3"><b>A3</b></a> - INT A3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A2"BASIC",INT A4"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A4" name="A4"><b>A4</b></a> - INT A4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A3"BASIC",INT A5"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A5" name="A5"><b>A5</b></a> - INT A5 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A5 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A4"BASIC",INT A6"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A6" name="A6"><b>A6</b></a> - INT A6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT A5"BASIC",INT A7"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A7" name="A7"><b>A7</b></a> - INT A7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A8" name="A8"><b>A8</b></a> - INT A8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#A9" name="A9"><b>A9</b></a> - INT A9 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT A9 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AA" name="AA"><b>AA</b></a> - INT AA - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AA - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AB" name="AB"><b>AB</b></a> - INT AB - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AB - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AC" name="AC"><b>AC</b></a> - INT AC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AD" name="AD"><b>AD</b></a> - INT AD - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AD - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AE" name="AE"><b>AE</b></a> - INT AE - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AE - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#AF" name="AF"><b>AF</b></a> - INT AF - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT AF - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B0" name="B0"><b>B0</b></a> - INT B0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B1" name="B1"><b>B1</b></a> - INT B1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B2" name="B2"><b>B2</b></a> - INT B2 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B2 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B3" name="B3"><b>B3</b></a> - INT B3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B4" name="B4"><b>B4</b></a> - INT B4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B4_0" name="B4_0"><b>B4</b></a> - INT B4 - StackMan - REQUEST NEW STACK<br />
+<pre>
+INT B4 - StackMan - REQUEST NEW STACK
+Return: SS:SP -&gt; new stack
+Program: StackMan is a freeware stack manager by Franz Veldman of ESaSS B.V.
+	  which functions as a replacement for the DOS STACK= command as well
+	  as permitting multiple TSRs to share a pool of stack space
+InstallCheck:	test for the string "STACKXXX" at offset 0Ah from the
+	  interrupt handler
+SeeAlso: INT 2F/AX=C9FFh,INT B5"STACKMAN"
+Index:	installation check;STACKMAN
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B5" name="B5"><b>B5</b></a> - INT B5 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B5 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT B4"BASIC",INT B6"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B5_0" name="B5_0"><b>B5</b></a> - INT B5 - StackMan - RESTORE ORIGINAL STACK<br />
+<pre>
+INT B5 - StackMan - RESTORE ORIGINAL STACK
+	SS:SP -&gt; stack returned by INT B4
+Return: SS:SP restored to value before INT B4
+SeeAlso: INT 2F/AX=C9FFh,INT B4"StackMan"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B6" name="B6"><b>B6</b></a> - INT B6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT B5"BASIC",INT B7"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B7" name="B7"><b>B7</b></a> - INT B7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT B6"BASIC",INT B8"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B8" name="B8"><b>B8</b></a> - INT B8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT B7"BASIC",INT B9"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B9" name="B9"><b>B9</b></a> - INT B9 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B9 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BA" name="BA"><b>BA</b></a> - INT BA - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BA - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BB" name="BB"><b>BB</b></a> - INT BB - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BB - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BC" name="BC"><b>BC</b></a> - INT BC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BD" name="BD"><b>BD</b></a> - INT BD - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BD - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BE" name="BE"><b>BE</b></a> - INT BE - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BE - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT BD"BASIC",INT BF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#BF" name="BF"><b>BF</b></a> - INT BF - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT BF - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT BE"BASIC",INT C0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C0" name="C0"><b>C0</b></a> - INT C0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT BF"BASIC",INT C1"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C1" name="C1"><b>C1</b></a> - INT C1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C0"BASIC",INT C2"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C2" name="C2"><b>C2</b></a> - INT C2 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C2 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C1"BASIC",INT C3"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C3" name="C3"><b>C3</b></a> - INT C3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C2"BASIC",INT C4"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C4" name="C4"><b>C4</b></a> - INT C4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C3"BASIC",INT C5"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C5" name="C5"><b>C5</b></a> - INT C5 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C5 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C4"BASIC",INT C6"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C6" name="C6"><b>C6</b></a> - INT C6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C5"BASIC",INT C7"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C6_0" name="C6_0"><b>C6</b></a> - INT C6 - APL*PLUS/PC - IDENTICAL TO INT 86<br />
+<pre>
+INT C6 - APL*PLUS/PC - IDENTICAL TO INT 86
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 86"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C7" name="C7"><b>C7</b></a> - INT C7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C6"BASIC",INT C8"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C7_0" name="C7_0"><b>C7</b></a> - INT C7 - APL*PLUS/PC - ???<br />
+<pre>
+INT C7 - APL*PLUS/PC - ???
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 87"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C8" name="C8"><b>C8</b></a> - INT C8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C7"BASIC",INT C9"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C8_0" name="C8_0"><b>C8</b></a> - INT C8 - APL*PLUS/PC - IDENTICAL TO INT 88<br />
+<pre>
+INT C8 - APL*PLUS/PC - IDENTICAL TO INT 88
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 88/AL=00h"APL",INT 88/AL=08h"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C9" name="C9"><b>C9</b></a> - INT C9 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C9 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C8"BASIC",INT CA"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C9_0" name="C9_0"><b>C9</b></a> - INT C9 - APL*PLUS/PC - ???<br />
+<pre>
+INT C9 - APL*PLUS/PC - ???
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 89"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CA" name="CA"><b>CA</b></a> - INT CA - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CA - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C9"BASIC",INT CB"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CA_0" name="CA_0"><b>CA</b></a> - INT CA - APL*PLUS/PC - PRINT SCREEN<br />
+<pre>
+INT CA - APL*PLUS/PC - PRINT SCREEN
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 8A"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CB" name="CB"><b>CB</b></a> - INT CB - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CB - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CA"BASIC",INT CC"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CB_0" name="CB_0"><b>CB</b></a> - INT CB - APL*PLUS/PC - BEEP<br />
+<pre>
+INT CB - APL*PLUS/PC - BEEP
+Notes:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+	same as printing a ^G via INT 21/AH=02h
+SeeAlso: INT 8B"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CC" name="CC"><b>CC</b></a> - INT CC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CB"BASIC",INT CD"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CC_0" name="CC_0"><b>CC</b></a> - INT CC - APL*PLUS/PC - CLEAR SCREEN MEMORY<br />
+<pre>
+INT CC - APL*PLUS/PC - CLEAR SCREEN MEMORY
+	AX = flag
+	    0000h do not save display attributes
+	    0001h save attributes
+Note:	STSC moved its interrupts from 86h-8Ch to C6h-CCh, but did not delete
+	  the older interrupts
+SeeAlso: INT 8C"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CD" name="CD"><b>CD</b></a> - INT CD - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CD - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CC"BASIC",INT CE"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CD_0" name="CD_0"><b>CD</b></a> - INT CD - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT CD - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CE" name="CE"><b>CE</b></a> - INT CE - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CE - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CD"BASIC",INT CF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CE_0" name="CE_0"><b>CE</b></a> - INT CE - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT CE - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CF" name="CF"><b>CF</b></a> - INT CF - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT CF - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CE"BASIC",INT D0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#CF_0" name="CF_0"><b>CF</b></a> - INT CF - APL*PLUS/PC - DEFAULT LOW-RESOLUTION TIMER FOR QUAD MF FUNCTION<br />
+<pre>
+INT CF - APL*PLUS/PC - DEFAULT LOW-RESOLUTION TIMER FOR QUAD MF FUNCTION
+SeeAlso: INT E0"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D0" name="D0"><b>D0</b></a> - INT D0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT CF"BASIC",INT D1"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D0_0" name="D0_0"><b>D0</b></a> - INT D0 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D0 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D1" name="D1"><b>D1</b></a> - INT D1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D0"BASIC",INT D2"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D1_0" name="D1_0"><b>D1</b></a> - INT D1 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D1 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D2" name="D2"><b>D2</b></a> - INT D2 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D2 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D1"BASIC",INT D3"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D2_0" name="D2_0"><b>D2</b></a> - INT D2 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D2 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D3" name="D3"><b>D3</b></a> - INT D3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D2"BASIC",INT D4"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D3_0" name="D3_0"><b>D3</b></a> - INT D3 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D3 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D4" name="D4"><b>D4</b></a> - INT D4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D3"BASIC",INT D5"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D4_0" name="D4_0"><b>D4</b></a> - INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D4 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D5" name="D5"><b>D5</b></a> - INT D5 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D5 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D4"BASIC",INT D6"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D5_0" name="D5_0"><b>D5</b></a> - INT D5 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D5 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D6" name="D6"><b>D6</b></a> - INT D6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D5"BASIC",INT D7"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D6_0" name="D6_0"><b>D6</b></a> - INT D6 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D6 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D7" name="D7"><b>D7</b></a> - INT D7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D6"BASIC",INT D8"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D7_0" name="D7_0"><b>D7</b></a> - INT D7 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D7 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D8" name="D8"><b>D8</b></a> - INT D8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D7"BASIC",INT D9"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D8_0" name="D8_0"><b>D8</b></a> - INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D9" name="D9"><b>D9</b></a> - INT D9 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D9 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D8"BASIC",INT DA"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D9_0" name="D9_0"><b>D9</b></a> - INT D9 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D9 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DA" name="DA"><b>DA</b></a> - INT DA - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DA - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D9"BASIC",INT DB"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DA_0" name="DA_0"><b>DA</b></a> - INT DA - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT DA - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DB" name="DB"><b>DB</b></a> - INT DB - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DB - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DA"BASIC",INT DC"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DB_0" name="DB_0"><b>DB</b></a> - INT DB - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT DB - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DC_0" name="DC_0"><b>DC</b></a> - INT DC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DB"BASIC",INT DD"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DC_1" name="DC_1"><b>DC</b></a> - INT DC - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT DC - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DD" name="DD"><b>DD</b></a> - INT DD - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DD - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DC"BASIC",INT DE"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DD_0" name="DD_0"><b>DD</b></a> - INT DD - STSC APL*PLUS/PC v9.0 - PLACE KEYSTROKE EVENTS IN INPUT BUFFER<br />
+<pre>
+INT DD - STSC APL*PLUS/PC v9.0 - PLACE KEYSTROKE EVENTS IN INPUT BUFFER
+	BX = where to place keystrokes
+	    FFFFh insert before current buffer contents
+	    0000h replace current contents
+	    0001h insert after current contents
+	CX = number of keystroke events to insert
+	ES:SI -&gt; data to be placed into buffer (list of WORD key codes)
+	    4000h + N = normal ASCII keystroke N (N = 00h to FFh)
+	    4100h + N = extended ASCII keystroke N (N = 03h to 84h)
+Return: nothing
+SeeAlso: INT 16/AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DE" name="DE"><b>DE</b></a> - INT DE - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DE - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DD"BASIC",INT DF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DE_0" name="DE_0"><b>DE</b></a> - INT DE - APL*PLUS/PC - ???<br />
+<pre>
+INT DE - APL*PLUS/PC - ???
+Note:	appears to be the same as INT 16
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DF_0" name="DF_0"><b>DF</b></a> - INT DF - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DF - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DE"BASIC",INT E0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DF_1" name="DF_1"><b>DF</b></a> - INT DF - APL*PLUS/PC - SAME AS INT 10<br />
+<pre>
+INT DF - APL*PLUS/PC - SAME AS INT 10
+SeeAlso: INT 10/AH=00h,INT 10/AH=0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0" name="E0"><b>E0</b></a> - INT E0 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E0 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DF"BASIC",INT E1"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_0" name="E0_0"><b>E0</b></a> - INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION<br />
+<pre>
+INT E0 - APL*PLUS/PC - RESTIME HIGH-RESOLUTION TIMER FOR QUAD MF FUNCTION
+SeeAlso: INT CF"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E1" name="E1"><b>E1</b></a> - INT E1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E2" name="E2"><b>E2</b></a> - INT E2 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E2 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E3" name="E3"><b>E3</b></a> - INT E3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E40005" name="E40005"><b>E40005</b></a> - INT E4 - Logitech Modula v2.0 - MonitorEntry<br />
+<pre>
+INT E4 - Logitech Modula v2.0 - MonitorEntry
+	AX = 0005h
+	BX = priority
+Return: nothing
+SeeAlso: AX=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E40006" name="E40006"><b>E40006</b></a> - INT E4 - Logitech Modula v2.0 - MonitorExit<br />
+<pre>
+INT E4 - Logitech Modula v2.0 - MonitorExit
+	AX = 0006h
+Return: nothing
+SeeAlso: AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E4" name="E4"><b>E4</b></a> - INT E4 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E4 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E5" name="E5"><b>E5</b></a> - INT E5 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E5 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E6" name="E6"><b>E6</b></a> - INT E6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E7" name="E7"><b>E7</b></a> - INT E7 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E7 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E8" name="E8"><b>E8</b></a> - INT E8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E9" name="E9"><b>E9</b></a> - INT E9 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E9 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EA" name="EA"><b>EA</b></a> - INT EA - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT EA - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EB" name="EB"><b>EB</b></a> - INT EB - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT EB - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EC" name="EC"><b>EC</b></a> - INT EC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT EC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EC_1" name="EC_1"><b>EC</b></a> - INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR<br />
+<pre>
+INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR
+	AX = function number (0000h to 0140h)
+	STACK:	DWORD address to return to
+		any arguments required by function
+Return: STACK:	return address popped, but otherwise unchanged
+Desc:	this is the interface from applications to the runtime system by Exact
+	  Automatisering B.V. of the Netherlands.  By using this interrupt,
+	  it can provide DLL-style capabilities under MS-DOS.
+Note:	the interrupt handler removes the return address and flags placed on
+	  the stack by the INT EC, then jumps to the appropriate function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#ED" name="ED"><b>ED</b></a> - INT ED - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT ED - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+	INT 80 through INT ED are modified but not restored by Direct Access
+	  v4.0, and may be left dangling by other programs written with the
+	  same version of compiled BASIC
+SeeAlso: INT EC"BASIC",INT EE"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EE" name="EE"><b>EE</b></a> - INT EE - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT EE - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT ED"BASIC",INT EE"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EF" name="EF"><b>EF</b></a> - INT EF - BASIC - ORIGINAL INT 09 VECTOR<br />
+<pre>
+INT EF - BASIC - ORIGINAL INT 09 VECTOR
+Note:	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT EE"BASIC",INT F0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F0" name="F0"><b>F0</b></a> - INT F0 - BASICA.COM, GWBASIC, compiled BASIC - ORIGINAL INT 08 VECTOR<br />
+<pre>
+INT F0 - BASICA.COM, GWBASIC, compiled BASIC - ORIGINAL INT 08 VECTOR
+Note:	BASICA.COM does not restore vector on termination
+SeeAlso: INT EF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

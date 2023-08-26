@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._DF</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT DF
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#DF"><b>DF</b> - INT DF - Victor 9000/Sirius 1 - SuperBIOS</a><br />
+<a href="#DF_0"><b>DF</b> - INT DF - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#DF_1"><b>DF</b> - INT DF - APL*PLUS/PC - SAME AS INT 10</a><br />
+<a href="#DF_2"><b>DF</b> - INT DF - Screen Thief v1.00 - RELOCATED IRQ7</a><br />
+
+<hr />
+
+<a href="#DF" name="DF"><b>DF</b></a> - INT DF - Victor 9000/Sirius 1 - SuperBIOS<br />
+<pre>
+INT DF - Victor 9000/Sirius 1 - SuperBIOS
+SeeAlso: INT 21/AH=EAh"NetWare"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DF_0" name="DF_0"><b>DF</b></a> - INT DF - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT DF - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT DE"BASIC",INT E0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DF_1" name="DF_1"><b>DF</b></a> - INT DF - APL*PLUS/PC - SAME AS INT 10<br />
+<pre>
+INT DF - APL*PLUS/PC - SAME AS INT 10
+SeeAlso: INT 10/AH=00h,INT 10/AH=0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#DF_2" name="DF_2"><b>DF</b></a> - INT DF - Screen Thief v1.00 - RELOCATED IRQ7<br />
+<pre>
+INT DF - Screen Thief v1.00 - RELOCATED IRQ7
+Range:	INT 7Fh to INT E7h, selected by commandline switch
+Note:	(see INT D8"Screen Thief")
+SeeAlso: INT 0F"IRQ7",INT DE"Screen Thief"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

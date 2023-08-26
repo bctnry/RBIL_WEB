@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._6D</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 6D
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#6D"><b>6D</b> - INT 6D - VIDEO - many VGA - VIDEO BIOS ENTRY POINT</a><br />
+<a href="#6D_0"><b>6D</b> - INT 6D - Trident SVGA - VIDEO BIOS HANDLER</a><br />
+<a href="#6D_1"><b>6D</b> - INT 6D - DECnet DOS (before 2.1) - DATA LINK LAYER PROGRAM</a><br />
+<a href="#6D_2"><b>6D</b> - INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6DBD60"><b>6DBD60</b> - INT 6D U - Matrox Multiple Monitor Support v1.0 - ???</a><br />
+<a href="#6DBD61"><b>6DBD61</b> - INT 6D U - Matrox Multiple Monitor Support v1.0 - GET VIDEO MODE INFORMATION</a><br />
+<a href="#6DBD6F"><b>6DBD6F</b> - INT 6D U - Matrox Multiple Monitor Support v1.0 - INSTALLATION CHECK</a><br />
+<a href="#6DBDFF"><b>6DBDFF</b> - INT 6D U - Matrox Multiple Monitor Support v1.0 - UNHOOK INTERRUPT (UNINSTALL)</a><br />
+
+<hr />
+
+<a href="#6D" name="6D"><b>6D</b></a> - INT 6D - VIDEO - many VGA - VIDEO BIOS ENTRY POINT<br />
+<pre>
+INT 6D - VIDEO - many VGA - VIDEO BIOS ENTRY POINT
+Desc:	points at the original INT 10 entry point set up by the VGA BIOS
+Notes:	used by IBM, ATI VGA Wonder, Paradise, Video7, and NCR, and many others
+	the Diamond Stealth64 BIOS uses this vector to store the INT 42 vector
+	   of the inactive video (see INT 10/AH=12h/BL=35h)
+SeeAlso: INT 10/AH=00h,INT 10/AH=0Eh,INT 10/AH=12h/BL=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6D_0" name="6D_0"><b>6D</b></a> - INT 6D - Trident SVGA - VIDEO BIOS HANDLER<br />
+<pre>
+INT 6D - Trident SVGA - VIDEO BIOS HANDLER
+Note:	the BIOS INT 10 handler on various Trident VGA cards consists merely
+	  of a call to INT 6D followed by an IRET.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6D_1" name="6D_1"><b>6D</b></a> - INT 6D - DECnet DOS (before 2.1) - DATA LINK LAYER PROGRAM<br />
+<pre>
+INT 6D - DECnet DOS (before 2.1) - DATA LINK LAYER PROGRAM
+	AH = function
+	???
+Return: ???
+InstallCheck:	test for a signature area immediately preceding the interrupt
+	  handler (see #03734)
+SeeAlso: INT 69/AH=0Ah,INT 6C"DECnet",INT 6E"DECnet"
+Index:	installation check;DECnet DOS Data Link Layer
+
+Format of DECnet DOS signature area:
+Offset	Size	Description	(Table 03734)
+ -5	BYTE	major version number
+ -4	BYTE	minor version number
+ -3   3 BYTEs	signature (ASCII "DLL")
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6D_2" name="6D_2"><b>6D</b></a> - INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6D C - HP Vectra AT - IRQ21 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0D"IRQ5",INT 6C"HP Vectra",INT 6E"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6DBD60" name="6DBD60"><b>6DBD60</b></a> - INT 6D U - Matrox Multiple Monitor Support v1.0 - ???<br />
+<pre>
+INT 6D U - Matrox Multiple Monitor Support v1.0 - ???
+	AX = BD60h
+	DS:SI -&gt; buffer containing ??? (see #03735)
+	???
+Return: AX = 00BDh if function executed
+	   ???:SI -&gt; 22-byte buffer (inside TSR) filled with ??? (see #03735)
+	AX unchanged if function disabled
+Note:	this function is a NOP if AX=BD6Fh/BL=01h was called
+SeeAlso: AX=BD61h,AX=BD6Fh,AX=BDFFh
+
+Format of Matrox ??? buffer:
+Offset	Size	Description	(Table 03735)
+ 00h  4 BYTEs	???
+ 04h	WORD	video mode width in pixels
+ 06h	WORD	video mode height in pixels
+ 08h	BYTE	???
+ 09h	BYTE	???
+ 0Ah	BYTE	???
+ 0Bh	BYTE	flags
+		bit 1: ???
+		bit 4: ??? (corresponds to bit 14 for AX=BD61h)
+		bit 5: ??? (corresponds to bit 15 for AX=BD61h)
+ 0Ch	DWORD	-&gt; ??? buffer
+ 10h	WORD	???
+		bit 4: ??? (corresponds to bit 14 for AX=BD61h)
+		bit 5: ??? (corresponds to bit 15 for AX=BD61h)
+ 12h  4 BYTEs	???
+SeeAlso: #03736
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6DBD61" name="6DBD61"><b>6DBD61</b></a> - INT 6D U - Matrox Multiple Monitor Support v1.0 - GET VIDEO MODE INFORMATION<br />
+<pre>
+INT 6D U - Matrox Multiple Monitor Support v1.0 - GET VIDEO MODE INFORMATION
+	AX = BD61h
+	BX = width in pixels (bits 13-0)
+	    bit 14: ???
+	    bit 15: ???
+	CX = height in pixels
+Return: AL = BDh if function supported
+	    AH = status
+		00h successful
+		01h failed (resolution/flags not supported)
+	    CX:BX -&gt; video mode data structure (see #03736)
+		  (first word is FFFFh if unsupported resolution)
+	    EAX high word cleared
+SeeAlso: AX=BD60h,AX=BD6Fh,AX=BDFFh
+
+Format of Matrox video mode information (VCE structure):
+Offset	Size	Description	(Table 03736)
+ 00h	WORD	width in pixels
+ 02h	WORD	height in pixels
+ 04h	WORD	???
+ 06h	DWORD	dot clock frequency
+ 0Ah 25 BYTEs	???
+SeeAlso: #03735
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6DBD6F" name="6DBD6F"><b>6DBD6F</b></a> - INT 6D U - Matrox Multiple Monitor Support v1.0 - INSTALLATION CHECK<br />
+<pre>
+INT 6D U - Matrox Multiple Monitor Support v1.0 - INSTALLATION CHECK
+	AX = BD6Fh
+	BL = subfunction
+	    00h installation check
+	    01h disable TSR
+	    02h enable TSR (see AX=BD60h)
+Return: AX = 00BDh if installed
+SeeAlso: AX=BD60h,AX=BD61h,AX=BDFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6DBDFF" name="6DBDFF"><b>6DBDFF</b></a> - INT 6D U - Matrox Multiple Monitor Support v1.0 - UNHOOK INTERRUPT (UNINSTALL)<br />
+<pre>
+INT 6D U - Matrox Multiple Monitor Support v1.0 - UNHOOK INTERRUPT (UNINSTALL)
+	AX = BDFFh
+Return: AX = 00BDh if supported
+Note:	this function revectors INT 6D without checking that it points at the
+	  TSR, and does not release the memory occupied by the TSR
+SeeAlso: AX=BD60h,AX=BD61h,AX=BD6Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

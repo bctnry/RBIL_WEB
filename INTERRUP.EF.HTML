@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._EF</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT EF
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#EF"><b>EF</b> - INT EF - BASIC - ORIGINAL INT 09 VECTOR</a><br />
+<a href="#EF----CX00C8"><b>EF----CX00C8</b> - INT EF - GEM - AES INTERFACE</a><br />
+<a href="#EF----CX00C9"><b>EF----CX00C9</b> - INT EF - GEM - AES INTERFACE</a><br />
+<a href="#EF----CX0473"><b>EF----CX0473</b> - INT EF - GEM - VDI INTERFACE</a><br />
+
+<hr />
+
+<a href="#EF" name="EF"><b>EF</b></a> - INT EF - BASIC - ORIGINAL INT 09 VECTOR<br />
+<pre>
+INT EF - BASIC - ORIGINAL INT 09 VECTOR
+Note:	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT EE"BASIC",INT F0"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EF----CX00C8" name="EF----CX00C8"><b>EF----CX00C8</b></a> - INT EF - GEM - AES INTERFACE<br />
+<pre>
+INT EF - GEM - AES INTERFACE
+	CX = 00C8h
+	DX = 0000h
+	ES:BX -&gt; AES parameter block (see #04064)
+SeeAlso: INT EF/CX=00C9h,INT EF/CX=0473h
+
+Format of AES parameter block:
+Offset	Size	Description	(Table 04064)
+ 00h	DWORD	-&gt; control array (see #04065)
+ 04h	DWORD	-&gt; global variables (15 WORDs)
+ 08h	DWORD	-&gt; integer input parameters
+ 0Ch	DWORS	-&gt; buffer for integer results
+ 10h	DWORD	-&gt; address (DWORD) input parameters
+ 14h	DWORD	-&gt; buffer for address (DWORD) results
+SeeAlso: #04066
+
+Format of AES control array:
+Offset	Size	Description	(Table 04065)
+ 00h	WORD	function number (000Ah-0084h)
+ 02h	WORD	number of words of integer input parameters
+ 04h	WORD	number of words available for integer results
+ 06h	WORD	number of words of address input parameters
+ 08h	WORD	number of words available for address results
+SeeAlso: #04064
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EF----CX00C9" name="EF----CX00C9"><b>EF----CX00C9</b></a> - INT EF - GEM - AES INTERFACE<br />
+<pre>
+INT EF - GEM - AES INTERFACE
+	CX = 00C9h
+	DX = 0000h
+	ES:BX -&gt; AES parameter block (see #04064)
+SeeAlso: INT EF/CX=00C8h,INT EF/CX=0473h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EF----CX0473" name="EF----CX0473"><b>EF----CX0473</b></a> - INT EF - GEM - VDI INTERFACE<br />
+<pre>
+INT EF - GEM - VDI INTERFACE
+	CX = 0473h
+	DS:DX -&gt; GEM VDI parameter block (see #04066)
+Note:	if installed, one of the following ASCII signatures will appear two
+	  bytes after the INT EF entry point:
+	    "GEMVDI"	GEM VDI (but not AES) is present
+	    "GEMAES"	GEM/ViewMAX VDI and AES are both present
+	    "ViewMAX"	ViewMAX VDI (only) is present
+	  each of the above is followed by an ASCIZ number indicating the
+	  version ("10" for GEM/1 AES and VDI; "20" for GEM/2,GEM/3,ViewMAX
+	  AES and GEM/2 VDI; "23" for GEM/3 VDI; and "1" for ViewMAX VDIs)
+SeeAlso: INT EF/CX=00C8h,INT EF/CX=00C9h
+Index:	installation check;GEM
+
+Format of VDI parameter block:
+Offset	Size	Description	(Table 04066)
+ 00h	DWORD	-&gt; control array (see #04067)
+ 08h	DWORD	-&gt; integer parameters
+ 0Ch	DWORD	-&gt; (x,y) pair parameters
+ 10h	DWORD	-&gt; integer results
+ 14h	DWORD	-&gt; (x,y) pair results
+SeeAlso: #04064
+
+Format of VDI control array:
+Offset	Size	Description	(Table 04067)
+ 00h	WORD	(call) function number (0001h-0084h)
+ 02h	WORD	(call) number of words of pair parameters
+ 04h	WORD	(ret) number of words of pair results
+ 06h	WORD	(call) number of words of integer parameters
+ 08h	WORD	(ret) number of words of integer results
+ 0Ah	WORD	subfunction number
+ 0Ch	WORD	graphics handle
+ 0Eh	DWORD	(call) -&gt; pointer parameter
+ 12h	DWORD	(ret) -&gt; pointer result
+SeeAlso: #04066
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

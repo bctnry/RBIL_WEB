@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._E6</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT E6
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#E6"><b>E6</b> - INT E6 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E6_0"><b>E6</b> - INT E6 C - CP/M-86 v1.1 - XIOS INTERRUPT / UNKNOWN DISK DRIVE</a><br />
+<a href="#E600"><b>E600</b> - INT E6 - Linux DOSEMU - INSTALLATION CHECK</a><br />
+<a href="#E601"><b>E601</b> - INT E6 - Linux DOSEMU - REGISTER DUMP</a><br />
+<a href="#E602"><b>E602</b> - INT E6 - Linux DOSEMU - SET I/O PORT PERMISSIONS</a><br />
+<a href="#E605"><b>E605</b> - INT E6 - Linux DOSEMU - STARTUP BANNER</a><br />
+<a href="#E612"><b>E612</b> - INT E6 - Linux DOSEMU - SET "HOGTHRESHOLD"</a><br />
+<a href="#E622"><b>E622</b> - INT E6 - Linux DOSEMU - GET EMS STATUS</a><br />
+<a href="#E630"><b>E630</b> - INT E6 - Linux DOSEMU - SET BOOTDISK FLAG</a><br />
+<a href="#E650"><b>E650</b> - INT E6 - Linux DOSEMU - EXECUTE UNIX COMMAND</a><br />
+<a href="#E651"><b>E651</b> - INT E6 - Linux DOSEMU - EXECUTE DOS COMMAND FROM UNIX</a><br />
+<a href="#E680"><b>E680</b> - INT E6 - Linux DOSEMU - GET CURRENT UNIX DIRECTORY</a><br />
+<a href="#E681"><b>E681</b> - INT E6 - Linux DOSEMU - CHANGE CURRENT UNIX DIRECTORY</a><br />
+<a href="#E6FF"><b>E6FF</b> - INT E6 - Linux DOSEMU - TERMINATE</a><br />
+
+<hr />
+
+<a href="#E6" name="E6"><b>E6</b></a> - INT E6 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E6 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E6_0" name="E6_0"><b>E6</b></a> - INT E6 C - CP/M-86 v1.1 - XIOS INTERRUPT / UNKNOWN DISK DRIVE<br />
+<pre>
+INT E6 C - CP/M-86 v1.1 - XIOS INTERRUPT / UNKNOWN DISK DRIVE
+	AX = function which accessed drive
+	    0000h SELDSK
+	    0001h READ
+	    0002h WRITE
+	    0003h HOME
+	DX:BX -&gt; parameter block (see #04063)
+Return:	AX = return value
+Desc:	called by CP/M-86 kernel when an unknown disk drive is used, which
+	  permits an application to provide access services
+Note:	This was labelled "XIOS interrupt" in later Digital Research
+	  documentation (CCP/M-86) and "for the version 1.0 back door".
+
+Format of CP/M-86 unknown-drive paramter block:
+Offset	Size	Description	(Table 04063)
+ 00h	BYTE	drive number (00h = first unknown drive, etc.)
+ 01h	BYTE	deblocking flag (00h = normal write, 01h = directory write)
+ 02h	WORD	track number
+ 04h	WORD	sector number
+ 06h	DWORD	data transfer address
+ 0Ah	BYTE	verify flag (nonzero to verify writes)
+Note:	in CP/M-86 v1.1, this is actually a portion of a BIOS disk data
+	  table which starts one byte before the address given to the INT E6
+	  handler; that extra byte is the current logical drive number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E600" name="E600"><b>E600</b></a> - INT E6 - Linux DOSEMU - INSTALLATION CHECK<br />
+<pre>
+INT E6 - Linux DOSEMU - INSTALLATION CHECK
+	AH = 00h
+Return: AX = AA55h if installed
+	    BH = major version number
+	    BL = minor version number
+	    CX = patchlevel
+Notes:	check for the BIOS date string "02/25/93" at F000:FFF5 before
+	  calling this function.  In addition, the segment address of this
+	  vector should be F000h (for existing versions of DOSemu, the
+	  vector is F000h:0E60h)
+SeeAlso: AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E601" name="E601"><b>E601</b></a> - INT E6 - Linux DOSEMU - REGISTER DUMP<br />
+<pre>
+INT E6 - Linux DOSEMU - REGISTER DUMP
+	AH = 01h
+Return: nothing
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E602" name="E602"><b>E602</b></a> - INT E6 - Linux DOSEMU - SET I/O PORT PERMISSIONS<br />
+<pre>
+INT E6 - Linux DOSEMU - SET I/O PORT PERMISSIONS
+	AH = 02h
+	BX = base I/O port address
+	CX = number of consecutive I/O ports
+	CF set to allow DOS to use ports
+	CF clear if DOS should not be allowed to use ports
+Return: nothing
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E605" name="E605"><b>E605</b></a> - INT E6 - Linux DOSEMU - STARTUP BANNER<br />
+<pre>
+INT E6 - Linux DOSEMU - STARTUP BANNER
+	AH = 05h
+Return: nothing
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E612" name="E612"><b>E612</b></a> - INT E6 - Linux DOSEMU - SET "HOGTHRESHOLD"<br />
+<pre>
+INT E6 - Linux DOSEMU - SET "HOGTHRESHOLD"
+	AH = 12h
+	BX = new "hogthreshold" (00h-99h)
+Return: nothing
+Desc:	specify how much CPU time DOSEMU may use
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E622" name="E622"><b>E622</b></a> - INT E6 - Linux DOSEMU - GET EMS STATUS<br />
+<pre>
+INT E6 - Linux DOSEMU - GET EMS STATUS
+	AH = 22h
+Return: ???
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E630" name="E630"><b>E630</b></a> - INT E6 - Linux DOSEMU - SET BOOTDISK FLAG<br />
+<pre>
+INT E6 - Linux DOSEMU - SET BOOTDISK FLAG
+	AH = 30h
+	BX = new flag state (0 = false, 1 = true)
+Return: nothing
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E650" name="E650"><b>E650</b></a> - INT E6 - Linux DOSEMU - EXECUTE UNIX COMMAND<br />
+<pre>
+INT E6 - Linux DOSEMU - EXECUTE UNIX COMMAND
+	AH = 50h
+	ES:DX -&gt; ASCIZ Unix command
+SeeAlso: AH=00h,AH=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E651" name="E651"><b>E651</b></a> - INT E6 - Linux DOSEMU - EXECUTE DOS COMMAND FROM UNIX<br />
+<pre>
+INT E6 - Linux DOSEMU - EXECUTE DOS COMMAND FROM UNIX
+	AH = 51h
+	ES:DX -&gt; ASCIZ DOS command
+SeeAlso: AH=00h,AH=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E680" name="E680"><b>E680</b></a> - INT E6 - Linux DOSEMU - GET CURRENT UNIX DIRECTORY<br />
+<pre>
+INT E6 - Linux DOSEMU - GET CURRENT UNIX DIRECTORY
+	AH = 80h
+Return: ES:DX -&gt; current Unix directory
+	AX = length of current directory name
+SeeAlso: AH=00h,AH=81h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E681" name="E681"><b>E681</b></a> - INT E6 - Linux DOSEMU - CHANGE CURRENT UNIX DIRECTORY<br />
+<pre>
+INT E6 - Linux DOSEMU - CHANGE CURRENT UNIX DIRECTORY
+	AH = 81h
+	ES:DX -&gt; ASCIZ directory name
+Return: nothing
+SeeAlso: AH=00h,AH=80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E6FF" name="E6FF"><b>E6FF</b></a> - INT E6 - Linux DOSEMU - TERMINATE<br />
+<pre>
+INT E6 - Linux DOSEMU - TERMINATE
+	AH = FFh
+SeeAlso: AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

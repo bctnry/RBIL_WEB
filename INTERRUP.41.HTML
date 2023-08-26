@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._41</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 41
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#41"><b>41</b> - INT 41 - SYSTEM DATA - HARD DISK 0 PARAMETER TABLE ADDRESS [NOT A VECTOR!]</a><br />
+<a href="#41_0"><b>41</b> - INT 41 - Z100 - Master 8259 - Processor Swap</a><br />
+<a href="#41_1"><b>41</b> - INT 41 - TI Professional PC - IRQ1</a><br />
+<a href="#41_2"><b>41</b> - INT 41 - Acorn BBC Master 512 - "OSGBPB" - MULTI-BYTE GET/PUT</a><br />
+<a href="#410000"><b>410000</b> - INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER</a><br />
+<a href="#410001"><b>410001</b> - INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER</a><br />
+<a href="#41000D"><b>41000D</b> - INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT</a><br />
+<a href="#41000E"><b>41000E</b> - INT 41 CPU - MS Windows debugging kernel - TASK COMING IN</a><br />
+<a href="#410012"><b>410012</b> - INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"</a><br />
+<a href="#41004F"><b>41004F</b> - INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK</a><br />
+<a href="#410050"><b>410050</b> - INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"</a><br />
+<a href="#410051"><b>410051</b> - INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT</a><br />
+<a href="#410052"><b>410052</b> - INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT</a><br />
+<a href="#410059"><b>410059</b> - INT 41 CPU - MS Windows debugging kernel - LOAD TASK</a><br />
+<a href="#41005C"><b>41005C</b> - INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT</a><br />
+<a href="#410060"><b>410060</b> - INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD</a><br />
+<a href="#410061"><b>410061</b> - INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD</a><br />
+<a href="#410062"><b>410062</b> - INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING</a><br />
+<a href="#410063"><b>410063</b> - INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)</a><br />
+<a href="#410064"><b>410064</b> - INT 41 CPU - MS Windows debugging kernel - DLL LOADED</a><br />
+<a href="#410065"><b>410065</b> - INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED</a><br />
+<a href="#410066"><b>410066</b> - INT 41 CPU - MS Windows debugging kernel - ERROR</a><br />
+<a href="#410067"><b>410067</b> - INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR</a><br />
+
+<hr />
+
+<a href="#41" name="41"><b>41</b></a> - INT 41 - SYSTEM DATA - HARD DISK 0 PARAMETER TABLE ADDRESS [NOT A VECTOR!]<br />
+<pre>
+INT 41 - SYSTEM DATA - HARD DISK 0 PARAMETER TABLE ADDRESS [NOT A VECTOR!]
+Notes:	the default parameter table array is located at F000h:E401h in 100%
+	  compatible BIOSes; the pointer may be overridden by the hard disk
+	  controller's BIOS to support drive formats unknown to the ROM BIOS
+	not used by some PS/2 models
+	BIOSes which support four hard drives may store the parameter tables
+	  for drives 81h-83h immediately following the parameter table pointed
+	  at by INT 41, with a separate copy of the drive 81h table for INT 46.
+	  The check for such an arrangement is to test whether INT 46 points
+	  somewhere other than exactly 16 bytes past INT 41, and the sixteen
+	  bytes starting at offset 10h from INT 41 are identical to the sixteen
+	  bytes pointed at by INT 46
+	another arrangement for BIOSes which support four IDE drives is to have
+	  four tables pointed at by INT 41 in the order primary master,
+	  primary slave, secondary master, and secondary slave, in which case
+	  (for example) a system with only primary master and secondary master
+	  will have valid tables at offsets 00h and 20h, with garbage (but
+	  sectors-per-track = 00h) at offsets 10h and 30h
+SeeAlso: #03196,INT 13/AH=09h,INT 1E,INT 46"HARD DISK 1",INT 60"Adaptec"
+SeeAlso: INT C0"AMI"
+
+Format of fixed disk parameters:
+Offset	Size	Description	(Table 03196)
+ 00h	WORD	number of cylinders
+ 02h	BYTE	number of heads
+ 03h	WORD	starting reduced write current cylinder (XT only, 0 for others)
+ 05h	WORD	starting write precompensation cylinder number
+ 07h	BYTE	maximum ECC burst length (XT only)
+ 08h	BYTE	control byte (see #03197,#03198)
+ 09h	BYTE	standard timeout (XT only, 0 for others)
+ 0Ah	BYTE	formatting timeout (XT and WD1002 only, 0 for others)
+ 0Bh	BYTE	timeout for checking drive (XT and WD1002 only, 0 for others)
+ 0Ch	WORD	cylinder number of landing zone (AT and later only)
+ 0Eh	BYTE	number of sectors per track (AT and later only)
+ 0Fh	BYTE	reserved
+SeeAlso: #00273,#00277
+
+Bitfields for XT fixed disk control byte:
+Bit(s)	Description	(Table 03197)
+ 2-0	drive step speed
+	000  3ms
+	100  200ms
+	101  70ms (default)
+	110  3ms
+	111  3ms
+ 5-3	unused
+ 6	disable ECC retries
+ 7	disable access retries
+
+Bitfields for AT fixed disk control byte:
+Bit(s)	Description	(Table 03198)
+ 0	unused
+ 1	reserved (0)  (disable IRQ)
+ 2	reserved (0)  (no reset)
+ 3	set if more than 8 heads
+ 4	always 0
+ 5	set if manufacturer's defect map on max cylinder+1  (AT and later only)
+ 6	disable ECC retries
+ 7	disable access retries
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41_0" name="41_0"><b>41</b></a> - INT 41 - Z100 - Master 8259 - Processor Swap<br />
+<pre>
+INT 41 - Z100 - Master 8259 - Processor Swap
+SeeAlso: INT 40"Z100",INT 42"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41_1" name="41_1"><b>41</b></a> - INT 41 - TI Professional PC - IRQ1<br />
+<pre>
+INT 41 - TI Professional PC - IRQ1
+Note:	on the TI Pro, IRQ1 is connected to the same pin on the expansion bus
+	  that IBM connects to IRQ3
+SeeAlso: INT 0B"IRQ3",INT 40"TI Professional",INT 42"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41_2" name="41_2"><b>41</b></a> - INT 41 - Acorn BBC Master 512 - "OSGBPB" - MULTI-BYTE GET/PUT<br />
+<pre>
+INT 41 - Acorn BBC Master 512 - "OSGBPB" - MULTI-BYTE GET/PUT
+	AL = function
+	    01h put bytes sequentially
+	    02h put bytes, ignoring sequential pointer
+	    03h get bytes sequentially
+	    04h get bytes, ignoring sequential pointer
+	    05h get media title and boot option
+	    06h get current device and directory
+	    07h get current library and device
+	    08h search directory
+	DS:BX -&gt; control block (see #03199)
+Return: CF clear if successful
+	CF set on error
+	AL = 00h if operation attempted
+	AL unchanged if unsupported function
+SeeAlso: INT 40"Acorn",INT 42"Acorn",INT 43"Acorn"
+
+Format of BBC Master control block:
+Offset	Size	Description	(Table 03199)
+ 00h	BYTE	file handle
+ 01h	DWORD	pointer to data in either I/O processor or Tube processor
+ 05h	DWORD	number of bytes to be transferred
+ 09h	DWORD	transfer address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410000" name="410000"><b>410000</b></a> - INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER
+	AX = 0000h
+	DS:DX -&gt; character
+Note:	the kernel calls this function when it wants the user program to
+	  output a character
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410001" name="410001"><b>410001</b></a> - INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER
+	AX = 0001h
+Return: AL = character
+Note:	the kernel calls this function when it needs to input a character
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41000D" name="41000D"><b>41000D</b></a> - INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT
+	AX = 000Dh
+SeeAlso: AX=000Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41000E" name="41000E"><b>41000E</b></a> - INT 41 CPU - MS Windows debugging kernel - TASK COMING IN<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - TASK COMING IN
+	AX = 000Eh
+SeeAlso: AX=000Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410012" name="410012"><b>410012</b></a> - INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"
+	AX = 0012h
+	DS:SI -&gt; string (Windows 3.0)
+	ES:SI -&gt; string (Windows 3.1)
+Return: nothing???
+Note:	this function is called by the kernel when it wants to output a
+	  string through the debugger
+SeeAlso: AX=0050h,INT 68/AH=47h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41004F" name="41004F"><b>41004F</b></a> - INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK
+	AX = 004Fh
+Return: AX = F386h if debugger is present
+SeeAlso: INT 68/AX=4400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410050" name="410050"><b>410050</b></a> - INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"<br />
+<pre>
+INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"
+	AX = 0050h
+	BX = segment number in executable (0-based)
+	CX = selector
+	DX = instance handle
+	SI = segment flags (0=code, 1=data)
+	ES:DI -&gt; module name of owner
+Return: ???
+SeeAlso: AX=0012h,AX=004Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410051" name="410051"><b>410051</b></a> - INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT
+	AX = 0051h
+	???
+Return: ???
+SeeAlso: AX=0050h,AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410052" name="410052"><b>410052</b></a> - INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT
+	AX = 0052h
+	BX = freed selector
+SeeAlso: AX=0050h,AX=0051h,AX=005Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410059" name="410059"><b>410059</b></a> - INT 41 CPU - MS Windows debugging kernel - LOAD TASK<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - LOAD TASK
+	AX = 0059h
+	???:BX = CS:IP of new task's starting point
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41005C" name="41005C"><b>41005C</b></a> - INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT
+	AX = 005Ch
+	BX = freed selector
+Note:	called only when KERNEL starts, once for CS and once for the DS alias
+	  to CS
+SeeAlso: AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410060" name="410060"><b>410060</b></a> - INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD
+	AX = 0060h
+	???
+Return: ???
+SeeAlso: AX=0061h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410061" name="410061"><b>410061</b></a> - INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD
+	AX = 0061h
+	???
+Return: ???
+SeeAlso: AX=0060h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410062" name="410062"><b>410062</b></a> - INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING
+	AX = 0062h
+STACK:	BYTE	exit code
+Return: ???
+	STACK unchanged???
+SeeAlso: AX=0064h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410063" name="410063"><b>410063</b></a> - INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)
+	AX = 0063h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410064" name="410064"><b>410064</b></a> - INT 41 CPU - MS Windows debugging kernel - DLL LOADED<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - DLL LOADED
+	AX = 0064h
+	CX:BX = DLL entry point CS:IP
+	SI = module handle
+SeeAlso: AX=0062h,AX=0065h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410065" name="410065"><b>410065</b></a> - INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED
+	AX = 0065h
+	ES = module handle
+SeeAlso: AX=0064h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410066" name="410066"><b>410066</b></a> - INT 41 CPU - MS Windows debugging kernel - ERROR<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - ERROR
+	AX = 0066h
+Note:	called by LogError()
+SeeAlso: AX=0067h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410067" name="410067"><b>410067</b></a> - INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR
+	AX = 0067h
+Note:	called by LogParamError()
+SeeAlso: AX=0066h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

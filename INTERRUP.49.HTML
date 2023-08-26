@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._49</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 49
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#49"><b>49</b> - INT 49 - SYSTEM DATA - NON-KEYBOARD SCAN-CODE TRANSLATION TABLE (PCjr)</a><br />
+<a href="#49_0"><b>49</b> - INT 49 - Z100 - Slave 8259 - S100 vectored line 1</a><br />
+<a href="#49_1"><b>49</b> - INT 49 - Watstar PC Network data pointer 2</a><br />
+<a href="#49_2"><b>49</b> - INT 49 - Acorn BBC Master 512 - "OSASCI" - WRITE CHARACTER TO CUR OUTPUT STREAM</a><br />
+<a href="#49_3"><b>49</b> - INT 49 - Tandy 2000 - BOOTSTRAP LOADER</a><br />
+<a href="#490001"><b>490001</b> - INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION</a><br />
+<a href="#490002"><b>490002</b> - INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION</a><br />
+<a href="#490003"><b>490003</b> - INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION</a><br />
+<a href="#490004"><b>490004</b> - INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW</a><br />
+<a href="#490005"><b>490005</b> - INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW</a><br />
+<a href="#490006"><b>490006</b> - INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN</a><br />
+<a href="#490007"><b>490007</b> - INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW</a><br />
+<a href="#490008"><b>490008</b> - INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE</a><br />
+<a href="#4901"><b>4901</b> - INT 49 - TI Professional PC - CRT - SET CURSOR SIZE AND TYPE</a><br />
+<a href="#4902"><b>4902</b> - INT 49 - TI Professional PC - CRT - SET CURSOR POSITION</a><br />
+<a href="#4903"><b>4903</b> - INT 49 - TI Professional PC - CRT - GET CURSOR POSTION AND TYPE</a><br />
+<a href="#4906"><b>4906</b> - INT 49 - TI Professional PC - CRT - SCROLL UP/COPY WINDOW</a><br />
+<a href="#4907"><b>4907</b> - INT 49 - TI Professional PC - CRT - SCROLL DOWN/COPY WINDOW</a><br />
+<a href="#4908"><b>4908</b> - INT 49 - TI Professional PC - CRT - GET CHARACTER AND ATTRIBUTE AT POSITION</a><br />
+<a href="#4909"><b>4909</b> - INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH ATTRIBUTE</a><br />
+<a href="#490A"><b>490A</b> - INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH CURRENT ATTRIBUTE</a><br />
+<a href="#490E"><b>490E</b> - INT 49 - TI Professional PC - CRT - TTY OUTPUT</a><br />
+<a href="#4910"><b>4910</b> - INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH ATTRIBUTE</a><br />
+<a href="#4911"><b>4911</b> - INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH CURR ATTRIB</a><br />
+<a href="#4912"><b>4912</b> - INT 49 - TI Professional PC - CRT - FILL ENTIRE SCREEN WITH ATTRIBUTE</a><br />
+<a href="#4913"><b>4913</b> - INT 49 - TI Professional PC - CRT - CLEAR ENTIRE TEXT SCREEN AND HOME CURSOR</a><br />
+<a href="#4914"><b>4914</b> - INT 49 - TI Professional PC - CRT - CLEAR ENTIRE GRAPHICS SCREEN</a><br />
+<a href="#4915"><b>4915</b> - INT 49 - TI Professional PC - CRT - SET PROTECTED STATUS AREA</a><br />
+<a href="#4916"><b>4916</b> - INT 49 - TI Professional PC - CRT - SET ATTRIBUTE LATCH</a><br />
+<a href="#4917"><b>4917</b> - INT 49 - TI Professional PC - CRT - GET START-OF-DISPLAY POINTER</a><br />
+<a href="#4918"><b>4918</b> - INT 49 - TI Professional PC - CRT - PRINT TTY STRING</a><br />
+
+<hr />
+
+<a href="#49" name="49"><b>49</b></a> - INT 49 - SYSTEM DATA - NON-KEYBOARD SCAN-CODE TRANSLATION TABLE (PCjr)<br />
+<pre>
+INT 49 - SYSTEM DATA - NON-KEYBOARD SCAN-CODE TRANSLATION TABLE (PCjr)
+SeeAlso: #03208,INT 48"PCjr"
+
+Format of PCjr scan-code translation table:
+Offset	Size	Description	(Table 03208)
+ 00h	BYTE	number of non-keyboard scancodes in the table
+ 01h  N WORDs	high byte 00h (NUL) byte scancode with low order byte
+		  representing the scancode mapped values relative to their
+		  input values within the range of 56h through 7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#49_0" name="49_0"><b>49</b></a> - INT 49 - Z100 - Slave 8259 - S100 vectored line 1<br />
+<pre>
+INT 49 - Z100 - Slave 8259 - S100 vectored line 1
+SeeAlso: INT 48"Z100",INT 4A"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#49_1" name="49_1"><b>49</b></a> - INT 49 - Watstar PC Network data pointer 2<br />
+<pre>
+INT 49 - Watstar PC Network data pointer 2
+SeeAlso: INT 48"Watstar"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#49_2" name="49_2"><b>49</b></a> - INT 49 - Acorn BBC Master 512 - "OSASCI" - WRITE CHARACTER TO CUR OUTPUT STREAM<br />
+<pre>
+INT 49 - Acorn BBC Master 512 - "OSASCI" - WRITE CHARACTER TO CUR OUTPUT STREAM
+	AL = character to be written
+Return: FLAGS destroyed
+Note:	converts carriage return (0Dh) into CRLF sequence (0Dh 0Ah)
+SeeAlso: INT 40"Acorn",INT 46"Acorn",INT 47"Acorn",INT 48"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#49_3" name="49_3"><b>49</b></a> - INT 49 - Tandy 2000 - BOOTSTRAP LOADER<br />
+<pre>
+INT 49 - Tandy 2000 - BOOTSTRAP LOADER
+Note:	this interrupt is identical to INT 19
+SeeAlso: INT 19,INT 4A"Tandy 2000",INT 4C"Tandy 2000",INT 51"Tandy 2000"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490001" name="490001"><b>490001</b></a> - INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION
+	AX = 0001h
+Return: AX = status (see #03209)
+	BX,CX,DX destroyed
+Program: MAGic (MAGnification In Color) is a TSR by Microsystems Software, Inc.
+	  providing 2x2 text and graphics magnification on VGA, XGA, and SVGA
+Note:	INT 49 is the default, but may be overridden on the commandline.  The
+	  actual interrupt in use may be found by searching for the signature
+	  "MAGic" or "xMAGic" (for the deluxe version) immediately preceding
+	  the interrupt handler (this is also the installation check).	MAGic
+	  uses CodeRunneR, which places the signature "RT" at offset 0000h in
+	  the interrupt handler's segment, followed by MAGic's TSR ID of
+	  "VMAG".
+SeeAlso: AX=0002h,AX=0003h,AX=0004h,AX=0008h
+Index:	installation check;MAGic
+
+(Table 03209)
+Values for MAGic status:
+ 0000h	cannot magnify current video mode
+ 0002h	magnified (text mode)
+ 0003h	magnified (graphics mode)
+ FFFDh	function works only in magnified mode
+ FFFFh	MAGic busy, retry later
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490002" name="490002"><b>490002</b></a> - INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION
+	AX = 0002h
+Return: AX = status (see #03209)
+	BX,CX,DX destroyed
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490003" name="490003"><b>490003</b></a> - INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION
+	AX = 0003h
+	BX = vertical position (character row [text] or pixel row [graphics])
+	DX = horizontal position (char column [text] or 8-pixel units [gr])
+Return: AX = status
+	    0000h successful
+	    FFFFh MAGic busy, retry later
+	BX,CX,DX destroyed
+Note:	window is not moved if the position is inside the current window
+SeeAlso: AX=0001h,AX=0004h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490004" name="490004"><b>490004</b></a> - INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW
+	AX = 0004h
+	BX = vertical position of upper left corner
+	DX = horizontal position
+Return: AX = status (see AX=0003h)
+	BX,CX,DX destroyed
+SeeAlso: AX=0001h,AX=0003h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490005" name="490005"><b>490005</b></a> - INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW
+	AX = 0005h
+Return: AX = status
+	    0000h successful
+		BX = vertical position (char row or pixel row)
+		DX = horizontal position (char column or 8-pixel units)
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+SeeAlso: AX=0001h,AX=0003h,AX=0004h,AX=0006h,AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490006" name="490006"><b>490006</b></a> - INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN
+	AX = 0006h
+Return: AX = status
+	    0000h successful
+		BX = vertical size (char rows or pixel rows)
+		DX = horizontal size (char cols or 8-pixel units)
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+SeeAlso: AX=0001h,AX=0005h,AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490007" name="490007"><b>490007</b></a> - INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW
+	AX = 0007h
+Return: AX = status
+	    0000h successful
+		BX = vertical size (char rows or pixel rows)
+		DX = horizontal size (char cols or 8-pixel units)
+	    FFFEh invalid function
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+BUG:	in v1.16 and v1.17, this function is not recognized as valid, but
+	  AX=0000h is accepted and will branch into hyperspace
+SeeAlso: AX=0001h,AX=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490008" name="490008"><b>490008</b></a> - INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE<br />
+<pre>
+INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE
+	AX = 0008h
+	BX = scaling factor (01h=1.4 times, 02h, 04h, 06h, 08h, 09h=12 times)
+Return: AX = status
+	    0000h successful
+	    FFFBh scaling factor only available in MAGic Deluxe
+	    FFFCh already in magnified state, can't set size
+Notes:	this call specifies the amount a subsequent call to AX=0001h should
+	  magnify the display
+	scaling factors greater than 2 are only available in MAGic Deluxe
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4901" name="4901"><b>4901</b></a> - INT 49 - TI Professional PC - CRT - SET CURSOR SIZE AND TYPE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SET CURSOR SIZE AND TYPE
+	AH = 01h
+	CH = cursor start line (bits 3-0) and status (bits 6-5)
+	    status bits:
+		00 non-blinking cursor
+		01 no cursor
+		10 fast-blinking cursor
+		11 slow-blinking cursor
+	CL = cursor end line
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=02h,AH=03h,INT 40"TI Professional",INT 48/AH=00h"TI Professional"
+SeeAlso: INT 4A/AH=00h"TI",INT 4B"TI Professional",INT 4D/AH=00h
+SeeAlso: INT 57"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4902" name="4902"><b>4902</b></a> - INT 49 - TI Professional PC - CRT - SET CURSOR POSITION<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SET CURSOR POSITION
+	AH = 02h
+	DH = column
+	DL = row
+Return: DX destroyed
+Notes:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+	the TI swaps the row and column compared to the equivalent IBM call
+SeeAlso: AH=01h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4903" name="4903"><b>4903</b></a> - INT 49 - TI Professional PC - CRT - GET CURSOR POSTION AND TYPE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - GET CURSOR POSTION AND TYPE
+	AH = 03h
+Return: CH = cursor start and status (see AH=01h)
+	CL = cursor end line
+	DH = cursor column
+	DL = cursor row
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4906" name="4906"><b>4906</b></a> - INT 49 - TI Professional PC - CRT - SCROLL UP/COPY WINDOW<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SCROLL UP/COPY WINDOW
+	AH = 06h
+	AL = source blanking
+	    00h blank source region (move/scroll)
+	    nonzero do not blank source region (copy)
+	DH,DL = source start column,row
+	BH,BL = destination start column,row
+	CH = width of region to move/copy
+	CL = height of region to move/copy
+Return: nothing
+Notes:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+	the specified region may be wider than the screen, but reliable
+	  operation then requires that the height be exactly one row
+SeeAlso: AH=01h,AH=02h,AH=07h,AH=13h,AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4907" name="4907"><b>4907</b></a> - INT 49 - TI Professional PC - CRT - SCROLL DOWN/COPY WINDOW<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SCROLL DOWN/COPY WINDOW
+	AH = 07h
+	AL = source blanking
+	    00h blank source region (move/scroll)
+	    nonzero do not blank source region (copy)
+	DH,DL = source start column,row
+	BH,BL = destination start column,row
+	CH = width of region to move/copy
+	CL = height of region to move/copy
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,AH=06h,AH=13h,AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4908" name="4908"><b>4908</b></a> - INT 49 - TI Professional PC - CRT - GET CHARACTER AND ATTRIBUTE AT POSITION<br />
+<pre>
+INT 49 - TI Professional PC - CRT - GET CHARACTER AND ATTRIBUTE AT POSITION
+	AH = 08h
+Return: AL = character at current cursor position
+	AH = attribute
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=09h,AH=0Ah,AH=0Eh,INT 10/AH=08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4909" name="4909"><b>4909</b></a> - INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH ATTRIBUTE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH ATTRIBUTE
+	AH = 09h
+	AL = character to write
+	BL = attribute to use (becomes new current attribute)
+	CX = number of times to write character
+Return: nothing
+Desc:	write CX copies of the character in AL beginning at the current cursor
+	  position
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=08h,AH=0Ah,AH=0Eh,INT 10/AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490A" name="490A"><b>490A</b></a> - INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH CURRENT ATTRIBUTE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - WRITE CHARACTER(S) WITH CURRENT ATTRIBUTE
+	AH = 0Ah
+	AL = character to write
+	CX = number of times to write character
+Return: nothing
+Desc:	write CX copies of the character in AL beginning at the current cursor
+	  position
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,AH=08h,AH=09h,AH=0Eh,INT 10/AH=0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490E" name="490E"><b>490E</b></a> - INT 49 - TI Professional PC - CRT - TTY OUTPUT<br />
+<pre>
+INT 49 - TI Professional PC - CRT - TTY OUTPUT
+	AH = 0Eh
+	AL = character to write
+Return: nothing
+Desc:	write the character in AL at the current cursor position, advancing
+	  the cursor, and interpreting CR, LF, TAB, and BEL characters
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,AH=08h,AH=09h,AH=0Ah,INT 10/AH=0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4910" name="4910"><b>4910</b></a> - INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH ATTRIBUTE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH ATTRIBUTE
+	AH = 10h
+	AL = attribute (becomes new current attribute)
+	DX:BX -&gt; string of characters to write
+	CX = length of string
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+BUG:	CX must not be 0000h on entry, or the system will crash
+SeeAlso: AH=01h,AH=02h,AH=09h,AH=0Eh,AH=11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4911" name="4911"><b>4911</b></a> - INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH CURR ATTRIB<br />
+<pre>
+INT 49 - TI Professional PC - CRT - WRITE BLOCK OF CHARACTERS WITH CURR ATTRIB
+	AH = 11h
+	DX:BX -&gt; string of characters to write
+	CX = length of string
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+BUG:	CX must not be 0000h on entry, or the system will crash
+SeeAlso: AH=01h,AH=02h,AH=09h,AH=0Eh,AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4912" name="4912"><b>4912</b></a> - INT 49 - TI Professional PC - CRT - FILL ENTIRE SCREEN WITH ATTRIBUTE<br />
+<pre>
+INT 49 - TI Professional PC - CRT - FILL ENTIRE SCREEN WITH ATTRIBUTE
+	AH = 12h
+	AL = attribute (see #03210)
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h
+
+Bitfields for TI Professional PC screen attribute:
+Bit(s)	Description	(Table 03210)
+ 7	alternate character set (requires user-supplied ROM)
+ 6	blink
+ 5	underline
+ 4	reverse video
+ 3	character enable
+ 2	green (color) or 58% intensity (gray-scale)
+ 1	red (color)  or 27.5% intensity
+ 0	blue (color) or 14.5% intensity
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4913" name="4913"><b>4913</b></a> - INT 49 - TI Professional PC - CRT - CLEAR ENTIRE TEXT SCREEN AND HOME CURSOR<br />
+<pre>
+INT 49 - TI Professional PC - CRT - CLEAR ENTIRE TEXT SCREEN AND HOME CURSOR
+	AH = 13h
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,AH=06h,AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4914" name="4914"><b>4914</b></a> - INT 49 - TI Professional PC - CRT - CLEAR ENTIRE GRAPHICS SCREEN<br />
+<pre>
+INT 49 - TI Professional PC - CRT - CLEAR ENTIRE GRAPHICS SCREEN
+	AH = 14h
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,AH=06h,AH=13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4915" name="4915"><b>4915</b></a> - INT 49 - TI Professional PC - CRT - SET PROTECTED STATUS AREA<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SET PROTECTED STATUS AREA
+	AH = 15h
+	CL = row at which to start status area, or 00h to cancel
+	CH = 00h
+Return: nothing
+Desc:	set a protected area of the screen which will not be affected by TTY
+	  writes or the scrolls they may generate
+Notes:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+	the current cursor position must be above the status area in order to
+	  set the protected area
+SeeAlso: AH=01h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4916" name="4916"><b>4916</b></a> - INT 49 - TI Professional PC - CRT - SET ATTRIBUTE LATCH<br />
+<pre>
+INT 49 - TI Professional PC - CRT - SET ATTRIBUTE LATCH
+	AH = 16h
+	BL = new attribute (see #03210)
+Return: nothing
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4917" name="4917"><b>4917</b></a> - INT 49 - TI Professional PC - CRT - GET START-OF-DISPLAY POINTER<br />
+<pre>
+INT 49 - TI Professional PC - CRT - GET START-OF-DISPLAY POINTER
+	AH = 17h
+Return: DX = current offset at which display starts
+Note:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+SeeAlso: AH=01h,AH=02h,INT 10/AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4918" name="4918"><b>4918</b></a> - INT 49 - TI Professional PC - CRT - PRINT TTY STRING<br />
+<pre>
+INT 49 - TI Professional PC - CRT - PRINT TTY STRING
+	AH = 18h
+	CS:BX -&gt; counted string (count byte with length followed by string)
+Return: nothing
+Notes:	AH=00h,04h,05h,0Bh,0Ch,0Dh,0Fh are documented as NOPs
+	the string must be located in the caller's code segment; any TSRs
+	  which want to hook INT 49 must check for this function and emulate
+	  it, because the BIOS retrieves the caller's CS from the stack
+SeeAlso: AH=01h,AH=02h,AH=0Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

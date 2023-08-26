@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._65</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 65
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#65"><b>65</b> - INT 65 - reserved for user interrupt</a><br />
+<a href="#65_0"><b>65</b> - INT 65 - Adaptec controllers - DRIVE 1 DATA</a><br />
+<a href="#65_1"><b>65</b> - INT 65 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)</a><br />
+<a href="#65_2"><b>65</b> - INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE</a><br />
+<a href="#65_3"><b>65</b> - INT 65 - FTP Software NDIS-Packet Driver adapter - POST PROCESSING INTERRUPT</a><br />
+<a href="#65_4"><b>65</b> - INT 65 - SD.COM v6.2</a><br />
+<a href="#65_5"><b>65</b> - INT 65 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information</a><br />
+<a href="#65_6"><b>65</b> - INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER</a><br />
+<a href="#65_7"><b>65</b> - INT 65 - Ad Lib SOUND.COM - INTERFACE</a><br />
+<a href="#65----DX4147"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API</a><br />
+<a href="#65----DX4147_0"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API</a><br />
+<a href="#65----DX4147_1"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API</a><br />
+<a href="#65----DX4147_2"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API</a><br />
+<a href="#65----DX4147_3"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API</a><br />
+<a href="#65----DX4147_4"><b>65----DX4147</b> - INT 65 U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK???</a><br />
+<a href="#65----DX4741"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER - ???</a><br />
+<a href="#65----DX4741_0"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???</a><br />
+<a href="#65----DX4741_1"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???</a><br />
+<a href="#65----DX4741_2"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - NETBIOS - ???</a><br />
+<a href="#65----DX4741_3"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - MACTEST - ???</a><br />
+<a href="#65----DX4741_4"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - Physical Layer - ???</a><br />
+<a href="#65----DX4741_5"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER.COM - ???</a><br />
+<a href="#65----DX4741_6"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR.COM - ???</a><br />
+<a href="#65----DX4741_7"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - COMREDIR.COM - ???</a><br />
+<a href="#65----DX4741_8"><b>65----DX4741</b> - INT 65 U - NetSoft DOS-NET v1.20+ - FTP.COM - ???</a><br />
+<a href="#65----SI0000"><b>65----SI0000</b> - INT 65 - Ad Lib SOUND.COM - INITIALIZE (RESET)</a><br />
+<a href="#65----SI0003"><b>65----SI0003</b> - INT 65 - Ad Lib SOUND.COM - SET STATE</a><br />
+<a href="#65----SI0004"><b>65----SI0004</b> - INT 65 - Ad Lib SOUND.COM - GET STATE</a><br />
+<a href="#65----SI0006"><b>65----SI0006</b> - INT 65 - Ad Lib SOUND.COM - SET MODE</a><br />
+<a href="#65----SI0007"><b>65----SI0007</b> - INT 65 - Ad Lib SOUND.COM - GET MODE</a><br />
+<a href="#65----SI000C"><b>65----SI000C</b> - INT 65 - Ad Lib SOUND.COM - SET ACTIVE VOICE</a><br />
+<a href="#65----SI000D"><b>65----SI000D</b> - INT 65 - Ad Lib SOUND.COM - GET ACTIVE VOICE</a><br />
+<a href="#65----SI8000"><b>65----SI8000</b> - INT 65 u - Media Vision FM.COM v4.1a+ - GET INTERNAL DATA STRUCTURES</a><br />
+<a href="#65----SI8001"><b>65----SI8001</b> - INT 65 u - Media Vision FM.COM v4.1a+ - GET VOICE COUNT</a><br />
+<a href="#65----SI8002"><b>65----SI8002</b> - INT 65 - Media Vision FM.COM v4.1a+ - START BACKGROUND FM SOUNDS</a><br />
+<a href="#65----SI8003"><b>65----SI8003</b> - INT 65 - Media Vision FM.COM v4.1a+ - STOP BACKGROUND FM SOUNDS</a><br />
+<a href="#65----SI8004"><b>65----SI8004</b> - INT 65 U - Media Vision FM.COM v4.1a+ - GET ???</a><br />
+<a href="#65----SI8005"><b>65----SI8005</b> - INT 65 U - Media Vision FM.COM v4.1a+ - ???</a><br />
+<a href="#65_8"><b>65</b> - INT 65 U - EZRECV v1.0 - API</a><br />
+
+<hr />
+
+<a href="#65" name="65"><b>65</b></a> - INT 65 - reserved for user interrupt<br />
+<pre>
+INT 65 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_0" name="65_0"><b>65</b></a> - INT 65 - Adaptec controllers - DRIVE 1 DATA<br />
+<pre>
+INT 65 - Adaptec controllers - DRIVE 1 DATA
+Desc:	this vector stores the second four bytes of the parameter table for
+	  hard disk 1
+SeeAlso: INT 64"Adaptec",INT 66"Adaptec",INT 67"Adaptec"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_1" name="65_1"><b>65</b></a> - INT 65 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)<br />
+<pre>
+INT 65 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)
+Desc:	the low word of this vector contains the segment of the RAM data area
+	  to be used by the expansion ROM at F400h:8000h, and the high word
+	  contains the length of the data area; this segment and size are
+	  both set to 0000h if no ROM is installed at F400h:8000h
+SeeAlso: INT 60"TI Professional PC",INT 64"TI Professional"
+SeeAlso: INT 66"TI Professional PC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_2" name="65_2"><b>65</b></a> - INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE<br />
+<pre>
+INT 65 - Data General DG10 - MicroECLIPSE COPROCESSOR INTERFACE
+SeeAlso: INT 64"DG10",INT 66"DG10"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_3" name="65_3"><b>65</b></a> - INT 65 - FTP Software NDIS-Packet Driver adapter - POST PROCESSING INTERRUPT<br />
+<pre>
+INT 65 - FTP Software NDIS-Packet Driver adapter - POST PROCESSING INTERRUPT
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_4" name="65_4"><b>65</b></a> - INT 65 - SD.COM v6.2<br />
+<pre>
+INT 65 - SD.COM v6.2
+Desc:	The unregistered version of SD62.COM uses the low byte of this vector
+	  to count the number of invocations, displaying a registration
+	  reminder each time after the 20th use.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_5" name="65_5"><b>65</b></a> - INT 65 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information<br />
+<pre>
+INT 65 - Pdisk by Scott Garfinkle - Overwritten for Hard Drive information
+SeeAlso: INT 64"Pdisk",INT 66"Pdisk"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_6" name="65_6"><b>65</b></a> - INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER<br />
+<pre>
+INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 64"PC-DRAFT",INT 66"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_7" name="65_7"><b>65</b></a> - INT 65 - Ad Lib SOUND.COM - INTERFACE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - INTERFACE
+	SI = function number (also see separate entries below)
+	    0000h Init
+	    0002h RelTimeStart
+	    0003h SetState
+	    0004h GetState
+	    0005h Flush
+	    0006h SetMode
+	    0007h GetMode
+	    0008h SetRelVolume
+	    0009h SetTempo
+	    000Ah SetTranspose
+	    000Bh GetTranspose
+	    000Ch SetActVoice
+	    000Dh GetActVoice
+	    000Eh PlayNoteDel
+	    000Fh PlayNote
+	    0010h SetTimbre
+	    0011h SetPitch
+	    0012h SetTickBeat
+	    0013h NoteOn
+	    0014h NoteOff
+	    0015h Timbre
+	    0016h SetPitchBend
+	    0017h WaveForm
+	ES:BX -&gt; arguments
+InstallCheck:	test for the signature block immediately preceding the
+	  interrupt handler (see #03516)
+SeeAlso: SI=8000h
+Index:	installation check;Ad Lib SOUND.COM
+
+Format of AdLib signature block:
+Offset	Size	Description	(Table 03516)
+ 00h	WORD	version number
+ 02h 19 BYTEs	"SOUND-DRIVER-AD-LIB"
+ 15h	BYTE	01h
+ 16h	BYTE	01h
+ 17h	BYTE	00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147" name="65----DX4147"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - ??? API
+	DX = 4147h
+	BH = 01h
+	BL = function number (00h-2Ah)
+	???
+Return: CF clear if successful
+	    AX = ???
+	CF set on error
+	    AX = error code (0001h=invalid function/subfunction)
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by CLIENT.COM, SERVER.COM, DOSNET.COM, and
+	  ROUTER.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147_0" name="65----DX4147_0"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - ??? API
+	DX = 4147h
+	BH = 02h
+	BL = function number (00h-05h)
+	???
+Return: CF clear if successful
+	    AX = ???
+	CF set on error
+	    AX = error code (0001h=invalid function/subfunction)
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by CLIENT.COM, SERVER.COM, DOSNET.COM, and
+	  ROUTER.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147_1" name="65----DX4147_1"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - ??? API
+	DX = 4147h
+	BH = 03h
+	BL = function number (00h-03h) (00h-04h for ROUTER.COM)
+	???
+Return: CF clear if successful
+	    AX = ???
+	CF set on error
+	    AX = error code
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by CLIENT.COM, SERVER.COM, DOSNET.COM, and
+	  ROUTER.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147_2" name="65----DX4147_2"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - ??? API
+	DX = 4147h
+	BH = 04h
+	BL = function number (00h-07h)
+	???
+Return: CF clear if successful
+	    AX = ???
+	CF set on error
+	    AX = error code
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by CLIENT.COM, SERVER.COM, and DOSNET.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147_3" name="65----DX4147_3"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - ??? API<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - ??? API
+	DX = 4147h
+	BH = 07h
+	BL = function number (00h-08h)
+	???
+Return: CF clear if successful
+	    AX = ???
+	CF set on error
+	    AX = error code (0001h=invalid function/subfunction)
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by CLIENT.COM, SERVER.COM, and DOSNET.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4147_4" name="65----DX4147_4"><b>65----DX4147</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK???
+	DX = 4147h
+	BH = 80h
+Return: CF set
+	AX = 0001h
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number and function number may be retrieved via INT 2A/AX=4147h
+Note:	this call is supported by CLIENT.COM, SERVER.COM, and ROUTER.COM
+SeeAlso: DX=4147h,INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741" name="65----DX4741"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER - ???
+	DX = 4741h
+	BH = 01h
+	AL = 02h
+	BL = function number (0Eh,0Fh)
+	AH = subfunction number
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_0" name="65----DX4741_0"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???
+	DX = 4741h
+	BH = 01h
+	AL = 03h
+	BL = function number (0Eh,0Fh)
+	AH = subfunction number
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_1" name="65----DX4741_1"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR - ???
+	DX = 4741h
+	BH = 01h
+	AL = 04h
+	BL = function number (0Eh,0Fh)
+	AH = subfunction number
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_2" name="65----DX4741_2"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - NETBIOS - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - NETBIOS - ???
+	DX = 4741h
+	BH = 01h
+	AL = 07h
+	BL = function number (0Eh,0Fh)
+	AH = subfunction number
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_3" name="65----DX4741_3"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - MACTEST - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - MACTEST - ???
+	DX = 4741h
+	BH = 01h
+	AL = 08h
+	BL = function number (0Eh,0Fh)
+	AH = subfunction number
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_4" name="65----DX4741_4"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - Physical Layer - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - Physical Layer - ???
+	DX = 4741h
+	BH = 02h
+	BL = function number (01h-04h)
+	???
+Return: ???
+	---function 02h---
+	DS:SI -&gt; ??? data area
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+Note:	this API is supported by PARALLEL.COM, SERIAL.COM, ARCNET.COM,
+	  ETHERNET.COM, NDIS.COM, ODI.COM, SMC.COM, and FTP.COM
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_5" name="65----DX4741_5"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER.COM - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - SPOOLER.COM - ???
+	DX = 4741h
+	BH = 05h
+	BL = function number (00h,01h)
+Return: CF clear
+	AL = status code (00h=successful)
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_6" name="65----DX4741_6"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR.COM - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - PRNREDIR.COM - ???
+	DX = 4741h
+	BH = 06h
+	BL = function number (00h-04h)
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_7" name="65----DX4741_7"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - COMREDIR.COM - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - COMREDIR.COM - ???
+	DX = 4741h
+	BH = 08h
+	BL = function number (00h-01h)
+	???
+Return: ???
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----DX4741_8" name="65----DX4741_8"><b>65----DX4741</b></a> - INT 65 U - NetSoft DOS-NET v1.20+ - FTP.COM - ???<br />
+<pre>
+INT 65 U - NetSoft DOS-NET v1.20+ - FTP.COM - ???
+	DX = 4741h
+	BX = 8010h
+	AL = instance number???
+Return: AX = 0008h if AL matches internal variable (call chained otherwise)
+Range:	INT ?? to INT ??, selected by configuration option; actual interrupt
+	  number may be retrieved via INT 2A/AX=4147h
+SeeAlso: DX=4147h"INSTALLATION",INT 2A/AX=4147h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI0000" name="65----SI0000"><b>65----SI0000</b></a> - INT 65 - Ad Lib SOUND.COM - INITIALIZE (RESET)<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - INITIALIZE (RESET)
+	SI = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI0003" name="65----SI0003"><b>65----SI0003</b></a> - INT 65 - Ad Lib SOUND.COM - SET STATE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - SET STATE
+	SI = 0003h
+	ES:BX -&gt; WORD new state (0000h disabled, 0001h enabled)
+SeeAlso: SI=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI0004" name="65----SI0004"><b>65----SI0004</b></a> - INT 65 - Ad Lib SOUND.COM - GET STATE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - GET STATE
+	SI = 0004h
+Return: AX = status
+	    0000h all done playing sounds
+	    else  still playing sounds
+SeeAlso: SI=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI0006" name="65----SI0006"><b>65----SI0006</b></a> - INT 65 - Ad Lib SOUND.COM - SET MODE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - SET MODE
+	SI = 0006h
+	ES:BX -&gt; WORD new mode (0000h melodic, 0001h percussive)
+SeeAlso: SI=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI0007" name="65----SI0007"><b>65----SI0007</b></a> - INT 65 - Ad Lib SOUND.COM - GET MODE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - GET MODE
+	SI = 0007h
+Return: AX = mode
+	    0000h melodic
+	    0001h percussive
+SeeAlso: SI=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI000C" name="65----SI000C"><b>65----SI000C</b></a> - INT 65 - Ad Lib SOUND.COM - SET ACTIVE VOICE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - SET ACTIVE VOICE
+	SI = 000Ch
+	ES:BX -&gt; WORD voice = 0000h to 0008h
+SeeAlso: SI=000Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI000D" name="65----SI000D"><b>65----SI000D</b></a> - INT 65 - Ad Lib SOUND.COM - GET ACTIVE VOICE<br />
+<pre>
+INT 65 - Ad Lib SOUND.COM - GET ACTIVE VOICE
+	SI = 000Dh
+Return: AX = voice (0000h to 0008h)
+SeeAlso: SI=000Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8000" name="65----SI8000"><b>65----SI8000</b></a> - INT 65 u - Media Vision FM.COM v4.1a+ - GET INTERNAL DATA STRUCTURES<br />
+<pre>
+INT 65 u - Media Vision FM.COM v4.1a+ - GET INTERNAL DATA STRUCTURES
+	SI = 8000h
+Return: DX:AX -&gt; internal data structures
+Program: FM.COM is an Ad Lib SOUND.COM-compatible driver for Media Vision's
+	  Pro Audio Spectrum sound boards
+SeeAlso: SI=8001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8001" name="65----SI8001"><b>65----SI8001</b></a> - INT 65 u - Media Vision FM.COM v4.1a+ - GET VOICE COUNT<br />
+<pre>
+INT 65 u - Media Vision FM.COM v4.1a+ - GET VOICE COUNT
+	SI = 8001h
+Return: AX = ???
+	DX = number of voices??? (09h or 0Bh)
+SeeAlso: SI=8000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8002" name="65----SI8002"><b>65----SI8002</b></a> - INT 65 - Media Vision FM.COM v4.1a+ - START BACKGROUND FM SOUNDS<br />
+<pre>
+INT 65 - Media Vision FM.COM v4.1a+ - START BACKGROUND FM SOUNDS
+	SI = 8002h
+SeeAlso: SI=8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8003" name="65----SI8003"><b>65----SI8003</b></a> - INT 65 - Media Vision FM.COM v4.1a+ - STOP BACKGROUND FM SOUNDS<br />
+<pre>
+INT 65 - Media Vision FM.COM v4.1a+ - STOP BACKGROUND FM SOUNDS
+	SI = 8003h
+SeeAlso: SI=8002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8004" name="65----SI8004"><b>65----SI8004</b></a> - INT 65 U - Media Vision FM.COM v4.1a+ - GET ???<br />
+<pre>
+INT 65 U - Media Vision FM.COM v4.1a+ - GET ???
+	SI = 8004h
+Return: AX = ??? (0280h)
+	DX = ??? (01A0h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65----SI8005" name="65----SI8005"><b>65----SI8005</b></a> - INT 65 U - Media Vision FM.COM v4.1a+ - ???<br />
+<pre>
+INT 65 U - Media Vision FM.COM v4.1a+ - ???
+	SI = 8005h
+	???
+Return: ???
+SeeAlso: SI=8000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_8" name="65_8"><b>65</b></a> - INT 65 U - EZRECV v1.0 - API<br />
+<pre>
+INT 65 U - EZRECV v1.0 - API
+	AX = function
+	    0000h ???
+		Return: AX = ??? or FFFFh
+	    0001h ???
+		Return: AX = status (0000h or 0001h)
+	    0002h ???
+		Return: AX = status (0000h or 0001h)
+	    0003h set ??? to 0001h
+		Return: AX = 0000h
+	    0004h ???
+		Return: AX = ???
+Return: BH = COM port being used
+	BL = speed???
+	CH = ???
+	CL = ???
+	DX = ???
+	DS = ???
+	ES = EZRECV data segment
+Program: EZRECV is a background Zmodem file receiver by Express Consulting
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

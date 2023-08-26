@@ -1,0 +1,1593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._k</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category k - file/disk compression,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#213341"><b>213341</b> - INT 21 - Diet Disk v1.0 - INSTALLATION CHECK</a><br />
+<a href="#2137A0BX6A6D"><b>2137A0BX6A6D</b> - INT 21 - XPACK v1.52+ - TSR INSTALLATION CHECK</a><br />
+<a href="#2137A1BX6A6D"><b>2137A1BX6A6D</b> - INT 21 - XPACK v1.52+ - UNINSTALL</a><br />
+<a href="#2137A2BX6A6D"><b>2137A2BX6A6D</b> - INT 21 - XPACK v1.52+ - GET TSR STATUS</a><br />
+<a href="#2137A3BX6A6D"><b>2137A3BX6A6D</b> - INT 21 - XPACK v1.52+ - SET TSR STATUS</a><br />
+<a href="#2137D0BX899D"><b>2137D0BX899D</b> - INT 21 - DIET v1.43e - TSR INSTALLATION CHECK</a><br />
+<a href="#2137D1BX899D"><b>2137D1BX899D</b> - INT 21 - DIET v1.43e - GET DIET.EXE RESIDENT SEGMENT</a><br />
+<a href="#2137D2BX899D"><b>2137D2BX899D</b> - INT 21 - DIET v1.43e - GET TSR CONTROL FLAGS</a><br />
+<a href="#2137D3BX899D"><b>2137D3BX899D</b> - INT 21 - DIET v1.43e - SET TSR CONTROL FLAGS</a><br />
+<a href="#2137D4BX899D"><b>2137D4BX899D</b> - INT 21 - DIET v1.43e - GET TSR OPTIONS</a><br />
+<a href="#2137D5BX899D"><b>2137D5BX899D</b> - INT 21 - DIET v1.43e - SET TSR OPTIONS</a><br />
+<a href="#2137D6BX899D"><b>2137D6BX899D</b> - INT 21 - DIET v1.43e - GET TEMPORARY DIRECTORY NAMES</a><br />
+<a href="#2137D7BX899D"><b>2137D7BX899D</b> - INT 21 - DIET v1.43e - SET TEMPORARY DIRECTORY NAMES</a><br />
+<a href="#2137DCBX899D"><b>2137DCBX899D</b> - INT 21 - DIET v1.43e - SET ADDRESS OF EXTERNAL PROCEDURE</a><br />
+<a href="#2137DDBX899D"><b>2137DDBX899D</b> - INT 21 - DIET v1.43e - RELEASE EXTERNAL PROCEDURE</a><br />
+<a href="#2137DEBX899D"><b>2137DEBX899D</b> - INT 21 - DIET v1.43e - READ EMS STATUS</a><br />
+<a href="#2137DFBX899D"><b>2137DFBX899D</b> - INT 21 - DIET v1.43e - UNINSTALL TSR</a><br />
+<a href="#214404_0"><b>214404</b> - INT 21 - Stacker - GET DEVICE DRIVER ADDRESS AND SET VOLUME NUMBER</a><br />
+<a href="#214404_1"><b>214404</b> - INT 21 - Stacker - GET STACVOL FILE SECTORS</a><br />
+<a href="#214404_2"><b>214404</b> - INT 21 - DUBLDISK.SYS v2.6 - GET INFO</a><br />
+<a href="#214404_3"><b>214404</b> - INT 21 - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES</a><br />
+<a href="#214404_4"><b>214404</b> - INT 21 - DBLSPACE.BIN v6.2 - IOCTL - GET ??? FOR SPECIFIED DRIVE</a><br />
+<a href="#214404_5"><b>214404</b> - INT 21 U - DoubleTools v1.0 - GET ???</a><br />
+<a href="#214405_1"><b>214405</b> - INT 21 U - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES</a><br />
+<a href="#214BF0"><b>214BF0</b> - INT 21 - DIET v1.10+ (Overlay Mode) - INSTALLATION CHECK</a><br />
+<a href="#214BF1"><b>214BF1</b> - INT 21 - DIET v1.10+ (Overlay Mode) - EXPAND PROGRAM???</a><br />
+<a href="#21FAFF"><b>21FAFF</b> - INT 21 U - IBM PC-DOS - KEYBGK - SELECT KEYBOARD LAYOUT</a><br />
+<a href="#25CDCD"><b>25CDCD</b> - INT 25 - Stacker - GET DEVICE DRIVER ADDRESS</a><br />
+<a href="#2F4A11BX0000"><b>2F4A11BX0000</b> - INT 2F - DBLSPACE.BIN - "GetVersion" - INSTALLATION CHECK</a><br />
+<a href="#2F4A11BX0001"><b>2F4A11BX0001</b> - INT 2F - DBLSPACE.BIN - "GetDriveMapping" - GET DRIVE MAPPING</a><br />
+<a href="#2F4A11BX0002"><b>2F4A11BX0002</b> - INT 2F - DBLSPACE.BIN - "Swap Drive" - SWAP DRIVE LETTERS OF CVF AND HOST DRIVE</a><br />
+<a href="#2F4A11BX0003"><b>2F4A11BX0003</b> - INT 2F - DBLSPACE.BIN - "DSGetEntryPoints" - GET DEVICE DRIVER ENTRY POINTS</a><br />
+<a href="#2F4A11BX0004"><b>2F4A11BX0004</b> - INT 2F - DBLSPACE.BIN - "DSSetEntryPoints" - SET DEVICE DRIVER ENTRY POINTS</a><br />
+<a href="#2F4A11BX0005"><b>2F4A11BX0005</b> - INT 2F - DBLSPACE.BIN - "ActivateDrive" - MOUNT COMPRESSED DRIVE</a><br />
+<a href="#2F4A11BX0006"><b>2F4A11BX0006</b> - INT 2F - DBLSPACE.BIN - "DeactivateDrive" - UNMOUNT COMPRESSED DRIVE</a><br />
+<a href="#2F4A11BX0007"><b>2F4A11BX0007</b> - INT 2F - DBLSPACE.BIN - "GetDriveSpace" - GET SPACE AVAIL ON COMPRESSED DRIVE</a><br />
+<a href="#2F4A11BX0008"><b>2F4A11BX0008</b> - INT 2F - DBLSPACE.BIN - "GetFileFragmentSpace" - GET SIZE OF FRAGMENT HEAP</a><br />
+<a href="#2F4A11BX0009"><b>2F4A11BX0009</b> - INT 2F - DBLSPACE.BIN - "GetExtraInfo" - DETERMINE NUMBER OF DISK_UNIT STRUCTS</a><br />
+<a href="#2F4A11BX000A"><b>2F4A11BX000A</b> - INT 2F - DBLSPACE.BIN v6.2 - SET AUTOMOUNT DRIVES</a><br />
+<a href="#2F4A11BX000B"><b>2F4A11BX000B</b> - INT 2F - DBLSPACE.BIN v6.2 - GET AUTOMOUNT DRIVES</a><br />
+<a href="#2F4A11BXFFFE"><b>2F4A11BXFFFE</b> - INT 2F U - DBLSPACE.BIN - RELOCATE</a><br />
+<a href="#2F4A11BXFFFF"><b>2F4A11BXFFFF</b> - INT 2F U - DBLSPACE.BIN - GET RELOCATION SIZE</a><br />
+<a href="#2F4A12CX4D52"><b>2F4A12CX4D52</b> - INT 2F - Microsoft Realtime Compression Interface (MRCI) - RAM-BASED SERVER</a><br />
+<a href="#2F4A12CX5354"><b>2F4A12CX5354</b> - INT 2F - Stacker 4 LZS Compression Interface (LZSAPI)</a><br />
+<a href="#2F4A13"><b>2F4A13</b> - INT 2F U - DBLSPACE.BIN - DBLSPACE/MRCI STEALTH PACKET API</a><br />
+<a href="#2F5200"><b>2F5200</b> - INT 2F - JAM.SYS v1.10+ - "GetVersion" - INSTALLATION CHECK</a><br />
+<a href="#2F5201"><b>2F5201</b> - INT 2F - JAM.SYS v1.10+ - "GetInfo" - GET COMPRESSED DRIVE INFORMATION</a><br />
+<a href="#2F5202"><b>2F5202</b> - INT 2F - JAM.SYS v1.10+ - "Attach" - MOUNT COMPRESSED DRIVE</a><br />
+<a href="#2F5203"><b>2F5203</b> - INT 2F - JAM.SYS v1.10+ - "Detach" - UNMOUNT COMPRESSED DRIVE</a><br />
+<a href="#2F5204"><b>2F5204</b> - INT 2F - JAM.SYS v1.10+ - "Lock" - LOCK COMPRESSED DRIVE</a><br />
+<a href="#2F5205"><b>2F5205</b> - INT 2F - JAM.SYS v1.10+ - "UnLock" - UNLOCK COMPRESSED DRIVE</a><br />
+<a href="#2F5206"><b>2F5206</b> - INT 2F - JAM.SYS v1.10+ - "Read" - PHYSICAL READ DATA FROM JAM ARCHIVE</a><br />
+<a href="#2F5207"><b>2F5207</b> - INT 2F - JAM.SYS v1.10+ - "Write" - PHYSICAL WRITE DATA TO JAM ARCHIVE</a><br />
+<a href="#2FC300DX0000"><b>2FC300DX0000</b> - INT 2F U - SpaceManager - INSTALLATION CHECK</a><br />
+<a href="#2FC300BX4F53"><b>2FC300BX4F53</b> - INT 2F U - SpaceManager - INSTALLATION VERIFICATION</a><br />
+<a href="#2FC301"><b>2FC301</b> - INT 2F U - SpaceManager - ???</a><br />
+<a href="#2FC302"><b>2FC302</b> - INT 2F U - SpaceManager - ENABLE PROGRAM</a><br />
+<a href="#2FC303"><b>2FC303</b> - INT 2F U - SpaceManager - DISABLE PROGRAM</a><br />
+<a href="#2FC304"><b>2FC304</b> - INT 2F U - SpaceManager - GET PER-DRIVE ENABLEMENT TABLE</a><br />
+<a href="#2FC305DX9003"><b>2FC305DX9003</b> - INT 2F U - SpaceManager - FORTUNE.EXE - NOP</a><br />
+<a href="#2FC305"><b>2FC305</b> - INT 2F U - SpaceManager - ???</a><br />
+<a href="#2FC306"><b>2FC306</b> - INT 2F U - SpaceManager - CHECK WHETHER PROGRAM ENABLED</a><br />
+<a href="#2FC307DX9001"><b>2FC307DX9001</b> - INT 2F U - SpaceManager - SELECTC - ???</a><br />
+<a href="#2FC308DX9001"><b>2FC308DX9001</b> - INT 2F U - SpaceManager - SELECTC - ???</a><br />
+
+<hr />
+
+<a href="#213341" name="213341"><b>213341</b></a> - INT 21 - Diet Disk v1.0 - INSTALLATION CHECK<br />
+<pre>
+INT 21 - Diet Disk v1.0 - INSTALLATION CHECK
+	AX = 3341h
+Return: DX = 1234h if installed
+	    CX = resident code segment
+Program: Diet Disk is a public domain transparent data file compressor by
+	  Barry Nance
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A0BX6A6D" name="2137A0BX6A6D"><b>2137A0BX6A6D</b></a> - INT 21 - XPACK v1.52+ - TSR INSTALLATION CHECK<br />
+<pre>
+INT 21 - XPACK v1.52+ - TSR INSTALLATION CHECK
+	AX = 37A0h
+	BX = 6A6Dh ('jm')
+Return: AL = FFh if not present as TSR (default return value from DOS)
+	AX = 0000h if installed as a TSR
+	    CX = 6A6Dh ('jm')
+	    DX = version ID (0152h)
+Program: XPACK is a transparent file compressor/decompressor by JauMing Tseng
+SeeAlso: AX=37A1h/BX=6A6Dh,AX=37A3h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A1BX6A6D" name="2137A1BX6A6D"><b>2137A1BX6A6D</b></a> - INT 21 - XPACK v1.52+ - UNINSTALL<br />
+<pre>
+INT 21 - XPACK v1.52+ - UNINSTALL
+	AX = 37A1h
+	BX = 6A6Dh ('jm')
+Return: AX = status
+	    0000h successful
+	    FFFFh failed
+Program: XPACK is a transparent file compressor/decompressor by JauMing Tseng
+SeeAlso: AX=37A0h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A2BX6A6D" name="2137A2BX6A6D"><b>2137A2BX6A6D</b></a> - INT 21 - XPACK v1.52+ - GET TSR STATUS<br />
+<pre>
+INT 21 - XPACK v1.52+ - GET TSR STATUS
+	AX = 37A2h
+	BX = 6A6Dh ('jm')
+Return: AX = 0000h (successful)
+	DL = status (01h active, 00h disabled)
+SeeAlso: AX=37A3h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A3BX6A6D" name="2137A3BX6A6D"><b>2137A3BX6A6D</b></a> - INT 21 - XPACK v1.52+ - SET TSR STATUS<br />
+<pre>
+INT 21 - XPACK v1.52+ - SET TSR STATUS
+	AX = 37A3h
+	BX = 6A6Dh ('jm')
+	DL = status (01h active, 00h disabled)
+Return: AX = 0000h (successful)
+SeeAlso: AX=37A0h/BX=6A6Dh,AX=37A2h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D0BX899D" name="2137D0BX899D"><b>2137D0BX899D</b></a> - INT 21 - DIET v1.43e - TSR INSTALLATION CHECK<br />
+<pre>
+INT 21 - DIET v1.43e - TSR INSTALLATION CHECK
+	AX = 37D0h
+	BX = 899Dh ('DI' + 'ET')
+Return: AL = FFh if not present as TSR (default return value from DOS)
+	AX = 0000h if installed as a TSR
+	    CX = 899Dh
+	    DX = version ID
+Program: DIET is a transparent file compressor/decompressor by Teddy Matsumoto
+SeeAlso: AX=37D1h,AX=37D2h,AX=37D4h,AX=37D6h,AX=37DFh,AX=4BF0h,AX=4BF1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D1BX899D" name="2137D1BX899D"><b>2137D1BX899D</b></a> - INT 21 - DIET v1.43e - GET DIET.EXE RESIDENT SEGMENT<br />
+<pre>
+INT 21 - DIET v1.43e - GET DIET.EXE RESIDENT SEGMENT
+	AX = 37D1h
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = 0000h
+	CX = code segment of TSR part of DIET.EXE
+	DX = memory block segment of TSR DIET.EXE
+		(0000h if installed as device driver)
+SeeAlso: AX=37D0h,AX=37DFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D2BX899D" name="2137D2BX899D"><b>2137D2BX899D</b></a> - INT 21 - DIET v1.43e - GET TSR CONTROL FLAGS<br />
+<pre>
+INT 21 - DIET v1.43e - GET TSR CONTROL FLAGS
+	AX = 37D2h
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = 0000h
+	DL = control flag (00h active, else disabled)
+	DH = skip flag (nonzero while TSR active)
+SeeAlso: AX=37D0h,AX=37D3h,AX=37D4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D3BX899D" name="2137D3BX899D"><b>2137D3BX899D</b></a> - INT 21 - DIET v1.43e - SET TSR CONTROL FLAGS<br />
+<pre>
+INT 21 - DIET v1.43e - SET TSR CONTROL FLAGS
+	AX = 37D3h
+	BX = 899Dh ('DI' + 'ET')
+	DL = control flag (00h active, else disabled)
+	DH = skip flag (00h)
+Return: AX = 0000h
+SeeAlso: AX=37D0h,AX=37D2h,AX=37D5h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D4BX899D" name="2137D4BX899D"><b>2137D4BX899D</b></a> - INT 21 - DIET v1.43e - GET TSR OPTIONS<br />
+<pre>
+INT 21 - DIET v1.43e - GET TSR OPTIONS
+	AX = 37D4h
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = 0000h
+	DX = TSR options (see #01396)
+SeeAlso: AX=37D0h,AX=37D2h,AX=37D5h
+
+Bitfields for DIET TSR options:
+Bit(s)	Description	(Table 01396)
+ 0	automated compression of DIETed file
+ 1	automated compression of newly-created file
+ 2	suppress DIET message
+ 3	display original file size
+ 4-15	reserved (0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D5BX899D" name="2137D5BX899D"><b>2137D5BX899D</b></a> - INT 21 - DIET v1.43e - SET TSR OPTIONS<br />
+<pre>
+INT 21 - DIET v1.43e - SET TSR OPTIONS
+	AX = 37D5h
+	BX = 899Dh ('DI' + 'ET')
+	DX = TSR options (see #01396)
+Return: AX = 0000h
+Program: DIET is a transparent file compressor/decompressor by Teddy Matsumoto
+SeeAlso: AX=37D0h,AX=37D3h,AX=37D4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D6BX899D" name="2137D6BX899D"><b>2137D6BX899D</b></a> - INT 21 - DIET v1.43e - GET TEMPORARY DIRECTORY NAMES<br />
+<pre>
+INT 21 - DIET v1.43e - GET TEMPORARY DIRECTORY NAMES
+	AX = 37D6h
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = 0000h
+	DS:DX -&gt; name of temporary directory or 0000h:0000h for current dir
+SeeAlso: AX=37D0h,AX=37D7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137D7BX899D" name="2137D7BX899D"><b>2137D7BX899D</b></a> - INT 21 - DIET v1.43e - SET TEMPORARY DIRECTORY NAMES<br />
+<pre>
+INT 21 - DIET v1.43e - SET TEMPORARY DIRECTORY NAMES
+	AX = 37D7h
+	BX = 899Dh ('DI' + 'ET')
+	DS:DX -&gt; ASCIZ name of temporary directory (max 61 chars)
+		0000h:0000h for current directory
+Return: AX = 0000h
+Note:	the specified directory name must include a drive letter and end with
+	  a backslash
+SeeAlso: AX=37D0h,AX=37D6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137DCBX899D" name="2137DCBX899D"><b>2137DCBX899D</b></a> - INT 21 - DIET v1.43e - SET ADDRESS OF EXTERNAL PROCEDURE<br />
+<pre>
+INT 21 - DIET v1.43e - SET ADDRESS OF EXTERNAL PROCEDURE
+	AX = 37DCh
+	BX = 899Dh ('DI' + 'ET')
+	DS:DX -&gt; external procedure (see #01397)
+Return: AX = 0000h
+Note:	the resident code will call the specified external procedure at the
+	  beginning of decompression and when compression is exited on failure
+SeeAlso: AX=37DDh
+
+(Table 01397)
+Values DIET external procedure is called with:
+	STACK:	WORD	class
+			FFFDh creation failed for unknown reasons
+			FFFEh creation failed due to lack of space
+			FFFFh file creation error
+			else file handle of DIETed file to be decompressed
+		DWORD	-&gt; compressed filename
+		DWORD	-&gt; decompressed or temporary filename
+Return: SI,DI,BP,DS,ES must be preserved by external procedure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137DDBX899D" name="2137DDBX899D"><b>2137DDBX899D</b></a> - INT 21 - DIET v1.43e - RELEASE EXTERNAL PROCEDURE<br />
+<pre>
+INT 21 - DIET v1.43e - RELEASE EXTERNAL PROCEDURE
+	AX = 37DDh
+	BX = 899Dh ('DI' + 'ET')
+Program: DIET is a transparent file compressor/decompressor by Teddy Matsumoto
+Note:	unlinks the external procedure specified by AX=37DCh
+SeeAlso: AX=37DCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137DEBX899D" name="2137DEBX899D"><b>2137DEBX899D</b></a> - INT 21 - DIET v1.43e - READ EMS STATUS<br />
+<pre>
+INT 21 - DIET v1.43e - READ EMS STATUS
+	AX = 37DEh
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = 0000h
+	CX = EMS status
+	    0000h not used
+	    0001h used as work area
+	    0002h used for code and as work area
+	DX = EMM handle when EMS is in use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137DFBX899D" name="2137DFBX899D"><b>2137DFBX899D</b></a> - INT 21 - DIET v1.43e - UNINSTALL TSR<br />
+<pre>
+INT 21 - DIET v1.43e - UNINSTALL TSR
+	AX = 37DFh
+	BX = 899Dh ('DI' + 'ET')
+Return: AX = status
+	    0000h successful
+	    00FFh failed
+Program: DIET is a transparent file compressor/decompressor by Teddy Matsumoto
+SeeAlso: AX=37D0h
+Index:	uninstall;DIET
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_0" name="214404_0"><b>214404</b></a> - INT 21 - Stacker - GET DEVICE DRIVER ADDRESS AND SET VOLUME NUMBER<br />
+<pre>
+INT 21 - Stacker - GET DEVICE DRIVER ADDRESS AND SET VOLUME NUMBER
+	AX = 4404h
+	BL = drive number (00h = default, 01h = A:, etc.)
+	CX = 0004h
+	DS:DX -&gt; DWORD buffer to receive device driver address
+Return: buffer filled with pointer into Stacker device driver (see #02550):
+	  driver + 19h if Stacker Anywhere controls this drive
+	  driver + 1Ah if Stacker controls this drive
+	  unchanged else
+Notes:	in addition to returning the address of the Stacker device driver,
+	  this call also sets the volume number at offset 58h in the device
+	  driver (see #02550 at INT 25/AX=CDCDh)
+	Stacker Anywhere does not link its built-in device driver into
+	  the standard device driver chain, but it can be found via CDS/DPB
+	this call can be used as an installation check for all versions of
+	  Stacker and Stacker Anywhere to avoid the INT 25 call
+SeeAlso: AX=4408h,AX=440Eh,AH=52h,INT 25/AX=CDCDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_1" name="214404_1"><b>214404</b></a> - INT 21 - Stacker - GET STACVOL FILE SECTORS<br />
+<pre>
+INT 21 - Stacker - GET STACVOL FILE SECTORS
+	AX = 4404h
+	BL = drive number (0 is current drive)
+	CX = byte count (i.e., 200h = 1 sector)
+	DS:DX -&gt; buffer (see #01529)
+Return: Data Buffer contains the number of sectors requested from the
+	  STACVOL physical file for the drive specified.
+
+Format of Stacker buffer:
+Offset	Size	Description	(Table 01529)
+ 00h	WORD	01CDh
+ 02h	WORD	sector count
+ 04h	DWORD	number of starting sector
+ 08h	DWORD	far pointer to Data Buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_2" name="214404_2"><b>214404</b></a> - INT 21 - DUBLDISK.SYS v2.6 - GET INFO<br />
+<pre>
+INT 21 - DUBLDISK.SYS v2.6 - GET INFO
+	AX = 4404h
+	BL = drive number of DoubleDisk drive (00h = default, 01h = A:, etc.)
+	CX = number of bytes (000Ah-0014h, call ignored otherwise)
+	DS:DX -&gt; data record (see #01530)
+Return: CF clear if successful
+	    AX = number of bytes read
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Program: DUBLDISK.SYS is the device driver portion of DoubleDisk, a disk
+	  expander by Vertisoft Systems, Inc.
+InstallCheck:	for v2.6, scan memory for the signature "FAT 2.6  byte:",
+	  which is immediately followed by a data table (see #01531)
+BUG:	VOPT (a disk optimizer by Golden Bow Software) assumes that any driver
+	  which returns the "correct" number of bytes when the first word of
+	  the buffer for the data record contains the signature value 4444h is
+	  DoubleDisk; a workaround is for the non-DoubleDisk driver to return
+	  no data if the signature is present
+SeeAlso: AX=440Dh"DOS 3.2+"
+Index:	installation check;DUBLDISK.SYS
+
+Format of DUBLDISK data record:
+Offset	Size	Description	(Table 01530)
+ 00h	WORD	(call) signature 4444h
+ 02h	BYTE	(call) function
+			00h ???
+			01h ???
+---function 00h---
+ 02h	BYTE	(ret) ???
+ 03h	BYTE	(ret) ???
+---function 01h---
+ 02h	WORD	(ret) 4444h
+ 04h	WORD	allocation unit size???
+ 06h	WORD	???
+ 08h	WORD	???
+ 0Ah	BYTE	???
+
+Format of DUBLDISK signature data table:
+Offset	Size	Description	(Table 01531)
+ 00h  5 BYTEs	???
+ 05h	BYTE	first drive number
+ 06h	BYTE	number of drives
+ 07h	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_3" name="214404_3"><b>214404</b></a> - INT 21 - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES<br />
+<pre>
+INT 21 - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES
+	AX = 4404h
+	BL = drive number (00h = default, 01h = A:, etc)
+	CX = 000Ah (size of DSPACKET structure)
+	DS:DX -&gt; DSPACKET structure (see #01532)
+Return: CF clear if IOCTL successful -- check DSPACKET for actual status
+	    AX = number of bytes actually transferred
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+SeeAlso: AX=4405h"DBLSPACE",INT 2F/AX=4A11h/BX=0000h
+
+Format of DoubleSpace DSPACKET structure:
+Offset	Size	Description	(Table 01532)
+ 00h	WORD	signature 444Dh ("DM")
+ 02h	BYTE	command code
+		46h ('F') flush internal caches
+		49h ('I') flush and invalidate internal caches
+ 03h	WORD	result code
+		(ret) 4F4Bh ("OK") if successful, else unchanged
+ 05h  5 BYTEs	padding
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_4" name="214404_4"><b>214404</b></a> - INT 21 - DBLSPACE.BIN v6.2 - IOCTL - GET ??? FOR SPECIFIED DRIVE<br />
+<pre>
+INT 21 - DBLSPACE.BIN v6.2 - IOCTL - GET ??? FOR SPECIFIED DRIVE
+	AX = 4404h
+	BL = drive number (00h = default, 01h = A:, etc)
+	CX = size of DSPACKET structure (ignored in DOS 6.2)
+	DS:DX -&gt; DSPACKET structure (see #01533)
+Return: CF clear if IOCTL successful -- check DSPACKET for actual status
+	    AX = number of bytes actually transferred
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+SeeAlso: AX=4405h"DBLSPACE",INT 2F/AX=4A11h/BX=0000h
+
+Format of DoubleSpace DSPACKET structure:
+Offset	Size	Description	(Table 01533)
+ 00h	WORD	signature 444Dh ("DM")
+ 02h	BYTE	command code
+		53h ('S') get ??? for specified drive
+ 03h	WORD	result code
+		(ret) 4F4Bh ("OK") if successful, else unchanged
+ 05h	DWORD	(ret) pointer to 96-byte ??? data
+ 09h	DWORD	(ret) pointer to ??? data
+ 0Dh  3 BYTEs	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_5" name="214404_5"><b>214404</b></a> - INT 21 U - DoubleTools v1.0 - GET ???<br />
+<pre>
+INT 21 U - DoubleTools v1.0 - GET ???
+	AX = 4404h
+	BL = drive number (00h = default, 01h = A:, etc)
+	CX = 0006h
+	DS:DX -&gt; DoubleTools structure (see #01534)
+Return: CF clear if IOCTL successful -- check DSPACKET for actual status
+	    AX = number of bytes actually transferred
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Note:	the Transporter device driver has the signature 55h 61h 50h 74h
+	  ("DaPt") twelve bytes after it beginning
+
+Format of DoubleTools structure:
+Offset	Size	Description	(Table 01534)
+ 00h	WORD	(call) signature 55h AAh
+		(ret) signature 78h 70h ("xp")
+ 02h	WORD	(call) signature 52h 16h
+		(ret) ???
+ 04h	WORD	(ret) segment of driver's DS (same as its PSP)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214405_1" name="214405_1"><b>214405</b></a> - INT 21 U - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES<br />
+<pre>
+INT 21 U - DBLSPACE.BIN - IOCTL - FLUSH OR INVALIDATE INTERNAL CACHES
+	AX = 4405h
+	BL = drive number (00h = default, 01h = A:, etc)
+	CX = 000Ah (size of DSPACKET structure)
+	DS:DX -&gt; DSPACKET structure (see #01537)
+Return: CF clear if IOCTL successful -- check DSPACKET for actual status
+	    AX = number of bytes actually transferred
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Note:	this call is identical to the documented AX=4404h
+SeeAlso: AX=4404h"DBLSPACE",INT 2F/AX=4A11h/BX=0000h
+
+Format of DoubleSpace DSPACKET structure:
+Offset	Size	Description	(Table 01537)
+ 00h	WORD	signature 444Dh ("DM")
+ 02h	BYTE	command code
+		46h ('F') flush internal caches
+		49h ('I') flush and invalidate internal caches
+ 03h	WORD	result code
+		(ret) 4F4Bh ("OK") if successful, else unchanged
+ 05h  5 BYTEs	padding
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BF0" name="214BF0"><b>214BF0</b></a> - INT 21 - DIET v1.10+ (Overlay Mode) - INSTALLATION CHECK<br />
+<pre>
+INT 21 - DIET v1.10+ (Overlay Mode) - INSTALLATION CHECK
+	AX = 4BF0h
+Return: CF clear if installed
+	    AX = 899Dh
+Program: DIET is an executable-compression program by Teddy Matsumoto
+SeeAlso: AX=37D0h,AX=4BF1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214BF1" name="214BF1"><b>214BF1</b></a> - INT 21 - DIET v1.10+ (Overlay Mode) - EXPAND PROGRAM???<br />
+<pre>
+INT 21 - DIET v1.10+ (Overlay Mode) - EXPAND PROGRAM???
+	AX = 4BF1h
+Return: ???
+SeeAlso: AX=37D0h,AX=4BF0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FAFF" name="21FAFF"><b>21FAFF</b></a> - INT 21 U - IBM PC-DOS - KEYBGK - SELECT KEYBOARD LAYOUT<br />
+<pre>
+INT 21 U - IBM PC-DOS - KEYBGK - SELECT KEYBOARD LAYOUT
+	AX = FAFFh
+	CL = keyboard layout
+	    31h keyboard 319
+	    32h keyboard 220
+	BX = code page (869 or 813 decimal)
+Return: AL = F1h if installed
+	DX destroyed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#25CDCD" name="25CDCD"><b>25CDCD</b></a> - INT 25 - Stacker - GET DEVICE DRIVER ADDRESS<br />
+<pre>
+INT 25 - Stacker - GET DEVICE DRIVER ADDRESS
+	AX = CDCDh
+	DS:BX -&gt; buffer for address (see #02549)
+	CX = 0001h
+	DX = 0000h
+Return: AX = CDCDh if Stacker installed
+	    DS:BX buffer filled
+Note:	not supported by Stacker Anywhere; to obtain the Stacker device
+	  driver address and to detect drives controlled by all versions
+	  of Stacker, INT 21/AX=4404h"Stacker" or lookup via the CDS and DPB
+	  should be preferred (see INT 21/AH=52h)
+	Stacker Anywhere does not link its built-in device driver into
+	  the standard device driver chain, but it can be found via CDS/DPB
+SeeAlso: INT 21/AX=4404h"Stacker"
+
+Format of Stacker v2+ driver address buffer:
+Offset	Size	Description	(Table 02549)
+ 00h	WORD	signature CDCDh
+ 02h	WORD	??? 0001h
+ 04h	DWORD	pointer to Stacker signature at device driver offset 1Ah
+		  (see #02550)
+
+Format of Stacker v2+ device driver:
+Offset	Size	Description	(Table 02550)
+ 00h	DWORD	pointer to next driver, offset=FFFFh if last driver
+		FFFFh:FFFFh for Stacker Anywhere
+ 04h	WORD	device attributes (see #01647,#01648)
+ 06h	WORD	device strategy entry point
+ 08h	WORD	device interrupt entry point
+ 0Ah	BYTE	number of subunits (drives) supported by driver
+		0 for Stacker Anywhere
+ 0Bh  7 BYTEs	signature "STAC-CD" for Stacker and Stacker Anywhere
+ 12h  7 BYTEs	???
+ 19h	BYTE	always = 01h ?? (Stacker Anywhere points here)
+ 1Ah	WORD	signature A55Ah (all other Stacker versions point here)
+ 1Ch	WORD	Stacker version * 64h
+		0C8h = 200, 012Ch = 300, 0190h = 400 (also Stacker Anywhere)
+ 1Eh	WORD	offset of volume-specific information offset table
+		(list of WORDs, one per drive, containing offsets to various
+		  information)
+ 20h 56 BYTEs	n/a
+ 58h	BYTE	volume number, set after INT 21/AX=4404h, INT 21/AX=4408h
+		(use to index into volume-specific info offset table,
+		should be set to FFh before and tested for change after)
+ 59h 19 BYTEs	n/a
+ 6Ch  4 BYTEs	ASCII string "SWAP"
+ 70h 26 BYTEs	drive mapping table (one byte for each drive A: through Z:)
+		(only used for drives swapped by SSWAP.COM; other drives
+		compressed by Stacker can be found with the standard device
+		driver header signature (see INT 21/AH=52h)
+---Stacker 4, Stacker Anywhere---
+ 8Ah 40	BYTEs	???
+ B2h  4 BYTEs	ASCII string "SWP2"
+ B6h 26 BYTEs	drive table ???
+ D0h 150 BYTEs	???
+166h 60 BYTEs	LZSINFO structure (see #02808 at INT 2F/AX=4A12h)
+SeeAlso: #02551,#01646 at INT 21/AH=52h
+
+Format of Stacker boot record:
+Offset	Size	Description	(Table 02551)
+1F0h  8 BYTEs	Stacker signature (first byte is CDh)
+1F8h	DWORD	pointer to start of Stacker device driver
+1FCh	WORD	Stacker volume number
+1FEh	WORD	???
+SeeAlso: #02550
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0000" name="2F4A11BX0000"><b>2F4A11BX0000</b></a> - INT 2F - DBLSPACE.BIN - "GetVersion" - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "GetVersion" - INSTALLATION CHECK
+	AX = 4A11h
+	BX = 0000h
+Return: AX = 0000h (successful)
+	BX = 444Dh ("DM")
+	CL = first drive letter used by DBLSPACE (41h ['A'] = A:)
+	CH = number of drive letters used by DBLSPACE
+	DX = internal DBLSPACE.BIN version number (bits 14-0)
+		bit 15 set if DBLSPACE.BIN has not yet been relocated to final
+		  position in memory (i.e. DBLSPACE.SYS /MOVE)
+Program: DBLSPACE.BIN is the resident driver for DoubleSpace, the
+	  disk-compression software bundled with MS-DOS 6.0 and 6.20
+Notes:	this function is also supported by the version of SuperStor bundled
+	  with IBM DOS 6.x and "preloading" versions of Stacker
+	the complete DBLSPACE.BIN API is still supported by MS-DOS 6.22's
+	  DRVSPACE.BIN
+SeeAlso: AX=4A11h/BX=0001h,AX=4A11h/BX=0002h,AX=4A11h/BX=0003h
+SeeAlso: AX=4A11h/BX=0005h,AX=4A11h/BX=0007h,AX=4A11h/BX=FFFFh
+SeeAlso: INT 21/AX=4404h"DBLSPACE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0001" name="2F4A11BX0001"><b>2F4A11BX0001</b></a> - INT 2F - DBLSPACE.BIN - "GetDriveMapping" - GET DRIVE MAPPING<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "GetDriveMapping" - GET DRIVE MAPPING
+	AX = 4A11h
+	BX = 0001h
+	DL = drive number (0=A:)
+Return: AX = status (see also #02804)
+	    0000h successful
+		if DL was compressed drive,
+		    BL = host drive (bit 7 set if drive is compressed)
+		else if DL was host drive,
+		    BL = compressed drive
+		else
+		    BL = specified drive (if available for DoubleSpace)
+		BH = DoubleSpace sequence number
+	    other error code (0101h) (see #02804)
+		apparently never returned for the MS-DOS 6.2 DoubleSpace
+Note:	the compressed volume file for the specified compressed drive is
+	  host:\DBLSPACE.sequence
+SeeAlso: AX=4A11h/BX=0000h
+
+(Table 02804)
+Values for DBLSPACE function status:
+ 0000h	successful
+ 0100h	bad function
+ 0101h	invalid drive
+ 0102h	not a compressed drive
+ 0103h	drive already swapped
+ 0104h	drive not swapped
+SeeAlso: #02806
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0002" name="2F4A11BX0002"><b>2F4A11BX0002</b></a> - INT 2F - DBLSPACE.BIN - "Swap Drive" - SWAP DRIVE LETTERS OF CVF AND HOST DRIVE<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "Swap Drive" - SWAP DRIVE LETTERS OF CVF AND HOST DRIVE
+	AX = 4A11h
+	BX = 0002h
+	DL = drive number (0=A:) of compressed drive to swap with its host
+Return: AX = status (0000h,0101h,0102h,0103h) (see #02804)
+Note:	this function is intended for use by DBLSPACE.EXE only
+SeeAlso: AX=4A11h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0003" name="2F4A11BX0003"><b>2F4A11BX0003</b></a> - INT 2F - DBLSPACE.BIN - "DSGetEntryPoints" - GET DEVICE DRIVER ENTRY POINTS<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "DSGetEntryPoints" - GET DEVICE DRIVER ENTRY POINTS
+	AX = 4A11h
+	BX = 0003h
+	CL = drive number (0=A:) of compressed drive
+Return: CL = FFh on error (not compressed drive)
+	CL &lt;&gt; FFh driver unit number of host drive
+	    ES:SI -&gt; device driver's strategy routine
+	    ES:DI -&gt; device driver's interrupt routine
+	BX destroyed
+Note:	in conjunction with subfunction 0004h, this call allows disk caches
+	  like SMARTDRV to apply a device driver wrapper to DoubleSpaced
+	  drives just like SMARTDRV applies to regular block devices
+SeeAlso: AX=4A10h/BX=0007h,AX=4A11h/BX=0000h,AX=4A11h/BX=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0004" name="2F4A11BX0004"><b>2F4A11BX0004</b></a> - INT 2F - DBLSPACE.BIN - "DSSetEntryPoints" - SET DEVICE DRIVER ENTRY POINTS<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "DSSetEntryPoints" - SET DEVICE DRIVER ENTRY POINTS
+	AX = 4A11h
+	BX = 0004h
+	CL = drive number (0=A:) of compressed drive
+	DL = unit number for new driver entry points
+	DH = 00h
+	ES:SI -&gt; device driver strategy routine to call for drive
+	ES:DI -&gt; device driver interrupt routine to call for drive
+Return: CL = FFh on error (not a compressed drive)
+	BX destroyed
+Program: DBLSPACE.BIN is the resident driver for DoubleSpace, the
+	  disk-compression software bundled with MS-DOS 6.0
+Note:	in conjunction with subfunction 0003h, this call allows disk caches
+	  like SMARTDRV to apply a device driver wrapper to DoubleSpaced
+	  drives just like SMARTDRV applies to regular block devices
+SeeAlso: AX=4A10h/BX=0007h,AX=4A11h/BX=0000h,AX=4A11h/BX=0003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0005" name="2F4A11BX0005"><b>2F4A11BX0005</b></a> - INT 2F - DBLSPACE.BIN - "ActivateDrive" - MOUNT COMPRESSED DRIVE<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "ActivateDrive" - MOUNT COMPRESSED DRIVE
+	AX = 4A11h
+	BX = 0005h
+	DL = drive number (0=A:) to assign to new drive
+	ES:SI -&gt; activation record (see #02805)
+Return: status returned in activation record (see #02806)
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=0006h
+
+Format of DBLSPACE activation record:
+Offset	Size	Description	(Table 02805)
+ 00h  2 BYTEs	signature "MD" (4Dh 44h)
+ 02h	BYTE	4Dh ('M') mount command
+ 03h	BYTE	error code (set to FFh before calling) (see #02806)
+ 04h	BYTE	host drive number (0=A:)
+ 05h	???	DISK_UNIT structure (not documented)
+
+(Table 02806)
+Values for DBLSPACE Mount error code:
+ 00h	successful
+ 01h	drive letter not available for DoubleSpace
+ 02h	drive letter already in use
+ 03h	no more disk units (increase MaxRemovableDrives in .INI)
+ 09h	CVF too fragmented
+SeeAlso: #02805,#02804
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0006" name="2F4A11BX0006"><b>2F4A11BX0006</b></a> - INT 2F - DBLSPACE.BIN - "DeactivateDrive" - UNMOUNT COMPRESSED DRIVE<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "DeactivateDrive" - UNMOUNT COMPRESSED DRIVE
+	AX = 4A11h
+	BX = 0006h
+	DL = drive number (0=A:) to unmount
+Return: AX = status (0000h,0102h) (see #02804)
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0007" name="2F4A11BX0007"><b>2F4A11BX0007</b></a> - INT 2F - DBLSPACE.BIN - "GetDriveSpace" - GET SPACE AVAIL ON COMPRESSED DRIVE<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "GetDriveSpace" - GET SPACE AVAIL ON COMPRESSED DRIVE
+	AX = 4A11h
+	BX = 0007h
+	DL = compressed drive number (0=A:)
+Return: AX = status (0000h,0102h) (see also #02804)
+	    0000h successful
+		DS:SI -&gt; free space record (see #02807)
+Program: DBLSPACE.BIN is the resident driver for DoubleSpace, the
+	  disk-compression software bundled with MS-DOS 6.0
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=0008h
+
+Format of DBLSPACE free space record:
+Offset	Size	Description	(Table 02807)
+ 00h	DWORD	total number of sectors in drive's sector heap
+ 04h	DWORD	number of free sectors in drive's sector heap
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0008" name="2F4A11BX0008"><b>2F4A11BX0008</b></a> - INT 2F - DBLSPACE.BIN - "GetFileFragmentSpace" - GET SIZE OF FRAGMENT HEAP<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "GetFileFragmentSpace" - GET SIZE OF FRAGMENT HEAP
+	AX = 4A11h
+	BX = 0008h
+	DL = compressed drive number (0=A:)
+Return: AX = status (0000h,0102h) (see also #02804)
+	    0000h successful
+		BX = maximum entries in File Fragment heap
+		CX = available entries in File Fragment heap
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=0007h,AX=4A11h/BX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX0009" name="2F4A11BX0009"><b>2F4A11BX0009</b></a> - INT 2F - DBLSPACE.BIN - "GetExtraInfo" - DETERMINE NUMBER OF DISK_UNIT STRUCTS<br />
+<pre>
+INT 2F - DBLSPACE.BIN - "GetExtraInfo" - DETERMINE NUMBER OF DISK_UNIT STRUCTS
+	AX = 4A11h
+	BX = 0009h
+	DL = compressed drive number (0=A:)
+Return: AX = status (see also #02804)
+	    0000h successful
+		CL = number of DISK_UNIT structures allocated
+			  (see AX=4A11h/BX=0005h)
+		CH = DoubleGuard enabled-checks bitflags in bits 6-0 (DOS 6.2)
+Note:	the DoubleGuard checks are enabled or disabled as a block by the
+	  DoubleGuard= line in DBLSPACE.INI; they may be individually set with
+	  the CheckSum= line.
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX000A" name="2F4A11BX000A"><b>2F4A11BX000A</b></a> - INT 2F - DBLSPACE.BIN v6.2 - SET AUTOMOUNT DRIVES<br />
+<pre>
+INT 2F - DBLSPACE.BIN v6.2 - SET AUTOMOUNT DRIVES
+	AX = 4A11h
+	BX = 000Ah
+	CX:DX = bitmask of drives on which to enable AutoMount
+		(DX bit 0 = A:, CX bit 0 = P:, etc.)
+Return: AX = 0000h if supported
+	    CX:DX = old mask or 0000h:0000h on error
+	BX destroyed
+SeeAlso: AX=4A11h/BX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BX000B" name="2F4A11BX000B"><b>2F4A11BX000B</b></a> - INT 2F - DBLSPACE.BIN v6.2 - GET AUTOMOUNT DRIVES<br />
+<pre>
+INT 2F - DBLSPACE.BIN v6.2 - GET AUTOMOUNT DRIVES
+	AX = 4A11h
+	BX = 000Bh
+Return: AX = 0000h if supported
+	    CX:DX = mask of drives with AutoMount enabled
+		0000h:0000h on error
+	BX destroyed
+SeeAlso: AX=4A11h/BX=000Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BXFFFE" name="2F4A11BXFFFE"><b>2F4A11BXFFFE</b></a> - INT 2F U - DBLSPACE.BIN - RELOCATE<br />
+<pre>
+INT 2F U - DBLSPACE.BIN - RELOCATE
+	AX = 4A11h
+	BX = FFFEh
+	ES = segment to which to relocate DBLSPACE.BIN
+Return: ???
+Notes:	called by DBLSPACE.SYS to relocate DBLSPACE.BIN to its final position
+	  in memory
+	this function also unhooks and discards the code providing this
+	  function and AX=4A11h/BX=FFFFh
+	this function is also supported by the version of SuperStor bundled
+	  with IBM DOS 6.x and "preloading" versions of Stacker
+SeeAlso: AX=4A11h/BX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A11BXFFFF" name="2F4A11BXFFFF"><b>2F4A11BXFFFF</b></a> - INT 2F U - DBLSPACE.BIN - GET RELOCATION SIZE<br />
+<pre>
+INT 2F U - DBLSPACE.BIN - GET RELOCATION SIZE
+	AX = 4A11h
+	BX = FFFFh
+Return: AX = number of paragraphs needed by DBLSPACE.BIN
+Note:	used by DBLSPACE.SYS to relocate the DBLSPACE driver to its final
+	  position in memory
+	this function is also supported by the version of SuperStor bundled
+	  with IBM DOS 6.x and "preloading" versions of Stacker
+SeeAlso: AX=4A11h/BX=0000h,AX=4A11h/BX=FFFEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A12CX4D52" name="2F4A12CX4D52"><b>2F4A12CX4D52</b></a> - INT 2F - Microsoft Realtime Compression Interface (MRCI) - RAM-BASED SERVER<br />
+<pre>
+INT 2F - Microsoft Realtime Compression Interface (MRCI) - RAM-BASED SERVER
+	AX = 4A12h
+	CX = 4D52h ("MR")
+	DX = 4349h ("CI")
+Return: CX = 4943h ("IC") if installed
+	DX = 524Dh ("RM") if installed
+	    ES:DI -&gt; MRCINFO structure (see #00725 at INT 1A/AX=B001h)
+Note:	this call is functionally identical to INT 1A/AX=B001h, but should be
+	  called first, as the latter call is used for the first, ROM-based
+	  MRCI server, while this call is used for RAM-based servers which
+	  may be partially or entirely replacing a prior server
+SeeAlso: AX=4A12h/CX=5354h,INT 1A/AX=B001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A12CX5354" name="2F4A12CX5354"><b>2F4A12CX5354</b></a> - INT 2F - Stacker 4 LZS Compression Interface (LZSAPI)<br />
+<pre>
+INT 2F - Stacker 4 LZS Compression Interface (LZSAPI)
+	AX = 4A12h
+	CX = 5354h ("ST")
+	DX = 4143h ("AC")
+Return: AX = 4F4Bh ("OK") if installed
+	CX = 7374h ("st") if installed
+	DX = 6163h ("ac") if installed
+	    ES:DI -&gt; entry point in LZSAPI server (usually, driver
+		      STACKER.COM) containing far address of an actual
+		      LZSINFO structure (see #02808)
+SeeAlso: AX=4A12h/CX=4D52h,INT 25/AX=CDCDh
+
+Format of LZSINFO structure:
+Offset	Size	Description	(Table 02808)
+ 00h  6 BYTEs	signature "LZSAPI"
+ 06h	WORD	server version (200 (0C8h) for Stacker 4 and Stacker Anywhere)
+ 08h  4 BYTEs	vendor signature
+		"STAC" = Stac Electronics, Inc.
+ 0Ch  6 BYTEs	???
+ 12h	WORD	bit flags: server status/capabilities (see #02809)
+ 14h	DWORD	-&gt; Stacker 3.X-compatible compression procedure
+ 18h	DWORD	-&gt; Stacker 3.X-compatible decompression procedure
+ 1Ch  4 BYTEs	reserved (always set to 0)
+ 20h	DWORD	-&gt; incremental Stacker 3.x-compatible compression procedure
+		  (see #02810)
+ 24h  4 BYTEs	???
+ 28h	DWORD	-&gt; incremental Stacker 3.x-compatible decompression procedure
+		  (see #02811)
+ 2Ch  4	BYTES	???
+ 30h	DWORD	-&gt; new (Stacker 4) compression procedure
+ 34h  4 BYTEs	???
+ 38h	DWORD	-&gt; new (Stacker 4) decompression procedure
+Notes:	Stacker 4 usally keeps two different data-compression algorithms in
+	  memory (preferably in XMA):
+	    1) new (Stacker 4) data compression algorithm (4K LZ77 with hashing
+		  and static Huffman encoding), and
+	    2) old (Stacker 3.x-compatible) one (2K LZ77 with hashing), which
+		  is used to work with STACVOL files created under older
+		  versions of Stacker.
+
+Bitfields for LZSAPI capabilities:
+Bit(s)	Description	(Table 02809)
+ 0	???
+ 1	busy/error flag
+ 2-10	???
+ 11	maximum compressor/decompressor presented
+
+(Table 02810)
+Call Stacker 3.x-style non-incremental functions with:
+	STACK:	DWORD	return address for compress/decompress procedure
+		WORD	compression algorithm parameters (see #02812)
+		WORD	size of destination buffer (in bytes)
+		DWORD	address of destination buffer
+		WORD	size of source buffer (in bytes)
+		DWORD	address of source buffer
+Return: (compression/decompression procedure)
+	AX = size of resulting data in destination buffer
+	    0000h if error (either destination buffer too small or error in
+		  compressed data)
+
+(Table 02811)
+Call Stacker 4-style incremental procedures with:
+	STACK:	DWORD	return address for compr./decompr. procedure
+		DWORD	address of LZSSWAP structure (see #02813)
+			if 0000:0000, procedure uses non-incremental technique
+		WORD	compression algorithm parameters (see #02812)
+		WORD	size of destination buffer (in bytes)
+		DWORD	address of destination buffer
+		WORD	size of source buffer (in bytes)
+		DWORD	address of source buffer
+
+(Table 02812)
+Values for Compression algorithm parameters:
+Value	Compression level (/P=xx parameter)
+ 07F9h	  1
+ 0621h	  2
+ 0625h	  3
+ 0665h	  4
+ 0669h	  5
+ 06E9h	  6
+ 06EDh	  7
+ 07D1h	  8
+ 07D9h	  9
+
+Format of LZSSWAP structure:
+Offset	Size	Description	(Table 02813)
+ 00h  2 BYTEs	signature "CS"
+ 02h  6 BYTEs	reserved
+ 08h	DWORD	address of destination buffer swapping procedure
+ 0Ch	DWORD	address of stack swapping procedure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A13" name="2F4A13"><b>2F4A13</b></a> - INT 2F U - DBLSPACE.BIN - DBLSPACE/MRCI STEALTH PACKET API<br />
+<pre>
+INT 2F U - DBLSPACE.BIN - DBLSPACE/MRCI STEALTH PACKET API
+	AX = 4A13h
+Return: AX = 134Ah if supported
+	    ES:BX -&gt; entry point record (see #02814)
+SeeAlso: AX=4A11h/BX=0000h,AX=4A12h/CX=4D52h"MRCI"
+
+Format of DBLSPACE entry point record:
+Offset	Size	Description	(Table 02814)
+ 00h	DWORD	pointer to FAR function for ???
+ 04h  5 BYTEs	FAR JUMP instruction to ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5200" name="2F5200"><b>2F5200</b></a> - INT 2F - JAM.SYS v1.10+ - "GetVersion" - INSTALLATION CHECK<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "GetVersion" - INSTALLATION CHECK
+	AX = 5200h
+Return: AH = 80h (successful) if installed
+	BX = internal JAM.SYS version number
+	CX = size of JAMINFO structure (see #02831,#02832)
+	DX = JAM.SYS segment address
+Program: JAM.SYS is a main component of the JAM Real-Time Data Compression
+	  Utilities by George A. Reznik and friends (JAM Software).
+SeeAlso: AX=5201h
+
+Format of JAMINFO v1.10 structure:
+Offset	Size	Description	(Table 02831)
+ 00h 25 BYTEs	extended BIOS parameter block (BPB)
+ 19h 11 BYTEs	???
+ 25h	DWORD	total number of sectors in JAM archive file
+		(size of compressed data area)
+ 29h	BYTE	flags (see #02833)
+ 2Ah 127 BYTEs	full JAM archive file name
+ A9h	WORD	the number of fragments in archive file
+ ABh 96 BYTEs	archive file fragmentation list -
+		array of 16 FRAGMENT structures (see #02834)
+10Bh	DWORD	address of the host-drive DPB (Drive Parameter Block)
+10Fh	DWORD	number of free sectors in JAM archive file
+113h	WORD	device status word (see #02835)
+SeeAlso: #02832
+
+Format of JAMINFO v1.20 structure:
+Offset	Size	Description	(Table 02832)
+ 00h 25 BYTEs	extended BIOS parameter block (BPB)
+ 19h	BYTE	physical driver number
+ 1Ah	BYTE	reserved
+ 1Bh	BYTE	extended boot record signature
+ 1Ch	DWORD	volume serial number
+ 20h 11 BYTEs	volume label
+ 2Bh  8 BYTEs	file system ID
+ 33h	DWORD	total number of sectors in JAM archive file
+		(size of compressed data area)
+ 37h	BYTE	flags (see #02833)
+ 38h 128 BYTEs	full JAM archive file name
+ B8h	WORD	the number of fragments in archive file
+ BAh 96 BYTEs	archive file fragmentation list -
+		array of 16 FRAGMENT structures (see #02834)
+11Ah	DWORD	address of the host-drive DPB (Drive Parameter Block)
+11Eh	DWORD	number of free sectors in JAM archive file
+122h	WORD	device status word (see #02835)
+Note:	the first 33h bytes are copied from the archive file's boot sector
+SeeAlso: #02831
+
+Bitfields for JAMINFO flags:
+Bit(s)	Description	(Table 02833)
+ 2-0	reserved
+ 3	(v1.20+)
+ 4	enable direct write requests (Int 26h, non-DOS requests, etc.)
+ 5	read-only mode
+ 6	no write-behind caching
+ 7	full undelete-compatible allocation strategy
+SeeAlso: #02831,#02832
+
+Format of JAM FRAGMENT structure:
+Offset	Size	Description	(Table 02834)
+ 00h	WORD	starting sector (low word)
+ 02h	BYTE	starting sector (high byte)
+ 03h	WORD	size of fragment (low word)
+ 05h	BYTE	size of fragment (high byte)
+SeeAlso: #02831,#02832
+
+(Table 02835)
+Values for JAM.SYS status (high byte):
+ 00h	successful
+ 01h	drive is not a JAM drive
+ 02h	drive is already attached
+ 03h	archive file cluster size value is larger than driver's one
+ 04h	drive is not attached
+ 05h	drive is locked
+ 06h	drive is not locked
+ 07h	bad physical-level request
+ 08h	host drive reading/writing error
+ 09h	bad entries in JAM descriptor table
+ 0Ah	compressed data integrity error
+ 0Bh	archive file overflow
+ 0Ch	bad DOS request
+ 0Dh	incorrect parameters in JAMINFO structure
+Note:	the low byte of the status is the DOS error code for the Host drive
+SeeAlso: #02598 at INT 2F/AX=0802h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5201" name="2F5201"><b>2F5201</b></a> - INT 2F - JAM.SYS v1.10+ - "GetInfo" - GET COMPRESSED DRIVE INFORMATION<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "GetInfo" - GET COMPRESSED DRIVE INFORMATION
+	AX = 5201h
+	DL = compressed drive number (0-default, 1-A:, etc.)
+	DS:BX -&gt; buffer for JAMINFO structure (see #02831,#02832)
+Return: AH = status (00h,01h) (see #02835)
+SeeAlso: AX=5200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5202" name="2F5202"><b>2F5202</b></a> - INT 2F - JAM.SYS v1.10+ - "Attach" - MOUNT COMPRESSED DRIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "Attach" - MOUNT COMPRESSED DRIVE
+	AX = 5202h
+	DL = drive number (0-default, 1-A:, etc.) to attach to the JAM
+	      archive file
+	DS:BX -&gt; pointer to JAMINFO structure (see #02831,#02832), which
+	      contains parameters of the JAM file to mount, and pointer
+	      to the host drive DPB (i.e. DPB of the drive on which the
+	      JAM file is located)
+Return: AH = status (00h,02h,03h,08h,09h,0Dh) (see also #02835)
+	    03h archive file cluster size value is larger than driver's - not
+		  mounted
+	    09h bad entries in JAM descriptor table - file mounted read-only
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+SeeAlso: AX=5203h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5203" name="2F5203"><b>2F5203</b></a> - INT 2F - JAM.SYS v1.10+ - "Detach" - UNMOUNT COMPRESSED DRIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "Detach" - UNMOUNT COMPRESSED DRIVE
+	AX = 5203h
+	DL = drive number (0-default, 1-A:, etc.) to detach
+Return: AH = status (00h,01h,04h,05h,08h,09h,0Bh,0Dh) (see #02835)
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+SeeAlso: AX=5202h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5204" name="2F5204"><b>2F5204</b></a> - INT 2F - JAM.SYS v1.10+ - "Lock" - LOCK COMPRESSED DRIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "Lock" - LOCK COMPRESSED DRIVE
+	AX = 5204h
+	DL = drive number (0-default, 1-A:, etc.) to lock
+Return: AH = status (00h,01h,04h,05h,08h,09h,0Bh,0Dh) (see #02835)
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+SeeAlso: AX=5205h, AX=5206h, AX=5207h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5205" name="2F5205"><b>2F5205</b></a> - INT 2F - JAM.SYS v1.10+ - "UnLock" - UNLOCK COMPRESSED DRIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "UnLock" - UNLOCK COMPRESSED DRIVE
+	AX = 5205h
+	DL = drive number (0-default, 1-A:, etc.) to unlock
+Return: AH = status (00h,01h,04h,06h,08h,09h,0Dh) (see #02835)
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+SeeAlso: AX=5204h, AX=5206h, AX=5207h
+Note:	Lock and UnLock functions were added to the JAM API to prevent
+	  asynchronous physical-level access (see AX=5206h,AX=5207h) to
+	  compressed data on JAM drives. In other words, two or more programs
+	  which use JAM API (say, JMAX optimizer and JCHKDSK - disk checker)
+	  cannot be run on the same JAM drive simultaneously.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5206" name="2F5206"><b>2F5206</b></a> - INT 2F - JAM.SYS v1.10+ - "Read" - PHYSICAL READ DATA FROM JAM ARCHIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "Read" - PHYSICAL READ DATA FROM JAM ARCHIVE
+	AX = 5206h
+	DL = drive number (0-default, 1-A:, etc.)
+	DS:BX -&gt; disk transfer packet (see #02836)
+Return: AH = status (00h,01h,04h,06h,07h,08h,0Dh) (see #02835)
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+Program: JAM.SYS is a main component of the JAM Real-Time Data Compression
+	  Utilities by George A. Reznik and friends (JAM Software).
+SeeAlso: AX=5207h
+
+Format of disk transfer packet:
+Offset	Size	Description	(Table 02836)
+ 00h	DWORD	sector number
+ 04h	WORD	number of sectors to read(write)
+ 06h	DWORD	transfer address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5207" name="2F5207"><b>2F5207</b></a> - INT 2F - JAM.SYS v1.10+ - "Write" - PHYSICAL WRITE DATA TO JAM ARCHIVE<br />
+<pre>
+INT 2F - JAM.SYS v1.10+ - "Write" - PHYSICAL WRITE DATA TO JAM ARCHIVE
+	AX = 5207h
+	DL = drive number (0-default, 1-A:, etc.)
+	DS:BX -&gt; disk transfer packet (see #02836)
+Return: AH = status (00h,01h,04h,06h,07h,08h,0Dh) (see #02835)
+	AL = host drive error code (see #02598 at INT 2F/AX=0802h)
+SeeAlso: AX=5206h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC300DX0000" name="2FC300DX0000"><b>2FC300DX0000</b></a> - INT 2F U - SpaceManager - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - SpaceManager - INSTALLATION CHECK
+	AX = C300h
+	DX = 0000h
+Return: AL = FFh if any SpaceManager programs installed
+	    BX = 6F73h
+	    CX = 6F68h
+Program: SpaceManager is an enhancement for MS-DOS DoubleSpace by Vertisoft
+	  Systems, Inc.
+Range:	AH=C3h to AH=FFh, selected by scanning for first free multiplex number
+SeeAlso: AX=C300h/BX=4F53h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC300BX4F53" name="2FC300BX4F53"><b>2FC300BX4F53</b></a> - INT 2F U - SpaceManager - INSTALLATION VERIFICATION<br />
+<pre>
+INT 2F U - SpaceManager - INSTALLATION VERIFICATION
+	AX = C300h
+	BX = 4F53h ('OS')
+	CX = 4F48h ('OH')
+	DX = program identifier (see #03035) or 0666h for any SpaceManager prog
+Return: AL = FFh if BX/CX as specified and specified program installed
+	    BX = 6F73h ('os')
+	    CX = 6F68h ('oh')
+Range:	AH=C3h to AH=FFh, selected by scanning for first free multiplex number
+Note:	this call is chained if BX,CX, or DX are not as specified above
+SeeAlso: AX=C300h/DX=0000h
+
+(Table 03035)
+Values for SpaceManager program identifier:
+ 9000h	SMOUNT (SuperMount)
+ 9001h	SELECTC (SelectCompress)
+ 9002h	SUPERX (SuperExchange)
+ 9003h	FORTUNE (FortuneTeller)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC301" name="2FC301"><b>2FC301</b></a> - INT 2F U - SpaceManager - ???<br />
+<pre>
+INT 2F U - SpaceManager - ???
+	AX = C301h
+	DX = program identifier (9000h,9001h,9003h) (see #03035)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC302" name="2FC302"><b>2FC302</b></a> - INT 2F U - SpaceManager - ENABLE PROGRAM<br />
+<pre>
+INT 2F U - SpaceManager - ENABLE PROGRAM
+	AX = C302h
+	DX = program identifier (9000h,9001h,9003h) (see #03035)
+Return: AX destroyed
+SeeAlso: AX=C303h,AX=C306h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC303" name="2FC303"><b>2FC303</b></a> - INT 2F U - SpaceManager - DISABLE PROGRAM<br />
+<pre>
+INT 2F U - SpaceManager - DISABLE PROGRAM
+	AX = C303h
+	DX = program identifier (9000h,9001h,9003h) (see #03035)
+Return: AX destroyed
+SeeAlso: AX=C302h,AX=C306h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC304" name="2FC304"><b>2FC304</b></a> - INT 2F U - SpaceManager - GET PER-DRIVE ENABLEMENT TABLE<br />
+<pre>
+INT 2F U - SpaceManager - GET PER-DRIVE ENABLEMENT TABLE
+	AX = C304h
+	DX = program identifier (9000h,9001h,9003h) (see #03035)
+Return: ES:BX -&gt; 26-byte drive table (00h disabled for drive, 01h enabled)
+	AX destroyed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC305DX9003" name="2FC305DX9003"><b>2FC305DX9003</b></a> - INT 2F U - SpaceManager - FORTUNE.EXE - NOP<br />
+<pre>
+INT 2F U - SpaceManager - FORTUNE.EXE - NOP
+	AX = C305h
+	DX = 9003h
+Return: AX destroyed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC305" name="2FC305"><b>2FC305</b></a> - INT 2F U - SpaceManager - ???<br />
+<pre>
+INT 2F U - SpaceManager - ???
+	AX = C305h
+	DX = program identifier (9000h,9001h) (see #03035)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC306" name="2FC306"><b>2FC306</b></a> - INT 2F U - SpaceManager - CHECK WHETHER PROGRAM ENABLED<br />
+<pre>
+INT 2F U - SpaceManager - CHECK WHETHER PROGRAM ENABLED
+	AX = C306h
+	DX = program identifier (9000h,9001h,9003h) (see #03035)
+Return: AL = current state (00h disabled, FAh enabled)
+	AH destroyed
+SeeAlso: AX=C302h,AX=C303h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC307DX9001" name="2FC307DX9001"><b>2FC307DX9001</b></a> - INT 2F U - SpaceManager - SELECTC - ???<br />
+<pre>
+INT 2F U - SpaceManager - SELECTC - ???
+	AX = C307h
+	DX = 9001h
+	BX = ???
+	CX = ???
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC308DX9001" name="2FC308DX9001"><b>2FC308DX9001</b></a> - INT 2F U - SpaceManager - SELECTC - ???<br />
+<pre>
+INT 2F U - SpaceManager - SELECTC - ???
+	AX = C308h
+	DX = 9001h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

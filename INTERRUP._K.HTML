@@ -1,0 +1,1899 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._K</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category K - keyboard enhancers
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#10FA"><b>10FA</b> - INT 10 - FASTBUFF.COM - INSTALLATION CHECK</a><br />
+<a href="#12----CX1806"><b>12----CX1806</b> - INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK</a><br />
+<a href="#1482"><b>1482</b> - INT 14 - KEYBOARD FOSSIL</a><br />
+<a href="#1604_1"><b>1604</b> - INT 16 - K3PLUS v6.22+ - SET KEYCLICK</a><br />
+<a href="#160A"><b>160A</b> - INT 16 - KEYBOARD - GET KEYBOARD ID</a><br />
+<a href="#1620_1"><b>1620</b> - INT 16 O - K3 v1.5x, K3PLUS v5.xx - GET EXTENDED BUFFER STATE</a><br />
+<a href="#1625_0"><b>1625</b> - INT 16 O - K3 v1.5x, K3PLUS v5.xx - COPY INTO EXTENDED BUFFER</a><br />
+<a href="#164B"><b>164B</b> - INT 16 - Frank Klemm Keyboard Driver v2.0 - API</a><br />
+<a href="#164D4F"><b>164D4F</b> - INT 16 - M16_KBD.COM v5.6 - INSTALLATION CHECK</a><br />
+<a href="#165472BX4C54"><b>165472BX4C54</b> - INT 16 - TrLit - API</a><br />
+<a href="#1670"><b>1670</b> - INT 16 - FAKEY.COM - INSTALLATION CHECK</a><br />
+<a href="#1671"><b>1671</b> - INT 16 - FAKEY.COM - PUSH KEYSTROKES</a><br />
+<a href="#1672"><b>1672</b> - INT 16 - FAKEY.COM - CLEAR FAKED KEYSTROKES</a><br />
+<a href="#1673"><b>1673</b> - INT 16 - FAKEY.COM - PLAY TONES</a><br />
+<a href="#1687"><b>1687</b> - INT 16 - DK.COM v1.03 - INSTALLATION CHECK</a><br />
+<a href="#1692"><b>1692</b> - INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)</a><br />
+<a href="#16A2"><b>16A2</b> - INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)</a><br />
+<a href="#16AF20BX4B33"><b>16AF20BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.0+) - GET EXTENDED BUFFER STATE</a><br />
+<a href="#16AF25BX4B33"><b>16AF25BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.0+) - COPY INTO EXTENDED BUFFER</a><br />
+<a href="#16AF4DBX4B33"><b>16AF4DBX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.0+) - GET VERSION INFORMATION</a><br />
+<a href="#16AF50BX4B33"><b>16AF50BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.0+) - CHECK IF FUNCTION SUPPORTED</a><br />
+<a href="#16AF51BX4B33"><b>16AF51BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.00+) - SET OPTIONS</a><br />
+<a href="#16AF80BX4B33"><b>16AF80BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 09h VECTOR</a><br />
+<a href="#16AF81BX4B33"><b>16AF81BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 16h HANDLER</a><br />
+<a href="#16AF82BX4B33"><b>16AF82BX4B33</b> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 10h HANDLER</a><br />
+<a href="#16CA--BX736B"><b>16CA--BX736B</b> - INT 16 - CtrlAlt Associates STACKEY.COM v3.00 - API</a><br />
+<a href="#16FF"><b>16FF</b> - INT 16 - KEYBOARD - KBUF extensions - ADD KEY TO TAIL OF KEYBOARD BUFFER</a><br />
+<a href="#210A00"><b>210A00</b> - INT 21 - WCED v1.6+ - INSTALLATION CHECK</a><br />
+<a href="#21FF_0"><b>21FF</b> - INT 21 - CED (Command EDitor) - INSTALLABLE COMMANDS</a><br />
+<a href="#21FF_2"><b>21FF</b> - INT 21 - DOSED.COM - INSTALLATION CHECK</a><br />
+<a href="#2D--10_6"><b>2D--10</b> - INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE</a><br />
+<a href="#2D--10_7"><b>2D--10</b> - INT 2D - ALTMENU - GET POINTER TO KEY CODE</a><br />
+<a href="#2F4800"><b>2F4800</b> - INT 2F - DOS 5+ DOSKEY - INSTALLATION CHECK</a><br />
+<a href="#2F4800_0"><b>2F4800</b> - INT 2F - PCED v2.1 - INSTALLATION CHECK</a><br />
+<a href="#2F4810"><b>2F4810</b> - INT 2F - DOS 5+ DOSKEY, PCED v2.1 - READ INPUT LINE FROM CONSOLE</a><br />
+<a href="#2F48C0"><b>2F48C0</b> - INT 2F - PCED v2.1 - PCED API</a><br />
+<a href="#2F48C3BL00"><b>2F48C3BL00</b> - INT 2F - PCED/KEYDEF - INSTALLATION CHECK</a><br />
+<a href="#2F4B52"><b>2F4B52</b> - INT 2F - KeyRus v7.3 - API</a><br />
+<a href="#2F7041BX4B70"><b>2F7041BX4B70</b> - INT 2F U - HP 200LX - KEY200 - INSTALLATION CHECK</a><br />
+<a href="#2FAD80"><b>2FAD80</b> - INT 2F u - MS-DOS 3.3+ KEYB.COM internal - INSTALLATION CHECK</a><br />
+<a href="#2FAD80_0"><b>2FAD80</b> - INT 2F u - Novell DOS 7 KEYB.COM - INSTALLATION CHECK</a><br />
+<a href="#2FAD81"><b>2FAD81</b> - INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD CODE PAGE</a><br />
+<a href="#2FAD82"><b>2FAD82</b> - INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD MAPPING</a><br />
+<a href="#2FAD83"><b>2FAD83</b> - INT 2F - DOS 5+ KEYB.COM - GET KEYBOARD MAPPING</a><br />
+<a href="#2FAD84"><b>2FAD84</b> - INT 2F - PC DOS 5.0+ KEYB.COM - SET KEYBOARD SUB-MAPPING</a><br />
+<a href="#2FAD85"><b>2FAD85</b> - INT 2F - PC DOS 5.0+ KEYB.COM - GET KEYBOARD SUB-MAPPING</a><br />
+<a href="#2FC000_12"><b>2FC000</b> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK</a><br />
+<a href="#2FC001CX03FB"><b>2FC001CX03FB</b> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - UNINSTALL</a><br />
+<a href="#2FC0AE"><b>2FC0AE</b> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK</a><br />
+<a href="#2FC0AF"><b>2FC0AF</b> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - GET BUFFER ADDRESS</a><br />
+<a href="#2FCF00"><b>2FCF00</b> - INT 2F - TEMPLEXX 1.0 - INSTALLATION CHECK</a><br />
+<a href="#2FD3D3BH00"><b>2FD3D3BH00</b> - INT 2F - KDRIVE v2.x - INSTALLATION CHECK</a><br />
+<a href="#2FD44FBX0000"><b>2FD44FBX0000</b> - INT 2F - 4DOS v4.0+ - KSTACK.COM - INSTALLATION CHECK</a><br />
+<a href="#2FD44FBX0001"><b>2FD44FBX0001</b> - INT 2F - 4DOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK</a><br />
+<a href="#2FDC00"><b>2FDC00</b> - INT 2F - GOLD.COM - INSTALLATION CHECK</a><br />
+<a href="#2FDC01"><b>2FDC01</b> - INT 2F - GOLD.COM - GET STATE</a><br />
+<a href="#2FDC02"><b>2FDC02</b> - INT 2F - GOLD.COM - SET STATE</a><br />
+<a href="#2FE000DX5354"><b>2FE000DX5354</b> - INT 2F - StuffIt v3.21+ - INSTALLATION CHECK</a><br />
+<a href="#2FE100"><b>2FE100</b> - INT 2F - Phantom2 v1.1+ - INSTALLATION CHECK</a><br />
+<a href="#2FE101"><b>2FE101</b> - INT 2F - Phantom2 v1.1+ - FUNCTION REQUEST</a><br />
+<a href="#2FE102"><b>2FE102</b> - INT 2F - Phantom2 v1.1+ - UNINSTALL</a><br />
+<a href="#2FE103"><b>2FE103</b> - INT 2F - Phantom2 v2.8 - SET ??? FLAG</a><br />
+<a href="#2FE300"><b>2FE300</b> - INT 2F - ANARKEY.COM - INSTALLATION CHECK</a><br />
+<a href="#2FE301"><b>2FE301</b> - INT 2F U - ANARKEY.COM v2+ - GET ???</a><br />
+<a href="#2FE302"><b>2FE302</b> - INT 2F U - ANARKEY.COM v3+ - ???</a><br />
+<a href="#2FE303"><b>2FE303</b> - INT 2F U - ANARKEY.COM v3+ - ANARKMD API</a><br />
+<a href="#2FE304"><b>2FE304</b> - INT 2F U - ANARKEY.COM v2+ - ???</a><br />
+<a href="#2FE305"><b>2FE305</b> - INT 2F U - ANARKEY.COM v3+ - ENABLE/SUSPEND ANARKEY</a><br />
+<a href="#2FE306"><b>2FE306</b> - INT 2F U - ANARKEY.COM v4.0 - GET ???</a><br />
+<a href="#2FE307"><b>2FE307</b> - INT 2F U - ANARKEY.COM v4.0 - GET ???</a><br />
+<a href="#2FE337"><b>2FE337</b> - INT 2F - INT16.COM - INSTALLATION CHECK</a><br />
+<a href="#2FE44FBX0000"><b>2FE44FBX0000</b> - INT 2F - NDOS v4.0+ - KSTACK.COM - INSTALLATION CHECK</a><br />
+<a href="#2FE44FBX0001"><b>2FE44FBX0001</b> - INT 2F - NDOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK</a><br />
+<a href="#2FED58"><b>2FED58</b> - INT 2F U - K5.COM - INSTALLATION CHECK</a><br />
+<a href="#2FF000"><b>2FF000</b> - INT 2F U - 4MAP - INSTALLATION CHECK</a><br />
+<a href="#2FF001"><b>2FF001</b> - INT 2F U - 4MAP - GET KEY MAPPINGS</a><br />
+<a href="#2FF002"><b>2FF002</b> - INT 2F U - 4MAP - INSERT CHARACTER INTO ???</a><br />
+<a href="#2FF003"><b>2FF003</b> - INT 2F U - 4MAP - INSERT CHARACTER INTO ???</a><br />
+<a href="#2FFD12"><b>2FFD12</b> - INT 2F - KS/KEYSTKCT.EXE - INSTALLATION CHECK</a><br />
+<a href="#66_6"><b>66</b> - INT 66 - Newkey v5.4 - INSTALLATION VECTOR</a><br />
+
+<hr />
+
+<a href="#10FA" name="10FA"><b>10FA</b></a> - INT 10 - FASTBUFF.COM - INSTALLATION CHECK<br />
+<pre>
+INT 10 - FASTBUFF.COM - INSTALLATION CHECK
+	AH = FAh
+Return: AX = 00FAh if installed
+	    ES = segment of resident code
+Program: FASTBUFF.COM is a keyboard speedup/screen blanking utility by David
+	  Steiner
+Index:	screen saver;FASTBUFF
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#12----CX1806" name="12----CX1806"><b>12----CX1806</b></a> - INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 12 - KEYBUI v2.0+ - INSTALLATION CHECK
+	CX = 1806h
+Return: AX = kilobytes of contiguous memory starting at absolute address 00000h
+	CX = 1960h if installed
+Program: KEYBUI is a resident keyboard driver by Johan Zwiekhorst which allows
+	  accented characters and box drawing on standard QWERTY keyboards; it
+	  also provides break-to-DOS and screen blanking capabilities
+SeeAlso: INT 14/AX=AA01h
+Index:	screen saver;KEYBUI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1482" name="1482"><b>1482</b></a> - INT 14 - KEYBOARD FOSSIL<br />
+<pre>
+INT 14 - KEYBOARD FOSSIL
+	AH = 82h
+SeeAlso: AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1604_1" name="1604_1"><b>1604</b></a> - INT 16 - K3PLUS v6.22+ - SET KEYCLICK<br />
+<pre>
+INT 16 - K3PLUS v6.22+ - SET KEYCLICK
+	AH = 04h
+	AL = keyclick state
+	    00h keyclick off, leave loudness setting unchanged
+	    01h keyclick on, leave loudness setting unchanged
+	    else
+	       bit 0: keyclick enabled if set
+	       bits 7-1: new keyclick loudness (non-zero)
+Return: AH destroyed by many BIOSes
+Note:	Applications which try to set a new loudness, but are unsure of the
+	  results of other INT 16/AH=04h implementations, should set the new
+	  loudness first, and then call this function again with AL=01h or
+	  AL=00h
+SeeAlso: AH=03h,AH=04h"KEYBOARD",AX=AF4Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160A" name="160A"><b>160A</b></a> - INT 16 - KEYBOARD - GET KEYBOARD ID<br />
+<pre>
+INT 16 - KEYBOARD - GET KEYBOARD ID
+	AH = 0Ah
+Return: BX = keyboard ID (see #00586)
+	AH destroyed by many BIOSes
+Notes:	check return value from AH=09h to determine whether this function is
+	  supported
+	this function is also supported by the K3PLUS v6.00+ INT 16 BIOS
+	  replacement
+SeeAlso: AH=09h,AX=AF4Dh,MEM 0040h:00C2h"AMI"
+
+(Table 00586)
+Values for keyboard ID:
+ 0000h	no keyboard attached
+ 41ABh	Japanese "G" keyboard (translate mode)
+	MF2 Keyboard (usually in translate mode)
+ 54ABh	Japanese "P" keyboard (translate mode)
+ 83ABh	Japanese "G" keyboard (pass-through mode)
+	MF2 Keyboard (pass-through mode)
+ 84ABh	Japanese "P" keyboard (pass-through mode)
+ 86ABh	122-key keyboard
+ 90ABh	old Japanese "G" keyboard
+ 91ABh	old Japanese "P" keyboard
+ 92ABh	old Japanese "A" keyboard
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1620_1" name="1620_1"><b>1620</b></a> - INT 16 O - K3 v1.5x, K3PLUS v5.xx - GET EXTENDED BUFFER STATE<br />
+<pre>
+INT 16 O - K3 v1.5x, K3PLUS v5.xx - GET EXTENDED BUFFER STATE
+	AH = 20h
+Return: AX = K3 version
+	ES:BX -&gt; extended keyboard buffer start
+	ES:DX -&gt; extended keyboard buffer end
+	ES:SI -&gt; next keystroke
+	ES:DI -&gt; last keystroke in buffer
+	CX = number of keystrokes in buffer
+Program: K3PLUS is an extended keyboard driver by Matthias Paul and Axel C.
+	  Frinke, originally based on the K3 extended German keyboard driver
+	  by Martin Gerdes published in c't magazine in 1988
+Note:	this function was normally unsupported under K3PLUS v6.00-v6.22 and
+	  is no longer supported by v6.30+; use AX=AF20h instead
+SeeAlso: AH=25h"K3",AX=AF20h,INT 2F/AX=D44Fh/BX=0000h,INT 2F/AX=ED58h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1625_0" name="1625_0"><b>1625</b></a> - INT 16 O - K3 v1.5x, K3PLUS v5.xx - COPY INTO EXTENDED BUFFER<br />
+<pre>
+INT 16 O - K3 v1.5x, K3PLUS v5.xx - COPY INTO EXTENDED BUFFER
+	AH = 25h
+	CX = number of keystrokes to copy
+	ES:SI -&gt; buffer containing keystrokes
+Return: CF clear if successful
+	CF set on error (i.e. buffer full)
+	    CX = number of keystrokes NOT transferred
+	    ES:SI -&gt; first keystroke not transferred
+Note:	this function was normally unsupported under K3PLUS v6.00-v6.22 and
+	  is no longer supported by v6.30+; use AX=AF25h instead
+SeeAlso: AH=05h,AH=20h"K3",AX=AF25h,INT 2F/AX=D44Fh/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164B" name="164B"><b>164B</b></a> - INT 16 - Frank Klemm Keyboard Driver v2.0 - API<br />
+<pre>
+INT 16 - Frank Klemm Keyboard Driver v2.0 - API
+	AH = 4Bh
+	CX = code or action
+	    0000h-FEFFh key code
+	    FF00h-FFFFh action (see #00594)
+	BL = scan code (normal keys) or scan code + 60h (enhanced keys)
+	BH = shift state (see #00595)
+Return: CX = previous code or action
+
+(Table 00594)
+Values for Frank Klemm Keyboard Driver action code:
+ FF00h	no action
+ FF01h	hardcopy
+ FF02h	left shift
+ FF03h	right shift
+ FF04h	left Ctrl
+ FF05h	right Ctrl
+ FF06h	left Alt
+ FF07h	right Alt / AltGr
+ FF08h	CapsLock
+ FF09h	NumLock
+ FF0Ah	ScrlLock
+ FF0Bh	Insert (returns code 5200h or 52E0h)
+ FF0Ch	Pause
+ FF0Dh	Ctrl-Break function
+ FF0Eh	warm boot via far jump to F000h:FFF0h
+ FF0Fh	terminate current program
+ FF10h	key for entering keys via Alt-numpad (read-only)
+ FF11h	clear keyboard buffer
+ FF12h	reset (warmboot on XT)
+ FF13h	mouse sensitivity (read-only)
+ FF14h	keyjobs (read-only)
+ FF15h	SysRq
+ FF16h	turn on CPU cache (486+)
+ FF17h	turn off CPU cache (486+)
+SeeAlso: #00595
+
+(Table 00595)
+Values for Frank Klemm Keyboard Driver shift state:
+ 00h	no shift keys
+ 01h	either Shift
+ 02h	either Ctrl
+ 03h	left Alt
+ 04h	Ctrl + Alt
+---standard keyboard---
+ 05h	right Alt / AltGr
+---Russian keyboard---
+ 05h	Russian + no shift keys
+ 06h	Russian + either Shift
+SeeAlso: #00594
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#164D4F" name="164D4F"><b>164D4F</b></a> - INT 16 - M16_KBD.COM v5.6 - INSTALLATION CHECK<br />
+<pre>
+INT 16 - M16_KBD.COM v5.6 - INSTALLATION CHECK
+	AX = 4D4Fh
+Return: AX = 6F6Dh if installed
+	    ES = segment of resident code
+Program: M16_KBD is a shareware Cyrillic keyboard driver by I.V. Morozov
+SeeAlso: INT 10/AX=1130h/BX=4D4Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165472BX4C54" name="165472BX4C54"><b>165472BX4C54</b></a> - INT 16 - TrLit - API<br />
+<pre>
+INT 16 - TrLit - API
+	AX = 5472h ('Tr')
+	BX = 4C54h ('Lt')
+	CL = function
+	    00h installation check
+		Return:	DX = 1234h if installed
+			    AX = 100*version (binary, 00E9h = v2.33)
+			    CX = resident code segment
+	    01h get original INT 09 vector
+		Return: ES:BX -&gt; previous handler
+	    02h get original INT 16 vector
+		Return: ES:BX -&gt; previous handler
+	    else chained
+	CH = 00h (for backward compatibility with versions before 2.30)
+Program: TrLit is a Russian keyboard transliterator by Rostislav Krasny
+Index:	installation check;TrLit
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1670" name="1670"><b>1670</b></a> - INT 16 - FAKEY.COM - INSTALLATION CHECK<br />
+<pre>
+INT 16 - FAKEY.COM - INSTALLATION CHECK
+	AH = 70h
+Return: AX = 1954h if installed
+Program: FAKEY is a keystroke faking utility by System Enhancement Associates
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1671" name="1671"><b>1671</b></a> - INT 16 - FAKEY.COM - PUSH KEYSTROKES<br />
+<pre>
+INT 16 - FAKEY.COM - PUSH KEYSTROKES
+	AH = 71h
+	CX = number of keystrokes
+	DS:SI -&gt; array of words containing keystrokes to be returned by AH=00h
+Program: FAKEY is a keystroke faking utility by System Enhancement Associates
+SeeAlso: AH=05h,AH=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1672" name="1672"><b>1672</b></a> - INT 16 - FAKEY.COM - CLEAR FAKED KEYSTROKES<br />
+<pre>
+INT 16 - FAKEY.COM - CLEAR FAKED KEYSTROKES
+	AH = 72h
+Program: FAKEY is a keystroke faking utility by System Enhancement Associates
+SeeAlso: AH=71h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1673" name="1673"><b>1673</b></a> - INT 16 - FAKEY.COM - PLAY TONES<br />
+<pre>
+INT 16 - FAKEY.COM - PLAY TONES
+	AH = 73h
+	CX = number of tones to play
+	DS:SI -&gt; array of tones (see #00605)
+Program: FAKEY is a keystroke faking utility by System Enhancement Associates
+SeeAlso: INT 15/AX=1019h
+
+Format of FAKEY.COM tone array entries:
+Offset	Size	Description	(Table 00605)
+ 00h	WORD	divisor for timer channel 2
+ 02h	WORD	duration in clock ticks
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1687" name="1687"><b>1687</b></a> - INT 16 - DK.COM v1.03 - INSTALLATION CHECK<br />
+<pre>
+INT 16 - DK.COM v1.03 - INSTALLATION CHECK
+	AH = 87h
+Return: AX = 4A57h ('JW') if installed
+Program: DK.COM is the resident part of a small keyboard macro utility
+	  by Digital Mechanics.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1692" name="1692"><b>1692</b></a> - INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)<br />
+<pre>
+INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)
+	AH = 92h
+Return: AH &lt;= 80h if enhanced keyboard functions (AH=10h-12h) supported
+Desc:	this function is called by the DOS 3.2 KEYBxx.COM and DOS 5+ KEYB.COM
+	  to determine the highest supported keyboard function
+Note:	many BIOSes (including at least some versions of Phoenix and AMI) will
+	  destroy AH on return from functions higher than AH=12h, returning
+	  12h less than was in AH on entry (due to a chain of DEC/JZ
+	  instructions)
+SeeAlso: AH=05h"PCjr",AH=A2h,INT 2F/AX=AD80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16A2" name="16A2"><b>16A2</b></a> - INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)<br />
+<pre>
+INT 16 - KEYB.COM KEYBOARD CAPABILITIES CHECK (not an actual function!)
+	AH = A2h
+Return: AH &lt;= 80h if 122-key keyboard functions (AH=20h-22h) supported
+Desc:	this function is called by the DOS 3.2 KEYBxx.COM and DOS 5+ KEYB.COM
+	  to determine the highest supported keyboard function
+Note:	many BIOSes (including at least some versions of Phoenix and AMI) will
+	  destroy AH on return from functions higher than AH=12h, returning
+	  12h less than was in AH on entry (due to a chain of DEC/JZ
+	  instructions)
+SeeAlso: AH=05h"PCjr",AH=92h,INT 2F/AX=AD80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF20BX4B33" name="16AF20BX4B33"><b>16AF20BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.0+) - GET EXTENDED BUFFER STATE<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.0+) - GET EXTENDED BUFFER STATE
+	AX = AF20h
+	BX = 4B33h ('K3')
+Return: AX = K3 version (same as returned in BX by AX=AF4Dh)
+	ES:BX -&gt; extended keyboard buffer start
+	ES:DX -&gt; extended keyboard buffer end
+	ES:SI -&gt; next keystroke
+	ES:DI -&gt; last keystroke in buffer
+	CX = number of keystrokes in buffer
+Program: K3PLUS is an extended keyboard driver by Matthias Paul and Axel C.
+	  Frinke, originally based on the K3 extended German keyboard driver
+	  by Martin Gerdes published in c't magazine in 1988
+Note:	this function replaces the identical function AH=20h"K3"
+SeeAlso: AH=20h"K3",AX=AF25h,AX=AF4Dh,AX=AF50h,INT 2F/AX=ED58h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF25BX4B33" name="16AF25BX4B33"><b>16AF25BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.0+) - COPY INTO EXTENDED BUFFER<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.0+) - COPY INTO EXTENDED BUFFER
+	AX = AF25h
+	BX = 4B33h ('K3')
+	CX = number of keystrokes to copy
+	ES:SI -&gt; buffer containing keystrokes
+Return: CF clear if successful
+	CF set on error (i.e. buffer full)
+	    CX = number of keystrokes NOT transferred
+	    ES:SI -&gt; first keystroke not transferred
+Note:	this function replaces the identical function AH=25h"K3"
+SeeAlso: AH=25h"K3",AX=AF20h,AX=AF4Dh,AX=AF50h,INT 2F/AX=D44Fh/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF4DBX4B33" name="16AF4DBX4B33"><b>16AF4DBX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.0+) - GET VERSION INFORMATION<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.0+) - GET VERSION INFORMATION
+	AX = AF4Dh
+	BX = 4B33h ('K3')
+Return: AL = 50h if installed
+	    BX = K3 version
+	    DX = API version
+	    ES:CX -&gt; K3 structure (version-dependent) (see #00608)
+Program: K3PLUS is an extended keyboard driver by Matthias Paul and Axel C.
+	  Frinke, originally based on the K3 extended German keyboard driver
+	  by Martin Gerdes published in c't magazine in 1988
+SeeAlso: AX=AF20h,AX=AF50h,AX=AF80h,AX=AF82h/BX=4B33h,INT 2F/AX=D44Fh/BX=0000h
+SeeAlso: INT 2F/AX=ED58h
+Index:	installation check;K3PLUS
+
+Format of internal K3 structure:
+Offset	Size	Description	(Table 00608)
+ 00h  3 BYTEs	signature "K3$"
+ 03h	BYTE	length of structure, including this byte and signature
+ 04h	WORD	compiler switch option flags A (see #00609)
+ 06h	WORD	compiler switch option flags B (see #00610)
+ 08h	BYTE	internal flags A (see #00611)
+ 09h	BYTE	internal flags B (see #00612)
+ 0Ah	WORD	DOS version recorded at startup
+ 0Ch	WORD	"ActTypeSpeed"
+ 0Eh	WORD	last Keyboard-ID sent
+		41ABh translated, 83ABh native (pass-through)
+ 10h	WORD	offset of K3TAB Special
+ 12h	WORD	offset of K3TAB German
+ 14h	WORD	offset of K3TAB Alt
+ 16h	WORD	offset of K3TAB AltGr
+ 18h	WORD	offset of K3TAB Ctrl
+ 1Ah	WORD	offset of K3TAB NPad
+ 1Ch	WORD	offset of K3TAB CtrlNPad
+ 1Eh	WORD	offset of K3TAB AltNPad
+ 20h	WORD	offset of K3TAB ApoTbl or 0000h
+ 22h	WORD	offset of K3TAB UmlautTbl or 0000h
+ 24h	WORD	offset of K3TAB UmlautTblExp or 0000h
+ 26h	WORD	length of video mode table
+ 28h	WORD	offset of VidMdTbl or 0000h
+ 2Ah	BYTE	'$' end marker
+
+Bitfields for K3PLUS compiler switch option flags A:
+Bit(s)	Description	(Table 00609)
+ 15	GuINT16Fct2 (general use of INT 16 function 2)
+ 14	Int15df (INT 15 has to be predefined)
+ 13	GuAltNP (general use of Alt Numpad)
+ 12	SupAT (ATs+ supported)
+ 11	GuINT16Fct3 (general use of INT 16 function 3)
+ 10	GuINT16Ret (general use of INT16 bad function return)
+ 9-8	Layout (0-2, 3 reserved; 0=PC, 1=AT, 2=MF)
+ 7	ForceMF (force MF decode without read-ID)
+ 6	KXlate (translate keys for special keyboard)
+ 5	UmlautX (umlaut translation capability included)
+ 4	ApoX (translate apostrophe)
+ 3	DoINT16 (INT 16 handler included)
+ 2	UseCC (CopyCursor included)
+ 1-0	UseEB
+	0=no extended keystroke buffer, 1=reserve mem, 2=use PSP, 3=reserved
+
+Bitfields for K3 compiler switch option flags B:
+Bit(s)	Description	(Table 00610)
+ 15-11	reserved (0)
+ 10	CtrlSeq (Ctrl macro capability included)
+ 9-8	SupINT16fct55FE
+ 6	DoInstallCheck (check for double installation)
+ 5	SupINT16fct5PcJr (INT 16/AH=05h"PCjr" supported)
+ 4	SendOut (sound and message output supported)
+ 3	SupInt16fct5500 (INT 16/AX=5500h supported)
+ 2	GuINT15Fct4F (calls to INT 15/AH=4Fh supported)
+ 1-0	UseBufferStart (0=use standard area, 1=set standard area,
+	2=use internal indexes, 3=reserved)
+
+Bitfields for K3 internal flags A:
+Bit(s)	Description	(Table 00611)
+ 7	DoingUmlautExp
+ 6	CallINT15fct4F
+ 5	Beep1 (requires SendOut set in option flags B)
+ 4	ATflag (set for AT, 386, PS/2 Models 50-80)
+ 3	XTflag (set for PC, PC/XT, Micromint PC, Pencock PC, PS/2 Model 30)
+ 2	KeyClick
+ 1	UmlautExp
+ 0	UmlautTrans
+
+Bitfields for K3 internal flags B:
+Bit(s)	Description	(Table 00612)
+ 7-5	reserved
+ 4	TranslateE0 enabled
+ 3	Boot enabled
+ 2	PrintScreen enabled
+ 1	Break enabled
+ 0	ApoPendingBeep
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF50BX4B33" name="16AF50BX4B33"><b>16AF50BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.0+) - CHECK IF FUNCTION SUPPORTED<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.0+) - CHECK IF FUNCTION SUPPORTED
+	AX = AF50h
+	BX = 4B33h ('K3')
+	CH = function
+	    00h get function flags
+		CL = 00h
+		Return: CX = supported function flags (see #00613)
+	    nonzero reserved for extensions
+SeeAlso: AX=AF20h,AX=AF4Dh,AX=AF51h,AX=AF80h
+
+Bitfields for K3PLUS supported function list:
+Bit(s)	Description	(Table 00613)
+ 0	function 4Dh supported
+ 1	function 50h supported
+ 2-3	reserved (0)
+ 4	function 20h supported
+ 5	function 25h supported
+ 6	function 51h supported
+ 7	reserved (0)
+ 8	function 80h supported
+ 9	function 81h supported
+ 10	function 82h supported
+ 11-15	reserved (0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF51BX4B33" name="16AF51BX4B33"><b>16AF51BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.00+) - SET OPTIONS<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.00+) - SET OPTIONS
+	AX = AF51h
+	BX = 4B33h ('K3')
+	CX = switches
+Return: AL = status
+	    00h done
+		CX = previous switch settings
+	    01h switch not supported
+	    FFh other error
+SeeAlso: AX=AF4Dh,AX=AF50h,AX=AF80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF80BX4B33" name="16AF80BX4B33"><b>16AF80BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 09h VECTOR<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 09h VECTOR
+	AX = AF80h
+	BX = 4B33h ('K3')
+Return: AL = status
+	    00h not supported
+	    81h if successful
+		ES:CX -&gt; original INT 09 handler
+SeeAlso: AX=AF4Dh,AX=AF50h,AX=AF81h,AX=AF82h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF81BX4B33" name="16AF81BX4B33"><b>16AF81BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 16h HANDLER<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 16h HANDLER
+	AX = AF81h
+	BX = 4B33h ('K3')
+Return: AL = status
+	    00h not supported
+	    82h if successful
+		ES:CX -&gt; original INT 16 handler
+SeeAlso: AX=AF4Dh,AX=AF50h,AX=AF80h,AX=AF82h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16AF82BX4B33" name="16AF82BX4B33"><b>16AF82BX4B33</b></a> - INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 10h HANDLER<br />
+<pre>
+INT 16 - K3PLUS v6.00+ (API v2.00+) - GET ORIGINAL INT 10h HANDLER
+	AX = AF82h
+	BX = 4B33h ('K3')
+Return: AL = status
+	    00h not supported
+	    83h if successful
+		ES:CX -&gt; original INT 10 handler
+Program: K3PLUS is an extended keyboard driver by Matthias Paul and Axel C.
+	  Frinke, originally based on the K3 extended German keyboard driver
+	  by Martin Gerdes published in c't magazine in 1988
+SeeAlso: AX=AF4Dh,AX=AF50h,AX=AF80h,AX=AF81h,INT 2F/AX=ED58h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16CA--BX736B" name="16CA--BX736B"><b>16CA--BX736B</b></a> - INT 16 - CtrlAlt Associates STACKEY.COM v3.00 - API<br />
+<pre>
+INT 16 - CtrlAlt Associates STACKEY.COM v3.00 - API
+	AH = CAh
+	BX = 736Bh ("sk")
+	CX = 736Bh
+	AL = function
+	    00h installation check
+		Return: DX = words available in keyboard buffer
+	    01h place keystroke in buffer
+		DX = keystroke (DH = scan code, DL = ASCII character)
+		Return: DX = words available in keyboard buffer
+			    FFFFh on error
+	    02h flush STACKEY and BIOS keyboard buffers
+Return: AX = CAFFh if installed
+	    BX = segment of resident code
+	    CX = STACKEY version (CH = major, CL = minor)
+Program: STACKEY is a shareware keyboard-input faking TSR
+Index:	installation check;STACKEY
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF" name="16FF"><b>16FF</b></a> - INT 16 - KEYBOARD - KBUF extensions - ADD KEY TO TAIL OF KEYBOARD BUFFER<br />
+<pre>
+INT 16 - KEYBOARD - KBUF extensions - ADD KEY TO TAIL OF KEYBOARD BUFFER
+	AH = FFh
+	DX = scan code
+Return: AL = status
+	    00h success
+	    01h failure
+Program: KBUF is a keyboard buffer expander by Mark Adler
+SeeAlso: AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#210A00" name="210A00"><b>210A00</b></a> - INT 21 - WCED v1.6+ - INSTALLATION CHECK<br />
+<pre>
+INT 21 - WCED v1.6+ - INSTALLATION CHECK
+	AX = 0A00h
+	DS:DX -&gt; 6-byte buffer whose first two bytes must be 00h
+Return: buffer offset 02h-05h filled with "Wced" if installed
+Program: WCED is a free command-line editor and history utility by Stuart
+	  Russell
+SeeAlso: AH=FFh"CED"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF_0" name="21FF_0"><b>21FF</b></a> - INT 21 - CED (Command EDitor) - INSTALLABLE COMMANDS<br />
+<pre>
+INT 21 - CED (Command EDitor) - INSTALLABLE COMMANDS
+	AH = FFh
+	AL = subfunction
+	    00h add installable command
+		BL = mode
+		    bit 0 = 1 callable from DOS prompt
+		    bit 1 = 1 callable from application
+		DS:SI -&gt; CR-terminated command name
+		ES:DI -&gt; FAR routine entry point
+	    01h remove installable command
+		DS:SI -&gt; CR-terminated command name
+	    02h reserved, may be used to test for CED installation
+Return: CF clear if successful
+	CF set on error
+	    AX = error code
+		01h invalid function
+		02h command not found (subfunction 01h only)
+		08h insufficient memory (subfunction 00h only)
+		0Eh bad data (subfunction 00h only)
+	AH = FFh if CED not installed
+Program: CED is a shareware DOS command-line enhancer by Christopher J. Dunford
+SeeAlso: AX=0A00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21FF_2" name="21FF_2"><b>21FF</b></a> - INT 21 - DOSED.COM - INSTALLATION CHECK<br />
+<pre>
+INT 21 - DOSED.COM - INSTALLATION CHECK
+	AH = FFh
+	DS:SI -&gt; "DOSED"
+	ES = 0000h
+Return: ES:DI -&gt; "DOSED" if installed
+Program: DOSED is a free DOS commandline editor/history buffer by Sverre H.
+	  Huseby
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_6" name="2D--10_6"><b>2D--10</b></a> - INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE<br />
+<pre>
+INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE
+	AL = 10h
+	AH = AMIS multiplex number for KEYBIT Lite
+Return: DX:BX -&gt; status byte (see #02584)
+Program: KEYBIT Lite is an enhanced Italian keyboard driver by Pino Navato.
+SeeAlso: INT 2D"AMIS"
+
+Bitfields for KEYBIT Lite status byte:
+Bit(s)	Description	(Table 02584)
+ 7	KEYBIT Lite active
+ 6	E-mail support active
+ 5-0	reserved
+Notes:	E-mail support is one of the original features of KEYBIT Lite.	It is
+	  the automatic conversion of the 8-bits ASCII chars produced by some
+	  keys available on Italian keyboards to couples of 7-bits chars.
+	Message editors should always enable e-mail support, they should also
+	  restore its original status before exiting.
+	The user can change both status bits by hotkeys.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_7" name="2D--10_7"><b>2D--10</b></a> - INT 2D - ALTMENU - GET POINTER TO KEY CODE<br />
+<pre>
+INT 2D - ALTMENU - GET POINTER TO KEY CODE
+	AL = 10h
+	AH = AMIS multiplex number for signature 'Pino Nav' 'ALTMENU '
+Return: DX:BX -&gt; WORD key code to insert in keyboard buffer on Alt-key tap
+Program: Pino Navato's freeware ALTMENU permits activating the menu bar of
+	  any program by pressing the Alt key alone.
+Notes:	The value in the key code word will be returned in AX by a call to
+	  INT 16/AH=00h after the Alt key is pressed by itself
+	ALTMENU may be disabled by setting the key code equal to 0000h
+SeeAlso: INT 16/AH=00h,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4800" name="2F4800"><b>2F4800</b></a> - INT 2F - DOS 5+ DOSKEY - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DOS 5+ DOSKEY - INSTALLATION CHECK
+	AX = 4800h
+Return: AL = nonzero if installed
+	    (DOS 5.0 and 6.0 return AX=AA02h, Novell DOS 7 returns AX=EDFFh)
+	    ES = segment of DOSKEY resident portion
+	    DX = ??? (Novell DOS only; 02E6h for shipped v0.01)
+Notes:	DOSKEY chains if AL is not 00h or 10h on entry
+	this function is supported by Novell DOS 7 DOSKEY
+SeeAlso: AX=4800h"PCED",AX=4810h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4800_0" name="2F4800_0"><b>2F4800</b></a> - INT 2F - PCED v2.1 - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED v2.1 - INSTALLATION CHECK
+	AX = 4800h
+Return: AX = AACDh if installed
+	    ES = segment of PCED kernel (PCED has multiple code segments)
+Program: PCED v2.1 is a command line editor/history/macro facility by
+	  Cove Software.  It is the commercial version of the freeware CED.
+Notes:	DOSKEY also responds to this call if installed, returning AX=AA02h.
+	unlike DOSKEY, PCED does *not* chain if AL contains an
+	  unsupported function code.  It IRETs with all registers intact.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4810" name="2F4810"><b>2F4810</b></a> - INT 2F - DOS 5+ DOSKEY, PCED v2.1 - READ INPUT LINE FROM CONSOLE<br />
+<pre>
+INT 2F - DOS 5+ DOSKEY, PCED v2.1 - READ INPUT LINE FROM CONSOLE
+	AX = 4810h
+	DS:DX -&gt; line buffer (see #01344 at INT 21/AH=0Ah)
+Return: AX = 0000h if successful
+Notes:	the first byte (length) of the buffer MUST be 80h, or MS-DOS's DOSKEY
+	  chains to the previous handler; PCED and Novell DOS allow sizes
+	  other than 80h
+	if the user's input is a macro name, no text is placed in the buffer
+	  even though AX=0000h on return; the program must immediately issue
+	  this call again to retrieve the expansion of the macro.  Similarly,
+	  if the user enters a special parameter such as $*, this call must
+	  be repeated to retrieve the expansion; on the second call, DOSKEY
+	  overwrites the macro name on the screen with its expansion.
+	unlike DOSKEY, PCED expands all macros on the first call, so it is
+	  not necessary to make two calls; since the buffer is not empty on
+	  return, DOSKEY-aware programs will not make the second call
+	DOSKEY chains if AL is not 00h or 10h on entry
+	this function is supported by Novell DOS 7 DOSKEY
+SeeAlso: AX=4800h,INT 21/AH=0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C0" name="2F48C0"><b>2F48C0</b></a> - INT 2F - PCED v2.1 - PCED API<br />
+<pre>
+INT 2F - PCED v2.1 - PCED API
+	AX = 48C0h
+	DX = API function code
+	other registers as required by the specified function
+Return: CF clear if successful
+	CF set on error
+	    AX = PCED error code
+	other registers as appropriate for API function
+Program: PCED v2.1 is a command line editor/history/macro facility by
+	  Cove Software.  It is the commercial version of the freeware CED.
+Note:	the full API information is available from Cove Software
+SeeAlso: AX=4800h"PCED",AX=48C1h,AX=48C2h,AX=48C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F48C3BL00" name="2F48C3BL00"><b>2F48C3BL00</b></a> - INT 2F - PCED/KEYDEF - INSTALLATION CHECK<br />
+<pre>
+INT 2F - PCED/KEYDEF - INSTALLATION CHECK
+	AX = 48C3h
+	BL = 00h
+Return: AX = 0000h if installed
+	    BX = KEYDEF resident segment
+Program: KEYDEF is a resident keyboard redefinition utility included as part
+	  of the PCED package by Cove Software
+Note:	chains if BL &lt;&gt; 00h on entry
+SeeAlso: AX=48C0h,AX=48C2h,AX=48C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4B52" name="2F4B52"><b>2F4B52</b></a> - INT 2F - KeyRus v7.3 - API<br />
+<pre>
+INT 2F - KeyRus v7.3 - API
+	AX = 4B52h ('KR')
+	BL = function number
+	    00h installation check
+		Return: AL = 82h if installed
+			    BH = major version number
+			    BL = minor version number
+			    ES destroyed
+	    01h get driver status
+		Return: AL??? = current status (see #02825)
+	    02h set driver state
+		AL = new driver state (see #02825)
+	    03h blank screen (if blanking enabled when TSR was loaded)
+	    04h unblank screen
+	    4Ch switch to English keyboard mode
+	    90h switch to Russian keyboard mode
+Return:
+
+Bitfields for KeyRus driver status:
+Bit(s)	Description	(Table 02825)
+ 1-0	language mode
+	00 Latin
+	01 Russian
+	10 Alternative
+	11 unused
+ 2	allow character loading (if disabled, use ROM fonts)
+ 3	English keyboard support
+ 7-4	used internally (read-only)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7041BX4B70" name="2F7041BX4B70"><b>2F7041BX4B70</b></a> - INT 2F U - HP 200LX - KEY200 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - HP 200LX - KEY200 - INSTALLATION CHECK
+	AX = 7041h
+	BX = 4B70h
+Return: BX = 7965h if keyboard remapper KEY200.COM installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD80" name="2FAD80"><b>2FAD80</b></a> - INT 2F u - MS-DOS 3.3+ KEYB.COM internal - INSTALLATION CHECK<br />
+<pre>
+INT 2F u - MS-DOS 3.3+ KEYB.COM internal - INSTALLATION CHECK
+	AX = AD80h
+Return: AL = FFh if installed
+	    BX = version number (BH = major, BL = minor)
+	    ES:DI -&gt; internal data (see #02972)
+	    AH destroyed (set to FFh by some implementations/versions)
+Notes:	MS-DOS 3.30, PC-DOS 4.01, MS-DOS 5.00, and MS-DOS 6.22 all report
+	  version 1.00.
+	this function was undocumented prior to the release of DOS 5.0
+	most versions of KEYB completely replace the BIOS INT 09 handler, but
+	  Novell DOS's KEYB partially uses the BIOS code and thus continues
+	  to chain to the original INT 09 at times
+	some utilities check for AX=FFFFh on return
+SeeAlso: AX=AD80h"Novell",AX=AD81h,AX=AD82h,AX=AD83h
+
+Format of KEYB internal data:
+Offset	Size	Description	(Table 02972)
+ 00h	DWORD	original INT 09
+ 04h	DWORD	original INT 2F
+ 08h	DWORD	unused (0) original INT 16 in older KEYB versions???
+ 0Ch	WORD	flags A (see #02973)
+ 0Eh	WORD	flags B (see #02974)
+ 10h	BYTE	flags??? (bit1 used)
+ 11h	BYTE	???
+ 12h  4 BYTEs	???
+ 16h  2 BYTEs	country ID letters, default is "US"
+ 18h	WORD	current code page (see #01757 at INT 21/AX=6602h)
+---DOS 3.3---
+ 1Ah	WORD	pointer to first item in list of code page tables???
+ 1Ch	WORD	pointer to ??? item in list of code page tables
+ 1Eh  2 BYTEs	unused???
+ 20h	WORD	pointer to key translation data (see #02976)
+ 22h	WORD	pointer to last item in code page table list (see #02975)
+ 24h  9 BYTEs	???
+---DOS 4.01---
+ 1Ah  2 BYTEs	???
+ 1Ch	WORD	pointer to first item in list of code page tables???
+ 1Eh	WORD	pointer to ??? item in list of code page tables
+ 20h 2 BYTEs	unused???
+ 22h	WORD	pointer to key translation data (see #02976)
+ 24h	WORD	pointer to last item in code page table list (see #02975)
+ 26h  9 BYTEs	???
+---DOS 6.22--- (checked out with 6.22, but might be earlier)
+ 1Ah  2 BYTEs	???
+ 1Ch	WORD	pointer to current (first???) item in list of code page tables
+		(corresponding to codepage indicated at offset 18h)
+		(initial value is FFFFh)
+ 1Eh	WORD	pointer to (entry to) list of code page tables (see #02975)
+		If not FFFFh, INT 2F/AX=AD81h scans this list of code page
+		  tables until the requested code page was found in list or
+		  end of table was reached (FFFFh). If found, offsets 18h and
+		  1Ch will be changed to requested new code page. If not found,
+		  it returns with AX=0001h 'code page not supported').
+ 20h	WORD	unused??? (initial value: FFFFh)
+ 22h	WORD	pointer to key translation data (see #02455)
+ 24h	WORD	pointer to last item in code page table list (see #02454)
+ 26h	WORD	CAPSLock/ShiftLock management flags??? (0)
+		Note:	It appears that none of the bits is ever set inside
+			  KEYBs code!
+			  The following is guesswork:
+		bit15: =1: With country specific keyboard mapping (&lt;Ctrl&gt;+
+			  &lt;Alt&gt;+&lt;F2&gt;) active, &lt;CapsLock&gt; works as CAPSLock
+			  instead of ShiftLock??? Pressing a key in first row
+			  resets CapsLock???
+			  (Effective only on PC Convertible or with Enhanced
+			  keyboard).
+		bit14-10:  unused (0)
+		bit 9: =1: With country specific keyboard mapping active:
+			  some kind of temporary (table) shift???
+		bit 8-0: unused (0)
+ 28h	BYTE	unused (0)
+ 29h	BYTE	make code xx for &lt;Ctrl&gt;+&lt;Alt&gt;+&lt;xx&gt; to set keyboard mapping
+		  to US-layout (default is 3Bh=&lt;F1&gt;???)
+		  (see INT 2F/AX=AD82h,INT 2F/AX=AD83h)
+ 2Ah	BYTE	make code yy for &lt;Ctrl&gt;+&lt;Alt&gt;+&lt;yy&gt; to set keyboard mapping
+		  to country specific layout (default is 3Ch=&lt;F2&gt;???),
+		  (see INT 2F/AX=AD82h,INT 2F/AX=AD83h)
+ 2Bh 16 BYTEs	unused (0) ???
+Note:	at least in MS-DOS v6.22, the signature "SHARED DATA" immediately
+	  precedes this structure
+
+Bitfields for MS-DOS v6.22 KEYB flags A:
+Bit(s)	Description	(Table 02973)
+ 15	unused??? (0)
+ 14	set on machine with BIOS machine type FBh or FEh/FFh without enh kbd
+ 13	not FAh: ???
+ 12	set on start of machine detection, cleared on machine types F9h, FBh,
+	  FEh, FFh
+ 11	not FAh: ???
+	(on ATs: override bit12 NOT to set NumLock on)
+ 10	set on machine type F9h
+ 9	unused??? (0)
+ 8	unused??? (0)
+ 7	used by INT 09, but never set!
+	=1: after keyboard self test resulting AAh, INT 09 handler will (re)set
+	      keyboard code-set 1 and temporarily disable a PS/2 mouseport.
+ 6	used by INT09, but never set!
+	=1: after keyboard self test resulting AAh, INT 09 handler will (re)set
+	      keyboard code-set 1 and temporarily disable a PS/2 mouseport.
+ 5	set for JP, KO, PR, TA layouts during installation???
+	=1: some special codepage (&gt;932???) management???
+ 4-0	unused??? (0)
+SeeAlso: #02974,MEM F000h:FFFEh,INT 15/AH=C0h
+
+Bitfields for MS-DOS v6.22 KEYB flags B:
+Bit(s)	Description	(Table 02974)
+ 15	INT 16/AH=1xh supported (INT 16h/AH=92h call returns AH&lt;=80h)
+	if clear, extended keyboard scan codes are immediately discarded
+ 14	INT 16/AH=2xh supported (INT 16h/AH=A2h call returns AH&lt;=80h)
+ 13	unused (0)
+ 12	network installed (INT 2F/AX=B800h)
+ 11	original IBM PC (BIOS date 1981)
+ 10	PC or PC/XT (BIOS machine type byte of FBh or FEh)
+ 9	PC Convertible (BIOS machine type byte of F9h); use INT 15/AX=4104h
+ 8	unused (0)
+ 7	IBM PS/2 model 30 (BIOS machine type byte of FAh)
+ 6	IBM AT (BIOS machine type FCh)
+ 5	IBM PS/2 (BIOS machine type F8h)
+ 4	PS/2 and unknown only: non-standard 8042 reported by INT 15/AH=C0h
+	=1: after keyboard self test resulting AAh, INT 09 handler will (re)set
+	      keyboard code-set 1 and temporarily disable a PS/2 mouseport.
+ 3	temporary flag???
+ 2-0	???
+SeeAlso: #02972,#02973
+
+Format of code page table list entries:
+Offset	Size	Description	(Table 02975)
+ 00h	WORD	pointer to next item, FFFFh = last
+ 02h	WORD	code page (see #01757 at INT 21/AX=6602h)
+ 04h  2 BYTEs	???
+
+Format of KEYB translation data:
+Offset	Size	Description	(Table 02976)
+ 00h	WORD	size of data in bytes, including this word
+ 02h N-2 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD80_0" name="2FAD80_0"><b>2FAD80</b></a> - INT 2F u - Novell DOS 7 KEYB.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F u - Novell DOS 7 KEYB.COM - INSTALLATION CHECK
+	AX = AD80h
+Return: AX = FFFFh if installed
+	    CX = Novell DOS KEYB version number (CL = major, CH = minor)
+	    DX = current keyboard codepage
+	    ES:DI -&gt; internal data and tables (ES=FFFEh if KEYB in HMA)
+	flags destroyed
+Notes:	versions: v2.08 (original ship 4/94), v2.09 (Update 10, 11/18/94),
+	  v2.10 (Update 12, 2/22/95), v2.11 (Update 13, 5/8/95),
+	  v2.12 (Update 14, 7/31/95)
+	although the installation check is via this INT 2F call, Novell DOS 7's
+	  KEYB has no known INT 2F entry point!	 Presumably, the handler is
+	  either coded in the kernel or reached via a FAR JMP from the kernel
+SeeAlso: AX=AD80h"MS-DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD81" name="2FAD81"><b>2FAD81</b></a> - INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD CODE PAGE<br />
+<pre>
+INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD CODE PAGE
+	AX = AD81h
+	BX = code page (see #01757 at INT 21/AX=6601h)
+Return: CF set on error
+	    AX = 0001h (code page not available)
+	CF clear if successful
+Notes:	called by DISPLAY.SYS
+	this function was undocumented prior to the release of DOS 5.0
+SeeAlso: AX=AD80h,AX=AD82h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD82" name="2FAD82"><b>2FAD82</b></a> - INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD MAPPING<br />
+<pre>
+INT 2F - DOS 3.3+ KEYB.COM - SET KEYBOARD MAPPING
+	AX = AD82h
+	BL = new state
+	    00h US keyboard (Control-Alt-F1)
+	    FFh foreign keyboard (Control-Alt-F2)
+Return: CF set on error (BL not 00h or FFh)
+	CF clear if successful
+Notes:	this function was undocumented prior to the release of DOS 5.0
+	the states 00h and FFh correspond with the byte stored at offset +02h
+	  in KEYBs INT 09h handler
+SeeAlso: AX=AD80h,AX=AD81h,AX=AD83h,AX=AD84h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD83" name="2FAD83"><b>2FAD83</b></a> - INT 2F - DOS 5+ KEYB.COM - GET KEYBOARD MAPPING<br />
+<pre>
+INT 2F - DOS 5+ KEYB.COM - GET KEYBOARD MAPPING
+	AX = AD83h
+Return: BL = current state
+	    00h US keyboard
+	    FFh foreign keyboard
+Note:	the states 00h and FFh correspond with the byte stored at offset +02h
+	  in KEYBs INT 09h handler
+SeeAlso: AX=AD82h,AX=AD85h,INT 09
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD84" name="2FAD84"><b>2FAD84</b></a> - INT 2F - PC DOS 5.0+ KEYB.COM - SET KEYBOARD SUB-MAPPING<br />
+<pre>
+INT 2F - PC DOS 5.0+ KEYB.COM - SET KEYBOARD SUB-MAPPING
+	AX = AD84h
+Return: if KEYB is in foreign mode:
+	    AL = current layout
+		00h primary layout
+		01h secondary layout
+Note:	This function is not supported by MS-DOS 5 - 7.10.
+SeeAlso: AX=AD85h,AX=AD82h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAD85" name="2FAD85"><b>2FAD85</b></a> - INT 2F - PC DOS 5.0+ KEYB.COM - GET KEYBOARD SUB-MAPPING<br />
+<pre>
+INT 2F - PC DOS 5.0+ KEYB.COM - GET KEYBOARD SUB-MAPPING
+	AX = AD85h
+	BL = new layout
+	    00h primary layout
+	    01h secondary layout
+Note:	This function is not supported by MS-DOS 5.0 - 7.10.
+SeeAlso: AX=AD84h,AX=AD83h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000_12" name="2FC000_12"><b>2FC000</b></a> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK
+	AX = C000h
+Return: AL = FFh if possibly installed
+Range:	AH=C0h to AH=FFh, selected by scanning for signature with AL=AEh
+SeeAlso: AX=C001h"HP 100LX",AX=C0AEh"HP 100LX",AX=C0AFh"HP 100LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC001CX03FB" name="2FC001CX03FB"><b>2FC001CX03FB</b></a> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - UNINSTALL<br />
+<pre>
+INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - UNINSTALL
+	AX = C001h
+	CX = 03FBh return address to continue uninstall if possible
+Return: program uninstalled
+Range:	AH=C0h to AH=FFh, selected by scanning for signature with AL=AEh
+SeeAlso: AX=C000h"HP 100LX",AX=C0AEh"HP 100LX",AX=C0AFh"HP 100LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC0AE" name="2FC0AE"><b>2FC0AE</b></a> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - HP 100LX/200LX - PUSHKEYS - INSTALLATION CHECK
+	AX = C0AEh
+Return: AX = 4453h if installed
+	CX = 5259h if installed
+Range:	AH=C0h to AH=FFh, selected by scanning for signature
+SeeAlso: AX=C000h"HP 100LX",AX=C001h"HP 100LX",AX=C0AFh"HP 100LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC0AF" name="2FC0AF"><b>2FC0AF</b></a> - INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - GET BUFFER ADDRESS<br />
+<pre>
+INT 2F U - HP 100LX/200LX - PUSHKEYS - INTERNAL - GET BUFFER ADDRESS
+	AX = C0AFh
+Return: ES:DI -&gt; buffer (behind code)
+Range:	AH=C0h to AH=FFh, selected by scanning for signature with AL=AEh
+SeeAlso: AX=C000h"HP 100LX",AX=C001h"HP 100LX",AX=C0AEh"HP 100LX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCF00" name="2FCF00"><b>2FCF00</b></a> - INT 2F - TEMPLEXX 1.0 - INSTALLATION CHECK<br />
+<pre>
+INT 2F - TEMPLEXX 1.0 - INSTALLATION CHECK
+	AX = CF00h
+Return: AL = FFh if installed
+Program: TEMPLEXX is a popup keyboard template by Henson Scientific, Inc.
+Note:	values in AL other than 00h cause an immediate return without modifying
+	  any registers
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD3D3BH00" name="2FD3D3BH00"><b>2FD3D3BH00</b></a> - INT 2F - KDRIVE v2.x - INSTALLATION CHECK<br />
+<pre>
+INT 2F - KDRIVE v2.x - INSTALLATION CHECK
+	AX = D3D3h
+	BH = 00h
+Return: BX = 3D3Dh if installed
+	CF clear if installed
+	    AX = driver ID??? (returns 0087h for KDRIVE.EXE and 0880h for
+		  KDRIVOS2.EXE in one examined version)
+Program: KDRIVE is a shareware extended German keyboard driver by Martin
+	  Austermeier, originally based on K3 by Martin Gerdes as published
+	  in c't magazine 7/1988
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD44FBX0000" name="2FD44FBX0000"><b>2FD44FBX0000</b></a> - INT 2F - 4DOS v4.0+ - KSTACK.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - 4DOS v4.0+ - KSTACK.COM - INSTALLATION CHECK
+	AX = D44Fh
+	BX = 0000h
+Return: AX = 44DDh if installed
+Note:	this function is also supported by ANSIPLUS v3.01+ and K3PLUS v6.20+,
+	  which emulate the 4DOS and NDOS keystack
+SeeAlso: AX=D44Dh,AX=D44Fh/BX=0001h,AX=E44Fh/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD44FBX0001" name="2FD44FBX0001"><b>2FD44FBX0001</b></a> - INT 2F - 4DOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK<br />
+<pre>
+INT 2F - 4DOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK
+	AX = D44Fh
+	BX = 0001h
+	CX = number of keystrokes (01h-FFh)
+	DS:DX -&gt; keystroke list (one word per keystroke)
+Return: AX = status
+	    0000h successful
+	    nonzero failed
+	BX,CX,DX destroyed
+Notes:	the keystrokes are the exact values to return from subsequent calls to
+	  INT 16 with AH=00h,01h,10h, or 11h, with the following exceptions:
+		0000h causes subfunctions 01h and 11h to indicate an empty
+		      keyboard buffer
+		FFFFh is followed by a word indicating the number of clock
+		      ticks to delay before the next faked keystroke
+	v4.00 KSTACK overwrites any unread keystrokes from the previous
+	  invocation, and does not range-check CX; it will overwrite memory
+	  following the resident portion if CX is greater than 100h.
+	this function is also supported by ANSIPLUS v3.01+ and K3PLUS v6.20+,
+	  which emulate the 4DOS and NDOS keystack
+SeeAlso: AX=D44Dh,AX=D44Fh/BX=0000h,INT 16/AH=00h,INT 21/AX=4403h"DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDC00" name="2FDC00"><b>2FDC00</b></a> - INT 2F - GOLD.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - GOLD.COM - INSTALLATION CHECK
+	AX = DC00h
+Return: AL = state
+	    00h not installed
+	    FFh installed
+Program: GOLD is a TSR by Bob Eager which makes the NumLock key return the
+	  code for F1; the purpose is to improve Kermit's VTxxx emulation
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDC01" name="2FDC01"><b>2FDC01</b></a> - INT 2F - GOLD.COM - GET STATE<br />
+<pre>
+INT 2F - GOLD.COM - GET STATE
+	AX = DC01h
+Return: AL = status
+	    00h off
+	    01h on
+SeeAlso: AX=DC00h,AX=DC02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDC02" name="2FDC02"><b>2FDC02</b></a> - INT 2F - GOLD.COM - SET STATE<br />
+<pre>
+INT 2F - GOLD.COM - SET STATE
+	AX = DC02h
+	DL = new state
+	    00h off
+	    01h on
+Return: AL = 00h (OK)
+SeeAlso: AX=DC01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE000DX5354" name="2FE000DX5354"><b>2FE000DX5354</b></a> - INT 2F - StuffIt v3.21+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - StuffIt v3.21+ - INSTALLATION CHECK
+	AX = E000h
+	DX = 5354h ("ST")
+Return: AL = FFh if installed
+	    BX = version (BH = major, BL = BCD minor)
+	    DX = segment of resident code
+Program: StuffIt is a freeware delayed keyboard stuffer by Terje Mathisen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE100" name="2FE100"><b>2FE100</b></a> - INT 2F - Phantom2 v1.1+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Phantom2 v1.1+ - INSTALLATION CHECK
+	AX = E100h
+Return: AX = 0001h if installed
+	    DS:SI -&gt; ASCIZ hotkey name
+	    DS:DI -&gt; ASCIZ recording filename
+Program: Phantom of the Keyboard II is a shareware keystroke recorder/replayer
+	  by P2 Enterprises
+SeeAlso: AX=E101h,AX=E102h,AX=E103h,AX=E300h
+Index:	hotkeys;Phantom2
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE101" name="2FE101"><b>2FE101</b></a> - INT 2F - Phantom2 v1.1+ - FUNCTION REQUEST<br />
+<pre>
+INT 2F - Phantom2 v1.1+ - FUNCTION REQUEST
+	AX = E101h
+	BX = function mask (see #03107)
+	CX = code for hotkey (as returned by INT 16/AH=00h) if BX bit 6 set
+	DS:DX -&gt; ASCIZ filespec if BX bit 7 set
+SeeAlso: AX=E100h
+Index:	hotkeys;Phantom2
+
+Bitfields for Phantom2 function mask:
+Bit(s)	Description	(Table 03107)
+ 0	record
+ 1	play
+ 2	QuickPlay
+ 3	loop
+ 4	mode display toggle
+ 5	sound toggle
+ 6	set hotkey
+ 7	set filespec
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE102" name="2FE102"><b>2FE102</b></a> - INT 2F - Phantom2 v1.1+ - UNINSTALL<br />
+<pre>
+INT 2F - Phantom2 v1.1+ - UNINSTALL
+	AX = E102h
+Return: AX = status
+	    0001h removal successful
+	    0002h not installed as TSR
+	    FFFFh disabled but not removed
+SeeAlso: AX=E100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE103" name="2FE103"><b>2FE103</b></a> - INT 2F - Phantom2 v2.8 - SET ??? FLAG<br />
+<pre>
+INT 2F - Phantom2 v2.8 - SET ??? FLAG
+	AX = E103h
+Return: AX = 0001h
+SeeAlso: AX=E100h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE300" name="2FE300"><b>2FE300</b></a> - INT 2F - ANARKEY.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - ANARKEY.COM - INSTALLATION CHECK
+	AX = E300h
+Return: AL = state
+	    00h not installed
+	    FEh if installed but suspended (v3.0+)
+	    FFh installed
+Program: ANARKEY.COM is a commandline recall program by Steven Calwas
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=E100h,AX=E301h,AX=E302h,AX=E303h,AX=E304h,AX=E305h,AX=E306h
+SeeAlso: AX=E307h,INT 66"Newkey"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE301" name="2FE301"><b>2FE301</b></a> - INT 2F U - ANARKEY.COM v2+ - GET ???<br />
+<pre>
+INT 2F U - ANARKEY.COM v2+ - GET ???
+	AX = E301h
+Return: DX:BX -&gt; ??? (see #03108,#03109)
+SeeAlso: AX=E300h
+
+Format of returned data structure for ANARKEY v2.0:
+Offset	Size	Description	(Table 03108)
+ -7   7 BYTEs	signature ('ANARKEY')
+ 00h	WORD	??? (I see 0001h in v2.0)
+ 02h	WORD	??? (I see 0001h in v2.0)
+ 04h	WORD	??? (I see 0 in v2.0)
+ 06h	WORD	PSP segment of next program loaded
+
+Format of returned data structure for ANARKEY v3+:
+Offset	Size	Description	(Table 03109)
+ -1	BYTE	multiplex number
+ 00h	WORD	??? (I see 0001h in v3.0-4.0)
+ 02h	WORD	??? (I see 0001h in v3.0-4.0)
+ 04h	BYTE	??? (I see 0 in v3.0-4.0)
+ 05h	WORD	PSP segment of next program loaded
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE302" name="2FE302"><b>2FE302</b></a> - INT 2F U - ANARKEY.COM v3+ - ???<br />
+<pre>
+INT 2F U - ANARKEY.COM v3+ - ???
+	AX = E302h
+	BL = ???
+Return: ???
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE303" name="2FE303"><b>2FE303</b></a> - INT 2F U - ANARKEY.COM v3+ - ANARKMD API<br />
+<pre>
+INT 2F U - ANARKEY.COM v3+ - ANARKMD API
+	AX = E303h
+	BL = function
+	    01h toggle insert mode
+	    02h display contents of history buffer
+	    03h write history buffer to file
+		ES:DX -&gt; file name
+	    04h clear history buffer
+	    05h undefine all aliases
+	    06h show aliases
+	    07h list programs using Unix switchar
+	    08h jump to bottom of history buffer
+	    09h (v4.0) add string to history buffer
+		ES:DX -&gt; ASCIZ string
+	    0Ah (v4.0) ???
+		ES:DX -&gt; ???
+	    0Bh (v4.0) copy string to edit buffer for use as next input line
+		ES:DX -&gt; ASCIZ string
+	    0Ch (v4.0) ???
+	    0Dh (v4.0) copy ??? to ???
+	    0Eh (v4.0) ???
+	    0Fh (v4.0) ???
+	    10h (v4.0) set ??? flag
+	    11h (v4.0) display error message about running in EMS under Windows
+Return: ???
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE304" name="2FE304"><b>2FE304</b></a> - INT 2F U - ANARKEY.COM v2+ - ???<br />
+<pre>
+INT 2F U - ANARKEY.COM v2+ - ???
+	AX = E304h
+	BL = ???
+Return: ???
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE305" name="2FE305"><b>2FE305</b></a> - INT 2F U - ANARKEY.COM v3+ - ENABLE/SUSPEND ANARKEY<br />
+<pre>
+INT 2F U - ANARKEY.COM v3+ - ENABLE/SUSPEND ANARKEY
+	AX = E305h
+	BL = new state
+	    01h suspended
+	    00h enabled
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE306" name="2FE306"><b>2FE306</b></a> - INT 2F U - ANARKEY.COM v4.0 - GET ???<br />
+<pre>
+INT 2F U - ANARKEY.COM v4.0 - GET ???
+	AX = E306h
+Return: AX = ???
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE307" name="2FE307"><b>2FE307</b></a> - INT 2F U - ANARKEY.COM v4.0 - GET ???<br />
+<pre>
+INT 2F U - ANARKEY.COM v4.0 - GET ???
+	AX = E307h
+Return: AX = ???
+	BL = ???
+SeeAlso: AX=E300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE337" name="2FE337"><b>2FE337</b></a> - INT 2F - INT16.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - INT16.COM - INSTALLATION CHECK
+	AX = E337h
+Return: AX = 0013h if installed
+Program: INT16.COM is an INT16 keyboard BIOS replacement for
+	  INT 16/AH=00h-02h,10h-12h (based on K3) written by Martin Gerdes
+	  and published in c't 05/1990.
+SeeAlso: AX=ED58h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE44FBX0000" name="2FE44FBX0000"><b>2FE44FBX0000</b></a> - INT 2F - NDOS v4.0+ - KSTACK.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - NDOS v4.0+ - KSTACK.COM - INSTALLATION CHECK
+	AX = E44Fh
+	BX = 0000h
+Return: AX = 44EEh if installed
+Program: NDOS is a version of 4DOS licensed to Symantec for inclusion in the
+	  Norton Utilities
+Note:	this function is also supported by ANSIPLUS v3.01+ and K3PLUS v6.20+,
+	  which emulate the 4DOS and NDOS keystack
+SeeAlso: AX=D44Fh/BX=0000h,AX=E44Fh/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE44FBX0001" name="2FE44FBX0001"><b>2FE44FBX0001</b></a> - INT 2F - NDOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK<br />
+<pre>
+INT 2F - NDOS v4.0+ - KSTACK.COM - PLACE KEYSTROKES INTO KEYSTACK
+	AX = E44Fh
+	BX = 0001h
+	CX = number of keystrokes (01h-FFh)
+	DS:DX -&gt; keystroke list (one word per keystroke)
+Return: AX = status
+	    0000h successful
+	    nonzero failed
+	BX,CX,DX destroyed
+Notes:	the keystrokes are the exact values to return from subsequent calls to
+	  INT 16 with AH=00h,01h,10h, or 11h, with the following exceptions:
+		0000h causes subfunctions 01h and 11h to indicate an empty
+		      keyboard buffer
+		FFFFh is followed by a word indicating the number of clock
+		      ticks to delay before the next faked keystroke
+	v4.00 KSTACK overwrites any unread keystrokes from the previous
+	  invocation, and does not range-check CX; it will overwrite memory
+	  following the resident portion if CX is greater than 100h.
+	this function is also supported by ANSIPLUS v3.01+ and K3PLUS v6.20+,
+	  which emulate the 4DOS and NDOS keystack
+SeeAlso: AX=E44Fh/BX=0000h,INT 16/AH=00h,INT 21/AX=4403h"DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FED58" name="2FED58"><b>2FED58</b></a> - INT 2F U - K5.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - K5.COM - INSTALLATION CHECK
+	AX = ED58h
+Return: AX = 000Dh if installed
+	    ES = resident code segment
+	    BX = ??? (9999h)
+	    ???
+Program: K5 is an extended keyboard driver by Martin Gerdes, based on his K3
+SeeAlso: AX=E337h,INT 16/AX=AF20h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF000" name="2FF000"><b>2FF000</b></a> - INT 2F U - 4MAP - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - 4MAP - INSTALLATION CHECK
+	AX = F000h
+Return: AX = 00FFh
+Program: 4MAP is a keybinding program for 4DOS (see AX=D44Dh) by Ho-Ping Tseng
+Note:	returns AX=00FFh for any value of AL not listed here
+SeeAlso: AX=D44Dh,AX=F001h,AX=F002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF001" name="2FF001"><b>2FF001</b></a> - INT 2F U - 4MAP - GET KEY MAPPINGS<br />
+<pre>
+INT 2F U - 4MAP - GET KEY MAPPINGS
+	AX = F001h
+Return: ES:BX -&gt; key mappings
+SeeAlso: AX=F000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF002" name="2FF002"><b>2FF002</b></a> - INT 2F U - 4MAP - INSERT CHARACTER INTO ???<br />
+<pre>
+INT 2F U - 4MAP - INSERT CHARACTER INTO ???
+	AX = F002h
+	BL = character to insert
+Return: AX = status
+	    0000h successful
+	    0001h buffer full
+SeeAlso: AX=F000h,AX=F003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF003" name="2FF003"><b>2FF003</b></a> - INT 2F U - 4MAP - INSERT CHARACTER INTO ???<br />
+<pre>
+INT 2F U - 4MAP - INSERT CHARACTER INTO ???
+	AX = F003h
+	BL = character to insert
+Return: AX = status
+	    0000h successful
+	    0001h buffer full
+Program: 4MAP is a keybinding program for 4DOS (see AX=D44Dh) by Ho-Ping Tseng
+SeeAlso: AX=F000h,AX=F002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFD12" name="2FFD12"><b>2FFD12</b></a> - INT 2F - KS/KEYSTKCT.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - KS/KEYSTKCT.EXE - INSTALLATION CHECK
+	AX = FD12h
+Return: AX = 0093h if installed
+	    ES = resident code segment
+	    ES:CX -&gt; internal "putbuf" routine
+Program: KS/KEYSTKCT.EXE is a key stacking utility (4DOS KEYSTACK.SYS
+	  look-alike) by Martin Gerdes, published in c't 11/1991, which can be
+	  loaded as a device driver or as a TSR. It does not emulate 4DOS
+	  KSTACK API
+Note:	the default buffer size is 128 keys
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_6" name="66_6"><b>66</b></a> - INT 66 - Newkey v5.4 - INSTALLATION VECTOR<br />
+<pre>
+INT 66 - Newkey v5.4 - INSTALLATION VECTOR
+Return: immediately (IRET)
+Program: Newkey is a shareware keyboard macro program by Frank A. Bell
+InstallCheck:	test for the signature bytes FDh FCh FFh FEh at offset 03h in
+	  the interrupt handlers segment
+Range:	INT 60h to INT 67h, selected by scanning for highest unused vector
+BUG:	the code obviously intends to use INT F0-FE, INT 70-77, and INT 68-6F
+	  before falling back to INT 60-67, but only uses the last of these
+	  ranges in v5.4
+SeeAlso: INT 2F/AX=E300h
+Index: installation checks;Newkey|Newkey;installation check
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

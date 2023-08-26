@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._86</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 86
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#86"><b>86</b> - INT 86 - NetBIOS - ORIGINAL INT 18</a><br />
+<a href="#86_0"><b>86</b> - INT 86 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#86_1"><b>86</b> - INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS</a><br />
+
+<hr />
+
+<a href="#86" name="86"><b>86</b></a> - INT 86 - NetBIOS - ORIGINAL INT 18<br />
+<pre>
+INT 86 - NetBIOS - ORIGINAL INT 18
+Note:	some implementations of NetBIOS reportedly relocate INT 18 here
+SeeAlso: INT 18"BOOT HOOK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#86_0" name="86_0"><b>86</b></a> - INT 86 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 86 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 85"BASIC",INT 87"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#86_1" name="86_1"><b>86</b></a> - INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS<br />
+<pre>
+INT 86 - APL*PLUS/PC - Terminate APL session and return to DOS
+SeeAlso: INT 21/AH=4Ch,INT 87"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

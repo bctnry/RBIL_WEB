@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._D8</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT D8
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#D8"><b>D8</b> - INT D8 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#D8_0"><b>D8</b> - INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES</a><br />
+<a href="#D8_1"><b>D8</b> - INT D8 - Screen Thief v1.00 - RELOCATED IRQ0</a><br />
+
+<hr />
+
+<a href="#D8" name="D8"><b>D8</b></a> - INT D8 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT D8 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT D7"BASIC",INT D9"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D8_0" name="D8_0"><b>D8</b></a> - INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES<br />
+<pre>
+INT D8 - STSC APL*PLUS/PC - MAY BE USED IN FUTURE RELEASES
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#D8_1" name="D8_1"><b>D8</b></a> - INT D8 - Screen Thief v1.00 - RELOCATED IRQ0<br />
+<pre>
+INT D8 - Screen Thief v1.00 - RELOCATED IRQ0
+Range:	INT 78h to INT E0h, selected by commandline switch
+Note:	Screen Thief relocates IRQs 0 through 7 to INT D8 to INT DF by default,
+	  but may be directed via a commandline switch to use any range
+	  starting at a multiple of 8 between 78h and E0h
+SeeAlso: INT 08"IRQ0",INT 2D/AL=10h"Screen Thief",INT 50"DESQview"
+SeeAlso: INT D9"Screen Thief"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

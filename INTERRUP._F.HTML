@@ -1,0 +1,2587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._F</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category F - FAX,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#1177"><b>1177</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - OPERATIONAL CONTROL</a><br />
+<a href="#1178"><b>1178</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???</a><br />
+<a href="#1179"><b>1179</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???</a><br />
+<a href="#117A"><b>117A</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???</a><br />
+<a href="#117C01"><b>117C01</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - SET ??? FLAG</a><br />
+<a href="#117C02"><b>117C02</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - CLEAR ??? FLAG</a><br />
+<a href="#117C03"><b>117C03</b> - INT 11 - RainbowFAX v1.3 - SFENGINE API - UNSUPPORTED FUNCTIONS</a><br />
+<a href="#2F2A"><b>2F2A</b> - INT 2F - Gammafax DOS Dispatcher INTERFACE</a><br />
+<a href="#2F8000DX0000"><b>2F8000DX0000</b> - INT 2F - FaxBIOS interface - INSTALLATION CHECK</a><br />
+<a href="#2F80FB"><b>2F80FB</b> - INT 2F - FaxBIOS interface - COMMAND SUBMISSION</a><br />
+<a href="#2FC0"><b>2FC0</b> - INT 2F - METZ XpressFax Hardware TSR (CLASS2) - API</a><br />
+<a href="#2FC000BX444B"><b>2FC000BX444B</b> - INT 2F - METZ XpressFax Hardware TSR (CLASS2) - INSTALLATION CHECK</a><br />
+<a href="#2FCA"><b>2FCA</b> - INT 2F - FAXPLUS - FAX TSR</a><br />
+<a href="#2FCB00"><b>2FCB00</b> - INT 2F - Communicating Applications Specification - INSTALLATION CHECK</a><br />
+<a href="#2FCB00BX4D53"><b>2FCB00BX4D53</b> - INT 2F - METZ XpressFax CASMGR - INSTALLATION CHECK</a><br />
+<a href="#2FCB01"><b>2FCB01</b> - INT 2F - Communicating Applications Specification - SUBMIT A TASK</a><br />
+<a href="#2FCB02"><b>2FCB02</b> - INT 2F - Communicating Applications Specification - ABORT CURRENT EVENT</a><br />
+<a href="#2FCB05"><b>2FCB05</b> - INT 2F - Communicating Applications Specification - FIND FIRST QUEUE ENTRY</a><br />
+<a href="#2FCB06"><b>2FCB06</b> - INT 2F - Communicating Applications Specification - FIND NEXT QUEUE ENTRY</a><br />
+<a href="#2FCB07"><b>2FCB07</b> - INT 2F - Communicating Applications Specification - OPEN FILE</a><br />
+<a href="#2FCB08"><b>2FCB08</b> - INT 2F - Communicating Applications Specification - DELETE FILE</a><br />
+<a href="#2FCB09"><b>2FCB09</b> - INT 2F - Communicating Applications Specification - DELETE ALL FILES IN Q</a><br />
+<a href="#2FCB0A"><b>2FCB0A</b> - INT 2F - Communicating Applications Specification - GET EVENT DATE</a><br />
+<a href="#2FCB0B"><b>2FCB0B</b> - INT 2F - Communicating Applications Specification - SET TASK DATE</a><br />
+<a href="#2FCB0C"><b>2FCB0C</b> - INT 2F - Communicating Applications Specification - GET EVENT TIME</a><br />
+<a href="#2FCB0D"><b>2FCB0D</b> - INT 2F - Communicating Applications Specification - SET TASK TIME</a><br />
+<a href="#2FCB0E"><b>2FCB0E</b> - INT 2F - Communicating Applications Specification - GET EXTERNAL DATA BLOCK</a><br />
+<a href="#2FCB0F"><b>2FCB0F</b> - INT 2F - Communicating Applications Specification - GET/SET AUTORECEIVE</a><br />
+<a href="#2FCB10"><b>2FCB10</b> - INT 2F - Communicating Applications Specification - GET CURRENT EVENT STATUS</a><br />
+<a href="#2FCB11"><b>2FCB11</b> - INT 2F - Communicating Applications Specification - GET QUEUE STATUS</a><br />
+<a href="#2FCB11DL03"><b>2FCB11DL03</b> - INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF SEND EVENTS</a><br />
+<a href="#2FCB11DL04"><b>2FCB11DL04</b> - INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF RECEIVE EVENTS</a><br />
+<a href="#2FCB12"><b>2FCB12</b> - INT 2F - Communicating Applications Specification - GET HARDWARE STATUS</a><br />
+<a href="#2FCB13DL00"><b>2FCB13DL00</b> - INT 2F - Communicating Applications Specification - GET DIAGNOSTICS RESULTS</a><br />
+<a href="#2FCB13DL01"><b>2FCB13DL01</b> - INT 2F - Communicating Applications Specification - START DIAGNOSTICS</a><br />
+<a href="#2FCB14"><b>2FCB14</b> - INT 2F - Communicating Applications Specification - MOVE RECEIVED FILE</a><br />
+<a href="#2FCB15"><b>2FCB15</b> - INT 2F - Communicating Applications Specification - SUBMIT FILE TO SEND</a><br />
+<a href="#2FCB16BX1234"><b>2FCB16BX1234</b> - INT 2F - Communicating Applications Spec v1.2+ - UNLOAD RESIDENT MANAGER</a><br />
+<a href="#2FCB17"><b>2FCB17</b> - INT 2F - Communicating Applications Spec v1.2+ - SET COVER PAGE STATUS</a><br />
+<a href="#2FCB80"><b>2FCB80</b> - INT 2F - Intel SatisFAXtion CASMGR - ???</a><br />
+<a href="#2FCB81"><b>2FCB81</b> - INT 2F - Intel SatisFAXtion CASMGR - ???</a><br />
+<a href="#2FCB82"><b>2FCB82</b> - INT 2F - Intel SatisFAXtion CASMGR - ???</a><br />
+<a href="#2FCBDCBL56"><b>2FCBDCBL56</b> - INT 2F - Comwave Microfax Specification - GET STATUS ARRAY</a><br />
+<a href="#2FCBDDBL56"><b>2FCBDDBL56</b> - INT 2F - Comwave Microfax Specification - COMMAND SUBMISSION</a><br />
+<a href="#2FDA00"><b>2FDA00</b> - INT 2F - ZyXEL ZFAX v1.x - INSTALLATION CHECK</a><br />
+<a href="#2FDA01"><b>2FDA01</b> - INT 2F - ZyXEL ZFAX v1.x - UNINSTALL</a><br />
+<a href="#2FDA02"><b>2FDA02</b> - INT 2F - ZyXEL ZFAX v.1x - DISABLE</a><br />
+<a href="#2FDA03"><b>2FDA03</b> - INT 2F - ZyXEL ZFAX v1.x - ENABLE</a><br />
+<a href="#2FDB00"><b>2FDB00</b> - INT 2F - ZyXEL ZFAX v2+ - INSTALLATION CHECK</a><br />
+<a href="#2FDB01"><b>2FDB01</b> - INT 2F - ZyXEL ZFAX v2+ - UNINSTALL</a><br />
+<a href="#2FDB02"><b>2FDB02</b> - INT 2F - ZyXEL ZFAX v2.x - DISABLE</a><br />
+<a href="#2FDB03"><b>2FDB03</b> - INT 2F - ZyXEL ZFAX v2.x - ENABLE</a><br />
+<a href="#2FDB10"><b>2FDB10</b> - INT 2F - ZyXEL ZFAX v3+ - EXECUTE ZFAX MAIN MENU</a><br />
+<a href="#2FDB11"><b>2FDB11</b> - INT 2F - ZyXEL ZFAX v3+ - SEND FAX</a><br />
+<a href="#2FDB12"><b>2FDB12</b> - INT 2F - ZyXEL ZFAX v3+ - PRINT FAX</a><br />
+<a href="#2FDB13"><b>2FDB13</b> - INT 2F - ZyXEL ZFAX v3+ - CONVERT FAX</a><br />
+<a href="#2FDB14"><b>2FDB14</b> - INT 2F - ZyXEL ZFAX v3+ - VIEW FAX</a><br />
+<a href="#2FDB15"><b>2FDB15</b> - INT 2F - ZyXEL ZFAX v4.01 - SEND FAX WITH LOGO AND SIGNATURE</a><br />
+<a href="#2FDB16"><b>2FDB16</b> - INT 2F - ZyXEL ZFAX v4.01 - QUOTE PREVIOUS STATUS</a><br />
+<a href="#2FDB17"><b>2FDB17</b> - INT 2F - ZyXEL ZFAX v4.01 - BEGIN RECEIVING INCOMING CALL</a><br />
+<a href="#2FDB18"><b>2FDB18</b> - INT 2F - ZyXEL ZFAX v4.01 - SCHEDULE CALL</a><br />
+<a href="#2FDB20"><b>2FDB20</b> - INT 2F - ZyXEL ZFAX v3+ - POLL FAX</a><br />
+<a href="#2FDB21"><b>2FDB21</b> - INT 2F - ZyXEL ZFAX v3+ - SEND VOICE</a><br />
+<a href="#2FDB22"><b>2FDB22</b> - INT 2F - ZyXEL ZFAX v3+ - CONVERT VOICE FILE</a><br />
+<a href="#2FDB23"><b>2FDB23</b> - INT 2F - ZyXEL ZFAX v3+ - RECORD VOICE FILE</a><br />
+<a href="#2FDB24"><b>2FDB24</b> - INT 2F - ZyXEL ZFAX v3+ - PLAY VOICE FILE</a><br />
+<a href="#2FDB25"><b>2FDB25</b> - INT 2F - ZyXEL ZFAX v3+ - ANSWER MODEM WITH VOICE SYSTEM</a><br />
+<a href="#2FDB26"><b>2FDB26</b> - INT 2F - ZyXEL ZFAX v3+ - DIAL PHONE</a><br />
+<a href="#2FDB27"><b>2FDB27</b> - INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX - ANSWER MODEM AND SET TO FAX MODE</a><br />
+<a href="#2FDB28"><b>2FDB28</b> - INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX DATA - ANSWER MODEM IN MULTI-AUDIO MODE</a><br />
+<a href="#2FDB40"><b>2FDB40</b> - INT 2F - ZyXEL ZFAX v3+ - INTERNAL TERMINAL</a><br />
+<a href="#2FDB41"><b>2FDB41</b> - INT 2F - ZyXEL ZFAX v3+ - SEND DATA - DIAL NUMBER AND UPLOAD FILE WITH ZMODEM</a><br />
+<a href="#6601"><b>6601</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#6602"><b>6602</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#6603"><b>6603</b> - INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS</a><br />
+<a href="#6604"><b>6604</b> - INT 66 - BitFax Scheduler - GET STATUS???</a><br />
+<a href="#6605"><b>6605</b> - INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX</a><br />
+<a href="#6606"><b>6606</b> - INT 66 - BitFax Scheduler - SET MODE???</a><br />
+<a href="#663345"><b>663345</b> - INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY</a><br />
+
+<hr />
+
+<a href="#1177" name="1177"><b>1177</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - OPERATIONAL CONTROL<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - OPERATIONAL CONTROL
+	AH = 77h
+	AL = subfunction
+	    01h request SFENGINE start
+		Return: AX = 0001h
+	    02h check if SFENGINE started
+		Return: AX = 0000h or 0001h
+	    03h request SFENGINE stop
+		Return: AX = 0001h
+	    04h check if SFENGINE stopped
+		Return: AX = 0000h or 0001h
+	    05h installation check
+		Return: AX = 0001h
+	    06h uninstall???
+		BX:DX -&gt; return address for successful uninstall???
+		Return: (at caller's address)
+			AX = 0000h
+	    else
+		Return: AX = FFFFh (invalid subfunction)
+Return: ES:DX -&gt; ASCIZ signature string "SFAX ENGINE V1.0"
+		followed by internal data area???
+SeeAlso: AH=78h,AH=79h,AH=7Ah,AH=7Ch
+Index:	installation check;RainbowFAX|installation check;SFENGINE
+Index:	uninstall;RainbowFAX|uninstall;SFENGINE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1178" name="1178"><b>1178</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - ???
+	AH = 78h
+	AL = subfunction
+	    01h set ???
+		BX = new state for ???
+		    0000h ???
+		    else ???
+		Return: AX = 0001h
+	    02h set ???
+		BX = ???
+		CX = ???
+		Return: AX = 0001h
+	    03h set ???
+		BX = new state for ???
+		    0000h ???
+		    else ???
+		Return: AX = 0001h
+	    else
+		Return: AX = FFFFh (invalid subfunction)
+SeeAlso: AH=77h,AH=79h,AH=7Ah,AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1179" name="1179"><b>1179</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - ???
+	AH = 79h
+	AL = subfunction
+	    01h set ??? flag
+		Return: AX = previous state (0000h already set, 0001h clear)
+	    02h clear ??? flag (refer to subfunc 01h)
+		Return: AX = 0001h
+	    03h set ??? flag (different from subfn 02h or 04h)
+		Return: AX = 0001h
+	    04h clear ??? flag (different from subfn 02h or 03h)
+		Return: AX = 0001h
+	    else
+		Return: AX = FFFFh (invalid subfunction)
+SeeAlso: AH=77h,AH=78h,AH=7Ah,AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#117A" name="117A"><b>117A</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - ???<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - ???
+	AH = 7Ah
+	AL = subfunction
+	    01h set ??? flag
+		Return: AX = previous state (0000h already set, 0001h clear)
+	    02h clear ??? flag
+		Return: AX = 0001h
+	    03h set ??? flag (different from subfn 02h)
+		Return: AX = 0001h
+	    else
+		Return: AX = FFFFh (invalid subfunction)
+SeeAlso: AH=77h,AH=78h,AH=79h,AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#117C01" name="117C01"><b>117C01</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - SET ??? FLAG<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - SET ??? FLAG
+	AX = 7C01h
+Return: AX = 0001h
+SeeAlso: AH=77h,AH=78h,AH=79h,AH=7Ah,AX=7C02h,AX=7C03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#117C02" name="117C02"><b>117C02</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - CLEAR ??? FLAG<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - CLEAR ??? FLAG
+	AX = 7C02h
+Return: AX = 0001h
+SeeAlso: AH=77h,AH=78h,AH=79h,AH=7Ah,AX=7C01h,AX=7C03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#117C03" name="117C03"><b>117C03</b></a> - INT 11 - RainbowFAX v1.3 - SFENGINE API - UNSUPPORTED FUNCTIONS<br />
+<pre>
+INT 11 - RainbowFAX v1.3 - SFENGINE API - UNSUPPORTED FUNCTIONS
+	AX = 7C03h-7CFFh
+Return: AX = FFFFh
+SeeAlso: AH=77h,AX=7C01h,AX=7C02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F2A" name="2F2A"><b>2F2A</b></a> - INT 2F - Gammafax DOS Dispatcher INTERFACE<br />
+<pre>
+INT 2F - Gammafax DOS Dispatcher INTERFACE
+	AH = 2Ah
+Note:	details not available at this time
+SeeAlso: AX=8000h"FaxBIOS",AX=C000h/BX=444Bh,AX=CB00h,AX=CBDDh,INT 66"BitFax"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8000DX0000" name="2F8000DX0000"><b>2F8000DX0000</b></a> - INT 2F - FaxBIOS interface - INSTALLATION CHECK<br />
+<pre>
+INT 2F - FaxBIOS interface - INSTALLATION CHECK
+	AX = 8000h
+	DX = 0000h
+	DI = 0000h
+Return: AL = FFh if installed
+	DX:DI -&gt; signature "FaxBiosjpc"
+Range:	AH=80h to AH=FFh, selected by scanning multiplex numbers for signature
+SeeAlso: AH=2Ah,AX=80FBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F80FB" name="2F80FB"><b>2F80FB</b></a> - INT 2F - FaxBIOS interface - COMMAND SUBMISSION<br />
+<pre>
+INT 2F - FaxBIOS interface - COMMAND SUBMISSION
+	AX = 80FBh
+	BX = function number (see #02930)
+	DX:DI -&gt; command buffer
+		  (see #02932,#02935,#02936,#02937,#02938,#02939,#02944,#02950,#02957)
+Return: AL = FFh if submitted OK
+	CX = result code (see #02931)
+Range:	AH=80h to AH=FFh, selected by scanning multiplex numbers for signature
+SeeAlso: AX=8000h"FaxBIOS",AX=CBDDh
+
+(Table 02930)
+Values for FaxBIOS function number:
+ 0001h	SYS_LOGIN
+ 0002h	SYS_LOGOUT
+ 0003h	SYS_GET_FAXAPP_INFO
+ 0004h	STAT_IO_GET
+ 0005h	STAT_FAXBIOS_GET
+ 0006h	PDIR_OPEN
+ 0007h	PDIR_CLOSE (see #02940)
+ 0008h	PDIR_READ_PERSON (see #02941)
+ 0009h	PDIR_PARTIAL_READ
+ 000Ah	PDIR_READ_GROUP
+ 000Bh	PDIR_READ_MEMBER_LIST
+ 000Ch	PDIR_WRITE_PERSON
+ 000Dh	PDIR_WRITE_GROUP
+ 000Eh	PDIR_DELETE_PERSON
+ 000Fh	PDIR_DELETE_GROUP
+ 0010h	PDIR_READ_GROUP_LIST
+ 0011h	PDIR_IN_GROUP
+ 0012h	PDIR_OUT_GROUP
+ 0013h	SCHED_OPEN (see #02942)
+ 0014h	SCHED_ADD_DEST (see #02943)
+ 0015h	SCHED_ADD_FILE (see #02944)
+ 0016h	SCHED_SET_PARAMS (see #02945)
+ 0017h	SCHED_CANCEL (see #02942)
+ 0018h	SCHED_CLOSE (see #02946)
+ 0019h	SLOG_OPEN (see #02947)
+ 001Ah	SLOG_CLOSE (see #02947)
+ 001Bh	SLOG_SHORT_ENV_STAT
+ 001Ch	SLOG_LONG_ENV_STAT
+ 001Dh	SLOG_DEST_STAT
+ 001Eh	SLOG_FILE_STAT
+ 001Fh	SLOG_CANCEL_ENV
+ 0020h	RLOG_OPEN (see #02947)
+ 0021h	RLOG_CLOSE (see #02947)
+ 0022h	RLOG_READ
+ 0023h	GRAPH_GET_FILE_TYPE (see #02948)
+ 0024h	GRAPH_EXPORT_FILE
+ 0025h	GRAPH_GET_LAYOUT_INFO
+ 0026h	GRAPH_CREATE_FILE (see #02949)
+ 0027h	GRAPH_CLOSE_FILE (see #02950)
+ 0028h	GRAPH_CREATE_PAGE (see #02951)
+ 0029h	GRAPH_WRITE (see #02952)
+ 002Ah	GRAPH_END_PAGE
+ 002Bh	GRAPH_OPEN_FILE (see #02953)
+ 002Ch	GRAPH_GOTO_PAGE (see #02954)
+ 002Dh	GRAPH_READ (see #02955)
+ 002Eh	IOCTL_GET
+ 002Fh	IOCTL_SET
+ 0030h	IOCTL_ANSWER_FAX (see #02956)
+ 0031h	IOCTL_DIAL (see #02957)
+
+(Table 02931)
+Values for FaxBIOS result code:
+ 0000h	successful
+ 0001h	not prepared or servicing another client (busy)
+ 0002h	call failed due to sharing (LOCKED)
+ 0003h	logged-in client limit reached (FULL)
+ 0004h	transport denied (TRANSPORT_DENIED)
+ 0005h	not implemented (NOT_IMPLEMENTED)
+ 0006h	aborted while in progress (ABORTED)
+ 0007h	permissions denied (PERMISSION_DENIED)
+ 0008h	requested data is no longer valid (NO_LONGER_VALID)
+ 0080h	unspecified system error occurred
+ 0081h	an internal file was not found
+ 0082h	an internal file could not be created
+ 0083h	an internal file could not be opened
+ 0084h	an internal file could not be closed
+ 0085h	error occurred writing to an internal file
+ 0086h	error occurred reading from an internal file
+ 0087h	bad or corrupted file encountered
+ 0088h	an access violation occurred
+ 0089h	an internal file is empty
+ 008Ah	insufficient memory to process request
+ 008Bh	FaxBIOS was unable to issue a handle
+ 008Ch	an error internal to FaxBIOS occurred
+ 008Dh	no room on disk
+ 0100h	unspecified error accessing client file
+ 0101h	file not found
+ 0102h	creation fault
+ 0103h	open fault
+ 0104h	close fault
+ 0105h	write fault
+ 0106h	read fault
+ 0107h	file corrupted
+ 0108h	access violation
+ 0109h	empty file
+ 0200h	unspecified argument error
+ 0201h	bad function
+ 0202h	bad option
+ 0203h	bad structure size
+ 0204h	bad buffer size
+ 0205h	bad client ID
+ 0300h	unspecified error with token
+ 0301h	cover sheet token was invalid
+ 0302h	logo token was invalid
+ 0303h	signature token was invalid
+ 0304h	font token was invalid
+ 0305h	phone directory token was invalid
+ 0306h	outbound route token was invalid
+ 0307h	priority token was invalid
+ 0308h	sort token was invalid
+ 0309h	billing token was invalid
+ 0400h	unspecified handle error
+ 0401h	bad Phone Directory handle
+ 0402h	bad scheduling handle
+ 0403h	bad read send log handle
+ 0404h	bad read receive log handle
+ 0405h	bad graphics handle
+ 0500h	data passed in structure was invalid
+ 0501h	name field given is invalid
+ 0502h	phone number given is invalid
+ 0503h	poll code submitted is invalid
+ 0504h	file type constant was invalid
+ 0505h	BFT constant not defined or supported
+ 0506h	resolution not defined or supported
+ 0507h	page length not defined or supported
+ 0508h	page width not defined or supported
+ 0509h	date & time requested are ridiculous
+ 050Ah	Subject text was not an ASCIZ string
+ 050Bh	From text was not an ASCIZ string
+ 050Ch	requested envelope ID was not found
+ 050Dh	requested envelope ID is not valid
+ 050Eh	envelope requested was not found
+ 050Fh	destination index is out of range
+ 0510h	file index is out of range
+ 0511h	index into receive log is out of range
+ 0512h	file name specified was incomplete or invalid
+ 0513h	page selected was out of range
+ 0514h	bit width more than byte width
+ 0515h	mode for open is not defined
+ 0516h	person index is out of range
+ 0517h	person ID is out of range
+ 0518h	group index out of range or invalid
+ 0519h	group ID out of range or invalid
+ 051Ah	range of indices to read is invalid
+ 051Bh	group name given is invalid
+ 051Ch	field_to_use is badly specified
+ 051Dh	predicate invalid for field specified
+ 0600h	unspecified client procedure error
+ 0601h	device of interest is not present
+ 0602h	device of interest has been removed
+ 0603h	device of interest is not responding
+ 0604h	device of interest is disabled
+ 0605h	could not dial because device was in use
+ 0606h	maximum destination limit exceeded
+ 0607h	maximum file limit exceeded
+ 0608h	scheduling closed with no destination
+ 0609h	scheduling closed with no files or poll
+ 060Ah	scheduling closed with no parameters specified
+ 060Bh	file type specified does not match file
+ 060Ch	file type specified is not supported
+ 060Dh	file submitted is not exportable
+ 060Eh	file type specified is not imageable
+ 060Fh	error converting file
+ 0610h	envelope could not be cancelled
+ 0611h	Phone Directory is full
+ 0612h	record is already in the Phone Directory
+ 0613h	selected group in Phone Directory is full
+ 0614h	person is already in the group
+ 0615h	person is not in the group & cannot be removed
+ 0616h	a graphics file to be created already exists
+ 0617h	a graphics file to be read is empty
+ 0618h	GRAPH_CREATE_PAGE called before GRAPH_END_PAGE
+ 0619h	graph read or write attempted without goto or create
+ 061Ah	graph page contains no data
+ 061Bh	Phone Directory is already open for this client
+ 061Ch	schedule log is already open for this client
+ 061Dh	receive log is aready open for this client
+ 061Eh	Phone Directory function requires write mode
+ 0800h	denied exclusive use of the API
+
+Format of FaxBIOS SYS_LOGIN command buffer:
+Offset	Size	Description	(Table 02932)
+ 00h	WORD	structure size
+ 02h	WORD	function number
+ 04h	WORD	return code
+ 06h	WORD	client ID
+ 08h	WORD	API Major Version
+ 0Ah	WORD	API Minor Version
+ 0Ch	DWORD	reserved for manufacturer's use
+ 10h 22 BYTEs	manufacturer's ID
+ 26h	WORD	highest possible device number
+ 28h	WORD	maximum destinations per envelope
+ 2Ah	WORD	maximum files per envelope
+ 2Ch	WORD	FaxBIOS capabilities (see #02933)
+ 2Eh	DWORD	T.30 capabilities (see #02934)
+ 32h	WORD	IPC handle
+ 34h	DWORD	amount of memory needed to load
+ 38h	WORD	scope (00h for public, nonzero for private)
+ 3Ah  6 BYTEs	future expansion
+ 40h	WORD	structure size
+
+Bitfields for FaxBIOS capabilities:
+Bit(s)	Description	(Table 02933)
+ 0	transmit supported
+ 1	receive supported
+ 2	IOCTL supported
+ 3	IOCTL_DIAL supported
+ 4	IOCTL_ANSWER_FAX supported
+ 5	manual transmit supported
+ 6	optional phone services supported
+ 7	canonical phone objects
+ 8	seam with next supported
+
+Bitfields for T.30 capabilities:
+Bit(s)	Description	(Table 02934)
+ 0	low vertical resolution (minimum)
+ 1	high vertical resolution
+ 2	page width 107mm (4.21 in)
+ 3	page width 151mm (5.91 in)
+ 4	page width 215mm (8.46 in) (minimum)
+ 5	page width 255mm (10.04 in)
+ 6	page width 303mm (11.93 in)
+ 7	unused
+ 8	page length 297mm (11.69 in) (minimum)
+ 9	page length 364mm (14.33 in)
+ 10	page length 279mm (11 in)
+ 11	page length unlimited
+ 12	Group 4 resolution 300x300
+ 13	Group 4 resolution 400x400
+ 14	able to respond to poll from remote
+ 15	able to poll remote
+ 16	binary file transfer supported
+
+Format of FaxBIOS SYS_LOGOUT command buffer:
+Offset	Size	Description	(Table 02935)
+ 00h	WORD	structure size
+ 02h	WORD	function number
+ 04h	WORD	return code
+ 06h	WORD	client ID
+ 08h	DWORD	client tag (for client's internal use)
+ 0Ch  6 BYTEs	future expansion
+ 12h	WORD	structure size
+
+Format of FaxBIOS SYS_GET_FAXAPP_INFO command buffer:
+Offset	Size	Description	(Table 02936)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch 80 BYTEs	FaxBIOS data
+ 5Ch 80 BYTEs	default cover
+ ACh 80 BYTEs	default logo
+ FCh 80 BYTEs	default signature
+14Ch 80 BYTEs	default font 10
+19Ch 80 BYTEs	default font 165
+1ECh 80 BYTEs	default user font
+23Ch 80 BYTEs	default Pdir
+28Ch 80 BYTEs	default sort
+2DCh 10 BYTEs	default bill
+2E6h 10 BYTEs	default route
+2F0h 40 BYTEs	default cover sheet form
+318h 34 BYTEs	valid dial characters
+33Ah  6 BYTEs	local country code
+340h  6 BYTEs	local city or area code
+346h  6 BYTEs	future expansion
+34Ch	WORD	structure size
+
+Format of FaxBIOS STAT_IO_GET command buffer:
+Offset	Size	Description	(Table 02937)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	device number
+ 0Eh	WORD	current activity
+ 10h	WORD	number of rings (if ringing)
+ 12h	WORD	number of fascimiles transmitted
+ 14h	WORD	number of fascimiles received
+ 16h	WORD	status of last transmission
+ 18h	WORD	envelope number of last transmission
+ 1Ah	WORD	index of last destination in envelope
+ 1Ch	WORD	status of last reception
+ 1Eh	WORD	current page (if session in progress)
+ 20h 80 BYTEs	current file
+ 70h 104 BYTEs	remote number
+ D8h 20 BYTEs	last name
+ ECh 20 BYTEs	first name
+100h 32 BYTEs	company name
+120h 32 BYTEs	notes
+140h	WORD	current envelope ID (if sending)
+142h	WORD	total pages in transmission (if sending)
+144h  6 BYTEs	future expansion
+14h	WORD	structure size
+
+Format of FaxBIOS STAT_FAXBIOS_GET command buffer:
+Offset	Size	Description	(Table 02938)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	status ID
+ 0Eh	WORD	currenty FaxBIOS function number
+ 10h	WORD	current Client ID being serviced
+ 12h	WORD	number of things to do
+ 14h	WORD	number of them done
+ 16h	WORD	number of pages to do (if any)
+ 18h	WORD	number of them done
+ 1Ah	WORD	number of files to do
+ 1Ch	WORD	number of them done
+ 1Eh 80 BYTEs	current File
+ 6Eh	WORD	0 if all devices are idle
+ 70h	WORD	number of fascimiles transmitted
+ 72h	WORD	number of fascimiles received
+ 74h	WORD	status of last transmission in system
+ 76h	WORD	envelope ID of last transmission
+ 78h	WORD	index of last destination in envelope
+ 7Ah	WORD	status of last reception in system
+ 7Ch	DWORD	time of next transmission
+ 80h  6 BYTEs	future expansion
+ 86h	WORD	structure size
+
+Format of FaxBIOS PDIR_OPEN command buffer:
+Offset	Size	Description	(Table 02939)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch 80 BYTEs	Phone Directory token
+ 5Ch 80 BYTEs	sort order token
+ ACh	WORD	open Mode (0 = read, 1 = write)
+ AEh	WORD	Phone Directory handle
+ B0h	WORD	number of people
+ B2h	WORD	number of groups
+ B4h	WORD	bitmap of fields supported by partial read
+ B6h  6 BYTEs	future expansion
+ BCh	WORD	structure size
+
+Format of FaxBIOS PDIR_CLOSE command buffer:
+Offset	Size	Description	(Table 02940)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	Phone Directory handle
+ 0Eh  6 BYTEs	future expansion
+ 14h	WORD	structure size
+
+Format of FaxBIOS PDIR_READ_PERSON command buffer:
+Offset	Size	Description	(Table 02941)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	Phone Directory handle
+ 0Eh	WORD	retrieve by index
+ 10h	WORD	person ID or index
+ 12h	WORD	how many groups person is in
+ 14h	WORD	person ID
+ 16h 20 BYTEs	last name
+ 2Ah 20 BYTEs	first name
+ 3Eh 32 BYTEs	company
+ 5Eh 32 BYTEs	notes
+ 7Eh  6 BYTEs	FAX country code
+ 84h  6 BYTEs	FAX city/area code
+ 8Ah 14 BYTEs	FAX local number
+ 98h 14 BYTEs	FAX extension
+ A6h 24 BYTEs	reserved
+ BEh  6 BYTEs	voice country code
+ C4h  6 BYTEs	voice city/area code
+ CAh 14 BYTEs	voice local number
+ D8h 14 BYTEs	voice extension
+ E6h 24 BYTEs	reserved
+ FEh 10 BYTEs	outbound routing information
+108h 10 BYTEs	billing information, credit card etc
+112h	DWORD	remote FAX capabilities
+116h 21 BYTEs	T.30 poll code of FAX number
+12Bh 15 BYTEs	reserved
+13Ah  6 BYTEs	future expansion
+140h	WORD	structure size
+
+Format of FaxBIOS SCHED_OPEN, SCHED_CANCEL command buffer:
+Offset	Size	Description	(Table 02942)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	scheduler handle
+ 0Eh  6 BYTEs	future expansion
+ 14h	WORD	structure size
+
+Format of FaxBIOS SCHED_ADD_DEST command buffer:
+Offset	Size	Description	(Table 02943)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	schedule handle
+ 0Eh	WORD	device number if manual send wanted
+ 10h	WORD	non-zero if poll desired
+ 12h	WORD	person ID
+ 14h 20 BYTEs	last name
+ 28h 20 BYTEs	first name
+ 3Ch 32 BYTEs	company
+ 5Ch 32 BYTEs	notes
+ 7Ch  6 BYTEs	FAX country code
+ 82h  6 BYTEs	FAX city/area code
+ 88h 14 BYTEs	FAX local number
+ 96h 14 BYTEs	FAX extension
+ A4h 24 BYTEs	reserved
+ BCh  6 BYTEs	voice country code
+ C2h  6 BYTEs	voice city/area code
+ C8h 14 BYTEs	voice local number
+ D6h 14 BYTEs	voice extension
+ E4h 24 BYTEs	reserved
+ FCh 10 BYTEs	outbound routing information
+106h 10 BYTEs	billing information, credit card etc
+110h	DWORD	remote FAX capabilities
+114h 21 BYTEs	T.30 poll code of FAX number
+129h 15 BYTEs	reserved
+138h  6 BYTEs	future expansion
+13Eh	WORD	structure size
+SeeAlso: #02944
+
+Format of FaxBIOS SCHED_ADD_FILE command buffer:
+Offset	Size	Description	(Table 02944)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	schedule handle
+ 0Eh	WORD	file type
+		0000h unidentified
+		0001h native file format
+		0002h ASCII
+		0003h FaxBIOS Tiff Class F
+ 10h 80 BYTEs	file name
+ 60h 80 BYTEs	font token
+ B0h	WORD	conversion options bitmap
+ B2h	WORD	resolution
+		0000h standard 98 lines per inch, 204 dpi
+		0001h fine 196 lines per inch, 204 dpi
+		0002h Group4 300 dpi
+		0003h Group4 400 dpi
+ B4h	WORD	page length
+		0000h 279 mm (11 in)
+		0001h 297 mm (11.69 in)
+		0002h 364 mm (14.33 in)
+		0003h unlimited
+ B6h	WORD	page width
+		0000h 215 mm (8.46 in)
+		0001h 255 mm (10.04 in)
+		0002h 303 mm (11.93 in)
+		0003h 151 mm (5.91 in)
+		0004h 107 mm (4.21 in)
+ B8h	WORD	binary file transfer specification
+		0000h only as FAX
+		0001h only as file (for non-faxable files)
+		0002h as file when possible else FAX
+ BAh	WORD	seam flag (nonzero for seam with next)
+ BCh	WORD	delete flag (nonzero to delete when done)
+ BEh  6 BYTEs	future expansion
+ C4h	WORD	structure size
+SeeAlso: #02943,#02945
+
+Format of FaxBIOS SCHED_SET_PARAMS command buffer:
+Offset	Size	Description	(Table 02945)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	scheduler handle
+ 0Eh	DWORD	time to send
+ 10h 10 BYTEs	priority token
+ 1Ch 80 BYTEs	logo file token
+ 6Ch 80 BYTEs	signature file token
+ BCh 80 BYTEs	cover page token
+10Ch 40 BYTEs	Subject text
+134h 40 BYTEs	From text
+15Ch	WORD	user ID
+15Eh  6 BYTEs	future expansion
+164h	WORD	structure size
+SeeAlso: #02943,#02944,#02946
+
+Format of FaxBIOS SCHED_CLOSE command buffer:
+Offset	Size	Description	(Table 02946)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	scheduler handle
+ 0Eh	WORD	envelope ID generated
+ 10h  6 BYTEs	future expansion
+ 16h	WORD	structure size
+SeeAlso: #02945
+
+Format of FaxBIOS SLOG_OPEN, SLOG_CLOSE, RLOG_OPEN, RLOG_CLOSE command buffer:
+Offset	Size	Description	(Table 02947)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	log handle
+ 0Eh	WORD	number of entries
+ 10h  6 BYTEs	future expansion
+ 16h	WORD	structure size
+
+Format of FaxBIOS GRAPH_GET_FILE_TYPE command buffer:
+Offset	Size	Description	(Table 02948)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch 80 BYTEs	filename
+ 5Ch	WORD	file type
+		0000h unidentified
+		0001h native file format
+		0002h ASCII
+		0003h FaxBIOS Tiff Class F
+ 5Eh	WORD	bitmap of supported capabilities
+ 60h  6 BYTEs	future expansion
+ 66h	WORD	structure size
+SeeAlso: #02949,#02950
+
+Format of FaxBIOS GRAPH_CREATE_FILE command buffer:
+Offset	Size	Description	(Table 02949)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch 80 BYTEs	filename
+ 5Ch	WORD	graph handle
+ 5Eh  6 BYTEs	future expansion
+ 64h	WORD	structure size
+SeeAlso: #02948,#02950,#02951
+
+Format of FaxBIOS GRAPH_CLOSE_FILE, GRAPH_END_PAGE command buffer:
+Offset	Size	Description	(Table 02950)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	graph handle
+ 0Eh  6 BYTEs	future expansion
+ 14h	WORD	structure size
+SeeAlso: #02949,#02951
+
+Format of FaxBIOS GRAPH_CREATE_PAGE command buffer:
+Offset	Size	Description	(Table 02951)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	graph handle
+ 0Eh	WORD	resolution
+ 10h	WORD	page width
+ 12h  6 BYTEs	future expansion
+ 18h	WORD	structure size
+SeeAlso: #02949,#02950,#02952
+
+Format of FaxBIOS GRAPH_WRITE_PAGE command buffer:
+Offset	Size	Description	(Table 02952)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	graph handle
+ 0Eh	DWORD	pointer to storage for image
+ 12h	WORD	band height in lines
+ 14h	WORD	width of page image in bytes
+ 16h	WORD	facsimile page width constant
+ 18h	WORD	width of page image in bits
+ 1Ah	WORD	number of bytes actually processed
+ 1Ch  6 BYTEs	future expansion
+ 22h	WORD	structure size
+SeeAlso: #02951,#02953
+
+Format of FaxBIOS GRAPH_OPEN_FILE command buffer:
+Offset	Size	Description	(Table 02953)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch 80 BYTEs	filename
+ 5Ch	WORD	file type
+ 5Eh	WORD	graph handle
+ 60h	WORD	number of pages
+ 62h  6 BYTEs	future expansion
+ 68h	WORD	structure size
+SeeAlso: #02952,#02954
+
+Format of FaxBIOS GRAPH_GOTO_PAGE command buffer:
+Offset	Size	Description	(Table 02954)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	graph handle
+ 0Eh	WORD	page number
+ 10h	WORD	vertical resolution
+ 12h	WORD	page width
+ 14h	DWORD	page length
+ 18h  6 BYTEs	future expansion
+ 1Eh	WORD	structure size
+SeeAlso: #02952,#02953,#02955
+
+Format of FaxBIOS GRAPH_READ_PAGE command buffer:
+Offset	Size	Description	(Table 02955)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	graph handle
+ 0Eh	DWORD	pointer to storage for image
+ 12h	WORD	band height in lines
+ 14h	WORD	width of page image in bytes
+ 16h	WORD	facsimile page width constant
+ 18h	WORD	width of page image in bits
+ 1Ah	WORD	number of bytes actually processed
+ 1Ch  6 BYTEs	future expansion
+ 22h	WORD	structure size
+
+Format of FaxBIOS IOCTL_ANSWER_FAX command buffer:
+Offset	Size	Description	(Table 02956)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	device number
+ 0Eh  6 BYTEs	future expansion
+ 14h	WORD	structure size
+SeeAlso: #02957
+
+Format of FaxBIOS IOCTL_DIAL command buffer:
+Offset	Size	Description	(Table 02957)
+ 00h 12 BYTEs	common data (see #02935)
+ 0Ch	WORD	device number
+ 0Eh  6 BYTEs	country code
+ 14h  6 BYTEs	city or area code
+ 1Ah 14 BYTEs	local number
+ 28h 14 BYTEs	extension
+ 36h 14 BYTEs	reserved
+ 4Eh  6 BYTEs	future expansion
+ 54h	WORD	structure size
+SeeAlso: #02956
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC0" name="2FC0"><b>2FC0</b></a> - INT 2F - METZ XpressFax Hardware TSR (CLASS2) - API<br />
+<pre>
+INT 2F - METZ XpressFax Hardware TSR (CLASS2) - API
+	AH = C0h
+	AL = function code (01h to 15h)
+Return: ???
+SeeAlso: AX=C000h/BX=444Bh,AX=CB00h/BX=4D53h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000BX444B" name="2FC000BX444B"><b>2FC000BX444B</b></a> - INT 2F - METZ XpressFax Hardware TSR (CLASS2) - INSTALLATION CHECK<br />
+<pre>
+INT 2F - METZ XpressFax Hardware TSR (CLASS2) - INSTALLATION CHECK
+	AX = C000h
+	BX = 444Bh ('DK')
+	CX = 4A4Eh ('AN')
+Return: AL = status
+	    00h not installed, OK to install
+	    FFh installed
+		BX = 646Bh ('dk')
+		CX = 6A6Eh ('an')
+Range:	AH=C0h to AH=FFh, selected automatically
+SeeAlso: AH=C0h"METZ"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCA" name="2FCA"><b>2FCA</b></a> - INT 2F - FAXPLUS - FAX TSR<br />
+<pre>
+INT 2F - FAXPLUS - FAX TSR
+	AH = CAh
+	???
+Return: ???
+Program: FAXTSR is a resident FAX send/receive module for FAXPLUS by Frans
+	  Veldman
+SeeAlso: AH=2Ah"Gammafax"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB00" name="2FCB00"><b>2FCB00</b></a> - INT 2F - Communicating Applications Specification - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Communicating Applications Specification - INSTALLATION CHECK
+	AX = CB00h
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+	    FFh installed
+Note:	AH = CBh is the default identifier, but may be reconfigured
+SeeAlso: AH=2Ah,AX=8000h"FaxBIOS",AX=CB0Eh,AX=CBDCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB00BX4D53" name="2FCB00BX4D53"><b>2FCB00BX4D53</b></a> - INT 2F - METZ XpressFax CASMGR - INSTALLATION CHECK<br />
+<pre>
+INT 2F - METZ XpressFax CASMGR - INSTALLATION CHECK
+	AX = CB00h
+	BX = 4D53h ('MS')
+	CX = 4949h ('II')
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+	    FFh installed
+		BX = 6D73h ('ms')
+		CX = 6969h ('ii')
+Note:	this function is equivalent to the standard CASMGR installation check,
+	  but uses the additional magic values to identify which CAS is
+	  installed
+SeeAlso: AH=2Ah,AX=8000h"FaxBIOS",AX=C000h/BX=444Bh,AX=CB0Eh,AX=CB16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB01" name="2FCB01"><b>2FCB01</b></a> - INT 2F - Communicating Applications Specification - SUBMIT A TASK<br />
+<pre>
+INT 2F - Communicating Applications Specification - SUBMIT A TASK
+	AX = CB01h
+	DS:DX -&gt; ASCIZ name of task control file
+Return: AX &gt;= 0: event handle
+	AX &lt; 0: two's complement of error code (see #03048)
+Note:	files needed for an event must be kept until task is complete or error
+SeeAlso: AX=CB0Bh,AX=CB15h
+
+(Table 03048)
+Values for CAS error code:
+  (AH = class, AL = subcode, value passed back is 2's complement)
+  Class 00h	--- FAX warnings
+	Subcode 00h	no error
+		02h	bad scanline count
+		03h	page sent with errors, could not retransmit
+		04h	received data lost
+		05h	invalid or missing logo file
+		06h	filename does not match nonstandard format (NSF) header
+		07h	file size does not match NSF header
+  Class 01h	--- DOS warnings (data was sent)
+	Subcode 01h	invalid function
+		05h	access denied
+		06h	invalid handle
+		others	see #01680 at INT 21/AH=59h/BX=0000h
+  Class 02h	--- fatal errors (data not sent)
+	Subcode 00h	multiplex handler failed
+		01h	unknown command
+		02h	bad event handle
+		03h	FIND NEXT attempted before FIND FIRST
+		04h	no more events
+		07h	invalid queue type
+		08h	bad control file
+		09h	communication board busy
+		0Ah	invalid command parameter
+		0Bh	can't uninstall resident code
+		0Ch	file exists
+		80h	unknown task type
+		81h	bad phone number
+		82h	bad .PCX file header
+		83h	unexpected EOF
+		84h	unexpected disconnect
+		85h	too many dialing retries
+		86h	no file specified for send
+		87h	communication board timeout
+		88h	received too many pages (&gt;1023) of data
+		89h	manual connect initiated too long ago
+		8Ah	hardware command set error
+		8Bh	bad NonStandard Format (NSF) header file
+  Class 03h	--- fatal DOS errors
+	Subcode 02h	file not found
+		03h	path not found
+		others	see #01680 at INT 21/AH=59h/BX=0000h
+  Class 04h	--- FAX errors
+	Subcode 01h	remote unit not Group 3 compatible
+		02h	remote unit did not send capabilities
+		03h	other FAX machine incompatible
+		04h	other FAX incapable of file transfers
+		05h	exceeded retrain or FAX resend limit
+		06h	line noise or failure to agree on bit rate
+		07h	remote disconnected after receiving data
+		08h	no response from remote after sending data
+		09h	remote's capabilities incompatible
+		0Ah	no dial tone (v1.2+)
+		0Bh	invalid response from remote unit after sending data
+		0Dh	phone line dead or remote unit disconnected
+		0Eh	timeout while waiting for secondary dial tone (v1.2+)
+		11h	invalid command from remote after receiving data
+		15h	tried to receive from incompatible hardware
+		5Ch	received data overflowed input buffer
+		5Dh	remote unexpectedly stopped sending data
+		5Eh	other FAX machine jammed (no data sent)
+		5Fh	remote took too long to send fax scan line
+		63h	can't get through to remote unit
+		64h	user canceled event
+  Class 05h	--- application-specific (v1.2+)
+  ---Intel FAXPOP.EXE
+	Subcode 00h	tried to send while in graphics mode
+		01h	insufficient disk space
+		02h	internal buffer overflow
+  Class 06h	--- CAS implementation-specific (v1.2+)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB02" name="2FCB02"><b>2FCB02</b></a> - INT 2F - Communicating Applications Specification - ABORT CURRENT EVENT<br />
+<pre>
+INT 2F - Communicating Applications Specification - ABORT CURRENT EVENT
+	AX = CB02h
+Return: AX &gt;= 0: event handle of aborted event
+	AX &lt; 0: error code (see #03048)
+Note:	termination could take up to 30 seconds
+SeeAlso: AX=CB08h,AX=CB10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB05" name="2FCB05"><b>2FCB05</b></a> - INT 2F - Communicating Applications Specification - FIND FIRST QUEUE ENTRY<br />
+<pre>
+INT 2F - Communicating Applications Specification - FIND FIRST QUEUE ENTRY
+	AX = CB05h
+	CX = status of events to find
+	    0000h successful completion
+	    0001h waiting to be processed
+	    0002h number has been dialed
+	    0003h connection established, sending
+	    0004h connection established, receiving
+	    0005h event aborted
+	    FFFFh find any event, regardless of status
+	    other negative values, match error code
+	DH = direction
+	    00h chronological order, earliest to latest
+	    01h reverse chronological order, latest to earliest
+	DL = queue to search
+	    00h task queue
+	    01h receive queue
+	    02h log queue
+Return: AX = 0000h successful
+	    BX = event handle for found event
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB06h,AX=CB07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB06" name="2FCB06"><b>2FCB06</b></a> - INT 2F - Communicating Applications Specification - FIND NEXT QUEUE ENTRY<br />
+<pre>
+INT 2F - Communicating Applications Specification - FIND NEXT QUEUE ENTRY
+	AX = CB06h
+	DL = queue to search
+	    00h task queue
+	    01h receive queue
+	    02h log queue
+Return: AX = 0000h successful
+	    BX = event handle for found event
+	AX &lt; 0	   error code (see #03048)
+Note:	direction of search is same as preceding FIND FIRST call
+SeeAlso: AX=CB05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB07" name="2FCB07"><b>2FCB07</b></a> - INT 2F - Communicating Applications Specification - OPEN FILE<br />
+<pre>
+INT 2F - Communicating Applications Specification - OPEN FILE
+	AX = CB07h
+	BX = event handle from find (AL=05h,06h) or submit task (AL=01h)
+	CX = receive file number (ignored for task queue and log queue)
+	    0000h  open receive control file
+	    N	   open Nth received data file
+	DL = queue
+	    00h task queue
+	    01h receive queue control file or received file, as given by CX
+	    02h log queue
+	    03h group file in task queue (v1.2+)
+	    04h group file in log queue (v1.2+)
+Return: AX = 0000h successful
+	    BX = DOS file handle for requested file
+	AX &lt; 0	   error code (see #03048)
+Note:	the returned file handle has been opened in read-only mode and should
+	  be closed with INT 21/AH=3Eh after use
+SeeAlso: AX=CB01h,AX=CB05h,AX=CB14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB08" name="2FCB08"><b>2FCB08</b></a> - INT 2F - Communicating Applications Specification - DELETE FILE<br />
+<pre>
+INT 2F - Communicating Applications Specification - DELETE FILE
+	AX = CB08h
+	BX = event handle
+	CX = receive file number
+	    0000h delete ALL received files and receive control file
+	    N	  delete Nth received file
+	DL = queue
+	    00h delete control file in task queue and corresponding group file
+		  if it exists
+	    01h delete file in receive queue, as given by CX
+	    02h delete control file in log queue (individual deletions not
+		  recommended, to maintain integrity of log) and corresponding
+		  group file if it exists
+Return: AX = 0000h successful
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB02h,AX=CB09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB09" name="2FCB09"><b>2FCB09</b></a> - INT 2F - Communicating Applications Specification - DELETE ALL FILES IN Q<br />
+<pre>
+INT 2F - Communicating Applications Specification - DELETE ALL FILES IN Q
+	AX = CB09h
+	DL = queue
+	    00h delete all control files in task queue, including all group
+		  files
+	    01h delete all files in receive queue
+	    02h delete all control files in log queue, including all group
+		  files
+Return: AX = 0000h successful
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0A" name="2FCB0A"><b>2FCB0A</b></a> - INT 2F - Communicating Applications Specification - GET EVENT DATE<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET EVENT DATE
+	AX = CB0Ah
+	BX = event handle
+	DL = queue
+	    00h task queue
+	    01h receive queue
+	    02h log queue
+Return: AX = 0000h successful
+	    CX = year
+	    DH = month
+	    DL = day
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB0Bh,AX=CB0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0B" name="2FCB0B"><b>2FCB0B</b></a> - INT 2F - Communicating Applications Specification - SET TASK DATE<br />
+<pre>
+INT 2F - Communicating Applications Specification - SET TASK DATE
+	AX = CB0Bh
+	BX = event handle (task event only)
+	CX = year
+	DH = month
+	DL = day
+Return: AX = 0000h successful
+	AX &lt; 0	   error code (see #03048)
+Note:	setting a task's date and time to before the current date and time
+	  causes it to execute immediately
+SeeAlso: AX=CB01h,AX=CB0Ah,AX=CB0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0C" name="2FCB0C"><b>2FCB0C</b></a> - INT 2F - Communicating Applications Specification - GET EVENT TIME<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET EVENT TIME
+	AX = CB0Ch
+	BX = event handle
+	DL = queue
+	    00h task queue
+	    01h receive queue
+	    02h log queue
+Return: AX = 0000h successful
+	    CH = hour
+	    CL = minute
+	    DH = second
+	    DL = 00h
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB0Ah,AX=CB0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0D" name="2FCB0D"><b>2FCB0D</b></a> - INT 2F - Communicating Applications Specification - SET TASK TIME<br />
+<pre>
+INT 2F - Communicating Applications Specification - SET TASK TIME
+	AX = CB0Dh
+	BX = event handle (task events only)
+	CH = hour
+	CL = minute
+	DH = second
+	DL unused
+Return: AX = 0000h successful
+	AX &lt; 0	   error code (see #03048)
+Note:	setting a task's date and time to before the current date and time
+	  causes it to execute immediately
+SeeAlso: AX=CB0Bh,AX=CB0Ch,AX=CB10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0E" name="2FCB0E"><b>2FCB0E</b></a> - INT 2F - Communicating Applications Specification - GET EXTERNAL DATA BLOCK<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET EXTERNAL DATA BLOCK
+	AX = CB0Eh
+	DS:DX -&gt; 256-byte buffer for external data block (see #03049)
+Return: AX = 0000h successful
+	    DS:DX buffer filled
+	AX &lt; 0	   error code (see #03048)
+
+Format of CAS external data block:
+Offset	Size	Description	(Table 03049)
+ 00h	BYTE	CAS major version
+ 01h	BYTE	CAS minor version
+ 02h 68 BYTEs	ASCIZ path to directory containing CAS software, ends in slash
+ 46h 13 BYTEs	ASCIZ name of current phonebook (in CAS directory)
+ 53h 13 BYTEs	ASCIZ name of current logo file (in CAS directory)
+ 60h 32 BYTEs	ASCIZ default sender name
+ 80h 21 BYTEs	ASCIZ CCITT identification of fax device
+ 95h 107 BYTEs	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB0F" name="2FCB0F"><b>2FCB0F</b></a> - INT 2F - Communicating Applications Specification - GET/SET AUTORECEIVE<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET/SET AUTORECEIVE
+	AX = CB0Fh
+	DL = subfunction
+	    00h get current autoreceive state
+	    01h set autoreceive state
+		DH = number of rings before answer, 00h = never
+Return: AX = 0000h autoreceive disabled
+	AX = N	   number of rings before answer
+	AX &lt; 0	   error code (see #03048)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB10" name="2FCB10"><b>2FCB10</b></a> - INT 2F - Communicating Applications Specification - GET CURRENT EVENT STATUS<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET CURRENT EVENT STATUS
+	AX = CB10h
+	DS:DX -&gt; 512-byte buffer for status area (see #03051)
+Return: AX = 0000h successful
+		BX = event handle of current event or negative error code if
+		      no current event
+		buffer filled
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB02h,AX=CB0Dh
+
+(Table 03050)
+Values for CAS event type:
+ 00h	send
+ 01h	receive
+ 02h	polled send
+ 03h	polled receive
+ 04h to 7Fh reserved
+ FFh	serious hardware error
+
+Format of CAS status area:
+Offset	Size	Description	(Table 03051)
+ 00h	BYTE	event type (see #03050)
+ 01h	BYTE	transfer type
+		00h 200x200 dpi, FAX mode
+		01h 100x200 dpi, FAX mode
+		02h file transfer mode
+		03h to 7Fh reserved
+ 02h	WORD	event status (see #03052)
+ 04h	WORD	event time (packed DOS time format, see INT 21/AX=5700h)
+ 06h	WORD	event date (packed DOS date format, see INT 21/AX=5700h)
+ 08h	WORD	number of files to transfer, max 7FFFh
+ 0Ah	WORD	offset of file transfer record
+ 0Ch 47 BYTEs	ASCIZ phone number to call
+ 3Bh 64 BYTEs	ASCIZ application-specific tag string
+ 7Bh	BYTE	reserved (00h)
+ 7Ch	BYTE	connect time, seconds
+ 7Dh	BYTE	connect time, minutes
+ 7Eh	BYTE	connect time, hours
+ 7Fh	DWORD	total number of pages in all files
+ 83h	DWORD	pages already transmitted
+ 87h	WORD	number of files already transmitted
+ 89h	BYTE	cover page flag
+		00h don't transmit cover page
+		01h transmit cover page
+		02h to 7Fh reserved
+ 8Ah	WORD	total number of transmission errors
+ 8Ch 78 BYTEs	reserved (zeros)
+ DAh 21 BYTEs	ASCIZ remote FAX's CCITT identification
+ EFH 32 BYTEs	ASCIZ destination name
+10Fh 32 BYTEs	ASCIZ sender name
+12Fh 80 BYTEs	filename of PCX logo file (max 1780x800 pixels)
+17Fh 128 BYTEs	file transfer record for current event (see #03053)
+
+(Table 03052)
+Values for CAS event status:
+ 0000h	completed successfully
+ 0001h	waiting
+ 0002h	number dialed
+ 0003h	connected, sending
+ 0004h	connected, receiving
+ 0005h	aborted
+ 0006h to 007Fh reserved
+ 0080h to 7FFFh application-specific events
+ 8000h to FFFFh error codes
+
+Format of CAS file transfer record:
+Offset	Size	Description	(Table 03053)
+ 00h	BYTE	file type (ignored unless FAX)
+		00h ASCII
+		01h PCX
+		02h DCX
+		03h to 7Fh reserved
+ 01h	BYTE	text size for ASCII FAX file
+		00h = 80 columns by 66 lines (11 inches)
+		01h = 132 columns by 88 lines (11 inches)
+		02h to 7Fh reserved
+ 02h	BYTE	status of file
+		00h untouched
+		01h opened
+		02h moved
+		03h deleted
+		04h not yet received
+		05h to 7Fh reserved
+ 03h	DWORD	bytes already transmitted
+ 07h	DWORD	file size in bytes
+ 0Bh	WORD	pages alread transmitted
+ 0Dh	WORD	number of pages in file
+ 0Fh 80 BYTEs	ASCIZ filename
+ 5Fh	BYTE	1/8 inch page length
+		if page length below set to 01h through 7Fh, this value
+		  specifies additional 1/8 inch increments to page length
+ 60h	BYTE	page length
+		00h = 11 inches
+		01h to 7Fh = page length is this number of inches plus value of
+			  1/8 inch field above
+		80h to FEh reserved
+		FFh = ASCII pages ending with formfeed
+ 61h 31 BYTEs	reserved (zeros)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB11" name="2FCB11"><b>2FCB11</b></a> - INT 2F - Communicating Applications Specification - GET QUEUE STATUS<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET QUEUE STATUS
+	AX = CB11h
+	DL = queue to get status of
+	    00h task queue
+	    01h receive queue
+	    02h log queue
+	    03h send events (v1.2+)
+	    04h receive events (v1.2+)
+Return: AX &gt;= 0	 total number of changes made to queue, modulo 32768
+	    BX = number of control files currently in queue
+	    CX = number of received files (zero for task and log queues)
+	AX &lt; 0	error code (see #03048)
+SeeAlso: AX=CB12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB11DL03" name="2FCB11DL03"><b>2FCB11DL03</b></a> - INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF SEND EVENTS<br />
+<pre>
+INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF SEND EVENTS
+	AX = CB11h
+	DL = 03h
+Return: AX = number of successful sends since resident manager started
+	BX = number of unsuccessful sends, including warnings
+SeeAlso: AX=CB11h/DL=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB11DL04" name="2FCB11DL04"><b>2FCB11DL04</b></a> - INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF RECEIVE EVENTS<br />
+<pre>
+INT 2F - Communicating Applications Spec v1.2+ - GET NUMBER OF RECEIVE EVENTS
+	AX = CB11h
+	DL = 04h
+Return: AX = number of received file events since resident manager started
+	BX = number of received FAX events
+SeeAlso: AX=CB11h/DL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB12" name="2FCB12"><b>2FCB12</b></a> - INT 2F - Communicating Applications Specification - GET HARDWARE STATUS<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET HARDWARE STATUS
+	AX = CB12h
+	DS:DX -&gt; 128-byte status buffer (see #03054,#03056)
+Return: AX = 0000h successful
+	    DS:DX buffer filled with hardware-dependent status information
+	   &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB10h,AX=CB11h
+
+Format of status buffer for Intel Connection CoProcessor:
+Offset	Size	Description	(Table 03054)
+ 00h	BYTE	Connection CoProcessor connection status flags (see #03057)
+ 01h	BYTE	number of kilobytes of free buffer space
+ 02h	BYTE	page buffer status
+		bit 7: Connection CoProcessor has documents to send
+		bits 6-0: number of pages in buffer
+ 03h	BYTE	number of retries left for dialing number
+ 04h	BYTE	page number to retransmit
+ 05h	BYTE	communications status (see #03058)
+ 06h	BYTE	baud rate (see #03055)
+ 07h  3 BYTEs	reserved
+ 0Ah	BYTE	Connection CoProcessor hardware status (see #03059)
+ 0Bh	BYTE	Connection CoProcessor switch states (see #03060)
+ 0Ch	BYTE	communications flags (see #03061)
+ 0Dh	BYTE	reserved
+ 0Eh	WORD	error count (only valid while busy, reset when idle)
+ 10h	DWORD	size of nonstandard format (NSF) file in bytes
+ 14h	BYTE	'A' if Connection CoProcessor board present
+ 15h  9 BYTEs	reserved
+ 1Eh 21 BYTEs	ASCIZ CCITT identification
+ 33h 77 BYTEs	reserved
+Note:	the Intel Connection CoProcessor and SatisFAXtion may be distinguished
+	  by examining the byte at offset 14h
+
+Bitfields for Connection CoProcessor baud rate:
+Bit(s)	Description	(Table 03055)
+ 7	reserved
+ 6-4	baud rate
+	000 = 300 baud	(V.21 SDLC or HDLC mode)
+	100 = 2400 baud (V.27 ter)
+	101 = 4800 baud (V.27 ter)
+	110 = 7200 baud (V.29)
+	111 = 9600 baud (V.29)
+ 3-0	reserved, should be 0110
+
+Format of status buffer for Intel SatisFAXtion board:
+Offset	Size	Description	(Table 03056)
+ 00h	BYTE	SatisFAXtion connection status flags (see #03062)
+ 01h	BYTE	SatisFAXtion board state (see #03063)
+ 02h	BYTE	number of KB free in buffer
+ 03h	BYTE	number of pages or files in buffer
+ 04h	BYTE	number of redials remaining on current number
+ 05h	BYTE	FAX page number to retransmit
+ 06h	BYTE	current page/file in block transfer
+ 07h	BYTE	number of rings received (only if auto-answer enabled)
+ 08h	WORD	error count
+ 0Ah	DWORD	length of file being transferred
+ 0Eh  6 BYTEs	reserved
+ 14h	BYTE	'B' if SatisFAXtion board present
+ 15h 13 BYTEs	ASCIZ transfer agent name
+ 22h  5 BYTEs	ASCIZ transfer agent version number
+ 27h 13 BYTEs	ASCIZ resident loader name
+ 34h  5 BYTEs	ASCIZ resident loader version number
+ 39h 21 BYTEs	ASCIZ remote CSID
+ 4Eh 13 BYTEs	ASCIZ resident manager name
+ 5Bh  5 BYTEs	ASCIZ resident manager version number
+ 60h 32 BYTEs	reserved
+Note:	the Intel Connection CoProcessor and SatisFAXtion may be distinguished
+	  by examining the byte at offset 14h
+
+Bitfields for Connection CoProcessor connection status flags:
+Bit(s)	Description	(Table 03057)
+ 7	hardware busy sending or receiving
+ 6	last page of data
+ 5	no data on current page
+ 4	retransmit request for current page being transmitted
+ 3	NSF (nonstandard file) mode active
+ 2-0	reserved
+
+Bitfields for communications status:
+Bit(s)	Description	(Table 03058)
+ 7	originating call
+ 6	FAX message to be sent
+ 5	on line
+ 4	ring detected and receive enabled
+ 3	buffer dumped on receive
+ 2-0	hardware sequence state
+	000 idle
+	001 dial
+	010 answer
+	011 transmit
+	100 receive
+	101 pre-message
+	110 post-message
+	111 disconnect
+
+Bitfields for Connection CoProcessor hardware status:
+Bit(s)	Description	(Table 03059)
+ 7	modem option installed
+ 6	Connection CoProcessor has control of DAA (not latched)
+ 5	on line (not latched)
+ 4	ring detected (not latched)
+ 3	data in command buffer (not latched)
+ 2	set if using DMA channel 1, clear if using DMA channel 3
+ 1	line length compensation 1 set (not latched)
+ 0	line length compensation 0 set (not latched)
+
+Bitfields for Connection CoProcessor switch states:
+Bit(s)	Description	(Table 03060)
+ 7	reserved
+ 6	unused
+ 5	spare switch open
+ 4	FAX ADR1 switch open
+ 3	FAX ADR0 switch open
+ 2	alternate interrupt switch open
+ 1	COM SEL 1 switch open
+ 0	COM SEL 0 switch open
+Note:	valid combinations of 0-2 are
+	000  COM2 IRQ3 IObase 2F8h
+	001  COM1 IRQ4 IObase 3F8h
+	010  COM4 IRQ3 IObase 2E8h
+	011  COM3 IRQ4 IObase 3E8h
+	110  COM4 IRQ2 IObase 2E8h
+	111  COM3 IRQ5 IObase 3E8h
+
+Bitfields for communications flags:
+Bit(s)	Description	(Table 03061)
+ 7	reserved
+ 6	auxiliary relay forced ON
+ 5	modem select relay forced ON
+ 4	offhook relay forced ON
+ 3	9600 bps enabled
+ 2	7200 bps enabled
+ 1	4800 bps enabled
+ 0	2400 bps enabled
+
+Bitfields for SatisFAXtion connection status flags:
+Bit(s)	Description	(Table 03062)
+ 7	busy in T.30 CCITT fax protocol
+ 6	data on current page/file (only used for block xfers)
+ 5	retransmission of last page requested
+ 4	in file transfer mode
+ 3	data in buffer
+ 2	data buffer dumped on receive
+ 1	200x100 dpi resolution instead of 200x200 dpi
+ 0	data modem in use, FAX image modem not available
+
+Bitfields for SatisFAXtion board state:
+Bit(s)	Description	(Table 03063)
+ 7	reserved
+ 6	handset jack active, data and FAX modems not available
+ 5-3	current rate
+	000  300 bps (V.21 HDLC)
+	100 2400 bps (V.27 ter)
+	101 4800 bps (V.27 ter)
+	110 7200 bps (V.29)
+	111 9600 bps (V.29)
+ 2-0	T.30 CCITT protocol state
+	000 idle
+	001 dialing
+	010 answering
+	011 transmitting
+	100 receiving
+	101 pre-message
+	110 post-message
+	111 disconnect
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB13DL00" name="2FCB13DL00"><b>2FCB13DL00</b></a> - INT 2F - Communicating Applications Specification - GET DIAGNOSTICS RESULTS<br />
+<pre>
+INT 2F - Communicating Applications Specification - GET DIAGNOSTICS RESULTS
+	AX = CB13h
+	DL = 00h
+Return: AX = 0040h in progress
+	   &gt;= 0	   passed
+	   &lt; 0	   hardware-dependent failure code (see #03064,#03065)
+SeeAlso: AX=CB13h/DL=01h
+
+Bitfields for Intel Connection CoProcessor failure codes:
+Bit(s)	Description	(Table 03064)
+ 3	9600 bps FAX modem module failed
+ 2	SDLC chip failed
+ 1	RAM failed
+ 0	ROM checksum failed
+
+Bitfields for Intel SatisFAXtion failure codes:
+Bit(s)	Description	(Table 03065)
+ 1	2400 bps data modem failed
+ 0	9600 bps FAX modem failed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB13DL01" name="2FCB13DL01"><b>2FCB13DL01</b></a> - INT 2F - Communicating Applications Specification - START DIAGNOSTICS<br />
+<pre>
+INT 2F - Communicating Applications Specification - START DIAGNOSTICS
+	AX = CB13h
+	DL = 01h
+Return: AX = 0000h successfully started
+	AX &lt; 0	   error code (see #03048)
+SeeAlso: AX=CB13h/DL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB14" name="2FCB14"><b>2FCB14</b></a> - INT 2F - Communicating Applications Specification - MOVE RECEIVED FILE<br />
+<pre>
+INT 2F - Communicating Applications Specification - MOVE RECEIVED FILE
+	AX = CB14h
+	BX = event handle
+	CX = receive file number
+	    0001h first received file
+	    N	  Nth received file
+	DS:DX -&gt; ASCIZ string specifying new name for file (must not exist)
+Return: AX = 0000h successful
+	AX &lt; 0	   error code (see #03048)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB15" name="2FCB15"><b>2FCB15</b></a> - INT 2F - Communicating Applications Specification - SUBMIT FILE TO SEND<br />
+<pre>
+INT 2F - Communicating Applications Specification - SUBMIT FILE TO SEND
+	AX = CB15h
+	DS:DX -&gt; variable-length data area (see #03066)
+Return: AX &gt;= 0 event handle
+	AX &lt; 0	error code (see #03048)
+SeeAlso: AX=CB01h
+
+Format of CAS file submission data area:
+Offset	Size	Description	(Table 03066)
+ 00h	BYTE	transfer type
+		00h = 200x200 dpi, fax mode
+		01h = 100x200 dpi, fax mode
+		02h = file transfer mode
+		03h to 7Fh reserved
+ 01h	BYTE	text size
+		00h = 80 columns
+		01h = 132 columns
+		02h to 7Fh reserved
+ 02h	WORD	time to send (DOS packed time, see #01665 at INT 21/AX=5700h)
+ 04h	WORD	date to send (DOS packed date, see #01666 at INT 21/AX=5700h)
+ 06h 32 BYTEs	ASCIZ destination name
+ 26h 80 BYTEs	ASCIZ name of file to send
+ 76h 47 BYTEs	ASCIZ phone number to dial
+ A5h 64 BYTEs	ASCIZ application-specific tag string
+ E5h	BYTE	reserved (00h)
+ E6h	BYTE	cover page
+		00h don't send cover page
+		01h send cover page
+		02h to 7Fh reserved
+ E7h 23 BYTEs	reserved (zeros)
+ FEh variable	ASCIZ string containing text of cover page (if cover page flag
+		set to 01h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB16BX1234" name="2FCB16BX1234"><b>2FCB16BX1234</b></a> - INT 2F - Communicating Applications Spec v1.2+ - UNLOAD RESIDENT MANAGER<br />
+<pre>
+INT 2F - Communicating Applications Spec v1.2+ - UNLOAD RESIDENT MANAGER
+	AX = CB16h
+	BX = 1234h
+	CX = 5678h
+	DX = 9ABCh
+Return: AX = 0000h successful
+	AX &lt; 0	   error code
+Note:	the METZ XpressFax CASMGR ignores the values in BX,CX, and DX
+SeeAlso: AX=C000h/BX=444Bh,AX=CB00h
+Index:	uninstall;CAS Manager
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB17" name="2FCB17"><b>2FCB17</b></a> - INT 2F - Communicating Applications Spec v1.2+ - SET COVER PAGE STATUS<br />
+<pre>
+INT 2F - Communicating Applications Spec v1.2+ - SET COVER PAGE STATUS
+	AX = CB17h
+	BX = event handle
+	CL = cover page status
+	    00h not read
+	    01h read by user
+Return: AX = 0000h successful
+	AX &lt; 0	   error code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB80" name="2FCB80"><b>2FCB80</b></a> - INT 2F - Intel SatisFAXtion CASMGR - ???<br />
+<pre>
+INT 2F - Intel SatisFAXtion CASMGR - ???
+	AX = CB80h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB81" name="2FCB81"><b>2FCB81</b></a> - INT 2F - Intel SatisFAXtion CASMGR - ???<br />
+<pre>
+INT 2F - Intel SatisFAXtion CASMGR - ???
+	AX = CB81h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCB82" name="2FCB82"><b>2FCB82</b></a> - INT 2F - Intel SatisFAXtion CASMGR - ???<br />
+<pre>
+INT 2F - Intel SatisFAXtion CASMGR - ???
+	AX = CB82h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCBDCBL56" name="2FCBDCBL56"><b>2FCBDCBL56</b></a> - INT 2F - Comwave Microfax Specification - GET STATUS ARRAY<br />
+<pre>
+INT 2F - Comwave Microfax Specification - GET STATUS ARRAY
+	AX = CBDCh
+	BL = 56h
+	BH = line number (starts with 1)
+	CX:DX -&gt; 32-byte status buffer or 80 character string
+Return: AX = number of cards installed, or FFFFh on error
+Program: Comwave manufacturers the Microfax line of fax cards which are a
+	  high-performance multi-card FAX solution for OEMs.
+Note:	defaults to AH=CBh but can be changed
+SeeAlso: AX=CBDDh,AX=DA00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCBDDBL56" name="2FCBDDBL56"><b>2FCBDDBL56</b></a> - INT 2F - Comwave Microfax Specification - COMMAND SUBMISSION<br />
+<pre>
+INT 2F - Comwave Microfax Specification - COMMAND SUBMISSION
+	AX = CBDDh
+	BL = 56h
+	BH = ?
+	CX:DX -&gt; command to execute
+Return: AX = status
+	    0000h success
+	    FFFFh on error
+SeeAlso: AH=2Ah,AX=CBDCh,AX=80FBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDA00" name="2FDA00"><b>2FDA00</b></a> - INT 2F - ZyXEL ZFAX v1.x - INSTALLATION CHECK<br />
+<pre>
+INT 2F - ZyXEL ZFAX v1.x - INSTALLATION CHECK
+	AX = DA00h
+Return: AH = enabled state (00h = enabled, 01h = disabled)
+	AL = 5Ah installed
+Program: ZFAX is the bundled FAX software which comes with the ZyXEL model
+	  fax modems.
+Note:	This function, and the other DAxxh functions, may apply only to version
+	  1 of the software; see AX=DB00h for the version 2 installation check
+SeeAlso: AX=CBDCh,AX=DA01h,AX=DA02h,AX=DA03h,AX=DB00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDA01" name="2FDA01"><b>2FDA01</b></a> - INT 2F - ZyXEL ZFAX v1.x - UNINSTALL<br />
+<pre>
+INT 2F - ZyXEL ZFAX v1.x - UNINSTALL
+	AX = DA01h
+Return: AL = 00h Success
+	     01h Failure
+SeeAlso: AX=DA00h,AX=DB01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDA02" name="2FDA02"><b>2FDA02</b></a> - INT 2F - ZyXEL ZFAX v.1x - DISABLE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v.1x - DISABLE
+	AX = DA02h
+Return: AL = 00h
+SeeAlso: AX=DA03h,AX=DB02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDA03" name="2FDA03"><b>2FDA03</b></a> - INT 2F - ZyXEL ZFAX v1.x - ENABLE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v1.x - ENABLE
+	AX = DA03h
+Return: AL = 00h
+SeeAlso: AX=DA02h,AX=DB03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB00" name="2FDB00"><b>2FDB00</b></a> - INT 2F - ZyXEL ZFAX v2+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F - ZyXEL ZFAX v2+ - INSTALLATION CHECK
+	AX = DB00h
+Return: AL = 5Bh if installed (v2.x)
+	    ES:BX -&gt; configuration table???
+	AX = 00DBh if installed (v3)
+	    ES:BX -&gt; ZFAX configuration table (see #03092)
+Program: ZFAX is the bundled FAX software which comes with the ZyXEL model
+	  Fax modems.
+SeeAlso: AX=CBDCh,AX=DA00h,AX=DB01h,AX=DB02h,AX=DB03h
+
+Format of ZFAX Configuration Table:
+Offset	Size	Description	(Table 03092)
+ 00h	WORD	table version number (0300h for v3.0-v4.01)
+ 02h	BYTE	reserved
+ 03h 70 BYTEs	ZFAX working path
+ 49h 128 BYTEs	path to external editor
+ C9h 128 BYTEs	path to external terminal emulator
+149h 128 BYTEs	path to Ring Shell
+1C9h 128 BYTEs	path to DOS Shell
+249h 128 BYTEs	path to Data Shell
+2C9h 70 BYTEs	path to Chinese font
+30Fh	BYTE	printer type (see #03093)
+310h	BYTE	printer port (00h = LPT1, etc.)
+311h	BYTE	type of graphics adapter
+		(00h auto-detect, 01h VGA, 02h EGA, 03h CGA, 04h Hercules)
+312h	BYTE	display type
+		(00h auto-detect, 01h LCD, 02h color, 03h mono)
+313h	BYTE	scan code for ZFAX hotkey (see #00006)
+314h	BYTE	shift mask for ZFAX hotkey
+315h	BYTE	tone/pulse dialing (00h tone, 01h pulse)
+316h	BYTE	Caller ID (00h disabled, 01h enabled)
+317h	BYTE	Distinctive Ring (00h disabled, 01h enabled)
+318h	BYTE	normal ring answer type (see #03094)
+319h	BYTE	Ring 1 answer type (see #03094)
+31Ah	BYTE	Ring 2 answer type (see #03094)
+31Bh	BYTE	Ring 3 answer type (see #03094)
+31Ch	BYTE	COM port for modem
+31Dh	BYTE	speaker volume (00h-07h)
+31Eh	BYTE	modem dial timer, seconds
+31Fh	WORD	user-defined COM port I/O address
+321h	BYTE	user-defined COM port IRQ number
+322h 81 BYTEs	dial prefix string
+373h 79 BYTEs	dial postfix string
+3C2h	BYTE	ring count until automatic answer
+3C3h	BYTE	retry count on busy signal
+3C4h	BYTE	redial delay in seconds
+3C5h	WORD	system password
+3C7h	BYTE	reserved
+3C8h	BYTE	voice file compression format
+		00h CELP at 9600bps
+		01h two-bit ADPCM at 19200bps
+		02h three-bit ADPCM at 28800bps
+3C9h	BYTE	voice system: DTMF 0 action (see #03095)
+3CAh	BYTE	voice system: DTMF 1 action
+3CBh	BYTE	voice system: DTMF 2 action
+3CCh	BYTE	voice system: DTMF 3 action
+3CDh	BYTE	voice system: DTMF 4 action
+3CEh	BYTE	voice system: DTMF 5 action
+3CFh	BYTE	voice system: DTMF 6 action
+3D0h	BYTE	voice system: DTMF 7 action
+3D1h	BYTE	voice system: DTMF 8 action
+3D2h	BYTE	voice system: DTMF 9 action (see #03095)
+3D3h	WORD	reserved
+3D5h 25 BYTEs	local FAX ID to display on page header
+3EEh 20 BYTEs	local FAX ID sent to remote FAX
+402h	BYTE	FAX page size
+		00h A4 (210x297mm)
+		01h B4 (250x353mm)
+		02h A3 (297x420mm)
+403h	BYTE	FAX resolution
+		00h normal (3.85 pixels/mm)
+		01h high (7.7 pixels/mm)
+404h	BYTE	FAX coding scheme
+		00h 1-D, modified Huffman coding
+		01h 2-D, modified READ coding
+405h	BYTE	left margin for text in millimeters
+406h	BYTE	vertical insertion for text in mm (0-20)
+407h	BYTE	horizontal insertion in mm (0-20)
+408h	BYTE	maximum text lines per page
+409h	BYTE	text type (00h ASCII, 01h WordStar-formatted)
+40Ah	BYTE	PCX image resize (00h disabled, 01h enabled)
+40Bh	BYTE	AutoPrint (00h disabled, 01h enabled)
+40Ch	BYTE	cover page (00h disabled, 01h enabled)
+40Dh 81 BYTEs	cover page logo filename
+45Eh 65 BYTEs	cover page sender name
+49Fh	BYTE	print capture (00h disabled, 01h enabled)
+4A0h	BYTE	send immediately (00h disabled, 01h enabled)
+4A1h	BYTE	print capture printer port
+4A2h	BYTE	print capture timer in seconds
+4A3h	BYTE	scan code for print capture hotkey (see #00006)
+4A4h	BYTE	shift mask for print capture hotkey
+4A5h	BYTE	DataShell type
+		00h internal Zmodem, 01h Data Shell, 02h disable
+4A6h	BYTE	video I/O type
+		00h auto-detect, 01h use BIOS, 02h direct writes
+4A7h	BYTE	call transfer digits (0-9)
+4A8h	WORD	voice recorder maximum time in seconds (0-999)
+
+(Table 03093)
+Values for ZFAX printer type:
+ 00h	EPSON FX (9 pins)
+ 01h	EPSON LQ (24 pins)
+ 02h	HP Laser Jet II, letter size
+ 03h	HP Laser Jet II, legal size
+ 04h	HP Laser Jet II, A4 size
+ 05h	HP Laser Jet III, letter size
+ 06h	HP Laser Jet III, legal size
+ 07h	HP Laser Jet III, A4 size
+SeeAlso: #03092
+
+(Table 03094)
+Values for Ring Answer Type:
+ 00h	voice system
+ 01h	FAX only
+ 02h	Data Shell
+ 03h	Ring Shell
+ 04h	DOS Shell
+ 05h	ignore
+SeeAlso: #03092
+
+(Table 03095)
+Values for DTMF action:
+ 00h	none
+ 01h	page operator
+ 02h	FaxBack
+ 03h	announcement
+ 04h	call transfer
+ 05h	receive FAX
+ 06h	receive data
+ 07h	voice mailbox
+ 08h	DOS Shell Out
+ 09h	Data Shell Out
+SeeAlso: #03092
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB01" name="2FDB01"><b>2FDB01</b></a> - INT 2F - ZyXEL ZFAX v2+ - UNINSTALL<br />
+<pre>
+INT 2F - ZyXEL ZFAX v2+ - UNINSTALL
+	AX = DB01h
+Return: AX = status
+	    0000h successful
+	    0001h ZFAX is busy
+	    0002h another program resident above ZFAX
+Note:	this function unhooks the vectors taken by the ZFAX TSR if they have
+	  not been hooked by other TSRs and releases the TSR's memory
+	ZFAX v2.x crashes the contributor's machine when this function is
+	  called
+SeeAlso: AX=DA01h,AX=DB00h"ZFAX",AX=DB02h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB02" name="2FDB02"><b>2FDB02</b></a> - INT 2F - ZyXEL ZFAX v2.x - DISABLE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v2.x - DISABLE
+	AX = DB02h
+Return: AL = 00h
+SeeAlso: AX=DA02h,AX=DB00h"ZFAX",AX=DB01h"ZFAX",AX=DB03h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB03" name="2FDB03"><b>2FDB03</b></a> - INT 2F - ZyXEL ZFAX v2.x - ENABLE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v2.x - ENABLE
+	AX = DB03h
+Return: AL = 00h
+SeeAlso: AX=DA03h,AX=DB00h"ZFAX",AX=DB02h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB10" name="2FDB10"><b>2FDB10</b></a> - INT 2F - ZyXEL ZFAX v3+ - EXECUTE ZFAX MAIN MENU<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - EXECUTE ZFAX MAIN MENU
+	AX = DB10h
+SeeAlso: AX=DB00h"ZFAX",AX=DB11h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB11" name="2FDB11"><b>2FDB11</b></a> - INT 2F - ZyXEL ZFAX v3+ - SEND FAX<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - SEND FAX
+	AX = DB11h
+	DS:SI -&gt; filename including path (max 128 characters)
+	DS:BX -&gt; remote FAX number
+Return: AX = status (see #03096)
+SeeAlso: AX=DB00h"ZFAX",AX=DB12h,AX=DB13h,AX=DB14h,AX=DB15h,AX=DB20h,AX=DB21h
+
+(Table 03096)
+Values for ZFAX status:
+ 00h	OK
+ 01h	invalid DOS function
+ 02h	file not found
+ 03h	path not found
+ 04h	no file handle available
+ 05h	access denied by DOS
+ 06h	invalid handle
+ 07h	disk full
+ 10h	printer error
+ 11h	no graphics font
+ 12h	no ZFAX font
+ 20h	DCD dropped while sending
+ 21h	not ZyXEL modem
+ 22h	busy
+ 23h	no response from COM port
+ 24h	no carrier
+ 25h	no dial tone
+ 26h	no answer
+ 27h	no response
+ 28h	failed to send FAX
+ 30h	user aborted
+ 40h	critical error on disk
+ 50h	parameter error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB12" name="2FDB12"><b>2FDB12</b></a> - INT 2F - ZyXEL ZFAX v3+ - PRINT FAX<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - PRINT FAX
+	AX = DB12h
+	DS:SI -&gt; filename, including path (max 128 characters)
+Return: AX = status (see #03096)
+SeeAlso: AX=DB11h,AX=DB13h,AX=DB14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB13" name="2FDB13"><b>2FDB13</b></a> - INT 2F - ZyXEL ZFAX v3+ - CONVERT FAX<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - CONVERT FAX
+	AX = DB13h
+	DS:SI -&gt; source filename, including path (max 128 characters)
+	DS:BX -&gt; destination filename, including path (max 80 characters)
+	CX = destination file format
+	    00h FAX, 01h PCX, 02h TIFF, 03h PRN
+Return: AX = status (see #03096)
+SeeAlso: AX=DB11h,AX=DB12h,AX=DB14h,AX=DB22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB14" name="2FDB14"><b>2FDB14</b></a> - INT 2F - ZyXEL ZFAX v3+ - VIEW FAX<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - VIEW FAX
+	AX = DB14h
+	DS:SI -&gt; source filename, including path (max 128 characters)
+Return: AX = status (see #03096)
+SeeAlso: AX=DB11h,AX=DB12h,AX=DB14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB15" name="2FDB15"><b>2FDB15</b></a> - INT 2F - ZyXEL ZFAX v4.01 - SEND FAX WITH LOGO AND SIGNATURE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v4.01 - SEND FAX WITH LOGO AND SIGNATURE
+	AX = DB15h
+	DS:SI -&gt; source filename, including path (max 128 characters)
+	DS:BX -&gt; remote FAX number
+	DS:CX -&gt; Logo filename
+	DS:DX -&gt; Signature filename
+Return: AX = status (see #03096)
+SeeAlso: AX=DB00h"ZFAX",AX=DB11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB16" name="2FDB16"><b>2FDB16</b></a> - INT 2F - ZyXEL ZFAX v4.01 - QUOTE PREVIOUS STATUS<br />
+<pre>
+INT 2F - ZyXEL ZFAX v4.01 - QUOTE PREVIOUS STATUS
+	AX = DB16h
+Return: DX:AX -&gt; previous receive state transaction log (see #03097)
+	BX = type (00h incoming FAX, 01h incoming data, 02h incoming voice)
+SeeAlso: AX=DB00h"ZFAX",AX=DB11h,AX=DB17h
+
+Format of ZFAX transaction log receive state:
+Offset	Size	Description	(Table 03097)
+ 00h	WORD	year
+ 02h	WORD	date
+ 04h	WORD	time
+ 06h	WORD	extension number
+ 08h	WORD	type: 00h incoming FAX, 01h outgoing FAX, 02h voice message
+ 0Ah	WORD	status: 00h normal, 01h remote delete
+ 0Ch 125 BYTEs	filename
+ 89h 24 BYTEs	caller ID
+ A1h 20 BYTEs	FAX number
+ B5h 20 BYTEs	remote FAX ID
+ C9h	WORD	error code
+ CBh	WORD	connection direction (00h transmit, 01h receive)
+ CDh	BYTE	connection time minutes
+ CEh	BYTE	connection time seconds
+ CFh	BYTE	???
+ D0h	WORD	connection speed (24, 48, 72, 96, 12, 144)
+ D2h	WORD	connection page size (A4, B4, A3)
+ D4h	WORD	connection coding scheme (1-DN, 1-DH, 2-DN, 2-DH)
+ D6h	WORD	page count
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB17" name="2FDB17"><b>2FDB17</b></a> - INT 2F - ZyXEL ZFAX v4.01 - BEGIN RECEIVING INCOMING CALL<br />
+<pre>
+INT 2F - ZyXEL ZFAX v4.01 - BEGIN RECEIVING INCOMING CALL
+	AX = DB17h
+Return: AX = status (0000h successful, 0001h unable to start at this time)
+SeeAlso: AX=DB00h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB18" name="2FDB18"><b>2FDB18</b></a> - INT 2F - ZyXEL ZFAX v4.01 - SCHEDULE CALL<br />
+<pre>
+INT 2F - ZyXEL ZFAX v4.01 - SCHEDULE CALL
+	AX = DB18h
+	DS:SI -&gt; schedule data (see #03097)
+Return: AX = status (see #03096)
+SeeAlso: AX=DB00h"ZFAX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB20" name="2FDB20"><b>2FDB20</b></a> - INT 2F - ZyXEL ZFAX v3+ - POLL FAX<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - POLL FAX
+	AX = DB20h
+	DS:SI -&gt; remote FAX number
+Return: AX = status (see #03096)
+SeeAlso: AX=DB11h,AX=DB21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB21" name="2FDB21"><b>2FDB21</b></a> - INT 2F - ZyXEL ZFAX v3+ - SEND VOICE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - SEND VOICE
+	AX = DB21h
+	DS:SI -&gt; filename including path (max 128 characters)
+	DS:BX -&gt; remote phone number
+Return: AX = status (see #03096)
+SeeAlso: AX=DB11h,AX=DB20h,AX=DB22h,AX=DB23h,AX=DB24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB22" name="2FDB22"><b>2FDB22</b></a> - INT 2F - ZyXEL ZFAX v3+ - CONVERT VOICE FILE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - CONVERT VOICE FILE
+	AX = DB22h
+	DS:SI -&gt; source filename, including path (max 128 characters)
+	DS:BX -&gt; destination filename, including path (max 80 characters)
+	CX = destination format
+	    00h two-bit ADPCM, 01h three-bit ADPCM, 02h VOC
+Return: AX = status (see #03096)
+SeeAlso: AX=DB13h,AX=DB20h,AX=DB21h,AX=DB23h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB23" name="2FDB23"><b>2FDB23</b></a> - INT 2F - ZyXEL ZFAX v3+ - RECORD VOICE FILE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - RECORD VOICE FILE
+	AX = DB23h
+	DS:SI -&gt; destination filename, including path (max 128 characters)
+	CX = recording channel (0 = telephone line, 1 = microphone/speaker)
+	DX = voice file format
+	    00h CELP, 01h two-bit ADPCM, 02h three-bit ADPCM
+Return: AX = status (see #03096)
+SeeAlso: AX=DB21h,AX=DB22h,AX=DB24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB24" name="2FDB24"><b>2FDB24</b></a> - INT 2F - ZyXEL ZFAX v3+ - PLAY VOICE FILE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - PLAY VOICE FILE
+	AX = DB24h
+	DS:SI -&gt; name of voice file, including path (max 128 characters)
+	CX = playback channel (0 = telephone line, 1 = microphone/speaker)
+Return: AX = status (see #03096)
+SeeAlso: AX=DB21h,AX=DB22h,AX=DB24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB25" name="2FDB25"><b>2FDB25</b></a> - INT 2F - ZyXEL ZFAX v3+ - ANSWER MODEM WITH VOICE SYSTEM<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - ANSWER MODEM WITH VOICE SYSTEM
+	AX = DB25h
+Return: AX = status (see #03096)
+SeeAlso: AX=DB21h,AX=DB22h,AX=DB26h,AX=DB27h,AX=DB28h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB26" name="2FDB26"><b>2FDB26</b></a> - INT 2F - ZyXEL ZFAX v3+ - DIAL PHONE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - DIAL PHONE
+	AX = DB26h
+	DS:SI -&gt; remote phone number
+Return: AX = status (see #03096)
+SeeAlso: AX=DB25h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB27" name="2FDB27"><b>2FDB27</b></a> - INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX - ANSWER MODEM AND SET TO FAX MODE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX - ANSWER MODEM AND SET TO FAX MODE
+	AX = DB27h
+Return: AX = status (see #03096)
+SeeAlso: AX=DB25h,AX=DB28h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB28" name="2FDB28"><b>2FDB28</b></a> - INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX DATA - ANSWER MODEM IN MULTI-AUDIO MODE<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - RECEIVE FAX DATA - ANSWER MODEM IN MULTI-AUDIO MODE
+	AX = DB28h
+Return: AX = status (see #03096)
+SeeAlso: AX=DB25h,AX=DB27h,AX=DB41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB40" name="2FDB40"><b>2FDB40</b></a> - INT 2F - ZyXEL ZFAX v3+ - INTERNAL TERMINAL<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - INTERNAL TERMINAL
+	AX = DB40h
+Return: AX = status (see #03096)
+SeeAlso: AX=DB00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDB41" name="2FDB41"><b>2FDB41</b></a> - INT 2F - ZyXEL ZFAX v3+ - SEND DATA - DIAL NUMBER AND UPLOAD FILE WITH ZMODEM<br />
+<pre>
+INT 2F - ZyXEL ZFAX v3+ - SEND DATA - DIAL NUMBER AND UPLOAD FILE WITH ZMODEM
+	AX = DB41h
+	DS:SI -&gt; source file name, including path (max 128 characters)
+	DS:BX -&gt; remote data number
+Return: AX = status (see #03096)
+SeeAlso: AX=DB00h,AX=DB28h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6601" name="6601"><b>6601</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 01h
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6602" name="6602"><b>6602</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 02h
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6603" name="6603"><b>6603</b></a> - INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS<br />
+<pre>
+INT 66 - BitFax Scheduler - SCHEDULE FAX TRANSMISSIONS
+	AH = 03h
+	???
+Return: ???
+SeeAlso: AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6604" name="6604"><b>6604</b></a> - INT 66 - BitFax Scheduler - GET STATUS???<br />
+<pre>
+INT 66 - BitFax Scheduler - GET STATUS???
+	AH = 04h
+Return: AX = ??? (0000h or 0001h)
+	DX = BitSched version???  (for versions &gt;= 3.00)
+	    9796h (ver. 3.00)
+	    97E6h (ver. 3.02)
+	    92D0h (ver. 3.04.06)
+	    9510h (ver. 3.06.02)
+SeeAlso: AH=06h,AX=3345h,INT 2F/AX=8000h"FaxBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6605" name="6605"><b>6605</b></a> - INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX<br />
+<pre>
+INT 66 - BitFax Scheduler - CONVERT FILE AND SEND FAX
+	AH = 05h
+	BX:CX -&gt; command block (see #03518)
+	???
+Return: ???
+SeeAlso: AH=03h
+
+Format of BitFax command block:
+Offset	Size	Description	(Table 03518)
+ 00h 18 BYTEs	configuration bytes???
+ 12h	BYTEs	ASCIZ temporary file name to place converted fax
+ 52h	BYTEs	ASCIZ directory containing BitFax executables
+ 92h	BYTEs	ASCIZ telephone number
+ C2h	BYTE	cover page control (00h don't send, 01h do send cover page)
+ C3h 15 BYTEs	configuration bytes???
+ E2h	BYTEs	ASCIZ path of BITFAX.TRA file (containing additional
+		  configuration information???)
+122h	BYTEs	configuration bytes???
+12Ch	BYTE	00h don't send cover page
+		01h send cover page
+12Dh  7 BYTEs	configuration bytes???
+134h	BYTEs	ASCIZ path of file to send
+174h	BYTEs	more configuration bytes???
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6606" name="6606"><b>6606</b></a> - INT 66 - BitFax Scheduler - SET MODE???<br />
+<pre>
+INT 66 - BitFax Scheduler - SET MODE???
+	AH = 06h
+Return: DX = BitSched version??? (same as AH=04h)
+SeeAlso: AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#663345" name="663345"><b>663345</b></a> - INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY<br />
+<pre>
+INT 66 - BitFax Scheduler - REMOVE TSR FROM MEMORY
+	AX = 3345h
+Return: AX = FFFFh error removing TSR
+InstallCheck:	test for the signature "BitFax Scheduler" beginning two bytes
+	  past the interrupt handler
+SeeAlso: AH=04h,INT 2F/AH=2Ah,INT 2F/AX=CB00h
+Index:	installation check;BitFax Scheduler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

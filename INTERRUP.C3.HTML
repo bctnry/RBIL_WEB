@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._C3</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT C3
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#C3"><b>C3</b> - INT C3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#C3_0"><b>C3</b> - INT C3 - AMI BIOS - DRIVE 0 DATA</a><br />
+
+<hr />
+
+<a href="#C3" name="C3"><b>C3</b></a> - INT C3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT C3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 80"BASIC",INT C2"BASIC",INT C4"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#C3_0" name="C3_0"><b>C3</b></a> - INT C3 - AMI BIOS - DRIVE 0 DATA<br />
+<pre>
+INT C3 - AMI BIOS - DRIVE 0 DATA
+Note:	this vector is used by some AMI BIOSes to store the final four bytes
+	  of the hard disk parameter table
+SeeAlso: INT 41"DISK 0",INT 60"Adaptec",INT C0"AMI",INT C1"AMI",INT C2"AMI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

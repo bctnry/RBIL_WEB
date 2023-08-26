@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._48</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 48
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#48"><b>48</b> - INT 48 - KEYBOARD - CORDLESS KEYBOARD TRANSLATION (PCjr)</a><br />
+<a href="#48_0"><b>48</b> - INT 48 - Z100 - Slave 8259 - S100 vectored line 0</a><br />
+<a href="#48_1"><b>48</b> - INT 48 - Watstar PC Network data pointer 1</a><br />
+<a href="#48_2"><b>48</b> - INT 48 - Acorn BBC Master 512 - "OSNEWL" - SEND NEWLINE TO OUTPUT STREAM</a><br />
+<a href="#48_3"><b>48</b> - INT 48 - Western Digital WD1002-27X SuperBIOS - DRIVE DATA (NOT A VECTOR!)</a><br />
+<a href="#48_4"><b>48</b> - INT 48 U - Compaq UILIB.EXE - API</a><br />
+<a href="#4800"><b>4800</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - SOUND SPEAKER</a><br />
+<a href="#4801"><b>4801</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - CHECK SPEAKER STATUS</a><br />
+<a href="#4802"><b>4802</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - SET SPEAKER FREQUENCY</a><br />
+<a href="#4803"><b>4803</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - TURN ON SPEAKER</a><br />
+<a href="#4804"><b>4804</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - TURN OFF SPEAKER</a><br />
+<a href="#4805"><b>4805</b> - INT 48 - TI Professional PC - SPEAKER DEVICE - DELAY</a><br />
+<a href="#4806"><b>4806</b> - INT 48 - TI Professional PC - CALCULATE CRC</a><br />
+<a href="#4807"><b>4807</b> - INT 48 - TI Professional PC - PRINT ROM MESSAGE</a><br />
+<a href="#4808"><b>4808</b> - INT 48 - TI Professional PC - DISPLAY SYSTEM ERROR MESSAGE</a><br />
+<a href="#4809"><b>4809</b> - INT 48 - TI Professional PC - GET SYSTEM CONFIGURATION DATA</a><br />
+<a href="#480A"><b>480A</b> - INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFO ADDRESS</a><br />
+<a href="#480B"><b>480B</b> - INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFORMATION</a><br />
+<a href="#481A70"><b>481A70</b> - INT 48 U - Compaq UILIB.EXE - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#48" name="48"><b>48</b></a> - INT 48 - KEYBOARD - CORDLESS KEYBOARD TRANSLATION (PCjr)<br />
+<pre>
+INT 48 - KEYBOARD - CORDLESS KEYBOARD TRANSLATION (PCjr)
+	AL = scan code???
+Note:	This interrupt may be un-initialized (0000h:0000h) on old machines.
+	  This should be checked before calling or hooking this vector.
+	MS-DOS/PC DOS 3.3x-4.x KEYB hooked the INT 48h handler. For AL &lt;= 80h
+	  it checked that either ALT and neither CTRL key was pressed,
+	  and in that case, it cleared the CTRL flag in the BIOS variable at
+	  0040:0017h and stored its contents in an internal variable,
+	  before continuing with the previous (non-zero) INT 48h handler.
+SeeAlso: INT 49"PCjr"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_0" name="48_0"><b>48</b></a> - INT 48 - Z100 - Slave 8259 - S100 vectored line 0<br />
+<pre>
+INT 48 - Z100 - Slave 8259 - S100 vectored line 0
+SeeAlso: INT 47"Z100",INT 49"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_1" name="48_1"><b>48</b></a> - INT 48 - Watstar PC Network data pointer 1<br />
+<pre>
+INT 48 - Watstar PC Network data pointer 1
+SeeAlso: INT 49"Watstar"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_2" name="48_2"><b>48</b></a> - INT 48 - Acorn BBC Master 512 - "OSNEWL" - SEND NEWLINE TO OUTPUT STREAM<br />
+<pre>
+INT 48 - Acorn BBC Master 512 - "OSNEWL" - SEND NEWLINE TO OUTPUT STREAM
+Return: FLAGS destroyed
+Note:	writes a carriage return (0Dh) followed by a linefeed (0Ah)
+SeeAlso: INT 40"Acorn",INT 47"Acorn",INT 49"Acorn"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_3" name="48_3"><b>48</b></a> - INT 48 - Western Digital WD1002-27X SuperBIOS - DRIVE DATA (NOT A VECTOR!)<br />
+<pre>
+INT 48 - Western Digital WD1002-27X SuperBIOS - DRIVE DATA (NOT A VECTOR!)
+Note:	the second WD1002-27X controller in a system uses the low byte to
+	  store the number of drives controlled by the second controller,
+	  and the high word for temporary storage during track recalculation;
+	  the first controller uses offsets 74h-77h in the BIOS data area
+	  (refer to MEMORY.LST) to store data
+SeeAlso: INT 47"SuperBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#48_4" name="48_4"><b>48</b></a> - INT 48 U - Compaq UILIB.EXE - API<br />
+<pre>
+INT 48 U - Compaq UILIB.EXE - API
+	AX = function (see #03204)
+	BX = call type (0002h) (see #03207)
+	???
+Return: ???
+Note:	returns AX=FFFFh if 1000h&lt;=AX&lt;=2000h and AX is not one of the functions
+	  listed below
+SeeAlso: AX=1A70h
+
+(Table 03204)
+Values for valid UILIB function number:
+ 1000h	1160h	12D0h	1430h	1570h	1680h	17F0h	1920h	1A90h
+ 1010h	1170h	12E0h	1440h	1578h	1690h	1800h	1930h	1AA0h
+ 1020h	1180h	12F0h	1450h	1580h	16A0h	1810h	1940h
+ 1030h	1190h	1300h	1460h	1590h	16B0h	1820h	1950h
+ 1040h	11A0h	1310h	1470h	1594h	16C0h	1830h	1960h
+ 1050h	11B0h	1320h	1480h	1598h	16D0h	1840h	1970h
+ 1060h	11C0h	1330h	1490h	15A0h	16E0h	1848h	1980h
+ 1070h	11D0h	1340h	14A0h	15B0h	16F0h	1850h	1990h
+ 1080h	11E0h	1350h	14B0h	15C0h	1700h	1860h	19A0h
+ 1090h	11F0h	1360h	14B8h	15D0h	1710h	1870h	19B0h
+ 1095h	1200h	1370h	14BBh	15D4h	1720h	1878h	19C0h
+ 1098h	1210h	1380h	14C0h	15D8h	1730h	1880h	19D0h
+ 10A0h	1220h	1390h	14D0h	15E0h	1735h	1890h	19E0h
+ 10C0h	1230h	13A0h	14E0h	15F0h	1740h	1898h	19F0h
+ 10D0h	1240h	13B0h	14F0h	1600h	1750h	18A0h	1A00h
+ 10E0h	1250h	13B8h	1500h	1610h	1770h	18B0h	1A10h
+ 10F0h	1260h	13C0h	1508h	1620h	1780h	18C0h	1A20h
+ 1100h	1270h	13D0h	1510h	1630h	1790h	18D0h	1A30h
+ 1110h	1280h	13E0h	1520h	1640h	17A0h	18E0h	1A40h
+ 1120h	1290h	13F0h	1530h	1650h	17B0h	18F0h	1A50h
+ 1130h	12A0h	1400h	1540h	1660h	17C0h	1900h	1A60h
+ 1140h	12B0h	1410h	1550h	1664h	17D0h	1909h	1A70h
+ 1150h	12C0h	1420h	1560h	1670h	17E0h	1910h	1A80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4800" name="4800"><b>4800</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - SOUND SPEAKER<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - SOUND SPEAKER
+	AH = 00h
+	AL = number of 25ms ticks sound should last
+Return: nothing
+Desc:	sound the speaker at the current frequency setting (see AH=02h) for
+	  the indicated duration
+Notes:	this function returns immediately; the sound is terminated by the
+	  timer interrupt handler
+	if a new sound is requested while one is already in progress, the
+	  previous sound is terminated immediately and the new sound takes
+	  its place
+SeeAlso: AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+SeeAlso: INT 40"TI Professional",INT 49/AH=01h"TI"
+SeeAlso: INT 4A/AH=00h"TI",INT 4C"TI Professional",INT 4D/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4801" name="4801"><b>4801</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - CHECK SPEAKER STATUS<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - CHECK SPEAKER STATUS
+	AH = 01h
+Return: ZF clear if speaker is currently on
+	ZF set if speaker is currently off
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4802" name="4802"><b>4802</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - SET SPEAKER FREQUENCY<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - SET SPEAKER FREQUENCY
+	AH = 02h
+	CX = frequency divisor (freq = 1250000 / CX)
+Return: nothing
+SeeAlso: AH=00h,AH=01h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4803" name="4803"><b>4803</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - TURN ON SPEAKER<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - TURN ON SPEAKER
+	AH = 03h
+Return: nothing
+Desc:	turn on the speaker at the current frequency, leaving it on until
+	  explicitly turned off with AH=04h or the end of a subsequent
+	  AH=00h
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4804" name="4804"><b>4804</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - TURN OFF SPEAKER<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - TURN OFF SPEAKER
+	AH = 04h
+Return: nothing
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4805" name="4805"><b>4805</b></a> - INT 48 - TI Professional PC - SPEAKER DEVICE - DELAY<br />
+<pre>
+INT 48 - TI Professional PC - SPEAKER DEVICE - DELAY
+	AH = 05h
+	CX = desired delay in milliseconds
+Return: after delay expires
+Note:	the delay is only approximate, and may be longer than requested
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4806" name="4806"><b>4806</b></a> - INT 48 - TI Professional PC - CALCULATE CRC<br />
+<pre>
+INT 48 - TI Professional PC - CALCULATE CRC
+	AH = 06h
+	ES:BX -&gt; memory block for which to calculate CRC
+	BP = size of block in bytes
+Return: DX = CRC for block
+	ZF set if DX = 0000h
+Note:	if the CRC of a memory block is appended to the block, then the CRC
+	  of the block plus CRC should equal 0000h
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4807" name="4807"><b>4807</b></a> - INT 48 - TI Professional PC - PRINT ROM MESSAGE<br />
+<pre>
+INT 48 - TI Professional PC - PRINT ROM MESSAGE
+	AH = 07h
+	SI = offset of ASCIZ message string within segment F400h
+Return: nothing
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4808" name="4808"><b>4808</b></a> - INT 48 - TI Professional PC - DISPLAY SYSTEM ERROR MESSAGE<br />
+<pre>
+INT 48 - TI Professional PC - DISPLAY SYSTEM ERROR MESSAGE
+	AH = 08h
+	BX = error number
+Return: nothing
+Desc:	displays the error message " ** System Error ** - xxxx" where xxxx is
+	  the hexadecimal value in BX
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#4809" name="4809"><b>4809</b></a> - INT 48 - TI Professional PC - GET SYSTEM CONFIGURATION DATA<br />
+<pre>
+INT 48 - TI Professional PC - GET SYSTEM CONFIGURATION DATA
+	AH = 09h
+Return: ES:BX -&gt; system configuration word (see #03227)
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#480A" name="480A"><b>480A</b></a> - INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFO ADDRESS<br />
+<pre>
+INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFO ADDRESS
+	AH = 0Ah
+Return: ES:BX -&gt; configuration information (see #03205)
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Bh
+
+Format of TI Professional PC extra system configuration information:
+Offset	Size	Description	(Table 03205)
+ -3	WORD	memory size in paragraphs
+ 00h	BYTE	drive type byte (see #03206)
+ 01h	WORD	extra system configuration word 1
+		bit 0: 8087 is present
+		bits 15-1: reserved (0)
+ 03h	WORD	extra system configuration word 2
+		bits 15-0: reserved (0)
+
+Bitfields for TI Professional PC drive type byte:
+Bit(s)	Description	(Table 03206)
+ 0	drive A is double-sided
+ 1	drive A has 80 tracks instead of 40
+ 2	drive B is double-sided
+ 3	drive B has 80 tracks instead of 40
+ 4	drive C is double-sided
+ 5	drive C has 80 tracks instead of 40
+ 6	drive D is double-sided
+ 7	drive D has 80 tracks instead of 40
+Note:	the type for drive A is determined by motherboard switches; the
+	  remaining drives' types are set from a table in IO.SYS
+SeeAlso: #03205
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#480B" name="480B"><b>480B</b></a> - INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFORMATION<br />
+<pre>
+INT 48 - TI Professional PC - GET EXTRA SYSTEM CONFIGURATION INFORMATION
+	AH = 0Bh
+Return: AL = drive type byte (see #03206)
+	BX = extra system configuration word 1 (see #03205)
+	CX = extra system configuration word 2 (see #03205)
+	AH destroyed
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=03h,AH=04h,AH=06h,AH=08h,AH=0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#481A70" name="481A70"><b>481A70</b></a> - INT 48 U - Compaq UILIB.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 48 U - Compaq UILIB.EXE - INSTALLATION CHECK
+	AX = 1A70h
+	BX = call type (see #03207)
+Return: CX = 5649h ('VI') if installed
+	DX = 4557h ('EW') if installed
+	    AX = version??? (0106h)
+
+(Table 03207)
+Values for UILIB call type:
+ 0000h	near
+ 0001h	far
+ 0002h	INT (only valid call type when using INT 48)
+ 0003h	near
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

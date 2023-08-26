@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._18</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 18
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#18"><b>18</b> - INT 18 - DISKLESS BOOT HOOK (START CASSETTE BASIC)</a><br />
+<a href="#1800"><b>1800</b> - INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE</a><br />
+<a href="#1801"><b>1801</b> - INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE</a><br />
+<a href="#1802"><b>1802</b> - INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS</a><br />
+<a href="#1803"><b>1803</b> - INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE</a><br />
+<a href="#1804"><b>1804</b> - INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED</a><br />
+<a href="#18_0"><b>18</b> - INT 18 - NEC PC-9800 series - VIDEO</a><br />
+<a href="#180E"><b>180E</b> - INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA</a><br />
+<a href="#181B"><b>181B</b> - INT 18 - NEC PC-9800 series - SET DISPLAY MODE</a><br />
+<a href="#185350BX4849"><b>185350BX4849</b> - INT 18 - SPHINX C-- - WB.COM - API</a><br />
+<a href="#186900"><b>186900</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET STATUS</a><br />
+<a href="#186901"><b>186901</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESET</a><br />
+<a href="#186902"><b>186902</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOLUME FOR SPECIFIC VOICE</a><br />
+<a href="#186903"><b>186903</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET FREQUENCY FOR VOICE</a><br />
+<a href="#186904"><b>186904</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET LEFT/RIGHT BALANCE</a><br />
+<a href="#186905"><b>186905</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - PLAY MUSIC</a><br />
+<a href="#186906"><b>186906</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - LOAD SOUND DATA</a><br />
+<a href="#186907"><b>186907</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - STOP VOICE</a><br />
+<a href="#186908"><b>186908</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOICE END</a><br />
+<a href="#186909"><b>186909</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RAMP VOLUME</a><br />
+<a href="#18690A"><b>18690A</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET VOLUME</a><br />
+<a href="#18690B"><b>18690B</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET POSITION</a><br />
+<a href="#18690C"><b>18690C</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SAVE SOUND DATA</a><br />
+<a href="#18690D"><b>18690D</b> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESTART VOICE</a><br />
+<a href="#188000"><b>188000</b> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - INITIALIZE</a><br />
+<a href="#188001"><b>188001</b> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - LOAD .MOD FILE</a><br />
+<a href="#188002"><b>188002</b> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - PLAY .MOD FILE</a><br />
+<a href="#188003"><b>188003</b> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - STOP PLAYING</a><br />
+<a href="#188004"><b>188004</b> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - SHUTDOWN</a><br />
+
+<hr />
+
+<a href="#18" name="18"><b>18</b></a> - INT 18 - DISKLESS BOOT HOOK (START CASSETTE BASIC)<br />
+<pre>
+INT 18 - DISKLESS BOOT HOOK (START CASSETTE BASIC)
+Desc:	called when there is no bootable disk available to the system
+Notes:	very few PCs other than those produced by IBM contain BASIC in ROM, so
+	  the action is unpredictable on compatibles; this interrupt often
+	  reboots the system, and often has no effect at all
+	some PC and XT clones had an optional IBM CASSETTE BASIC stored
+	  in the ROM, too.
+	most BIOSes will display an error message similar to "NO BASIC", and
+	  either reboot or return to the caller.
+	PS/2 machines usually pop up a graphical box to the effect that
+	  the user should enter a floppy and press F1.
+	Some clones display the message "No boot device available,
+	  strike F1 to retry, F2 for setup utility"
+	network cards with their own BIOS can hook this interrupt to allow
+	  a diskless boot off the network (even when a hard disk is present
+	  if none of the partitions is marked as the boot partition)
+SeeAlso: INT 2F/AX=4A06h,INT 86"NetBIOS",INT 2F/AX=4A06h,INT 2F/AX=4A07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1800" name="1800"><b>1800</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - GET KEYSTROKE
+	AH = 00h
+Return: AX = keystroke
+SeeAlso: AH=01h,AH=02h,INT 16/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1801" name="1801"><b>1801</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - CHECK FOR KEYSTROKE
+	AH = 01h
+Return: BH = status
+	    00h no keystrokes available
+	    01h keystroke available
+		AX = keystroke
+SeeAlso: AH=00h,AH=02h,INT 16/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1802" name="1802"><b>1802</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - GET SHIFT STATUS
+	AH = 02h
+Return: AL = shift flags
+SeeAlso: AH=00h,AH=02h,AH=03h,AH=04h,INT 16/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1803" name="1803"><b>1803</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - INITIALIZE
+	AH = 03h
+	???
+Return: ???
+SeeAlso: AH=00h,AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1804" name="1804"><b>1804</b></a> - INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED<br />
+<pre>
+INT 18 - NEC PC-9800 series - KEYBOARD - KEY PRESSED
+	AH = 04h
+	???
+Return: ???
+Note:	details are not available at this time
+SeeAlso: AH=00h,AH=02h,INT 16/AH=00h,INT 16/AH=01h,INT 16/AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18_0" name="18_0"><b>18</b></a> - INT 18 - NEC PC-9800 series - VIDEO<br />
+<pre>
+INT 18 - NEC PC-9800 series - VIDEO
+	AH = function
+	    0Ah set video mode
+	    0Bh get video mode
+	    0Ch start text screen display
+	    0Dh end text screen display
+	    0Eh set single display area
+	    0Fh set multiple display area
+	    10h set cursor shape
+	    11h display cursor
+	    12h terminate cursor
+	    13h set cursor position
+	    14h read font patter
+	    16h initialize text video RAM
+	    1Ah define user character
+	    others
+	???
+Return: ???
+Notes:	details are not available at this time
+	text video RAM is located at segments A000h (characters) and A200h
+	  (attributes), graphics video RAM at segment C000h
+
+Bitfields for NEC PC-9800 series video attributes:
+Bit(s)	Description	(Table 00648)
+ 0	disable drawing character
+ 1	blinking
+ 2	reverse video
+ 3	underline
+ 4	vertical line
+ 7-5	color
+	(0=black, 1=blue, 2=red, 3=purple, 4=green, 5=cyan, 6=yellow, 7=white)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#180E" name="180E"><b>180E</b></a> - INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA<br />
+<pre>
+INT 18 - NEC PC-9800 series - SET SINGLE DISPLAY AREA
+	AH = 0Eh
+	DX = offset of first byte to display???
+Return: ???
+SeeAlso: AH=1Bh,MEM 0050h:0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#181B" name="181B"><b>181B</b></a> - INT 18 - NEC PC-9800 series - SET DISPLAY MODE<br />
+<pre>
+INT 18 - NEC PC-9800 series - SET DISPLAY MODE
+	AH = 1Bh
+	AL = ??? (00h for text mode)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#185350BX4849" name="185350BX4849"><b>185350BX4849</b></a> - INT 18 - SPHINX C-- - WB.COM - API<br />
+<pre>
+INT 18 - SPHINX C-- - WB.COM - API
+	AX = 5350h ('SP')
+	BX = 4849h ('HI')
+	CX = 4E58h ('NX')
+	DH = function
+	    01h set ???
+		DL = ???
+	    02h get ???
+		Return: DL = ???
+	    03h get ???
+		Return: ES:DI -&gt; ??? data buffer
+	    06h ???
+Return: AX = 7370h ('sp') if installed
+	BX = 6869h ('hi') if installed
+	CX = 6E78h ('nx') if installed
+Program: SPHINX C-- is a shareware compiler by Peter Cellik for a language
+	  which is a cross between C and assembler; WB.COM is the driver which
+	  launches the WorkBench
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186900" name="186900"><b>186900</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET STATUS<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET STATUS
+	AX = 6900h
+Return: AX = amount of DRAM on card or 0000h if GUS not available
+Program: YEA_GUS is a driver for the Graphics Ultra Sound which hooks INT 18h
+	  and then shells out the the program requiring its services
+SeeAlso: AX=6901h,AX=690Ah,AX=690Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186901" name="186901"><b>186901</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESET<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESET
+	AX = 6901h
+	BX = number of active voices (14-32)
+Return: nothing
+SeeAlso: AX=6900h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186902" name="186902"><b>186902</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOLUME FOR SPECIFIC VOICE<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOLUME FOR SPECIFIC VOICE
+	AX = 6902h
+	BX = voice number (00h-1Fh)
+	CX = linear volume (0000h-01FFh)
+Return: nothing
+SeeAlso: AX=6900h,AX=6903h,AX=6904h,AX=6909h,AX=690Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186903" name="186903"><b>186903</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET FREQUENCY FOR VOICE<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET FREQUENCY FOR VOICE
+	AX = 6903h
+	BX = voice number (00h-1Fh)
+	CX = frequency in Hz (0-44100)
+Return: nothing
+SeeAlso: AX=6902h,AX=6904h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186904" name="186904"><b>186904</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET LEFT/RIGHT BALANCE<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET LEFT/RIGHT BALANCE
+	AX = 6904h
+	BX = voice number (00h-1Fh)
+	CX = balance (0 = left, 7 = even, 15 = right)
+Return: nothing
+SeeAlso: AX=6902h,AX=6903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186905" name="186905"><b>186905</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - PLAY MUSIC<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - PLAY MUSIC
+	AX = 6905h
+	BL = voice number
+	BH = sample type (0 = 8-bit, 1 = 16-bit)
+	CL = looping type (0 = none, 1 = forward, 2 = back and forth)
+	CH:DI = 20-bit starting address for voice data
+	DL:SI = 20-bit address for loop start
+	DH:BP = 20-bit address for loop end
+SeeAlso: AX=6903h,AX=6906h,AX=690Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186906" name="186906"><b>186906</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - LOAD SOUND DATA<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - LOAD SOUND DATA
+	AX = 6906h
+	BL = data format (1 = twos-complement, 0 = not)
+	BH = sample type (0 = 8-bit, 1 = 16-bit)
+	CX = number of bytes to send
+	ES:SI -&gt; buffer containing data
+	DL:DI = 20-bit address of GUS DRAM at which to load sound data
+SeeAlso: AX=6900h,AX=6905h,AX=690Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186907" name="186907"><b>186907</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - STOP VOICE<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - STOP VOICE
+	AX = 6907h
+	BX = voice number (00h-1Fh)
+Return: nothing
+SeeAlso: AX=6908h,AX=690Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186908" name="186908"><b>186908</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOICE END<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SET VOICE END
+	AX = 6908h
+	BX = voice number (00h-1Fh)
+	CL:DX = 20-bit ending address
+Return: nothing
+SeeAlso: AX=690Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#186909" name="186909"><b>186909</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RAMP VOLUME<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RAMP VOLUME
+	AX = 6909h
+	BL = voice number (00h-1Fh)
+	BH = looping type (0 = none, 1 = forward, 2 = back and forth)
+	CX = starting volume
+	DX = ending volume
+	DI:SI = time
+Return: nothing
+SeeAlso: AX=6902h,AX=690Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18690A" name="18690A"><b>18690A</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET VOLUME<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET VOLUME
+	AX = 690Ah
+	BX = voice number (00h-1Fh)
+Return: AX = current non-linear volume for voice
+SeeAlso: AX=6902h,AX=6909h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18690B" name="18690B"><b>18690B</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET POSITION<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - GET POSITION
+	AX = 690Bh
+	BX = voice number
+Return: BX:AX = 20-bit address at which voice is playing
+SeeAlso: AX=6900h,AX=6905h,AX=6908h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18690C" name="18690C"><b>18690C</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SAVE SOUND DATA<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - SAVE SOUND DATA
+	AX = 690Ch
+	BL = data format (1 = twos-complement, 0 = not)
+	BH = sample type (0 = 8-bit, 1 = 16-bit)
+	CX = number of bytes to get
+	ES:SI -&gt; buffer for retrieved data
+	DL:DI = 20-bit address in GUS DRAM from which to read voice data
+Return: nothing
+SeeAlso: AX=6906h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#18690D" name="18690D"><b>18690D</b></a> - INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESTART VOICE<br />
+<pre>
+INT 18 - Gravis Ultra Sound YEA_GUS.EXE - RESTART VOICE
+	AX = 690Dh
+	BX = voice
+	CX = sample type (0 = 8-bit, 1 = 16-bit)
+	DX = looping type (0 = none, 1 = forward, 2 = back and forth)
+Return: CX = balance value
+SeeAlso: AX=6907h,AX=6908h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#188000" name="188000"><b>188000</b></a> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - INITIALIZE<br />
+<pre>
+INT 18 - Gravis Ultra Sound EURO_MOD.EXE - INITIALIZE
+	AX = 8000h
+Program: EURO_MOD is a .MOD file player for the Gravis Ultra Sound which hooks
+	  INT 18h and then shells out to the program requiring its services
+SeeAlso: AX=8001h,AX=8004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#188001" name="188001"><b>188001</b></a> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - LOAD .MOD FILE<br />
+<pre>
+INT 18 - Gravis Ultra Sound EURO_MOD.EXE - LOAD .MOD FILE
+	AX = 8001h
+	BX:CX -&gt; ASCIZ filename
+SeeAlso: AX=8000h,AX=8002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#188002" name="188002"><b>188002</b></a> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - PLAY .MOD FILE<br />
+<pre>
+INT 18 - Gravis Ultra Sound EURO_MOD.EXE - PLAY .MOD FILE
+	AX = 8002h
+SeeAlso: AX=8002h,AX=8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#188003" name="188003"><b>188003</b></a> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - STOP PLAYING<br />
+<pre>
+INT 18 - Gravis Ultra Sound EURO_MOD.EXE - STOP PLAYING
+	AX = 8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#188004" name="188004"><b>188004</b></a> - INT 18 - Gravis Ultra Sound EURO_MOD.EXE - SHUTDOWN<br />
+<pre>
+INT 18 - Gravis Ultra Sound EURO_MOD.EXE - SHUTDOWN
+	AX = 8004h
+SeeAlso: AX=8000h,AX=8003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

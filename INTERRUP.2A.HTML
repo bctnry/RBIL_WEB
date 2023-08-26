@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._2A</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 2A
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#2A00"><b>2A00</b> - INT 2A - NETWORK - INSTALLATION CHECK</a><br />
+<a href="#2A0000"><b>2A0000</b> - INT 2A - AT&T Starlan Extended NetBIOS (var length names) - INSTALLATION CHECK</a><br />
+<a href="#2A01"><b>2A01</b> - INT 2A - NETWORK (Microsoft,LANtastic) - EXECUTE NETBIOS REQUEST,NO ERROR RETRY</a><br />
+<a href="#2A02"><b>2A02</b> - INT 2A - NETWORK (Microsoft) - SET NET PRINTER MODE</a><br />
+<a href="#2A0300"><b>2A0300</b> - INT 2A - NETWORK - CHECK DIRECT I/O</a><br />
+<a href="#2A04"><b>2A04</b> - INT 2A - NETWORK - EXECUTE NetBIOS REQUEST</a><br />
+<a href="#2A0500"><b>2A0500</b> - INT 2A - NETWORK - GET NETWORK RESOURCE AVAILABILITY</a><br />
+<a href="#2A06"><b>2A06</b> - INT 2A - NETBIOS, LANtastic - NETWORK PRINT-STREAM CONTROL</a><br />
+<a href="#2A07"><b>2A07</b> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???</a><br />
+<a href="#2A2001"><b>2A2001</b> - INT 2A - MS Networks or NETBIOS - ???</a><br />
+<a href="#2A2002"><b>2A2002</b> - INT 2A - NETWORK - ???</a><br />
+<a href="#2A2003"><b>2A2003</b> - INT 2A - NETWORK - ???</a><br />
+<a href="#2A4147DX0000"><b>2A4147DX0000</b> - INT 2A U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK</a><br />
+<a href="#2A7802"><b>2A7802</b> - INT 2A - NETWORK - PC LAN PROG v1.31+ - GET LOGGED ON USER NAME</a><br />
+<a href="#2A80"><b>2A80</b> - INT 2A CU - NETWORK - BEGIN DOS CRITICAL SECTION</a><br />
+<a href="#2A81"><b>2A81</b> - INT 2A CU - NETWORK - END DOS CRITICAL SECTION</a><br />
+<a href="#2A82"><b>2A82</b> - INT 2A CU - NETWORK - END DOS CRITICAL SECTIONS 0 THROUGH 7</a><br />
+<a href="#2A84"><b>2A84</b> - INT 2A CU - NETWORK - KEYBOARD BUSY LOOP</a><br />
+<a href="#2A86"><b>2A86</b> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???</a><br />
+<a href="#2A8700"><b>2A8700</b> - INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING</a><br />
+<a href="#2A8701"><b>2A8701</b> - INT 2A CU - PRINT - END BACKGROUND PRINTING</a><br />
+<a href="#2A89"><b>2A89</b> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???</a><br />
+<a href="#2A90"><b>2A90</b> - INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???</a><br />
+<a href="#2AC2"><b>2AC2</b> - INT 2A U - Network - ???</a><br />
+<a href="#2AC4"><b>2AC4</b> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???</a><br />
+<a href="#2AD800"><b>2AD800</b> - INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION DISABLE</a><br />
+<a href="#2AD801"><b>2AD801</b> - INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION ENABLE</a><br />
+<a href="#2AD850"><b>2AD850</b> - INT 2A U - Novell NetWare Lite - CLIENT - START SERVER CRITICAL SECTION</a><br />
+<a href="#2AD851"><b>2AD851</b> - INT 2A U - Novell NetWare Lite - CLIENT - END SERVER CRITICAL SECTION</a><br />
+<a href="#2AD852"><b>2AD852</b> - INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER LOADED</a><br />
+<a href="#2AD853"><b>2AD853</b> - INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER UNLOADED</a><br />
+<a href="#2AE0"><b>2AE0</b> - INT 2A U - PC Network 1.00 - ???</a><br />
+<a href="#2AFF90"><b>2AFF90</b> - INT 2A - PC/TCP PREDIR.EXE - ???</a><br />
+<a href="#2AFF91"><b>2AFF91</b> - INT 2A - PC/TCP PREDIR.EXE - ???</a><br />
+<a href="#2AFF92"><b>2AFF92</b> - INT 2A - PC/TCP PREDIR.EXE - INSTALLATION CHECK</a><br />
+<a href="#2AFF93"><b>2AFF93</b> - INT 2A - PC/TCP PREDIR.EXE - ???</a><br />
+<a href="#2AFF94"><b>2AFF94</b> - INT 2A - PC/TCP PREDIR.EXE - ???</a><br />
+<a href="#2AFF95"><b>2AFF95</b> - INT 2A - PC/TCP PREDIR.EXE - GET CONFIGURATION STRINGS</a><br />
+<a href="#2AFF96"><b>2AFF96</b> - INT 2A - PC/TCP PREDIR.EXE - SET PRINT JOB TERMINATION CONFIGURATION</a><br />
+<a href="#2AFF97"><b>2AFF97</b> - INT 2A - PC/TCP PREDIR.EXE - GET PRINT JOB TERMINATION CONFIGURATION</a><br />
+
+<hr />
+
+<a href="#2A00" name="2A00"><b>2A00</b></a> - INT 2A - NETWORK - INSTALLATION CHECK<br />
+<pre>
+INT 2A - NETWORK - INSTALLATION CHECK
+	AH = 00h
+Return: AH &lt;&gt; 00h if installed
+	CF set if NetWare v2.15 NetBIOS emulator installed
+Note:	supported by PC LAN Program, LAN Manager, LANtastic, NetWare, 10NET,
+	  etc.
+SeeAlso: INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A0000" name="2A0000"><b>2A0000</b></a> - INT 2A - AT&T Starlan Extended NetBIOS (var length names) - INSTALLATION CHECK<br />
+<pre>
+INT 2A - AT&T Starlan Extended NetBIOS (var length names) - INSTALLATION CHECK
+	AX = 0000h
+Return: AH = DDh
+SeeAlso: INT 5B"Extended NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A01" name="2A01"><b>2A01</b></a> - INT 2A - NETWORK (Microsoft,LANtastic) - EXECUTE NETBIOS REQUEST,NO ERROR RETRY<br />
+<pre>
+INT 2A - NETWORK (Microsoft,LANtastic) - EXECUTE NETBIOS REQUEST,NO ERROR RETRY
+	AH = 01h
+	ES:BX -&gt; NCB (see #03249 at INT 5C"NetBIOS")
+Return: AL = NetBIOS error code
+	AH = status
+	    00h no error
+	    01h error occurred
+SeeAlso: AH=04h,AX=0500h,INT 5B"Extended NetBIOS",INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A02" name="2A02"><b>2A02</b></a> - INT 2A - NETWORK (Microsoft) - SET NET PRINTER MODE<br />
+<pre>
+INT 2A - NETWORK (Microsoft) - SET NET PRINTER MODE
+	AH = 02h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A0300" name="2A0300"><b>2A0300</b></a> - INT 2A - NETWORK - CHECK DIRECT I/O<br />
+<pre>
+INT 2A - NETWORK - CHECK DIRECT I/O
+	AX = 0300h
+	DS:SI -&gt; ASCIZ device name (may be full path or only drive specifier--
+		  must include the colon)
+Return: CF clear if direct physical addressing (INT 13,INT 25) permissible
+	CF set if access via files only
+Notes:	do not use direct disk accesses if this function returns CF set or the
+	  device is redirected (INT 21/AX=5F02h)
+	use AH=00h to determine whether the network is installed; if not,
+	  direct physical access is allowed
+	may take some time to execute, so programs which need to check
+	  frequently should save the result of the first call
+	this function is called by the DOS kernel on INT 25 and INT 26
+	supported by PC LAN Program, LAN Manage, LANtastic, NetWare, 10NET,
+	  etc.
+SeeAlso: INT 13/AH=02h,INT 13/AH=03h,INT 25,INT 26,INT 21/AX=5F02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A04" name="2A04"><b>2A04</b></a> - INT 2A - NETWORK - EXECUTE NetBIOS REQUEST<br />
+<pre>
+INT 2A - NETWORK - EXECUTE NetBIOS REQUEST
+	AH = 04h
+	AL = error retry
+	    00h automatically retry request on errors 09h, 12h, and 21h
+		  (see #03248 at INT 5C"NetBIOS")
+	    01h no retry
+	    02h ???
+	ES:BX -&gt; Network Control Block (see #03249 at INT 5C"NetBIOS")
+Return: AX = 0000h if successful
+	AH = 01h on error
+	    AL = error code
+Notes:	invokes either INT 5B or INT 5C as appropriate
+	supported by PC LAN Program, LANtastic, LAN Manager, NetWare, 10NET,
+	  etc.
+	NetWare 2.15 NetBIOS emulator returns CF clear if successful, CF set
+	  on error
+	PC LAN Program defines any non-zero return value in AH as an error
+	  indicator for subfunction 00h, and any non-zero return value in AX
+	  as an error indicator for subfunction 01h
+SeeAlso: AH=00h,AH=01h,AX=0500h,INT 5B"Extended NetBIOS",INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A0500" name="2A0500"><b>2A0500</b></a> - INT 2A - NETWORK - GET NETWORK RESOURCE AVAILABILITY<br />
+<pre>
+INT 2A - NETWORK - GET NETWORK RESOURCE AVAILABILITY
+	AX = 0500h
+Return: AX reserved
+	BX = number of network names available
+	CX = number of network control blocks available
+	DX = number of network sessions available
+Notes:	supported by PC LAN Program, LAN Manager, LANtastic, NetWare, 10NET,
+	  etc.
+	the application should call this function before using any network
+	  resources, and maintain its own count to avoid exceeding the
+	  network's resource limits
+SeeAlso: AH=00h,AH=01h,AH=04h,INT 5C"NetBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A06" name="2A06"><b>2A06</b></a> - INT 2A - NETBIOS, LANtastic - NETWORK PRINT-STREAM CONTROL<br />
+<pre>
+INT 2A - NETBIOS, LANtastic - NETWORK PRINT-STREAM CONTROL
+	AH = 06h
+	AL = function
+	    01h set concatenation mode
+		all printer output put in one job until return to DOS prompt
+	    02h set truncation mode (default)
+		printer open/close or BIOS/DOS output switch starts new job
+	    03h flush printer output and start new print job
+Return: CF set on error
+	    AX = error code
+	CF clear if successful
+Notes:	subfunction 03h is equivalent to Ctrl/Alt/keypad-*
+	supported by PC LAN Program, LANtastic, NetWare, 10NET, etc.
+	LANtastic v4.x no longer supports this call
+	this function sets the printer mode for all redirected printers
+SeeAlso: INT 21/AX=5D08h,INT 21/AX=5D09h,INT 2F/AX=1125h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A07" name="2A07"><b>2A07</b></a> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???<br />
+<pre>
+INT 2A U - PC Network v1.00 - RECEIVER.COM - ???
+	AH = 07h
+	???
+Return: ???
+Program: PC Network is an early networking package which was renamed the
+	  IBM PC Local Area Network Program (PC LAN Program) as of v1.10
+SeeAlso: AH=86h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A2001" name="2A2001"><b>2A2001</b></a> - INT 2A - MS Networks or NETBIOS - ???<br />
+<pre>
+INT 2A - MS Networks or NETBIOS - ???
+	AX = 2001h
+	???
+Return: ???
+Note:	intercepted by DESQview 2.x
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A2002" name="2A2002"><b>2A2002</b></a> - INT 2A - NETWORK - ???<br />
+<pre>
+INT 2A - NETWORK - ???
+	AX = 2002h
+	???
+Return: ???
+Note:	called by MS-DOS 3.30-6.00 APPEND
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A2003" name="2A2003"><b>2A2003</b></a> - INT 2A - NETWORK - ???<br />
+<pre>
+INT 2A - NETWORK - ???
+	AX = 2003h
+	???
+Return: ???
+Note:	called by MS-DOS 3.30-6.00 APPEND
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A4147DX0000" name="2A4147DX0000"><b>2A4147DX0000</b></a> - INT 2A U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK<br />
+<pre>
+INT 2A U - NetSoft DOS-NET v1.20+ - INSTALLATION CHECK
+	AX = 4147h ('AG')
+	DX = 0000h
+Return: DX = 4147h if installed
+	    DS:SI -&gt; configuration data (see #02554)
+Program: DOS-NET is a shareware networking package by Albert Graham
+Note:	this call is supported by CLIENT.COM, SERVER.COM, ROUTER.COM, and
+	  NETDOS.COM
+SeeAlso: INT 65/DX=4147h,INT 65/DX=4741h
+
+Format of DOS-NET v1.20 configuration data area:
+Offset	Size	Description	(Table 02554)
+ 00h	BYTE	???
+ 01h	BYTE	interrupt number used by DOS-NET APIs
+ 02h	WORD	function number to place in AX for above interrupt
+ 04h	BYTE	minor version as two BCD digits (e.g. 20h for v1.20)
+ 05h	BYTE	major version number (01h for v1.20)
+ 06h  2 BYTEs	???
+ 08h	WORD	??? (used by ARCNET.COM)
+		bit 15: ??? (set by MACTEST.COM)
+ 0Ah	WORD	??? (used by NDIS.COM and ODI.COM)
+ 0Ch 22 BYTEs	???
+ 24h	DWORD	-&gt; ??? function (set by PROTECT.COM)
+ 28h 12 BYTEs	???
+ 34h	DWORD	-&gt; ??? function (set by FASTVIEW.COM)
+ 38h	DWORD	-&gt; ??? function (set by FASTVIEW.COM)
+ 58h	DWORD	-&gt; ??? (offsets 04h and 1Ah from value are used by NETFILES)
+	???
+ 7Ch	WORD	???
+ 7Eh	WORD	??? (may be high half of a DWORD at 7Ch)
+	???
+ A8h	DWORD	-&gt; ??? (used by SM.COM)
+	???
+114h	WORD	???
+116h	WORD	??? (may be high half of a DWORD at 114h)
+	???
+1BDh	BYTE	??? flags
+		bit 0: ???
+		bit 6: ???
+	???
+1E1h	BYTE	???
+	???
+208h	WORD	??? (used by SM.COM, MACTEST)
+282h	WORD	???
+284h  2 BYTEs	???
+286h	WORD	??? flags
+		bit 0: ???
+	???
+31Eh	WORD	???
+320h	WORD	??? (used by NDIS.COM and ODI.COM)
+322h  8 BYTEs	???
+32Ah	WORD	??? (used by NDIS.COM and ODI.COM)
+	???
+33Eh  4 BYTEs	??? (used by ODI.COM)
+342h  N BYTEs	??? (used by NDIS.COM)
+	???
+3CFh	BYTE	??? flags
+		bit 2: ???
+3D2h	BYTE	installed-component flags
+		bit 0: PROTECT installed
+		bit 1: NETCACHE installed
+		bit 3: SM.COM installed
+		bit 7: NETDEBUG installed
+3D3h	BYTE	installed-component flags
+		bit 0: NETFILES installed
+		bit 6: FASTVIEW installed
+	???
+3FFh	BYTE	??? (used by NDIS.COM)
+400h	BYTE	???
+401h	BYTE	??? (used by SM.COM)
+402h	BYTE	??? (used by SM.COM)
+	???
+448h	BYTE	???
+449h	BYTE	??? (used by MACTEST)
+44Ah	BYTE	??? (used by PROTECT)
+44Bh	BYTE	???
+44Ch	BYTE	???
+44Dh	BYTE	??? (used by SM.COM)
+44Eh	BYTE	??? (used by SM.COM, MACTEST)
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A7802" name="2A7802"><b>2A7802</b></a> - INT 2A - NETWORK - PC LAN PROG v1.31+ - GET LOGGED ON USER NAME<br />
+<pre>
+INT 2A - NETWORK - PC LAN PROG v1.31+ - GET LOGGED ON USER NAME
+	AX = 7802h
+	ES:DI -&gt; 8-byte buffer to be filled
+Return: AL = 00h if no user logged on to Extended Services
+	AL &lt;&gt; 00h if user logged on to Extended Services
+	    buffer at ES:DI filled with name, padded to 8 chars with blanks.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A80" name="2A80"><b>2A80</b></a> - INT 2A CU - NETWORK - BEGIN DOS CRITICAL SECTION<br />
+<pre>
+INT 2A CU - NETWORK - BEGIN DOS CRITICAL SECTION
+	AH = 80h
+	AL = critical section number (00h-0Fh) (see #02555)
+Notes:	normally hooked to avoid interrupting a critical section, rather than
+	  called
+	the handler should ensure that none of the critical sections are
+	  reentered, usually by suspending a task which attempts to reenter
+	  an active critical section
+	the DOS kernel does not invoke critical sections 01h and 02h unless it
+	  is patched.  DOS 3.1+ contains a zero-terminated list of words
+	  beginning at offset -11 from the Swappable Data Area
+	  (see #01687 at INT 21/AX=5D06h); each word contains the offset within
+	  the DOS data segment of a byte which must be changed from C3h (RET)
+	  to 50h (PUSH AX) under DOS 3.x or from 00h to a nonzero value under
+	  DOS 4.0+ to enable use of critical sections.	For DOS 4.0+, all
+	  words in this list point at the byte at offset 0D0Ch.
+	MS Windows patches the DOS kernel's calls to INT 2A/AH=80h-81h into
+	  far calls to its own handler, and does not reflect the calls back
+	  to INT 2A unless SYSTEM.INI contains ReflectDOSInt2A=1 or
+	  ModifyDOSInt2A=0 in the [386Enh] section
+	Novell NETX does not issue INT 2A/AH=80h and INT 2A/AH=81h calls when
+	  it intercepts INT 21 calls and processes them itself
+SeeAlso: AH=81h,AH=82h,AX=8700h,INT 21/AX=5D06h,INT 21/AX=5D0Bh
+
+(Table 02555)
+Values for DOS critical section number:
+ 01h	DOS kernel, SHARE.EXE, DOSMGR
+	apparently for maintaining the integrity of DOS/SHARE/NET
+	  data structures
+ 02h	DOS kernel, DOSMGR
+	ensures that no multitasking occurs while DOS is calling an
+	  installable device driver
+ 05h	network redirector
+ 06h	DOS 4.x only IFSFUNC
+ 08h	ASSIGN.COM
+ 0Ah	MSCDEX, CORELCDX
+ 0Fh	IBM PC LAN server (while intercepting INT 10/AH=06h,07h,0Eh)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A81" name="2A81"><b>2A81</b></a> - INT 2A CU - NETWORK - END DOS CRITICAL SECTION<br />
+<pre>
+INT 2A CU - NETWORK - END DOS CRITICAL SECTION
+	AH = 81h
+	AL = critical section number (00h-0Fh) (see #02555)
+Notes:	normally hooked rather than called
+	the handler should reawaken any tasks which were suspended due to an
+	  attempt to enter the specified critical section
+	MS Windows patches the DOS kernel's calls to INT 2A/AH=80h-81h into
+	  far calls to its own handler, and does not reflect the calls back
+	  to INT 2A unless SYSTEM.INI contains ReflectDOSInt2A=1 or
+	  ModifyDOSInt2A=0 in the [386Enh] section
+SeeAlso: AH=80h,AH=82h,AX=8700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A82" name="2A82"><b>2A82</b></a> - INT 2A CU - NETWORK - END DOS CRITICAL SECTIONS 0 THROUGH 7<br />
+<pre>
+INT 2A CU - NETWORK - END DOS CRITICAL SECTIONS 0 THROUGH 7
+	AH = 82h
+Notes:	called by the INT 21h function dispatcher for function 0 and functions
+	  greater than 0Ch except 59h, and on process termination
+	the handler should reawaken any tasks which were suspended due to an
+	  attempt to enter one of the critical sections 0 through 7
+SeeAlso: AH=81h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A84" name="2A84"><b>2A84</b></a> - INT 2A CU - NETWORK - KEYBOARD BUSY LOOP<br />
+<pre>
+INT 2A CU - NETWORK - KEYBOARD BUSY LOOP
+	AH = 84h
+Notes:	similar to DOS's INT 28h, called from inside the DOS keyboard input
+	  loop (i.e. INT 21/AH=07h or INT 21/AH=08h) to allow the network
+	  software to process requests
+	Novell DOS 7+ calls this function with AX=8400h from inside of
+	  the keyboard input loop.
+SeeAlso: INT 28
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A86" name="2A86"><b>2A86</b></a> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???<br />
+<pre>
+INT 2A U - PC Network v1.00 - RECEIVER.COM - ???
+	AH = 86h
+	???
+Return: ???
+SeeAlso: AH=07h,AH=C4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A8700" name="2A8700"><b>2A8700</b></a> - INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING<br />
+<pre>
+INT 2A CU - PRINT - BEGIN BACKGROUND PRINTING
+	AX = 8700h
+	CF clear
+Return: CF clear if OK to print in background now
+	CF set if background printing not allowed at this time
+Desc:	used to inform interested programs that PRINT is about to start its
+	  background processing, and allow those programs to postpone the
+	  processing if necessary
+Notes:	when PRINT gains control and wants to begin printing, it calls this
+	  function.  If CF is clear on return, PRINT begins its background
+	  processing, and calls AX=8701h when it is done.  If CF is set on
+	  return, PRINT will relinquish control immediately, and will not
+	  call AX=8701h
+	PCVENUS (an early network shell by IBM and CMU) hooks this call to
+	  prevent background printing while its own code is active
+SeeAlso: AH=80h,AH=81h,AX=8701h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A8701" name="2A8701"><b>2A8701</b></a> - INT 2A CU - PRINT - END BACKGROUND PRINTING<br />
+<pre>
+INT 2A CU - PRINT - END BACKGROUND PRINTING
+	AX = 8701h
+Desc:	used to inform interested programs that PRINT has completed its
+	  background processing
+Note:	called by PRINT after it has performed some background printing; not
+	  called if AX=8700h returned with CF set.
+SeeAlso: AX=8700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A89" name="2A89"><b>2A89</b></a> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???<br />
+<pre>
+INT 2A U - PC Network v1.00 - RECEIVER.COM - ???
+	AH = 89h
+	AL = ???  (ASSIGN uses 08h)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2A90" name="2A90"><b>2A90</b></a> - INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???<br />
+<pre>
+INT 2A U - IBM PC 3270 EMULATION PROGRAM - ???
+	AH = 90h
+	???
+Return: ???
+Note:	the LANtastic redirector and SERVER.EXE use this function with AL=01h,
+	  03h-07h,0Ch-11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AC2" name="2AC2"><b>2AC2</b></a> - INT 2A U - Network - ???<br />
+<pre>
+INT 2A U - Network - ???
+	AH = C2h
+	AL = subfunction
+	    07h ???
+	    08h ???
+	BX = 0001h
+	???
+Return: ???
+Note:	this function is called by the DOS 3.30-6.00 APPEND
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AC4" name="2AC4"><b>2AC4</b></a> - INT 2A U - PC Network v1.00 - RECEIVER.COM - ???<br />
+<pre>
+INT 2A U - PC Network v1.00 - RECEIVER.COM - ???
+	AH = C4h
+	AL = subfunction
+	    07h ???
+	    08h ???
+	BX = ???
+	???
+Return: ???
+SeeAlso: AH=86h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD800" name="2AD800"><b>2AD800</b></a> - INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION DISABLE<br />
+<pre>
+INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION DISABLE
+	AX = D800h
+Return: nothing
+Desc:	sets ??? flag, and sets ??? to initial value
+Note:	called by CLIENT for communication between client and server
+SeeAlso: AX=D801h,AX=D850h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD801" name="2AD801"><b>2AD801</b></a> - INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION ENABLE<br />
+<pre>
+INT 2A U - Novell NetWare Lite - SERVER - DOS CRITICAL SECTION ENABLE
+	AX = D801h
+Return: nothing
+Desc:	clears the ??? flag set by AX=D800h
+Note:	called by CLIENT for communication between client and server
+SeeAlso: AX=D800h,AX=D850h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD850" name="2AD850"><b>2AD850</b></a> - INT 2A U - Novell NetWare Lite - CLIENT - START SERVER CRITICAL SECTION<br />
+<pre>
+INT 2A U - Novell NetWare Lite - CLIENT - START SERVER CRITICAL SECTION
+	AX = D850h
+Return: nothing
+Desc:	increments an internal byte-sized counter
+Note:	this function is intercepted by DV/X 1.10 PEERSERV.DVR and the
+	  Advanced NetWare 4.0 DOS Requester
+SeeAlso: AX=D851h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD851" name="2AD851"><b>2AD851</b></a> - INT 2A U - Novell NetWare Lite - CLIENT - END SERVER CRITICAL SECTION<br />
+<pre>
+INT 2A U - Novell NetWare Lite - CLIENT - END SERVER CRITICAL SECTION
+	AX = D851h
+Return: nothing
+Desc:	resets an internal byte-sized counter to zero
+Note:	this function is intercepted by DV/X 1.10 PEERSERV.DVR and the
+	  Advanced NetWare 4.0 DOS Requester
+SeeAlso: AX=D850h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD852" name="2AD852"><b>2AD852</b></a> - INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER LOADED<br />
+<pre>
+INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER LOADED
+	AX = D852h
+Return: ???
+Note:	calls the NetWare Lite SERVER installation check, and sets ??? pointer
+SeeAlso: AX=D853h,INT 2F/AX=D880h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AD853" name="2AD853"><b>2AD853</b></a> - INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER UNLOADED<br />
+<pre>
+INT 2A U - Novell NetWare - DOS Requester v1.03 - SERVER UNLOADED
+	AX = D853h
+Return: ???
+Note:	clears the pointer set by AX=D852h
+SeeAlso: AX=D852h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AE0" name="2AE0"><b>2AE0</b></a> - INT 2A U - PC Network 1.00 - ???<br />
+<pre>
+INT 2A U - PC Network 1.00 - ???
+	AH = E0h
+	AL = subfunction??? (01h,02h, maybe others)
+	???
+Return: ???
+Note:	called by PCNet 1.00 NET.COM, a shell program from which others are run
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF90" name="2AFF90"><b>2AFF90</b></a> - INT 2A - PC/TCP PREDIR.EXE - ???<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - ???
+	AX = FF90h
+Return: AX = ???
+Note:	PREDIR.EXE is the network printer redirector included as part of the
+	  PC/TCP system by FTP Software, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF91" name="2AFF91"><b>2AFF91</b></a> - INT 2A - PC/TCP PREDIR.EXE - ???<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - ???
+	AX = FF91h
+	BX = ???
+Return: AX = status???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF92" name="2AFF92"><b>2AFF92</b></a> - INT 2A - PC/TCP PREDIR.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - INSTALLATION CHECK
+	AX = FF92h
+Return: AX = 0000h if installed
+	   BX = redirected printer port (FFFFh if no printers redirected)
+	   CX = version (CH = major, CL = minor)
+Note:	PREDIR.EXE is the network printer redirector included as part of the
+	  PC/TCP system by FTP Software, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF93" name="2AFF93"><b>2AFF93</b></a> - INT 2A - PC/TCP PREDIR.EXE - ???<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - ???
+	AX = FF93h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF94" name="2AFF94"><b>2AFF94</b></a> - INT 2A - PC/TCP PREDIR.EXE - ???<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - ???
+	AX = FF94h
+	BX = ???
+	CX = ???
+	DX = ???
+Return: AX = ???
+Note:	PREDIR.EXE is the network printer redirector included as part of the
+	  PC/TCP system by FTP Software, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF95" name="2AFF95"><b>2AFF95</b></a> - INT 2A - PC/TCP PREDIR.EXE - GET CONFIGURATION STRINGS<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - GET CONFIGURATION STRINGS
+	AX = FF95h
+	CX = what to get
+	    0000h ??? (returned pointer to "C:\COMMAND.COM")
+	    0001h spooling program
+	    0002h ???
+	    0003h spool file name
+	    0004h swap file name
+Return: AX = status
+	    0000h successful
+	BX:DX -&gt; ASCIZ configuration string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF96" name="2AFF96"><b>2AFF96</b></a> - INT 2A - PC/TCP PREDIR.EXE - SET PRINT JOB TERMINATION CONFIGURATION<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - SET PRINT JOB TERMINATION CONFIGURATION
+	AX = FF96h
+	CX = what to set
+	    0000h ???
+	    0001h print-on-hotkey state
+	    0002h print-on-exit state
+	    0003h print job timeout in clock ticks
+	    0004h print-on-EOF state
+	BX = new value (0000h disabled, 0001h enabled except for timeout)
+Return: AX = ???
+SeeAlso: AX=FF97h
+Note:	PREDIR.EXE is the network printer redirector included as part of the
+	  PC/TCP system by FTP Software, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2AFF97" name="2AFF97"><b>2AFF97</b></a> - INT 2A - PC/TCP PREDIR.EXE - GET PRINT JOB TERMINATION CONFIGURATION<br />
+<pre>
+INT 2A - PC/TCP PREDIR.EXE - GET PRINT JOB TERMINATION CONFIGURATION
+	AX = FF97h
+	CX = what to get
+	    0000h ???
+	    0001h print-on-hotkey state
+	    0002h print-on-exit state
+	    0003h print job timeout in clock ticks
+	    0004h print-on-EOF state
+Return: AX = status
+	    0000h successful
+	BX = old value (0000h disabled, 0001 enabled except for timeout)
+SeeAlso: AX=FF96h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

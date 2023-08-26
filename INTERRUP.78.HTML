@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._78</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 78
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#78"><b>78</b> - INT 78 - UofSalford DBOS DOS extender - API</a><br />
+<a href="#78_0"><b>78</b> - INT 78 - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ0</a><br />
+<a href="#78_1"><b>78</b> - INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND</a><br />
+<a href="#78_2"><b>78</b> - INT 78 - ADP-60 IDE controller - ORIGINAL INT 13</a><br />
+<a href="#78_3"><b>78</b> - INT 78 - ULTRAMID - API</a><br />
+<a href="#7800"><b>7800</b> - INT 78 - TARGA.DEV - CMC International SCSI device driver - SET I/O PORT</a><br />
+<a href="#780000"><b>780000</b> - INT 78 - HugeRealMode Driver - INSTALLATION CHECK</a><br />
+<a href="#780001"><b>780001</b> - INT 78 - HugeRealMode Driver - GET ENTRY POINT</a><br />
+<a href="#7801"><b>7801</b> - INT 78 - TARGA.DEV - GET I/O PORT</a><br />
+<a href="#7802"><b>7802</b> - INT 78 - TARGA.DEV - SET DMA CHANNEL</a><br />
+<a href="#7803"><b>7803</b> - INT 78 - TARGA.DEV - GET DMA CHANNEL</a><br />
+<a href="#7804"><b>7804</b> - INT 78 - TARGA.DEV - SET SCSI DEVICE NUMBER</a><br />
+<a href="#7805"><b>7805</b> - INT 78 - TARGA.DEV - GET SCSI DEVICE NUMBER</a><br />
+<a href="#7806"><b>7806</b> - INT 78 - TARGA.DEV - SET/CLEAR EARLY RETURN MODE</a><br />
+<a href="#7808"><b>7808</b> - INT 78 - TARGA.DEV - INTERFACE BOARD SELF-TEST</a><br />
+<a href="#7809"><b>7809</b> - INT 78 - TARGA.DEV - RESET SCSI BUS</a><br />
+<a href="#7810"><b>7810</b> - INT 78 - TARGA.DEV - SEND SCSI COMMAND</a><br />
+<a href="#7811"><b>7811</b> - INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (PROGRAMMED I/O)</a><br />
+<a href="#7812"><b>7812</b> - INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (PROGRAMMED I/O)</a><br />
+<a href="#7813"><b>7813</b> - INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (DMA)</a><br />
+<a href="#7814"><b>7814</b> - INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (DMA)</a><br />
+<a href="#7815"><b>7815</b> - INT 78 - TARGA.DEV - FINISH DATA TRANSFER (DMA)</a><br />
+
+<hr />
+
+<a href="#78" name="78"><b>78</b></a> - INT 78 - UofSalford DBOS DOS extender - API<br />
+<pre>
+INT 78 - UofSalford DBOS DOS extender - API
+	AH = function
+	    00h (PB) display 32-bit memory specified by command argument
+	    01h (PT) display 32-bit instruction(s) specified by command arg
+	    02h specify offset to subsequent PB and PT commands
+	    03h switch to protected mode
+		DWORD following INT instruction point to map; protected-mode
+			  entry point is immediately following the DWORD
+		Return: never
+		Note:	if bit 31 of the map address is set, only a stub was
+			  loaded by DOS and DBOS will load the entire program
+	    04h specify that subsequent load (AH=03h) should leave program in
+		  memory
+	    05h release program from memory
+	    06h set break point at address and option count from commandline
+	    07h resume program execution
+	    08h single-step program
+	    09h set read/write breakpoint using 386 debug registers
+	    0Ah set write breakpoint using 386 debug register
+	    0Bh set memory byte to new value
+	    0Ch display CPU registers
+	    0Dh run until specified program address reached
+	    0Fh print trace from program map
+	    10h specify an offset using a map symbol
+	    14h print memory without any offset
+	    18h switch DBOS into/out of test mode (ON/OFF commandline args)
+	    1Dh get address of real/protected-mode communication buffer
+		Return: ES:BP -&gt; comm buffer
+	    1Eh set real-mode memory size (specify how much real-mode memory
+		  to leave free when running FTN77 programs)
+	    22h uninstall DBOS
+	    24h force DBOS to emulate coprocessor instructions
+	    26h set named DBOS switches from commandline
+	    27h reset named DBOS switched from commandline
+	    2Ah set list of dynamic link libraries to contents of commandline
+		  file
+	    35h specify that subsequent load (AH=03h) should stop at first
+		  instruction
+Return: ???
+Notes:	DBOS supports functions 00h through 50h; many of these functions
+	  provide a low-level debugging interface
+	command arguments are read from the calling program's PSP
+SeeAlso: INT 79"DBOS"
+Index:	uninstall;DBOS DOS extender
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#78_0" name="78_0"><b>78</b></a> - INT 78 - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ0<br />
+<pre>
+INT 78 - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ0
+Program: GO32.EXE is a DOS extender included as part of the 80386 port of the
+	  GNU C/C++ compiler by DJ Delorie and distributed as DJGPP
+Notes:	this vector is overwritten when GO32 starts but is not restored by
+	  early versions of the extender
+	the newest versions of GO32 dynamically allocate the vectors used
+	  for the relocated IRQs, much as DESQview does (see INT 50"DESQview")
+SeeAlso: INT 08,INT 10/AH=FFh"GO32",INT 79"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#78_1" name="78_1"><b>78</b></a> - INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND<br />
+<pre>
+INT 78 R - AutoCAD Device Interface - PLOTTER - SEND COMMAND
+	AX = function
+	    0001h begin plot
+		BX = file level
+		    0000h ASCII file
+		    0001h binary file
+		    0002h AutoCAD DXB file
+		    0003h installed ADI driver
+	    0002h end plot (close plotter)
+	    0003h move (pen up)
+		BX = new X position
+		CX = new Y position
+	    0004h move (pen down)
+		BX = new X position
+		CX = new Y position
+	    0005h select pen
+		BX = pen number
+	    0006h select drawing speed
+		BX = drawing speed N
+	    0007h select line style
+		BX = line style N
+	    0008h raise pen
+	    0009h abort plot
+Return: AX = 0000h (may be used for driver status in future releases)
+SeeAlso: INT 79"AutoCAD",INT 7A/AX=0001h"AutoCAD",INT 7B/AX=8001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#78_2" name="78_2"><b>78</b></a> - INT 78 - ADP-60 IDE controller - ORIGINAL INT 13<br />
+<pre>
+INT 78 - ADP-60 IDE controller - ORIGINAL INT 13
+SeeAlso: INT 79"ADP-60"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#78_3" name="78_3"><b>78</b></a> - INT 78 - ULTRAMID - API<br />
+<pre>
+INT 78 - ULTRAMID - API
+	AX = function
+	--- digital functions ---
+	    0000h start digital
+		ES:DI -&gt; Sound Structure
+		Return: AX = voice used
+	    0001h play next buffer
+		ES:DI -&gt; Sound Structure
+	    0002h set panning
+		BX = pan
+		CX = voice
+	    0003h set volume
+		BX = volume
+		CX = voice
+	    0004h set rate (not yet implemented)
+	    0005h pause digital
+		CX = voice
+	    0006h restart digital
+		CX = voice
+	    0007h stop digital
+		CX = voice
+	    0008h get digital position
+		CX = voice
+		Return: AX:DX -&gt; position in PC buffer
+	    0009h get voice status (not yet implemented)
+	--- MIDI functions ---
+	    000Ah load MIDI patches
+		ES:DI -&gt; MIDI track just after the Mtrk header
+		BX:DX = length of MIDI track
+	    000Bh load XMIDI patches
+		ES:DI -&gt; event buffer including the EVNT header
+	    000Ch load patch
+		CX = MIDI number of patch
+	    000Dh unload patch
+		CX = MIDI number of patch
+	    000Eh start sequence
+	    000Fh unload all patches
+	    0010h MIDI out byte
+		CX = MIDI byte
+	    0011h MIDI out string
+		CX = length
+		ES:DI -&gt; string of MIDI data
+	    0012h all notes off
+	--- resource functions ---
+	    0013h allocate memory
+		BX:DX = size of GUS memory needed
+		Return: AX:DX = address of memory, or 0000:0000 if not avaiable
+	    0014h free memory
+		BX:DX = address of memory to be freed
+	    0015h uninstall
+	    0016h sem enter
+	    0017h sem leave
+	    0018h add external semaphore
+		BX:DX -&gt; external semaphore
+	    0019h clear external semaphore
+		BX:DX -&gt; external semaphore
+	    001Ah application start
+	    001Bh application end
+	--- v1.12 ---
+	    001Ch ???
+	    001Dh ???
+	    001Eh ???
+	    001Fh ???
+Program: UltraMid is a TSR from Advanced Gravis to play MIDI and digital data
+	   through the Gravis UltraSound (GUS)
+InstallCheck:	test for the signature "ULTRAMID" at offset 0103h in the
+	  interrupt handler's segment
+Range:	INT 78 to INT 7F
+SeeAlso: INT 2F/AX=CD00h"ULTRAMID",INT 7E/AH=00h"SBOS",INT 7E/AX=00FEh"SBOS"
+Index:	uninstall;UltraMID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7800" name="7800"><b>7800</b></a> - INT 78 - TARGA.DEV - CMC International SCSI device driver - SET I/O PORT<br />
+<pre>
+INT 78 - TARGA.DEV - CMC International SCSI device driver - SET I/O PORT
+	AH = 00h
+	DX = interface board I/O port
+Return: CF set on error
+	    AL = error code (see #03786)
+InstallCheck:	(used by TARGA.DEV) test for the string "SCSI" at offset 03h
+	  into the interrupt handler
+Note:	if this routine is not called, the port is the driver's default
+	  (usually 0280h or 0300h)
+SeeAlso: AH=01h,AH=02h
+Index:	installation check;TARGA.DEV
+
+(Table 03786)
+Values for TARGA.DEV error code:
+ 00h	illegal command given to SCSI code
+ 01h	invalid I/O port specified (must be from 100H to 3F8H, and must be on
+	  an 8-port boundary)
+ 02h	invalid DMA channel specified (must be from 1 to 3)
+ 03h	invalid SCSI board number specified (must be from 0 to 7)
+ 04h	error from data register test during self-test
+ 05h	SCSI input signals not all 0 when SCSI RST activated
+ 06h	SCSI input signals not all 0 before selecting a SCSI device
+ 07h	BSY signal is active; SCSI bus is busy
+ 08h	SCSI board not selected, BSY signal did not come on in response to
+	  raising SEL
+ 09h	time-out waiting for status state, signifying end of DMA transfer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#780000" name="780000"><b>780000</b></a> - INT 78 - HugeRealMode Driver - INSTALLATION CHECK<br />
+<pre>
+INT 78 - HugeRealMode Driver - INSTALLATION CHECK
+	AX = 0000h
+Return: AX = DBCAh if installed
+Program: the HugeRealMode driver was published in the German DOS Extra Nr. 20
+	  (1992), and makes a 4G flat address space (for both data and code)
+	  available to real-mode DOS programs
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#780001" name="780001"><b>780001</b></a> - INT 78 - HugeRealMode Driver - GET ENTRY POINT<br />
+<pre>
+INT 78 - HugeRealMode Driver - GET ENTRY POINT
+	AX = 0001h
+Return: ES:BX -&gt; far call entry point (see #03788,#03803)
+SeeAlso: AX=0000h
+
+(Table 03787)
+Values for HugeRealMode Server error code:
+ 00h	successful
+ 01h	unknown function
+ 02h	A20 disabled
+ 03h	A20 enabled
+ 04h	memory allocation error
+ 05h	memory not fixeable (LOCK)
+ 06h	memory not deallocaable
+ 07h	memory not moveable (UNLOCK)
+ 08h	change in memory allocation size not possible
+ 09h	file error (with .XMF-file)
+ 0Ah	memory error (with .XMF-file)
+ 0Bh	unknown procedure (currently Turbo Pascal unit only)
+
+(Table 03788)
+Call HugeRealMode Server "Enable A20" function with:
+	AL = 00h
+Return: AX = error code (see #03787)
+Note:	The HugeRealMode Server requires an XMS-driver like HIMEM.SYS loaded
+	  before HUGEREAL (for XMS-memory allocation and A20 control). It
+	  utilizes some undocumented 386+ features to enable 4G code and data
+	  segments (flat memory model) in the CPUs real-mode. It is not
+	  compatible with V86-mode (as with most EMM386). For maximum speed
+	  and compatibility with DOS it uses a two stage interrupt model
+	  (see #03791)
+SeeAlso: #03789,#03790,#03791
+
+(Table 03789)
+Call HugeRealMode Server "Disable A20" function with:
+	AL = 01h
+Return: AX = error code (see #03787)
+SeeAlso: #03788,#03790
+
+(Table 03790)
+Call HugeRealMode Server "Query A20 State" function with:
+	AL = 02h
+Return: AX = A20 state (0000h disabled, 0001h enabled)
+SeeAlso: #03788,#03789
+
+(Table 03791)
+Call HugeRealMode Server "Enable Two-Stage Interrupt Model" function with:
+	AL = 03h
+Return: AX = error code (see #03787)
+Notes:	If the two stage interrupt model is disabled, the IP must stay below
+	  1MB, because the high word of EIP is not saved correctly by the
+	  standard interrupt management in real mode.  Routines in extended
+	  memory may only be called with interrupts disabled (only usable for
+	  very short routines).
+	If the two stage interupt model is enabled, these conventions are not
+	  required.  The outer (transparent) ISRs save the higher word of EIP
+	  in the high word of CR3 (possible modification: in memory, if this
+	  is not safe) and then invoke the standard ISRs.
+	Because of this handling, one should use pseudo segmented code even in
+	  extended memory (64K blocks located on 64K boundaries) to avoid the
+	  misalignment of the saved EIP (in CR3). Another way is to track and
+	  realign CR3 each time when jumping over a 64K boundary in extended
+	  memory
+SeeAlso: #03788,#03792
+
+(Table 03792)
+Call HugeRealMode Server "Disable Two-Stage Interrupt Model" function with:
+	AL = 04h
+Return: AX = error code (see #03787)
+SeeAlso: #03788,#03791
+
+(Table 03793)
+Call HugeRealMode Server "Get Segment Address Of Server-Management Range" with:
+	AL = 05h
+Return: AX = error code (see #03787)
+	ES = segment address
+SeeAlso: #03803
+
+(Table 03794)
+Call HugeRealMode Server "Allocate Memory" function with:
+	AL = 06h
+	DX = length in KB
+Return: AX = error code (see #03787)
+	DX = handle
+	EBX = start address of allocated block
+SeeAlso: #03795,#03796
+
+(Table 03795)
+Call HugeRealMode Server "Deallocate Memory" function with:
+	AL = 07h
+	DX = handle
+Return: AX = error code (see #03787)
+SeeAlso: #03794,#03796
+
+(Table 03796)
+Call HugeRealMode Server "Modify Allocated Memory Size" function with:
+	AL = 08h
+	DX = handle
+	BX = new size in KB
+Return: AX = error code (see #03787)
+	EBX = new address
+SeeAlso: #03794,#03795
+
+(Table 03797)
+Call HugeRealMode Server "Load .XMF-file" function with:
+	AL = 09h
+	ES:BX -&gt; filename (see #03798)
+Return: AX = error code (see #03787)
+	ECX = target address
+Notes:	memory must be allocated before loading
+	.XMF file format (eXtended Memory executable File format) is supported
+	  by the HugeRealMode server for easier handling of XMS-code.
+	The utility CONFXMF converts .OBJ-files (.COM 'tiny' model) to
+	  .XMF-format
+SeeAlso: #03794
+
+Format of .XMF program file header:
+Offset	Size	Description	(Table 03798)
+ 00h	DWORD	signature "XMF_"
+ 04h	WORD	length of programs code
+ 06h	WORD	count of 32bit addresses to relocate
+ 08h	WORD	offset to code start (releative to file start) (see #03799)
+ 0Ah	WORD	relocation table
+Note:	each word contains a 16bit address, where a relocation has to be
+	  performed
+SeeAlso: #03797,#03799
+
+Format of .XMF-file code header:
+Offset	Size	Description	(Table 03799)
+ 00h	WORD	count of exported functions
+ 02h  N PWORDs	48bit pointers (16bit segment+32bit offset) to each function
+		(16bit segment is always zero)
+ var		start of program's code
+SeeAlso: #03797,#03798
+
+(Table 03800)
+Call HugeRealMode Server "Set Segment Limits" function with:
+	AL = 0Ah
+	BL = segment limits (see #03801)
+Return: AX = error code (see #03787)
+SeeAlso: #03793
+
+Bitfields for HugeRealMode Server segment limits:
+Bit(s)	Description	(Table 03801)
+ 7	CS size: 1=4GB, 0=64KB
+ 6-5	not used
+ 4	SS size: 1=4GB, 0=64KB
+ 3	GS size
+ 2	FS size
+ 1	ES size
+ 0	DS size
+SeeAlso: #03800
+
+(Table 03802)
+Call HugeRealMode Server "Transfer Memory From DOS To XMS" function with:
+	AL = 0Bh
+	ES:SI = source address
+	EDI = target address
+	ECX = length
+Return: AX = error code
+SeeAlso: #03803
+
+(Table 03803)
+Call HugeRealMode Server "Transfer Memory From XMS To DOS" function with:
+	AL = 0Ch
+	ESI = source address
+	ES:DI = target address
+	ECX = length
+Return: AX = error code
+SeeAlso: #03802
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7801" name="7801"><b>7801</b></a> - INT 78 - TARGA.DEV - GET I/O PORT<br />
+<pre>
+INT 78 - TARGA.DEV - GET I/O PORT
+	AH = 01h
+Return: DX = current interface board I/O port
+SeeAlso: AH=00h,AH=03h"TARGA"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7802" name="7802"><b>7802</b></a> - INT 78 - TARGA.DEV - SET DMA CHANNEL<br />
+<pre>
+INT 78 - TARGA.DEV - SET DMA CHANNEL
+	AH = 02h
+	AL = interface board DMA channel
+Return: CF set on error
+	AL = error code (see #03786)
+Note:	if this routine is not called, the DMA channel is the driver's default
+	  (usually 3)
+SeeAlso: AH=00h,AH=03h"TARGA"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7803" name="7803"><b>7803</b></a> - INT 78 - TARGA.DEV - GET DMA CHANNEL<br />
+<pre>
+INT 78 - TARGA.DEV - GET DMA CHANNEL
+	AH = 03h
+Return: AL = current interface board DMA channel
+SeeAlso: AH=01h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7804" name="7804"><b>7804</b></a> - INT 78 - TARGA.DEV - SET SCSI DEVICE NUMBER<br />
+<pre>
+INT 78 - TARGA.DEV - SET SCSI DEVICE NUMBER
+	AH = 04h
+	AL = SCSI device number
+Return: CF set on error
+	AL = error code (see #03786)
+Note:	if this routine is not called, the device number used is the driver's
+	  default (usually 0)
+SeeAlso: AH=02h,AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7805" name="7805"><b>7805</b></a> - INT 78 - TARGA.DEV - GET SCSI DEVICE NUMBER<br />
+<pre>
+INT 78 - TARGA.DEV - GET SCSI DEVICE NUMBER
+	AH = 05h
+Return: AL = current SCSI device number
+SeeAlso: AH=03h"TARGA",AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7806" name="7806"><b>7806</b></a> - INT 78 - TARGA.DEV - SET/CLEAR EARLY RETURN MODE<br />
+<pre>
+INT 78 - TARGA.DEV - SET/CLEAR EARLY RETURN MODE
+	AH = 06h
+	AL = new state
+	    00h clear early return mode
+	    01h set early return mode
+Note:	if early return mode is set then SCSI will return with no errors
+	  when the last DMA transfer is started in a call with AH=13h or AH=14h
+	if this routine is not called, early return mode is cleared
+SeeAlso: AH=13h,AH=14h,AH=15h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7808" name="7808"><b>7808</b></a> - INT 78 - TARGA.DEV - INTERFACE BOARD SELF-TEST<br />
+<pre>
+INT 78 - TARGA.DEV - INTERFACE BOARD SELF-TEST
+	AH = 08h
+Return: CF set on error
+	AL = error code (see #03786)
+Note:	the SCSI bus is also reset
+SeeAlso: AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7809" name="7809"><b>7809</b></a> - INT 78 - TARGA.DEV - RESET SCSI BUS<br />
+<pre>
+INT 78 - TARGA.DEV - RESET SCSI BUS
+	AH = 09h
+Return: AL = error code if carry set (see #03786)
+SeeAlso: AH=08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7810" name="7810"><b>7810</b></a> - INT 78 - TARGA.DEV - SEND SCSI COMMAND<br />
+<pre>
+INT 78 - TARGA.DEV - SEND SCSI COMMAND
+	AH = 10h
+	DS:SI -&gt; command bytes (see #03804)
+Return: AH = SCSI status byte
+	CF clear if successful
+	    AL = SCSI message byte
+	CF set on error
+	    AL = error code (see #03786)
+SeeAlso: AH=11h,INT 21/AX=4403h"ST-01"
+
+Format of SCSI Command:
+Offset	Size	Description	(Table 03804)
+ 00h	BYTE	length of command
+ 01h	???	command bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7811" name="7811"><b>7811</b></a> - INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (PROGRAMMED I/O)<br />
+<pre>
+INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (PROGRAMMED I/O)
+	AH = 11h
+	DS:SI -&gt; command bytes (see #03805)
+	ES:BX -&gt; data storage area
+	CX = number of data bytes to transfer
+Return: AH = SCSI status byte
+	CF clear if successful
+	    AL = SCSI message byte
+	CF set on error
+	    AL = error code (see #03786)
+Note:	this command receives data internally one byte at a time
+SeeAlso: AH=10h,AH=13h
+
+Format of TARGA.DEV SCSI Command:
+Offset	Size	Description	(Table 03805)
+ 00h	BYTE	length of command
+ 01h	???	command bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7812" name="7812"><b>7812</b></a> - INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (PROGRAMMED I/O)<br />
+<pre>
+INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (PROGRAMMED I/O)
+	AH = 12h
+	DS:SI -&gt; command bytes (see #03806)
+	ES:BX -&gt; data storage area
+	CX = number of data bytes to transfer
+Return: AH = SCSI status byte
+	CF clear if successful
+	    AL = SCSI message byte
+	CF set on error
+	    AL = error code (see #03786)
+Note:	this command sends data internally one byte at a time
+SeeAlso: AH=14h
+
+Format of TARGA.DEV SCSI Command:
+Offset	Size	Description	(Table 03806)
+ 00h	BYTE	length of command
+ 01h	???	command bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7813" name="7813"><b>7813</b></a> - INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (DMA)<br />
+<pre>
+INT 78 - TARGA.DEV - SEND SCSI COMMAND, RECEIVE DATA (DMA)
+	AH = 13h
+	DS:SI -&gt; command bytes (see #03807)
+	ES:BX -&gt; data storage area
+	DX:CX = number of data bytes to transfer
+Return: AH = SCSI status byte (if early return mode is clear)
+	CF clear if successful
+	    AL = SCSI message byte (if early return mode is clear)
+	CF set on error
+	    AL = error code (see #03786)
+Note:	this command receives data using DMA
+SeeAlso: AH=11h,AH=12h
+
+Format of TARGA.DEV SCSI Command:
+Offset	Size	Description	(Table 03807)
+ 00h	BYTE	length of command
+ 01h	???	command bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7814" name="7814"><b>7814</b></a> - INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (DMA)<br />
+<pre>
+INT 78 - TARGA.DEV - SEND SCSI COMMAND AND DATA (DMA)
+	AH = 14h
+	DS:SI -&gt; command bytes (see #03808)
+	ES:BX -&gt; data storage area
+	DX:CX = number of data bytes to transfer
+Return: AH = SCSI status byte (if early return mode is clear)
+	CF clear if successful
+	    AL = SCSI message byte (if early return mode is clear)
+	CF set on error
+	    AL = error code (see #03786)
+Note:	this command sends data using DMA
+SeeAlso: AH=12h,AH=13h
+
+Format of TARGA.DEV SCSI Command:
+Offset	Size	Description	(Table 03808)
+ 00h	BYTE	length of command
+ 01h	???	command bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7815" name="7815"><b>7815</b></a> - INT 78 - TARGA.DEV - FINISH DATA TRANSFER (DMA)<br />
+<pre>
+INT 78 - TARGA.DEV - FINISH DATA TRANSFER (DMA)
+	AH = 15h
+Return: AH = SCSI status byte
+	CF clear if successful
+	    AL = SCSI message byte
+	CF set on error
+	    AL = error code (see #03786)
+Note:	if AH=06h was previously called to set the early return mode, this
+	  function finishes a command AH=13h or AH=14h which returned before
+	  the last DMA transfer was finished
+SeeAlso: AH=06h,AH=13h,AH=14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

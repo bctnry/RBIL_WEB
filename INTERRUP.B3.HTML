@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._B3</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT B3
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#B3"><b>B3</b> - INT B3 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#B370"><b>B370</b> - INT B3 - ZIPKEY - GET VERSION</a><br />
+<a href="#B371"><b>B371</b> - INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE</a><br />
+<a href="#B372"><b>B372</b> - INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION</a><br />
+<a href="#B373"><b>B373</b> - INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME</a><br />
+<a href="#B374"><b>B374</b> - INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS</a><br />
+<a href="#B375"><b>B375</b> - INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE</a><br />
+<a href="#B376"><b>B376</b> - INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE</a><br />
+<a href="#B377"><b>B377</b> - INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE</a><br />
+<a href="#B378"><b>B378</b> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY</a><br />
+<a href="#B379"><b>B379</b> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY</a><br />
+<a href="#B37A"><b>B37A</b> - INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP</a><br />
+<a href="#B37B"><b>B37B</b> - INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT</a><br />
+<a href="#B37C"><b>B37C</b> - INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT</a><br />
+<a href="#B37D"><b>B37D</b> - INT B3 - ZIPKEY - REQUEST POP UP</a><br />
+<a href="#B37E"><b>B37E</b> - INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION</a><br />
+<a href="#B37F"><b>B37F</b> - INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS</a><br />
+<a href="#B380"><b>B380</b> - INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE</a><br />
+
+<hr />
+
+<a href="#B3" name="B3"><b>B3</b></a> - INT B3 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT B3 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B370" name="B370"><b>B370</b></a> - INT B3 - ZIPKEY - GET VERSION<br />
+<pre>
+INT B3 - ZIPKEY - GET VERSION
+	AH = 70h
+Return: AH = major version
+	AL = minor version
+	CL = number of states and territories in current database
+	DH = year of current database - 1900
+	DL = month of current database's file date
+Program: ZIPKEY is a resident ZIPCODE database by Eric Isaacson
+Note:	if installed, the string "ZIPKEY" is present at offset 75h in the
+	  interrupt handler's segment, and the byte at 7Bh contains the API
+	  version number (00h for v1.x, 01h for v2.0)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B371" name="B371"><b>B371</b></a> - INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT TWO-LETTER ABBREVIATION TO STATE CODE
+	AH = 71h
+	BX = abbreviation, in either case (first letter in BL)
+Return: CF set on error
+	    AL = FFh
+	CF clear if successful
+	    AL = ZIPKEY state code
+SeeAlso: AH=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B372" name="B372"><b>B372</b></a> - INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT STATE CODE TO TWO-LETTER ABBREVIATION
+	AH = 72h
+	BL = ZIPKEY state code
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    AX = abbreviation, in upper case
+SeeAlso: AH=71h,AH=73h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B373" name="B373"><b>B373</b></a> - INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT STATE CODE TO STATE NAME
+	AH = 73h
+	BL = ZIPKEY state code
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=72h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B374" name="B374"><b>B374</b></a> - INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS<br />
+<pre>
+INT B3 - ZIPKEY - CONVERT ZIPCODE TO ASCII DIGITS
+	AH = 74h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    ES:DI points one byte beyond end of digit string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B375" name="B375"><b>B375</b></a> - INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP STATE CODE FOR ZIPCODE
+	AH = 75h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+Return: CF set on error (zipcode not found)
+	    AL = suggested state code, FFh if none
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    BX = area code (v2.0+)
+SeeAlso: AH=76h,AH=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B376" name="B376"><b>B376</b></a> - INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP CITY AND STATE FOR ZIPCODE
+	AH = 76h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AL = suggested state code, FFh if none
+	    ES:DI buffer filled with suggested city name
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    BX = area code (v2.0+)
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=75h,AH=78h,AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B377" name="B377"><b>B377</b></a> - INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE<br />
+<pre>
+INT B3 - ZIPKEY - PLAY BACK EXIT KEY FOR ENTRY WITH GIVEN ZIPCODE
+	AH = 77h
+	DX = zipcode region (0-999)
+	CH = last two digits of zipcode (0-99)
+	BX = 16-bit BIOS keycode for a defined ZIPKEY alternate exit key
+Return: CF set on error
+	    AX destroyed
+	CF clear if successful
+	    zipcode specification as defined by the BX keystroke is placed in
+	      keyboard buffer, as if the user had popped up ZIPKEY and exited
+	      by pressing the key specified by BX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B378" name="B378"><b>B378</b></a> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN STATE AND CITY
+	AH = 78h
+	BL = ZIPKEY state code
+	DS:SI -&gt; city name, terminated with 0Dh if complete name, 00h if prefix
+Return: BH = number of matching entries (set to 51 if more than 50)
+	DX = zipcode region of first match (0-999)
+	CL = last two digits of first zipcode in the range (0-99)
+	CH = last two digits of last zipcode in the range (0-99)
+	AX destroyed
+SeeAlso: AH=79h,AH=7Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B379" name="B379"><b>B379</b></a> - INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY<br />
+<pre>
+INT B3 - ZIPKEY - LOOK UP ZIPCODES FOR A GIVEN CITY
+	AH = 79h
+	BL = ZIPKEY state code of first state to search
+	DS:SI -&gt; city name, terminated with 0Dh if complete name, 00h if prefix
+Return: AL = ZIPKEY state code of first matching state
+	BH = number of matching entries (set to 51 if more than 50)
+	DX = zipcode region of first match (0-999)
+	CL = last two digits of first zipcode in first range (0-99)
+	CH = last two digits of last zipcode in first range (0-99)
+Note:	to find all matching cities, repeat search with BL set to one more than
+	  the returned AL
+SeeAlso: AH=78h,AH=7Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37A" name="B37A"><b>B37A</b></a> - INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP<br />
+<pre>
+INT B3 - ZIPKEY - FETCH AN ENTRY FROM A PREVIOUS LOOKUP
+	AH = 7Ah
+	BL = case number (0 to one less than value returned in BH by lookup)
+Return: AL = ZIPKEY state code
+	DX = zipcode region (0-999)
+	CL = last two digits of first zipcode in the range (0-99)
+	CH = last two digits of last zipcode in the range (0-99)
+SeeAlso: AH=78h,AH=79h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37B" name="B37B"><b>B37B</b></a> - INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT<br />
+<pre>
+INT B3 - ZIPKEY - GET VALUES NEEDED TO SAVE ZIPKEY CONTEXT
+	AH = 7Bh
+Return: BL = maximum number of characters for a city name
+	BH = ZIPKEY state code for last city-name search, or FFh if none
+	CX:DX = internal code identifying last city search
+	AX destroyed
+SeeAlso: AH=7Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37C" name="B37C"><b>B37C</b></a> - INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT<br />
+<pre>
+INT B3 - ZIPKEY - RESTORE ZIPKEY CONTEXT
+	AH = 7Ch
+	BL = maximum number of characters for a city name
+	BH = ZIPKEY state code for last city-name search, or FFh if none
+	CX:DX = internal code returned by AH=7Bh
+Return: CF set on error
+	CF clear if successful
+	AX destroyed
+SeeAlso: AH=7Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37D" name="B37D"><b>B37D</b></a> - INT B3 - ZIPKEY - REQUEST POP UP<br />
+<pre>
+INT B3 - ZIPKEY - REQUEST POP UP
+	AH = 7Dh
+	BL = index number to simulate pressing a hotkey
+	    FFh for immediate popup with no playback on return
+Return: CF set on error
+	    AL = error code
+		FDh already busy with another request
+		FEh illegal function
+	CF clear if successful
+	    AX destroyed
+	    window popped up and was closed by the user
+SeeAlso: AH=70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37E" name="B37E"><b>B37E</b></a> - INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION<br />
+<pre>
+INT B3 - ZIPKEY - GET NAME OF PRIMARY CITY FOR A ZIPCODE REGION
+	AH = 7Eh
+	DX = zipcode region (0-999)
+	ES:DI -&gt; buffer for name
+Return: CF set on error
+	    AL = FFh region does not exist
+	CF clear if successful
+	    AL = ZIPKEY state code
+	    ES:DI points one byte beyond end of name
+SeeAlso: AH=76h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B37F" name="B37F"><b>B37F</b></a> - INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS<br />
+<pre>
+INT B3 - ZIPKEY - ENABLE/DISABLE HOTKEYS
+	AH = 7Fh
+	BL = function
+	    00h turn off hotkeys
+	    01h turn on hotkeys
+	    02h return hotkey status
+	    03h toggle hotkey status
+Return: AL = hotkey status
+	    00h off
+	    01h on
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B380" name="B380"><b>B380</b></a> - INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE<br />
+<pre>
+INT B3 - ZIPKEY v2.0+ - DETERMINE STATE FOR AREA CODE
+	AH = 80h
+	BX = telephone area code (decimal)
+Return: CF clear if successful
+	    AL = ZIPKEY state code
+	    DX = first ZIP region for state (03E8h if Canada)
+	    CX = number of ZIP regions in state
+	CF set on error
+	    AL = FFh
+	    DX = 03E9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

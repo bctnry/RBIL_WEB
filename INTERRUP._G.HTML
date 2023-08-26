@@ -1,0 +1,2787 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._G</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category G - debuggers/debugging tools
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#00_0"><b>00</b> - INT 00 - Zenith - ROM DEBUGGER</a><br />
+<a href="#03_0"><b>03</b> - INT 03 - Columbia PCs (desktop,VP portables) - ROM DEBUGGER</a><br />
+<a href="#03_1"><b>03</b> - INT 03 - Realia COBOL - DEBUGGER SUPPORT</a><br />
+<a href="#03_2"><b>03</b> - INT 03 U - Watcom WVIDEO, Watcom WD - OUTPUT DEBUGGING MESSAGE</a><br />
+<a href="#030000"><b>030000</b> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET Soft-ICE VERSION</a><br />
+<a href="#0301"><b>0301</b> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - ???</a><br />
+<a href="#030900"><b>030900</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#030902"><b>030902</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - POPUP & START A DEBUG SESSION</a><br />
+<a href="#030903"><b>030903</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#030907"><b>030907</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#03090A"><b>03090A</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#03090B"><b>03090B</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#030910"><b>030910</b> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - DISPLAY STRING IN Soft-ICE WINDOW</a><br />
+<a href="#030911"><b>030911</b> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - EXECUTE Soft-ICE COMMAND</a><br />
+<a href="#030912"><b>030912</b> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET BREAKPOINT INFORMATION</a><br />
+<a href="#030913"><b>030913</b> - INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - SET Soft-ICE BREAKPOINT</a><br />
+<a href="#030914"><b>030914</b> - INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - REMOVE Soft-ICE BREAKPOINT</a><br />
+<a href="#030918"><b>030918</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#0310"><b>0310</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#0311"><b>0311</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#03130C"><b>03130C</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#03130E"><b>03130E</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#031313"><b>031313</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#030900_0"><b>030900</b> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???</a><br />
+<a href="#1105D7"><b>1105D7</b> - INT 11 CU - Borland C++ IDE - INSTALLED CALLOUT</a><br />
+<a href="#1205D7BX05D7"><b>1205D7BX05D7</b> - INT 12 U - Borland C++ IDE - INSTALLATION CHECK</a><br />
+<a href="#166C63"><b>166C63</b> - INT 16 U - TMED v1.6a - INSTALLATION CHECK</a><br />
+<a href="#20_1"><b>20</b> - INT 20 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE FIRMWARE DEBUGGER</a><br />
+<a href="#21"><b>21</b> - INT 21 - COMTROL HOSTESS i/ISA DEBUGGER - GET SEGMENT FOR CONTROL PROGRAM USE</a><br />
+<a href="#212B--CX6269"><b>212B--CX6269</b> - INT 21 - WDTSR.COM - INSTALLATION CHECK</a><br />
+<a href="#213022"><b>213022</b> - INT 21 - StopPrg v2.0 - INSTALLATION CHECK</a><br />
+<a href="#213F_0"><b>213F</b> - INT 21 - Turbo Debug HARDWARE BREAKPOINTS - READ STATUS BLOCK</a><br />
+<a href="#2140_0"><b>2140</b> - INT 21 - Turbo Debug HARDWARE BREAKPOINTS - SEND CMD TO HARDWARE BRKPNT DRIVER</a><br />
+<a href="#22_0"><b>22</b> - INT 22 - COMTROL HOSTESS i/ISA DEBUGGER - CHANGE FIRMWARE DEBUGGING PORT</a><br />
+<a href="#23_0"><b>23</b> - INT 23 - COMTROL HOSTESS i/ISA DEBUGGER - GET CONFIGURATION INFORMATION</a><br />
+<a href="#26_0"><b>26</b> - INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE</a><br />
+<a href="#27_0"><b>27</b> - INT 27 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE REMOTE TURBO DEBUGGER KERNEL</a><br />
+<a href="#2F4500"><b>2F4500</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - INSTALLATION CHECK</a><br />
+<a href="#2F4501"><b>2F4501</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SETUP PROFILER</a><br />
+<a href="#2F4502"><b>2F4502</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SET SAMPLING RATE</a><br />
+<a href="#2F4503"><b>2F4503</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - START PROFILING</a><br />
+<a href="#2F4504"><b>2F4504</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - STOP PROFILING</a><br />
+<a href="#2F4505"><b>2F4505</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - CLEAR PROFILING DATA</a><br />
+<a href="#2F4506"><b>2F4506</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFlush"</a><br />
+<a href="#2F4507"><b>2F4507</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFinish"</a><br />
+<a href="#2F4508"><b>2F4508</b> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - ALTERNATE SEGDEBUG IFACE</a><br />
+<a href="#2F8200_0"><b>2F8200</b> - INT 2F U - Nanosoft, Inc. CAPDOS - INSTALLATION CHECK</a><br />
+<a href="#2F8201_0"><b>2F8201</b> - INT 2F - Nanosoft, Inc. CAPDOS - CLEAR QUEUE</a><br />
+<a href="#2F8202_0"><b>2F8202</b> - INT 2F - Nanosoft, Inc. CAPDOS - START COLLECTION</a><br />
+<a href="#2F8203"><b>2F8203</b> - INT 2F - Nanosoft, Inc. CAPDOS - STOP COLLECTION</a><br />
+<a href="#2F8204"><b>2F8204</b> - INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE PARAMETERS</a><br />
+<a href="#2F8205"><b>2F8205</b> - INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE ITEM</a><br />
+<a href="#2F9E00"><b>2F9E00</b> - INT 2F U - INTMON v2.1 - INSTALLATION CHECK</a><br />
+<a href="#2F9E01"><b>2F9E01</b> - INT 2F U - INTMON v2.1 - RESET</a><br />
+<a href="#2F9E02"><b>2F9E02</b> - INT 2F U - INTMON v2.1 - DISPLAY CPU REGISTERS???</a><br />
+<a href="#2F9E03"><b>2F9E03</b> - INT 2F U - INTMON v2.1 - HOOK INTERRUPT???</a><br />
+<a href="#2F9F00"><b>2F9F00</b> - INT 2F U - INTCFG v2.1 - INSTALLATION CHECK</a><br />
+<a href="#2F9F01"><b>2F9F01</b> - INT 2F U - INTCFG v2.1 - ???</a><br />
+<a href="#2F9F30"><b>2F9F30</b> - INT 2F U - INTCFG v2.1 - GET ???</a><br />
+<a href="#2F9F49"><b>2F9F49</b> - INT 2F U - INTCFG v2.1 - UNINSTALL</a><br />
+<a href="#2FD000"><b>2FD000</b> - INT 2F C - MDEBUG display driver - GET DRIVER STATUS</a><br />
+<a href="#2FD001"><b>2FD001</b> - INT 2F C - MDEBUG display driver - INITIALIZE DRIVER</a><br />
+<a href="#2FD002"><b>2FD002</b> - INT 2F C - MDEBUG display driver - SAVE GRAPHIC DATA</a><br />
+<a href="#2FD003"><b>2FD003</b> - INT 2F C - MDEBUG display driver - RESTORE GRAPHIC DATA</a><br />
+<a href="#2FD004"><b>2FD004</b> - INT 2F - MDEBUG display driver - SHOW SAVED DATA</a><br />
+<a href="#2FD005"><b>2FD005</b> - INT 2F - MDEBUG display driver - SWITCH BACK TO TEXT SCREEN</a><br />
+<a href="#2FD0"><b>2FD0</b> - INT 2F - MDEBUG display driver - RESERVED FUNCTION NUMBERS</a><br />
+<a href="#2FD0_0"><b>2FD0</b> - INT 2F - MDEBUG display driver - USER DEFINED FUNCTION NUMBERS</a><br />
+<a href="#2FD100"><b>2FD100</b> - INT 2F C - MDEBUG command driver - GET STATUS</a><br />
+<a href="#2FD101"><b>2FD101</b> - INT 2F - MDEBUG command driver - INITIALIZE DRIVER</a><br />
+<a href="#2FD102"><b>2FD102</b> - INT 2F - MDEBUG command driver - EXECUTE INTERPRETER COMMAND</a><br />
+<a href="#2FD103"><b>2FD103</b> - INT 2F - MDEBUG command driver - EXECUTE KEY IN THE MONITOR</a><br />
+<a href="#2FD104"><b>2FD104</b> - INT 2F - MDEBUG command driver - EXECUTE KEY IN THE INTERPRETER</a><br />
+<a href="#2FD1"><b>2FD1</b> - INT 2F - MDEBUG command driver - RESERVED FUNCTIONS</a><br />
+<a href="#2FD110"><b>2FD110</b> - INT 2F - MDEBUG command driver - GET ADDRESS OF THE OLD INT 2F</a><br />
+<a href="#2FD111"><b>2FD111</b> - INT 2F - MDEBUG command driver - START DRIVER</a><br />
+<a href="#2FD112"><b>2FD112</b> - INT 2F - MDEBUG command driver - END DRIVER</a><br />
+<a href="#2FD1_0"><b>2FD1</b> - INT 2F - MDEBUG command driver - RESERVED FUNCTIONS</a><br />
+<a href="#2FD1_1"><b>2FD1</b> - INT 2F - MDEBUG command driver - USER DEFINED FUNCTIONS</a><br />
+<a href="#2FD201BX4D41"><b>2FD201BX4D41</b> - INT 2F U - Quarterdeck RPCI - MANIFEST v1.0+ - INSTALLATION CHECK</a><br />
+<a href="#2FD600"><b>2FD600</b> - INT 2F - HEART.COM - INSTALLATION CHECK</a><br />
+<a href="#2FDA55"><b>2FDA55</b> - INT 2F U - TRAP.COM - INSTALLATION CHECK</a><br />
+<a href="#2FF400"><b>2FF400</b> - INT 2F - FINDIRQ.COM - INSTALLATION CHECK</a><br />
+<a href="#2FF401CX5121"><b>2FF401CX5121</b> - INT 2F - FINDIRQ.COM - GET HOOKED INTERRUPTS</a><br />
+<a href="#2FFB43BX0100"><b>2FFB43BX0100</b> - INT 2F PU - Borland TDX - INSTALLATION CHECK</a><br />
+<a href="#410000"><b>410000</b> - INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER</a><br />
+<a href="#410001"><b>410001</b> - INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER</a><br />
+<a href="#41000D"><b>41000D</b> - INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT</a><br />
+<a href="#41000E"><b>41000E</b> - INT 41 CPU - MS Windows debugging kernel - TASK COMING IN</a><br />
+<a href="#410012"><b>410012</b> - INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"</a><br />
+<a href="#41004F"><b>41004F</b> - INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK</a><br />
+<a href="#410050"><b>410050</b> - INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"</a><br />
+<a href="#410051"><b>410051</b> - INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT</a><br />
+<a href="#410052"><b>410052</b> - INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT</a><br />
+<a href="#410059"><b>410059</b> - INT 41 CPU - MS Windows debugging kernel - LOAD TASK</a><br />
+<a href="#41005C"><b>41005C</b> - INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT</a><br />
+<a href="#410060"><b>410060</b> - INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD</a><br />
+<a href="#410061"><b>410061</b> - INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD</a><br />
+<a href="#410062"><b>410062</b> - INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING</a><br />
+<a href="#410063"><b>410063</b> - INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)</a><br />
+<a href="#410064"><b>410064</b> - INT 41 CPU - MS Windows debugging kernel - DLL LOADED</a><br />
+<a href="#410065"><b>410065</b> - INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED</a><br />
+<a href="#410066"><b>410066</b> - INT 41 CPU - MS Windows debugging kernel - ERROR</a><br />
+<a href="#410067"><b>410067</b> - INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR</a><br />
+<a href="#60_11"><b>60</b> - INT 60 U - INTRSPY/CMDSPY v1.0 only - API</a><br />
+<a href="#6000"><b>6000</b> - INT 60 - SYS_PROF.EXE - PROFILER STATUS</a><br />
+<a href="#6000_0"><b>6000</b> - INT 60 - MDEBUG - GET STATUS</a><br />
+<a href="#6001"><b>6001</b> - INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS</a><br />
+<a href="#6001_0"><b>6001</b> - INT 60 - SYS_PROF.EXE - TURN PROFILING OFF</a><br />
+<a href="#6002"><b>6002</b> - INT 60 - MDEBUG - SET STATUS</a><br />
+<a href="#6002_1"><b>6002</b> - INT 60 - SYS_PROF.EXE - TURN PROFILING ON</a><br />
+<a href="#6003"><b>6003</b> - INT 60 - MDEBUG - POP UP</a><br />
+<a href="#6003_1"><b>6003</b> - INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE</a><br />
+<a href="#6004_0"><b>6004</b> - INT 60 - MDEBUG - POP UP</a><br />
+<a href="#6004_1"><b>6004</b> - INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE</a><br />
+<a href="#6005_0"><b>6005</b> - INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS</a><br />
+<a href="#6006_0"><b>6006</b> - INT 60 - MDEBUG - GET PASSWORD STATUS</a><br />
+<a href="#6007_0"><b>6007</b> - INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG</a><br />
+<a href="#6008"><b>6008</b> - INT 60 - MDEBUG - UNUSED</a><br />
+<a href="#696996"><b>696996</b> - INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER</a><br />
+<a href="#7D00"><b>7D00</b> - INT 7D - SCSILink - RESET SCSI BUS</a><br />
+<a href="#7D01"><b>7D01</b> - INT 7D - SCSILink - CONNECT TO TARGET</a><br />
+<a href="#7D02"><b>7D02</b> - INT 7D - SCSILink - SEND COMMAND</a><br />
+<a href="#7D03"><b>7D03</b> - INT 7D - SCSILink - SET TIMEOUT</a><br />
+<a href="#7D04"><b>7D04</b> - INT 7D - SCSILink - GET ERROR STRING</a><br />
+<a href="#7D05"><b>7D05</b> - INT 7D - SCSILink - GET ADDRESS</a><br />
+<a href="#7D06"><b>7D06</b> - INT 7D - SCSILink - PUT DATA</a><br />
+<a href="#7D07"><b>7D07</b> - INT 7D - SCSILink - GET DATA</a><br />
+<a href="#7D08"><b>7D08</b> - INT 7D - SCSILink - TERMINATE SESSION</a><br />
+<a href="#7D09"><b>7D09</b> - INT 7D - SCSILink - POLL REQUEST</a><br />
+<a href="#FE_1"><b>FE</b> - INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER</a><br />
+
+<hr />
+
+<a href="#00_0" name="00_0"><b>00</b></a> - INT 00 - Zenith - ROM DEBUGGER<br />
+<pre>
+INT 00 - Zenith - ROM DEBUGGER
+Desc:	invokes the ROM Debugger when at the BIOS level; equivalent to
+	  pressing Ctrl-Alt-Ins on booting.
+Note:	since DOS revectors INT 00, it is necessary to restore this vector to
+	  its original ROM BIOS value in order to invoke the debugger once DOS
+	  loads
+SeeAlso: INT 03"Columbia"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03_0" name="03_0"><b>03</b></a> - INT 03 - Columbia PCs (desktop,VP portables) - ROM DEBUGGER<br />
+<pre>
+INT 03 - Columbia PCs (desktop,VP portables) - ROM DEBUGGER
+Desc:	invokes the ROM Debugger if INT 03 has not been revectored; equivalent
+	  to pressing Esc on booting.
+SeeAlso: INT 00"Zenith",INT 03"Realia"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03_1" name="03_1"><b>03</b></a> - INT 03 - Realia COBOL - DEBUGGER SUPPORT<br />
+<pre>
+INT 03 - Realia COBOL - DEBUGGER SUPPORT
+Note:	Realia COBOL checks for a signature eight bytes prior to the interrupt
+	  handler when it starts up
+BUG:	if the offset of the INT 03 vector is less than 8, the compiler and
+	  all executables generated by it will crash the system
+SeeAlso: INT 03"Columbia"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03_2" name="03_2"><b>03</b></a> - INT 03 U - Watcom WVIDEO, Watcom WD - OUTPUT DEBUGGING MESSAGE<br />
+<pre>
+INT 03 U - Watcom WVIDEO, Watcom WD - OUTPUT DEBUGGING MESSAGE
+	STACK:	DWORD	selector
+		DWORD	offset of ASCIZ message to display
+Notes:	the INT 03h instruction which invokes the debugger must be followed by
+	  a JMP SHORT and the signature string "WVIDEO"
+	to check whether this interface is available, define a public byte
+	  variable named ___WD_Present, which the debugger will set to 01h
+	  before running the program
+SeeAlso: AX=0910h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030000" name="030000"><b>030000</b></a> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET Soft-ICE VERSION<br />
+<pre>
+INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET Soft-ICE VERSION
+	AX = 0000h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: SI = BCD version (0280h = v2.80)
+SeeAlso: INT 03/AX=0910h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0301" name="0301"><b>0301</b></a> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE - BACK DOOR COMMANDS - ???
+	AH = 01h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: ???
+SeeAlso: AX=0000h,AX=090Bh,INT 03/AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030900" name="030900"><b>030900</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 0900h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: AX=0000h,AH=01h,AX=0902h,AX=0914h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030902" name="030902"><b>030902</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - POPUP & START A DEBUG SESSION<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - POPUP & START A DEBUG SESSION
+	AX = 0902h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; initial register values (see #00001)
+Return: registers as specified in initial register values table
+Note:	This function is called by LDR.EXE in loading a program to
+	  be debugged. After executing the function, Soft-ICE pops up its
+	  debugging window and you may start debugging your program.
+Return: ???
+SeeAlso: AX=0000h,AX=090Ah,AX=0910h,AX=0914h
+
+Format of Soft-ICE initial register values:
+Offset	Size	Description	(Table 00001)
+ 00h	WORD	initial value of SP
+ 02h	WORD	initial value of SS
+ 04h	WORD	initial value of IP
+ 06h	WORD	initial value of CS
+ 08h	WORD	initial value of DS and ES
+ 0Ah	WORD	???
+ 0Ch	WORD	???
+ 0Eh	WORD	???
+ 10h	WORD	initial value of AX
+ 12h	WORD	??? (defaults to 000AH ???)
+ 14h	WORD	??? (defaults to 0001H ???)
+ 16h	WORD	??? (defaults to 0100H ???)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030903" name="030903"><b>030903</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 0903h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: AX=0000h,AX=0902h,AX=0907h,AX=0914h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030907" name="030907"><b>030907</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 0907h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: AX=0000h,AX=0903h,AX=090Ah,AX=0914h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03090A" name="03090A"><b>03090A</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 090Ah
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: AX=0000h,AX=0907h,AX=090Bh,AX=0914h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03090B" name="03090B"><b>03090B</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 090Bh
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: AX=0000h,AX=090Ah,AX=0910h,AX=0914h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030910" name="030910"><b>030910</b></a> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - DISPLAY STRING IN Soft-ICE WINDOW<br />
+<pre>
+INT 03 - Soft-ICE - BACK DOOR COMMANDS - DISPLAY STRING IN Soft-ICE WINDOW
+	AX = 0910h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:DX -&gt; ASCIZ string to display (max 100 bytes, 0Dh OK)
+Program: Soft-ICE is a debugger by Nu-Mega Technologies, Inc.
+SeeAlso: INT 03"WVIDEO"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030911" name="030911"><b>030911</b></a> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - EXECUTE Soft-ICE COMMAND<br />
+<pre>
+INT 03 - Soft-ICE - BACK DOOR COMMANDS - EXECUTE Soft-ICE COMMAND
+	AX = 0911h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:DX -&gt; ASCIZ command string (max 100 bytes, 0Dh OK)
+Return: nothing
+SeeAlso: AX=0912h,AX=0913h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030912" name="030912"><b>030912</b></a> - INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET BREAKPOINT INFORMATION<br />
+<pre>
+INT 03 - Soft-ICE - BACK DOOR COMMANDS - GET BREAKPOINT INFORMATION
+	AX = 0912h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: BH = entry number of last breakpoint set
+	BL = type of last breakpoint set (see #00002)
+	DH = entry number of last breakpoint to be triggered
+	DL = type of last triggered breakpoint (see #00002)
+Program: Soft-ICE is a debugger by Nu-Mega Technologies, Inc.
+SeeAlso: AX=0911h,AX=0913h,AX=0914h
+
+(Table 00002)
+Values for Soft-ICE breakpoint type:
+ 00h	BPM (breakpoint register types)
+ 01h	I/O
+ 02h	INTerrupt
+ 03h	BPX (INT 03-style breakpoint)
+ 04h	reserved
+ 05h	range
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030913" name="030913"><b>030913</b></a> - INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - SET Soft-ICE BREAKPOINT<br />
+<pre>
+INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - SET Soft-ICE BREAKPOINT
+	AX = 0913h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:DX -&gt; breakpoint structure (see #00003)
+Return: AX = status
+	    00h successful
+		BX = breakpoint number
+	    03h breakpoint table full
+	    06h memory limit error
+	    07h I/O limit error
+	    09h range limit error
+	    16h duplicate breakpoint
+SeeAlso: AX=0911h,AX=0912h,AX=0914h
+
+Format of Soft-ICE breakpoint structure:
+Offset	Size	Description	(Table 00003)
+ 00h	BYTE	breakpoint type (see #00004)
+ 01h	DWORD	breakpoint address 1
+		(lower range limit for memory BPs,
+		interrupt number for interrupt BPs,
+		address of BP for execution BPs,
+		I/O address (only word)	for I/O BPs)
+ 05h	DWORD	breakpoint address 2
+		(upper range limit for memory BPs,
+		optional value to check for for interrupt BPs,
+		overlay number (0 = root) for execution BPs)
+ 09h	DWORD	breakpoint address 3
+ 0Dh	BYTE	breakpoint mode 1 (see #00005)
+		(for interrupt BPs = register to check
+		    00h	 no value checking
+		    01h	 check AL
+		    02h	 check AH
+		    03h	 check AX)
+ 0Eh	BYTE	breakpoint mode 2 (see #00005)
+ 0Fh	BYTE	breakpoint size (00h byte, 01h word, 03h dword)
+ 10h	BYTE	breakpoint pass count before program stop
+ 11h	BYTE	breakpoint state
+Note:	all unused fields should contain zeros
+
+(Table 00004)
+Values for Soft-ICE breakpoint type:
+ 00h	memory location
+ 01h	memory range
+ 03h	I/O
+ 04h	interrupt
+ 05h	execution break
+
+(Table 00005)
+Values for Soft-ICE breakpoint mode:
+ 01h	read
+ 02h	write
+ 04h	execution
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030914" name="030914"><b>030914</b></a> - INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - REMOVE Soft-ICE BREAKPOINT<br />
+<pre>
+INT 03 - Soft-ICE v2.5x - BACK DOOR COMMANDS - REMOVE Soft-ICE BREAKPOINT
+	AX = 0914h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	BX = breakpoint number (returned by AX=0913h)
+Return: BX = ???
+Program: Soft-ICE is a debugger by Nu-Mega Technologies, Inc.
+SeeAlso: AX=0912h,AX=0913h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030918" name="030918"><b>030918</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 0918h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	DS:BX -&gt; ???
+	CX = ???
+	DX = ???
+Return: ???
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AX=0914h,INT 03/AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0310" name="0310"><b>0310</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AH = 10h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: ???
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AH=01h,INT 03/AH=11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#0311" name="0311"><b>0311</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AH = 11h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: none???
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AH=10h,INT 03/AX=130Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03130C" name="03130C"><b>03130C</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 130Ch
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	BX = ???
+	CX = ???
+	DX = ???
+Return: AX = ??? (1300h)
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AH=11h,INT 03/AX=130Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#03130E" name="03130E"><b>03130E</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 130Eh
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	BX = ???
+	CX = ???
+	DX = ???
+Return: AX = ??? (1300h)
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AX=130Ch,INT 03/AX=1313h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#031313" name="031313"><b>031313</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 1313h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+	BX = ???
+	CX = ???
+	DX = ???
+Return: AX = ??? (1300h)
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AX=130Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#030900_0" name="030900_0"><b>030900</b></a> - INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???<br />
+<pre>
+INT 03 - Soft-ICE v2.80 - BACK DOOR COMMANDS - ???
+	AX = 0900h
+	SI = magic value 4647h ('FG')
+	DI = magic value 4A4Dh ('JM')
+Return: none???
+SeeAlso: INT 03/AX=0000h,INT 03/AX=0910h,INT 03/AH=10h,INT 03/AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1105D7" name="1105D7"><b>1105D7</b></a> - INT 11 CU - Borland C++ IDE - INSTALLED CALLOUT<br />
+<pre>
+INT 11 CU - Borland C++ IDE - INSTALLED CALLOUT
+	AX = 05D7h
+	BX = product ID (0088h)
+Note:	called by the BC++ IDE when an application calls
+	  INT 12/AX=05D7h/BX=05D7h
+SeeAlso: INT 12/AX=05D7h/BX=05D7h
+Index:	installation check;Borland C++ IDE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1205D7BX05D7" name="1205D7BX05D7"><b>1205D7BX05D7</b></a> - INT 12 U - Borland C++ IDE - INSTALLATION CHECK<br />
+<pre>
+INT 12 U - Borland C++ IDE - INSTALLATION CHECK
+	AX = 05D7h (1495d)
+	BX = 05D7h
+Note:	the BC++ IDE will call INT 11/AX=05D7h/BX=0088h if it is loaded
+SeeAlso: INT 11/AX=05D7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#166C63" name="166C63"><b>166C63</b></a> - INT 16 U - TMED v1.6a - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - TMED v1.6a - INSTALLATION CHECK
+	AX = 6C63h ('lc')
+Return: AX = 4C43h ('LC') if installed
+Program: TMED is a freeware resident memory editor by Liang Chen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#20_1" name="20_1"><b>20</b></a> - INT 20 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE FIRMWARE DEBUGGER<br />
+<pre>
+INT 20 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE FIRMWARE DEBUGGER
+	???
+Return: ???
+SeeAlso: INT 21"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21" name="21"><b>21</b></a> - INT 21 - COMTROL HOSTESS i/ISA DEBUGGER - GET SEGMENT FOR CONTROL PROGRAM USE<br />
+<pre>
+INT 21 - COMTROL HOSTESS i/ISA DEBUGGER - GET SEGMENT FOR CONTROL PROGRAM USE
+	???
+Return: AX = first segment available for control program use
+SeeAlso: INT 20"COMTROL",INT 22"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX6269" name="212B--CX6269"><b>212B--CX6269</b></a> - INT 21 - WDTSR.COM - INSTALLATION CHECK<br />
+<pre>
+INT 21 - WDTSR.COM - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 6269h ('bi')
+	DX = 742Dh ('t-')
+Return: AL = FFh if not installed
+	AL = 77h ('w') if WDTSR is installed
+	    CX = 6174h ('at')
+	    DX = 6368h ('ch')
+	    ES = resident code segment
+	    ES:DI -&gt; identification and configuration data
+Program: WDTSR is a driver for the bitWatch watchdog hardware by bit-design
+	  GmbH
+SeeAlso: AH=2Bh/CX=6269h"bitFOSSI",INT 14/AH=14h"FOSSIL",INT 15/AH=C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213022" name="213022"><b>213022</b></a> - INT 21 - StopPrg v2.0 - INSTALLATION CHECK<br />
+<pre>
+INT 21 - StopPrg v2.0 - INSTALLATION CHECK
+	AX = 3022h
+Return: AX = DOS version (see AH=30h)
+	CX = 1112h if StopPrg installed
+	    BX = segment of resident code
+Program: StopPrg is a resident program aborter by MAK-TRAXON's Prophet
+Note:	StopPrg may be temporarily disabled by storing 9090h in the word at
+	  0000h:04FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213F_0" name="213F_0"><b>213F</b></a> - INT 21 - Turbo Debug HARDWARE BREAKPOINTS - READ STATUS BLOCK<br />
+<pre>
+INT 21 - Turbo Debug HARDWARE BREAKPOINTS - READ STATUS BLOCK
+	AH = 3Fh
+	BX = handle for character device "TDHDEBUG"
+	CX = number of bytes to read
+	DS:DX -&gt; buffer for status block (see #01406)
+Return: CF clear if successful
+	    AX = number of bytes actually read
+	CF set on error
+	    AX = error code (05h,06h) (see #01680 at AH=59h/BX=0000h)
+SeeAlso: AH=40h"Turbo Debug"
+
+(Table 01405)
+Values for status of Turbo Debugger command:
+ 00h	successful
+ 01h	invalid handle
+ 02h	no more breakpoints available
+ 03h	hardware does not support specified breakpoint type
+ 04h	previous command prevents execution
+ 05h	debugger hardware not found
+ 06h	hardware failure
+ 07h	invalid command
+ 08h	driver not initialized yet
+ FEh	recursive entry (hardware breakpoint inside hw bp handler)
+
+Format of Turbo Debugger status block:
+Offset	Size	Description	(Table 01406)
+ 00h	BYTE	status of command (see #01405)
+---status for command 01h---
+ 01h	WORD	device driver interface version number (currently 1)
+ 03h	WORD	device driver software version
+ 05h	BYTE	maximum simultaneous hardware breakpoints
+ 06h	BYTE	configuration bits (see #01407)
+ 07h	BYTE	supported breakpoint types (see #01408)
+ 08h	WORD	supported addressing match modes (see #01409)
+ 0Ah	WORD	supported data matches (see #01410)
+ 0Ch	BYTE	maximum data match length (01h, 02h, or 04h)
+ 0Dh	WORD	size of onboard memory (in KB)
+ 0Fh	WORD	maximum number of trace-back events
+ 11h	WORD	hardware breakpoint enable byte address segment (0000h if not
+		  supported)
+---status for command 04h---
+ 01h	BYTE	handle to use when referring to the just-set breakpoint
+
+Bitfields for Turbo Debugger configuration bits:
+Bit(s)	Description	(Table 01407)
+ 0	CPU and DMA accesses are distinct
+ 1	can detect DMA transfers
+ 2	supports data mask
+ 3	hardware pass counter on breakpoints
+ 4	can match on data as well as addresses
+
+Bitfields for Turbo Debugger supported breakpoint types:
+Bit(s)	Description	(Table 01408)
+ 0	memory read
+ 1	memory write
+ 2	memory read/write
+ 3	I/O read
+ 4	I/O write
+ 5	I/O read/write
+ 6	instruction fetch
+
+Bitfields for Turbo Debugger supported addressing match modes:
+Bit(s)	Description	(Table 01409)
+ 0	any address
+ 1	equal to test value
+ 2	not equal
+ 3	above test value
+ 4	below test value
+ 5	below or equal
+ 6	above or equal
+ 7	within range
+ 8	outside range
+
+Bitfields for Turbo Debugger supported data matches:
+Bit(s)	Description	(Table 01410)
+ 0	any data
+ 1	equal to test value
+ 2	not equal
+ 3	above test value
+ 4	below test value
+ 5	below or equal
+ 6	above or equal
+ 7	within range
+ 8	outside range
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2140_0" name="2140_0"><b>2140</b></a> - INT 21 - Turbo Debug HARDWARE BREAKPOINTS - SEND CMD TO HARDWARE BRKPNT DRIVER<br />
+<pre>
+INT 21 - Turbo Debug HARDWARE BREAKPOINTS - SEND CMD TO HARDWARE BRKPNT DRIVER
+	AH = 40h
+	BX = handle for character device "TDHDEBUG"
+	CX = number of bytes to write
+	DS:DX -&gt; hardware breakpoint command (see #01418)
+Return: CF clear if successful
+	    AX = number of bytes actually written
+	CF set on error
+	    AX = error code (05h,06h) (see #01680 at AH=59h/BX=0000h)
+Note:	results are retrieved by reading from the device
+SeeAlso: AH=3Fh"Turbo Debug"
+
+Format of Turbo Debugger hardware breakpoint commands:
+Offset	Size	Description	(Table 01418)
+ 00h	BYTE	command code
+		00h install interrupt vectors
+		01h get hardware capabilities
+		02h enable hardware breakpoints
+		03h disable hardware breakpoints
+		04h set hardware breakpoint
+		05h clear hardware breakpoint
+		06h set I/O base address and reset hardware
+		07h restore interrupt vectors
+---command code 00h---
+ 01h	DWORD	pointer to Turbo Debugger entry point to be jumped to on
+		  hardware breakpoint; call with CPU state the same as on
+		  the breakpoint except for pushing AX and placing an entry
+		  code (FFh if breakout button or breakpoint handle) in AH
+---command code 04h---
+ 01h	BYTE	breakpoint type
+		00h memory read
+		01h memory write
+		02h memory read/write
+		03h I/O read
+		04h I/O write
+		05h I/O read/write
+		06h instruction fetch
+ 02h	BYTE	address matching mode (see #01419)
+ 03h	DWORD	32-bit linear low address
+ 07h	DWORD	32-bit linear high address
+ 0Bh	WORD	pass count
+ 0Dh	BYTE	data size (01h, 02h, or 04h)
+ 0Eh	BYTE	source of matched bus cycle (01h CPU, 02h DMA, 03h either)
+ 0Fh	BYTE	data-matching mode (see #01419)
+ 10h	DWORD	low data value
+ 14h	DWORD	high data value
+ 18h	DWORD	data mask specifying which bits of the data are tested
+---command code 05h---
+ 01h	BYTE	handle of breakpoint to clear (breakpoint returned from command
+		  04h)
+---command code 06h---
+ 01h	WORD	base address of hardware debugger board
+
+(Table 01419)
+Values for Turbo Debugger address/data matching mode:
+ 00h	match any
+ 01h	equal to test value
+ 02h	different from test value
+ 03h	above test value
+ 04h	below test value
+ 05h	below or equal to test value
+ 06h	above or equal to test value
+ 07h	within inclusive range
+ 08h	outside specified range
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#22_0" name="22_0"><b>22</b></a> - INT 22 - COMTROL HOSTESS i/ISA DEBUGGER - CHANGE FIRMWARE DEBUGGING PORT<br />
+<pre>
+INT 22 - COMTROL HOSTESS i/ISA DEBUGGER - CHANGE FIRMWARE DEBUGGING PORT
+	AL = new firmware debugging port
+Return: ???
+SeeAlso: INT 21"COMTROL",INT 23"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#23_0" name="23_0"><b>23</b></a> - INT 23 - COMTROL HOSTESS i/ISA DEBUGGER - GET CONFIGURATION INFORMATION<br />
+<pre>
+INT 23 - COMTROL HOSTESS i/ISA DEBUGGER - GET CONFIGURATION INFORMATION
+	AL = query type
+	    00h get old config map
+		Return: AX = old config map
+	    01h get dual-ported RAM map
+		Return: BX:AX = dual-ported RAM map
+	    02h get SCC port map
+		Return: BX:AX = SCC port map
+SeeAlso: INT 22"COMTROL",INT 26"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#26_0" name="26_0"><b>26</b></a> - INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE<br />
+<pre>
+INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE
+	???
+Return: ???
+SeeAlso: INT 23"COMTROL",INT 27"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#27_0" name="27_0"><b>27</b></a> - INT 27 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE REMOTE TURBO DEBUGGER KERNEL<br />
+<pre>
+INT 27 - COMTROL HOSTESS i/ISA DEBUGGER - INVOKE REMOTE TURBO DEBUGGER KERNEL
+	???
+Return: ???
+Desc:	invoke a copy of the remote Turbo Debugger kernel on the Hostess i
+	  controller
+SeeAlso: INT 20"COMTROL",INT 26"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4500" name="2F4500"><b>2F4500</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - INSTALLATION CHECK
+	AX = 4500h
+Return: AL = installation status
+	    01h if PROF.COM installed
+	    02h if VPROD.386 installed
+SeeAlso: AX=4501h,AX=4502h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4501" name="2F4501"><b>2F4501</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SETUP PROFILER<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SETUP PROFILER
+	AX = 4501h
+	BX = CSIPS buffer size in KB (first parameter for ProfSetup)
+	CX = output limit in KB (second parameter for ProfSetup)
+Note:	this call is not supported by PROF.COM
+SeeAlso: AX=4502h,AX=4503h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4502" name="2F4502"><b>2F4502</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SET SAMPLING RATE<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - SET SAMPLING RATE
+	AX = 4502h
+	BL = sampling rate for PROF.COM (0 &lt; BL &lt;= 13)
+	    (01h = 8192/s, 04h = 1024/s, 08h = 32/s, 0Dh = 1/s)
+	CX = sampling rate for VPROD.386
+Note:	for PROF.COM, this programs the CMOS clock by setting BL+2 as the
+	  low four bits of CMOS register 0Ah.  The interruption rate is
+	  1 SHL (15 - BL) per second.
+SeeAlso: AX=4501h,AX=4503h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4503" name="2F4503"><b>2F4503</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - START PROFILING<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - START PROFILING
+	AX = 4503h
+Notes:	Profiling is also turned on by the key combinations
+	  LeftShift + RightShift + Alt and LeftShift + RightShift + Ctrl
+	for PROF.COM, this call programs the CMOS clock by reading register
+	  0Ch, and setting bit 6 of register 0Bh.  It then makes sure that IRQ8
+	  is unmasked
+SeeAlso: AX=4504h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4504" name="2F4504"><b>2F4504</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - STOP PROFILING<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - STOP PROFILING
+	AX = 4504h
+Notes:	profiling is also turned off by the key combination
+	  LeftShift + RightShift
+	for PROF.COM, this programs the CMOS clock by reading register 0Ch
+	  and clearing bit 6 of register 0Bh.  It then masks IRQ8.
+SeeAlso: AX=4503h,AX=4505h,AX=4506h,AX=4507h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4505" name="2F4505"><b>2F4505</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - CLEAR PROFILING DATA<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - CLEAR PROFILING DATA
+	AX = 4505h
+SeeAlso: AX=4503h,AX=4504h,AX=4506h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4506" name="2F4506"><b>2F4506</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFlush"<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFlush"
+	AX = 4506h
+SeeAlso: AX=4505h,AX=4507h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4507" name="2F4507"><b>2F4507</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFinish"<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - "ProfFinish"
+	AX = 4507h
+Note:	this call is essentially a "ProfStop" (AX=4504h) followed by
+	  "ProfFlush" (AX=4506h)
+SeeAlso: AX=4504h,AX=4505h,AX=4506h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4508" name="2F4508"><b>2F4508</b></a> - INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - ALTERNATE SEGDEBUG IFACE<br />
+<pre>
+INT 2F U - Microsoft Profiler (PROF.COM/VPROD.386) - ALTERNATE SEGDEBUG IFACE
+	AX = 4508h
+	BX = ordinal (or 0000h)
+	CX = segment
+	DX = instance (or 0000h)
+	SI = type (or 0000h)
+	ES:DI -&gt; ASCIZ module name
+Notes:	this call is an alternate entry to the profiler's SEGDEBUG
+	  interface, but only to function 0, for notifying the profiler of
+	  each new segment loaded.  The SHOWHITS utility then examines the
+	  profiler's output files (CSIPS.DAT and SEGENTRY.DAT) in conjunction
+	  with symbol files to provide information in a useful form.
+	this call does not have a corresponding Windows function
+SeeAlso: AX=4500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8200_0" name="2F8200_0"><b>2F8200</b></a> - INT 2F U - Nanosoft, Inc. CAPDOS - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - Nanosoft, Inc. CAPDOS - INSTALLATION CHECK
+	AX = 8200h
+Return: AL = FFh if installed
+Program: CAPDOS is a TSR by Nanosoft, Inc. which allows INT 21h calls to be
+	  captured and recorded for later analysis
+SeeAlso: AX=8100h,AX=8201h"CAPDOS",AX=8202h"CAPDOS",AX=8203h"CAPDOS"
+SeeAlso: AX=8204h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8201_0" name="2F8201_0"><b>2F8201</b></a> - INT 2F - Nanosoft, Inc. CAPDOS - CLEAR QUEUE<br />
+<pre>
+INT 2F - Nanosoft, Inc. CAPDOS - CLEAR QUEUE
+	AX = 8201h
+Note:	resets queue of captured INT 21 calls
+SeeAlso: AX=8200h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8202_0" name="2F8202_0"><b>2F8202</b></a> - INT 2F - Nanosoft, Inc. CAPDOS - START COLLECTION<br />
+<pre>
+INT 2F - Nanosoft, Inc. CAPDOS - START COLLECTION
+	AX = 8202h
+SeeAlso: AX=8200h"CAPDOS",AX=8203h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8203" name="2F8203"><b>2F8203</b></a> - INT 2F - Nanosoft, Inc. CAPDOS - STOP COLLECTION<br />
+<pre>
+INT 2F - Nanosoft, Inc. CAPDOS - STOP COLLECTION
+	AX = 8203h
+SeeAlso: AX=8200h"CAPDOS",AX=8202h"CAPDOS",AX=8204h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8204" name="2F8204"><b>2F8204</b></a> - INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE PARAMETERS<br />
+<pre>
+INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE PARAMETERS
+	AX = 8204h
+Return: AH = flag: queue wrapped if nonzero
+	BX = index of current start of queue
+	CX = size of queue in entries
+SeeAlso: AX=8200h"CAPDOS",AX=8202h"CAPDOS",AX=8205h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F8205" name="2F8205"><b>2F8205</b></a> - INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE ITEM<br />
+<pre>
+INT 2F - Nanosoft, Inc. CAPDOS - GET QUEUE ITEM
+	AX = 8205h
+	BX = queue item number
+Return: AX,BX,CX,DX,SI,DI,DS,ES as on entry to captured DOS call
+SeeAlso: AX=8200h"CAPDOS",AX=8204h"CAPDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9E00" name="2F9E00"><b>2F9E00</b></a> - INT 2F U - INTMON v2.1 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - INTMON v2.1 - INSTALLATION CHECK
+	AX = 9E00h
+Return: AX = FFFFh if installed
+	    BX = segment of resident code
+Program: INTMON is a shareware interactive interrupt monitoring TSR for 386
+	  and higher machines by Celso Minnitti, Jr.
+SeeAlso: AX=9E01h,AX=9E02h,AX=9E03h,AX=9F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9E01" name="2F9E01"><b>2F9E01</b></a> - INT 2F U - INTMON v2.1 - RESET<br />
+<pre>
+INT 2F U - INTMON v2.1 - RESET
+	AX = 9E01h
+Return: ???
+Desc:	this function specifies that INTMON should assume that any interrupts
+	  on which it is currently awaiting a return have completed (i.e.
+	  interrupts which never return such as INT 20 and INT 27)
+SeeAlso: AX=9E00h,AX=9E03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9E02" name="2F9E02"><b>2F9E02</b></a> - INT 2F U - INTMON v2.1 - DISPLAY CPU REGISTERS???<br />
+<pre>
+INT 2F U - INTMON v2.1 - DISPLAY CPU REGISTERS???
+	AX = 9E02h
+Return: ???
+SeeAlso: AX=9E00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9E03" name="2F9E03"><b>2F9E03</b></a> - INT 2F U - INTMON v2.1 - HOOK INTERRUPT???<br />
+<pre>
+INT 2F U - INTMON v2.1 - HOOK INTERRUPT???
+	AX = 9E03h
+	BH = interrupt number???
+Return: ???
+Note:	if AL &gt; 03h on entry, INTMON 2.1 returns immediately
+SeeAlso: AX=9E00h,AX=9E01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9F00" name="2F9F00"><b>2F9F00</b></a> - INT 2F U - INTCFG v2.1 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - INTCFG v2.1 - INSTALLATION CHECK
+	AX = 9F00h
+Return: AX = FFFFh if installed
+Program: INTCFG is an optionally-resident control program for INTMON by Celso
+	  Minnitti, Jr.
+SeeAlso: AX=9E00h,AX=9F01h,AX=9F30h,AX=9F49h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9F01" name="2F9F01"><b>2F9F01</b></a> - INT 2F U - INTCFG v2.1 - ???<br />
+<pre>
+INT 2F U - INTCFG v2.1 - ???
+	AX = 9F01h
+	???
+Return: ???
+SeeAlso: AX=9F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9F30" name="2F9F30"><b>2F9F30</b></a> - INT 2F U - INTCFG v2.1 - GET ???<br />
+<pre>
+INT 2F U - INTCFG v2.1 - GET ???
+	AX = 9F30h
+Return: AX = ??? (0002h)
+SeeAlso: AX=9F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9F49" name="2F9F49"><b>2F9F49</b></a> - INT 2F U - INTCFG v2.1 - UNINSTALL<br />
+<pre>
+INT 2F U - INTCFG v2.1 - UNINSTALL
+	AX = 9F49h
+Return: AX,DX,DS,ES destroyed
+SeeAlso: AX=9F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD000" name="2FD000"><b>2FD000</b></a> - INT 2F C - MDEBUG display driver - GET DRIVER STATUS<br />
+<pre>
+INT 2F C - MDEBUG display driver - GET DRIVER STATUS
+	AX = D000h
+Return: CF set on error
+	    all other registers must be unchanged)
+	CF clear if successful
+	    AL = FFh
+	    AH = driver semaphor
+		00h driver is not active
+		01h driver is active
+	    BX = CS of the driver
+	    CX = driver version (CH = major, CL = minor, must be &gt;= 013Ch)
+	    DL = buffer semaphor
+		00h driver is not pending
+		01h driver is pending between functions 02h and 03h
+	    DH = show semaphor
+		00h driver is not pending
+		01h driver is pending between functions 04h and 05h
+Program: MDEBUG is a shareware memory-resident debugging tool by Bernd
+	  Schemmer, including a memory monitor, an interpreter and a
+	  disassembler
+Range:	AH=C0h to AH=FFh, selected by switch or programmatically
+Notes:	MDEBUG can use any two consecutive multiplex numbers between C0h and
+	  FFh; the default is D0h for the display driver and D1h for the
+	  command driver (call INT 60/AH=00h"MDEBUG" for the actual multiplex
+	  numbers used)
+	this function MUST be reentrant, as MDEBUG calls it after every popup
+	  before any other actions.  The handler should not change any
+	  registers if the display is in an unsupported mode or in a mode
+	  MDEBUG supports itself, e.g. a normal text mode with at least 80x25
+	  characters (i.e. 80x43 or 132x44 (v1.60+)). In this case MDEBUG will
+	  not call any of the other functions for this popup session.
+	MDEBUG will not call the other functions if the returned version is
+	  less than the actual version of MDEBUG.
+	if the driver is reentrant, DL and DH should be 00h
+SeeAlso: AX=D001h,AX=D002h,AX=D003h,AX=D004h,AX=D005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD001" name="2FD001"><b>2FD001</b></a> - INT 2F C - MDEBUG display driver - INITIALIZE DRIVER<br />
+<pre>
+INT 2F C - MDEBUG display driver - INITIALIZE DRIVER
+	AX = D001h
+Return: CF set on error
+	AL = driver semaphor
+	AH = buffer semaphor
+Range:	AH=C0h to AH=FFh, selected by switch or programmatically
+Notes:	MDEBUG calls this function after every successful call of the function
+	  00h. The function should reset all internal data and the status of
+	  the driver. If this function returns an error, MDEBUG will not call
+	  the other functions in this popup session.
+	MDEBUG can use any two consecutive multiplex numbers between C0h and
+	  FFh; the default is D0h for the display driver and D1h for the
+	  command driver
+SeeAlso: AX=D000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD002" name="2FD002"><b>2FD002</b></a> - INT 2F C - MDEBUG display driver - SAVE GRAPHIC DATA<br />
+<pre>
+INT 2F C - MDEBUG display driver - SAVE GRAPHIC DATA
+	AX = D002h
+Return: CF set on error
+	CF clear if successful
+	    display memory saved and display switched to one of the text modes
+	      02h, 03h or 07h.
+Note:	MDEBUG calls this function only once every popup session before
+	  displaying its windows.
+SeeAlso: AX=D000h,AX=D003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD003" name="2FD003"><b>2FD003</b></a> - INT 2F C - MDEBUG display driver - RESTORE GRAPHIC DATA<br />
+<pre>
+INT 2F C - MDEBUG display driver - RESTORE GRAPHIC DATA
+	AX = D003h
+Return: CF set on error
+	CF clear if successful
+	    display restored to the mode it was in before calling AX=D002h and
+	      the display memory is restored
+Note:	MDEBUG calls this function only once every popup session just before
+	 it exits to normal DOS.
+SeeAlso: AX=D000h,AX=D002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD004" name="2FD004"><b>2FD004</b></a> - INT 2F - MDEBUG display driver - SHOW SAVED DATA<br />
+<pre>
+INT 2F - MDEBUG display driver - SHOW SAVED DATA
+	AX = D004h
+Return: CF set on error
+	CF clear if successful
+	    display switched to mode it was in before calling AX=D002h and the
+	      display memory is restored
+Note:	This function needn't save the display memory before changing it.
+SeeAlso: AX=D000h,AX=D005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD005" name="2FD005"><b>2FD005</b></a> - INT 2F - MDEBUG display driver - SWITCH BACK TO TEXT SCREEN<br />
+<pre>
+INT 2F - MDEBUG display driver - SWITCH BACK TO TEXT SCREEN
+	AX = D005h
+Return: CF set on error
+	CF clear if successful
+	    display restored to mode it was in before calling AX=D004h
+Note:	This function needn't save or change the display memory
+SeeAlso: AX=D000h,AX=D004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD0" name="2FD0"><b>2FD0</b></a> - INT 2F - MDEBUG display driver - RESERVED FUNCTION NUMBERS<br />
+<pre>
+INT 2F - MDEBUG display driver - RESERVED FUNCTION NUMBERS
+	AH = D0h
+	AL = 06h-7Fh
+Note:	these functions are reserved for future use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD0_0" name="2FD0_0"><b>2FD0</b></a> - INT 2F - MDEBUG display driver - USER DEFINED FUNCTION NUMBERS<br />
+<pre>
+INT 2F - MDEBUG display driver - USER DEFINED FUNCTION NUMBERS
+	AH = D0h
+	AL = 80h-FFh
+Note:	these functions numbers are reserved for user defined features (e.g.
+	  communication between the transient und resident parts of the driver)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD100" name="2FD100"><b>2FD100</b></a> - INT 2F C - MDEBUG command driver - GET STATUS<br />
+<pre>
+INT 2F C - MDEBUG command driver - GET STATUS
+	AX = D100h
+	BX = version of MDEBUG (BH = major, BL = minor)
+	CX = command driver counter
+---v1.60+---
+	DS:SI -&gt; MDEBUG identification table (see #03076)
+	ES = segment of display memory used by MDEBUG
+	DI = size of video mode used by MDEBUG
+	    (high byte = lines, low byte = columns)
+Return: DL = FFh
+	BX = version number of the driver if it is less than the version in BX,
+	      else unchanged
+	CX incremented
+Program: MDEBUG is a shareware memory-resident debugging tool by Bernd
+	  Schemmer, including a memory monitor, an interpreter, and a
+	  disassembler
+Range:	AH=C0h to AH=FFh, selected by switch or programmatically
+Notes:	called by MDEBUG at start of popup session; if the version number
+	  returned in BX is less than 1.52 (1.60 for MDEBUG v1.70), MDEBUG will
+	  not call any of the other functions during this popup session
+	MDEBUG can use any two consecutive multiplex numbers between C0h and
+	  FFh; the default is D0h for the display driver and D1h for the
+	  command driver (call INT 60/AH=00h"MDEBUG" for the multiplex numbers
+	  actually used)
+	this function must end with a far call to the old INT 2F handler after
+	  changing the registers
+	this function MUST be reentrant
+	command drivers must also declare the following data at the given
+	  offsets in the code segment
+		100h  3 BYTEs	JMP-command in .COM-files
+		103h	BYTE	NOP-command (90h)
+		104h 26 BYTEs	signature "Kommandotreiber fr MDEBUG"
+		11Eh 12 BYTEs	name of driver, e.g. "MDHISDRV.COM"
+				each driver must have a unique name
+	MDEBUG will pass every key and command to the command driver(s) before
+	  checking for a valid internal command
+SeeAlso: AX=D000h,AX=D101h
+
+Format of MDEBUG identification table:
+Offset	Size	Description	(Table 03076)
+ -2	WORD	entry offset
+ 00h	WORD	CS of MDEBUG
+ 02h	DWORD	old INT 08h vector
+ 06h	DWORD	old INT 09h vector
+ 0Ah	DWORD	address INT 16h routine used by MDEBUG
+ 0Eh	BYTE	length of version string
+ 0Fh  N BYTEs	version string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD101" name="2FD101"><b>2FD101</b></a> - INT 2F - MDEBUG command driver - INITIALIZE DRIVER<br />
+<pre>
+INT 2F - MDEBUG command driver - INITIALIZE DRIVER
+	AX = D101h
+	CX = command driver counter
+Return: DL = status
+	    FFh if successful
+		CX incremented
+	    else error: all registers unchanged
+Note:	this function must end with a  far call to the old INT 2F handler after
+	  changing the registers
+	this function must be reentrant
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD102" name="2FD102"><b>2FD102</b></a> - INT 2F - MDEBUG command driver - EXECUTE INTERPRETER COMMAND<br />
+<pre>
+INT 2F - MDEBUG command driver - EXECUTE INTERPRETER COMMAND
+	AX = D102h
+	BL = first character of the interpreter command
+	BH = last character of the interpreter command (or blank)
+	DS:SI -&gt; parameter for the interpreter command as ASCIZ string
+	DS:DI -&gt; MDEBUG data structure (see #03078)
+Return: AL = FFh
+	CF set on error
+	    AH = error number (see #03077)
+	    DS:SI -&gt; ASCIZ error message (max 30 characters) if AH=0Ch
+	CF clear if successful
+	    AH = return code
+		00h continue processing the command line
+		01h leave MDEBUG popup session
+		02h leave MDEBUG popup session and automatically popup again
+		      if the InDOS flag is zero
+		03h not used (same as 00h)
+		04h not used (same as 00h)
+		05h put new command line into the input buffer,
+		    DS:SI -&gt; new command line (ASCIZ string, max 66 chars)
+		06h process new command line
+		    DS:SI -&gt; new command line (ASCIZ string, max 66 chars)
+	       else unknown status, but continue processing commmand line
+Note:	this function must end with a far call to the old INT 2F handler (with
+	  registers unchanged) if the driver does not support the interpreter
+	  command in BX.  Otherwise, the driver must not chain to the old
+	  INT 2F.
+
+(Table 03077)
+Values for MDEBUG error number:
+ 01h	syntax error
+ 02h	first shell of the command.com is activ
+ 03h	Esc pressed
+ 04h	break pressed
+ 05h	DOS is busy
+ 06h	command ended
+ 07h	division by zero
+ 08h	invalid display driver
+ 09h	invalid command driver
+ 0Ah	error 8 and 9
+ 0Bh	unknown error
+ 0Ch	new error
+ else	unknown error
+
+Format of MDEBUG data structure:
+Offset	Size	Description	(Table 03078)
+ 00h	WORD	register SE
+ 02h	WORD	register OF
+ 04h	WORD	register FS
+ 06h	WORD	register FO
+ 08h	WORD	register AX
+ 0Ah	WORD	register BX
+ 0Ch	WORD	register CX
+ 0Eh	WORD	register DX
+ 10h	WORD	register SI
+ 12h	WORD	register DI
+ 14h	WORD	register DS
+ 16h	WORD	register ES
+ 18h	WORD	register BP
+ 1Ah	WORD	register SS
+ 1Ch	WORD	register SP
+ 1Eh	WORD	register FL (flags)
+ 20h	WORD	register R0
+ 22h	WORD	register R1
+ 24h	WORD	register R2
+ 26h	WORD	register R3
+ 28h	WORD	register R4
+ 2Ah	WORD	register R5
+ 2Ch	WORD	register R6
+ 2Eh	WORD	register R7
+ 30h	WORD	register R8
+ 32h	WORD	register CS, return-address
+ 34h	WORD	register IP, return-address
+ 36h	DWORD	saved pointer to data for key &lt;F6&gt; (v1.60)
+		saved monitor address (v1.70)
+ 3Ah 12 WORDs	saved register values on last popup entry (for &lt;F8&gt; key)
+		(original register values at popup entry of MDEBUG)
+		AX, BX, CX, DX, SI, DI, DS, ES, BP, SS, SP, flags
+ 52h 12 WORDs	saved register values on last popup exit (for &lt;SHIFT-F8&gt; key)
+		AX, BX, CX, DX, SI, DI, DS, ES, BP, SS, SP, flags
+ 6Ah	DWORD	address of the DOS-invars-table
+ 6Eh	DWORD	address of the InDOS flag
+ 72h	WORD	offset of the register which is used for the segment of the
+		  first monitor window
+ 74h	WORD	offset of the register which is used for the offset of the
+		  first monitor window
+ 76h	WORD	name of the register which is used for the segment of the
+		  first monitor segment
+ 78h	WORD	name of the register which is used for the offset of the first
+		  monitor window
+ 7Ah	WORD	pseudo register 1
+ 7Ch	WORD	pseudo register 2
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD103" name="2FD103"><b>2FD103</b></a> - INT 2F - MDEBUG command driver - EXECUTE KEY IN THE MONITOR<br />
+<pre>
+INT 2F - MDEBUG command driver - EXECUTE KEY IN THE MONITOR
+	AX = D103h
+	BX = key code (like result of an interrupt 16h call)
+	CX = cursor position
+	    0000h in the ASCII column of the monitor
+	    0001h in one of the hex fields of the monitor
+	DS:SI -&gt; MDEBUG data structure (see #03078)
+	ES:DI -&gt; actual byte in the monitor
+Return: AL = FFh
+	AH = return code
+	    00h key processed, read next key
+	    01h leave MDEBUG popup session
+	    02h leave MDEBUG popup session and automatically popup again if DOS
+		  is not busy
+	    03h signal an error (beep)
+	    04h driver has redefined the key, proceed with the new key
+		BX = new key code
+		MDEBUG will not pass the new key to the command driver(s)
+	   else treat like code 00h
+Note:	this function must end with a far call to the old INT 2F handler (with
+	  registers unchanged) if the driver does not support the key in BX.
+	  Otherwise, the driver must not chain to the old INT 2F.
+SeeAlso: AX=D104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD104" name="2FD104"><b>2FD104</b></a> - INT 2F - MDEBUG command driver - EXECUTE KEY IN THE INTERPRETER<br />
+<pre>
+INT 2F - MDEBUG command driver - EXECUTE KEY IN THE INTERPRETER
+	AX = D104h
+	DS:SI -&gt; MDEBUG data structure (see #03078)
+Return: AL = FFh
+	AH = return code
+	    00h key processed, read next key
+	    01h leave MDEBUG popup session
+	    02h leave MDEBUG popup session and automactically popup again if
+		  DOS is not busy
+	    03h signal an error (beep)
+	    04h driver has redefined the key, proceed with the new key
+		BX = new key code
+		MDEBUG won't pass the new key to the command driver(s)
+	    05h put new command line into the input buffer
+		DS:SI -&gt; new command line (ASCIZ string, max 66 chars)
+	    06h process new command line
+		DS:SI -&gt; new command line (ASCIZ string, max 66 chars)
+	   else treat like code 00h
+Note:	this function must end with a far call to the old INT 2F handler if the
+	  driver does not support the key in BX.  Otherwise, the driver must
+	  not chain to the old INT 2F.
+SeeAlso: AX=D103h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD1" name="2FD1"><b>2FD1</b></a> - INT 2F - MDEBUG command driver - RESERVED FUNCTIONS<br />
+<pre>
+INT 2F - MDEBUG command driver - RESERVED FUNCTIONS
+	AH = D1h
+	AL = 05h-0Ah
+Note:	these functions are reserved for future use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD110" name="2FD110"><b>2FD110</b></a> - INT 2F - MDEBUG command driver - GET ADDRESS OF THE OLD INT 2F<br />
+<pre>
+INT 2F - MDEBUG command driver - GET ADDRESS OF THE OLD INT 2F
+	AX = D110h
+Return: DL = FFh
+	ES:BX -&gt; next program in the chain for INT 2F
+	CX = code segment of this driver
+	DI = offset of driver identification table (see #03079) (v1.60+)
+Notes:	only called by the transient part of the driver
+	must be reentrant and the driver must not chain this function to the
+	  old INT 2F
+
+Format of the MDEBUG driver identification table:
+Offset	Size	Description	(Table 03079)
+ 00h  26 BYTEs	 signature "Kommandotreiber fr MDEBUG"
+					     ^- Note: ASCII 129,German U-umlaut
+ 27h  12 BYTEs	 name of driver, e.g. "MDHISDRV.COM"
+		 each driver must have a unique name
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD111" name="2FD111"><b>2FD111</b></a> - INT 2F - MDEBUG command driver - START DRIVER<br />
+<pre>
+INT 2F - MDEBUG command driver - START DRIVER
+	AX = D111h
+Return: DL = FFh
+Notes:	only called by the transient part of the driver to inform the resident
+	  part that it is installed
+	the function must be reentrant and the driver mustn't chain this
+	  function to the old INT 2F
+SeeAlso: AX=D101h,AX=D112h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD112" name="2FD112"><b>2FD112</b></a> - INT 2F - MDEBUG command driver - END DRIVER<br />
+<pre>
+INT 2F - MDEBUG command driver - END DRIVER
+	AX = D112h
+Return: DL = FFh
+Notes:	only called by the transient part of the driver to inform the resident
+	  part that it will be released after this function
+	the function must be reentrant and the driver mustn't chain this
+	  function to the old INT 2F
+SeeAlso: AX=D101h,AX=D111h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD1_0" name="2FD1_0"><b>2FD1</b></a> - INT 2F - MDEBUG command driver - RESERVED FUNCTIONS<br />
+<pre>
+INT 2F - MDEBUG command driver - RESERVED FUNCTIONS
+	AH = D1h
+	AL = 13h-7Fh
+Note:	these functions are reserved for future use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD1_1" name="2FD1_1"><b>2FD1</b></a> - INT 2F - MDEBUG command driver - USER DEFINED FUNCTIONS<br />
+<pre>
+INT 2F - MDEBUG command driver - USER DEFINED FUNCTIONS
+	AH = D1h
+	AL = 80h-FFh
+Note:	these functions are reserved for user defined features (e.g.
+	  communication between the transient und resident parts of the driver)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD201BX4D41" name="2FD201BX4D41"><b>2FD201BX4D41</b></a> - INT 2F U - Quarterdeck RPCI - MANIFEST v1.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - Quarterdeck RPCI - MANIFEST v1.0+ - INSTALLATION CHECK
+	AX = D201h
+	BX = 4D41h ("MA")
+	CX = 4E49h ("NI")
+	DX = 4645h ("FE")
+Return: BX = 5354h ("ST") if installed
+Range:	AH=C0h to AH=FFh, selected by scanning AH=D2h-FFh, then AH=C0h-D1h
+SeeAlso: AX=D200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD600" name="2FD600"><b>2FD600</b></a> - INT 2F - HEART.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - HEART.COM - INSTALLATION CHECK
+	AX = D600h
+Return: AX = 0303h (two hearts) if installed
+	    ES:DI -&gt; buffer (see #03088)
+Program: HEART.COM is a CPU lock-up/critical indicator utility by Mitch Davis.
+Notes:	Once the host program has identified the address of the data area, it
+	  can change this to indicate safe/critical, alternate colours, etc.
+	The entries for the color table are in char/attrib form.  Every two
+	  entries form a pair which is alternated between 68 times a minute.
+	  The first half of the table is for color videos, the second mono.
+	  Within each half, the first half is for the safe chars, and the
+	  second for the critical chars.
+
+Format of HEART.COM buffer:
+Offset	Size	Description	(Table 03088)
+ 00h  8 WORDs	table of colors/attributes (refer to notes above)
+ 10h	BYTE	flags
+		bit 0: program is in critical section, so flash double
+		      exclamation mark
+		bit 1: program is in safe code, so flash the heart character
+ 11h	WORD	position of heartbeat on screen, normally 009Eh (last column
+		of second line)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDA55" name="2FDA55"><b>2FDA55</b></a> - INT 2F U - TRAP.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - TRAP.COM - INSTALLATION CHECK
+	AX = DA55h
+	DL = interrupt number
+	DH = ???
+Return: if installed
+	    AH = interrupt number
+	    AL = ???
+	    ES:BX -&gt; ???
+Program: TRAP is an interrupt call tracer by Patrick Phillipot/Udo Chrosziel
+Note:	a separate copy of TRAP is loaded for each interrupt to be traced; thus
+	  the interrupt number is part of the installation check
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF400" name="2FF400"><b>2FF400</b></a> - INT 2F - FINDIRQ.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - FINDIRQ.COM - INSTALLATION CHECK
+	AX = F400h
+Return: AL = 01h if installed
+Program: FINDIRQ is a program by Rick Knoblaugh published in the 9/28/93 issue
+	  of PC Magazine; when run as a TSR it can determine which IRQs are
+	  used only when a device is active
+SeeAlso: AX=F401h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FF401CX5121" name="2FF401CX5121"><b>2FF401CX5121</b></a> - INT 2F - FINDIRQ.COM - GET HOOKED INTERRUPTS<br />
+<pre>
+INT 2F - FINDIRQ.COM - GET HOOKED INTERRUPTS
+	AX = F401h
+	CX = 5121h ('Q!')
+Return: AX:DX -&gt; hooked interrupt table (see #03126)
+SeeAlso: AX=F400h
+
+Format of FINDIRQ hooked interrupt table:
+Offset	Size	Description	(Table 03126)
+ 00h	BYTE	1Ch
+ 01h	DWORD	FINDIRQ's INT 1C handler
+ 05h	DWORD	original INT 1C handler
+ 09h	BYTE	28h
+ 0Ah	DWORD	FINDIRQ's INT 28 handler
+ 0Eh	DWORD	original INT 28 handler
+ 12h	BYTE	2Fh
+ 13h	DWORD	FINDIRQ's INT 2F handler
+ 17h	DWORD	original INT 2F handler
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB43BX0100" name="2FFB43BX0100"><b>2FFB43BX0100</b></a> - INT 2F PU - Borland TDX - INSTALLATION CHECK<br />
+<pre>
+INT 2F PU - Borland TDX - INSTALLATION CHECK
+	AX = FB43h
+	BX = 0100h
+Return: BX = FB43h if loaded
+Program: TDX is Borland's Turbo Debugger variant for DPMI programs
+Note:	Borland Pascal 7 DPMI programs use this call to check whether they
+	  should install their own stack and general protection exception
+	  handlers, or allow TDX to handle those exceptions
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410000" name="410000"><b>410000</b></a> - INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - OUTPUT CHARACTER FOR USER
+	AX = 0000h
+	DS:DX -&gt; character
+Note:	the kernel calls this function when it wants the user program to
+	  output a character
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410001" name="410001"><b>410001</b></a> - INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - INPUT CHARACTER
+	AX = 0001h
+Return: AL = character
+Note:	the kernel calls this function when it needs to input a character
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41000D" name="41000D"><b>41000D</b></a> - INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - TASK GOING OUT
+	AX = 000Dh
+SeeAlso: AX=000Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41000E" name="41000E"><b>41000E</b></a> - INT 41 CPU - MS Windows debugging kernel - TASK COMING IN<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - TASK COMING IN
+	AX = 000Eh
+SeeAlso: AX=000Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410012" name="410012"><b>410012</b></a> - INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - "OutputDebugString"
+	AX = 0012h
+	DS:SI -&gt; string (Windows 3.0)
+	ES:SI -&gt; string (Windows 3.1)
+Return: nothing???
+Note:	this function is called by the kernel when it wants to output a
+	  string through the debugger
+SeeAlso: AX=0050h,INT 68/AH=47h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41004F" name="41004F"><b>41004F</b></a> - INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - DEBUGGER INSTALLATION CHECK
+	AX = 004Fh
+Return: AX = F386h if debugger is present
+SeeAlso: INT 68/AX=4400h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410050" name="410050"><b>410050</b></a> - INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"<br />
+<pre>
+INT 41 P - MS Windows debugging kernel - "DefineDebugSegment"
+	AX = 0050h
+	BX = segment number in executable (0-based)
+	CX = selector
+	DX = instance handle
+	SI = segment flags (0=code, 1=data)
+	ES:DI -&gt; module name of owner
+Return: ???
+SeeAlso: AX=0012h,AX=004Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410051" name="410051"><b>410051</b></a> - INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - MOVE SEGMENT
+	AX = 0051h
+	???
+Return: ???
+SeeAlso: AX=0050h,AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410052" name="410052"><b>410052</b></a> - INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - FREE SEGMENT
+	AX = 0052h
+	BX = freed selector
+SeeAlso: AX=0050h,AX=0051h,AX=005Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410059" name="410059"><b>410059</b></a> - INT 41 CPU - MS Windows debugging kernel - LOAD TASK<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - LOAD TASK
+	AX = 0059h
+	???:BX = CS:IP of new task's starting point
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#41005C" name="41005C"><b>41005C</b></a> - INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - FREE INITIAL SEGMENT
+	AX = 005Ch
+	BX = freed selector
+Note:	called only when KERNEL starts, once for CS and once for the DS alias
+	  to CS
+SeeAlso: AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410060" name="410060"><b>410060</b></a> - INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel -  END OF SEGMENT LOAD
+	AX = 0060h
+	???
+Return: ???
+SeeAlso: AX=0061h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410061" name="410061"><b>410061</b></a> - INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - END OF SEGMENT DISCARD
+	AX = 0061h
+	???
+Return: ???
+SeeAlso: AX=0060h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410062" name="410062"><b>410062</b></a> - INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - APPLICATION TERMINATING
+	AX = 0062h
+STACK:	BYTE	exit code
+Return: ???
+	STACK unchanged???
+SeeAlso: AX=0064h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410063" name="410063"><b>410063</b></a> - INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - ASYNCHRONOUS STOP (Ctrl-Alt-SysReq)
+	AX = 0063h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410064" name="410064"><b>410064</b></a> - INT 41 CPU - MS Windows debugging kernel - DLL LOADED<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - DLL LOADED
+	AX = 0064h
+	CX:BX = DLL entry point CS:IP
+	SI = module handle
+SeeAlso: AX=0062h,AX=0065h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410065" name="410065"><b>410065</b></a> - INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - MODULE REMOVED
+	AX = 0065h
+	ES = module handle
+SeeAlso: AX=0064h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410066" name="410066"><b>410066</b></a> - INT 41 CPU - MS Windows debugging kernel - ERROR<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - ERROR
+	AX = 0066h
+Note:	called by LogError()
+SeeAlso: AX=0067h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#410067" name="410067"><b>410067</b></a> - INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR<br />
+<pre>
+INT 41 CPU - MS Windows debugging kernel - PARAMETER ERROR
+	AX = 0067h
+Note:	called by LogParamError()
+SeeAlso: AX=0066h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60_11" name="60_11"><b>60</b></a> - INT 60 U - INTRSPY/CMDSPY v1.0 only - API<br />
+<pre>
+INT 60 U - INTRSPY/CMDSPY v1.0 only - API
+Program: INTRSPY is a script-driven debugger included with the book
+	  _Undocumented_DOS_.
+InstallCheck:	determine that a) the handler is an IRET instruction, and
+	  b) the signature 0Dh "INTRSPY vN.NN" immediately precedes the handler
+Notes:	INTRSPY will hook the first available interrupt in the range 60h-67h.
+	If INTRSPY is installed, the DWORD immediately after the IRET stores
+	  its entry point (see #03275)
+	INTRSPY v2.0 (included with the second edition of the book) no longer
+	  supports this API
+Index:	installation check;INTRSPY
+
+(Table 03275)
+Call INTRSPY v1.0 entry point with:
+	AH = function
+	    00h ???
+	    01h set current directory (for use in reporting)
+		ES:DI -&gt; counted string containing directory name (max 79 char)
+	    02h set name of script file
+		ES:DI -&gt; counted string containing file name (max 79 chars)
+	    03h set script arguments
+		ES:DI -&gt; counted string containing arguments (max 79 chars)
+	    04h get directory set with function 01h
+		ES:DI -&gt; 80-byte buffer for directory name
+	    05h get name of script file
+		ES:DI -&gt; 80-byte buffer for script filename
+	    06h get script arguments
+		ES:DI -&gt; 80-byte buffer for script arguments
+	    07h get ???
+		CL = 00h-15h specifies what to get
+		ES:DI -&gt; WORD to be set with desired value on return
+	    08h get ???
+		ES:DI -&gt; WORD to be set with returned value
+	    09h get ???
+		ES:DI -&gt; WORD to be set with returned value
+	    0Bh store code for interrupt handler???
+		ES:DI -&gt; data
+		CX = number of bytes
+	    0Ch ???
+		ES:DI -&gt; ???
+	    0Dh get ???
+		ES:DI -&gt; BYTE to be set with returned value
+	    0Eh set ??? flag
+	    0Fh clear ??? flag
+	    10h ???
+		Return: AL = 04h or 05h if failed
+	    11h ???
+		Return: AL = 05h if failed
+	    12h get ???
+		ES:DI -&gt; buffer
+		Return: CX = number of bytes returned in buffer
+	    13h ???
+Return: AH = 00h
+	AL = status
+	    00h successful
+	    01h invalid function
+	    02h ???
+	    03h ???
+	    04h ???
+	    05h ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6000" name="6000"><b>6000</b></a> - INT 60 - SYS_PROF.EXE - PROFILER STATUS<br />
+<pre>
+INT 60 - SYS_PROF.EXE - PROFILER STATUS
+	AH = 00h
+Return: AX = 0000h    profiling is off
+	    otherwise profiling is on
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=01h"SYS_PROF",AH=02h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6000_0" name="6000_0"><b>6000</b></a> - INT 60 - MDEBUG - GET STATUS<br />
+<pre>
+INT 60 - MDEBUG - GET STATUS
+	AH = 00h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		ES = value of the monitor register SE
+		DI = value of the monitor register OF
+		CH = monitor color
+		CL = interpreter color
+		BH = monitor start line
+		BL = interpreter start line
+		AH = makecode of the hotkey
+		AL = ASCII code of the hotkey
+		DL = status of special keys (only SHIFT, ALT, CTRL) for the
+		      hotkey (coded as for the keyboard flag at 0040h:0017h)
+		DH = basic process number for the communication with drivers
+		      process number for the display driver, DH+1 = process
+		      number for the command driver(s)
+	DS:SI -&gt; MDEBUG identification table (see #03304)
+Program: MDEBUG is a shareware memory-resident debugging tool by Bernd
+	  Schemmer, including a memory monitor, an interpreter, and a
+	  disassembler
+Notes:	MDEBUG uses INT 60 by default, but may be directed to any of INT 60
+	  through INT 67; the interrupt handler is preceded by the signature
+	  "USERINT" and is not chained
+	if DS:SI points at a null byte, MDEBUG will prompt for a password if
+	  passwords are active; enough stack space must be provided for an
+	  INT 10h call (which MDEBUG uses while prompting for the password)
+SeeAlso: AH=02h"MDEBUG"
+Index:	hotkeys;MDEBUG
+
+Format of MDEBUG identification table:
+Offset	Size	Description	(Table 03304)
+ -2	WORD	entry offset
+ 00h	WORD	CS of MDEBUG
+ 02h	DWORD	old INT 08h vector
+ 06h	DWORD	old INT 09h vector
+ 0Ah	DWORD	address INT 16h routine used by MDEBUG
+ 0Eh	BYTE	length of version string
+ 0Fh  N BYTEs	version string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6001" name="6001"><b>6001</b></a> - INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS<br />
+<pre>
+INT 60 - MDEBUG - GET ADDRESS OF THE HELP REGISTERS
+	AH = 01h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		ES:DI point to the help registers of MDEBUG
+	       ES:DI-02h  -&gt; R0 (WORD)
+	       ES:DI	  -&gt; R1 (WORD)
+	       ES:DI+02h  -&gt; R2 (WORD)
+	       ES:DI+04h  -&gt; R3 (WORD)
+	       ...
+	       ES:DI+0Eh  -&gt; R8 (WORD)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6001_0" name="6001_0"><b>6001</b></a> - INT 60 - SYS_PROF.EXE - TURN PROFILING OFF<br />
+<pre>
+INT 60 - SYS_PROF.EXE - TURN PROFILING OFF
+	AH = 01h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=00h"SYS_PROF",AH=02h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6002" name="6002"><b>6002</b></a> - INT 60 - MDEBUG - SET STATUS<br />
+<pre>
+INT 60 - MDEBUG - SET STATUS
+	AH = 02h
+	DS:SI -&gt; password or a null byte
+	ES = new value for the register SE
+	DI = new value for the register OF
+	CH = new monitor color if nonzero
+	CL = new interpreter color if nonzero
+	BH = new monitor start line if nonzero
+	BL = new interpreter start line if nonzero
+	AL = new ASCII code for the hotkey ('A'..'Z', 'a'..'z') if nonzero
+	DL = new status of the special keys (SHIFT, ALT, CTRL) for the hotkey
+	      if nonzero
+	DH = if nonzero, new basic process number for communication with the
+	      drivers (DH = multiplex number for the display driver,
+	      DH+1 = multiplex number for the command driver or drivers)
+Return: AX = return code
+	    FFFFh call not allowed
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    0000h successful, status changed
+	    else AL = error reasons (see #03307)
+Note:	the values of the registers SE and OF are always changed, the other
+	  values are only changed if they are valid
+SeeAlso: AH=00h"MDEBUG"
+Index:	hotkeys;MDEBUG
+
+Bitfields for MDEBUG error reasons:
+Bit(s)	Description	(Table 03307)
+ 0	invalid monitor start line
+ 1	invalid interpreter start line
+ 2	invalid hotkey
+ 3	invalid process number
+ 4-7	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6002_1" name="6002_1"><b>6002</b></a> - INT 60 - SYS_PROF.EXE - TURN PROFILING ON<br />
+<pre>
+INT 60 - SYS_PROF.EXE - TURN PROFILING ON
+	AH = 02h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=00h"SYS_PROF",AH=01h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6003" name="6003"><b>6003</b></a> - INT 60 - MDEBUG - POP UP<br />
+<pre>
+INT 60 - MDEBUG - POP UP
+	AH = 03h
+	DS:SI -&gt; password or a null byte
+	ES -&gt; new value for the register SE
+	DI -&gt; new value for the register OF
+Return: AX = return code (see #03309)
+SeeAlso: AH=04h"MDEBUG"
+
+(Table 03309)
+Values for MDEBUG return code:
+ FFFFh	call not allowed
+ FFFEh	password is invalid
+ FFFDh	display mode is invalid
+ else	successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6003_1" name="6003_1"><b>6003</b></a> - INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE<br />
+<pre>
+INT 60 - SYS_PROF.EXE - GET ADDRESS OF PROFILING TABLE
+	AH = 03h
+Return: ES:BX -&gt; profiling table
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=04h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6004_0" name="6004_0"><b>6004</b></a> - INT 60 - MDEBUG - POP UP<br />
+<pre>
+INT 60 - MDEBUG - POP UP
+	AH = 04h
+	DS:SI -&gt; password or a null byte
+Return: AX = return code (see #03309)
+SeeAlso: AH=03h"MDEBUG",AH=07h"MDEBUG"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6004_1" name="6004_1"><b>6004</b></a> - INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE<br />
+<pre>
+INT 60 - SYS_PROF.EXE - CLEAR PROFILING TABLE
+	AH = 04h
+Note:	SYS_PROF.EXE is the TSR portion of a profiler from Micro Cornucopia
+	  Issue 47
+SeeAlso: AH=03h"SYS_PROF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6005_0" name="6005_0"><b>6005</b></a> - INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS<br />
+<pre>
+INT 60 - MDEBUG - GET AND SET MDEBUG FLAGS
+	AH = 05h
+	DS:SI -&gt; password or a null byte
+	BL = new value for the semaphor of MDEBUG
+	     00h  enable popup of MDEBUG
+	     else disable popup of MDEBUG
+Return: AX = return code
+	    FFFEh password is invalid
+	    FFFDh display mode is invalid
+	    else successful
+		BL = old value of the semaphor of MDEBUG
+		BH = old value of the INT 08h semaphor
+		    (this semaphor is always reset after this function)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6006_0" name="6006_0"><b>6006</b></a> - INT 60 - MDEBUG - GET PASSWORD STATUS<br />
+<pre>
+INT 60 - MDEBUG - GET PASSWORD STATUS
+	AH = 06h
+Return: AL = status
+	    00h password inactive
+	    01h password active
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6007_0" name="6007_0"><b>6007</b></a> - INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG<br />
+<pre>
+INT 60 - MDEBUG v1.70+ - GET ACTIVE PART OF MDEBUG
+	AH = 07h
+Return: AL = active part for the next popup session of MDEBUG:
+	    bit 0: the next popup session will start in the interpreter rather
+		  than in the monitor
+	    bit 1: the next popup session will sart in the online-help
+SeeAlso: AH=03h"MDEBUG",AH=04h"MDEBUG"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6008" name="6008"><b>6008</b></a> - INT 60 - MDEBUG - UNUSED<br />
+<pre>
+INT 60 - MDEBUG - UNUSED
+	AH = 08h-FFh
+Return: AX = FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#696996" name="696996"><b>696996</b></a> - INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER<br />
+<pre>
+INT 69 - ISR.COM v1.00 - SPECIFY INTERRUPT HANDLER
+	AX = 6996h
+	DS:DX -&gt; interrupt handler or 0000h:0000h to disable
+Return: AX = 9669h
+Program: ISR (Interrupt Service Reflector) is a TSR by Rich Bono which permits
+	  a program to provide hardware interrupt handlers even while being
+	  debugged with a debugger that swaps interrupt vectors during
+	  debugging.
+Note:	the interrupt vector which is to be reflected is set at installation
+	  time and cannot be changed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D00" name="7D00"><b>7D00</b></a> - INT 7D - SCSILink - RESET SCSI BUS<br />
+<pre>
+INT 7D - SCSILink - RESET SCSI BUS
+	AH = 00h
+Program: SCSILink is a TSR by Cross Products Ltd which allows its PC-hosted
+	  cross assemblers and similar products to communicate with Cross
+	  Products hardware debuggers
+Desc:	reset all devices on the SCSI bus
+InstallCheck:	test for the signature "SCSILINK" immediately prior to the
+	  interrupt handler
+Index:	installation check;SCSILink
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D01" name="7D01"><b>7D01</b></a> - INT 7D - SCSILink - CONNECT TO TARGET<br />
+<pre>
+INT 7D - SCSILink - CONNECT TO TARGET
+	AH = 01h
+	AL = target ID
+Return: CF clear if successful
+	CF set on error
+	    AL = initiator error
+	    AH = target error
+Desc:	arbitrate the use of the bus and select the specified target device
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D02" name="7D02"><b>7D02</b></a> - INT 7D - SCSILink - SEND COMMAND<br />
+<pre>
+INT 7D - SCSILink - SEND COMMAND
+	AH = 02h
+	ES:BX -&gt; parameter block (see #03863)
+Return: CF clear if successful
+	CF set on error
+	    AL = initiator error
+	    AH = target error
+Desc:	send the specified command block to the target device and perform any
+	  related I/O
+
+Format of SCSILink parameter block:
+Offset	Size	Description	(Table 03863)
+ 00h	DWORD	size of command block
+ 04h	DWORD	address of command block (see #03864)
+ 08h	DWORD	size of buffer
+ 0Ch	DWORD	address of buffer
+
+Format of SCSILink command block:
+Offset	Size	Description	(Table 03864)
+ 00h		info not yet available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D03" name="7D03"><b>7D03</b></a> - INT 7D - SCSILink - SET TIMEOUT<br />
+<pre>
+INT 7D - SCSILink - SET TIMEOUT
+	AH = 03h
+	AL = timeout selector (see #03865)
+	BX = new value in 55ms ticks
+Desc:	change an internal timeout value to allow communication with very
+	  slow targets
+
+(Table 03865)
+Values for SCSILink timeout selector:
+ 00h	time to wait for bus (default 18)
+ 01h	time to wait for new phase (default 5)
+ 02h	maximum time to send/receive block (default 18)
+ 03h	time to wait for reselect (default 180)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D04" name="7D04"><b>7D04</b></a> - INT 7D - SCSILink - GET ERROR STRING<br />
+<pre>
+INT 7D - SCSILink - GET ERROR STRING
+	AH = 04h
+	AL = error number
+Return: ES:BX -&gt; ASCIZ error string for error number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D05" name="7D05"><b>7D05</b></a> - INT 7D - SCSILink - GET ADDRESS<br />
+<pre>
+INT 7D - SCSILink - GET ADDRESS
+	AH = 05h
+Return: AL = DMA channel
+	AH = initiator ID
+	BX = card address
+Desc:	determine the current hardware configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D06" name="7D06"><b>7D06</b></a> - INT 7D - SCSILink - PUT DATA<br />
+<pre>
+INT 7D - SCSILink - PUT DATA
+	AH = 06h
+	CX = number of bytes to store (0001h-0100h)
+	ES:BX -&gt; data to be saved
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (01h = too much data)
+Note:	the specified data is stored in SCSILink's PSP
+SeeAlso: AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D07" name="7D07"><b>7D07</b></a> - INT 7D - SCSILink - GET DATA<br />
+<pre>
+INT 7D - SCSILink - GET DATA
+	AH = 07h
+	CX = number of bytes to retrieve (0001h-0100h)
+	ES:BX -&gt; buffer for data
+Return: CF clear if successful
+	CF set on error
+	    AL = error code (01h = too much data)
+Note:	retrieve data previously stored with AH=06h
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D08" name="7D08"><b>7D08</b></a> - INT 7D - SCSILink - TERMINATE SESSION<br />
+<pre>
+INT 7D - SCSILink - TERMINATE SESSION
+	AH = 08h
+Desc:	indicate to any other programs that intercept INT 7D that the program
+	  has finished with the link
+Note:	the program should call this function even if a SCSI error caused its
+	  termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D09" name="7D09"><b>7D09</b></a> - INT 7D - SCSILink - POLL REQUEST<br />
+<pre>
+INT 7D - SCSILink - POLL REQUEST
+	AH = 09h
+	AL = target ID
+Return: AL = status
+	    FEh resident driver experienced SCSI error
+	    FFh resident driver handleded event
+Desc:	give any drivers chained onto INT 7D a chance to handle an exception
+	  not specifically handled by the calling program
+Notes:	this service exists so that resident disk servers, etc. can continue
+	  running even while debuggers and profilers are active
+	the resident driver assumes that a connection has been established and
+	  attempts to leave the target connected
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FE_1" name="FE_1"><b>FE</b></a> - INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER<br />
+<pre>
+INT FE - Turbo Debugger 8086 v2.5+ - OVERLAY MANAGER
+SeeAlso: INT 3F
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

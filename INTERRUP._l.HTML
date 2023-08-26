@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._l</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category l - shells/command interpreters,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#212B00CX5643"><b>212B00CX5643</b> - INT 21 - The Volkov Commander - GET POINTER TO LEFT PANEL DATA STRUCTURE</a><br />
+<a href="#212B01CX5643"><b>212B01CX5643</b> - INT 21 - The Volkov Commander - GET POINTER TO RIGHT PANEL DATA STRUCTURE</a><br />
+<a href="#212B02CX5643"><b>212B02CX5643</b> - INT 21 - The Volkov Commander - GET POINTER TO GLOBAL VARIABLES</a><br />
+<a href="#212B--CX5643"><b>212B--CX5643</b> - INT 21 - Volkov Commander - INSTALLATION CHECK</a><br />
+<a href="#2E"><b>2E</b> - INT 2E U - DOS 2+ - PASS COMMAND TO COMMAND INTERPRETER FOR EXECUTION</a><br />
+<a href="#2E----BXE22E"><b>2E----BXE22E</b> - INT 2E - 4DOS v2.x-3.03 SHELL2E.COM - UNINSTALL</a><br />
+<a href="#2F0500"><b>2F0500</b> - INT 2F U - DOS 3.0+ CRITICAL ERROR HANDLER - INSTALLATION CHECK</a><br />
+<a href="#2F05"><b>2F05</b> - INT 2F CU - DOS 3.0+ CRITICAL ERROR HANDLER - EXPAND ERROR INTO STRING</a><br />
+<a href="#2F1900"><b>2F1900</b> - INT 2F U - DOS 4.x only SHELLB.COM - INSTALLATION CHECK</a><br />
+<a href="#2F1901"><b>2F1901</b> - INT 2F U - DOS 4.x only SHELLB.COM - SHELLC.EXE INTERFACE</a><br />
+<a href="#2F1902"><b>2F1902</b> - INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM INTERFACE</a><br />
+<a href="#2F1903"><b>2F1903</b> - INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM interface</a><br />
+<a href="#2F1904"><b>2F1904</b> - INT 2F U - DOS 4.x only SHELLB.COM - SHELLB transient to TSR interface</a><br />
+<a href="#2F5500"><b>2F5500</b> - INT 2F U - DOS 5+ - COMMAND.COM INTERFACE</a><br />
+<a href="#2F5501"><b>2F5501</b> - INT 2F U - DOS 5+ - ROM COMMAND.COM INTERFACE</a><br />
+<a href="#2F9900"><b>2F9900</b> - INT 2F U - DOS Navigator II - INSTALLATION CHECK</a><br />
+<a href="#2F9901"><b>2F9901</b> - INT 2F U - DOS Navigator II - RETURN POINTER TO COMMAND LINE</a><br />
+<a href="#2F9902"><b>2F9902</b> - INT 2F U - DOS Navigator II - SET 'TRUE' EXIT CODE OF DN.PRG</a><br />
+<a href="#2F9903"><b>2F9903</b> - INT 2F U - DOS Navigator II - SPECIFY HOW TO EXECUTE COMMANDS</a><br />
+<a href="#2F9904"><b>2F9904</b> - INT 2F U - DOS Navigator II v1.49 - SET ???</a><br />
+<a href="#2F9905"><b>2F9905</b> - INT 2F U - DOS Navigator II v1.49 - GET ???</a><br />
+<a href="#2F9906"><b>2F9906</b> - INT 2F U - DOS Navigator II v1.49 - GET ???</a><br />
+<a href="#2FAE00"><b>2FAE00</b> - INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - INSTALLATION CHECK</a><br />
+<a href="#2FAE01"><b>2FAE01</b> - INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - EXECUTE</a><br />
+<a href="#2FD44D"><b>2FD44D</b> - INT 2F - 4DOS.COM v2.1+ - API</a><br />
+<a href="#2FD44E"><b>2FD44E</b> - INT 2F C - 4DOS v3.0+ - AWAITING USER INPUT</a><br />
+<a href="#2FE44D"><b>2FE44D</b> - INT 2F - NDOS - API</a><br />
+<a href="#2FE44E"><b>2FE44E</b> - INT 2F C - NDOS - AWAITING USER INPUT</a><br />
+<a href="#500002_0"><b>500002</b> - INT 50 - PC Thuis Organizer Shell - PLOT TEXT</a><br />
+<a href="#500003_0"><b>500003</b> - INT 50 - PC Thuis Organizer Shell - WRITE FILE</a><br />
+<a href="#500004_0"><b>500004</b> - INT 50 - PC Thuis Organizer Shell - READ FILE</a><br />
+<a href="#500005_0"><b>500005</b> - INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO</a><br />
+<a href="#500006_0"><b>500006</b> - INT 50 - PC Thuis Organizer Shell - ALERT USER</a><br />
+<a href="#500007"><b>500007</b> - INT 50 - PC Thuis Organizer Shell - DO LINE</a><br />
+<a href="#500008"><b>500008</b> - INT 50 - PC Thuis Organizer Shell - DO MENU</a><br />
+<a href="#500009"><b>500009</b> - INT 50 - PC Thuis Organizer Shell - MESSAGE ON</a><br />
+<a href="#50000A"><b>50000A</b> - INT 50 - PC Thuis Organizer Shell - MESSAGE OFF</a><br />
+<a href="#50000B"><b>50000B</b> - INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE</a><br />
+<a href="#50000C"><b>50000C</b> - INT 50 - PC Thuis Organizer Shell - DO REQUEST</a><br />
+<a href="#50000D"><b>50000D</b> - INT 50 - PC Thuis Organizer Shell - EDIT LINE</a><br />
+<a href="#50000E"><b>50000E</b> - INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER</a><br />
+<a href="#50000F"><b>50000F</b> - INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW</a><br />
+<a href="#500010"><b>500010</b> - INT 50 - PC Thuis Organizer Shell - TRACE MENU</a><br />
+<a href="#500011"><b>500011</b> - INT 50 - PC Thuis Organizer Shell - MOVE MEMORY</a><br />
+<a href="#500012"><b>500012</b> - INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY</a><br />
+<a href="#500013"><b>500013</b> - INT 50 - PC Thuis Organizer Shell - GET KEY</a><br />
+<a href="#500014"><b>500014</b> - INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW</a><br />
+<a href="#500015"><b>500015</b> - INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE</a><br />
+
+<hr />
+
+<a href="#212B00CX5643" name="212B00CX5643"><b>212B00CX5643</b></a> - INT 21 - The Volkov Commander - GET POINTER TO LEFT PANEL DATA STRUCTURE<br />
+<pre>
+INT 21 - The Volkov Commander - GET POINTER TO LEFT PANEL DATA STRUCTURE
+	AX = 2B00h
+	CX = 5643h ('VC')
+	DX = 4F4Dh ('OM')
+Return: AL = 0
+	ES:BX -&gt; left panel data structure
+Program: Volcov Commander is a shell for MS-DOS by Vsevolod V. Volkov
+SeeAlso: AX=2B01h/CX=5643h,AX=2B02h/CX=5643h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B01CX5643" name="212B01CX5643"><b>212B01CX5643</b></a> - INT 21 - The Volkov Commander - GET POINTER TO RIGHT PANEL DATA STRUCTURE<br />
+<pre>
+INT 21 - The Volkov Commander - GET POINTER TO RIGHT PANEL DATA STRUCTURE
+	AX = 2B01h
+	CX = 5643h ('VC')
+	DX = 4F4Dh ('OM')
+Return: AL = 0
+	ES:BX -&gt; right panel data structure
+SeeAlso: AX=2B00h/CX=5643h,AX=2B02h/CX=5643h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B02CX5643" name="212B02CX5643"><b>212B02CX5643</b></a> - INT 21 - The Volkov Commander - GET POINTER TO GLOBAL VARIABLES<br />
+<pre>
+INT 21 - The Volkov Commander - GET POINTER TO GLOBAL VARIABLES
+	AX = 2B02h
+	CX = 5643h ('VC')
+	DX = 4F4Dh ('OM')
+Return: AL = 0
+	ES:BX -&gt; global variables
+SeeAlso: AX=2B00h/CX=5643h,AX=2B01h/CX=5643h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX5643" name="212B--CX5643"><b>212B--CX5643</b></a> - INT 21 - Volkov Commander - INSTALLATION CHECK<br />
+<pre>
+INT 21 - Volkov Commander - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 5643h ('VC')
+	DX = 4F4Dh ('OM')
+	AL = function number
+	    00h get left window data address
+	    01h get right window data address
+	    02h get address of general variables
+Return: AL = 00h if Volkov Commander installed
+	    AH = version code (27h for v4.00.039)
+	    ES:BX -&gt; requested data
+Program: Volkov Commander is a Norton Commander-like DOS shell
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2E" name="2E"><b>2E</b></a> - INT 2E U - DOS 2+ - PASS COMMAND TO COMMAND INTERPRETER FOR EXECUTION<br />
+<pre>
+INT 2E U - DOS 2+ - PASS COMMAND TO COMMAND INTERPRETER FOR EXECUTION
+	DS:SI -&gt; commandline to execute (see #02585)
+Return: all registers except CS:IP destroyed
+	AX = status (4DOS v4.0)
+	   0000h successful
+	   FFFFh error before processing command (not enough memory, etc)
+	   other error number returned by command
+Notes:	this call allows execution of arbitrary commands (including COMMAND.COM
+	  internal commands) without loading another copy of COMMAND.COM
+	if COMMAND.COM is the user's command interpreter, the primary copy
+	  executes the command; this allows the master environment to be
+	  modified by issuing a "SET" command, but changes in the master
+	  environment will not become effective until all programs descended
+	  from the primary COMMAND.COM terminate
+	since COMMAND.COM processes the string as if typed from the keyboard,
+	  the transient portion needs to be present, and the calling program
+	  must ensure that sufficient memory to load the transient portion can
+	  be allocated by DOS if necessary
+	results are unpredictable if invoked by a program run from a batch file
+	  because this call is not reentrant and COMMAND.COM uses the same
+	  internal variables when processing a batch file
+	hooked but ignored by 4DOS v3.0 COMMAND.COM replacement unless SHELL2E
+	  has been loaded
+	the MS-DOS 5 Programmer's Reference calls this "Reload Transient"
+
+Format of DOS commandline:
+Offset	Size	Description	(Table 02585)
+ 00h	BYTE	length of command string, not counting trailing CR
+ 01h	var	command string
+  N	BYTE	0Dh (CR)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2E----BXE22E" name="2E----BXE22E"><b>2E----BXE22E</b></a> - INT 2E - 4DOS v2.x-3.03 SHELL2E.COM - UNINSTALL<br />
+<pre>
+INT 2E - 4DOS v2.x-3.03 SHELL2E.COM - UNINSTALL
+	BX = E22Eh
+	DS:SI -&gt; zero byte
+Return: if successful, SHELL2E terminates itself with INT 21/AH=4Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0500" name="2F0500"><b>2F0500</b></a> - INT 2F U - DOS 3.0+ CRITICAL ERROR HANDLER - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - DOS 3.0+ CRITICAL ERROR HANDLER - INSTALLATION CHECK
+	AX = 0500h
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, can't install
+	    FFh installed
+	BX destroyed (MSCDEX v2.21-2.25)
+	CF clear (MSCDEX v2.21-2.25)
+Desc:	determine whether a critical error message override is installed
+Note:	this set of functions allows a user program to partially or completely
+	  override the default critical error handler's message in COMMAND.COM
+SeeAlso: AH=05h,INT 24
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F05" name="2F05"><b>2F05</b></a> - INT 2F CU - DOS 3.0+ CRITICAL ERROR HANDLER - EXPAND ERROR INTO STRING<br />
+<pre>
+INT 2F CU - DOS 3.0+ CRITICAL ERROR HANDLER - EXPAND ERROR INTO STRING
+	AH = 05h
+---DOS 3.x---
+	AL = extended error code (not zero)
+---DOS 4.0+ ---
+	AL = error type
+	    01h DOS extended error code
+	    02h parameter error
+	BX = error code
+Return: CF clear if successful
+	    ES:DI -&gt; ASCIZ error message (read-only)
+	    AL = completion state
+		00h message requires completion with device name, drive, etc.
+		01h message is complete as returned
+	CF set if error code can't be converted to string
+	    AX,DI,ES destroyed
+	other flags corrupted
+Notes:	called at start of COMMAND.COM's default critical error handler if
+	  installed by a user program, allowing partial or complete overriding
+	  of the default error messages
+	subfunction 02h is called by many DOS 4 external programs
+	DR DOS's COMMAND.COM appends additional info ("0 files copied") to the
+	  returned string
+SeeAlso: AX=0500h,AX=122Eh,INT 24
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1900" name="2F1900"><b>2F1900</b></a> - INT 2F U - DOS 4.x only SHELLB.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - DOS 4.x only SHELLB.COM - INSTALLATION CHECK
+	AX = 1900h
+Return: AL = status
+	    00h not installed
+	    FFh installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1901" name="2F1901"><b>2F1901</b></a> - INT 2F U - DOS 4.x only SHELLB.COM - SHELLC.EXE INTERFACE<br />
+<pre>
+INT 2F U - DOS 4.x only SHELLB.COM - SHELLC.EXE INTERFACE
+	AX = 1901h
+	BL = SHELLC type
+	    00h transient
+	    01h resident
+	DS:DX -&gt; far call entry point for resident SHELLC.EXE
+Return: ES:DI -&gt; SHELLC.EXE workspace within SHELLB.COM
+Note:	SHELLB.COM and SHELLC.EXE are parts of the DOS 4.x shell
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1902" name="2F1902"><b>2F1902</b></a> - INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM INTERFACE<br />
+<pre>
+INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM INTERFACE
+	AX = 1902h
+	ES:DI -&gt; ASCIZ full filename of current batch file, with at least the
+		  final filename element uppercased
+	DS:DX -&gt; buffer for results
+Return: AL = 00h  failed, either
+		(a) final filename element quoted at ES:DI does not match
+		      identity of shell batch file quoted as parameter of most
+		      recent call of SHELLB command, or
+		(b) no more Program Start Commands available.
+	AL= FFh	 success, then:
+		memory at DS:[DX+1] onwards filled as:
+		DX+1:	BYTE	count of bytes of PSC
+		DX+2: N BYTEs	Program Start Command text
+			BYTE	0Dh terminator
+Desc:	COMMAND.COM executes the result of this call in preference to
+	  reading a command from a batch file.	Thus the batch file does not
+	  advance in execution for so long as SHELLB provides PSCs from its
+	  workspace.
+Note:	The PSCs are planted in SHELLB workspace by SHELLC, the user
+	  menu interface.  The final PSC of a sequence is finished with a
+	  GOTO COMMON, which causes a loop back in the batch file which called
+	  SHELLC so as to execute SHELLC again.	 The check on batch file name
+	  permits PSCs to CALL nested batch files while PSCs are still stacked
+	  up for subsequent execution.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1903" name="2F1903"><b>2F1903</b></a> - INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM interface<br />
+<pre>
+INT 2F U - DOS 4.x only SHELLB.COM - COMMAND.COM interface
+	AX = 1903h
+	ES:DI -&gt; ASCIZ batch file name as for AX=1902h
+Return: AL = status
+	    FFh quoted batch file name matches last SHELLB parameter
+	    00h it does not
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1904" name="2F1904"><b>2F1904</b></a> - INT 2F U - DOS 4.x only SHELLB.COM - SHELLB transient to TSR interface<br />
+<pre>
+INT 2F U - DOS 4.x only SHELLB.COM - SHELLB transient to TSR interface
+	AX = 1904h
+Return: ES:DI -&gt; name of current shell batch file:
+		WORD	number of bytes of name following
+		BYTEs	(8 max) uppercase name of shell batch file
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5500" name="2F5500"><b>2F5500</b></a> - INT 2F U - DOS 5+ - COMMAND.COM INTERFACE<br />
+<pre>
+INT 2F U - DOS 5+ - COMMAND.COM INTERFACE
+	AX = 5500h
+Return: AX = 0000h if an instance of COMMAND.COM is already running
+	DS:SI -&gt; entry point table
+Notes:	used to access the shareable portion of COMMAND.COM, which may have
+	  been moved into the HMA; only the primary COMMAND.COM retains this
+	  portion
+	procedures called from a dispatcher in COMMAND's resident portion;
+	  most assume that the segment address of the resident portion is on
+	  the stack and are thus not of general use
+	DR PalmDOS up to DR-DOS 7.03 COMMAND.COM do not support this call.
+	When loading the default command processor (no SHELL= directive in
+	  CONFIG.SYS), MS-DOS 6.0-6.22 IO.SYS & PC DOS 6.1-2000 IBMBIO.COM
+	  check a signature (see #04099) in the COMMAND.COM file image to test
+	  if it is actually their own shell and has the correct version, before
+	  they will launch it. If the signature is not found, the message
+	  "Invalid COMMAND.COM" will be displayed. This test seems to have
+	  vanished with MS-DOS 7+, as it uses an .EXE style file format.
+	In addition to this, the MS-DOS/PC DOS COMMAND.COM checks the version
+	  of the underlaying OS to see if it is their own. Hence, the
+	  PC DOS 6.1 (and by SETVER version faking also the PC DOS 7 and 2000)
+	  COMMAND.COM also run on Novell DOS 7 - DR DOS 7.03, which all
+	  identify themselves as DOS API level 6.0 and IBM OEM (not yet tested
+	  as primary shell).  PC DOS 5.0 COMMAND.COM should run on DR PalmDOS
+	  (untested).
+	The MS-DOS 7+ COMMAND.COM seems to no longer perform this kind of
+	  version check any more, which can cause a serious deadlock situation
+	  on a multi-boot system with DR-DOS installed, when the MS-DOS 7+
+	  COMMAND.COM is placed in C:\. When IBMBIO.COM attempts to load the
+	  MS-DOS 7+ COMMAND.COM as a primary shell under DR-OpenDOS 7.02 to
+	  DR-DOS 7.03 no error message will be displayed by COMMAND.COM, but
+	  the machine will just hang. To defuse this situation, DR-DOS 7.02+
+	  IBMBIO.COM was changed to still scan for a SHELL= directive in
+	  [D]CONFIG.SYS even in F5-mode. For maximum safety, the MS-DOS 7
+	  COMMAND.COM should be moved from C:\ to C:\WINDOWS\COMMAND\
+	  and a DCONFIG.SYS file should be created containing for example
+	  SHELL=C:\DRDOS\COMMAND.COM instead. If a MS-DOS CONFIG.SYS file
+	  exists, it should contain a SHELL=C:\WINDOWS\COMMAND\COMMAND.COM
+	  directive. (If no shell can be found at all, DR-DOS IBMBIO.COM would
+	  display a prompt to enter the proper path to COMMAND.COM).
+	The DR-OpenDOS 7.02+ COMMAND.COM is designed to also run on 3rd party
+	  operating systems like MS-DOS/PC DOS 3.31+, Windows 9x, and in DOS
+	  boxes of OS/2, Windows NT and 2000, and will for example also take
+	  advantage of long filenames.
+SeeAlso: AX=5501h
+
+Format of Microsoft COMMAND.COM file image signature:
+Offset	Size	Description	(Table 04100)
+ 00h  3 BYTEs	E9h xxh xxh (JMP instruction)
+ 03h	BYTE	version
+		bits 7-4: major version
+		bits 3-0: minor version code
+		( 60h for MS-DOS 6.0 and PC-DOS 6.1;
+		  64h for MS-DOS 6.20, Japanese MS-DOS 6.2, Hangeul MS-DOS 6.2;
+		  66h for MS-DOS 6.22, PRC (Chinese) MS-DOS 6.22;
+		  70h for PC DOS 7, PC DOS 7 Y2K edition )
+Notes:	Since DR DOS 6.0+, MS-DOS 7.0+, PTS-DOS, S/DOS, 4DOS/NDOS use an .EXE
+	  style shell file format, this signature is not met by any release of
+	  these shells. DR DOS 3.31-5.0 used a different jump (E8h) at offset
+	  00h.
+	Older releases of MS-DOS/PC DOS all had a jump (E9h) at offset 00h, but
+	  other values at offset 03h. For reference here is a list of the
+	  values for some of these older shells:
+	    00h for PC DOS 1.10, Olivetti DOS 2.11, MS-DOS 5.0,
+		  Russian MS-DOS 5.0
+	    1Eh for MS-DOS 4.01
+	    BAh for PC DOS 3.10, 3.20, MS-DOS 3.30
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5501" name="2F5501"><b>2F5501</b></a> - INT 2F U - DOS 5+ - ROM COMMAND.COM INTERFACE<br />
+<pre>
+INT 2F U - DOS 5+ - ROM COMMAND.COM INTERFACE
+	AX = 5501h
+Return: ???
+Note:	used to determine whether the caller is the first instance of ROM
+	  COMMAND.COM
+SeeAlso: AX=5500h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9900" name="2F9900"><b>2F9900</b></a> - INT 2F U - DOS Navigator II - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - DOS Navigator II - INSTALLATION CHECK
+	AX = 9900h
+Return: BX = 444Eh ('DN') if installed
+	    AX = number of DOS Navigator executions
+	    CL = child process exit code
+	    DX = version number (see #02965)
+Notes:	old versions of DOS Navigator II always returned AH=1, while newer
+	  ones return AH=0 and store AL in the DN.FLG file
+Program: DOS Navigator is a multi-window shell for MS-DOS by RIT S.R.L.
+	  DOS Navigator(TM) is a registered trademark of RIT S.R.L.
+SeeAlso: AX=9901h,AX=9902h,AX=9903h,AX=9904h,AX=9905h,AX=9906h
+
+(Table 02965)
+Values for DOS Navigator II version code:
+ 2100h	version 1.35
+ 2138h	version 1.38
+ 2141h	version 1.41
+ 2150h	version 1.50
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9901" name="2F9901"><b>2F9901</b></a> - INT 2F U - DOS Navigator II - RETURN POINTER TO COMMAND LINE<br />
+<pre>
+INT 2F U - DOS Navigator II - RETURN POINTER TO COMMAND LINE
+	AX = 9901h
+Return: ES:BX -&gt; command line (terminated with 0Dh)
+	AX = ES
+SeeAlso: AX=9900h,AX=9902h,AX=9903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9902" name="2F9902"><b>2F9902</b></a> - INT 2F U - DOS Navigator II - SET 'TRUE' EXIT CODE OF DN.PRG<br />
+<pre>
+INT 2F U - DOS Navigator II - SET 'TRUE' EXIT CODE OF DN.PRG
+	AX = 9902h
+	CL = exit code
+Return: AX destroyed
+SeeAlso: AX=9900h,AX=9901h,AX=9903h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9903" name="2F9903"><b>2F9903</b></a> - INT 2F U - DOS Navigator II - SPECIFY HOW TO EXECUTE COMMANDS<br />
+<pre>
+INT 2F U - DOS Navigator II - SPECIFY HOW TO EXECUTE COMMANDS
+	AX = 9903h
+	CL = 1 to use INT 2E
+	CL &lt;&gt; 1 to use INT 21/AH=4Bh
+SeeAlso: AX=9900h,AX=9901h,AX=9902h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9904" name="2F9904"><b>2F9904</b></a> - INT 2F U - DOS Navigator II v1.49 - SET ???<br />
+<pre>
+INT 2F U - DOS Navigator II v1.49 - SET ???
+	AX = 9904h
+	CX:DX = new value for ???
+SeeAlso: AX=9900h,AX=9905h,AX=9906h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9905" name="2F9905"><b>2F9905</b></a> - INT 2F U - DOS Navigator II v1.49 - GET ???<br />
+<pre>
+INT 2F U - DOS Navigator II v1.49 - GET ???
+	AX = 9905h
+Return: CX:DX = current value of ??? (set by AX=9904h)
+SeeAlso: AX=9900h,AX=9904h,AX=9906h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9906" name="2F9906"><b>2F9906</b></a> - INT 2F U - DOS Navigator II v1.49 - GET ???<br />
+<pre>
+INT 2F U - DOS Navigator II v1.49 - GET ???
+	AX = 9906h
+	DX = new value for ??? (bit 15 must be set, otherwise not changed)
+Return: CX = previous value for ???
+SeeAlso: AX=9900h,AX=9904h,AX=9905h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAE00" name="2FAE00"><b>2FAE00</b></a> - INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - INSTALLATION CHECK
+	AX = AE00h
+	DX = magic value FFFFh
+	CH = FFh
+	CL = length of command line tail (4DOS v4.0)
+	DS:BX -&gt; command line buffer (see #02977)
+	DS:SI -&gt; command name buffer (see #02978)
+	DI = 0000h (4DOS v4.0)
+Return: AL = FFh if this command is a TSR extension to COMMAND.COM
+	AL = 00h if the command should be executed as usual
+Notes:	This call provides a mechanism for TSRs to install permanent
+	  extensions to the command repertoire of COMMAND.COM.	It appears
+	  that COMMAND.COM makes this call before executing the current
+	  command line, and does not execute it itself if the return is FFh.
+	APPEND hooks this call, to allow subsequent APPEND commands to
+	  execute without re-running APPEND
+SeeAlso: AX=AE01h
+
+Format of COMMAND.COM command line buffer:
+Offset	Size	Description	(Table 02977)
+ 00h	BYTE	max length of command line, as in INT 21/AH=0Ah
+ 01h	BYTE	count of bytes to follow, excluding terminating 0Dh
+      N BYTEs	command line text, terminated by 0Dh
+
+Format of command name buffer:
+Offset	Size	Description	(Table 02978)
+ 00h	BYTE	length of command name
+ 01h  N BYTEs	uppercased command name (blank-padded to 11 chars by 4DOS v4)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAE01" name="2FAE01"><b>2FAE01</b></a> - INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - EXECUTE<br />
+<pre>
+INT 2F U - DOS 3.3+ internal - INSTALLABLE COMMAND - EXECUTE
+	AX = AE01h
+	DX = magic value FFFFh
+	CH = 00h
+	CL = length of command name (4DOS v4.0)
+	DS:BX -&gt; command line buffer (see #02977)
+	DS:SI -&gt; command name buffer (see #02978)
+Return: DS:SI buffer updated
+	  if length byte is nonzero, the following bytes contain the uppercase
+	  internal command to execute and the command line buffer contains the
+	  command's parameters (the first DS:[SI] bytes are ignored)
+Notes:	this call requests execution of the command which a previous call to
+	  AX=AE00h indicated was resident
+	APPEND hooks this call
+BUG:	Novell DOS 7.0's COMMAND.COM (prior to Update 12) will attempt to run
+	  a disk program with the indicated name even if the returned length
+	  byte is zero, because the register used to flag this case is
+	  clobbered without first checking it.	The workaround is to set the
+	  command name buffer to "REM" followed by enough blanks to pad out
+	  the original command's length, which will also work with MS-DOS 6.
+	  (from padgett@tccslr.dnet.mmc.com)
+SeeAlso: AX=AE00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD44D" name="2FD44D"><b>2FD44D</b></a> - INT 2F - 4DOS.COM v2.1+ - API<br />
+<pre>
+INT 2F - 4DOS.COM v2.1+ - API
+	AX = D44Dh
+	BH = function
+	    00h installation check
+		Return: AX = 44DDh
+			BL = major version number
+			BH = minor version number
+			CX = PSP segment address for current invocation
+			DL = 4DOS shell number (0 for the first (root) shell,
+			      updated each time a new copy is loaded)
+	    01h (internal, v2.1-3.03) terminate current copy of 4DOS
+		Return: nothing
+		(internal, v4.0+) ???
+		Return: AX = 44DDh
+			ES:BX -&gt; data area (see #03086)
+	    02h ???
+		DX = ???
+		Note:	v5.52 signals "unrecoverable error" and then terminates
+			  with INT 21/AH=4Ch or enters a deliberate infinite
+			  loop if ???
+	---v2.1-3.03 only---
+	    03h EXEC program
+		CX:DX -&gt; EXEC record (see #03087)
+	    FEh deallocate shell number (passed through to root shell)
+		???
+	    FFh allocate shell number (passed through to root shell)
+	---v5.52---
+	    03h get ???
+		BL = ??? (00h/01h)
+		Return: DX = current value of ???
+	    04h set ???
+		BL = ??? (00h/01h)
+		DX = new value for ???
+Note:	a bug in v3.00 will crash the system if unrecognized value in BH
+SeeAlso: AX=D44Eh,AX=D44Fh/BX=0000h,AX=E44Dh,INT 21/AX=4403h"DOS"
+SeeAlso: INT 14/AX=7000h
+Index:	installation check;4DOS|installation check;NDOS
+
+Format of 4DOS v4.0 data area:
+Offset	Size	Description	(Table 03086)
+ 00h  2 BYTEs	???
+ 06h	WORD	XMS handle for swapping
+	???
+SeeAlso: #03087
+
+Format of 4DOS EXEC v2.1-v3.03 record:
+Offset	Size	Description	(Table 03087)
+ 00h	WORD	offset of ASCIZ program name in same segment as EXEC record
+ 02h	WORD	offset of DOS commandline in same segment as EXEC record
+ 04h	WORD	segment of environment for child process (see INT 21/AH=26h)
+SeeAlso: #03086
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FD44E" name="2FD44E"><b>2FD44E</b></a> - INT 2F C - 4DOS v3.0+ - AWAITING USER INPUT<br />
+<pre>
+INT 2F C - 4DOS v3.0+ - AWAITING USER INPUT
+	AX = D44Eh
+---4DOS v3.01+---
+	BX = condition
+	    0000h 4DOS is ready to display prompt
+	    0001h 4DOS has displayed the prompt, about to accept user input
+Return: the handler must preserve SI, DI, BP, SP, DS, ES, and SS
+Note:	v3.00 only makes the call corresponding to BX=0001h, does not set BX
+SeeAlso: AX=D44Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE44D" name="2FE44D"><b>2FE44D</b></a> - INT 2F - NDOS - API<br />
+<pre>
+INT 2F - NDOS - API
+	AX = E44Dh
+Program: NDOS is a version of 4DOS licensed to Symantec for inclusion in the
+	  Norton Utilities
+Note:	as NDOS is a licensed version of 4DOS v3.03, the API is identical to
+	  that for 4DOS, except that AH=E4h instead of D4h and the installation
+	  check returns AX=44EEh instead of AX=44DDh
+SeeAlso: AX=D44Dh,AX=E44Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE44E" name="2FE44E"><b>2FE44E</b></a> - INT 2F C - NDOS - AWAITING USER INPUT<br />
+<pre>
+INT 2F C - NDOS - AWAITING USER INPUT
+	AX = E44Eh
+	BX = condition
+	    0000h NDOS is ready to display prompt
+	    0001h NDOS has displayed the prompt, about to accept user input
+Return: handler must preserve SI, DI, BP, SP, DS, ES, and SS
+SeeAlso: AX=E44Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500002_0" name="500002_0"><b>500002</b></a> - INT 50 - PC Thuis Organizer Shell - PLOT TEXT<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PLOT TEXT
+	AX = 0002h
+	ES:BX -&gt; text string
+	DH,DL = row,column of upper left corner
+	DI = window handle
+Return: AX = status
+	    0000h successful (text fits in window)
+	    FFFFh error
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500003_0" name="500003_0"><b>500003</b></a> - INT 50 - PC Thuis Organizer Shell - WRITE FILE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - WRITE FILE
+	AX = 0003h
+	ES:BX -&gt; data to be written
+	CX = number of bytes to write
+	DS:SI -&gt; filename
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+SeeAlso: AX=0004h"Shell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500004_0" name="500004_0"><b>500004</b></a> - INT 50 - PC Thuis Organizer Shell - READ FILE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - READ FILE
+	AX = 0004h
+	ES:BX -&gt; buffer for data
+	CX = number of bytes to read or 0000h for entire file
+	DL = file type
+	    01h setting shell
+	    02h setting sterm
+	    03h INT21 file
+	DS:SI -&gt; filename
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+Note:	file type numbers are maintained by John Vanderaart; if a new file type
+	  is needed, a type number should be requested from him through the
+	  magazine:
+		PC Thuis BV
+		Spaarne 55
+		2011 CE HAARLEM
+		The Netherlands
+SeeAlso: AX=0003h"Shell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500005_0" name="500005_0"><b>500005</b></a> - INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO
+	AX = 0005h
+	ES:BX -&gt; prompt string (ES:0000h if no prompt)
+Return: AX = key pressed
+	    0000h "J" (Dutch "Ja" = "Yes")
+	    FFFFh "N" (Dutch "Nee" = "No")
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: AX=0008h"PC Thuis"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500006_0" name="500006_0"><b>500006</b></a> - INT 50 - PC Thuis Organizer Shell - ALERT USER<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - ALERT USER
+	AX = 0006h
+	ES:BX -&gt; string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500007" name="500007"><b>500007</b></a> - INT 50 - PC Thuis Organizer Shell - DO LINE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO LINE
+	AX = 0007h
+	ES:BX -&gt; text string
+	CX = string length in bytes (0000h if NUL-terminated)
+	DL = FFh to center string, else flush left
+	DH = upper left row
+	DI = window handle
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500008" name="500008"><b>500008</b></a> - INT 50 - PC Thuis Organizer Shell - DO MENU<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO MENU
+	AX = 0008h
+	ES:BX -&gt; menu structure
+Return: AL = index 1 or FFh if not selected
+	AH = index 2 or FFh if not selected
+	BL = index 3 or FFh if not selected
+	BH = index 4 or FFh if not selected
+SeeAlso: AX=0005h"PC Thuis",AX=0007h,AX=000Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500009" name="500009"><b>500009</b></a> - INT 50 - PC Thuis Organizer Shell - MESSAGE ON<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MESSAGE ON
+	AX = 0009h
+	ES:BX -&gt; message string
+SeeAlso: AX=000Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000A" name="50000A"><b>50000A</b></a> - INT 50 - PC Thuis Organizer Shell - MESSAGE OFF<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MESSAGE OFF
+	AX = 000Ah
+SeeAlso: AX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000B" name="50000B"><b>50000B</b></a> - INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE
+	AX = 000Bh
+	BL = new attribute
+	CH,CL = row,column of upper left corner
+	DH,DL = row,column of lower right corner
+	DI = window handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000C" name="50000C"><b>50000C</b></a> - INT 50 - PC Thuis Organizer Shell - DO REQUEST<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO REQUEST
+	AX = 000Ch
+	ES:BX -&gt; request structure
+Return: AX = status
+	    0000h confirmed
+	    FFFFh denied
+SeeAlso: AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000D" name="50000D"><b>50000D</b></a> - INT 50 - PC Thuis Organizer Shell - EDIT LINE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - EDIT LINE
+	AX = 000Dh
+	ES:BX -&gt; text string
+	CL = length
+	CH = input type (see #03243)
+	DH,DL = row,column of upper left corner
+	DI = window handle
+Return: AX = result code
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+
+Bitfields for input type:
+Bit(s)	Description	(Table 03243)
+ 0	force uppercase
+ 1	integer
+ 2	no spaces allowed
+ 3	no cursor keys
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000E" name="50000E"><b>50000E</b></a> - INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER
+	AX = 000Eh
+	BL = character
+	BH = attribute
+	DH,DL = row,column at which to plot
+	DI = window handle
+Return: AX = status
+	    0000h successful
+	    FFFFh errror
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000F" name="50000F"><b>50000F</b></a> - INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW
+	AX = 000Fh
+	BL = character
+	BH = attribute
+	DI = window handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500010" name="500010"><b>500010</b></a> - INT 50 - PC Thuis Organizer Shell - TRACE MENU<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - TRACE MENU
+	AX = 0010h
+	ES:BX -&gt; first menu structure
+	CL = hotkey to look up
+Return: AL = index 1 or FFh if not selected
+	AH = index 2 or FFh if not selected
+	BL = index 3 or FFh if not selected
+	BH = index 4 or FFh if not selected
+Index:	hotkeys;PC Thuis Organizer Shell
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500011" name="500011"><b>500011</b></a> - INT 50 - PC Thuis Organizer Shell - MOVE MEMORY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MOVE MEMORY
+	AX = 0011h
+	DS:SI -&gt; source
+	ES:DI -&gt; destination
+	CX = number of bytes to move (0000h = until NUL string terminator???)
+SeeAlso: AX=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500012" name="500012"><b>500012</b></a> - INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY
+	AX = 0012h
+	DS:SI -&gt; source
+	ES:DI -&gt; destination
+	CX = number of bytes to compare (0000h=until NUL string terminator???)
+Return: AX = status
+	    0000h same
+	    FFFFh different
+SeeAlso: AX=0011h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500013" name="500013"><b>500013</b></a> - INT 50 - PC Thuis Organizer Shell - GET KEY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - GET KEY
+	AX = 0013h
+	CH = type flags
+	    bit 0: force uppercase
+	    bit 1: integer
+	    bit 2: no spaces
+Return: AX = keystroke
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500014" name="500014"><b>500014</b></a> - INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW
+	AX = 0014h
+	BL = direction
+	    06h up
+	    07h down
+	BH = attribute
+	DI = window handle
+SeeAlso: INT 10/AH=06h,INT 10/AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500015" name="500015"><b>500015</b></a> - INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE
+	AX = 0015h
+	BL = handle size
+	    00h 65536 bytes (64K)
+	    01h 65535 bytes (64K-1)
+	    02h 32768 bytes (32K)
+	    03h 32767 bytes (32K-1)
+Return: AX = segment
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: INT 21/AH=48h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

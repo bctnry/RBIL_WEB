@@ -1,0 +1,1768 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._p</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category p - power management,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#104F10BL00"><b>104F10BL00</b> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET CAPABILITIES</a><br />
+<a href="#104F10BL01"><b>104F10BL01</b> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - SET DISPLAY POWER STATE</a><br />
+<a href="#104F10BL02"><b>104F10BL02</b> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET DISPLAY POWER STATE</a><br />
+<a href="#10A000"><b>10A000</b> - INT 10 - ATI BIOS Extensions - ???</a><br />
+<a href="#10A00C"><b>10A00C</b> - INT 10 - ATI Mach64 BIOS - SET SLEEP MODE</a><br />
+<a href="#155300"><b>155300</b> - INT 15 - Advanced Power Management v1.0+ - INSTALLATION CHECK</a><br />
+<a href="#155301"><b>155301</b> - INT 15 - Advanced Power Management v1.0+ - CONNECT REAL-MODE INTERFACE</a><br />
+<a href="#155302"><b>155302</b> - INT 15 R - Advanced Power Management v1.0+ - CONNECT 16-BIT PROTMODE INTERFACE</a><br />
+<a href="#155303"><b>155303</b> - INT 15 - Advanced Power Management v1.0+ - CONNECT 32-BIT PROTMODE INTERFACE</a><br />
+<a href="#155304"><b>155304</b> - INT 15 - Advanced Power Management v1.0+ - DISCONNECT INTERFACE</a><br />
+<a href="#155305"><b>155305</b> - INT 15 - Advanced Power Management v1.0+ - CPU IDLE</a><br />
+<a href="#155306"><b>155306</b> - INT 15 - Advanced Power Management v1.0+ - CPU BUSY</a><br />
+<a href="#155307"><b>155307</b> - INT 15 - Advanced Power Management v1.0+ - SET POWER STATE</a><br />
+<a href="#155307CX0001"><b>155307CX0001</b> - INT 15 - Advanced Power Management v1.0+ - SYSTEM STAND-BY</a><br />
+<a href="#155307CX0002"><b>155307CX0002</b> - INT 15 - Advanced Power Management v1.0+ - SUSPEND SYSTEM</a><br />
+<a href="#155307CX0003"><b>155307CX0003</b> - INT 15 - Advanced Power Management v1.2 - TURN OFF SYSTEM</a><br />
+<a href="#155308"><b>155308</b> - INT 15 - Advanced Power Management v1.0+ - ENABLE/DISABLE POWER MANAGEMENT</a><br />
+<a href="#155309"><b>155309</b> - INT 15 - Advanced Power Management v1.0+ - RESTORE POWER-ON DEFAULTS</a><br />
+<a href="#15530A"><b>15530A</b> - INT 15 - Advanced Power Management v1.0+ - GET POWER STATUS</a><br />
+<a href="#15530B"><b>15530B</b> - INT 15 - Advanced Power Management v1.0+ - GET POWER MANAGEMENT EVENT</a><br />
+<a href="#15530C"><b>15530C</b> - INT 15 - Advanced Power Management v1.1+ - GET POWER STATE</a><br />
+<a href="#15530D"><b>15530D</b> - INT 15 - Advanced Power Management v1.1+ - EN/DISABLE DEVICE POWER MANAGEMENT</a><br />
+<a href="#15530E"><b>15530E</b> - INT 15 - Advanced Power Management v1.1+ - DRIVER VERSION</a><br />
+<a href="#15530F"><b>15530F</b> - INT 15 - Advanced Power Management v1.1+ - ENGAGE/DISENGAGE POWER MANAGEMENT</a><br />
+<a href="#155310"><b>155310</b> - INT 15 - Advanced Power Management v1.2 - GET CAPABILITIES</a><br />
+<a href="#155311"><b>155311</b> - INT 15 - Advanced Power Management v1.2 - GET/SET/DISABLE RESUME TIMER</a><br />
+<a href="#155312"><b>155312</b> - INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE RESUME ON RING</a><br />
+<a href="#155313"><b>155313</b> - INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE TIMER-BASED REQUESTS</a><br />
+<a href="#155380BH00"><b>155380BH00</b> - INT 15 - APM SL Enhanced v1.0 - GET SUSPEND/GLOBAL STANDBY MODE</a><br />
+<a href="#155380BH01"><b>155380BH01</b> - INT 15 - APM SL Enhanced v1.0 - SET SUSPEND/GLOBAL STANDBY MODE</a><br />
+<a href="#155380BH02"><b>155380BH02</b> - INT 15 - APM SL Enhanced v1.0 - GET GLOBAL STANDBY TIMER</a><br />
+<a href="#155380BH03"><b>155380BH03</b> - INT 15 - APM SL Enhanced v1.0 - SET GLOBAL STANDBY TIMER</a><br />
+<a href="#155380BH04"><b>155380BH04</b> - INT 15 - APM SL Enhanced v1.0 - GET AUTO POWER OFF TIMER</a><br />
+<a href="#155380BH05"><b>155380BH05</b> - INT 15 - APM SL Enhanced v1.0 - SET AUTO POWER OFF TIMER</a><br />
+<a href="#155380BH06"><b>155380BH06</b> - INT 15 - APM SL Enhanced v1.0 - GET RESUME CONDITION</a><br />
+<a href="#155380BH07"><b>155380BH07</b> - INT 15 - APM SL Enhanced v1.0 - SET RESUME CONDITION</a><br />
+<a href="#155380BH08"><b>155380BH08</b> - INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT TIME</a><br />
+<a href="#155380BH09"><b>155380BH09</b> - INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT TIME</a><br />
+<a href="#155380BH0A"><b>155380BH0A</b> - INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT DATE</a><br />
+<a href="#155380BH0B"><b>155380BH0B</b> - INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT DATE</a><br />
+<a href="#155380BH0C"><b>155380BH0C</b> - INT 15 - APM SL Enhanced v1.0 - GET CPU SPEED MODE</a><br />
+<a href="#155380BH0D"><b>155380BH0D</b> - INT 15 - APM SL Enhanced v1.0 - SET CPU SPEED MODE</a><br />
+<a href="#155380BH7E"><b>155380BH7E</b> - INT 15 - APM SL Enhanced v1.0 - SL HW PARAMETER</a><br />
+<a href="#155380BH7F"><b>155380BH7F</b> - INT 15 - Advanced Power Management v1.1 - OEM APM INSTALLATION CHECK</a><br />
+<a href="#155380"><b>155380</b> - INT 15 - Advanced Power Management v1.1 - OEM APM FUNCTIONS</a><br />
+<a href="#155380BX8000"><b>155380BX8000</b> - INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???</a><br />
+<a href="#155380BX8001"><b>155380BX8001</b> - INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???</a><br />
+<a href="#156000"><b>156000</b> - INT 15 U - HP 100LX/200LX - GET MAIN BATTERY LEVEL</a><br />
+<a href="#156001"><b>156001</b> - INT 15 U - HP 100LX/200LX - GET BACKUP BATTERY LEVEL</a><br />
+<a href="#156002"><b>156002</b> - INT 15 U - HP 100LX/200LX - GET POWER INFO</a><br />
+<a href="#156003"><b>156003</b> - INT 15 U - HP 100LX/200LX - SET MAIN BATTERY TYPE</a><br />
+<a href="#156004"><b>156004</b> - INT 15 U - HP 100LX/200LX - SET BATTERY CHARGING MODE</a><br />
+<a href="#15BA20"><b>15BA20</b> - INT 15 - HP OmniShare - STANDBY.COM - INSTALLATION CHECK</a><br />
+<a href="#15BA21"><b>15BA21</b> - INT 15 - HP OmniShare - STANDBY.COM - SET STANDBY DURATION</a><br />
+<a href="#15BA22"><b>15BA22</b> - INT 15 - HP OmniShare - STANDBY.COM - GET STANDBY DURATION</a><br />
+<a href="#15BA23"><b>15BA23</b> - INT 15 - HP OmniShare - STANDBY.COM - TURN ON THE SCREEN IMMEDIATELY</a><br />
+<a href="#15BA24"><b>15BA24</b> - INT 15 - HP OmniShare - STANDBY.COM - TURN OFF THE SCREEN IMMEDIATELY</a><br />
+<a href="#15BA25"><b>15BA25</b> - INT 15 - HP OmniShare - STANDBY.COM - PREPARE FOR UNINSTALL</a><br />
+<a href="#15BA26"><b>15BA26</b> - INT 15 - HP OmniShare - STANDBY.COM - IS THE DISPLAY IN STANDBY MODE?</a><br />
+<a href="#15BA27"><b>15BA27</b> - INT 15 - HP OmniShare - STANDBY.COM - RESERVED FUNCTIONS</a><br />
+<a href="#174B00"><b>174B00</b> - INT 17 - Brother P-Touch - INSTALLATION CHECK</a><br />
+<a href="#174B01"><b>174B01</b> - INT 17 - Brother P-Touch - UNINSTALL</a><br />
+<a href="#2F4C"><b>2F4C</b> - INT 2F U - Advanced Power Management</a><br />
+<a href="#2F53"><b>2F53</b> - INT 2F U - POWER.EXE - APM event broadcasting???</a><br />
+<a href="#2F530B"><b>2F530B</b> - INT 2F U - ??? (MOUSEPWR.COM, others) - ???</a><br />
+<a href="#2F5400"><b>2F5400</b> - INT 2F U - POWER.EXE - INSTALLATION CHECK</a><br />
+<a href="#2F5401"><b>2F5401</b> - INT 2F U - POWER.EXE - GET/SET POWER STATUS</a><br />
+<a href="#2F5402"><b>2F5402</b> - INT 2F U - POWER.EXE - GET/SET IDLE DETECTION STRATEGY</a><br />
+<a href="#2F5403"><b>2F5403</b> - INT 2F U - POWER.EXE - GET/SET ADVANCED POWER MANAGEMENT SETTING</a><br />
+<a href="#2F5480"><b>2F5480</b> - INT 2F U - POWER.EXE - GET/SET ???</a><br />
+<a href="#2F5481"><b>2F5481</b> - INT 2F U - POWER.EXE - GET STATISTICS</a><br />
+<a href="#2F5482"><b>2F5482</b> - INT 2F U - POWER.EXE - GET/SET APM POLLING FREQUENCY</a><br />
+<a href="#2F548F"><b>2F548F</b> - INT 2F U - POWER.EXE - GET/SET ???</a><br />
+
+<hr />
+
+<a href="#104F10BL00" name="104F10BL00"><b>104F10BL00</b></a> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET CAPABILITIES<br />
+<pre>
+INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET CAPABILITIES
+	AX = 4F10h
+	BL = 00h
+	ES:DI = 0000h:0000h (reserved for future use as pointer to info block)
+Return: AL = 4Fh if function supported (installed)
+	AH = call status
+	    00h successful
+	    else failed
+	---if successful---
+	BL = VBE/PM version (bits 7-4: major, bits 3-0: minor)
+	BH = supported states (see #00110)
+	ES:DI unchanged
+Index:	installation check;VESA VBE/Power Management|VESA DPMS
+SeeAlso: AX=4F10h/BL=01h,AX=4F10h/BL=02h
+
+Bitfields for VESA VBE/PM supported power states:
+Bit(s)	Description	(Table 00110)
+ 0	standby
+ 1	suspend
+ 2	off
+ 3	reduced on
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#104F10BL01" name="104F10BL01"><b>104F10BL01</b></a> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - SET DISPLAY POWER STATE<br />
+<pre>
+INT 10 - VESA VBE/PM (Power Management) v1.0+ - SET DISPLAY POWER STATE
+	AX = 4F10h
+	BL = 01h
+	BH = new state (see #00111)
+Return: AL = 4Fh if function supported
+	AH = call status
+	    00h successful
+	    else failed
+SeeAlso: AX=4F10h/BL=00h,AX=4F10h/BL=02h,AX=A00Ch
+
+(Table 00111)
+Values for VESA VBE/PM power state:
+ 00h	On
+ 01h	standby
+ 02h	suspend
+ 04h	Off
+ 08h	reduced On (for flat screens)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#104F10BL02" name="104F10BL02"><b>104F10BL02</b></a> - INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET DISPLAY POWER STATE<br />
+<pre>
+INT 10 - VESA VBE/PM (Power Management) v1.0+ - GET DISPLAY POWER STATE
+	AX = 4F10h
+	BL = 02h
+Return: AL = 4Fh if function supported
+	AH = call status
+	    00h successful
+	       BH = current power state (see #00111)
+	    else failed
+SeeAlso: AX=4F10h/BL=00h,AX=4F10h/BL=01h,AX=A00Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A000" name="10A000"><b>10A000</b></a> - INT 10 - ATI BIOS Extensions - ???<br />
+<pre>
+INT 10 - ATI BIOS Extensions - ???
+	AX = A000h
+	CL = ??? (bits 2-0 may not be 000)
+	CH = ??? (81h or ???)
+	DX = segment of ??? (if CH=81h)
+	???
+Return: AX = ???
+Program: the ATI BIOS extensions are supported by ATI graphics cards containing
+	  the Mach64 or newer graphics chips (Rage Pro, Rage 128, etc.)
+SeeAlso: AX=4F10h/BL=00h,AX=A001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00C" name="10A00C"><b>10A00C</b></a> - INT 10 - ATI Mach64 BIOS - SET SLEEP MODE<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - SET SLEEP MODE
+	AX = A00Ch
+	CL = new state
+	    00h normal operation
+	    01h standby
+	    02h suspend
+	    03h off
+Return: AH = status
+	    00h successful
+	    01h failed
+Note:	CL bit 2 affects values written to video card's ports
+SeeAlso: AX=A000h,AX=A00Dh,AX=4F00h,AX=4F10h/BL=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155300" name="155300"><b>155300</b></a> - INT 15 - Advanced Power Management v1.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - INSTALLATION CHECK
+	AX = 5300h
+	BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+	    AH = major version (BCD)
+	    AL = minor version (BCD)
+	    BX = 504Dh ("PM")
+	    CX = flags (see #00472)
+	CF set on error
+	    AH = error code (06h,09h,86h) (see #00473)
+BUG:	early versions of the Award Modular BIOS with built-in APM support
+	  reportedly do not set BX on return
+
+Bitfields for APM flags:
+Bit(s)	Description	(Table 00472)
+ 0	16-bit protected mode interface supported
+ 1	32-bit protected mode interface supported
+ 2	CPU idle call reduces processor speed
+ 3	BIOS power management disabled
+ 4	BIOS power management disengaged (APM v1.1)
+ 5-7	reserved
+
+(Table 00473)
+Values for APM error code:
+ 01h	power management functionality disabled
+ 02h	interface connection already in effect
+ 03h	interface not connected
+ 04h	real-mode interface not connected
+ 05h	16-bit protected-mode interface already connected
+ 06h	16-bit protected-mode interface not supported
+ 07h	32-bit protected-mode interface already connected
+ 08h	32-bit protected-mode interface not supported
+ 09h	unrecognized device ID
+ 0Ah	invalid parameter value in CX
+ 0Bh	(APM v1.1) interface not engaged
+ 0Ch	(APM v1.2) function not supported
+ 0Dh	(APM v1.2) Resume Timer disabled
+ 0Eh-1Fh reserved for other interface and general errors
+ 20h-3Fh reserved for CPU errors
+ 40h-5Fh reserved for device errors
+ 60h	can't enter requested state
+ 61h-7Fh reserved for other system errors
+ 80h	no power management events pending
+ 81h-85h reserved for other power management event errors
+ 86h	APM not present
+ 87h-9Fh reserved for other power management event errors
+ A0h-FEh reserved
+ FFh	undefined
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155301" name="155301"><b>155301</b></a> - INT 15 - Advanced Power Management v1.0+ - CONNECT REAL-MODE INTERFACE<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - CONNECT REAL-MODE INTERFACE
+	AX = 5301h
+	BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (02h,05h,07h,09h) (see #00473)
+Note:	on connection, an APM v1.1 or v1.2 BIOS switches to APM v1.0
+	  compatibility mode until it is informed that the user supports a
+	  newer version of APM (see AX=530Eh)
+SeeAlso: AX=5302h,AX=5303h,AX=5304h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155302" name="155302"><b>155302</b></a> - INT 15 R - Advanced Power Management v1.0+ - CONNECT 16-BIT PROTMODE INTERFACE<br />
+<pre>
+INT 15 R - Advanced Power Management v1.0+ - CONNECT 16-BIT PROTMODE INTERFACE
+	AX = 5302h
+	BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+	    AX = real-mode segment base address of protected-mode 16-bit code
+		segment
+	    BX = offset of entry point
+	    CX = real-mode segment base address of protected-mode 16-bit data
+		segment
+	    ---APM v1.1---
+	    SI = APM BIOS code segment length
+	    DI = APM BIOS data segment length
+	CF set on error
+	    AH = error code (02h,05h,06h,07h,09h) (see #00473)
+Notes:	the caller must initialize two consecutive descriptors with the
+	  returned segment base addresses; these descriptors must be valid
+	  whenever the protected-mode interface is called, and will have
+	  their limits arbitrarily set to 64K.
+	the protected mode interface is invoked by making a far call with the
+	  same register values as for INT 15; it must be invoked while CPL=0,
+	  the code segment descriptor must have a DPL of 0, the stack must be
+	  in a 16-bit segment and have enough room for BIOS use and possible
+	  interrupts, and the current I/O permission bit map must allow access
+	  to the I/O ports used for power management.
+	functions 00h-03h are not available from protected mode
+	on connection, an APM v1.1 or v1.2 BIOS switches to APM v1.0
+	  compatibility mode until it is informed that the user supports a
+	  newer version of APM (see AX=530Eh)
+SeeAlso: AX=5301h,AX=5303h,AX=5304h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155303" name="155303"><b>155303</b></a> - INT 15 - Advanced Power Management v1.0+ - CONNECT 32-BIT PROTMODE INTERFACE<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - CONNECT 32-BIT PROTMODE INTERFACE
+	AX = 5303h
+	BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+	    AX = real-mode segment base address of protected-mode 32-bit code
+		segment
+	    EBX = offset of entry point
+	    CX = real-mode segment base address of protected-mode 16-bit code
+		segment
+	    DX = real-mode segment base address of protected-mode 16-bit data
+		segment
+	    ---APM v1.1---
+	    SI = APM BIOS code segment length
+	    DI = APM BIOS data segment length
+	CF set on error
+	    AH = error code (02h,05h,07h,08h,09h) (see #00473)
+Notes:	the caller must initialize three consecutive descriptors with the
+	  returned segment base addresses for 32-bit code, 16-bit code, and
+	  16-bit data, respectively; these descriptors must be valid whenever
+	  the protected-mode interface is called, and will have their limits
+	  arbitrarily set to 64K.
+	the protected mode interface is invoked by making a far call to the
+	  32-bit code segment with the same register values as for INT 15; it
+	  must be invoked while CPL=0, the code segment descriptor must have a
+	  DPL of 0, the stack must be in a 32-bit segment and have enough room
+	  for BIOS use and possible interrupts, and the current I/O permission
+	  bit map must allow access to the I/O ports used for power management.
+	functions 00h-03h are not available from protected mode
+	on connection, an APM v1.1 or v1.2 BIOS switches to APM v1.0
+	  compatibility mode until it is informed that the user supports a
+	  newer version of APM (see AX=530Eh)
+SeeAlso: AX=5301h,AX=5302h,AX=5304h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155304" name="155304"><b>155304</b></a> - INT 15 - Advanced Power Management v1.0+ - DISCONNECT INTERFACE<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - DISCONNECT INTERFACE
+	AX = 5304h
+	BX = device ID of system BIOS (0000h)
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (03h,09h) (see #00473)
+SeeAlso: AX=5301h,AX=5302h,AX=5303h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155305" name="155305"><b>155305</b></a> - INT 15 - Advanced Power Management v1.0+ - CPU IDLE<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - CPU IDLE
+	AX = 5305h
+Return: CF clear if successful (after system leaves idle state)
+	CF set on error
+	    AH = error code (03h,0Bh) (see #00473)
+Notes:	call when the system is idle and should be suspended until the next
+	  system event or interrupt
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+	if an interrupt causes the system to resume normal processing, the
+	  interrupt may or may not have been handled when the BIOS returns
+	  from this call; thus, the caller should allow interrupts on return
+	interrupt handlers may not retain control if the BIOS allows
+	  interrupts while in idle mode even if they are able to determine
+	  that they were called from idle mode
+	the caller should issue this call continuously in a loop until it needs
+	  to perform some processing of its own
+SeeAlso: AX=1000h,AX=5306h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155306" name="155306"><b>155306</b></a> - INT 15 - Advanced Power Management v1.0+ - CPU BUSY<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - CPU BUSY
+	AX = 5306h
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (03h,0Bh) (see #00473)
+Notes:	called to ensure that the system runs at full speed even on systems
+	  where the BIOS is unable to recognize increased activity (especially
+	  if interrupts are hooked by other programs and not chained to the
+	  BIOS)
+	this call may be made even when the system is already running at full
+	  speed, but it will create unnecessary overhead
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+SeeAlso: AX=5305h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155307" name="155307"><b>155307</b></a> - INT 15 - Advanced Power Management v1.0+ - SET POWER STATE<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - SET POWER STATE
+	AX = 5307h
+	BX = device ID (see #00474)
+	CX = system state ID (see #00475)
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (01h,03h,09h,0Ah,0Bh,60h) (see #00473)
+Note:	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+SeeAlso: AX=530Ch
+
+(Table 00474)
+Values for APM device IDs:
+ 0000h	system BIOS
+ 0001h	all devices for which the system BIOS manages power
+ 01xxh	display (01FFh for all attached display devices)
+ 02xxh	secondary storage (02FFh for all attached secondary storage devices)
+ 03xxh	parallel ports (03FFh for all attached parallel ports)
+ 04xxh	serial ports (04FFh for all attached serial ports)
+---APM v1.1+ ---
+ 05xxh	network adapters (05FFh for all attached network adapters)
+ 06xxh	PCMCIA sockets (06FFh for all)
+ 0700h-7FFFh reserved
+ 80xxh	system battery devices (APM v1.2)
+ 8100h-DFFFh reserved
+ Exxxh	OEM-defined power device IDs
+ F000h-FFFFh reserved
+
+(Table 00475)
+Values for system state ID:
+ 0000h	ready (not supported for device ID 0001h)
+ 0001h	stand-by
+ 0002h	suspend
+ 0003h	off (not supported for device ID 0001h in APM v1.0)
+---APM v1.1---
+ 0004h	last request processing notification (only for device ID 0001h)
+ 0005h	last request rejected (only for device ID 0001h)
+ 0006h-001Fh reserved system states
+ 0020h-003Fh OEM-defined system states
+ 0040h-007Fh OEM-defined device states
+ 0080h-FFFFh reserved device states
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155307CX0001" name="155307CX0001"><b>155307CX0001</b></a> - INT 15 - Advanced Power Management v1.0+ - SYSTEM STAND-BY<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - SYSTEM STAND-BY
+	AX = 5307h
+	CX = 0001h
+	BX = 0001h (device ID for all power-managed devices)
+Return: CF clear
+Notes:	puts the entire system into stand-by mode; normally called in response
+	  to a System Stand-by Request notification after any necessary
+	  processing, but may also be invoked at the caller's discretion
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+	the stand-by state is typically exited on an interrupt
+SeeAlso: AX=4280h,AX=5307h/CX=0002h"SUSPEND",AX=5307h/CX=0003h,AX=530Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155307CX0002" name="155307CX0002"><b>155307CX0002</b></a> - INT 15 - Advanced Power Management v1.0+ - SUSPEND SYSTEM<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - SUSPEND SYSTEM
+	AX = 5307h
+	CX = 0002h
+	BX = 0001h (device ID for all power-managed devices)
+Return: after system is resumed
+	CF clear
+Notes:	puts the entire system into a low-power suspended state; normally
+	  called in response to a Suspend System Request notification after
+	  any necessary processing, but may also be invoked at the caller's
+	  discretion
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+	the caller may need to update its date and time values because the
+	  system could have been suspended for a long period of time
+SeeAlso: AX=5307h/CX=0001h"STAND-BY",AX=530Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155307CX0003" name="155307CX0003"><b>155307CX0003</b></a> - INT 15 - Advanced Power Management v1.2 - TURN OFF SYSTEM<br />
+<pre>
+INT 15 - Advanced Power Management v1.2 - TURN OFF SYSTEM
+	AX = 5307h
+	CX = 0003h
+	BX = 0001h (device ID for all power-managed devices)
+Return: after system is resumed
+	CF clear
+Notes:	if supported by the system's power supply, turns off the system power
+SeeAlso: AX=5307h/CX=0001h"STAND-BY",AX=530Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155308" name="155308"><b>155308</b></a> - INT 15 - Advanced Power Management v1.0+ - ENABLE/DISABLE POWER MANAGEMENT<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - ENABLE/DISABLE POWER MANAGEMENT
+	AX = 5308h
+	BX = device ID for all devices power-managed by APM
+	    0001h (APM v1.1+)
+	    FFFFh (APM v1.0)
+	CX = new state
+	    0000h disabled
+	    0001h enabled
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (01h,03h,09h,0Ah,0Bh) (see #00473)
+Notes:	when power management is disabled, the system BIOS will not
+	  automatically power down devices, enter stand-by or suspended mode,
+	  or perform any power-saving actions in response to AX=5305h calls
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+	the APM BIOS should never be both disabled and disengaged at the same
+	  time
+SeeAlso: AX=5309h,AX=530Dh,AX=530Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155309" name="155309"><b>155309</b></a> - INT 15 - Advanced Power Management v1.0+ - RESTORE POWER-ON DEFAULTS<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - RESTORE POWER-ON DEFAULTS
+	AX = 5309h
+	BX = device ID for all devices power-managed by APM
+	    0001h (APM v1.1)
+	    FFFFh (APM v1.0)
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (03h,09h,0Bh) (see #00473)
+Note:	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+SeeAlso: AX=5308h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530A" name="15530A"><b>15530A</b></a> - INT 15 - Advanced Power Management v1.0+ - GET POWER STATUS<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - GET POWER STATUS
+	AX = 530Ah
+	BX = device ID
+	    0001h all devices power-managed by APM
+	    80xxh specific battery unit number XXh (01h-FFh) (APM v1.2)
+Return: CF clear if successful
+	    BH = AC line status
+		00h off-line
+		01h on-line
+		02h on backup power (APM v1.1)
+		FFh unknown
+		other reserved
+	    BL = battery status (see #00476)
+	    CH = battery flag (APM v1.1+) (see #00477)
+	    CL = remaining battery life, percentage
+		00h-64h (0-100) percentage of full charge
+		FFh unknown
+	    DX = remaining battery life, time (APM v1.1) (see #00478)
+	    ---if specific battery unit specified---
+	    SI = number of battery units currently installed
+	CF set on error
+	    AH = error code (09h,0Ah) (see #00473)
+Notes:	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+	supported in real mode (INT 15) and both 16-bit and 32-bit protected
+	  mode
+
+(Table 00476)
+Values for APM v1.0+ battery status:
+ 00h	high
+ 01h	low
+ 02h	critical
+ 03h	charging
+ FFh	unknown
+ other	reserved
+SeeAlso: #00477,#00478
+
+Bitfields for APM v1.1+ battery flag:
+Bit(s)	Description	(Table 00477)
+ 0	high
+ 1	low
+ 2	critical
+ 3	charging
+ 4	selected battery not present (APM v1.2)
+ 5-6	reserved (0)
+ 7	no system battery
+Note:	all bits set (FFh) if unknown
+SeeAlso: #00476,#00478
+
+Bitfields for APM v1.1+ remaining battery life:
+Bit(s)	Description	(Table 00478)
+ 15	time units: 0=seconds, 1=minutes
+ 14-0	battery life in minutes or seconds
+Note:	all bits set (FFFFh) if unknown
+SeeAlso: #00476,#00477
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530B" name="15530B"><b>15530B</b></a> - INT 15 - Advanced Power Management v1.0+ - GET POWER MANAGEMENT EVENT<br />
+<pre>
+INT 15 - Advanced Power Management v1.0+ - GET POWER MANAGEMENT EVENT
+	AX = 530Bh
+Return: CF clear if successful
+	    BX = event code (see #00479)
+	    CX = event information (APM v1.2) if BX=0003h or BX=0004h
+		bit 0: PCMCIA socket was powered down in suspend state
+	CF set on error
+	    AH = error code (03h,0Bh,80h) (see #00473)
+Notes:	although power management events are often asynchronous, notification
+	  will not be made until polled via this call to permit software to
+	  only receive event notification when it is prepared to process
+	  power management events; since these events are not very time-
+	  critical, it should be sufficient to poll once or twice per second
+	the critical resume notification is made after the system resumes
+	  from an emergency suspension; normally, the system BIOS only notifies
+	  its partner that it wishes to suspend and relies on the partner to
+	  actually request the suspension, but no notification is made on an
+	  emergency suspension
+	should not be called from within a hardware interrupt handler to avoid
+	  reentrance problems
+SeeAlso: AX=5307h,AX=5307h/CX=0001h"STAND-BY",AX=5307h/CX=0002h"SUSPEND"
+
+(Table 00479)
+Values for APM event code:
+ 0001h	system stand-by request
+ 0002h	system suspend request
+ 0003h	normal resume system notification
+ 0004h	critical resume system notification
+ 0005h	battery low notification
+---APM v1.1---
+ 0006h	power status change notification
+ 0007h	update time notification
+ 0008h	critical system suspend notification
+ 0009h	user system standby request notification
+ 000Ah	user system suspend request notification
+ 000Bh	system standby resume notification
+---APM v1.2---
+ 000Ch	capabilities change notification (see AX=5310h)
+------
+ 000Dh-00FFh reserved system events
+ 01xxh	reserved device events
+ 02xxh	OEM-defined APM events
+ 0300h-FFFFh reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530C" name="15530C"><b>15530C</b></a> - INT 15 - Advanced Power Management v1.1+ - GET POWER STATE<br />
+<pre>
+INT 15 - Advanced Power Management v1.1+ - GET POWER STATE
+	AX = 530Ch
+	BX = device ID (see #00474)
+Return: CF clear if successful
+	    CX = system state ID (see #00475)
+	CF set on error
+	    AH = error code (01h,09h) (see #00473)
+SeeAlso: AX=5307h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530D" name="15530D"><b>15530D</b></a> - INT 15 - Advanced Power Management v1.1+ - EN/DISABLE DEVICE POWER MANAGEMENT<br />
+<pre>
+INT 15 - Advanced Power Management v1.1+ - EN/DISABLE DEVICE POWER MANAGEMENT
+	AX = 530Dh
+	BX = device ID (see #00474)
+	CX = function
+	    0000h disable power management
+	    0001h enable power management
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (01h,03h,09h,0Ah,0Bh) (see #00473)
+Desc:	specify whether automatic power management should be active for a
+	  given device
+SeeAlso: AX=5308h,AX=530Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530E" name="15530E"><b>15530E</b></a> - INT 15 - Advanced Power Management v1.1+ - DRIVER VERSION<br />
+<pre>
+INT 15 - Advanced Power Management v1.1+ - DRIVER VERSION
+	AX = 530Eh
+	BX = device ID of system BIOS (0000h)
+	CH = APM driver major version (BCD)
+	CL = APM driver minor version (BCD) (02h for APM v1.2)
+Return: CF clear if successful
+	    AH = APM connection major version (BCD)
+	    AL = APM connection minor version (BCD)
+	CF set on error
+	    AH = error code (03h,09h,0Bh) (see #00473)
+SeeAlso: AX=5300h,AX=5303h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15530F" name="15530F"><b>15530F</b></a> - INT 15 - Advanced Power Management v1.1+ - ENGAGE/DISENGAGE POWER MANAGEMENT<br />
+<pre>
+INT 15 - Advanced Power Management v1.1+ - ENGAGE/DISENGAGE POWER MANAGEMENT
+	AX = 530Fh
+	BX = device ID (see #00474)
+	CX = function
+	    0000h disengage power management
+	    0001h engage power management
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (01h,09h) (see #00473)
+Notes:	unlike AX=5308h, this call does not affect the functioning of the APM
+	  BIOS
+	when cooperative power management is disengaged, the APM BIOS performs
+	  automatic power management of the system or device
+SeeAlso: AX=5308h,AX=530Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155310" name="155310"><b>155310</b></a> - INT 15 - Advanced Power Management v1.2 - GET CAPABILITIES<br />
+<pre>
+INT 15 - Advanced Power Management v1.2 - GET CAPABILITIES
+	AX = 5310h
+	BX = device ID (see #00474)
+	    0000h (APM BIOS)
+	    other reserved
+Return: CF clear if successful
+	    BL = number of battery units supported (00h if no system batteries)
+	    CX = capabilities flags (see #00480)
+	CF set on error
+	    AH = error code (01h,09h,86h) (see #00473)
+Notes:	this function is supported via the INT 15, 16-bit protected mode, and
+	  32-bit protected mode interfaces; it does not require that a
+	  connection be established prior to use
+	this function will return the capabilities currently in effect, not
+	  any new settings which have been made but do not take effect until
+	  a system restart
+SeeAlso: AX=5300h,AX=530Fh,AX=5311h,AX=5312h,AX=5313h
+
+Bitfields for APM v1.2 capabilities flags:
+Bit(s)	Description	(Table 00480)
+ 15-8	reserved
+ 7	PCMCIA Ring Indicator will wake up system from suspend mode
+ 6	PCMCIA Ring Indicator will wake up system from standby mode
+ 5	Resume on Ring Indicator will wake up system from suspend mode
+ 4	Resume on Ring Indicator will wake up system from standby mode
+ 3	resume timer will wake up system from suspend mode
+ 2	resume timer will wake up system from standby mode
+ 1	can enter global suspend state
+ 0	can enter global standby state
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155311" name="155311"><b>155311</b></a> - INT 15 - Advanced Power Management v1.2 - GET/SET/DISABLE RESUME TIMER<br />
+<pre>
+INT 15 - Advanced Power Management v1.2 - GET/SET/DISABLE RESUME TIMER
+	AX = 5311h
+	BX = device ID (see #00474)
+	    0000h (APM BIOS)
+	    other reserved
+	CL = function
+	    00h disable Resume Timer
+	    01h get Resume Timer
+	    02h set Resume Timer
+		CH = resume time, seconds (BCD)
+		DL = resume time, minutes (BCD)
+		DH = resume time, hours (BCD)
+		SI = resume date (BCD), high byte = month, low byte = day
+		DI = resume date, year (BCD)
+Return: CF clear if successful
+	    ---if getting timer---
+	    CH = resume time, seconds (BCD)
+	    DL = resume time, minutes (BCD)
+	    DH = resume time, hours (BCD)
+	    SI = resume date (BCD), high byte = month, low byte = day
+	    DI = resume date, year (BCD)
+	CF set on error
+	    AH = error code (03h,09h,0Ah,0Bh,0Ch,0Dh,86h) (see #00473)
+Notes:	this function is supported via the INT 15, 16-bit protected mode, and
+	  32-bit protected mode interfaces
+SeeAlso: AX=5300h,AX=5310h,AX=5312h,AX=5313h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155312" name="155312"><b>155312</b></a> - INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE RESUME ON RING<br />
+<pre>
+INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE RESUME ON RING
+	AX = 5312h
+	BX = device ID (see #00474)
+	    0000h (APM BIOS)
+	    other reserved
+	CL = function
+	    00h disable Resume on Ring Indicator
+	    01h enable Resume on Ring Indicator
+	    02h get Resume on Ring Indicator status
+Return: CF clear if successful
+	    CX = resume status (0000h disabled, 0001h enabled)
+	CF set on error
+	    AH = error code (03h,09h,0Ah,0Bh,0Ch,86h) (see #00473)
+Notes:	this function is supported via the INT 15, 16-bit protected mode, and
+	  32-bit protected mode interfaces
+SeeAlso: AX=5300h,AX=5310h,AX=5311h,AX=5313h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155313" name="155313"><b>155313</b></a> - INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE TIMER-BASED REQUESTS<br />
+<pre>
+INT 15 - Advanced Power Management v1.2 - ENABLE/DISABLE TIMER-BASED REQUESTS
+	AX = 5313h
+	BX = device ID (see #00474)
+	    0000h (APM BIOS)
+	    other reserved
+	CL = function
+	    00h disable timer-based requests
+	    01h enable timer-based requests
+	    02h get timer-based requests status
+Return: CF clear if successful
+	    CX = timer-based requests status (0000h disabled, 0001h enabled)
+	CF set on error
+	    AH = error code (03h,09h,0Ah,0Bh,86h) (see #00473)
+Notes:	this function is supported via the INT 15, 16-bit protected mode, and
+	  32-bit protected mode interfaces
+	some BIOSes set AH on return even when successful
+SeeAlso: AX=5300h,AX=5310h,AX=5311h,AX=5312h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH00" name="155380BH00"><b>155380BH00</b></a> - INT 15 - APM SL Enhanced v1.0 - GET SUSPEND/GLOBAL STANDBY MODE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET SUSPEND/GLOBAL STANDBY MODE
+	AX = 5380h
+	BH = 00h
+Return: CF clear if successful
+	    AL = 82360SL Auto Power Off Timer High Count (APWR_TMRH)
+	    BL = sustdbymode (see #00481)
+SeeAlso: AX=5380h/BH=01h,AX=5380h/BH=02h,AX=5380h/BH=7Fh
+
+Bitfields for APM SL sustdbymode:
+Bit(s)	Description	(Table 00481)
+ 2	???
+ 1	Auto Power Off Timer Enable (APWR_TMR_EN)
+ 0	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH01" name="155380BH01"><b>155380BH01</b></a> - INT 15 - APM SL Enhanced v1.0 - SET SUSPEND/GLOBAL STANDBY MODE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET SUSPEND/GLOBAL STANDBY MODE
+	AX = 5380h
+	BH = 01h
+	BL = sustdbymode (see #00481)
+Return: CF clear if successful
+SeeAlso: AX=5380h/BH=00h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH02" name="155380BH02"><b>155380BH02</b></a> - INT 15 - APM SL Enhanced v1.0 - GET GLOBAL STANDBY TIMER<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET GLOBAL STANDBY TIMER
+	AX = 5380h
+	BH = 02h
+Return: CF clear if successful
+	SI:DI = timer count in seconds (actually 1.024 seconds)
+Desc:	reads the value of 82360SL GSTDBY_TMRH & GSTDBY_TMRL registers
+SeeAlso: AX=5380h/BH=00h,AX=5380h/BH=03h,AX=5380h/BH=04h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH03" name="155380BH03"><b>155380BH03</b></a> - INT 15 - APM SL Enhanced v1.0 - SET GLOBAL STANDBY TIMER<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET GLOBAL STANDBY TIMER
+	AX = 5380h
+	BH = 03h
+	SI:DI = timer count in seconds (actually 1.024 seconds)
+Return: CF clear if successful
+Desc:	sets the value of 82360SL GSTDBY_TMRH & GSTDBY_TMRL registers
+Note:	the maximum timer count is 268431 seconds
+SeeAlso: AX=5380h/BH=02h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH04" name="155380BH04"><b>155380BH04</b></a> - INT 15 - APM SL Enhanced v1.0 - GET AUTO POWER OFF TIMER<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET AUTO POWER OFF TIMER
+	AX = 5380h
+	BH = 04h
+Return: CF clear if successful
+	SI:DI = timer count in seconds (actually 1.024 seconds)
+Desc:	reads the value of 82360SL APWR_TMRH & APWR_TMRL registers
+SeeAlso: AX=5380h/BH=02h,AX=5380h/BH=05h,AX=5380h/BH=06h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH05" name="155380BH05"><b>155380BH05</b></a> - INT 15 - APM SL Enhanced v1.0 - SET AUTO POWER OFF TIMER<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET AUTO POWER OFF TIMER
+	AX = 5380h
+	BH = 05h
+	SI:DI = timer count in seconds (actually 1.024 seconds)
+Return: CF clear if successful
+Desc:	sets the value of 82360SL APWR_TMRH & APWR_TMRL registers
+Note:	the maximum timer count is 134213 seconds
+SeeAlso: AX=5380h/BH=04h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH06" name="155380BH06"><b>155380BH06</b></a> - INT 15 - APM SL Enhanced v1.0 - GET RESUME CONDITION<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET RESUME CONDITION
+	AX = 5380h
+	BH = 06h
+Return: CF clear if successful
+	    BL = resume condition (see #00482)
+Desc:	reads the value of 82360SL RESUME_MASK register
+SeeAlso: AX=5380h/BH=04h,AX=5380h/BH=07h,AX=5380h/BH=08h,AX=5380h/BH=7Fh
+
+Bitfields for APM SL resume condition:
+Bit(s)	Description	(Table 00482)
+ 7-2	reserved (0)
+ 1	alarm enabled (resume on CMOS alarm)
+ 0	ring enabled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH07" name="155380BH07"><b>155380BH07</b></a> - INT 15 - APM SL Enhanced v1.0 - SET RESUME CONDITION<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET RESUME CONDITION
+	AX = 5380h
+	BH = 07h
+	BL = resume condition (see #00482)
+Return: CF clear if successful
+Desc:	sets the value of 82360SL RESUME_MASK register
+SeeAlso: AX=5380h/BH=06h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH08" name="155380BH08"><b>155380BH08</b></a> - INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT TIME<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT TIME
+	AX = 5380h
+	BH = 08h
+Return: CF clear if successful
+	    CH = hours
+	    CL = minutes
+	    SI = seconds
+	CF set on error
+	    AH = error code (see #00483)
+Desc:	gets calendar event time from CMOS ram
+SeeAlso: AX=5380h/BH=06h,AX=5380h/BH=09h,AX=5380h/BH=0Ah,AX=5380h/BH=7Fh
+
+(Table 00483)
+Values for APM SL error code:
+ 02h	no alarm set
+ 03h	no battery
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH09" name="155380BH09"><b>155380BH09</b></a> - INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT TIME<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT TIME
+	AX = 5380h
+	BH = 09h
+	CH = hours
+	CL = minutes
+	SI = seconds
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (see #00483)
+Desc:	sets calendar event time in CMOS ram, enables Alarm resume
+SeeAlso: AX=5380h/BH=08h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH0A" name="155380BH0A"><b>155380BH0A</b></a> - INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT DATE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET CALENDAR EVENT DATE
+	AX = 5380h
+	BH = 0Ah
+Return: CF clear if successful
+	    SI = century
+	    DI = year
+	    CH = month
+	    CL = day
+	CF set on error
+	    AH = error code (see #00483)
+Desc:	reads calendar event date from Extended CMOS ram
+SeeAlso: AX=5380h/BH=08h,AX=5380h/BH=0Bh,AX=5380h/BH=0Ch,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH0B" name="155380BH0B"><b>155380BH0B</b></a> - INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT DATE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET CALENDAR EVENT DATE
+	AX = 5380h
+	BH = 0Bh
+	SI = century
+	DI = year
+	CH = month
+	CL = day
+Return: CF clear if successful
+	CF set on error
+	    AH = error code (see #00483)
+Desc:	sets calendar event date in Extended CMOS ram
+SeeAlso: AX=5380h/BH=0Ah,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH0C" name="155380BH0C"><b>155380BH0C</b></a> - INT 15 - APM SL Enhanced v1.0 - GET CPU SPEED MODE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - GET CPU SPEED MODE
+	AX = 5380h
+	BH = 0Ch
+Return: CF clear if successful
+	CL = CPU clock divider (1,2,4 or 8)
+	BL = autocpumode ???
+Desc:	reads bits 4-5 of CPUPWRMODE register
+SeeAlso: AX=5380h/BH=0Ah,AX=5380h/BH=0Dh,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH0D" name="155380BH0D"><b>155380BH0D</b></a> - INT 15 - APM SL Enhanced v1.0 - SET CPU SPEED MODE<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SET CPU SPEED MODE
+	AX = 5380h
+	BH = 0Dh
+	CL = CPU clock divider (1,2,4 or 8)
+	BL = autocpumode ???
+Return: CF clear if successful
+Desc:	writes bits 4-5 of CPUPWRMODE register
+SeeAlso: AX=5380h/BH=0Ch,AX=5380h/BH=7Eh,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH7E" name="155380BH7E"><b>155380BH7E</b></a> - INT 15 - APM SL Enhanced v1.0 - SL HW PARAMETER<br />
+<pre>
+INT 15 - APM SL Enhanced v1.0 - SL HW PARAMETER
+	AX = 5380h
+	BH = 7Eh
+Return: AL = ???
+	    03h on A-Step 386SL BIOSes
+	    12h on later steps
+	BX = Control port (00B0h)
+SeeAlso: AX=5380h/BH=00h,AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BH7F" name="155380BH7F"><b>155380BH7F</b></a> - INT 15 - Advanced Power Management v1.1 - OEM APM INSTALLATION CHECK<br />
+<pre>
+INT 15 - Advanced Power Management v1.1 - OEM APM INSTALLATION CHECK
+	AX = 5380h
+	BH = 7Fh
+Return: CF clear if successful
+	    BX = OEM identifier
+	    all other registers OEM-defined
+	    ---Intel SL Enhanced Option BIOS---
+	    BX = 534Ch ('SL')
+	    CL = 4Fh ('O')
+	    AL = version (10h = 1.0)
+	    ---HP APM BIOS---
+	    BX = 4850h ('HP')
+	    CX = version (0001h)
+	CF set on error
+	    AH = error code (03h) (see #00473)
+SeeAlso: AX=5380h/BH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380" name="155380"><b>155380</b></a> - INT 15 - Advanced Power Management v1.1 - OEM APM FUNCTIONS<br />
+<pre>
+INT 15 - Advanced Power Management v1.1 - OEM APM FUNCTIONS
+	AX = 5380h
+	BH &lt;&gt; 7Fh
+	all other registers OEM-defined
+Return: OEM-defined
+SeeAlso: AX=5380h/BH=7Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BX8000" name="155380BX8000"><b>155380BX8000</b></a> - INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???<br />
+<pre>
+INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???
+	AX = 5380h
+	BX = 8000h
+	CX = 0020h
+Return: ???
+Note:	although a check for the indicated value is present in the examined
+	  copy of the BIOS, no code was associated with it (possibly an OEM
+	  option not included in that copy) and this function always returns
+	  CF set/AH=03h if CX=0020h and CF set/AH=86h for CX&lt;&gt;0020h
+SeeAlso: AX=5380h/BX=8001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#155380BX8001" name="155380BX8001"><b>155380BX8001</b></a> - INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???<br />
+<pre>
+INT 15 U - Phoenix BIOS 4.0 Rel 6.0 - ???
+	AX = 5380h
+	BX = 8001h
+	CX = 0020h
+Return: ???
+Note:	although a check for the indicated value is present in the examined
+	  copy of the BIOS, no code was associated with it (possibly an OEM
+	  option not included in that copy)
+SeeAlso: AX=5380h/BX=8000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156000" name="156000"><b>156000</b></a> - INT 15 U - HP 100LX/200LX - GET MAIN BATTERY LEVEL<br />
+<pre>
+INT 15 U - HP 100LX/200LX - GET MAIN BATTERY LEVEL
+	AX = 6000h
+Return: AX = battery level
+Note:	multiply the returned value with 1Bh and add 622h to get millivolts
+SeeAlso: AX=6001h,AX=6002h,AX=6003h,AX=6004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156001" name="156001"><b>156001</b></a> - INT 15 U - HP 100LX/200LX - GET BACKUP BATTERY LEVEL<br />
+<pre>
+INT 15 U - HP 100LX/200LX - GET BACKUP BATTERY LEVEL
+	AX = 6001h
+Return: AX = battery level
+Note:	multiply the returned value with 1Bh and add 622h to get millivolts
+SeeAlso: AX=6000h,AX=6002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156002" name="156002"><b>156002</b></a> - INT 15 U - HP 100LX/200LX - GET POWER INFO<br />
+<pre>
+INT 15 U - HP 100LX/200LX - GET POWER INFO
+	AX = 6002h
+Return: AL = power settings (see #00493)
+SeeAlso: AX=6000h,AX=6003h,AX=6004h
+
+Bitfields for power settings:
+Bit(s)	Description	(Table 00493)
+ 0-1	unused ???
+ 2	card battery status low (OK if bit clear)
+ 3	battery charging off (disabled if bits 3-5 clear)
+ 4	battery charging slow
+ 5	battery charging fast
+ 6	power adaptor active
+ 7	battery type NiCad (alkaline if bit clear)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156003" name="156003"><b>156003</b></a> - INT 15 U - HP 100LX/200LX - SET MAIN BATTERY TYPE<br />
+<pre>
+INT 15 U - HP 100LX/200LX - SET MAIN BATTERY TYPE
+	AX = 6003h
+	BL = battery type
+	    00h alkaline
+	    01h NiCad
+SeeAlso: AX=6000h,AX=6004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156004" name="156004"><b>156004</b></a> - INT 15 U - HP 100LX/200LX - SET BATTERY CHARGING MODE<br />
+<pre>
+INT 15 U - HP 100LX/200LX - SET BATTERY CHARGING MODE
+	AX = 6004h
+	BL = charging
+	    00h disabled
+	    01h enabled
+SeeAlso: AX=6000h,AX=6003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA20" name="15BA20"><b>15BA20</b></a> - INT 15 - HP OmniShare - STANDBY.COM - INSTALLATION CHECK<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - INSTALLATION CHECK
+	AX = BA20h
+Return: CF clear if successful (installed)
+	CF set on error (not installed)
+Notes:	The display controller can enter a standby mode after a given timeout,
+	  to conserve power or (for the OmniShare) to increase the life of
+	  the backlight.
+	A side effect of standby mode is that the communications LED turns on
+	  automatically when the display is in standby mode.  This is done in
+	  hardware, and is intended to show that the unit is still on.
+SeeAlso: AX=BA10h,AX=BA20h,AX=BA22h,AX=BA24h,AX=BA26h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA21" name="15BA21"><b>15BA21</b></a> - INT 15 - HP OmniShare - STANDBY.COM - SET STANDBY DURATION<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - SET STANDBY DURATION
+	AX = BA21h
+	BL = new timeout before standby mode in minutes (01h-0Fh)
+	    00h to disable automatic switch to standby mode
+Return: CF clear if successful
+	CF set on error (function not supported)
+Note:	The actual timeout with a GD6205 controller is ((N*64)-32) seconds,
+	  instead of (N*60) seconds as documented.
+SeeAlso: AX=BA20h,AX=BA22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA22" name="15BA22"><b>15BA22</b></a> - INT 15 - HP OmniShare - STANDBY.COM - GET STANDBY DURATION<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - GET STANDBY DURATION
+	AX = BA22h
+Return: CF clear if successful
+	   BL = standy duration in minutes (01h-0Fh), or 00h if disabled
+	CF set on error (function not supported)
+Note:	The actual timeout with a GD6205 controller is ((N*64)-32) seconds,
+	  instead of (N*60) seconds as documented.
+SeeAlso: AX=BA20h,AX=BA21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA23" name="15BA23"><b>15BA23</b></a> - INT 15 - HP OmniShare - STANDBY.COM - TURN ON THE SCREEN IMMEDIATELY<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - TURN ON THE SCREEN IMMEDIATELY
+	AX = BA23h
+Return: CF clear if successful
+	CF set on error
+SeeAlso: AX=BA11h,AX=BA20h,AX=BA24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA24" name="15BA24"><b>15BA24</b></a> - INT 15 - HP OmniShare - STANDBY.COM - TURN OFF THE SCREEN IMMEDIATELY<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - TURN OFF THE SCREEN IMMEDIATELY
+	AX = BA24h
+Return: CF clear if successful
+	CF set on error
+Note:	This function is not implemented yet. Reserved for future versions
+	  of the OmniShare.
+SeeAlso: AX=BA11h,AX=BA20h,AX=BA23h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA25" name="15BA25"><b>15BA25</b></a> - INT 15 - HP OmniShare - STANDBY.COM - PREPARE FOR UNINSTALL<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - PREPARE FOR UNINSTALL
+	AX = BA25h
+Return: CF clear if successful
+	    AX = 25BAh
+	    BX = PSP of STANDBY.COM resident portion
+	    DX:CX -&gt; previous INT 15 handler
+	CF set on error
+Note:	This function is used internally by the STANDBY.COM /u option, and
+	  should not be used by application programs.
+SeeAlso: AX=BA20h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA26" name="15BA26"><b>15BA26</b></a> - INT 15 - HP OmniShare - STANDBY.COM - IS THE DISPLAY IN STANDBY MODE?<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - IS THE DISPLAY IN STANDBY MODE?
+	AX = BA26h
+Return: CF clear if successful
+	    AL	= display state (00h active, 01h in standby mode)
+	CF set on error (function not supported)
+SeeAlso: AX=BA20h,AX=BA23h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA27" name="15BA27"><b>15BA27</b></a> - INT 15 - HP OmniShare - STANDBY.COM - RESERVED FUNCTIONS<br />
+<pre>
+INT 15 - HP OmniShare - STANDBY.COM - RESERVED FUNCTIONS
+	AX = BA27h to BA2Fh
+Desc:	reserved for future use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#174B00" name="174B00"><b>174B00</b></a> - INT 17 - Brother P-Touch - INSTALLATION CHECK<br />
+<pre>
+INT 17 - Brother P-Touch - INSTALLATION CHECK
+	AX = 4B00h
+Return:	AX = 4249h ('BI' = Brother International) if installed
+	    BX = program ID
+		4550h ('EP') for "Epson FX-80 Emulator"
+		5047h ('PG') for "Printer to Disk Utility"
+	    CX = numbero of parallel port being emulated or intercepted
+SeeAlso: AX=4B01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#174B01" name="174B01"><b>174B01</b></a> - INT 17 - Brother P-Touch - UNINSTALL<br />
+<pre>
+INT 17 - Brother P-Touch - UNINSTALL
+	AX = 4B01h
+Return: AX = segment of resident program or 0000h if unable to uninstall
+Note:	the calling program must manually free both the indicated segment
+	  and the environment segment for the TSR with INT 21/AH=49h
+	  (the environment is pointed at by the WORD at AX:002Ch)
+SeeAlso: AX=4B00h,INT 21/AH=49h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4C" name="2F4C"><b>2F4C</b></a> - INT 2F U - Advanced Power Management<br />
+<pre>
+INT 2F U - Advanced Power Management
+	AH = 4Ch
+	AL = function
+	    00h version check
+	    01h suspend system requested
+	    FFh suspend/resume battery notification
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F53" name="2F53"><b>2F53</b></a> - INT 2F U - POWER.EXE - APM event broadcasting???<br />
+<pre>
+INT 2F U - POWER.EXE - APM event broadcasting???
+	AH = 53h
+	AL = event???
+	    05h CPU idle
+	    0Bh PM event broadcast API
+Return: ???
+Note:	called by MS Windows 3.1 POWER.DRV; hooked by MS Mouse driver v8.20+
+	  and PC-Cache v8.0
+SeeAlso: AX=530Bh,AX=5400h,INT 33/AX=002Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F530B" name="2F530B"><b>2F530B</b></a> - INT 2F U - ??? (MOUSEPWR.COM, others) - ???<br />
+<pre>
+INT 2F U - ??? (MOUSEPWR.COM, others) - ???
+	AX = 530Bh
+	BX = subfunction
+	    0003h ???
+	    0004h ???
+	???
+Return: ???
+Note:	it appears that subfunction 0003h reads or restores the current mouse
+	  settings (the MS Mouse driver hooks AX=530Bh), and 0004h might be
+	  the converse
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5400" name="2F5400"><b>2F5400</b></a> - INT 2F U - POWER.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - POWER.EXE - INSTALLATION CHECK
+	AX = 5400h
+Return: AX = POWER.EXE version (AH = major, AL = minor) if installed
+	BX = 504Dh ("PM")
+	CF clear
+Note:	called by MS Windows 3.1 POWER.DRV
+SeeAlso: AH=53h,AX=5401h,AX=5402h,AX=5481h,AX=5482h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5401" name="2F5401"><b>2F5401</b></a> - INT 2F U - POWER.EXE - GET/SET POWER STATUS<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET POWER STATUS
+	AX = 5401h
+	BH = function
+	    00h get status
+		Return: BL = current power management status (see #02837)
+	    01h set status
+		BL = new power managment status (see #02837)
+Return: AX = function status (see #02838)
+Note:	called by MS Windows 3.1 POWER.DRV
+SeeAlso: AH=53h,AX=5400h,AX=5402h,AX=5403h
+
+Bitfields for power management status:
+Bit(s)	Description	(Table 02837)
+ 0	POWER.EXE power management enabled
+ 1	APM firmware power management enabled
+ 2-7	reserved (0)
+Notes:	bit 1 is ignored if there is no APM firmware
+	bits 1-0: 00 = POWER OFF, 10 = POWER STD, 11 = POWER ADV
+
+(Table 02838)
+Values for POWER.EXE function status:
+ 0000h	successful
+ 0002h	"ERROR_PM_ALREADY_CONNECTED"
+ 0003h	"ERROR_PM_NOT_CONNECTED"
+ 0087h	"ERROR_PM_INVALID_PARAMETER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5402" name="2F5402"><b>2F5402</b></a> - INT 2F U - POWER.EXE - GET/SET IDLE DETECTION STRATEGY<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET IDLE DETECTION STRATEGY
+	AX = 5402h
+	BH = subfunction
+	    00h get
+	    other set
+		BL = detection strategy (00h-0Fh or FFh)
+Return: BX = current/new detection strategy
+SeeAlso: AH=53h,AX=5400h,AX=5401h,AX=5481h,AX=5482h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5403" name="2F5403"><b>2F5403</b></a> - INT 2F U - POWER.EXE - GET/SET ADVANCED POWER MANAGEMENT SETTING<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET ADVANCED POWER MANAGEMENT SETTING
+	AX = 5403h
+	BX = new power management setting or 0000h to get current setting
+Return: AX = status
+	    0000h successful
+		BX = power management setting (see #02839)
+	    other error code
+SeeAlso: AX=5401h,AX=5480h
+
+(Table 02839)
+Values for power management setting:
+ 0001h-0005h "min"
+ 0006h	     "reg"
+ 0007h-0008h "max"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5480" name="2F5480"><b>2F5480</b></a> - INT 2F U - POWER.EXE - GET/SET ???<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET ???
+	AX = 5480h
+	BX = direction
+	    0000h get
+	    other set
+	CX = size of buffer (at least 0010h)
+	DS:SI -&gt; buffer
+Return: AX = status
+	    0000h successful
+	    other error code
+SeeAlso: AX=5400h,AX=5481h,AX=548Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5481" name="2F5481"><b>2F5481</b></a> - INT 2F U - POWER.EXE - GET STATISTICS<br />
+<pre>
+INT 2F U - POWER.EXE - GET STATISTICS
+	AX = 5481h
+	BX = which statistics
+	    0000h idle detection
+	    0001h APM statistics
+	CX = length of buffer in bytes
+	DS:SI -&gt; buffer for statistics (see #02843,#02844)
+Return: AX = status
+	    0000h successful
+	    0071h "ERROR_PM_BUFFER_TOO_SMALL"
+	    0087h "ERROR_PM_INVALID_PARAMETER"
+SeeAlso: AH=53h,AX=5400h,AX=5480h,AX=5402h,AX=5482h
+
+Format of POWER.EXE idle detection statistics:
+Offset	Size	Description	(Table 02843)
+ 00h	DWORD	"CPU_ON_TIME" total time CPU is active with POWER.EXE idle
+		  detection enabled, in timer ticks
+ 04h	DWORD	"CPU_IDLE_TIME" timer ticks during which CPU was idle
+		(divide by previous to get idle	rate)
+ 08h	DWORD	total idle calls
+ 0Ch	DWORD	"TOTAL_APP_IDLE" total INT 2Fh idle calls
+ 10h	DWORD	"TOTAL_DOS_YIELD" total INT 28h idle calls
+ 14h	DWORD	"TOTAL_KEY_IDLE" total INT 16h idle calls
+ 18h	DWORD	"TOTAL_DOS_IDLE" total INT 2Ah idle calls
+
+Format of APM statistics:
+Offset	Size	Description	(Table 02844)
+ 00h	DWORD	"RESUME_COUNT" total number of resumes since last APM_ENABLE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5482" name="2F5482"><b>2F5482</b></a> - INT 2F U - POWER.EXE - GET/SET APM POLLING FREQUENCY<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET APM POLLING FREQUENCY
+	AX = 5482h
+	BX = new polling frequency or 0000h to get current frequency
+Return: AX = 0000h (successful)
+	BX = current frequency if BX=0000h on entry
+SeeAlso: AH=53h,AX=5400h,AX=5401h,AX=5480h,AX=5481h,AX=548Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F548F" name="2F548F"><b>2F548F</b></a> - INT 2F U - POWER.EXE - GET/SET ???<br />
+<pre>
+INT 2F U - POWER.EXE - GET/SET ???
+	AX = 548Fh
+	BX = ??? or 0000h to get current ???
+Return: AX = 0000h (successful)
+	BX = current ???
+	CX = ???
+SeeAlso: AX=5400h,AX=5480h,AX=5482h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

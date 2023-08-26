@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._50</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 50
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#50"><b>50</b> - INT 50 - TIL Xpert AIM (X.25)</a><br />
+<a href="#50_0"><b>50</b> - INT 50 - IRQ0 relocated by DESQview</a><br />
+<a href="#50_1"><b>50</b> - INT 50 - IRQ0 relocated by IBM 3278 emulation control program</a><br />
+<a href="#50_2"><b>50</b> - INT 50 - IRQ0 relocated by OS/2 v1.x</a><br />
+<a href="#50_3"><b>50</b> - INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP</a><br />
+<a href="#500000"><b>500000</b> - INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - OPEN TEXT WINDOW</a><br />
+<a href="#500001"><b>500001</b> - INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - CLOSE TEXT WINDOW</a><br />
+<a href="#500002"><b>500002</b> - INT 50 - Vanderaart TEXT WINDOWS - PUT CHARACTER IN WINDOW</a><br />
+<a href="#500002_0"><b>500002</b> - INT 50 - PC Thuis Organizer Shell - PLOT TEXT</a><br />
+<a href="#500003"><b>500003</b> - INT 50 - Vanderaart TEXT WINDOWS - OUTPUT LINE TO WINDOW</a><br />
+<a href="#500003_0"><b>500003</b> - INT 50 - PC Thuis Organizer Shell - WRITE FILE</a><br />
+<a href="#500004"><b>500004</b> - INT 50 - Vanderaart TEXT WINDOWS - GET KEY</a><br />
+<a href="#500004_0"><b>500004</b> - INT 50 - PC Thuis Organizer Shell - READ FILE</a><br />
+<a href="#500005"><b>500005</b> - INT 50 - Vanderaart TEXT WINDOWS - CHANGE ATTRIBUTE</a><br />
+<a href="#500005_0"><b>500005</b> - INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO</a><br />
+<a href="#500006"><b>500006</b> - INT 50 - Vanderaart TEXT WINDOWS - EDIT LINE IN WINDOW</a><br />
+<a href="#500006_0"><b>500006</b> - INT 50 - PC Thuis Organizer Shell - ALERT USER</a><br />
+<a href="#500007"><b>500007</b> - INT 50 - PC Thuis Organizer Shell - DO LINE</a><br />
+<a href="#500008"><b>500008</b> - INT 50 - PC Thuis Organizer Shell - DO MENU</a><br />
+<a href="#500009"><b>500009</b> - INT 50 - PC Thuis Organizer Shell - MESSAGE ON</a><br />
+<a href="#50000A"><b>50000A</b> - INT 50 - PC Thuis Organizer Shell - MESSAGE OFF</a><br />
+<a href="#50000B"><b>50000B</b> - INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE</a><br />
+<a href="#50000C"><b>50000C</b> - INT 50 - PC Thuis Organizer Shell - DO REQUEST</a><br />
+<a href="#50000D"><b>50000D</b> - INT 50 - PC Thuis Organizer Shell - EDIT LINE</a><br />
+<a href="#50000E"><b>50000E</b> - INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER</a><br />
+<a href="#50000F"><b>50000F</b> - INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW</a><br />
+<a href="#500010"><b>500010</b> - INT 50 - PC Thuis Organizer Shell - TRACE MENU</a><br />
+<a href="#500011"><b>500011</b> - INT 50 - PC Thuis Organizer Shell - MOVE MEMORY</a><br />
+<a href="#500012"><b>500012</b> - INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY</a><br />
+<a href="#500013"><b>500013</b> - INT 50 - PC Thuis Organizer Shell - GET KEY</a><br />
+<a href="#500014"><b>500014</b> - INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW</a><br />
+<a href="#500015"><b>500015</b> - INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE</a><br />
+
+<hr />
+
+<a href="#50" name="50"><b>50</b></a> - INT 50 - TIL Xpert AIM (X.25)<br />
+<pre>
+INT 50 - TIL Xpert AIM (X.25)
+	AH = function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50_0" name="50_0"><b>50</b></a> - INT 50 - IRQ0 relocated by DESQview<br />
+<pre>
+INT 50 - IRQ0 relocated by DESQview
+Range:	INT 50 to INT F8, selected automatically
+Notes:	this is the default location for older versions; DESQview v2.26+
+	  searches for unused ranges of interrupts and uses the lowest
+	  available range in its list for relocating these IRQs and the next
+	  lowest for relocating IRQ8-IRQ15
+	a range of eight interrupts starting at a multiple of 8 is considered
+	  available if all vectors are identical and it has not been excluded
+	  with an /XB:nn commandline switch
+	the list of ranges for v2.26 is 50h,58h,68h,78h,F8h (if &lt; two of these
+	  are available, F8h and then 50h are used anyway)
+	the list of ranges for v2.31+ is 68h,78h,88h-B8h,F8h (if &lt; two of these
+	  are available, F8h and then F0h are used anyway)
+SeeAlso: INT 08"IRQ0",INT 51"DESQview",INT 54"DESQview",INT 58"DESQview"
+SeeAlso: INT D8"Screen Thief"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50_1" name="50_1"><b>50</b></a> - INT 50 - IRQ0 relocated by IBM 3278 emulation control program<br />
+<pre>
+INT 50 - IRQ0 relocated by IBM 3278 emulation control program
+SeeAlso: INT 51"IBM 3278"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50_2" name="50_2"><b>50</b></a> - INT 50 - IRQ0 relocated by OS/2 v1.x<br />
+<pre>
+INT 50 - IRQ0 relocated by OS/2 v1.x
+SeeAlso: INT 51"OS/2"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50_3" name="50_3"><b>50</b></a> - INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP<br />
+<pre>
+INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP
+Desc:	the default handler generates a System Error message and halts the
+	  computer such that only Ctrl-Alt-Del can restart operation
+Note:	documented as "for system use only"; intended for multi-tasking
+	  software
+SeeAlso: INT 40"TI Professional",INT 4F"TI Professional"
+SeeAlso: INT 51"TI Professional",INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500000" name="500000"><b>500000</b></a> - INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - OPEN TEXT WINDOW<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - OPEN TEXT WINDOW
+	AX = 0000h
+	ES:BX -&gt; name string or ES:0000h if none
+	CH,CL = row,column of upper left corner
+	DH,DL = row,column of lower right corner
+Return: AX = window handle or
+	    0000h if not installed
+	    FFFFh on error
+SeeAlso: AX=0001h,AX=0002h"TEXT WINDOWS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500001" name="500001"><b>500001</b></a> - INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - CLOSE TEXT WINDOW<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS, PC Thuis Shell - CLOSE TEXT WINDOW
+	AX = 0001h
+	DI = window handle
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500002" name="500002"><b>500002</b></a> - INT 50 - Vanderaart TEXT WINDOWS - PUT CHARACTER IN WINDOW<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS - PUT CHARACTER IN WINDOW
+	AX = 0002h
+	BL = character
+	BH = attribute
+	DL = column
+	DH = row
+	DI = window handle
+Return: AX = status
+	    0000h if successful
+	    FFFFh if outside window
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500002_0" name="500002_0"><b>500002</b></a> - INT 50 - PC Thuis Organizer Shell - PLOT TEXT<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PLOT TEXT
+	AX = 0002h
+	ES:BX -&gt; text string
+	DH,DL = row,column of upper left corner
+	DI = window handle
+Return: AX = status
+	    0000h successful (text fits in window)
+	    FFFFh error
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500003" name="500003"><b>500003</b></a> - INT 50 - Vanderaart TEXT WINDOWS - OUTPUT LINE TO WINDOW<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS - OUTPUT LINE TO WINDOW
+	AX = 0003h
+	ES:BX -&gt; text string
+	CX = string length (0000h if ASCIZ string)
+	DL = position (FFh centered, else flush left)
+	DH = starting row
+	DI = window handle
+Return: AX = status
+	    0000h successful
+	    FFFFh did not fit in window
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500003_0" name="500003_0"><b>500003</b></a> - INT 50 - PC Thuis Organizer Shell - WRITE FILE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - WRITE FILE
+	AX = 0003h
+	ES:BX -&gt; data to be written
+	CX = number of bytes to write
+	DS:SI -&gt; filename
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+SeeAlso: AX=0004h"Shell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500004" name="500004"><b>500004</b></a> - INT 50 - Vanderaart TEXT WINDOWS - GET KEY<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS - GET KEY
+	AX = 0004h
+	CH = type
+	    00h any key
+	    01h 'J' or 'N' (Dutch for yes/no)
+Return: AX = key
+SeeAlso: INT 16/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500004_0" name="500004_0"><b>500004</b></a> - INT 50 - PC Thuis Organizer Shell - READ FILE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - READ FILE
+	AX = 0004h
+	ES:BX -&gt; buffer for data
+	CX = number of bytes to read or 0000h for entire file
+	DL = file type
+	    01h setting shell
+	    02h setting sterm
+	    03h INT21 file
+	DS:SI -&gt; filename
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+Note:	file type numbers are maintained by John Vanderaart; if a new file type
+	  is needed, a type number should be requested from him through the
+	  magazine:
+		PC Thuis BV
+		Spaarne 55
+		2011 CE HAARLEM
+		The Netherlands
+SeeAlso: AX=0003h"Shell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500005" name="500005"><b>500005</b></a> - INT 50 - Vanderaart TEXT WINDOWS - CHANGE ATTRIBUTE<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS - CHANGE ATTRIBUTE
+	AX = 0005h
+	BL = new attribute
+	CH,CL = row,column of upper left corner
+	DH,DL = row,column of lower right corner
+	DI = window handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500005_0" name="500005_0"><b>500005</b></a> - INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PROMPT YES/NO
+	AX = 0005h
+	ES:BX -&gt; prompt string (ES:0000h if no prompt)
+Return: AX = key pressed
+	    0000h "J" (Dutch "Ja" = "Yes")
+	    FFFFh "N" (Dutch "Nee" = "No")
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: AX=0008h"PC Thuis"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500006" name="500006"><b>500006</b></a> - INT 50 - Vanderaart TEXT WINDOWS - EDIT LINE IN WINDOW<br />
+<pre>
+INT 50 - Vanderaart TEXT WINDOWS - EDIT LINE IN WINDOW
+	AX = 0006h
+	ES:BX -&gt; text string
+	CH = type of input (see #03242)
+	DH,DL = row,column of upper left corner
+	DI = window handle
+Return: AX = key which terminated entry
+	    0000h Enter
+	    0001h Esc
+	    0002h Down arrow
+	    0003h Up arrow
+	    0004h F10
+
+(Table 03242)
+Values for type of input to Vanderaart Text Windows:
+ 00h	everything
+ 01h	uppercase only
+ 02h	positive numbers
+ 03h	Dutch postal code ("9999 AA")
+ 04h	'J' or 'N' (Dutch yes/no)
+ 05h	telephone or FAX number
+ 06h	positive or negative number
+ 07h	date (dd/mm/yy)
+ 08h	money
+ 09h	'1' through '8'
+ 0Ah	'1' through '4'
+ 0Bh	uppercase filenames
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500006_0" name="500006_0"><b>500006</b></a> - INT 50 - PC Thuis Organizer Shell - ALERT USER<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - ALERT USER
+	AX = 0006h
+	ES:BX -&gt; string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500007" name="500007"><b>500007</b></a> - INT 50 - PC Thuis Organizer Shell - DO LINE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO LINE
+	AX = 0007h
+	ES:BX -&gt; text string
+	CX = string length in bytes (0000h if NUL-terminated)
+	DL = FFh to center string, else flush left
+	DH = upper left row
+	DI = window handle
+Return: AX = status
+	    0000h successful
+	    FFFFh error
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500008" name="500008"><b>500008</b></a> - INT 50 - PC Thuis Organizer Shell - DO MENU<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO MENU
+	AX = 0008h
+	ES:BX -&gt; menu structure
+Return: AL = index 1 or FFh if not selected
+	AH = index 2 or FFh if not selected
+	BL = index 3 or FFh if not selected
+	BH = index 4 or FFh if not selected
+SeeAlso: AX=0005h"PC Thuis",AX=0007h,AX=000Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500009" name="500009"><b>500009</b></a> - INT 50 - PC Thuis Organizer Shell - MESSAGE ON<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MESSAGE ON
+	AX = 0009h
+	ES:BX -&gt; message string
+SeeAlso: AX=000Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000A" name="50000A"><b>50000A</b></a> - INT 50 - PC Thuis Organizer Shell - MESSAGE OFF<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MESSAGE OFF
+	AX = 000Ah
+SeeAlso: AX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000B" name="50000B"><b>50000B</b></a> - INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - CHANGE ATTRIBUTE
+	AX = 000Bh
+	BL = new attribute
+	CH,CL = row,column of upper left corner
+	DH,DL = row,column of lower right corner
+	DI = window handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000C" name="50000C"><b>50000C</b></a> - INT 50 - PC Thuis Organizer Shell - DO REQUEST<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - DO REQUEST
+	AX = 000Ch
+	ES:BX -&gt; request structure
+Return: AX = status
+	    0000h confirmed
+	    FFFFh denied
+SeeAlso: AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000D" name="50000D"><b>50000D</b></a> - INT 50 - PC Thuis Organizer Shell - EDIT LINE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - EDIT LINE
+	AX = 000Dh
+	ES:BX -&gt; text string
+	CL = length
+	CH = input type (see #03243)
+	DH,DL = row,column of upper left corner
+	DI = window handle
+Return: AX = result code
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+
+Bitfields for input type:
+Bit(s)	Description	(Table 03243)
+ 0	force uppercase
+ 1	integer
+ 2	no spaces allowed
+ 3	no cursor keys
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000E" name="50000E"><b>50000E</b></a> - INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - PLOT CHARACTER
+	AX = 000Eh
+	BL = character
+	BH = attribute
+	DH,DL = row,column at which to plot
+	DI = window handle
+Return: AX = status
+	    0000h successful
+	    FFFFh errror
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50000F" name="50000F"><b>50000F</b></a> - INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - EMPTY WINDOW
+	AX = 000Fh
+	BL = character
+	BH = attribute
+	DI = window handle
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500010" name="500010"><b>500010</b></a> - INT 50 - PC Thuis Organizer Shell - TRACE MENU<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - TRACE MENU
+	AX = 0010h
+	ES:BX -&gt; first menu structure
+	CL = hotkey to look up
+Return: AL = index 1 or FFh if not selected
+	AH = index 2 or FFh if not selected
+	BL = index 3 or FFh if not selected
+	BH = index 4 or FFh if not selected
+Index:	hotkeys;PC Thuis Organizer Shell
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500011" name="500011"><b>500011</b></a> - INT 50 - PC Thuis Organizer Shell - MOVE MEMORY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - MOVE MEMORY
+	AX = 0011h
+	DS:SI -&gt; source
+	ES:DI -&gt; destination
+	CX = number of bytes to move (0000h = until NUL string terminator???)
+SeeAlso: AX=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500012" name="500012"><b>500012</b></a> - INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - COMPARE MEMORY
+	AX = 0012h
+	DS:SI -&gt; source
+	ES:DI -&gt; destination
+	CX = number of bytes to compare (0000h=until NUL string terminator???)
+Return: AX = status
+	    0000h same
+	    FFFFh different
+SeeAlso: AX=0011h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500013" name="500013"><b>500013</b></a> - INT 50 - PC Thuis Organizer Shell - GET KEY<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - GET KEY
+	AX = 0013h
+	CH = type flags
+	    bit 0: force uppercase
+	    bit 1: integer
+	    bit 2: no spaces
+Return: AX = keystroke
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500014" name="500014"><b>500014</b></a> - INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - SCROLL WINDOW
+	AX = 0014h
+	BL = direction
+	    06h up
+	    07h down
+	BH = attribute
+	DI = window handle
+SeeAlso: INT 10/AH=06h,INT 10/AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#500015" name="500015"><b>500015</b></a> - INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE<br />
+<pre>
+INT 50 - PC Thuis Organizer Shell - GET MEMORY HANDLE
+	AX = 0015h
+	BL = handle size
+	    00h 65536 bytes (64K)
+	    01h 65535 bytes (64K-1)
+	    02h 32768 bytes (32K)
+	    03h 32767 bytes (32K-1)
+Return: AX = segment
+Program: The PC Thuis Organizer Shell was written by John Vanderaart and
+	  published in the June/July 1990 issue of PC Thuis Power magazine
+SeeAlso: INT 21/AH=48h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

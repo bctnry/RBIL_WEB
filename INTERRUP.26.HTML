@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._26</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 26
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#26"><b>26</b> - INT 26 - DOS 1+ - ABSOLUTE DISK WRITE (except partitions > 32M)</a><br />
+<a href="#26----CXFFFF"><b>26----CXFFFF</b> - INT 26 - DOS 3.31+ - ABSOLUTE DISK WRITE (32M-2047M hard-disk partition)</a><br />
+<a href="#26_0"><b>26</b> - INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE</a><br />
+
+<hr />
+
+<a href="#26" name="26"><b>26</b></a> - INT 26 - DOS 1+ - ABSOLUTE DISK WRITE (except partitions > 32M)<br />
+<pre>
+INT 26 - DOS 1+ - ABSOLUTE DISK WRITE (except partitions &gt; 32M)
+	AL = drive number (00h = A:, 01h = B:, etc)
+	CX = number of sectors to write (not FFFFh)
+	DX = starting logical sector number (0000h - highest sector on drive)
+	DS:BX -&gt; data to write
+Return: CF clear if successful
+	CF set on error
+	    AH = status (see #02547)
+	    AL = error code (same as passed to INT 24 in DI)
+	    AX = 0207h if more than 64K sectors on drive -- use new-style call
+	may destroy all other registers except segment registers
+Notes:	original flags are left on stack, and must be popped by caller
+	this call bypasses the DOS filesystem, though DOS 5+ invalidates any
+	  disk buffers referencing sectors which are written with this call
+	examination of CPWIN386.CPL indicates that if this call fails with
+	  error 0408h on an old-style (&lt;32M) call, one should retry the
+	  call with the high bit of the drive number in AL set
+	Novell DOS 7 decides whether the old-style or new-style (&gt;32M) version
+	  of INT 26 must be used solely on the basis of the partition's size,
+	  thus forcing use of the new-style call even for data in the first
+	  32M of the partition
+	Windows98 will display an error message and deliberately hang the
+	  system on attempted write to any hard disk if neither bit 7 of the
+	  Extended Drive Info byte nor bit 6 of "DOS_FLAG" (List-of-Lists+60h)
+	  is set
+	Although all registers except segment registers may be destroyed
+	 some software depends on some of the registers being preserved.
+	 For example some Flash disk drivers requires that DX is not trashed.
+	 DR-DOS 7.03 takes care of this.
+BUGS:	DOS 3.1 through 3.3 set the word at ES:[BP+1Eh] to FFFFh if AL is an
+	  invalid drive number
+	DR DOS 3.41 will return with a jump instead of RETF, leaving the
+	  wrong number of bytes on the stack; use the huge-partition version
+	  (INT 26/CX=FFFFh) for all partition sizes under DR DOS 3.41
+	DR DOS 6.0 original releases 05/1991 & 08/1991 reported wrong error
+	  codes for "drive not ready" and "write protect". This was fixed
+	  with the DR DOS BDOS patch "PAT321" (1992/02/19, XDIR /C: 947Bh)
+	  and later "full" rebuilds (see INT21/AX=4452h for details).
+SeeAlso: INT 13/AH=03h,INT 25,INT 26/CX=FFFFh,INT 21/AX=7305h,INT 21/AH=91h"PTS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#26----CXFFFF" name="26----CXFFFF"><b>26----CXFFFF</b></a> - INT 26 - DOS 3.31+ - ABSOLUTE DISK WRITE (32M-2047M hard-disk partition)<br />
+<pre>
+INT 26 - DOS 3.31+ - ABSOLUTE DISK WRITE (32M-2047M hard-disk partition)
+	CX = FFFFh
+	AL = drive number (0=A, 1=B, etc)
+	DS:BX -&gt; disk write packet (see #02552)
+Return: CF clear if successful
+	CF set on error
+	    AH = status (see #02547)
+	    AL = error code (same as passed to INT 24 in DI)
+	may destroy all other registers except segment registers
+Notes:	partition is potentially &gt;32M (and requires this form of the call) if
+	  bit 1 of the device attribute word in the device driver is set
+	original flags are left on stack, and must be removed by caller
+	this call bypasses the DOS filesystem, though DOS 5+ invalidates any
+	  disk buffers referencing sectors which are written with this call
+	for FAT32 drives (which may be up to 2TB in size), use INT 21/AX=7305h
+	Windows98 will display an error message and deliberately hang the
+	  system on attempted write to any hard disk if neither bit 7 of the
+	  Extended Drive Info byte nor bit 6 of "DOS_FLAG" (List-of-Lists+60h)
+	  is set
+SeeAlso: INT 13/AH=03h,INT 25/CX=FFFFh,INT 26,INT 21/AX=7305h
+
+Format of disk write packet:
+Offset	Size	Description	(Table 02552)
+ 00h	DWORD	sector number
+ 04h	WORD	number of sectors to read
+ 06h	DWORD	transfer address
+SeeAlso: #02548
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#26_0" name="26_0"><b>26</b></a> - INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE<br />
+<pre>
+INT 26 - COMTROL HOSTESS i/ISA DEBUGGER - ENTER/EXIT EXTENDED ADDRESSING MODE
+	???
+Return: ???
+SeeAlso: INT 23"COMTROL",INT 27"COMTROL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

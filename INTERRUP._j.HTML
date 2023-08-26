@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._j</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category j - joke programs,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#214000BX0002"><b>214000BX0002</b> - INT 21 - FARTBELL.EXE - INSTALLATION CHECK</a><br />
+<a href="#214001BX0002"><b>214001BX0002</b> - INT 21 - FARTBELL.EXE - FORCE NOISE</a><br />
+<a href="#2FE000_0"><b>2FE000</b> - INT 2F - KAOSHIDE - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#214000BX0002" name="214000BX0002"><b>214000BX0002</b></a> - INT 21 - FARTBELL.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 21 - FARTBELL.EXE - INSTALLATION CHECK
+	AX = 4000h
+	BX = 0002h
+	CX = 0000h
+	DS:DX = 0000h:0000h
+Return: CF clear if installed
+	    AX = CS of resident code
+Program: FARTBELL is a joke program by Guenther Thiele which makes various
+	  noises when programs output a bell
+SeeAlso: AX=4001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214001BX0002" name="214001BX0002"><b>214001BX0002</b></a> - INT 21 - FARTBELL.EXE - FORCE NOISE<br />
+<pre>
+INT 21 - FARTBELL.EXE - FORCE NOISE
+	AX = 4001h
+	BX = 0002h
+	CX = 0000h
+	DS:DX = 0000h:0000h
+Program: FARTBELL is a joke program by Guenther Thiele which makes various
+	  noises when programs output a bell
+SeeAlso: AX=4000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE000_0" name="2FE000_0"><b>2FE000</b></a> - INT 2F - KAOSHIDE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - KAOSHIDE - INSTALLATION CHECK
+	AX = E000h
+Return: AL = FFh if installed
+Program: KAOSHIDE ('Hidden Kaos') is a PD joke TSR which randomly capitalizes
+	  alphabetic keys, written by Philip Maland. Although not a virus,
+	  v2.0 uses some viral-like techniques to hide itself from
+	  memory-reports by reducing DOS memory size.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

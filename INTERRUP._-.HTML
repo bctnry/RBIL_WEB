@@ -1,0 +1,5926 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._-</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category - - uncategorized
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#104F14"><b>104F14</b> - INT 10 - VESA OEM Extensions - API</a><br />
+<a href="#104F14_0"><b>104F14</b> - INT 10 - VESA OEM Extensions - Matrox Millenium (BIOS v2.1)</a><br />
+<a href="#1053"><b>1053</b> - INT 10 - Show Partner F/X v3.6 - START PRESENTATION</a><br />
+<a href="#1055"><b>1055</b> - INT 10 - Show Partner F/X v3.6 - UNINSTALL</a><br />
+<a href="#105555BXAAAA"><b>105555BXAAAA</b> - INT 10 - LIR - SET CONFIGURATION</a><br />
+<a href="#105555BXBBBB"><b>105555BXBBBB</b> - INT 10 - LIR - GET CONFIGURATION</a><br />
+<a href="#1086"><b>1086</b> - INT 10 - ???</a><br />
+<a href="#10A001"><b>10A001</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A002"><b>10A002</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A003"><b>10A003</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A004_0"><b>10A004</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A005"><b>10A005</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A006"><b>10A006</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A007"><b>10A007</b> - INT 10 - ATI Mach64 BIOS - GET ???</a><br />
+<a href="#10A008"><b>10A008</b> - INT 10 - ATI Mach64 BIOS - GET ??? SIZE</a><br />
+<a href="#10A009"><b>10A009</b> - INT 10 - ATI Mach64 BIOS - GET ???</a><br />
+<a href="#10A00A"><b>10A00A</b> - INT 10 - ATI Mach64 BIOS - GET ???</a><br />
+<a href="#10A00B"><b>10A00B</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A00D"><b>10A00D</b> - INT 10 - ATI Mach64 BIOS - GET SLEEP MODE</a><br />
+<a href="#10A00E"><b>10A00E</b> - INT 10 - ATI Mach64 BIOS - SET ???</a><br />
+<a href="#10A00F"><b>10A00F</b> - INT 10 - ATI Mach64 BIOS - GET ???</a><br />
+<a href="#10A010"><b>10A010</b> - INT 10 - ATI Mach64 BIOS - ???</a><br />
+<a href="#10A011"><b>10A011</b> - INT 10 - ATI Mach64 BIOS - GET ???</a><br />
+<a href="#1375"><b>1375</b> - INT 13 - ???</a><br />
+<a href="#1376"><b>1376</b> - INT 13 - ???</a><br />
+<a href="#13BF00"><b>13BF00</b> - INT 13 - Mylex/Adaptec??? - ???</a><br />
+<a href="#13FF"><b>13FF</b> - INT 13 - EZ-Drive - INSTALLATION CHECK</a><br />
+<a href="#1405_5"><b>1405</b> - INT 14 - PhysTechSoft PTS ROM-DOS - SET PACKET</a><br />
+<a href="#1406_4"><b>1406</b> - INT 14 - PhysTechSoft PTS ROM-DOS - GET PACKET</a><br />
+<a href="#1483"><b>1483</b> - INT 14 - SYSTEM FOSSIL</a><br />
+<a href="#14AD"><b>14AD</b> - INT 14 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#14AE"><b>14AE</b> - INT 14 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#14AF"><b>14AF</b> - INT 14 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1507_0"><b>1507</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1509_0"><b>1509</b> - INT 15 - IBM BIOS - RESERVED FOR PCMCIA SYSTEM RESOURCE TABLE ACCESS</a><br />
+<a href="#153D"><b>153D</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#153E"><b>153E</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#153F"><b>153F</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#154E_0"><b>154E</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1554"><b>1554</b> - INT 15 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#156700BXFFFF"><b>156700BXFFFF</b> - INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - INSTALLATION CHECK</a><br />
+<a href="#1567C3CX1Bh"><b>1567C3CX1Bh</b> - INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - HGC & HGC/RAMFont support???</a><br />
+<a href="#157002"><b>157002</b> - INT 15 U - Tandy 1000 Model ??? - GET ROM PAGE</a><br />
+<a href="#157003"><b>157003</b> - INT 15 U - Tandy 1000 Model ??? - SET ROM PAGE</a><br />
+<a href="#1584--DX0002"><b>1584--DX0002</b> - INT 15 - AMIGATSR - INSTALLATION CHECK</a><br />
+<a href="#1584--DX0002_0"><b>1584--DX0002</b> - INT 15 - MULTIJOY - INSTALLATION CHECK</a><br />
+<a href="#1584--DX0003"><b>1584--DX0003</b> - INT 15 - MULTIJOY - GET ACTIVE JOYSTICK</a><br />
+<a href="#1584--DX0004"><b>1584--DX0004</b> - INT 15 - MULTIJOY - SELECT JOYSTICK</a><br />
+<a href="#15B001CX5354"><b>15B001CX5354</b> - INT 15 - Stac STACKER - INSTALLATION CHECK</a><br />
+<a href="#15D042BL00"><b>15D042BL00</b> - INT 15 R - Intel Pentium Pro BIOS UPDATE - INSTALLATION CHECK</a><br />
+<a href="#15D042BL01"><b>15D042BL01</b> - INT 15 R - Intel Pentium Pro BIOS UPDATE - WRITE BIOS UPDATE AREA</a><br />
+<a href="#15D042BL02"><b>15D042BL02</b> - INT 15 R - Intel Pentium Pro BIOS UPDATE - BIOS UPDATE CONTROL</a><br />
+<a href="#15D042BL03"><b>15D042BL03</b> - INT 15 R - Intel Pentium Pro BIOS UPDATE - READ BIOS UPDATE AREA</a><br />
+<a href="#15D824"><b>15D824</b> - INT 15 - Compaq EISA System ROM 04/08/93 - ???</a><br />
+<a href="#15D825"><b>15D825</b> - INT 15 - Compaq EISA System ROM 04/08/93 - ???</a><br />
+<a href="#15D826"><b>15D826</b> - INT 15 - Compaq EISA System ROM 04/08/93 - ???</a><br />
+<a href="#15DA"><b>15DA</b> - INT 15 U - AMI PCI BIOS v1.00.05.AX1 - ???</a><br />
+<a href="#15DA05"><b>15DA05</b> - INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS</a><br />
+<a href="#15DA08"><b>15DA08</b> - INT 15 U - AMI PCI BIOS - ???</a><br />
+<a href="#15DA12"><b>15DA12</b> - INT 15 U - AMI PCI BIOS - v1.00.05.AX1 - ???</a><br />
+<a href="#15DA14"><b>15DA14</b> - INT 15 U - AMI PCI BIOS - GET/SET ???</a><br />
+<a href="#15DA15"><b>15DA15</b> - INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS</a><br />
+<a href="#15DA19"><b>15DA19</b> - INT 15 U - AMI PCI BIOS - GET/SET ???</a><br />
+<a href="#15DA88"><b>15DA88</b> - INT 15 U - AMI PCI BIOS - GET EXTENDED MEMORY SIZE</a><br />
+<a href="#15DA8C"><b>15DA8C</b> - INT 15 U - AMI PCI BIOS - GET BIOS AND CHIPSET IDENTIFICATION</a><br />
+<a href="#15DA8E"><b>15DA8E</b> - INT 15 U - AMI PCI BIOS - ???</a><br />
+<a href="#15DA92"><b>15DA92</b> - INT 15 U - AMI PCI BIOS - GET CPU TYPE AND SPEED</a><br />
+<a href="#15DA99"><b>15DA99</b> - INT 15 U - AMI PCI BIOS - GET/SET ??? FLAG</a><br />
+<a href="#15E900"><b>15E900</b> - INT 15 - PhysTechSoft PTS ROM-DOS - RESET WATCHDOG TIMER</a><br />
+<a href="#15E901"><b>15E901</b> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE DIAGNOSTIC CONTROL POINT CODE</a><br />
+<a href="#15E902"><b>15E902</b> - INT 15 - PhysTechSoft PTS ROM-DOS - SET DIAGNOSTIC DOS ERROR FLAG</a><br />
+<a href="#15E903"><b>15E903</b> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-ENABLE FLASH-DISK</a><br />
+<a href="#15E904"><b>15E904</b> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-PROTECT FLASH-DISK</a><br />
+<a href="#15E905"><b>15E905</b> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE IMAGE OF BIOS TO FLASH-MEMORY</a><br />
+<a href="#15E906"><b>15E906</b> - INT 15 - PhysTechSoft PTS ROM-DOS - READ SETUP INFORMATION FROM FLASH-DISK</a><br />
+<a href="#15E907"><b>15E907</b> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE SETUP INFORMATION ON FLASH-DISK</a><br />
+<a href="#15E908"><b>15E908</b> - INT 15 - PhysTechSoft PTS ROM-DOS - SET BREAKPOINT</a><br />
+<a href="#15E909"><b>15E909</b> - INT 15 - PhysTechSoft PTS ROM-DOS - REMOVE BREAKPOINT</a><br />
+<a href="#160600"><b>160600</b> - INT 16 - AAKEYS - GET NEXT KEYBOARD EVENT</a><br />
+<a href="#160601"><b>160601</b> - INT 16 - AAKEYS - EMPTY KEY-EVENT BUFFER</a><br />
+<a href="#160602"><b>160602</b> - INT 16 - AAKEYS - DISABLE AAKEYS</a><br />
+<a href="#160603"><b>160603</b> - INT 16 - AAKEYS - GET KEY-EVENT BUFFER</a><br />
+<a href="#160604"><b>160604</b> - INT 16 - AAKEYS - EMPTY BIOS KEYBOARD BUFFER</a><br />
+<a href="#1667"><b>1667</b> - INT 16 - Doorway v2.x+ - INSTALLATION CHECK / REDIRECTION CONTROLa</a><br />
+<a href="#16FF--BH00"><b>16FF--BH00</b> - INT 16 - FREEZE.COM - INSTALLATION CHECK</a><br />
+<a href="#16FF9D"><b>16FF9D</b> - INT 16 U - PC Tools v8+ CPTASK, VSAFE - ???</a><br />
+<a href="#1703_0"><b>1703</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1704_0"><b>1704</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1705"><b>1705</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170B_0"><b>170B</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170C_0"><b>170C</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170D_0"><b>170D</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#170E_0"><b>170E</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1780"><b>1780</b> - INT 17 - IBM SurePath BIOS - Officially "Private" Function</a><br />
+<a href="#1A04--CX4555"><b>1A04--CX4555</b> - INT 1A - CheckIt Year 2000 Fix v2.06 - INSTALLATION CHECK</a><br />
+<a href="#20----Vx3048"><b>20----Vx3048</b> - INT 20 P - Frontier Technologies ??? - VxD SERVICES</a><br />
+<a href="#20----Vx3049"><b>20----Vx3049</b> - INT 20 P - Frontier Technologies ??? - VxD SERVICES</a><br />
+<a href="#2130FFCX4445"><b>2130FFCX4445</b> - INT 21 - DESQ??? - INSTALLATION CHECK</a><br />
+<a href="#2137A6BX6A6D"><b>2137A6BX6A6D</b> - INT 21 - XPACK v1.65 - GET TEMPORARY DIRECTORY NAME</a><br />
+<a href="#2137A7BX6A6D"><b>2137A7BX6A6D</b> - INT 21 - XPACK v1.65 - SET TEMPORARY DIRECTORY NAME</a><br />
+<a href="#213F_5"><b>213F</b> - INT 21 U - IFSHLP.SYS - GET ENTRY POINT</a><br />
+<a href="#214402_25"><b>214402</b> - INT 21 U - IFSHLP.SYS - GET ENTRY POINT</a><br />
+<a href="#214402_27"><b>214402</b> - INT 21 - DRFAT32.SYS device driver - IOCTL INPUT</a><br />
+<a href="#214403_10"><b>214403</b> - INT 21 - DR DOS $IDLE$ - IOCTL - DYNAMIC IDLE DETECTION CONTROL</a><br />
+<a href="#214405_5"><b>214405</b> - INT 21 U - SUPERSTOR - IOCTL - INSTALL CHECK</a><br />
+<a href="#214B18DX0010"><b>214B18DX0010</b> - INT 21 U - FBOOT v2.13 - PERFORM FAST BOOTSTRAP</a><br />
+<a href="#215758"><b>215758</b> - INT 21 U - Headroom - API</a><br />
+<a href="#216500"><b>216500</b> - INT 21 - Windows95 (OSR2) - SET GENERAL INTERNATIONALIZATION INFO</a><br />
+<a href="#217070BX6060"><b>217070BX6060</b> - INT 21 - PCW Weather Card interface - GET DATA SEGMENT</a><br />
+<a href="#217070BX7070"><b>217070BX7070</b> - INT 21 - PCW Weather Card interface - INSTALLATION CHECK</a><br />
+<a href="#218080"><b>218080</b> - INT 21 - PCW Weather Card interface - UNINSTALL PCW.COM AND FREE MEMORY</a><br />
+<a href="#2190--CXFFFF"><b>2190--CXFFFF</b> - INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK READ</a><br />
+<a href="#2191--CXFFFF"><b>2191--CXFFFF</b> - INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK WRITE</a><br />
+<a href="#2F"><b>2F</b> - INT 2F - Multiplex - NOTES</a><br />
+<a href="#2F1230"><b>2F1230</b> - INT 2F U - Windows95 - FIND SFT ENTRY IN INTERNAL FILE TABLES</a><br />
+<a href="#2F1231"><b>2F1231</b> - INT 2F U - Windows95 - SET/CLEAR "REPORT WINDOWS TO DOS PROGRAMS" FLAG</a><br />
+<a href="#2F1400BX0EDC"><b>2F1400BX0EDC</b> - INT 2Fh - DR-DOS NLSFUNC 4.01+ - ENHANCED INSTALLATION CHECK</a><br />
+<a href="#2F1615"><b>2F1615</b> - INT 2F - Windows95 - SAVE32.COM - INSTALLATION CHECK</a><br />
+<a href="#2F1684BX377B"><b>2F1684BX377B</b> - INT 2F - MS Windows - MX1501HAD - GET API ENTRY POINT</a><br />
+<a href="#2F18"><b>2F18</b> - INT 2F U - MS-Manager</a><br />
+<a href="#2F1980"><b>2F1980</b> - INT 2F U - IBM ROM-DOS v4.0 - INSTALLATION CHECK</a><br />
+<a href="#2F1981"><b>2F1981</b> - INT 2F U - IBM ROM-DOS v4.0 - GET ??? STRING</a><br />
+<a href="#2F1982"><b>2F1982</b> - INT 2F U - IBM ROM-DOS v4.0 - GET ??? TABLE</a><br />
+<a href="#2F43D6"><b>2F43D6</b> - INT 2F - Multiplex - ???</a><br />
+<a href="#2F4653CX0007"><b>2F4653CX0007</b> - INT 2F - F-PROT v2.x - VIRSTOP - ENABLE/DISABLE BOOTSECTOR READ CHECKING</a><br />
+<a href="#2F4653CX0008"><b>2F4653CX0008</b> - INT 2F - F-PROT v2.x - ???</a><br />
+<a href="#2F4653CX0008_0"><b>2F4653CX0008</b> - INT 2F - F-PROT v2.x - VIRSTOP - INSTALLATION CHECK</a><br />
+<a href="#2F47"><b>2F47</b> - INT 2F U - ???</a><br />
+<a href="#2F49"><b>2F49</b> - INT 2F U - DOS 5.0+ SETUP</a><br />
+<a href="#2F4A15BX0000"><b>2F4A15BX0000</b> - INT 2F - MS EMM386.EXE v4.46+ - INSTALL I/O VIRTUALIZATION HANDLER</a><br />
+<a href="#2F4D"><b>2F4D</b> - INT 2F U - KKCFUNC</a><br />
+<a href="#2F7F24"><b>2F7F24</b> - INT 2F - Multiplex - ???</a><br />
+<a href="#2F7F26"><b>2F7F26</b> - INT 2F - Multiplex - ???</a><br />
+<a href="#2F86"><b>2F86</b> - INT 2F U - ???</a><br />
+<a href="#2F97"><b>2F97</b> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???</a><br />
+<a href="#2F98"><b>2F98</b> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???</a><br />
+<a href="#2F99"><b>2F99</b> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???</a><br />
+<a href="#2F9A"><b>2F9A</b> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???</a><br />
+<a href="#2FAB00_0"><b>2FAB00</b> - INT 2F - SRSoft MODAL PC v2+ - INSTALLATION CHECK / GET VERSION</a><br />
+<a href="#2FAB01_0"><b>2FAB01</b> - INT 2F - SRSoft MODAL PC v2+ - GET PROCESS RUN PARAMETER</a><br />
+<a href="#2FAB02_0"><b>2FAB02</b> - INT 2F - SRSoft MODAL PC v2+ - SET PROCESS EXIT CODE</a><br />
+<a href="#2FAB03"><b>2FAB03</b> - INT 2F - SRSoft MODAL PC v2+ - ALLOCATE COMMON MEMORY</a><br />
+<a href="#2FAB04"><b>2FAB04</b> - INT 2F - SRSoft MODAL PC v2+ - GET ALL COMMON VARIABLES AND SEMAPHORES</a><br />
+<a href="#2FAB05"><b>2FAB05</b> - INT 2F - SRSoft MODAL PC v2+ - SET ALL COMMON VARIABLES AND SEMAPHORES</a><br />
+<a href="#2FAB06"><b>2FAB06</b> - INT 2F - SRSoft MODAL PC v2+ - GET A COMMON VARIABLE OR SEMAPHORE</a><br />
+<a href="#2FAB07"><b>2FAB07</b> - INT 2F - SRSoft MODAL PC v2+ - SET A COMMON VARIABLE OR SEMAPHORE</a><br />
+<a href="#2FADC1"><b>2FADC1</b> - INT 2F U - DOS 4.0+ SELECT - DISPLAY FORMAT DISK PROMPT</a><br />
+<a href="#2FAF00_0"><b>2FAF00</b> - INT 2F U - ???</a><br />
+<a href="#2FAF02_0"><b>2FAF02</b> - INT 2F U - ???</a><br />
+<a href="#2FAF03_0"><b>2FAF03</b> - INT 2F U - ???</a><br />
+<a href="#2FAF04_0"><b>2FAF04</b> - INT 2F U - ???</a><br />
+<a href="#2FAF05_0"><b>2FAF05</b> - INT 2F U - ???</a><br />
+<a href="#2FAF12_0"><b>2FAF12</b> - INT 2F U - ???</a><br />
+<a href="#2FAF13_0"><b>2FAF13</b> - INT 2F U - ???</a><br />
+<a href="#2FAF30"><b>2FAF30</b> - INT 2F U - ???</a><br />
+<a href="#2FBB00BX0000"><b>2FBB00BX0000</b> - INT 2F - CATC USB4DOS Host Controller - INSTALLATION CHECK</a><br />
+<a href="#2FBB00BX0001"><b>2FBB00BX0001</b> - INT 2F - CATC USB4DOS Host Controller - GET ???</a><br />
+<a href="#2FBB00BX0002"><b>2FBB00BX0002</b> - INT 2F - CATC USB4DOS Host Controller - EXECUTE USB REQUEST</a><br />
+<a href="#2FBB00BX0003"><b>2FBB00BX0003</b> - INT 2F - CATC USB4DOS Host Controller - ??? (POLLS VARIOUS I/O PORTS)</a><br />
+<a href="#2FBB00"><b>2FBB00</b> - INT 2F - CATC USB4DOS Host Controller - INVALID FUNCTION</a><br />
+<a href="#2FBC00BL00"><b>2FBC00BL00</b> - INT 2F - CATC USB4DOS Device Manager - INSTALLATION CHECK</a><br />
+<a href="#2FBC00BL01"><b>2FBC00BL01</b> - INT 2F - CATC USB4DOS Device Manager - REGISTER DEVICE</a><br />
+<a href="#2FBC00BL02"><b>2FBC00BL02</b> - INT 2F - CATC USB4DOS Device Manager - UNLOAD DEVICE</a><br />
+<a href="#2FBC00BL03"><b>2FBC00BL03</b> - INT 2F - CATC USB4DOS Device Manager - HUB DEVICE ATTACHED</a><br />
+<a href="#2FBC00BL04"><b>2FBC00BL04</b> - INT 2F - CATC USB4DOS Device Manager - HUB DEVICE DETACHED</a><br />
+<a href="#2FDD_0"><b>2FDD</b> - INT 2F - MIXFIX.EXE - API</a><br />
+<a href="#2FE700BX4158"><b>2FE700BX4158</b> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???</a><br />
+<a href="#2FFA00"><b>2FFA00</b> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???</a><br />
+<a href="#2FFA00_0"><b>2FFA00</b> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???</a><br />
+<a href="#326E04"><b>326E04</b> - INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST</a><br />
+<a href="#326E06"><b>326E06</b> - INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER</a><br />
+<a href="#326E18"><b>326E18</b> - INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD</a><br />
+<a href="#326E_0"><b>326E</b> - INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE</a><br />
+<a href="#478000"><b>478000</b> - INT 47 - SQL Base - DATABASE ENGINE API</a><br />
+<a href="#478001"><b>478001</b> - INT 47 - SQL Base - GET VERSION NUMBER</a><br />
+<a href="#50_3"><b>50</b> - INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP</a><br />
+<a href="#51_2"><b>51</b> - INT 51 - TI Professional PC - RESTART TIMING EVENT</a><br />
+<a href="#52_1"><b>52</b> - INT 52 - TI Professional PC - CANCEL TIMING EVENT</a><br />
+<a href="#53_1"><b>53</b> - INT 53 - TI Professional PC - SVC INTERFACE</a><br />
+<a href="#54_1"><b>54</b> - INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE</a><br />
+<a href="#60899B"><b>60899B</b> - INT 60 U - Agfa TTSR.EXE - API</a><br />
+<a href="#62_3"><b>62</b> - INT 62 - MS SQL Server/Sybase DBLIBRARY interface - ???</a><br />
+<a href="#62_4"><b>62</b> - INT 62 - MPAUSE - ???</a><br />
+<a href="#62_6"><b>62</b> - INT 62 - PC-DRAFT - PRIMARY DISPLAY DRIVER</a><br />
+<a href="#6208--CXFFFE"><b>6208--CXFFFE</b> - INT 62 - MS SQL Server/Sybase DBLIBRARY interface - UNINSTALL/GET PSP ADDR</a><br />
+<a href="#63_2"><b>63</b> - INT 63 - Oracle SQL Protected Mode Executive - ???</a><br />
+<a href="#63_4"><b>63</b> - INT 63 - Kofax KF9X00 image manipulation card interface</a><br />
+<a href="#64_2"><b>64</b> - INT 64 - Oracle SQL Protected Mode Executive - ???</a><br />
+<a href="#64_7"><b>64</b> - INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER</a><br />
+<a href="#65_6"><b>65</b> - INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER</a><br />
+<a href="#66_7"><b>66</b> - INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER</a><br />
+<a href="#67_4"><b>67</b> - INT 67 - PC-DRAFT - KEYBOARD DRIVER</a><br />
+<a href="#684300"><b>684300</b> - INT 68 U - ??? - INSTALLATION CHECK???</a><br />
+<a href="#684400"><b>684400</b> - INT 68 U - ???</a><br />
+<a href="#6B6B"><b>6B6B</b> - INT 6B - Tandy SCHOOLMATE PLUS - API</a><br />
+<a href="#6C"><b>6C</b> - INT 6C - system resume vector (CONVERTIBLE)</a><br />
+<a href="#6C_0"><b>6C</b> - INT 6C - DOS 3.2 Realtime Clock update</a><br />
+<a href="#7A07D0"><b>7A07D0</b> - INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT</a><br />
+<a href="#7A7A"><b>7A7A</b> - INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE</a><br />
+<a href="#7B_4"><b>7B</b> - INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API</a><br />
+<a href="#7D_3"><b>7D</b> - INT 7D - IBM DOS 6.1 E.EXE - ???</a><br />
+<a href="#7F_5"><b>7F</b> - INT 7F - Canon IXHND2 Scanner Interface</a><br />
+<a href="#80"><b>80</b> - INT 80 - Q-PRO4 - ???</a><br />
+<a href="#88_0"><b>88</b> - INT 88h - WANG PC - GET CONFIGURATION</a><br />
+<a href="#E0_2"><b>E0</b> - INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API</a><br />
+<a href="#E1_2"><b>E1</b> - INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)</a><br />
+<a href="#E4_0"><b>E4</b> - INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT</a><br />
+<a href="#E5_0"><b>E5</b> - INT E5 - DIGITAL RESEARCH - FIDDS INTERRUPT</a><br />
+<a href="#F101"><b>F101</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI</a><br />
+<a href="#F1--01"><b>F1--01</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI</a><br />
+<a href="#F102"><b>F102</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI</a><br />
+<a href="#F1--02"><b>F1--02</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI</a><br />
+<a href="#F103"><b>F103</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"</a><br />
+<a href="#F1--03"><b>F1--03</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"</a><br />
+<a href="#F104"><b>F104</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"</a><br />
+<a href="#F1--04"><b>F1--04</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"</a><br />
+<a href="#F105"><b>F105</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING</a><br />
+<a href="#F1--05"><b>F1--05</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING</a><br />
+<a href="#F106"><b>F106</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL</a><br />
+<a href="#F1F0"><b>F1F0</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"</a><br />
+<a href="#F1--F0"><b>F1--F0</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"</a><br />
+<a href="#F1F1"><b>F1F1</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"</a><br />
+<a href="#F1--F1"><b>F1--F1</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"</a><br />
+<a href="#F1F2"><b>F1F2</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"</a><br />
+<a href="#F1--F2"><b>F1--F2</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"</a><br />
+<a href="#F1--F3"><b>F1--F3</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES</a><br />
+<a href="#F1FF"><b>F1FF</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC</a><br />
+<a href="#F1--FF"><b>F1--FF</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC</a><br />
+<a href="#F2_2"><b>F2</b> - INT F2 - ICCTSR 1.0 - ImageCapture COLOR Developer's Kit - API</a><br />
+<a href="#F3_1"><b>F3</b> - INT F3 - ICCTSR 1.0 - HANDSHAKE ID VECTOR</a><br />
+<a href="#F700"><b>F700</b> - INT F7 - FSBBS 2.0 - CONFIGURATION RECORD</a><br />
+<a href="#F701"><b>F701</b> - INT F7 - FSBBS 2.0 - USER RECORD</a><br />
+<a href="#F702"><b>F702</b> - INT F7 - FSBBS 2.0 - GET ACCOUNT NAME</a><br />
+<a href="#F703"><b>F703</b> - INT F7 - FSBBS 2.0 - TERMINAL NUMBER</a><br />
+<a href="#F704"><b>F704</b> - INT F7 - FSBBS 2.0 - PASSDATA BUFFER</a><br />
+<a href="#F705"><b>F705</b> - INT F7 - FSBBS 2.0 - TIMER FUNCTIONS</a><br />
+<a href="#F706"><b>F706</b> - INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY</a><br />
+<a href="#F707"><b>F707</b> - INT F7 - FSBBS 2.0 - DUMP FUNCTIONS</a><br />
+<a href="#FA_2"><b>FA</b> - INT FA P - ASM Edit - INSTALLATION CHECK</a><br />
+
+<hr />
+
+<a href="#104F14" name="104F14"><b>104F14</b></a> - INT 10 - VESA OEM Extensions - API<br />
+<pre>
+INT 10 - VESA OEM Extensions - API
+	AX = 4F14h
+	BL = function
+	    00h installation check / get capabilities
+	other registers vary by function
+Return: varies by function
+Note:	this function is provided for OEMs to implement system-specific
+	  functionality in a VESA-compatible manner
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#104F14_0" name="104F14_0"><b>104F14</b></a> - INT 10 - VESA OEM Extensions - Matrox Millenium (BIOS v2.1)<br />
+<pre>
+INT 10 - VESA OEM Extensions - Matrox Millenium (BIOS v2.1)
+	AX = 4F14h
+	BL = function
+	    00h installation check / get capabilities
+		ES:DI -&gt; 256-byte buffer for Matrox-specific information
+			(see #00125)
+		Return: ES:DI buffer filled
+	    01h read/write MGA indexed data register
+		BH = direction (00h = write, else read)
+		CL = register number (80h for most-recently used register)
+		CH = new value, if writing
+		Return: CH = current value, if reading
+	    02h read/write register in MGA control space
+		BH = direction and size
+			bit 4: read register instead of writing
+			bits 1-0: data size (00 = BYTE, 01 = WORD, 10 = DWORD)
+		SI = register address
+		CL/CX/ECX = new value if writing
+		Return: CL/CX/ECX = current value if reading
+	    03h read PINS byte
+		SI = offset of byte within PINS data (see #00126)
+		Return: CL = value of specified PINS byte
+	    04h ??? (related to PLL programming)
+		DX = ???
+		Return: CL,EDX destroyed
+	    05h read BIOS byte
+		SI = offset of byte relative to start of BIOS image
+		Return: CL = specified byte
+	    else
+		Return: AX = FFFFh
+Return: AL = 4Fh if function supported
+	    AH = status
+		00h successful
+		01h failed
+Note:	most of this info is from http:\\grafi.ii.pw.edu.pl\gbm\matrox
+SeeAlso: MEM C000h:7FFCh"Matrox"
+
+Format of Matrox-specific VESA extensions information:
+Offset	Size	Description	(Table 00125)
+ 00h  7 BYTEs	signature "VBE/MGA"
+ 07h 10 BYTEs	??? (01h 01h 00h 00h 00h 00h 00h 00h 00h 07h)
+ 11h	WORD	BIOS version (high byte = major, low byte = one-digit minor)
+ 13h	DWORD	-&gt; manufacturer name (ASCIZ "Matrox")
+ 17h	DWORD	-&gt; ASCIZ card name
+ 1Bh	DWORD	-&gt; ??? ASCIZ string (empty string on card examined)
+ 1Fh	DWORD	-&gt; ASCIZ vendor name
+ 23h	DWORD	-&gt; ASCIZ BIOS file base name
+ 27h	DWORD	-&gt; PINS
+ 2Bh	WORD	video memory size in 64K units
+ 2Dh	DWORD	linear address of linear frame buffer
+ 31h	DWORD	linear address of MGA control aperture
+ 35h	WORD	PCI bus/device for card???
+ 37h 201 BYTEs	unused??? (cleared to 00h)
+
+Format of Matrox PINS data (version 3.0):
+Offset	Size	Description	(Table 00126)
+ 00h  2 BYTEs	signature ".A" (2Eh 41h)
+ 02h	BYTE	structure length (40h for v3.0)
+ 03h	BYTE	???
+ 04h	WORD	PINS version (high byte = major, low byte = minor)
+ 06h	WORD	date last programmed
+ 08h	WORD	number of times programmed
+ 0Ah	WORD	flags
+ 0Ch  8 BYTEs	ASCII serial number, three letters + five digits
+ 14h  8 BYTEs	???
+ 1Ch  4 BYTEs	ASCII card version
+ 20h	DWORD	PCB revision
+ 24h	BYTE	maximum RAMDAC frequency in MHz (less 100)
+ 25h	BYTE	maximum RAMDAC frequency???
+ 26h	BYTE	maximum RAMDAc frequency???
+ 27h	BYTE	???
+ 28h	BYTE	??? timing data?
+ 29h	BYTE	???
+ 2Ah	BYTE	???
+ 2Bh	BYTE	???
+ 2Ch	BYTE	???
+ 2Dh	BYTE	???
+ 2Eh	BYTE	???
+ 2Fh	BYTE	???
+ 30h  4 BYTEs	???
+ 34h	BYTE	???
+ 35h	BYTE	???
+ 36h	BYTE	???
+ 37h	BYTE	memory size in 64K units
+ 38h	BYTE	???
+ 39h	BYTE	???
+ 3Ah	BYTE	???
+ 3Bh	BYTE	???
+ 3Ch	BYTE	???
+ 3Dh	BYTE	???
+ 3Eh	BYTE	???
+ 3Fh	BYTE	checksum (to make sum of all bytes MOD 256 == 00h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1053" name="1053"><b>1053</b></a> - INT 10 - Show Partner F/X v3.6 - START PRESENTATION<br />
+<pre>
+INT 10 - Show Partner F/X v3.6 - START PRESENTATION
+	AH = 53h
+	DS:DX -&gt; ASCIZ name of presentation file (no path, extension forced to
+		.PR2)
+Return: ???
+SeeAlso: AH=55h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1055" name="1055"><b>1055</b></a> - INT 10 - Show Partner F/X v3.6 - UNINSTALL<br />
+<pre>
+INT 10 - Show Partner F/X v3.6 - UNINSTALL
+	AH = 55h
+Return: FXSHOW.EXE removed from memory
+SeeAlso: AH=53h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105555BXAAAA" name="105555BXAAAA"><b>105555BXAAAA</b></a> - INT 10 - LIR - SET CONFIGURATION<br />
+<pre>
+INT 10 - LIR - SET CONFIGURATION
+	AX = 5555h
+	BX = AAAAh
+	CL = new configuration flags (see #04118)
+	CH &gt; 0 new video adapter configuration (see #04121)
+	   = 0 do not update video adapter configuration
+	DL = new keyboard layout flags (see #04119)
+	DH = new alphabet flags (see #04120)
+Return: AX = A55Ah if installed
+Program: LIR is a DOS/Windows 3.xx codepage support package develoved by
+	  LABAS u.a.b. It supports several screen and printer codepages as
+	  well as various keyboard layouts used in Lithuania.
+	  Download at: ftp://ftp.labas.com/pub/drivers/language/lir422.zip
+SeeAlso: AX=5555h/BX=BBBBh,INT 17/AX=5555h/BX=AAAAh
+
+Bitfields for LIR configuration flags:
+Bit(s)	Description	(Table 04118)
+ 7	program is active
+ 6	???
+ 5-3	code page
+ 2	Lithuanian???
+ 1	Russian???
+ 0	enable beeps
+SeeAlso: #04119
+
+Bitfields for LIR keyboard layout flags:
+Bit(s)	Description	(Table 04119)
+ 7-5	keyboard layout
+	100 QWERTY
+	010 Lithuanian AZERTY
+	001 Lithuanian ergonomic FZVPUJ
+ 4-3	reserved (0)
+ 2	Lithuanian keyboard???
+ 1	Russian keyboard???
+ 0	???
+SeeAlso: #04118,#04120
+
+Bitfields for LIR Alphabet flags:
+Bit(s)	Description	(Table 04120)
+ 7-3	reserved (0)
+ 2	Lithuanian alphabetic symbol table???
+ 1	Russian alphabetic symbol table???
+ 0	reserved (0)
+SeeAlso: #04118,#04119,#04121
+
+Bitfields for LIR video adapter configuration:
+Bit(s)	Description	(Table 04121)
+ 7	Hercules Graphics Card (HGC)
+ 6-5	reserved (0)
+ 4	VGA
+ 3	MCGA
+ 2	EGA
+ 1	CGA
+ 0	reserved (0)
+Note:	multiple bits may be set if more than one video adapter is installed
+SeeAlso: #04118
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#105555BXBBBB" name="105555BXBBBB"><b>105555BXBBBB</b></a> - INT 10 - LIR - GET CONFIGURATION<br />
+<pre>
+INT 10 - LIR - GET CONFIGURATION
+	AX = 5555h
+	BX = BBBBh
+Return: AX = magic signature A55Ah
+	BX = version number (BH = major version, BL = minor version),
+	      e.g. BX = 0410h for LIR v4.10, or BX = 0422h for LIR v4.22)
+	CL = configuration flags (see #04118)
+	CH = video adapter configuration (see #04121)
+	DL = keyboard layout flags(see #04119)
+	DH = alphabet flags (see #04120)
+SeeAlso: AX=5555h/BX=AAAAh,INT 17/AX=5555h/BX=BBBBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1086" name="1086"><b>1086</b></a> - INT 10 - ???<br />
+<pre>
+INT 10 - ???
+	AH = 86h
+Note:	called by Diamond Stealth64 Video STLTH64.VXD
+SeeAlso: INT 2F/AX=4021h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A001" name="10A001"><b>10A001</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A001h
+	CL = ??? flags
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A002" name="10A002"><b>10A002</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A002h
+	CL = ??? (bits 2-0 may not be 000)
+	CH = ??? (81h or ???)
+	DX = segment of ??? (if CH=81h)
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+Note:	executes AX=A000h, then AX=A001h if A000h was successful
+SeeAlso: AX=A000h,AX=A001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A003" name="10A003"><b>10A003</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A003h
+	BX = ???
+	???
+Return: AH = status (00h successful)
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A004_0" name="10A004_0"><b>10A004</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A004h
+	BX = video mode??? (0000-00FFh)
+	DX = ??? (sent to some port [66ECh???] one bit at a time, high to low)
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A005" name="10A005"><b>10A005</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A005h
+	CL = ??? flags (bits 0,2, others?)
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A006" name="10A006"><b>10A006</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A006h
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A007" name="10A007"><b>10A007</b></a> - INT 10 - ATI Mach64 BIOS - GET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ???
+	AX = A007h
+Return: AH = 00h (successful)
+	AL = ??? (00h)
+	BX = ??? (15A0h in examined BIOS)
+	DX = segment of BIOS
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A008" name="10A008"><b>10A008</b></a> - INT 10 - ATI Mach64 BIOS - GET ??? SIZE<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ??? SIZE
+	AX = A008h
+	CL = ??? flags
+	???
+Return: AH = 00h (successful)
+	BX = size of ??? (0046h if CL bit 0 clear on entry)
+SeeAlso: AX=A000h,AX=A009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A009" name="10A009"><b>10A009</b></a> - INT 10 - ATI Mach64 BIOS - GET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ???
+	AX = A009h
+	DX:BX -&gt; buffer for ???
+	CL = ??? flags
+	???
+Return: AH = status
+	    00h successful
+		DX:BX buffer filled
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00A" name="10A00A"><b>10A00A</b></a> - INT 10 - ATI Mach64 BIOS - GET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ???
+	AX = A00Ah
+Return: AH = 00h (successful)
+	AL = ??? (01h)
+	BX = ??? (5938h)
+	CX = ??? (595Eh)
+	DX = segment of BIOS
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00B" name="10A00B"><b>10A00B</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A00Bh
+	BX = ???
+	CL = ??? flags
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00D" name="10A00D"><b>10A00D</b></a> - INT 10 - ATI Mach64 BIOS - GET SLEEP MODE<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET SLEEP MODE
+	AX = A00Dh
+Return: AH = 00h (successful)
+	CL = current power mode
+	    00h normal operation
+	    01h standby
+	    02h suspend
+	    03h off
+SeeAlso: AX=A00Ch,AX=4F10h/BL=02h
+SeeAlso: AX=A00Ch,AX=A00Dh"Rage128"AX=4F10h/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00E" name="10A00E"><b>10A00E</b></a> - INT 10 - ATI Mach64 BIOS - SET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - SET ???
+	AX = A00Eh
+	CL = ??? (00h-03h)
+Return: AH = status
+	    00h successful
+	    01h failed
+Notes:	CL zero/nonzero are treated differently
+	NOP in All-in-Wonder 128 BIOS
+SeeAlso: AX=A000h,AX=A00Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A00F" name="10A00F"><b>10A00F</b></a> - INT 10 - ATI Mach64 BIOS - GET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ???
+	AX = A00Fh
+Return: AH = 00h (successful)
+	CL = ??? (00h-03h, read from PORT 42ECh)
+Note:	NOP in All-in-Wonder 128 BIOS
+SeeAlso: AX=A000h,AX=A00Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A010" name="10A010"><b>10A010</b></a> - INT 10 - ATI Mach64 BIOS - ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - ???
+	AX = A010h
+	CL = ???  (80h/other)
+	???
+Return: AH = status
+	    00h successful
+	    01h failed
+	???
+Note:	NOP in All-in-Wonder 128 BIOS
+SeeAlso: AX=A000h,AX=A002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#10A011" name="10A011"><b>10A011</b></a> - INT 10 - ATI Mach64 BIOS - GET ???<br />
+<pre>
+INT 10 - ATI Mach64 BIOS - GET ???
+	AX = A011h
+Return: AH = 00h (successful)
+	BL = ??? (1Fh)
+	BH = ??? (0Fh)
+	CL = ??? (00h)
+	CH = ??? (0Fh)
+	DX = ??? (00FFh)
+Note:	NOP in All-in-Wonder 128 BIOS
+SeeAlso: AX=A000h,AX=A010h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1375" name="1375"><b>1375</b></a> - INT 13 - ???<br />
+<pre>
+INT 13 - ???
+	AH = 75h
+	???
+Return: AH = ???
+	???
+Note:	intercepted by PC-Cache (v5.1 only)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1376" name="1376"><b>1376</b></a> - INT 13 - ???<br />
+<pre>
+INT 13 - ???
+	AH = 76h
+	???
+Return: AH = ???
+	???
+Note:	intercepted by PC-Cache (v5.1 only)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13BF00" name="13BF00"><b>13BF00</b></a> - INT 13 - Mylex/Adaptec??? - ???<br />
+<pre>
+INT 13 - Mylex/Adaptec??? - ???
+	AX = BF00h
+	BX = PCI address???
+	DI = 0000h ???
+	DL = drive number (80h = C:)
+Return: ???
+Note:	some poorly-commented code using this function notes that there had
+	  been a workaround for some Mylex BIOS bug by setting DL to 8Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13FF" name="13FF"><b>13FF</b></a> - INT 13 - EZ-Drive - INSTALLATION CHECK<br />
+<pre>
+INT 13 - EZ-Drive - INSTALLATION CHECK
+	AH = FFh
+	DL = drive number (80h)
+Return: CF clear
+	    AX = AA55h
+	    ES:BX -&gt; string "AERMH13Vxx", where xx is the version number of
+		  the EZ-Drive driver
+	CF set on error
+Program: EZ-Drive is a driver by Micro House that is loaded from the
+	  hard disk MBR, replacing the ROM BIOS disk support, eg adding
+	  LBA mode support, and read/write multiple.
+Note:	this function is called by the Windows95 Master Boot Record
+SeeAlso: AX=E000h"XBIOS",AH=F9h"SWBIOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1405_5" name="1405_5"><b>1405</b></a> - INT 14 - PhysTechSoft PTS ROM-DOS - SET PACKET<br />
+<pre>
+INT 14 - PhysTechSoft PTS ROM-DOS - SET PACKET
+	AH = 05h
+	CX = packet length
+	DX = port number
+	DS:SI -&gt; packet
+Return: AH = error code (0 = no error, -1 = error)
+Notes:	The embedded PC can send messages at any time. The managing PC may
+	  force the embedded PC to receive messages only after causing a reset
+	  on the remote embedded PC.
+    !!!from Matthias Paul:
+    Description of the high-level control packets:
+	After the reset the embedded PC will send a 4-byte packet "LOAD"
+	  to the managing PC to indicate it is now able to receive commands.
+	The managing PC can send commands using 6-byte sized packets starting
+	  with "COMM" followed by a 2-byte command code:
+	    "01" demand setup information
+	    "02" demand sending of diagnostic information
+	If diagnostic information is requested, the embedded PC will send back
+	  a header packet starting with 4-byte "DIAG" followed by 2 bytes
+	  indicating the count of diagnostic data packets following. Each
+	  diagnostic data packet is sized 134 bytes, starting with the 4-byte
+	  "DIAG", a 2-byte number packet, followed by 128 bytes of data.
+	If setup information is requested, the embedded PC will send back
+	  8 bytes length packets starting with "SETP" and 2 byte of setup
+	  information of the LOADER and BIOS. The contents varies.
+	If the embedded PC requests the managing PC to send a BIOS it will
+	  send a 4 byte packet "BIOS".
+	The managing PC will then send back a 6-byte sized BIOS header packet
+	  starting with "BIOS" and a 2-byte indicator of the BIOS image size
+	  in packets.
+	The embedded PC will answer by sending a 6 byte packet starting with
+	  "BIOS" followed by the running number of the demanded packet.
+	The managing PC will then send the requested part of the BIOS image
+	  in a 134 byte sized packet, starting with "BIOS", the 2 byte running
+	  number of the packet and 128 bytes of the actual BIOS info.
+	The embedded PC acknowledges that it received the BIOS with a 6-byte
+	  packet "BIOS", followed by 2-bytes of 0.
+	If the embedded PCs requests the managing PC to send the operating
+	  system, it will follow the same proceduce as for requesting the
+	  BIOS. The only difference is that instead of "BIOS", the string
+	  "PTOS" will be used in the communication.
+	Debug information packets have a length of 32 bytes starting with
+	  the 4-byte "DEBU" signature, and followed by the contents of the
+	  PCU registers in the following order: SP, SS, ES, DS, BP, DI, SI,
+	  DX, CX, BX, AX, IP, CS, Flags. Debug information is send after
+	  reaching the corresponding breakpoint.
+     Description of the low-level packet protocol:
+	Before sending a packet the sending side sends a byte 52h and for a
+	  certain time (ca. 1 second for the embedded PC) waits for
+	  confirmation (41h) from the receiving side. If no acknowledge is
+	  received this	procedure is repeated 4 more times before an error is
+	  returned.
+	If acknowledge was received the following information is sent:
+	 2 BYTEs  synchronization (50h, 50h)
+	   BYTE	  data packet size - 1
+	 2 BYTEs  CRC of the data
+	 var.	  data
+	 2 BYTEs  synchronization (F0h, F0h)
+	The receiving side must acknowledge this by sending back two bytes
+	  59h, 59h. If the sender does not receive the confirmation, it
+	  tries 4 more times before returning an error.
+SeeAlso: INT 14h/AH=06h, INT 15h/AX=E908h, INT 15h/E909h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1406_4" name="1406_4"><b>1406</b></a> - INT 14 - PhysTechSoft PTS ROM-DOS - GET PACKET<br />
+<pre>
+INT 14 - PhysTechSoft PTS ROM-DOS - GET PACKET
+	AH = 06h
+	CX = buffer size for packet
+	DX = port number
+	DS:SI -&gt; buffer for packet
+Return: AH = error code (00h = no error, FFh = error)
+	CX = packet size
+SeeAlso: AH=05h"PTS ROM-DOS",INT 15/AX=E908h,INT 15/AX=E909h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1483" name="1483"><b>1483</b></a> - INT 14 - SYSTEM FOSSIL<br />
+<pre>
+INT 14 - SYSTEM FOSSIL
+	AH = 83h
+SeeAlso: AH=7Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14AD" name="14AD"><b>14AD</b></a> - INT 14 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 14 - IBM SurePath BIOS - Officially "Private" Function
+	AH = ADh
+SeeAlso: AH=AEh"IBM",AH=AFh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14AE" name="14AE"><b>14AE</b></a> - INT 14 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 14 - IBM SurePath BIOS - Officially "Private" Function
+	AH = AEh
+SeeAlso: AH=ADh"IBM",AH=AFh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14AF" name="14AF"><b>14AF</b></a> - INT 14 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 14 - IBM SurePath BIOS - Officially "Private" Function
+	AH = AFh
+SeeAlso: AH=ADh"IBM",AH=AEh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1507_0" name="1507_0"><b>1507</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 07h
+SeeAlso: AH=08h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1509_0" name="1509_0"><b>1509</b></a> - INT 15 - IBM BIOS - RESERVED FOR PCMCIA SYSTEM RESOURCE TABLE ACCESS<br />
+<pre>
+INT 15 - IBM BIOS - RESERVED FOR PCMCIA SYSTEM RESOURCE TABLE ACCESS
+	AH = 09h
+	no further details available
+SeeAlso: AH=08h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153D" name="153D"><b>153D</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 3Dh
+SeeAlso: AH=07h"IBM",AH=3Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153E" name="153E"><b>153E</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 3Eh
+SeeAlso: AH=3Dh"IBM",AH=3Fh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#153F" name="153F"><b>153F</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 3Fh
+SeeAlso: AH=07h"IBM",AH=3Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#154E_0" name="154E_0"><b>154E</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 4Eh
+SeeAlso: AH=07h"IBM",AH=3Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1554" name="1554"><b>1554</b></a> - INT 15 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 15 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 54h
+SeeAlso: AH=07h"IBM",AH=3Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#156700BXFFFF" name="156700BXFFFF"><b>156700BXFFFF</b></a> - INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - INSTALLATION CHECK<br />
+<pre>
+INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - INSTALLATION CHECK
+	AX = 6700h
+	BX = FFFFh
+Return: BX = FFFFh (Arabic/Hebrew MS-DOS not installed)
+	BX = version (e.g. 0101h for Arabic/Hebrew MS-DOS 5.0)
+Note:	This call is made by the SK_HGC.COM TSR for HGC and HGC/RAMFont
+	  graphics adapters to ensure it runs on the correct version of
+	  Arabic or Hebrew MS-DOS.
+	The function is probably implemented in the ARABIC.COM/HEBREW.COM
+	  driver.
+	Arabic/Hebrew versions of MS-DOS 3.3 existed, but no details are
+	  available.
+SeeAlso: AX=67C3h,INT 2F/AX=AD41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1567C3CX1Bh" name="1567C3CX1Bh"><b>1567C3CX1Bh</b></a> - INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - HGC & HGC/RAMFont support???<br />
+<pre>
+INT 15h - Arabic/Hebrew MS-DOS 5.0???+ - HGC & HGC/RAMFont support???
+	AX = 67C3h
+	CX = 1Bh
+	CS|DS???:SI -&gt; buffer
+Return: ES:DI -&gt; ???
+	AX = ???
+Program: The SK_HGC.COM TSR is used to support operation of ARABIC.COM/
+	  HEBREW.COM with the Hercules Graphic Card series of video adapters.
+	  It is provided for compatibility with ADOS 3.30/HDOS 3.30 only.
+	  This file must be loaded immediately after ARABIC.COM/HEBREW.COM
+	  to insure correct operation with these devices.
+Notes:	This call is made by the SK_HGC.COM TSR for HGC and HGC/RAMFont
+	  graphics adapters when it has successfully detected an Arabic/Hebrew
+	  issue of MS-DOS via INT15h/6700h/BX=FFFFh to ensure it runs on the
+	  correct version of Arabic or Hebrew MS-DOS.
+	At some unknown offset in the buffer it contains a flag indicating
+	  if a HGC or HGC/RAMFont adapter is present or not.
+	ARABIC/HEBREW does not operate with Monochrome Display Adapters (MDA)
+	  and the Hercules Graphic Card Plus (HGC+). ARABIC/HEBREW does operate
+	  with Hercules Graphic Card (HGC) with a burnt-in ROM/EPROM font (many
+	  HGC cards, even the highly integrated ones, allow for this kind of
+	  user customization), though this is not officially supported.
+	In some pre-1987 IBM XT/AT and compatibles, the Hercules Graphic
+	  Card Plus operates like a MDA card. This hardware limitation
+	  prevents ARABIC/HEBREW from running on this combination of hardware.
+SeeAlso: AX=6700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#157002" name="157002"><b>157002</b></a> - INT 15 U - Tandy 1000 Model ??? - GET ROM PAGE<br />
+<pre>
+INT 15 U - Tandy 1000 Model ??? - GET ROM PAGE
+	AX = 7002h
+Return: AL = ROM page mapped at 0E0000h (0-6 (13?))
+Note:	some Tandy machines have DOS and DeskMate in a 512k paged ROM.	The
+	  BIOS uses this call to determine what ROM page is mapped in the 64k
+	  segment at 0E0000h.
+	the 1000TL has 8 64k ROM pages; page 7 is permanently mapped at
+	  0F0000h.  There may be 16 32k ROM pages on other systems.
+SeeAlso: AX=7003h,INT E0"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#157003" name="157003"><b>157003</b></a> - INT 15 U - Tandy 1000 Model ??? - SET ROM PAGE<br />
+<pre>
+INT 15 U - Tandy 1000 Model ??? - SET ROM PAGE
+	AX = 7003h
+	DL = ROM page to be mapped at 0E0000h (0-6 (13?))
+Return: CF clear if valid ROM page specified
+Note:	Some Tandy machines have DOS and DeskMate in a 512k paged ROM.	The
+	  BIOS uses this call to map ROM pages in the 64k segment at 0E0000h.
+	The 1000TL has 8 64k ROM pages; page 7 is permanently mapped at
+	  0F0000h.  There may be 16 32k ROM pages on other systems.
+SeeAlso: AX=7002h,INT E0"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1584--DX0002" name="1584--DX0002"><b>1584--DX0002</b></a> - INT 15 - AMIGATSR - INSTALLATION CHECK<br />
+<pre>
+INT 15 - AMIGATSR - INSTALLATION CHECK
+	AH = 84h
+	DX = 0002h
+Return: AX = 1234h if installed
+Program: AMIGATSR is a serial-port driver for using an Amiga gamepad on a PC
+SeeAlso: AH=84h/DX=0002h"MULTIJOY"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1584--DX0002_0" name="1584--DX0002_0"><b>1584--DX0002</b></a> - INT 15 - MULTIJOY - INSTALLATION CHECK<br />
+<pre>
+INT 15 - MULTIJOY - INSTALLATION CHECK
+	AH = 84h
+	DX = 0002h
+Return: AX = 4321h if installed
+SeeAlso: AH=84h/DX=0002h"AMIGATSR",AH=84h/DX=0003h"MULTIJOY"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1584--DX0003" name="1584--DX0003"><b>1584--DX0003</b></a> - INT 15 - MULTIJOY - GET ACTIVE JOYSTICK<br />
+<pre>
+INT 15 - MULTIJOY - GET ACTIVE JOYSTICK
+	AH = 84h
+	DX = 0003h
+Return: AX = number of the currently-active joystick device
+	BX = device classification (see #04098)
+SeeAlso: AH=84h/DX=0002h"MULTIJOY"
+ !!! more info to follow
+
+Bitfields for MULTIJOY device classification:
+Bit(s)	Description	(Table 04098)
+ 15	device connected and ready
+ 14	no buttons (overrides bits 12-9)
+ 13	no axes (overrides bits 8-5)
+ 12-9	number of buttons, less one
+ 8-5	number of axes, less one
+ 4	digital device rather than analog
+ 3-0	device type
+	0000 keyboard emulating joystick
+	0001 gamepad
+	0010 joystick
+	0011 steering wheel
+	0100 flight yoke
+	0101 mouse emulating joystick
+	0110 trackball emulating joystick
+	0111 GlidePoint (touchpad) emulating joystick
+	1000 touchscreen emulating joystick
+	1001 steering wheel
+	1010 light pen emulating joystick
+	1011 speech recognition emulating joystick
+	1100 TV remote emulating joystick
+	1101 network/Internet remote control
+	1110 PC software-controlled (demo mode, etc.)
+	1111 other device
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1584--DX0004" name="1584--DX0004"><b>1584--DX0004</b></a> - INT 15 - MULTIJOY - SELECT JOYSTICK<br />
+<pre>
+INT 15 - MULTIJOY - SELECT JOYSTICK
+	AH = 84h
+	DX = 0004h
+	BX = number of the joystick device to make active
+Return: ???
+SeeAlso: AH=84h/DX=0003h"MULTIJOY"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15B001CX5354" name="15B001CX5354"><b>15B001CX5354</b></a> - INT 15 - Stac STACKER - INSTALLATION CHECK<br />
+<pre>
+INT 15 - Stac STACKER - INSTALLATION CHECK
+	AX = B001h
+	CX = 5354h ('ST')
+	DX = 4143h ('AC')
+Return: AX = 4F4Bh ('OK') if installed
+Note:	this function is encapsulated in Stac's STACKER.LIB C library; it is
+	  called by Novell DOS 7+ NWCACHE v1.01, which makes use of this
+	  library
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D042BL00" name="15D042BL00"><b>15D042BL00</b></a> - INT 15 R - Intel Pentium Pro BIOS UPDATE - INSTALLATION CHECK<br />
+<pre>
+INT 15 R - Intel Pentium Pro BIOS UPDATE - INSTALLATION CHECK
+	AX = D042h
+	BL = 00h
+Return: CF clear if successful
+	CF set on error
+	AH = status
+	    00h successful
+		EBX:ECX = signature "INTELPEP"
+		EDX = BIOS update loader version
+		SI = number of 2K update blocks which can be recorded in NVRAM
+	    86h not implemented
+	AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+	    00h successful
+Program: the Pentium Pro BIOS update allows the system BIOS or other software
+	  to install a microcode patch into the Pentium Pro processor
+Notes:	this API must be called from actual real mode, not V86 mode
+	at least 32K stack space must be available when this function is called
+SeeAlso: AX=D042h/BL=01h,AX=D042h/BL=02h,AX=D042h/BL=03h
+SeeAlso: @xxxxh:xxxxh"Intel BIOS Upgrade",MSR 00000079h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D042BL01" name="15D042BL01"><b>15D042BL01</b></a> - INT 15 R - Intel Pentium Pro BIOS UPDATE - WRITE BIOS UPDATE AREA<br />
+<pre>
+INT 15 R - Intel Pentium Pro BIOS UPDATE - WRITE BIOS UPDATE AREA
+	AX = D042h
+	BL = 01h
+	ES:DI -&gt; microcode update block (see #00533)
+	CX,DX,SI = segments of three 64K scratchpad areas for BIOS use
+Return: CF clear if successful
+	CF set on error
+	AH = status (see #00532)
+	AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+	    00h successful
+Notes:	a microcode update may also be initiated by a WRMSR instruction
+	  with ECX=0079h, EDX=00000000h, and EAX=linear address of update
+	  block (see #00533)
+	at least 32K stack space must be available when this function is called
+SeeAlso: AX=D042h/BL=00h,AX=D042h/BL=02h,AX=D042h/BL=03h,MSR 00000079h
+
+(Table 00532)
+Values for Pentium Pro BIOS update status:
+ 00h	successful
+ 86h	not implemented
+ 90h	unable to erase NVRAM device
+ 91h	unable to write to NVRAM device
+ 92h	unable to read storage
+ 93h	NVRAM is full
+ 94h	specified processor stepping is not present in system
+ 95h	invalid header or loader version
+ 96h	wrong checksum in header
+ 97h	processor rejected the update
+ 98h	the same or a more recent update is already stored
+ 99h	update block number was out of range
+
+Format of Pentium Pro microcode update block:
+Offset	Size	Description	(Table 00533)
+ 00h	DWORD	update header version number (currently 00000001h)
+		FFFFFFFFh = unused block
+ 04h	DWORD	revision number of this microcode update
+ 08h	DWORD	update creation date, as BCD mmddyyyy (month,day,year)
+ 0Ch	DWORD	family/model/stepping of processor to which update applied
+		(same value as returned by CPUID instruction)
+ 10h	DWORD	checksum (used to force sum of all 512 DWORDs of the update
+		block to 00000000h)
+ 14h	DWORD	revision number of loader needed to install update
+		(currently 00000001h)
+ 18h 24 BYTEs	reserved for future expansion
+ 30h 2000 BYTEs	encrypted microcode data
+SeeAlso: MSR 00000079h,OPCODE "CPUID"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D042BL02" name="15D042BL02"><b>15D042BL02</b></a> - INT 15 R - Intel Pentium Pro BIOS UPDATE - BIOS UPDATE CONTROL<br />
+<pre>
+INT 15 R - Intel Pentium Pro BIOS UPDATE - BIOS UPDATE CONTROL
+	AX = D042h
+	BL = 02h
+	BH = function
+	    01h enable update loading at initialization time
+	    02h check whether update loading is enabled
+	CX,DX,SI = segments of three 64K scratchpad areas for BIOS use
+Return: CF clear if successful
+	CF set on error
+	AH = status (see #00532)
+	    00h successful
+		BL = enabled/disabled flag
+	    86h not implemented
+	AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+	    00h successful
+Notes:	this API must be called from actual real mode, not V86 mode
+	at least 32K stack space must be available when this function is called
+	there is no call to disable update loading due to security risks; the
+	  BIOS setup can disable loading
+SeeAlso: AX=D042h/BL=00h,AX=D042h/BL=02h,AX=D042h/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D042BL03" name="15D042BL03"><b>15D042BL03</b></a> - INT 15 R - Intel Pentium Pro BIOS UPDATE - READ BIOS UPDATE AREA<br />
+<pre>
+INT 15 R - Intel Pentium Pro BIOS UPDATE - READ BIOS UPDATE AREA
+	AX = D042h
+	BL = 03h
+	ES:DI -&gt; buffer for microcode update block (see #00533)
+	ECX = two real-mode 64K scratchpad segments (upper and lower words)
+	DX = segment of 64K scratchpad area for BIOS use
+	SI = zero-based index number of update block to retrieve
+Return: CF clear if successful
+	CF set on error
+	AH = status
+	    00h successful
+		ES:DI buffer filled with 2048-byte update block
+	    86h not implemented
+	AL = OEM error (if AH is not 00h or 86h, otherwise undefined)
+	    00h successful
+Program: the Pentium Pro BIOS update allows the system BIOS or other software
+	  to install a microcode patch into the Pentium Pro processor
+Notes:	this API must be called from actual real mode, not V86 mode
+	at least 32K stack space must be available when this function is called
+SeeAlso: AX=D042h/BL=00h,AX=D042h/BL=01h,AX=D042h/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D824" name="15D824"><b>15D824</b></a> - INT 15 - Compaq EISA System ROM 04/08/93 - ???<br />
+<pre>
+INT 15 - Compaq EISA System ROM 04/08/93 - ???
+	AX = D824h
+	CX = ???
+	DS:SI -&gt; ASCIZ string containing ???
+Return: CF clear if successful
+	    AH = 00h
+	    CX = ???
+	CF set on error
+	    AH = error code
+		87h ??? failed
+		88h ???
+Note:	these functions are only available if ??? from keyboard controller
+	  command C0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D825" name="15D825"><b>15D825</b></a> - INT 15 - Compaq EISA System ROM 04/08/93 - ???<br />
+<pre>
+INT 15 - Compaq EISA System ROM 04/08/93 - ???
+	AX = D825h
+	CX = ???
+	SI = ???
+	DI = ???
+	???
+Return: CF clear if successful
+	    AH = 00h
+	    CX = ???
+	CF set on error
+	    AH = error code
+		87h ??? failed
+		88h ???
+		    CX = ???
+Note:	these functions are only available if ??? from keyboard controller
+	  command C0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15D826" name="15D826"><b>15D826</b></a> - INT 15 - Compaq EISA System ROM 04/08/93 - ???<br />
+<pre>
+INT 15 - Compaq EISA System ROM 04/08/93 - ???
+	AX = D826h
+	BX = ???
+	CX = size of buffer in bytes
+	DS:SI -&gt; buffer for ???
+	???
+Return: CF clear if successful
+	    AH = 00h
+	    CX = ???
+	CF set on error
+	    AH = error code
+		87h ??? failed
+		88h ???
+Note:	these functions are only available if ??? from keyboard controller
+	  command C0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA" name="15DA"><b>15DA</b></a> - INT 15 U - AMI PCI BIOS v1.00.05.AX1 - ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS v1.00.05.AX1 - ???
+	AH = DAh
+	AL = function (00h-08h,12h,14h,15h,19h,88h-8Eh,92h,99h)
+	other registers vary by function
+Return: CF clear if successful
+	    varies by function
+	CF set on error
+	    AH = error code (86h unsupported [sub]function)
+Note:	functions not listed above always return CF set and AH=86h; in the
+	  examined BIOS, functions 02h-04h,06h-07h,89h-8Bh, and 8Dh also
+	  always return CF set and AH=86h
+SeeAlso: AX=DA00h,AX=DA01h,AX=DA88h,AX=DA99h,AX=DB00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA05" name="15DA05"><b>15DA05</b></a> - INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS
+	AX = DA05h
+	ES:SI -&gt; 8-byte buffer for ??? and BIOS revision strings
+Return: CF clear
+	ES:SI buffer filled
+	AL = 00h
+	CX = ??? (0000h)
+Notes:	for BIOS v1.00.05.AX1, the ??? string is "IDNO" and the BIOS revision
+	  string is "AX1 "
+SeeAlso: AX=DA15h,AX=DB04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA08" name="15DA08"><b>15DA08</b></a> - INT 15 U - AMI PCI BIOS - ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS - ???
+	AX = DA08h
+	???
+Return: CF clear if successful
+	    ???
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Note:	in the examined v1.00.05.AX1 BIOS, this call always returns failure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA12" name="15DA12"><b>15DA12</b></a> - INT 15 U - AMI PCI BIOS - v1.00.05.AX1 - ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS - v1.00.05.AX1 - ???
+	AX = DA12h
+	CL = subfunction
+	    00h ???
+	    01h	???
+	    02h get ???
+	    03h ???
+	    04h ???
+	???
+Return: CF clear if successful
+	    ???
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Desc:	??? performs various manipulations on system chipset registers
+Notes:	subfunctions 00h and 01h are NOPs in protected and V86 modes due to
+	  a test of MSW bit 0
+	subfunctions 00h-02h always return success
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA14" name="15DA14"><b>15DA14</b></a> - INT 15 U - AMI PCI BIOS - GET/SET ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET/SET ???
+	AX = DA14h
+	CL = subfunction
+	    00h read
+	    01h write
+		DH = new value for ??? (00h-02h)
+	DL = index of ??? (00h-03h, but not range-checked)
+	???
+Return: CF clear if successful
+	    DH = current value of ??? if reading
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Note:	the values for indexes 00h and 01h are stored in CMOS RAM location 19h,
+	  and the values for 02h and 03h are stored in location 36h
+BUG:	the v1.00.05.AX1 BIOS range-checks DH on subfunction 00h instead of
+	  subfunction 01h, even though DH is never used by subfunction 00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA15" name="15DA15"><b>15DA15</b></a> - INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET ??? AND BIOS REVISION STRINGS
+	AX = DA15h
+	ES:DI -&gt; 8-byte buffer for ??? and BIOS revision strings
+Return: CF clear
+	ES:DI buffer filled
+	AL = 00h
+Note:	for BIOS v1.00.05.AX1, the ??? string is "IDNO" and the BIOS revision
+	  string is "AX1 "
+SeeAlso: AX=DA05h,AX=DB04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA19" name="15DA19"><b>15DA19</b></a> - INT 15 U - AMI PCI BIOS - GET/SET ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET/SET ???
+	AX = DA19h
+	CL = subfunction
+	    00h get first ???
+	    01h get second ???
+	    02h set first ???
+		BX = ???
+		DX = ???
+	    03h set second ???
+		BX = ???
+		DX = ???
+Return: CF clear if successful
+	    AX = 0000h
+	    BX,DX = ??? (subfunctions 00h and 01h only)
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Note:	the first ??? is stored in CMOS RAM locations 1Bh-1Eh, the second in
+	  locations 1Fh-22h in the v1.00.05.AX1 BIOS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA88" name="15DA88"><b>15DA88</b></a> - INT 15 U - AMI PCI BIOS - GET EXTENDED MEMORY SIZE<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET EXTENDED MEMORY SIZE
+	AX = DA88h
+Return: CF clear (successful)
+	AX = 0000h
+	CL:BX = extended memory size in KBytes
+SeeAlso: AH=88h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA8C" name="15DA8C"><b>15DA8C</b></a> - INT 15 U - AMI PCI BIOS - GET BIOS AND CHIPSET IDENTIFICATION<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET BIOS AND CHIPSET IDENTIFICATION
+	AX = DA8Ch
+	CL = subfunction
+	    00h get BIOS version string
+		ES:DI -&gt; 12-byte buffer for version string
+	    01h get chipset identification
+		BL = what to retrieve
+		    (00h host/PCI bridge,01h motherboard chipset)
+		ES:DI -&gt; 12-byte buffer for chipset identification (see #00543)
+Return: CF clear if successful
+	    ES:DI buffer filled
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Notes:	the v1.00.05.AX1 BIOS returns "1.00.05.AX1 " as its version string
+	subfunction 01h returns the five bytes read from the PCI configuration
+	  registers 00h-05h (see #00878), padded to 12 bytes with NULs
+SeeAlso: AX=DB04h,PORT C000h"Neptune"
+
+Format of AMI PCI BIOS chipset identification:
+Offset	Size	Description	(Table 00543)
+ 00h	WORD	vendor ID (see #00732 at AX=B102h)
+		8086h = Intel
+ 02h	WORD	device ID
+		0484h (BL=01h)
+		04A3h (BL=00h)
+ 04h	BYTE	low byte of PCI Command Register
+ 05h  7 BYTEs	unused (00h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA8E" name="15DA8E"><b>15DA8E</b></a> - INT 15 U - AMI PCI BIOS - ???<br />
+<pre>
+INT 15 U - AMI PCI BIOS - ???
+	AX = DA8Eh
+	???
+Return: CF clear if successful
+	    ???
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Note:	in the	v1.00.05.AX1 BIOS, this call always returns failure
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA92" name="15DA92"><b>15DA92</b></a> - INT 15 U - AMI PCI BIOS - GET CPU TYPE AND SPEED<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET CPU TYPE AND SPEED
+	AX = DA92h
+Return: CF clear (successful)
+	AL = CPU stepping (see also #00529 at INT 15/AH=C9h)
+	AH = CPU model
+	BL = CPU family (05h = Pentium, etc.)
+	CX = external clock speed in MHz (BCD)
+	    (0040h,0050h,0060h,0066h are possible return values on my
+	      Pentium with the Intel "Neptune" chipset)
+	EAX high word destroyed
+Note:	90 MHz and faster Pentium CPUs can be configured to run at varying
+	  multiples of the external clock speed, i.e. a typical 90 MHz Pentium
+	  system will run the motherboard at 60 MHz (my 90 MHz Pentium returns
+	  0060h in CX)
+SeeAlso: AH=C9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15DA99" name="15DA99"><b>15DA99</b></a> - INT 15 U - AMI PCI BIOS - GET/SET ??? FLAG<br />
+<pre>
+INT 15 U - AMI PCI BIOS - GET/SET ??? FLAG
+	AX = DA99h
+	CL = subfunction
+	    00h check if ???
+	    01h set ??? flag
+	    02h clear ??? flag
+Return: CF clear if successful
+	    AH = ??? (00h,01h)
+	    AL = 00h
+	CF set on error
+	    AH = error code (86h unsupported subfunction)
+Note:	the flag is stored in bit 0 of CMOS RAM location 2Ch for BIOS
+	  v1.00.05.AX1
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E900" name="15E900"><b>15E900</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - RESET WATCHDOG TIMER<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - RESET WATCHDOG TIMER
+	AX = E900h
+Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E901" name="15E901"><b>15E901</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE DIAGNOSTIC CONTROL POINT CODE<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - WRITE DIAGNOSTIC CONTROL POINT CODE
+	AX = E901h
+	CX = control point code (codes 000h-1FFh system backup)
+Return: nothing
+Note:	Provided by PhysTechSoft's PTS ROM-DOS and displayed by SETUP.COM.
+SeeAlso: AX=E902h,INT 14/AH=05h"PTS ROM-DOS",INT 14/AH=06h"PTS ROM-DOS"
+
+(Table 04093)
+Values for PhysTechSoft PTS ROM-DOS control point code:
+ ???	LOADER: Stack loaded
+	LOADER: IVT initialized
+	LOADER: Channel initialized
+	LOADER: Local loading
+	LOADER: Flash tested
+	LOADER: Load from ROM
+	LOADER: Load ROM comp.
+	LOADER: Load from Flash
+	LOADER: Load Flash co.
+	BIOS: Chipset initialized
+	BIOS: CPU tested
+	BIOS: Stack tested
+	BIOS: CRC tested
+	BIOS: IVT initialized
+	BIOS: Vars initialized
+	BIOS: Resident init
+	BIOS: Channel initialized
+	BIOS: Memory tested
+	BIOS: SRAM tested
+	BIOS: EMS tested
+	BIOS: PIC initialized
+	BIOS: PPI initialized
+	BIOS: DMA initialized
+	BIOS: Timer initialized
+	BIOS: Disks initialized
+	BIOS: Boot loaded
+	BIOS: Failed boot
+	DOS: Job point: (up to 25???)
+SeeAlso: #04091
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E902" name="15E902"><b>15E902</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - SET DIAGNOSTIC DOS ERROR FLAG<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - SET DIAGNOSTIC DOS ERROR FLAG
+	AX = E902h
+	CX = diagnostic flag mask (see #04091,#04092)
+Return: nothing
+Note:	Provided by PhysTechSoft's PTS ROM-DOS and displayed by SETUP.COM.
+	  DOS error flags can be assigned by application software.
+SeeAlso: AX=E901h,INT 14/AH=05h"PTS ROM-DOS", INT 14/AH=06h"PTS ROM-DOS"
+
+Bitfields for PhysTechSoft PTS ROM-DOS BIOS error flags:
+Bit(s)	Description	(Table 04091)
+ ???	Processor test failed.
+	Stack test failed.
+	BIOS code damaged.
+	Conventional memory test failed.
+	SRAM test failed.
+	EMS test failed.
+	Boot-sector damaged.
+	Boot-sector read error.
+	Loader setup damaged.
+	BIOS setup damaged.
+SeeAlso: #04092,#04093
+
+Bitfields for PhysTechSoft PTS ROM-DOS LOADER error flags::
+Bit(s)	Description	(Table 04092)
+ ???	Processor test failed.
+	Loader code damaged.
+	Loader code in RAM damaged.
+	Loader setup in flash-memory damaged.
+	BIOS setup in flash-memory damaged.
+	BIOS offset in flash-memory field damaged.
+	BIOS size in flash-memory field damaged.
+	BIOS in flash-memory damaged.
+	BIOS in ROM damaged.
+	Last operation field damaged.
+	Channel error.
+	Setup in flash-memory damaged.
+	Loading BIOS from control channel failed.
+	Loading DOS from control channel failed.
+SeeAlso: #04091
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E903" name="15E903"><b>15E903</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-ENABLE FLASH-DISK<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-ENABLE FLASH-DISK
+	AX = E903h
+Return: nothing
+Note:	Enabling writing on Flash disk can lead to corruption of EMS disk info.
+SeeAlso: AX=E904h,AX=E905h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E904" name="15E904"><b>15E904</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-PROTECT FLASH-DISK<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - WRITE-PROTECT FLASH-DISK
+	AX = E904h
+Return: nothing
+SeeAlso: AX=E903h,AX=E905h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E905" name="15E905"><b>15E905</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE IMAGE OF BIOS TO FLASH-MEMORY<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - WRITE IMAGE OF BIOS TO FLASH-MEMORY
+	AX = E905h
+	DS:SI -&gt; buffer
+Return: nothing
+SeeAlso: AX=E903h,INT 14/AH=05h"PTS ROM-DOS",INT 14/AH=06h"PTS ROM-DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E906" name="15E906"><b>15E906</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - READ SETUP INFORMATION FROM FLASH-DISK<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - READ SETUP INFORMATION FROM FLASH-DISK
+	AX = E906h
+	DS:SI -&gt; buffer
+Return:	AL = error code (00h = no error, 01h = setup information not found)
+SeeAlso: AX=E907h,INT 14/AH=05h"PTS ROM-DOS",INT 14/AH=06h"PTS ROM-DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E907" name="15E907"><b>15E907</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - WRITE SETUP INFORMATION ON FLASH-DISK<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - WRITE SETUP INFORMATION ON FLASH-DISK
+	AX = E907h
+	DS:SI -&gt; buffer
+Return:	nothing
+SeeAlso: AX=E906h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E908" name="15E908"><b>15E908</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - SET BREAKPOINT<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - SET BREAKPOINT
+	AX = E908h
+	CL = flags
+	    bit 1: =0 operate in one-fold mode
+		   =1 operate in many-fold mode
+	    bit 0: =0 send debug information to control channel
+		   =1 activate handler
+	ES:SI = breakpoint address
+	DX:DI = handler address
+Return: AH = error code
+	    00h no error
+	    01h incorrect parameter
+	    02h no room in breakpoint table
+SeeAlso: AX=E909h,INT 14/AH=05h"PTS ROM-DOS",INT 14/AH=06h"PTS ROM-DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15E909" name="15E909"><b>15E909</b></a> - INT 15 - PhysTechSoft PTS ROM-DOS - REMOVE BREAKPOINT<br />
+<pre>
+INT 15 - PhysTechSoft PTS ROM-DOS - REMOVE BREAKPOINT
+	AX = E909h
+	ES:SI = breakpoint address
+Return:	AH = error code
+	    00h no error
+	    01h incorrect parameter
+SeeAlso: AX=E908h,INT 14/AH=05h"PTS ROM-DOS",INT 14/AH=06h"PTS ROM-DOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160600" name="160600"><b>160600</b></a> - INT 16 - AAKEYS - GET NEXT KEYBOARD EVENT<br />
+<pre>
+INT 16 - AAKEYS - GET NEXT KEYBOARD EVENT
+	AX = 0600h
+Return:	CF clear if successful
+	    AL = next keyboard event in event buffer, FFh if buffer overflowed
+	CF set on error
+	    AL = 00h buffer empty
+	BX destroyed
+Program: AAKEYS is a TSR by Anthony Appleyard which records keyboard scan
+	  codes in a 256-byte buffer in addition to any normal processing which
+	  takes place
+Note:	the installation check consists of calling INT 16/AX=06xxh (where 'xx'
+	  is any subfunction other than those listed here) and testing whether
+	  AX=BEEFh on return
+SeeAlso: AX=0601h,AX=0602h,AX=0603h,AX=0604h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160601" name="160601"><b>160601</b></a> - INT 16 - AAKEYS - EMPTY KEY-EVENT BUFFER<br />
+<pre>
+INT 16 - AAKEYS - EMPTY KEY-EVENT BUFFER
+	AX = 0601h
+Return:	nothing
+SeeAlso: AX=0600h,AX=0602h,AX=0603h,AX=0604h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160602" name="160602"><b>160602</b></a> - INT 16 - AAKEYS - DISABLE AAKEYS<br />
+<pre>
+INT 16 - AAKEYS - DISABLE AAKEYS
+	AX = 0602h
+Return:	AX,DX destroyed
+Desc:	restores INT 09 and INT 16 and clears the TSRs signature byte
+SeeAlso: AX=0600h,AX=0601h,AX=0603h,AX=0604h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160603" name="160603"><b>160603</b></a> - INT 16 - AAKEYS - GET KEY-EVENT BUFFER<br />
+<pre>
+INT 16 - AAKEYS - GET KEY-EVENT BUFFER
+	AX = 0603h
+Return:	ES:BX -&gt; 256-byte circular key-event buffer
+	ES:[AX] = offset of head of buffer
+	ES:[AX+1] = offset of tail of buffer
+SeeAlso: AX=0600h,AX=0601h,AX=0602h,AX=0604h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#160604" name="160604"><b>160604</b></a> - INT 16 - AAKEYS - EMPTY BIOS KEYBOARD BUFFER<br />
+<pre>
+INT 16 - AAKEYS - EMPTY BIOS KEYBOARD BUFFER
+	AX = 0604h
+Return:	AX destroyed
+SeeAlso: AX=0600h,AX=0601h,AX=0602h,AX=0603h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1667" name="1667"><b>1667</b></a> - INT 16 - Doorway v2.x+ - INSTALLATION CHECK / REDIRECTION CONTROLa<br />
+<pre>
+INT 16 - Doorway v2.x+ - INSTALLATION CHECK / REDIRECTION CONTROLa
+	AH = 67h
+	AL = Doorway mode
+	    00h turn off DOS redirection
+	    01h turn on DOS redirection
+Return: AH = 80h if Doorway is actively redirecting output
+	    AL = 80h if Doorway was already in requested mode
+Program: Doorway is a program by Marshall Dudley which allows most DOS programs
+	  to run as a BBS door without modification
+Note:	to perform an installation check without changing the redirection
+	  state, if is necessary to restore the original mode if AL was not
+	  80h on return
+SeeAlso: INT 10/AH=BBh"Doorway"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF--BH00" name="16FF--BH00"><b>16FF--BH00</b></a> - INT 16 - FREEZE.COM - INSTALLATION CHECK<br />
+<pre>
+INT 16 - FREEZE.COM - INSTALLATION CHECK
+	AH = FFh
+	BH = 00h
+Return: BH = FFh if installed
+Program: FREEZE is a PC Magazine utility
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FF9D" name="16FF9D"><b>16FF9D</b></a> - INT 16 U - PC Tools v8+ CPTASK, VSAFE - ???<br />
+<pre>
+INT 16 U - PC Tools v8+ CPTASK, VSAFE - ???
+	AX = FF9Dh
+	ES:BX -&gt; ??? word
+Return: ???
+Note:	if ES is non-zero, the word pointed at by ES:BX determines whether the
+	  ??? flag is cleared (word = 0000h) or set (word is nonzero).	The
+	  flag is always cleared if ES=0000h.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703_0" name="1703_0"><b>1703</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 03h
+SeeAlso: AH=04h"IBM",AH=05h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1704_0" name="1704_0"><b>1704</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 04h
+SeeAlso: AH=03h"IBM",AH=05h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1705" name="1705"><b>1705</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 05h
+SeeAlso: AH=03h"IBM",AH=04h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170B_0" name="170B_0"><b>170B</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Bh
+SeeAlso: AH=03h"IBM",AH=0Ch"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170C_0" name="170C_0"><b>170C</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Ch
+SeeAlso: AH=0Bh"IBM",AH=0Dh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170D_0" name="170D_0"><b>170D</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Dh
+SeeAlso: AH=0Ch"IBM",AH=0Eh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#170E_0" name="170E_0"><b>170E</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 0Eh
+SeeAlso: AH=03h"IBM",AH=0Dh"IBM",AH=80h"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1780" name="1780"><b>1780</b></a> - INT 17 - IBM SurePath BIOS - Officially "Private" Function<br />
+<pre>
+INT 17 - IBM SurePath BIOS - Officially "Private" Function
+	AH = 80h
+SeeAlso: AH=03h"IBM",AH=0Bh"IBM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1A04--CX4555" name="1A04--CX4555"><b>1A04--CX4555</b></a> - INT 1A - CheckIt Year 2000 Fix v2.06 - INSTALLATION CHECK<br />
+<pre>
+INT 1A - CheckIt Year 2000 Fix v2.06 - INSTALLATION CHECK
+	AH = 04h
+	CX = 4555h ('EU')
+	DX = 524Fh ('RO')
+	BX = 0000h
+Return: BX &lt;&gt; 0000h if installed
+	    BX = major/minor/sub version (2068h = version 2.06.8)
+Program: CheckIt is a TSR by Eurosoft (UK) Ltd. which corrects some Y2K-related
+	  RTC bugs
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#20----Vx3048" name="20----Vx3048"><b>20----Vx3048</b></a> - INT 20 P - Frontier Technologies ??? - VxD SERVICES<br />
+<pre>
+INT 20 P - Frontier Technologies ??? - VxD SERVICES
+	VxD = 3048h
+Note:	the desired VxD and service number are identified by the data
+	  immediately following the INT 20 instruction, as in:
+		INT	20h
+		DW	service number
+		DW	VxD identifier
+SeeAlso: INT 2F/AX=1684h"DEVICE API",INT 30"Windows",#01265,#01335
+
+(Table 01335)
+Values for ??? (VxD ID 3048h) service number:
+ 00h	get version???
+ 03h	???
+	called with 5 DWORDs on stack, returns EAX=???, ECX nonzero on error
+ 04h	???
+	called with DWORD on stack, returns EAX=???, ECX nonzero on error
+ 06h	???
+	called with DWORD on stack, returns EAX=???, ECX nonzero on error
+ 07h	???
+	called with 3 DWORDs on stack, returns EAX=???, ECX nonzero on error
+ 0Bh	???
+	called with 2 DWORDs on stack, returns EAX=???, ECX nonzero on error
+ 0Ch	???
+	called with 2 DWORDs on stack, returns EAX=???, ECX nonzero on error
+ 0Dh	???
+	called with 6 DWORDs on stack, returns EAX=???, ECX nonzero on error
+ 1Ah	???
+	called with 3 DWORDs on stack
+SeeAlso: #01336
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#20----Vx3049" name="20----Vx3049"><b>20----Vx3049</b></a> - INT 20 P - Frontier Technologies ??? - VxD SERVICES<br />
+<pre>
+INT 20 P - Frontier Technologies ??? - VxD SERVICES
+	VxD = 3049h
+Note:	the desired VxD and service number are identified by the data
+	  immediately following the INT 20 instruction, as in:
+		INT	20h
+		DW	service number
+		DW	VxD identifier
+SeeAlso: INT 2F/AX=1684h"DEVICE API",INT 30"Windows",#01265,#01336
+
+(Table 01336)
+Values for ??? (VxD ID 3049h) service number:
+ 00h	get version???
+ 1Dh	???
+	called with 2 DWORDs on stack; returns EAX=???, ECX nonzero on error
+ 1Eh	???
+	called with 6 DWORDs on stack; returns EAX=???, ECX nonzero on error
+SeeAlso: #01335
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2130FFCX4445" name="2130FFCX4445"><b>2130FFCX4445</b></a> - INT 21 - DESQ??? - INSTALLATION CHECK<br />
+<pre>
+INT 21 - DESQ??? - INSTALLATION CHECK
+	AX = 30FFh
+	CX = 4445h ("DE")
+	DX = 5351h ("SQ")
+Return: BH = 05h if installed
+	???
+Note:	called by DUBLDISK.COM v2.6; this function is not supported by
+	  DESQview, so it may be for DESQview's precursor DESQ.
+SeeAlso: AX=4404h"DUBLDISK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A6BX6A6D" name="2137A6BX6A6D"><b>2137A6BX6A6D</b></a> - INT 21 - XPACK v1.65 - GET TEMPORARY DIRECTORY NAME<br />
+<pre>
+INT 21 - XPACK v1.65 - GET TEMPORARY DIRECTORY NAME
+	AX = 37A6h
+	BX = 6A6Dh ('jm')
+Return: AX = 0000h
+	DS:DX -&gt; name of temporary directory
+Program: XPACK is a transparent file compressor/decompressor by JauMing Tseng
+SeeAlso: AX=37A0h/BX=6A6Dh,AX=37A7h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2137A7BX6A6D" name="2137A7BX6A6D"><b>2137A7BX6A6D</b></a> - INT 21 - XPACK v1.65 - SET TEMPORARY DIRECTORY NAME<br />
+<pre>
+INT 21 - XPACK v1.65 - SET TEMPORARY DIRECTORY NAME
+	AX = 37A7h
+	BX = 6A6Dh ('jm')
+	DS:DX -&gt; ASCIZ name of temporary directory (max 64 chars)
+Return: AX = 0000h
+Note:	the specified directory name must include a drive letter and end with
+	  a backslash (e.g. 'c:\dos\',0)
+SeeAlso: AX=37A0h/BX=6A6Dh,AX=37A6h/BX=6A6Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213F_5" name="213F_5"><b>213F</b></a> - INT 21 U - IFSHLP.SYS - GET ENTRY POINT<br />
+<pre>
+INT 21 U - IFSHLP.SYS - GET ENTRY POINT
+	AH = 3Fh
+	BX = file handle for device "IFS$HLP$"
+	CX = 0008h (size of buffer in bytes)
+	DS:DX -&gt; buffer for entry point record (see #01415)
+Return: CF clear if successful
+	    AX = number of bytes actually read (0 if at EOF before call)
+	CF set on error
+	    AX = error code (05h,06h) (see #01680 at AH=59h/BX=0000h)
+Program: IFSHLP.SYS is a support driver for Microsoft Windows for Workgroups
+SeeAlso: AX=4402h"IFSHLP"
+
+Format of IFSHLP.SYS entry point record:
+Offset	Size	Description	(Table 01415)
+ 00h  4 BYTEs	(call) required signature if called via IOCTL
+			70h E9h 34h 37h for Windows 3.11
+			70h E9h 35h 37h for Windows 3.11
+		(ret) signature 34h 37h 70h EFh (Windows 3.11)
+		(ret) signature 35h 37h 70h EFh (Windows95)
+ 04h	DWORD	(ret) pointer to FAR call entry point (see #01416)
+
+(Table 01416)
+Call IFSHLP.SYS entry point with:
+	STACK:	WORD	function number (00h-0Ch)
+			00h get ??? data
+			01h set interrupt intercepts (trap)
+			02h remove interrupt intercepts (untrap)
+			03h ??? LPT2
+			04h ??? LPT1
+			05h revector INT 2F to trap and remove trap for others
+			06h set ??? flag
+			07h clear ??? flag
+			08h get ??? flag word
+			---Windows 3.11 only---
+			09h ???
+			0Ah ???
+			0Bh ???
+			0Ch get ???
+---if function 00h---
+Return: DX:AX -&gt; ??? data (see #01417)
+	BX destroyed
+---if function 01h---
+	STACK:	DWORD	new intercept (trap) address
+Return: AX = status
+	    0000h successful
+	    0001h failed (already set)
+		DX = 0000h
+	BX destroyed
+Note:	the trap handler is called with a function number in BX, and the
+	  original BX on top of the stack; a null handler must perform a
+	  POP BX and an IRET
+---if function 02h---
+Return: AX = status
+	    0000h successful
+	    0001h failed (not set)
+	DX = 0000h
+	BX destroyed
+---if function 03h,04h---
+	STACK:	WORD	???
+Return: AX = 0000h
+	DX = 0000h
+	BX destroyed
+---if function 05h---
+	???
+Return:	BX destroyed
+---if function 06h---
+Return: AX = 0001h and DX = 0000h if already set
+	AX,DX unchanged if successful
+	BX destroyed
+---if function 07h---
+Return: AX = 0001h and DX = 0000h if not set
+	AX,DX unchanged if successful
+	BX destroyed
+---if function 08h---
+Return: DX = 0000h
+	AX = flags
+	    bit 0: set/cleared by functions 06h and 07h
+	    bit 1: trap is currently set (refer to functions 01h/02h)
+	BX destroyed
+---if function 09h---
+Return: AX = status
+	    0000h successful
+	    0001h failed (already called)
+	BX destroyed
+---if function 0Ah---
+	STACK:	WORD	???
+	???
+Return:	BX destroyed
+---if function 0Bh---
+Return: AX = status
+	    0000h successful
+	    0001h failed (not set)
+	BX destroyed
+---if function 0Ch---
+Return: AX = 0000h
+	ES:BX -&gt; ??? data
+---if function &gt; 0Ch---
+Return: AX = 0001h
+	DX = 0000h
+	BX destroyed
+
+Format of IFSHLP ??? data:
+Offset	Size	Description	(Table 01417)
+ 00h	DWORD	-&gt; DOS Swappable Data Area (see #01687,#01689)
+ 02h	WORD	??? offset in DOS data segment?
+ 04h	WORD	offset in DOS data segment of current-PSP WORD
+ 06h	WORD	???
+ 08h	WORD	???
+ 0Ah	WORD	???
+ 0Ch	DWORD	-&gt; DOS List of Lists (see #01627)
+ 10h	???
+SeeAlso: #01416
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_25" name="214402_25"><b>214402</b></a> - INT 21 U - IFSHLP.SYS - GET ENTRY POINT<br />
+<pre>
+INT 21 U - IFSHLP.SYS - GET ENTRY POINT
+	AX = 4402h
+	BX = file handle for device "IFS$HLP$"
+	CX = 0008h (size of buffer in bytes)
+	DS:DX -&gt; buffer for entry point record (see #01415 at AH=3Fh"IFSHLP")
+Return: CF clear if successful
+	    buffer filled
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+SeeAlso: AH=3Fh"IFSHLP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_27" name="214402_27"><b>214402</b></a> - INT 21 - DRFAT32.SYS device driver - IOCTL INPUT<br />
+<pre>
+INT 21 - DRFAT32.SYS device driver - IOCTL INPUT
+	AX = 4402h
+	BX = file handle referencing character device for DRFAT32.SYS driver
+	    (e.g. "FAT32XXX" in the default configuration)
+	CX = number of bytes to read
+	DS:DX -&gt; control block (see #04108)
+Return: CF clear if successful
+	    AX = number of bytes actually read
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Notes:	 the data returned depends on the first byte of the control block
+	   the remainder of the control block is filled by the driver
+	 one DRFAT32.SYS device driver supports up to 8 subunits (that is up
+	   to 8 FAT32 partitions). By default, DRFAT32.SYS logs in all FAT32
+	   partitions it finds, however, by using command line options /C (CHS),
+	   /L (LBA), /H (Hidden) and /P:1..4 (Primary), /E:1..255 (Logical
+	   Drive), and /U:min[,max] (Unit 128..255) it can be directed to
+	   attach only to one or a specific range of partitions. Multiple
+	   DRFAT32.SYS drivers can be loaded in a system when using the
+	   /D:name option. To assign them to the redirector, the /D:name option
+	   must be repeated for each of the DRFAT32.SYS drivers in the
+	   DRFAT32.EXE command line.
+SeeAlso: AX=4402h"CD-ROM",INT 2F/AX=0802h
+
+Format of DRFAT32 control block:
+Offset	Size	Description	(Table 04108)
+ 00h	BYTE	data being requested
+		00h device driver header address
+		09h media change status
+		48h address of DRFAT32 geometry table
+		else error
+---function 00h---
+ 01h	DWORD	device driver header address (see also AH=52h,#01646)
+---function 09h---
+ 01h	BYTE	media change status
+		00h don't know
+		01h media unchanged
+		FFh media has been changed
+---DRFAT32 function 48h---
+ 01h	DWORD	address of DRFAT32 geometry table (see #04109)
+
+Format of DRFAT32 Geometry Table:
+Offset	Size	Description	(Table 04109)
+ 00h 8*59 BYTEs	eight DRFAT32 partition data tables (see #04110)
+ 1D8h	BYTE	DRFAT32 access flags (see #04111)
+ 1D9h	BYTE	DRFAT32 status flags (see #04112)
+Note:	This is the table layout used by DRFAT32.SYS 1.00 which supports up
+	  to 8 sub-units. The layout of this table and its records may change,
+	  so the version indicator in the device driver's signature ("FAT320")
+	  and the size of the public data structure should be checked first.
+SeeAlso: #04108
+
+Format of DRFAT32 partition data table:
+Offset	Size	Description	(Table 04110)
+ 00h	BYTE	size of following public data structure (9)
+	--- public data (needed by the DRFAT32.EXE redirector) ---
+ 01h	WORD	bytes per sector
+ 03h	BYTE	sectors per cluster
+ 04h	WORD	reserved sectors
+ 06h	DWORD	root directory start cluster
+	--- private data ---
+ 0Ah	DWORD	sectors per track
+ 0Eh	DWORD	root directory sector
+ 12h	DWORD	partition start sector
+ 16h	DWORD	highest partition sector allowed
+		(only if range checking enabled)
+ 1Ah	DWORD	absolute cluster start sector
+		(cluster start sector+partition start sector)
+ 1Eh	DWORD	total sectors per track (number of heads * sectors per track)
+ 22h	BYTE	drive unit (default 80h)
+ 23h	BYTE	temp buffer: CHS sectors to write (if verify enabled)
+ 24h	BYTE	INT 13h extension version
+	--- CHS data ---
+ 25h	WORD	cylinder
+ 27h	WORD	head
+ 29h	WORD	sector
+	--- LBA data ---
+ 2Bh 16 BYTEs disk address packet (see #00272 at INT 13/AH=42h)
+SeeAlso: #04109
+
+Bitfields for DRFAT32 access flags:
+Bit(s)	Description	(Table 04111)
+ 7	using LBA addressing instead of CHS
+ 6	using INT 13h extensions (see also INT 13/AH=48h)
+ 5	multi-sector access allowed
+ 4	force media change indication on removable drives
+ 3	force verify after every write (/W)
+ 2	more than 1024 cylinders, less than 64 heads (/A)
+ 1	client-side asynchronous buffering allowed (/B), normally =0
+ 0	read-only access (/R)
+SeeAlso: #04109,#04112
+
+Bitfields for DRFAT32 status flags:
+Bit(s)	Description	(Table 04112)
+ 7-2	reserved (0)
+ 1	Save Guard enabled (blocks any further writes after a fault)
+ 0	volume may have dirty sectors (set after write operations)
+SeeAlso: #04109,#04111
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214403_10" name="214403_10"><b>214403</b></a> - INT 21 - DR DOS $IDLE$ - IOCTL - DYNAMIC IDLE DETECTION CONTROL<br />
+<pre>
+INT 21 - DR DOS $IDLE$ - IOCTL - DYNAMIC IDLE DETECTION CONTROL
+	AX = 4403h
+	BX = file handle referencing character device $IDLE$
+	CX = number of bytes to write (0004h)
+	DS:DX -&gt; $IDLE$ IOCTL structure (see #04113)
+Return: CF clear if successful
+	    AX = number of bytes actually written
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Notes:	When the DR DOS IBMBIO.COM detects the presence of the $IDLE$ device
+	  during startup, it will retrieve the address of the idle state
+	  data area via INT 21/AX=4458h and pass it along to the $IDLE$ device
+	  driver by calling this function.
+
+Format of DR DOS $IDLE$ IOCTL structure:
+Offset	Size	Description	(Table 04113)
+ 00h	DWORD	-&gt; idle state data area (see Table !!! at INT 21/AX=4458h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214405_5" name="214405_5"><b>214405</b></a> - INT 21 U - SUPERSTOR - IOCTL - INSTALL CHECK<br />
+<pre>
+INT 21 U - SUPERSTOR - IOCTL - INSTALL CHECK
+	AX = 4405h
+	BL = drive number (00h = default, 01h = A:, etc)
+	(BH = 0???)
+	CX = 000Ch (size of SuperStor packet structure)
+	DS:DX -&gt; SuperStor packet structure (see #04114)
+Return: CF clear if IOCTL successful -- check SuperStor packet for actual
+	      status
+	    AX = number of bytes actually transferred???
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Note:	This function is called with CX = 0008h for command 06h by NWCACHE
+	  although the Request Packet can be larger.  WINSWAP.SYS calls it
+	  with 000Ch - also for command 06h.
+
+Format of SuperStor packet:
+Offset	Size	Description	(Table 04114)
+ 00h	WORD	(call) product signature AA55h
+		(ret) result code, 0000h if successful
+ 02h	BYTE	(call) SuperStor product ID (01h)
+ 03h	BYTE	(call) SuperStor command parameter:
+		06h = get compressed drive structure / drive parameters
+		07h = return the compressed length of a file
+		08h = return real drive ID for swapped drive
+		09h = validate the contents of the cluster
+		0Bh = checks whether deleted cluster is free
+		0Ch = reallocate previously deleted cluster
+		0Dh = read absolute sector from the drive
+		0Eh = write absolute sector to the drive
+		0Fh = instruct the driver to rebuild tables
+		10h = flush any cached Replacement Block Table (RBT) sectors
+		      to the drive
+---command 06h---
+ 04h	DWORD	(ret) pointer to SuperStor CVF's compressed unit structure
+		      (see #04115)
+ 08h	DWORD	(ret) pointer to internal status structure
+---command 07h---
+ 04h	DWORD	(ret) size of file in bytes
+ 08h	WORD	(ret) first cluster number
+---command 08h---
+ 04h	BYTE	(ret) swapped drive (0-based)
+---commands 09h,0Bh,0Ch---
+ 04h	WORD	(call) cluster
+---commands 0Dh,0Eh---
+ 04h	DWORD	(call) first logical sector to transfer
+ 08h	WORD	(call) number of logical sectors to transfer
+ 0Ah	DWORD	(call) pointer to buffer
+---command 0Fh---
+ 04h	WORD	(call) temporary buffer area
+---command 10h---
+ no additional parameters
+
+Format of SuperStor CVF compressed unit structure:
+Offset	Size	Description	(Table 04115)
+ 00h 31 BYTEs	BIOS parameter block for compressed drive (see #01663)
+ 1Fh  5 BYTEs	reserved for future expansion of the BPB
+ 24h 33 BYTEs   DOS 4-6 style drive parameter block for compressed drive
+		  (see #01395)
+ 45h  2 BYTEs	reserved for future expansion of the DPB
+ 47h	WORD	first sector of relocation table (RBT)
+ 49h	WORD	first sector of file allocation table
+ 4Bh	WORD	first sector of the data area
+ 4Dh	BYTE	sec2byteshift
+ 4Eh  2 BYTEs	???
+		Note:	Reportedly these two bytes did not exist in ADDSTOR's
+			  specification, so the whole structure would have
+			  been documented differently.
+ 50h	WORD	sectors per cluster
+ 52h	BYTE	sector shift
+ 53h	WORD	compression ratio
+ 55h	DWORD	number of physical sectors in the host file
+ 59h	WORD	OS version
+ 5Bh	BYTE	SuperStor level
+ 5Ch	BYTE	unknown???
+ 5Dh	BYTE	flags
+		bits 7-1: ???
+		bit 0: drive is mounted
+ 5Eh	BYTE	unknown???
+ 5Fh	DWORD	pointer to CVF's underlaying host DCB
+		this should be the physical DPB for this unit
+		    -&gt;  +00h BYTE host unit DOS unit number
+		        +01h BYTE CVF's driver host subunit number
+Note:	As this SuperStor compressed unit structure's structure is located
+	  within the segment the SuperStor driver has occupied, the segment
+	  value of its address can be used as an installation check, since it
+	  contains the signature "ADDSTOR" at offset 20h in the SuperStor
+	  driver.  This is used by Novell DOS 7 WINSWAP.SYS to check for the
+	  presence of SuperStor.
+SeeAlso: #04114
+Index:	installation check;SuperStor
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214B18DX0010" name="214B18DX0010"><b>214B18DX0010</b></a> - INT 21 U - FBOOT v2.13 - PERFORM FAST BOOTSTRAP<br />
+<pre>
+INT 21 U - FBOOT v2.13 - PERFORM FAST BOOTSTRAP
+	AX = 4B18h
+	DX = 0010h
+	BX = disk selector
+	    0000h boot from floppy
+	    0080h boot from hard disk
+Return: never if FastBoot installed
+Program: CyberWare FastBoot allows fast warm boots by skipping CMOS
+	  checking, ROM scan, RAM & peripheral components test
+InstallCheck:	search for a character device driver called "FBOOT$$$"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#215758" name="215758"><b>215758</b></a> - INT 21 U - Headroom - API<br />
+<pre>
+INT 21 U - Headroom - API
+	AX = 5758h
+	BL = function
+	    00h ???
+	    01h get Headroom location
+		Return: CF clear if installed
+			    AX = PSP segment of Headroom TSR
+			    BX = paragraphs of memory used by Headroom
+			CF set if not (normal DOS return)
+		Note:	this function is also used as an installation check
+	    02h get INT 21 handler
+		Return: CF clear
+			ES:BX -&gt; Headroom's INT 21 handler
+		Note: also sets unknown flag
+	    03h launch application???
+		DS:SI -&gt; 233-byte application record
+		Return: ???
+	    04h ???
+		???
+		Return: CF clear
+	    05h get swap directory
+		Return: CF clear
+			DX:AX -&gt; ASCIZ swap directory name
+	    06h ???
+		DX = ???
+		Return: CF clear
+	    07h ???
+	    08h ???
+	    09h get current application
+		Return: BX = application number
+	    0Ah ???
+		DX = application number
+		DS:SI = ???
+		Return: ???
+	    0Bh ???
+	    0Ch ???
+		DX = application number
+		???
+		Return: ???
+	    0Dh ???
+		DX = application number
+		???
+		Return: ???
+	    0Eh get ???
+		Return: CF clear
+			AX = ???
+	    0Fh set ??? flag
+	    10h clear ??? flag
+	    11h find application by name
+		DS:SI -&gt; ASCIZ application name
+		Return: CF clear
+			AX = application number or FFFFh if not loaded
+	    12h ???
+		DX = application number
+		Return: CF clear
+			???
+	    13h ???
+		Return: CF clear
+	    14h ???
+		same as function 13h
+	    15h set ???
+		DX = ???
+	    16h get ???
+		Return: AX = ??? set by function 15h
+	    17h get ???
+		Return: BX = ???
+			CX = ??? (may be pointer in BX:CX)
+	    18h BUG: branches incorrectly due to fencepost error
+Program: Headroom is a TSR/task switcher by Helix Software
+SeeAlso: AX=4C57h,AX=5757h,INT 2F/AX=5758h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#216500" name="216500"><b>216500</b></a> - INT 21 - Windows95 (OSR2) - SET GENERAL INTERNATIONALIZATION INFO<br />
+<pre>
+INT 21 - Windows95 (OSR2) - SET GENERAL INTERNATIONALIZATION INFO
+	AX = 6500h
+	ES:DI -&gt; buffer containing internationalization info (see #01750)
+	CX = size of buffer (&gt;= 7)
+Return: CF clear if successful
+	    AX = system code page
+	    CX = number of bytes copied from supplied buffer
+	CF set on error
+	    AX = error code
+Note:	this function will not overwrite the country or code-page numbers,
+	  but can be used to modify all other data about the country and
+	  code page
+SeeAlso: AH=65h"GET EXTENDED",AH=70h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217070BX6060" name="217070BX6060"><b>217070BX6060</b></a> - INT 21 - PCW Weather Card interface - GET DATA SEGMENT<br />
+<pre>
+INT 21 - PCW Weather Card interface - GET DATA SEGMENT
+	AX = 7070h
+	BX = 6060h
+	CX = 7070h
+	DX = 7070h
+	SI = 7070h
+	DI = 7070h
+Return: AX = segment of data structure (see #01776)
+Notes:	the data structure is at offset 516 from this segment
+	the update byte is at offset 514 from this segment.  Updates are
+	  once per second while this byte is nonzero and it is decremented
+	  once per second.  While this byte is 0 updates are once per minute.
+SeeAlso: AX=7070h/BX=7070h
+
+Format of PCW Weather Card data structure:
+Offset	Type	Description	(Table 01776)
+ 00h	WORD	hour
+ 02h	WORD	minute
+ 04h	WORD	second
+ 06h	WORD	day
+ 08h	WORD	month
+ 0Ah	WORD	year
+ 0Ch	WORD	???
+ 0Eh	WORD	relative barometric pressure (in 1/100 inches)
+ 10h	WORD	???
+ 12h	WORD	???
+ 14h	WORD	temperature 1 (in 1/10 degrees F)
+ 16h	WORD	temperature 1 lowest (in 1/10 degrees F)
+ 18h	WORD	temperature 1 highest (in 1/10 degrees F)
+ 1Ah	WORD	temperature 2 (in 1/10 degrees F)
+ 1Ch	WORD	temperature 2 lowest (in 1/10 degrees F)
+ 1Eh	WORD	temperature 2 highest (in 1/10 degrees F)
+ 20h	WORD	wind speed (in MPH)
+ 22h	WORD	average of 60 wind speed samples (in MPH)
+ 24h	WORD	highest wind speed (in MPH)
+ 26h	WORD	wind chill factor  (in 1/10 degrees F)
+ 28h	WORD	lowest wind chill factor (in 1/10 degrees F)
+ 2Ah	WORD	???
+ 2Ch	WORD	wind direction (in degrees)
+ 2Eh	WORD	accumulated daily rainfall (in 1/10 inches)
+ 30h	WORD	accumulated annual rainfall (in 1/10 inches)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#217070BX7070" name="217070BX7070"><b>217070BX7070</b></a> - INT 21 - PCW Weather Card interface - INSTALLATION CHECK<br />
+<pre>
+INT 21 - PCW Weather Card interface - INSTALLATION CHECK
+	AX = 7070h
+	BX = 7070h
+	CX = 7070h
+	DX = 7070h
+	SI = 7070h
+	DI = 7070h
+Return: AX = 0070h
+	BX = 0070h
+	CX = 0070h
+	DX = 0070h
+	SI = 0070h
+	DI = 0070h
+SeeAlso: AX=7070h/BX=6060h,AX=8080h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#218080" name="218080"><b>218080</b></a> - INT 21 - PCW Weather Card interface - UNINSTALL PCW.COM AND FREE MEMORY<br />
+<pre>
+INT 21 - PCW Weather Card interface - UNINSTALL PCW.COM AND FREE MEMORY
+	AX = 8080h
+Return: ???
+SeeAlso: AX=7070h/BX=7070h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2190--CXFFFF" name="2190--CXFFFF"><b>2190--CXFFFF</b></a> - INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK READ<br />
+<pre>
+INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK READ
+	AH = 90h
+	CX = FFFFh (for partitions &gt; 32 Mb)
+	    DS:BX -&gt; request block (see #04094)
+	CX = sector count (for partitions &lt; 32 Mb)
+	    DX = starting sector number
+	    DS:BX -&gt; buffer
+Return: CF set on error
+	    AX error code
+	CF clear on success
+Notes:	This function is supported by Paragon Technology Systems S/DOS 1.0
+	  (and most probably by PTS-DOS 6.51, maybe even earlier).
+	To access big partitions (&gt; 32 Mb), the CX != FFFFh is not allowed and
+	  the buffer must always be used. Otherwise, the system will return
+	  error code 0207h.
+	It is currently unknown if this function is also supported by
+	  PhysTechSoft PTS-DOS 6.60, 6.70, or 2000.
+SeeAlso: INT 21/AH=91h"PTS",INT 25h,INT 26h
+
+Format of PTS-DOS & S/DOS disk read/write request block:
+Offset	Size	Description	(Table 04094)
+ 00h	DWORD	sector number
+04h	WORD	counter
+06h	DWORD	pointer to buffer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2191--CXFFFF" name="2191--CXFFFF"><b>2191--CXFFFF</b></a> - INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK WRITE<br />
+<pre>
+INT 21 U - PTS-DOS 6.51 & S/DOS 1.0 - DIRECT DISK WRITE
+	AH = 91h
+	CX = FFFFh (for partitions &gt; 32 Mb)
+	    DS:BX -&gt; request block (see #04094)
+	CX = sector count (for partitions &lt; 32 Mb)
+	    DX = starting sector number
+	    DS:BX -&gt; buffer
+Return: CF set on error
+	    AX error code
+	CF clear on success
+Note:	This function is supported by Paragon Technology Systems S/DOS 1.0
+	  (and most probably by PTS-DOS 6.51, maybe even earlier).
+	To access big partitions (&gt; 32 Mb), CX != FFFFh is not allowed and
+	  the buffer must always be used. Otherwise, the system will return
+	  error code 0207h.
+	It is currently unknown if this function is also supported by
+	  PhysTechSoft PTS-DOS 6.60, 6.70, or 2000.
+SeeAlso: INT 21/Ah=90h"PTS",INT 25h,INT 26h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F" name="2F"><b>2F</b></a> - INT 2F - Multiplex - NOTES<br />
+<pre>
+INT 2F - Multiplex - NOTES
+	AH = identifier of program which is to handle the interrupt
+	   00h-3Fh reserved for IBM (for DOS)
+	   40h-7Fh reserved for Microsoft (for DOS)
+	   80h-B7h reserved for IBM
+	   B8h-BFh reserved for networks
+	   C0h-FFh reserved for applications
+	AL is the function code
+   This is a general mechanism for verifying the presence of a TSR and
+   communicating with it.  When searching for a free identifier code for AH
+   using the installation check (AL=00h), the calling program should set
+   BX/CX/DX to 0000h and must not depend on any registers other than CS:IP
+   and SS:SP to be valid on return, since numerous programs now use additional
+   registers on input and/or output for the installation check.
+Notes:	Since the multiplex chain is growing so long, and beginning to
+	  experience multiplex number collisions, I have proposed an alternate
+	  multiplex interrupt on INT 2D.  If you decide to use the alternate
+	  multiplex, please let me know.
+	DOS and some other programs return values in the flags register, so
+	  any TSR which chains by calling the previous handler rather than
+	  jumping to it should ensure that the returned flags are preserved
+	  and passed back to the original caller
+SeeAlso: INT 2D"ALTERNATE MULTIPLEX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1230" name="2F1230"><b>2F1230</b></a> - INT 2F U - Windows95 - FIND SFT ENTRY IN INTERNAL FILE TABLES<br />
+<pre>
+INT 2F U - Windows95 - FIND SFT ENTRY IN INTERNAL FILE TABLES
+	AX = 1230h
+	ES:DI -&gt; SFT entry
+Return: CF clear if SFT found in internal table
+	CF set if SFT not in any internal file table
+	    AX = 0000h
+	    SI:CX = 32-bit starting cluster number for directory
+	    DX = directory entry number
+	    BX = index into new file system table
+Notes:	the new file system table from which the return values are taken is
+	  reported to be statically allocated with 20 entries, and used only
+	  for FCB calls
+	this function is not supported by DR-DOS 7.03 or earlier, by S/DOS 1.0,
+	  or by PTS-DOS 6.51
+BUG:	Win95-OSR2 is reported to have a bug that can potentially corrupt
+	  memory if SFT tables are "arranged poorly"
+SeeAlso: AX=1231h,AX=1200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1231" name="2F1231"><b>2F1231</b></a> - INT 2F U - Windows95 - SET/CLEAR "REPORT WINDOWS TO DOS PROGRAMS" FLAG<br />
+<pre>
+INT 2F U - Windows95 - SET/CLEAR "REPORT WINDOWS TO DOS PROGRAMS" FLAG
+	AX = 1231h
+	DL = function
+	    00h set byte after "IsWIN386" to 01h
+	    01h set "IsWIN386" bit 1
+	    02h clear "IsWIN386" bit 1
+	    else
+		Return:	CF set
+			AX = 0001h
+Return: CF clear
+	AX = 0000h
+Note:	this function is not supported by DR-DOS 7.03 or earlier, by S/DOS 1.0,
+	  or by PTS-DOS 6.51
+BUG:	Windows98 will crash the system if DL&gt;02h on entry due to an off-by-1
+	  conditional jump; if the jump were correct, the function would return
+	  CF set/AX=0001h as for Windows95
+SeeAlso: AX=1230h,AX=1200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1400BX0EDC" name="2F1400BX0EDC"><b>2F1400BX0EDC</b></a> - INT 2Fh - DR-DOS NLSFUNC 4.01+ - ENHANCED INSTALLATION CHECK<br />
+<pre>
+INT 2Fh - DR-DOS NLSFUNC 4.01+ - ENHANCED INSTALLATION CHECK
+	AX = 1400h
+	BX = 0EDCh
+Return: AL = status
+	    00h not installed, OK to install
+	    01h not installed, not OK to install
+		  (for example under a multitasker)
+	    FFh installed
+		ES:DI -&gt; version signature ("4.01$".."4.04$" for 4.01..4.04)
+	flags may be destroyed
+Program: NLSFUNC 4.01+ is currently an independent project under
+	  development by Matthias Paul. It is not yet publically available,
+	  but as NLSFUNC 4.00 did, it will probably become available with
+	  future DR-DOS releases.
+Notes:	If BX &lt;&gt; 0EDCh on entry, DR-DOS NLSFUNC 4.01+ performs the standard
+	  installation check (INT 2F/AX=1400h), and does not change ES:DI.
+	DR DOS 5.0+ NLSFUNC 3.00+ returns CF set and AX=0001h, if AL was not
+	  00h, FEh, or FFh on entry.
+	NLSFUNC 4.01+ will use the ES:DI enhancement to check the driver
+	  version and calculate displacements into the resident driver for
+	  runtime updates of internal structures like the local NLS database
+	  filespec, etc.
+	If the returned ES points into the HMA (ES=FFFEh) care should be taken
+	  to actually access the HMA while checking the version signature and
+	  updating resident data (mutex with local A20 enable/disable).
+	While previous issues of NLSFUNC installed under a multitasker,
+	  DR-DOS NLSFUNC 4.01+ will actually adapt to work properly in this
+	  environment.
+SeeAlso: AX=1400h"NLSFUNC.COM",AX=14FEh,AX=14FFh,INT 21/AH=65h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1615" name="2F1615"><b>2F1615</b></a> - INT 2F - Windows95 - SAVE32.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F - Windows95 - SAVE32.COM - INSTALLATION CHECK
+	AX = 1615h
+Return: AX = 0000h if installed
+	    BX = segment of resident code
+Program: SAVE32.COM is a TSR included in the Windows95 distribution which
+	  preserves the contents of 32-bit registers across invocations of
+	  all of the hardware interrupt handlers (which, for some older BIOSes
+	  and TSRs, do not properly preserve the high words of the 32-bit
+	  registers)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1684BX377B" name="2F1684BX377B"><b>2F1684BX377B</b></a> - INT 2F - MS Windows - MX1501HAD - GET API ENTRY POINT<br />
+<pre>
+INT 2F - MS Windows - MX1501HAD - GET API ENTRY POINT
+	AX = 1684h
+	BX = 377Bh (virtual device ID for MX1501HAD device)
+	ES:DI = 0000h:0000h
+Return: ES:DI -&gt; VxD API entry point (see #02708)
+		  0000h:0000h if the VxD does not support an API
+Note:	The drivers VCMD95C.VXD and VCMD.386 are part of the driver disks
+	  provided with the chip-card-reader/keyboard combination MX 1501 HAD,
+	  produced by Cherry
+SeeAlso: AX=1684h"DEVICE API",INT 20"Windows"
+
+(Table 02708)
+Call CHERRY VCMD95C.VXD entry point with:
+	AX = function
+	    0001h get version
+		Return: AX = version number (0100h) (AH = major, AL = minor)
+	    0002h hook INT 09 (and 8???)
+	    0003h unhook INT 09 (and 8???)
+	    0004h get number of bytes in FIFO
+		Return: AX = bytes in FIFO
+	    0005h get next FIFO-data
+		Return: AX = data
+			BL = port number
+			BH = direction (1=in, 0=out)
+			DX:CX = timestamp
+	    0006h clear FIFO
+	    0007h output byte
+		DX = port number
+		BL = keyboard command
+		Return: data in FIFO (see #02710)
+		       (value, port, in/out, timestamp)
+	    0008h input byte
+		DX = port number
+		Return: data in FIFO (see #02710)
+			(value, port, in/out, timestamp)
+	    0009h input byte immediately
+		DX = port number
+		Return: AX = data
+	    000Ah read next FIFO data (nondestructive)
+		Return: AX = data
+			BL = port number
+			BH = direction (1=in, 0=out)
+			DX:CX = timestamp
+	    000Bh get timestamp
+		Return: DX:CX = timestamp (in ms)
+	    000Ch enable IRQ 1
+	    000Dh disable IRQ 1
+	    000Eh enable data retrieval
+		Note:	Sets a flag in the internal mode-byte which
+			  tells the driver to recognize the data
+	    000Fh disable data retrieval
+		Note:	resets a flag in the internal mode-byte
+	    0010h get retrieval mode
+		Return: AX = current retrieval mode
+	    0011h set retrieval mode
+		BX = new retrieval mode (see #02709)
+		Return: AX = old retrieval mode
+	    0012h get command value
+		Return: AX = command value
+	    0013h set command value
+		BX = command value
+SeeAlso: #02706,#02711
+
+Bitfields for retrieval mode:
+Bit(s)	Description	(Table 02709)
+ 0	enable data retrieval
+ 1	0 = interrupt-driven
+	1 = polling mode
+ 2	0 = read port 60h everytime
+	1 = read port 60h only when OBF of port 64h is set
+ 3	0 = don't call old INT 9
+	1 = call INT 9 before our INT-handler
+ 4-7	reserved
+SeeAlso: #02708,#02710
+
+Format of FIFO entry (1024 entries in FIFO):
+Offset	Size	Description	(Table 02710)
+ 00h	BYTE	data byte
+ 01h	BYTE	I/O port
+ 02h	BYTE	direction (1=in, 0=out)
+ 03h	BYTE	reserved
+ 04h	DWORD	timestamp
+SeeAlso: #02708,#02709
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F18" name="2F18"><b>2F18</b></a> - INT 2F U - MS-Manager<br />
+<pre>
+INT 2F U - MS-Manager
+	AH = 18h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1980" name="2F1980"><b>2F1980</b></a> - INT 2F U - IBM ROM-DOS v4.0 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - IBM ROM-DOS v4.0 - INSTALLATION CHECK
+	AX = 1980h
+Return: AL = FFh if ??? installed/supported
+Note:	called at the very beginning of SHELLSTB.COM, which exits if AL is not
+	  FFh on return
+SeeAlso: AX=1981h,AX=1982h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1981" name="2F1981"><b>2F1981</b></a> - INT 2F U - IBM ROM-DOS v4.0 - GET ??? STRING<br />
+<pre>
+INT 2F U - IBM ROM-DOS v4.0 - GET ??? STRING
+	AX = 1981h
+	DS:DX -&gt; buffer for ???
+Return: AL = status
+	    FFh if successful
+		DS:DX buffer filled (refer to note below)
+	    81h on error
+Note:	the first byte of the buffer is unchanged; depending on a byte in
+	  IBMBIO.COM, the remainder of the buffer is filled with either
+	  "C:\ROMSHELL.COM",0Dh or xxh,xxh,0Fh,"C:\ROMSHELL.COM",0Dh
+SeeAlso: AX=1980h,AX=1982h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1982" name="2F1982"><b>2F1982</b></a> - INT 2F U - IBM ROM-DOS v4.0 - GET ??? TABLE<br />
+<pre>
+INT 2F U - IBM ROM-DOS v4.0 - GET ??? TABLE
+	AX = 1982h
+Return: AL = FFh if supported
+	    ES:DI -&gt; ??? table (see #02734)
+Note:	called by ROMSHELL.COM
+SeeAlso: AX=1980h,AX=1981h
+
+Format of ROM-DOS v4.0 ??? table:
+Offset	Size	Description	(Table 02734)
+ 00h	BYTE	??? (00h)
+ 01h	BYTE	??? (41h) (ROMSHELL.COM checks if =00h)
+ 02h	BYTE	??? (00h) (ROMSHELL.COM checks if =01h)
+ 03h	WORD	??? (0001h) (ROMSHELL.COM checks if =0001h)
+ 05h	BYTE	??? (00h)
+ 06h	WORD	??? (04D5h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F43D6" name="2F43D6"><b>2F43D6</b></a> - INT 2F - Multiplex - ???<br />
+<pre>
+INT 2F - Multiplex - ???
+	AX = 43D6h
+Note:	Central Point's CPBACKUP v9 calls this function with CX=07FFh and
+	  DX=80D3h at startup
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0007" name="2F4653CX0007"><b>2F4653CX0007</b></a> - INT 2F - F-PROT v2.x - VIRSTOP - ENABLE/DISABLE BOOTSECTOR READ CHECKING<br />
+<pre>
+INT 2F - F-PROT v2.x - VIRSTOP - ENABLE/DISABLE BOOTSECTOR READ CHECKING
+	AX = 4653h ('FS')
+	CX = 0007h
+	BL = new state of bootsector checking (01h = disabled)
+Program: VIRSTOP is the resident virus-checker from Fridrik Skulason's F-PROT
+	  virus/trojan protection package
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0008" name="2F4653CX0008"><b>2F4653CX0008</b></a> - INT 2F - F-PROT v2.x - ???<br />
+<pre>
+INT 2F - F-PROT v2.x - ???
+	AX = 4653h ('FS')
+	CX = 0008h
+	???
+Return: ???
+Note:	called by F-PROT v2.x VIRSTOP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4653CX0008_0" name="2F4653CX0008_0"><b>2F4653CX0008</b></a> - INT 2F - F-PROT v2.x - VIRSTOP - INSTALLATION CHECK<br />
+<pre>
+INT 2F - F-PROT v2.x - VIRSTOP - INSTALLATION CHECK
+	AX = 4653h ('FS')
+	CX = 0008h
+Return: AX = 5346h if installed
+	    BX = version???
+	    DS:SI -&gt; ASCIZ name of file containing virus signatures
+	    DS:DI -&gt; 80-byte buffer for ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F47" name="2F47"><b>2F47</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AH = 47h
+	???
+Return: ???
+Note:	reportedly called by Microsoft BASIC Compiler v7.0
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F49" name="2F49"><b>2F49</b></a> - INT 2F U - DOS 5.0+ SETUP<br />
+<pre>
+INT 2F U - DOS 5.0+ SETUP
+	AH = 49h
+	AL = function
+	    00h update format completion gauge
+		BX = percentage complete, 0000h when done, FFFFh if aborted
+		Return: AX = status
+			    0000h continue formatting
+			    else  installation program wants FORMAT to abort
+	    10h get pointer to resident data
+		AX = FFFFh if supported
+		    ES:BX -&gt; internal structure
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A15BX0000" name="2F4A15BX0000"><b>2F4A15BX0000</b></a> - INT 2F - MS EMM386.EXE v4.46+ - INSTALL I/O VIRTUALIZATION HANDLER<br />
+<pre>
+INT 2F - MS EMM386.EXE v4.46+ - INSTALL I/O VIRTUALIZATION HANDLER
+	AX = 4A15h
+	BX = 0000h (function number)
+	DX = starting I/O address
+	EDX high word = ending I/O address
+	CX = number of ports to trap
+	DS:SI -&gt; I/O dispatch table (see #02815)
+	DI = size of client's code and data (size of DS segment which must be
+	      made available to I/O dispatch function in protected mode)
+Return: CF clear if successful
+	CF set on error
+Notes:	this interface is only available in virtual-86 mode; the I/O handlers
+	  will be called in protected mode
+	only ports 0100h-FFFFh may be trapped; EMM386 reserved ports 0000h-
+	  00FFh
+
+Format of EMM386 I/O dispatch table [array]:
+Offset	Size	Description	(Table 02815)
+ 00h	WORD	I/O port number
+ 02h	WORD	offset of I/O handler for port (see #02816)
+
+(Table 02816)
+Values EMM386 I/O dispatch function is called with:
+	CX = Ring0 code selector for I/O handler's segment
+	DS = Ring0 data selector for I/O handler's segment (alias of CS)
+	EDX = faulting I/O address
+	ECX = direction (00000008h for byte output, 00000000h for byte input)
+		(reportedly 00h for byte/word input, 04h for byte/word output
+		  under DOS 6.22 EMM386)
+	EAX = data in/out
+Return: (via FAR RET)
+	CF clear if I/O access successfully virtualized
+	CF set if access not virtualized (default handler will be called to
+	      perform the I/O)
+BUG:	32-bit I/O on trapped ports hangs the DOS 6.22 EMM386
+SeeAlso: #02815
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4D" name="2F4D"><b>2F4D</b></a> - INT 2F U - KKCFUNC<br />
+<pre>
+INT 2F U - KKCFUNC
+	AH = 4Dh
+	AL = function
+	    00h get function address
+	    01h get error number of last call to KKC DOS function
+	    02h	register/release KKC
+	    03h get table address
+	!!! details to follow
+Return: ???
+Notes:	This API is provided by KKCFUNC.SYS, a support driver for Kana Kanji
+	  Converters (KKC), which is used to handle multiple client KKCs and
+	  provide all the necessary framework to call DOS functions at any
+	  time.
+	also called by MSKK
+	For AL &gt; 3, KKCFUNC passes the call down to the original INT 2Fh,
+	  as recorded at initialization.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F24" name="2F7F24"><b>2F7F24</b></a> - INT 2F - Multiplex - ???<br />
+<pre>
+INT 2F - Multiplex - ???
+	AX = 7F24h
+	???
+Return: ???
+Note:	called by PC/370, an IBM 370 emulator by Donald S. Higgins
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F7F26" name="2F7F26"><b>2F7F26</b></a> - INT 2F - Multiplex - ???<br />
+<pre>
+INT 2F - Multiplex - ???
+	AX = 7F26h
+	???
+Return: ???
+Note:	called by PC/370, an IBM 370 emulator by Donald S. Higgins
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F86" name="2F86"><b>2F86</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AH = 86h
+	AL = function (at least 06h and 07h)
+	???
+Return: ???
+Note:	called by Codeview for Windows
+SeeAlso: AH=44h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F97" name="2F97"><b>2F97</b></a> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???<br />
+<pre>
+INT 2F U - Micro Focus COBOL v3.1.31 internal - ???
+	AH = 97h
+	AL = function
+	    00h installation check
+		Return: AL = FFh if installed
+	    08h get ???
+		Return: AL = ???
+			BX = ???
+			DX = ???
+			AH destroyed
+	    20h get ???
+		Return: AX:BX = far entry point of ???
+			CX = segment of ???
+	    80h ???
+		Return: ???
+Notes:	Micro Focus COBOL compiler v3.1.31 and companion programs supply
+	  these functions for internal use; these programs call the
+	  installation check at startup (before installing the INT 2F
+	  handler) and crash the system if a not authorized program answers
+	  with AL=FFh
+	the handler checks AL only if an internal flag is 1, otherwise ???
+SeeAlso: AH=98h"COBOL",AH=99h"COBOL",AH=9Ah"COBOL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F98" name="2F98"><b>2F98</b></a> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???<br />
+<pre>
+INT 2F U - Micro Focus COBOL v3.1.31 internal - ???
+	AH = 98h
+	AL = function
+	    00h installation check
+		Return: AL = FFh if installed
+	    10h get ???
+		Return: AX = ???
+	    18h get segment of ???
+		Return: AX = segment of ???
+	    19h get pointer to ???
+		Return: AX:BX -&gt; ???
+Notes:	Micro Focus COBOL compiler v3.1.31 and companion programs supply
+	  these functions for internal use; these programs call the
+	  installation check at startup (before installing the INT 2F
+	  handler) and crash the system if a not authorized program answers
+	  with AL=FFh
+	the handler checks AL only if an internal flag is 0, otherwise ???
+SeeAlso: AH=97h"COBOL",AH=99h"COBOL",AH=9Ah"COBOL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F99" name="2F99"><b>2F99</b></a> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???<br />
+<pre>
+INT 2F U - Micro Focus COBOL v3.1.31 internal - ???
+	AH = 99h
+	???
+Return: ???
+Note:	used internally by Micro Focus COBOL compiler v3.1.31 and companion
+	  programs
+SeeAlso: AH=97h"COBOL",AH=98h"COBOL",AH=9Ah"COBOL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F9A" name="2F9A"><b>2F9A</b></a> - INT 2F U - Micro Focus COBOL v3.1.31 internal - ???<br />
+<pre>
+INT 2F U - Micro Focus COBOL v3.1.31 internal - ???
+	AH = 9Ah
+	???
+Return: ???
+Note:	used internally by Micro Focus COBOL compiler v3.1.31 and companion
+	  programs
+SeeAlso: AH=97h"COBOL",AH=98h"COBOL",AH=99h"COBOL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB00_0" name="2FAB00_0"><b>2FAB00</b></a> - INT 2F - SRSoft MODAL PC v2+ - INSTALLATION CHECK / GET VERSION<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - INSTALLATION CHECK / GET VERSION
+	AX = AB00h
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	    BX = MODAL PC version (BL = major, BH = minor)
+Program: MODAL PC is an algorithm/real-system simulation package by SR Soft
+	  using Petri-nets to describe simulated objects
+SeeAlso: AX=AB01h"MODAL",AX=AB02h"MODAL",AX=AB06h"MODAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB01_0" name="2FAB01_0"><b>2FAB01</b></a> - INT 2F - SRSoft MODAL PC v2+ - GET PROCESS RUN PARAMETER<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - GET PROCESS RUN PARAMETER
+	AX = AB01h
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	BL = run parameter
+	    00h normal process
+	    01h run with tracing enabled
+	    02h run initialization process (first thread of main task)
+SeeAlso: AX=AB00h"MODAL",AX=AB02h"MODAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB02_0" name="2FAB02_0"><b>2FAB02</b></a> - INT 2F - SRSoft MODAL PC v2+ - SET PROCESS EXIT CODE<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - SET PROCESS EXIT CODE
+	AX = AB02h
+	BL = exit code
+Return: AX = 5253h ('SR' byte-swapped) if installed
+SeeAlso: AX=AB00h"MODAL",AX=AB01h"MODAL",AX=AB03h"MODAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB03" name="2FAB03"><b>2FAB03</b></a> - INT 2F - SRSoft MODAL PC v2+ - ALLOCATE COMMON MEMORY<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - ALLOCATE COMMON MEMORY
+	AX = AB03h
+	BX = required size of common memory for variables/semaphores in bytes
+Return: AX = 5253h ('SR' byte-swapped) if installed
+SeeAlso: AX=AB00h"MODAL",AX=AB02h"MODAL",AX=AB04h"MODAL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB04" name="2FAB04"><b>2FAB04</b></a> - INT 2F - SRSoft MODAL PC v2+ - GET ALL COMMON VARIABLES AND SEMAPHORES<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - GET ALL COMMON VARIABLES AND SEMAPHORES
+	AX = AB04h
+	DS:DX -&gt; buffer for common data
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	CF clear if successful
+	CF set on error
+SeeAlso: AX=AB00h"MODAL",AX=AB03h"MODAL",AX=AB05h"MODAL",AX=AB06h,AX=AB07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB05" name="2FAB05"><b>2FAB05</b></a> - INT 2F - SRSoft MODAL PC v2+ - SET ALL COMMON VARIABLES AND SEMAPHORES<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - SET ALL COMMON VARIABLES AND SEMAPHORES
+	AX = AB05h
+	DS:DX -&gt; buffer containing common data
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	CF clear if successful
+	CF set on error
+SeeAlso: AX=AB00h"MODAL",AX=AB03h"MODAL",AX=AB04h"MODAL",AX=AB06h,AX=AB07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB06" name="2FAB06"><b>2FAB06</b></a> - INT 2F - SRSoft MODAL PC v2+ - GET A COMMON VARIABLE OR SEMAPHORE<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - GET A COMMON VARIABLE OR SEMAPHORE
+	AX = AB06h
+	BX = offset of variable or semaphore in common memory
+	CX = variable/semaphore size in bytes
+	DS:DX -&gt; buffer for variable or semaphore
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	CF clear if successful
+	CF set on error
+SeeAlso: AX=AB00h"MODAL",AX=AB04h,AX=AB05h,AX=AB07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAB07" name="2FAB07"><b>2FAB07</b></a> - INT 2F - SRSoft MODAL PC v2+ - SET A COMMON VARIABLE OR SEMAPHORE<br />
+<pre>
+INT 2F - SRSoft MODAL PC v2+ - SET A COMMON VARIABLE OR SEMAPHORE
+	AX = AB07h
+	BX = offset of variable or semaphore in common memory
+	CX = variable/semaphore size in bytes
+	DS:DX -&gt; buffer containing variable or semaphore
+Return: AX = 5253h ('SR' byte-swapped) if installed
+	CF clear if successful
+	CF set on error
+SeeAlso: AX=AB00h"MODAL",AX=AB04h,AX=AB05h,AX=AB06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FADC1" name="2FADC1"><b>2FADC1</b></a> - INT 2F U - DOS 4.0+ SELECT - DISPLAY FORMAT DISK PROMPT<br />
+<pre>
+INT 2F U - DOS 4.0+ SELECT - DISPLAY FORMAT DISK PROMPT
+	AX = ADC1h
+Return:	AX destroyed???
+Note:	This function is called by DOS 4.0+ FORMAT utility just as it prompts
+	  for a disk to be formatted.  It is only issued when the undocumented
+	  /SELECT option was specified and is intercepted by SELECT displaying
+	  the prompt.  However, the callout is still present in DOS 6.0 at
+	  least.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF00_0" name="2FAF00_0"><b>2FAF00</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF00h
+	???
+Return: AX = 0000h if interface supported
+SeeAlso: AX=AF02h,AX=AF03h,AX=AF04h,AX=AF13h,AX=AF30h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF02_0" name="2FAF02_0"><b>2FAF02</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF02h
+	???
+Return: ES = ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF03_0" name="2FAF03_0"><b>2FAF03</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF03h
+	???
+Return: DX = ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF04_0" name="2FAF04_0"><b>2FAF04</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF04h
+	???
+Return: ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF05_0" name="2FAF05_0"><b>2FAF05</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF05h
+	???
+Return: ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF12_0" name="2FAF12_0"><b>2FAF12</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF12h
+	???
+Return: ES = ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF13_0" name="2FAF13_0"><b>2FAF13</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF13h
+	???
+Return: ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FAF30" name="2FAF30"><b>2FAF30</b></a> - INT 2F U - ???<br />
+<pre>
+INT 2F U - ???
+	AX = AF30h
+	???
+Return: ???
+SeeAlso: AX=AF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBB00BX0000" name="2FBB00BX0000"><b>2FBB00BX0000</b></a> - INT 2F - CATC USB4DOS Host Controller - INSTALLATION CHECK<br />
+<pre>
+INT 2F - CATC USB4DOS Host Controller - INSTALLATION CHECK
+	AX = BB00h
+	BX = 0000h
+Return: AX = 0001h if installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBB00BX0001" name="2FBB00BX0001"><b>2FBB00BX0001</b></a> - INT 2F - CATC USB4DOS Host Controller - GET ???<br />
+<pre>
+INT 2F - CATC USB4DOS Host Controller - GET ???
+	AX = BB00h
+	BX = 0001h
+Return: AX = 0000h
+	CX:BX -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBB00BX0002" name="2FBB00BX0002"><b>2FBB00BX0002</b></a> - INT 2F - CATC USB4DOS Host Controller - EXECUTE USB REQUEST<br />
+<pre>
+INT 2F - CATC USB4DOS Host Controller - EXECUTE USB REQUEST
+	AX = BB00h
+	BX = 0002h
+	CX:DX -&gt; request packet (see #04097)
+Return: AX = destroyed
+
+Format of USB4DOS Host Controller request packet:
+Offset	Size	Description	(Table 04097)
+ 00h	WORD	command number
+ 02h	WORD	(ret) major status
+ 04h	WORD	(ret) minor status
+ 06h	DWORD	-&gt; callback function
+ 0Ah 25 BYTEs	data for command (varies by command number)
+ 23h 12 BYTEs	reserved for future use
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBB00BX0003" name="2FBB00BX0003"><b>2FBB00BX0003</b></a> - INT 2F - CATC USB4DOS Host Controller - ??? (POLLS VARIOUS I/O PORTS)<br />
+<pre>
+INT 2F - CATC USB4DOS Host Controller - ??? (POLLS VARIOUS I/O PORTS)
+	AX = BB00h
+	BX = 0003h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBB00" name="2FBB00"><b>2FBB00</b></a> - INT 2F - CATC USB4DOS Host Controller - INVALID FUNCTION<br />
+<pre>
+INT 2F - CATC USB4DOS Host Controller - INVALID FUNCTION
+	AX = BB00h
+	BX &gt; 0003h
+Return: AX = FFFFh (invalid function)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBC00BL00" name="2FBC00BL00"><b>2FBC00BL00</b></a> - INT 2F - CATC USB4DOS Device Manager - INSTALLATION CHECK<br />
+<pre>
+INT 2F - CATC USB4DOS Device Manager - INSTALLATION CHECK
+	AX = BC00h
+	BL = 00h
+Return: AX = installation state
+	    0000h not installed
+	    0001h installed
+	    BC00h not installed
+SeeAlso: AX=BC00h/BL=01h,AX=BC00h/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBC00BL01" name="2FBC00BL01"><b>2FBC00BL01</b></a> - INT 2F - CATC USB4DOS Device Manager - REGISTER DEVICE<br />
+<pre>
+INT 2F - CATC USB4DOS Device Manager - REGISTER DEVICE
+	AX = BC00h
+	BL = 01h
+	CX:DX -&gt; client_info structure (see #04096)
+Return: AX = client number, 0000h on failure
+SeeAlso: AX=BC00h/BL=02h,AX=BC00h/BL=00h
+
+Format of CATC USB4DOS client_info structure:
+Offset	Size	Description	(Table 04096)
+ 00h	DWORD	-&gt; Attach() worker function
+ 04h	DWORD	-&gt; Detach() worker function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBC00BL02" name="2FBC00BL02"><b>2FBC00BL02</b></a> - INT 2F - CATC USB4DOS Device Manager - UNLOAD DEVICE<br />
+<pre>
+INT 2F - CATC USB4DOS Device Manager - UNLOAD DEVICE
+	AX = BC00h
+	BL = 02h
+	CX = client number
+Return: AX destroyed
+SeeAlso: AX=BC00h/BL=01h,AX=BC00h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBC00BL03" name="2FBC00BL03"><b>2FBC00BL03</b></a> - INT 2F - CATC USB4DOS Device Manager - HUB DEVICE ATTACHED<br />
+<pre>
+INT 2F - CATC USB4DOS Device Manager - HUB DEVICE ATTACHED
+	AX = BC00h
+	BL = 03h
+	BH = address and device type
+	    bits 7-1: USB address of hub
+	    bit 0: device speed
+		=0 low-speed device
+		=1 full-speed device
+	CX:DX -&gt; callback function
+Return: AX = USB address of attached device, or 0000h on failure
+SeeAlso: AX=BC00h/BL=04h,AX=BC00h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FBC00BL04" name="2FBC00BL04"><b>2FBC00BL04</b></a> - INT 2F - CATC USB4DOS Device Manager - HUB DEVICE DETACHED<br />
+<pre>
+INT 2F - CATC USB4DOS Device Manager - HUB DEVICE DETACHED
+	AX = BC00h
+	BL = 04h
+	BH = USB address of detached device (may be the hub itself)
+Return: AX destroyed
+SeeAlso: AX=BC00h/BL=03h,AX=BC00h/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDD_0" name="2FDD_0"><b>2FDD</b></a> - INT 2F - MIXFIX.EXE - API<br />
+<pre>
+INT 2F - MIXFIX.EXE - API
+	AH = DDh
+	AL = function
+	    00h installation check
+		Return: AX = 00DDh if installed
+			    BX = version (BH = major, BL = minor)
+	    41h/61h get From: address
+		Return: AX = 0001h
+			ES:BX -&gt; ASCIZ 4d address of mail sender ("1:2/3.4")
+	    49h/69h get To: address
+		Return: AX = 0001h
+			ES:BX -&gt; ASCIZ 4d address of recipient ("1:2/3.4")
+	    4Ah/6Ah get subject of mail
+		Return: AX = 0001h
+			ES:BX -&gt; ASCIZ subject of handled mail
+	    4Dh/6Dh get mail name
+		Return: AX = 0001h
+			ES:BX -&gt; ASCIZ full name of current mail file
+	    4Eh/6Eh get From: field
+		Return: AX = 0001h
+			ES:BX -&gt; ASCIZ From: field of mail (mail sender's name)
+Program: MIXFIX by "KIV without Co" is a FidoNet mail robot which may execute
+	  other programs for mail handling.  The called programs may use the
+	  services described here to retrieve information about the mail being
+	  handled.
+Index: installation check;MIXFIX.EXE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE700BX4158" name="2FE700BX4158"><b>2FE700BX4158</b></a> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???<br />
+<pre>
+INT 2F - Multiplex - ??? - INSTALLATION CHECK???
+	AX = E700h
+	BX = 4158h ("AX")
+	CX = 4953h ("IS")
+	DX = 4845h ("HE")
+Return: AL = FFh if installed
+	    BX = 4C4Fh ("LO") if ??? installed
+	    CX = 4F4Bh ("OK")
+	    DX = 4F55h ("OU")
+		ES:DI -&gt; ???
+Range:	AH=C0h to AH=FFh, selected by scanning AH=E7-FFh, then AH=C0h-E6h
+Note:	called by QDPMI when its Real to Protected Mode Switch Entry Point
+	  is called
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFA00" name="2FFA00"><b>2FFA00</b></a> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???<br />
+<pre>
+INT 2F - Multiplex - ??? - INSTALLATION CHECK???
+	AX = FA00h
+	BX = ??? (0408h)
+	CX = ??? (001Fh)
+	DX = ??? (0102h)
+	SI = ??? (5ACCh)
+	DI = ??? (0632h)
+Return: ???
+Note:	called by WinEmacs at startup
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFA00_0" name="2FFA00_0"><b>2FFA00</b></a> - INT 2F - Multiplex - ??? - INSTALLATION CHECK???<br />
+<pre>
+INT 2F - Multiplex - ??? - INSTALLATION CHECK???
+	AX = FA00h
+	BX = ??? (03FCh)
+	CX = ??? (003Fh)
+	DX = ??? (00FFh)
+	SI = ??? (5AA6h)
+	DI = ??? (0620h)
+Return: ???
+Note:	called by Matlab at startup
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E04" name="326E04"><b>326E04</b></a> - INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST<br />
+<pre>
+INT 32 - NOISE.SYS v0.55+ - GET INTERRUPT HOOK LIST
+	AX = 6E04h
+Return: AL = status
+	    00h = unimplemented
+	    04h = DX:BX -&gt; interrupt hook list
+	    FEh = subfunction disabled
+Note:	the hook list array ends with API interrupt (usually 32h, although
+	  it will differ if the API is installed at another interrupt)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E06" name="326E06"><b>326E06</b></a> - INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER<br />
+<pre>
+INT 32 - NOISE.SYS v0.55+ - GET DEVICE DRIVER HEADER
+	AX = 6E06h
+Return: AL = number of device drivers in NOISE.SYS chain
+	    02h = default (for RANDOM and URANDOM devices)
+	AH = AMIS device driver flags (set to 00h for now)
+	DX:BX -&gt; first device in chain (see #01646)
+SeeAlso: INT 2D/AL=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E18" name="326E18"><b>326E18</b></a> - INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD<br />
+<pre>
+INT 32 - NOISE.SYS v0.6+ - READ CONTROL RECORD
+	AX = 6E18h
+	CX = buffer size
+	ES:DI -&gt; buffer
+Return: AL = status
+	    00h unimplemented (before v0.6)
+	    FEh subfunction is disabled
+	    FFh successful
+		CX = number of bytes read
+Note:	the control record corresponds to the IOCTL Read record for the RANDOM
+	  device
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E_0" name="326E_0"><b>326E</b></a> - INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE<br />
+<pre>
+INT 32 - NOISE.SYS - RESERVED FOR FUTURE USE
+	AH = 6Eh
+	AL = 19h to 3Fh
+Return: AL = 00h
+Note:	these functions are reserved for future use; user additions to the
+	  the driver should use subfunctions 40h to FFh.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#478000" name="478000"><b>478000</b></a> - INT 47 - SQL Base - DATABASE ENGINE API<br />
+<pre>
+INT 47 - SQL Base - DATABASE ENGINE API
+	AX = 8000h
+	DS:BX -&gt; parameter block, first word is function number (see #03203)
+Program: SQL Base is a network-oriented database engine by Gupta Technologies
+SeeAlso: AX=8001h
+
+(Table 03203)
+Values for SQL Base function number:
+ 01h	"SQLFINI" initalialize application's use of the database
+ 02h	"SQLFDON" application is done using the database
+ 03h	"SQLFCON" connect to a cursor/database
+ 04h	"SQLFDIS" disconnect from a cursor/database
+ 05h	"SQLFCOM" compile a SQL command
+ 06h	"SQLFEXE" execute a SQL command
+ 07h	"SQLFCEX" compile and execute a SQL command
+ 08h	"SQLFCMT" commit a transaction to the database
+ 09h	"SQLFDES" describe the items of a SELECT statement
+ 0Ah	"SQLFGFI" get fetch information
+ 0Bh	"SQLFFBK" fetch previous result row from SELECT statement
+ 0Ch	"SQLFFET" fetch next result row from SELECT statement
+ 0Dh	"SQLFEFB" enable fetch backwards
+ 0Eh	"SQLFPRS" position in result set
+ 0Fh	"SQLFURS" undo result set
+ 10h	"SQLFNBV" get number of bind variables
+ 11h	"SQLFBND" bind data variables
+ 12h	"SQLFBNN" bind numerics
+ 13h	"SQLFBLN" bind long number
+ 14h	"SQLFBLD" bind long data variables
+ 15h	"SQLFSRS" start restriction set processing
+ 16h	"SQLFRRS" restart restriction set processing
+ 17h	"SQLFCRS" close restriction set
+ 18h	"SQLFDRS" drop restriction set
+ 19h	"SQLFARF" apply Roll Forward journal
+ 1Ah	"SQLFERF" end Roll Forward journal
+ 1Bh	"SQLFSRF" start Roll Forward journal
+ 1Ch	"SQLFSTO" store a compiled SQL command
+ 1Dh	"SQLFRET" retrieve a compiled SQL command
+ 1Eh	"SQLFDST" drop a stored command
+ 1Fh	"SQLFCTY" get command type
+ 20h	"SQLFEPO" get error position
+ 21h	"SQLFGNR" get number of rows
+ 22h	"SQLFNSI" get number of select items
+ 23h	"SQLFRBF" get Roll Back flag
+ 24h	"SQLFRCD" get return code
+ 25h	"SQLFROW" get number of ROWs
+ 26h	"SQLFSCN" set cursor name
+ 27h	"SQLFSIL" set isolation level
+ 28h	"SQLFSLP" set log parameters
+ 29h	"SQLFSSB" set select buffer
+ 2Ah	"SQLFSSS" set sort space
+ 2Bh	"SQLFRLO" read long
+ 2Ch	"SQLFWLO" write long
+ 2Dh	"SQLFLSK" long seek
+ 2Eh	"SQLFGLS" get long size
+ 2Fh	"SQLFELO" end long operation
+ 30h	"SQLFRBK" roll back a transaction from the database
+ 31h	"SQLFERR" error message
+ 32h	"SQLFCPY" copy
+ 33h	"SQLFR01" reserved
+ 34h	"SQLFSYS" system
+ 35h	"SQLFSTA" statistics
+ 36h	"SQLFR02" reserved
+ 37h	"SQLFXAD" extra add
+ 38h	"SQLFXCN" extra character to number
+ 39h	"SQLFXDA" extra date add
+ 3Ah	"SQLFXDP" extra date picture
+ 3Bh	"SQLFXDV" extra divide
+ 3Ch	"SQLFXML" extra multiply
+ 3Dh	"SQLFXNP" extra number picture
+ 3Eh	"SQLFXPD" extra picture date
+ 3Fh	"SQLFXSB" extra subtract
+ 40h	"SQLFINS" install database
+ 41h	"SQLFDIN" deinstall database
+ 42h	"SQLFDIR" directory of databases
+ 43h	"SQLFTIO" timeout
+ 44h	"SQLFFQN" get fully qualified column name
+ 45h	"SQLFEXP" explain execution plan
+ 46h	"SQLFFER" get full error
+ 47h	"SQLFBKP" begin online backup
+ 48h	"SQLFRDC" read backup data chunk
+ 49h	"SQLFEBK" end backup
+ 4Ah	"SQLFRES" begin restore from backup
+ 4Bh	"SQLFWDC" write backup data chunk for restore
+ 4Ch	"SQLFRRD" recover restored database to consistent state
+ 4Dh	"SQLFERS" end restore
+ 4Eh	"SQLFNRR" return number of result set rows
+ 4Fh	"SQLFSTR" start restriction mode
+ 50h	"SQLFSPR" stop restriction mode
+ 51h	"SQLFCNC" connect 2
+ 52h	"SQLFCNR" connect with no recovery
+ 53h	"SQLFOMS" set output message size
+ 54h	"SQLFIMS" set input message size
+ 55h	"SQLFSCP" set cache pages
+ 56h	"SQLFDSC" describe items of a SELECT statement (external)
+ 57h	"SQLFLAB" get label info for items in SELECT statement
+ 58h	"SQLFCBV" clear bind variables
+ 59h	"SQLFGET" get database information
+ 5Ah	"SQLFSET" set database information
+ 5Bh	"SQLFTEC" translate error code
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#478001" name="478001"><b>478001</b></a> - INT 47 - SQL Base - GET VERSION NUMBER<br />
+<pre>
+INT 47 - SQL Base - GET VERSION NUMBER
+	AX = 8001h
+Return: ???
+Program: SQL Base is a network-oriented database engine by Gupta Technologies
+SeeAlso: AX=8000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#50_3" name="50_3"><b>50</b></a> - INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP<br />
+<pre>
+INT 50 - TI Professional PC - FATAL SOFTWARE ERROR TRAP
+Desc:	the default handler generates a System Error message and halts the
+	  computer such that only Ctrl-Alt-Del can restart operation
+Note:	documented as "for system use only"; intended for multi-tasking
+	  software
+SeeAlso: INT 40"TI Professional",INT 4F"TI Professional"
+SeeAlso: INT 51"TI Professional",INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#51_2" name="51_2"><b>51</b></a> - INT 51 - TI Professional PC - RESTART TIMING EVENT<br />
+<pre>
+INT 51 - TI Professional PC - RESTART TIMING EVENT
+	AX = timer count in 25ms intervals
+	DS:DI -&gt; timing-event table (see #03244)
+Note:	documented as "for system use only"; intended for multi-tasking
+	  software
+SeeAlso: INT 50"TI Professional",INT 52"TI Professional"
+
+Format of TI Professional PC timing event table:
+Offset	Size	Description	(Table 03244)
+ 00h	WORD	offset of next event table entry
+ 02h	BYTE	normally unused (FFh)
+ 03h	BYTE	flags:
+		bit 7 set if timing event active
+		bits 6-0 not used by BIOS (0), but could be used by option ROMs
+ 04h	WORD	timeout count (decremented every 25ms when active)
+ 06h	WORD	offset of event handler (in segment F400h) to call on event
+		  timeout; the F400h segment allows addressing both system ROMs
+		  and the first 16K of memory (due to the 1M memory wraparound)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#52_1" name="52_1"><b>52</b></a> - INT 52 - TI Professional PC - CANCEL TIMING EVENT<br />
+<pre>
+INT 52 - TI Professional PC - CANCEL TIMING EVENT
+	DS:DI -&gt; timing-event table (see #03244)
+Note:	documented as "for system use only"; intended for multi-tasking
+	  software
+SeeAlso: INT 51"TI Professional",INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#53_1" name="53_1"><b>53</b></a> - INT 53 - TI Professional PC - SVC INTERFACE<br />
+<pre>
+INT 53 - TI Professional PC - SVC INTERFACE
+Notes:	documented as "for system use only"; intended for multi-tasking
+	  software
+	this interrupt is not used by the BIOS; the default handler generates
+	  a system error trap (see INT 51"TI Professional")
+SeeAlso: INT 50"TI Professional",INT 54"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#54_1" name="54_1"><b>54</b></a> - INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE<br />
+<pre>
+INT 54 - TI Professional PC - ACTIVATE TASK SUBROUTINE
+Notes:	documented as "for system use only"; intended for multi-tasking
+	  software
+	this interrupt is not used by the BIOS; the default handler generates
+	  a system error trap (see INT 51"TI Professional")
+SeeAlso: INT 50"TI Professional",INT 53"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60899B" name="60899B"><b>60899B</b></a> - INT 60 U - Agfa TTSR.EXE - API<br />
+<pre>
+INT 60 U - Agfa TTSR.EXE - API
+	AX = 899Bh
+	BX = function
+	    0001h installation check
+		Return: BX = 899Bh if installed
+	    0002h ???
+	    0003h ???
+	???
+Return: ???
+Note:	TTSR.EXE is found in FotoLook 2.09 (16-bit), which is available from
+	  agfa.com; it appears to provide DOS ASPI support
+!!!
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#62_3" name="62_3"><b>62</b></a> - INT 62 - MS SQL Server/Sybase DBLIBRARY interface - ???<br />
+<pre>
+INT 62 - MS SQL Server/Sybase DBLIBRARY interface - ???
+	AH = function (00h to 07h)
+	CX = FFFEh
+	DX = FFFFh
+	???
+Return: ???
+InstallCheck:	test for the string "DBLIBRARY" two bytes past the interrupt
+	  handler
+SeeAlso: AH=08h"SQL"
+Index:	installation check;MS SQL Server|installation check;Sybase DBLIBRARY
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#62_4" name="62_4"><b>62</b></a> - INT 62 - MPAUSE - ???<br />
+<pre>
+INT 62 - MPAUSE - ???
+	details not yet avialable
+Program: MPAUSE is a program by Manfred Michael which appeared in the German
+	 _EGA-Handbuch_ from  m&t-Verlag
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#62_6" name="62_6"><b>62</b></a> - INT 62 - PC-DRAFT - PRIMARY DISPLAY DRIVER<br />
+<pre>
+INT 62 - PC-DRAFT - PRIMARY DISPLAY DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 64"PC-DRAFT",INT 65"PC-DRAFT",INT 66"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6208--CXFFFE" name="6208--CXFFFE"><b>6208--CXFFFE</b></a> - INT 62 - MS SQL Server/Sybase DBLIBRARY interface - UNINSTALL/GET PSP ADDR<br />
+<pre>
+INT 62 - MS SQL Server/Sybase DBLIBRARY interface - UNINSTALL/GET PSP ADDR
+	AH = 08h
+	CX = FFFEh
+	DX = FFFFh
+Return: AX = PSP address of resident DBLIBRARY
+Note:	this call does not free the memory allocated to the TSR; the calling
+	  code must do the deallocation.
+SeeAlso: INT 62"DBLIBRARY"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_2" name="63_2"><b>63</b></a> - INT 63 - Oracle SQL Protected Mode Executive - ???<br />
+<pre>
+INT 63 - Oracle SQL Protected Mode Executive - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_4" name="63_4"><b>63</b></a> - INT 63 - Kofax KF9X00 image manipulation card interface<br />
+<pre>
+INT 63 - Kofax KF9X00 image manipulation card interface
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_2" name="64_2"><b>64</b></a> - INT 64 - Oracle SQL Protected Mode Executive - ???<br />
+<pre>
+INT 64 - Oracle SQL Protected Mode Executive - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#64_7" name="64_7"><b>64</b></a> - INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER<br />
+<pre>
+INT 64 - PC-DRAFT - ASYNCHRONOUS DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 65"PC-DRAFT",INT 66"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#65_6" name="65_6"><b>65</b></a> - INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER<br />
+<pre>
+INT 65 - PC-DRAFT - SECONDARY DISPLAY DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 64"PC-DRAFT",INT 66"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_7" name="66_7"><b>66</b></a> - INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER<br />
+<pre>
+INT 66 - PC-DRAFT - TABLET/DIGITIZER DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 64"PC-DRAFT",INT 65"PC-DRAFT",INT 67"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#67_4" name="67_4"><b>67</b></a> - INT 67 - PC-DRAFT - KEYBOARD DRIVER<br />
+<pre>
+INT 67 - PC-DRAFT - KEYBOARD DRIVER
+	???
+Return: ???
+Program: PC-DRAFT is a powerful CAD environment by rhv.
+SeeAlso: INT 62"PC-DRAFT",INT 64"PC-DRAFT",INT 65"PC-DRAFT",INT 66"PC-DRAFT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#684300" name="684300"><b>684300</b></a> - INT 68 U - ??? - INSTALLATION CHECK???<br />
+<pre>
+INT 68 U - ??? - INSTALLATION CHECK???
+	AX = 4300h
+Return: AX = F386h if ???
+	???
+Note:	called by Novell DOS 7.0 EMM386.EXE
+SeeAlso: AX=4400h,INT 41/AX=004Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#684400" name="684400"><b>684400</b></a> - INT 68 U - ???<br />
+<pre>
+INT 68 U - ???
+	AX = 4400h
+	BX = ???
+	CX = ???
+	DX = ???
+	DS:SI = real-mode address of protected-mode GDT
+	ES:DI = real-mode address of protected-mode IDT
+Return: ???
+Note:	called by Novell DOS 7.0 EMM386.EXE if AX=4300h returns AX=F386h
+SeeAlso: AX=4300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B6B" name="6B6B"><b>6B6B</b></a> - INT 6B - Tandy SCHOOLMATE PLUS - API<br />
+<pre>
+INT 6B - Tandy SCHOOLMATE PLUS - API
+	AH = 6Bh
+	AL = E0h to FFh
+Note:	details not yet available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6C" name="6C"><b>6C</b></a> - INT 6C - system resume vector (CONVERTIBLE)<br />
+<pre>
+INT 6C - system resume vector (CONVERTIBLE)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6C_0" name="6C_0"><b>6C</b></a> - INT 6C - DOS 3.2 Realtime Clock update<br />
+<pre>
+INT 6C - DOS 3.2 Realtime Clock update
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A07D0" name="7A07D0"><b>7A07D0</b></a> - INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT<br />
+<pre>
+INT 7A R - AutoCAD Device Interface - Compaq VGADI41.EXE - GET ENTRY POINT
+	AX = 07D0h
+Return: AX = ??? (0003h)
+	BX = 0000h
+	DX:CX -&gt; ADI entry point (see AX=0001h)
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7A7A" name="7A7A"><b>7A7A</b></a> - INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE<br />
+<pre>
+INT 7A - Canon IX-30F Image Scanner SI3.SYS - INTERFACE
+	AH = 7Ah
+	???
+Return: AX = status
+	    0000h success
+	    000Eh undefined function code
+Range:	unknown, selected by device driver commandline arguments
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7B_4" name="7B_4"><b>7B</b></a> - INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API<br />
+<pre>
+INT 7B - Novell XQL - XQL PRIMITIVES MANAGER API
+	DS:DX -&gt; parameter block (see #03844)
+Return: parameter block updated
+
+(Table 03843)
+Values for Novell XQL function number:
+ 00h	log in
+ 01h	log out
+ 02h	"tNewFcn"
+ 03h	"tFreeFcn"
+ 04h	"tMoveFldFcn"
+ 05h	"tFieldFcn"
+ 06h	"tDescribeFcn"
+ 07h	"tFetchFcn"
+ 08h	"tComputeFcn"
+ 09h	"tOrderFcn"
+ 0Ah	"tRestrictFcn"
+ 0Bh	"tJoinFcn"
+ 0Ch	"tInsertFcn"
+ 0Dh	"tUpdateFcn"
+ 0Eh	"tUpdallFcn"
+ 0Fh	"tRemoveFcn"
+ 10h	"tRemallFcn"
+ 11h	"tResetFcn"
+ 12h	"tTransFcn"
+ 13h	"tStatFcn"
+ 14h	"tDDCreFcn"
+ 15h	"tStoreFcn"
+ 16h	"tRecallFcn"
+ 17h	"tStopFcn"
+ 18h	"tDDFileFcn"
+ 19h	"tDDFieldFcn"
+ 1Ah	"tDDIndexFcn"
+ 1Bh	"tDDModFcn"
+ 1Ch	"tDDViewFcn"
+ 1Dh	"tDDDrpFcn"
+ 1Eh	"tDDPathFcn"
+ 1Fh	"tDDAttrFcn"
+ 20h	"tDDFcn"
+ 21h	"tSecurFcn"
+ 22h	"tUserFcn"
+ 23h	"tAccessFcn"
+ 24h	"tPswdFcn"
+ 25h	"tCharFcn"
+ 26h	"tVersionFcn"
+ 27h	"tCnvFcn"
+ 28h	"tValFcn"
+ 29h	"tMaskFcn"
+SeeAlso: #03844
+
+Format of XQL parameter block:
+Offset	Size	Description	(Table 03844)
+ 00h  4 BYTEs	signature "XQLP"
+ 04h	WORD	function number (see #03843)
+ 06h	WORD	handle
+ 08h	WORD	status
+ 0Ah	WORD	session ID
+ 0Ch	var	data record (varies by function)
+---function 00h---
+ 0Ch	DWORD	-&gt; user name
+ 10h	DWORD	-&gt; password
+ 14h	DWORD	-&gt; dictionary
+ 18h	DWORD	-&gt; filepath
+ 1Ch	DWORD	-&gt; machine name
+ 20h	WORD	process ID
+---function 01h---
+ no additional fields???
+---function 02h---
+ 0Ch	DWORD	-&gt; filename
+ 10h	DWORD	-&gt; owner name
+ 14h	WORD	open mode
+---function 03h---
+ no additional fields???
+---function 04h---
+ 0Ch	WORD	"frompos"
+ 0Eh	WORD	"topos"
+---function 05h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	position
+ 10h	WORD	count
+ 12h	DWORD	-&gt; field list
+---function 06h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	length of description
+ 10h	WORD	position
+ 12h	WORD	count
+ 14h	DWORD	pointer to description list
+---function 07h---
+ 0Ch	WORD	data length
+ 0Eh	WORD	"op"
+ 10h	DWORD	"select"
+ 14h	DWORD	"reject"
+ 18h	DWORD	pointer to data buffer
+---function 08h---
+ 0Ch	DWORD	-&gt; field name
+ 10h	WORD	field type
+ 12h	WORD	field size
+ 14h	WORD	"flddec"
+ 16h	WORD	"explen"
+ 18h	DWORD	pointer to "expbuf"
+---function 09h---
+ 0Ch	WORD	count
+ 0Eh	DWORD	-&gt; field list
+---function 0Ah---
+ 0Ch	WORD	"newexp"
+ 0Eh	WORD	"explen"
+ 10h	DWORD	-&gt; "expbuf"
+---function 0Bh---
+ 0Ch	DWORD	-&gt; filename
+ 10h	DWORD	-&gt; owner name
+ 14h	WORD	type of join
+ 16h	WORD	"pCount"
+ 18h	DWORD	-&gt; "pNames"
+ 1Ch	WORD	"sCount"
+ 1Eh	DWORD	-&gt; "sNames"
+---functions 0Ch, 0Dh, 0Fh---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	DWORD	count
+ 16h	DWORD	-&gt; buffer
+---function 0Eh---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	WORD	"op"
+ 14h	DWORD	"select"
+ 18h	DWORD	"reject"
+ 1Ch	WORD	count
+ 1Eh	DWORD	-&gt; "res"
+ 22h	DWORD	-&gt; "comp"
+---function 10h---
+ 0Ch	WORD	file count
+ 0Eh	DWORD	-&gt; file list
+ 12h	WORD	"op"
+ 14h	DWORD	"select"
+ 18h	DWORD	"reject"
+---function 11h---
+ 0Ch	DWORD	machine name
+---function 12h---
+ 0Ch	WORD	option
+---function 13h---
+ 0Ch	WORD	subfunction
+ 0Eh	WORD	length of buffer
+ 10h	DWORD	-&gt; buffer
+---function 14h---
+ 0Ch	WORD	subfunction
+ 0Eh	DWORD	-&gt; filename
+ 12h	WORD	"create"
+ 14h	DWORD	-&gt; pathname
+ 18h	DWORD	-&gt; owner name
+ 1Ch	WORD	owner access restrictions
+ 1Eh	WORD	number of fields
+ 20h	DWORD	-&gt; field list
+ 24h	WORD	number of keys
+ 28h	DWORD	-&gt; key list
+ 2Ch	WORD	"buflen"
+ 2Eh	DWORD	-&gt; create parameters
+---function 15h---
+ 0Ch	DWORD	-&gt; "StoreName"
+ 10h	WORD	length of buffer
+ 12h	DWORD	-&gt; buffer
+---function 16h---
+ 0Ch	DWORD	-&gt; "RecallName"
+ 10h	WORD	owner number
+ 12h	DWORD	-&gt; owner list
+ 16h	WORD	open mode
+ 18h	WORD	length of buffer
+ 1Ah	DWORD	-&gt; buffer
+---function 17h---
+ no additional fields???
+---function 18h---
+ 0Ch	WORD	"rtype"
+ 0Eh	WORD	count
+ 10h	DWORD	-&gt; "filebuf"
+ 14h	WORD	length of following buffer
+ 16h	DWORD	-&gt; output buffer
+---functions 19h, 1Ah---
+ 0Ch	WORD	"rtype"
+ 0Eh	WORD	count
+ 10h	DWORD	-&gt; field buffer
+ 14h	WORD	length of following buffer
+ 16h	DWORD	-&gt; output buffer
+---function 1Bh---
+ 0Ch	WORD	subfunction
+ 0Eh	DWORD	-&gt; filename
+ 12h	WORD	"create"
+ 14h	DWORD	-&gt; pathname
+ 18h	DWORD	-&gt; owner name
+ 1Ch	WORD	owner access restrictions
+ 1Eh	WORD	field count
+ 20h	DWORD	-&gt; field list
+ 24h	WORD	number of keys
+ 26h	DWORD	-&gt; list of keys
+---function 1Ch---
+ 0Ch	WORD	count
+ 0Eh	DWORD	-&gt; view name
+ 12h	WORD	length of following buffer
+ 14h	DWORD	-&gt; output buffer
+---function 1Dh---
+ 0Ch	DWORD	-&gt; filename
+ 10h	WORD	file type
+ 12h	WORD	"deletepath"
+---function 1Eh---
+ 0Ch	WORD	"dirtype"
+ 0Eh	DWORD	-&gt; pathname
+---function 1Fh---
+ 0Ch	WORD	function
+ 0Eh	DWORD	-&gt; field name
+ 12h	WORD	attribute
+ 14h	WORD	size of buffer
+ 16h	DWORD	-&gt; buffer for attributes
+---function 20h---
+ 0Ch	DWORD	-&gt; directory path
+ 10h	WORD	function
+---function 21h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	WORD	"securityflag"
+---function 22h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	WORD	function (add/modify/remove)
+ 12h	DWORD	-&gt; user name
+ 16h	DWORD	-&gt; password
+ 1Ah	WORD	global rights
+ 1Ch	WORD	count
+ 1Eh	WORD	length of following buffer
+ 20h	DWORD	-&gt; "userbuf"
+---function 23h---
+ 0Ch	DWORD	-&gt; master password
+ 10h	DWORD	-&gt; user name
+ 14h	WORD	function (allow/deny/getrights)
+ 16h	WORD	rights
+ 18h	DWORD	-&gt; filename
+ 1Ch	WORD	number of field names in following buffer
+ 1Eh	DWORD	-&gt; field names
+ 22h	WORD	maximum buffer length
+ 24h	DWORD	-&gt; output buffer
+---function 24h---
+ 0Ch	DWORD	-&gt; user name
+ 10h	DWORD	-&gt; password
+---function 25h---
+ 0Ch	WORD	"charFcn"
+ 0Eh	WORD	"charType"
+ 10h	WORD	"charValue"
+---function 26h---
+ 0Ch	DWORD	-&gt; buffer
+---function 27h---
+ 0Ch	WORD	option
+ 0Eh	WORD	type
+ 10h	WORD	size
+ 12h	WORD	"dec"
+ 14h	WORD	"dsize"
+ 16h	DWORD	-&gt; value
+ 1Ah	DWORD	-&gt; "retval"
+ 1Eh	DWORD	-&gt; mask
+ 22h	WORD	"justify"
+---function 28h---
+ 0Ch	DWORD	-&gt; field name
+ 10h	WORD	length of buffer
+ 12h	DWORD	-&gt; buffer for data
+---function 29h---
+ 0Ch	WORD	option
+ 0Eh	WORD	type
+ 10h	WORD	size
+ 12h	WORD	"dec"
+ 14h	WORD	length of mask
+ 16h	DWORD	-&gt; mask
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7D_3" name="7D_3"><b>7D</b></a> - INT 7D - IBM DOS 6.1 E.EXE - ???<br />
+<pre>
+INT 7D - IBM DOS 6.1 E.EXE - ???
+Note:	E.EXE checks whether this interrupt is in use (not 0000h:0000h),
+	  and if it is used, attempts to load E55VGA.EX instead of the
+	  default E.EX overlay.	 However, E55VGA.EX is not included in
+	  IBM DOS 6.1.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7F_5" name="7F_5"><b>7F</b></a> - INT 7F - Canon IXHND2 Scanner Interface<br />
+<pre>
+INT 7F - Canon IXHND2 Scanner Interface
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80" name="80"><b>80</b></a> - INT 80 - Q-PRO4 - ???<br />
+<pre>
+INT 80 - Q-PRO4 - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#88_0" name="88_0"><b>88</b></a> - INT 88h - WANG PC - GET CONFIGURATION<br />
+<pre>
+INT 88h - WANG PC - GET CONFIGURATION
+	 AL = get info type
+	     01h Get System Console
+		Return: ES:BX -&gt; Configuration structure (see #04089)
+	     else: ???
+SeeAlso: PORT 1010h"Wang",MEM F000h:0000h,MEM FC00h:3FC2h,INT 21/AX=4402h
+
+Format of Wang PC System Console configuration structure:
+Offset	Size	Description	(Table 04089)
+ 00h	WORD	version
+ 02h	WORD	memory size
+ 04h  2 WORDs	reserved
+ 08h	WORD	number of screens (1..4)
+ 0Ah  4 WORDs	offset of console screen info structure 1..4 within
+		  configuration structure's segment (ES) (see #04090)
+
+Format of Wang PC Screen Info structure:
+Offset	Size	Description	(Table 04090)
+ 00h	BYTE	state
+		(bit 7 set appears to indicate the active console that is
+		  currently attached to the screen)
+ 01h	BYTE	scanoff
+ 02h	WORD	buffer segment
+ 04h	BYTE	colors
+ 05h	BYTE	row
+ 06h	BYTE	column
+ 07h	BYTE	attribute
+		00h = ???
+		02h = ???
+		0Fh = white on black
+ 08h	BYTE	auxiliary mode
+ 09h	BYTE	auxiliary mode 2
+SeeAlso: #04089
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E0_2" name="E0_2"><b>E0</b></a> - INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API<br />
+<pre>
+INT E0 - DeskMate (Tandy) - DESK EXECUTIVE API
+	AX = function code (numerous)
+	parameters passed in BX, DX, ES, DI, and/or BP
+Return: AX = return from function
+Program: DeskMate is a proprietary GUI from Tandy distributed with several
+	  models of the Tandy 1000's, 2500's, 3000's, and laptops.  Retail
+	  and runtime versions also exist.  Some Tandy's are designed to
+	  boot directly into DeskMate.
+SeeAlso: INT 15/AX=7002h,INT E1"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E1_2" name="E1_2"><b>E1</b></a> - INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)<br />
+<pre>
+INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)
+Desc:	used to store data; the	low word of the vector is the data segment for
+	  the first task; the high word is the data segment of the second task
+	  (DeskMate supports 2-way task switching between small- or
+	  medium-model applications)
+Program: DeskMate is a proprietary GUI from Tandy distributed with several
+	  models of the Tandy 1000's, 2500's, 3000's, and laptops.  Retail
+	  and runtime versions also exist.  Some Tandy's are designed to
+	  boot directly into DeskMate.
+SeeAlso: INT E0"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E4_0" name="E4_0"><b>E4</b></a> - INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT<br />
+<pre>
+INT E4 - DIGITAL RESEARCH - FLAG INTERRUPT
+Note:	This interrupt corresponds with Concurrent CP/M-86 and is to get
+	  an unused flag.
+SeeAlso: INT E5"DIGITAL RESEARCH"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E5_0" name="E5_0"><b>E5</b></a> - INT E5 - DIGITAL RESEARCH - FIDDS INTERRUPT<br />
+<pre>
+INT E5 - DIGITAL RESEARCH - FIDDS INTERRUPT
+Note:	This interrupt corresponds with Concurrent CP/M-86 and is for
+	  "attachamatic" drives
+SeeAlso: INT E4"DIGITAL RESEARCH",INT E6"CP/M"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F101" name="F101"><b>F101</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI
+	AH = 01h
+	ES:BX -&gt; buffer for CAPI's use (refer to note below)
+	CX = minimum number of pending messages
+	DX = maximum simultaneous Level 3 connections
+	SI = maximum concurrent received B3 data blocks
+	DI = maximum B3 data block size
+Return: AX = CAPI-assigned application ID
+	    0000h on error
+		BX = error number
+		    1001h registration error
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the CAPI interrupt handler begins with a header which is nearly
+	  identical to the IBM Interrupt Sharing Protocol header
+	  (see #02568 at INT 2D"AMIS"), except that the short jump instruction
+	  to a hardware reset handler at offset 09h is replaced by the
+	  signature bytes "IA"
+	the maximum length of a message is fixed at 180 bytes; the standard
+	  document suggests using CX=10, DI=1, SI=7, and DI=130 for
+	  applications which use only a single connection and standard
+	  protocols
+	the total size of the application-provided buffer must be at least
+	  180*CX + DX*SI*DI bytes
+SeeAlso: AH=02h,INT F1/AL=01h
+Index:	installation check;Common ISDN API
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--01" name="F1--01"><b>F1--01</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI
+	AL = 01h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; buffer for CAPI's use (refer to note below)
+	CX = number of bytes for message buffer
+	DX = maximum simultaneous logical (Level 3) connections
+	SI = maximum concurrent received B3 data blocks (min. 2)
+	DI = maximum B3 data block size (up to 2048 bytes)
+Return: AX = CAPI-assigned application ID
+	    0000h on error
+		BX = error number
+		    1001h registration error
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the CAPI interrupt handler begins with a header (see #04068) which is
+	  nearly identical to the IBM Interrupt Sharing Protocol header
+	  (see #02568 at INT 2D"AMIS"), except that the short jump instruction
+	  to a hardware reset handler at offset 09h is zeroed out and the
+	  entire header is inexplicably shortened by one byte
+	the standard document suggests using 1024 + (1024*DX) bytes for the
+	  message buffer for typical applications
+	the total size of the application-provided buffer must be at least
+	  CX + DX*SI*DI bytes
+SeeAlso: AH=01h,INT F1/AL=02h
+Index:	installation check;Common ISDN API
+
+Format of CAPI v2.0 interrupt handler entry point:
+Offset	Size	Description	(Table 04068)
+ 00h  2 BYTEs	short jump to actual start of interrupt handler, immediately
+		  following this data block (EBh 0Fh)
+ 02h	DWORD	address of next handler in chain
+ 06h	WORD	signature 424Bh
+ 08h	BYTE	EOI flag (80h)
+		80h primary hardware interrupt handler (will issue EOI)
+ 09h  2 BYTEs	reserved (0)
+		(is short jump to hardware reset routine in ISP header)
+ 0Bh  4 BYTEs	signature "CAPI"
+ 0Fh  2 BYTEs	two-digit CAPI version number in ASCII ('20')
+SeeAlso: #02568 at INT 2D
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F102" name="F102"><b>F102</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI
+	AH = 02h
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,1002h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,INT F1/AL=02h
+
+(Table 04069)
+Values for CAPI v1.1 error code:
+ 0000h	successful
+ 1001h	registration error
+ 1002h	invalid application ID
+ 1003h	message too small or incorrectly coded message number
+ 1004h	invalid command or subcommand
+ 1005h	message queue full
+ 1006h	message queue empty
+ 1007h	message(s) lost due to queue overflow
+ 1008h	error uninstalling
+SeeAlso: #04070
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--02" name="F1--02"><b>F1--02</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI
+	AL = 02h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see INT F1/AL=01h)
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=02h,INT F1/AL=01h,INT F1/AL=03h
+
+(Table 04070)
+Values for CAPI v2.0 error code:
+ 0000h	successful
+ 1001h	too many applications
+ 1002h	logical block size too small (must be at least 128 bytes)
+ 1003h	buffer &gt; 64K
+ 1004h	message buffer too small (minimum 1024 bytes)
+ 1005h	too many logical connections requested
+ 1006h	reserved
+ 1007h	could not register because CAPI busy, try again
+ 1008h	OS resource unavailable (out of memory, etc.)
+ 1009h	COMMON-ISDN-API not installed
+ 100Ah	controller does not support external equipment
+ 100Bh	controller supports only external equipment
+ 1101h	invalid application ID
+ 1102h	illegal command or subcommand, or message too short
+ 1103h	message queue full
+ 1104h	queue empty
+ 1105h	queue overflowed (message lost)
+ 1106h	unknown notification parameter
+ 1107h	could not accept message because CAPI busy, try again
+ 1108h	OS resource unavailable (out of memory, etc.)
+ 1109h	COMMON-ISDN-API not installed
+ 110Ah	controller does not support external equipment
+ 110Bh	controller supports only external equipment
+ 2001h	message not supported in current state
+ 2002h	illegal controller/PLCI/NCCI
+ 2003h	out of PLCI
+ 2004h	out of NCCI
+ 2005h	out of LISTEN
+ 2006h	out of FAX resources (T.30 protocol)
+ 2007h	illegal message parameter coding
+ 3001h	unsupported B1 protocol
+ 3002h	unsupported B2 protocol
+ 3003h	unsupported B3 protocol
+ 3004h	unsupported B1 protocol parameter
+ 3005h	unsupported B2 protocol parameter
+ 3006h	unsupported B3 protocol parameter
+ 3007h	unsupported B protocol combination
+ 3008h	NCPI not supported
+ 3009h	unknown CIP value
+ 300Ah	unsupported flags (reserved bits set)
+ 300Bh	unsupported facility
+ 300Ch	data length not supported by current protocol
+ 300Dh	reset procedure not supported by current protocol
+SeeAlso: #04069
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F103" name="F103"><b>F103</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"
+	AH = 03h
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; message to be sent (see #04071)
+Return: AX = status (0000h,1002h,1003h,1004h,1005h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the message buffer may be reused as soon as this call returns
+SeeAlso: AH=01h,AH=04h,INT F1/AL=03h
+
+Format of CAPI message:
+Offset	Size	Description	(Table 04071)
+ 00h	WORD	total message length, including header
+ 02h	WORD	application ID (see AH=01h)
+ 04h	BYTE	command (see #04072,#04073)
+ 05h	BYTE	subcommand (see #04072,#04073)
+ 06h	WORD	message sequence number
+		0000h-7FFFh messages from application to CAPI (and replies)
+		8000h-FFFFh messages from CAPI to application (and replies)
+ 08h	var	message data (max 172 bytes for v1.1 only)
+
+(Table 04072)
+Values for CAPI v1.1 message command/subcommand:
+Cmd/SubCmd	Name			Description
+ 01h/00h    RESET-B3-REQ	request resetting of a Level 3 connection
+ 01h/01h    RESET-B3-CONF	confirm Level 3 connection reset
+ 01h/02h    RESET-B3-IND	indication from CAPI that Level 3 conn. reset
+ 01h/03h    RESET-B3-RESP	confirm receipt of RESET-B3-IND
+ 02h/00h    CONNECT-REQ		establish B-channel connection
+ 02h/01h    CONNECT-CONF	confirm start of connection establishment
+ 02h/02h    CONNECT-IND		indication from CAPI of incoming connection
+ 02h/03h    CONNECT-RESP	accept incoming connection
+ 03h/02h    CONNECT-ACTIVE-IND	indication that B-channel connection complete
+ 03h/03h    CONNECT-ACTIVE-RESP	confirm connection-complete indication
+ 04h/00h    DISCONNECT-REQ	request shutdown of B-channel connection
+ 04h/01h    DISCONNECT-CONF	confirm shutdown of B-channel connection
+ 04h/02h    DISCONNECT-IND	indication that B-channel is shutting down
+ 04h/03h    DISCONNECT-RESP	confirm that application knows of shutdown
+ 05h/00h    LISTEN-REQ		enable indication of incoming connections
+ 05h/01h    LISTEN-CONF		confirm enabling of incoming conn. indication
+ 06h/00h    GET-PARAMS-REQ	request B-channel parameters
+ 06h/01h    GET-PARAMS-CONF	return B-channel parameters
+ 07h/00h    INFO-REQ		set B-channel info to be signalled to app
+ 07h/01h    INFO-CONF		confirm B-channel info signalling
+ 07h/02h    INFO-IND		signal B-channel events to application
+ 07h/03h    INFO-CONF		confirm receipt of INFO-IND
+ 08h/00h    DATA-REQ		send D-channel data
+ 08h/01h    DATA-CONF		confirm receipt of DATA-REQ
+ 08h/02h    DATA-IND		receive D-channel data
+ 08h/03h    DATA-RESP		confirm receipt fo DATA-IND
+ 09h/00h    CONNECT-INFO-REQ	request connection information
+ 09h/01h    CONNECT-INFO-CONF	return connection information
+ 40h/00h    SELECT-B2-PROTOCOL-REQ  select Level 2 protocol
+ 40h/01h    SELECT-B2-PROTOCOL-CONF confirm receipt of SELECT-B2-PROTOCOL-REQ
+ 80h/00h    SELECT-B3-PROTOCOL-REQ  select Level 3 protocol
+ 80h/01h    SELECT-B3-PROTOCOL-CONF confirm receipt of SELECT-B3-PROTOCOL-REQ
+ 81h/00h    LISTEN-B3-REQ	enable notification of incoming Level 3 calls
+ 81h/01h    LISTEN-B3-CONF	confirm receipt of LISTEN-B3-REQ
+ 82h/00h    CONNECT-B3-REQ	establish Level 3 connection
+ 82h/01h    CONNECT-B3-CONF	confirm start of connection establishment
+ 82h/02h    CONNECT-B3-IND	indication of incoming Level 3 connection
+ 82h/03h    CONNECT-B3-RESP	accept incoming connection
+ 83h/02h    CONNECT-B3-ACTIVE-IND  indication that Level 3 connection complete
+ 83h/03h    CONNECT-B3-ACTIVE-RESP confirm connection-complete indication
+ 84h/00h    DISCONNECT-B3-REQ	request shutdown of Level 3 connection
+ 84h/01h    DISCONNECT-B3-CONF	confirm shutdown of Level 3 connection
+ 84h/02h    DISCONNECT-B3-IND	indication that Level 3 is shutting down
+ 84h/03h    DISCONNECT-B3-RESP	confirm that application knows of shutdown
+ 85h/00h    GET-B3-PARAMS-REQ	request Level 3 parameters
+ 85h/01h    GET-B3-PARAMS-CONF	return Level 3 parameters
+ 86h/00h    DATA-B3-REQ		send data on Level 3
+ 86h/01h    DATA-B3-CONF	confirm sending of Level 3 data
+ 86h/02h    DATA-B3-IND		indication of incoming Level 3 data
+ 86h/03h    DATA-B3-RESP	confirm receipt of Level 3 data
+ 87h/02h    HANDSET-IND		indication of Handset events
+ 87h/03h    HANDSET-RESP	confirm receipt of Handset event
+ FFh/00h    MANUFACTURER-REQ	vendor-specific request
+ FFh/01h    MANUFACTURER-CONF	vendor-specific request confirmation
+ FFh/02h    MANUFACTURER-IND	vendor-specific notification
+ FFh/03h    MANUFACTURER-RESP	vendor-specific notification confirmation
+SeeAlso: #04071,#04073
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--03" name="F1--03"><b>F1--03</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"
+	AL = 03h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see INT F1/AL=01h)
+	ES:BX -&gt; message to be sent (see #04071)
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the message buffer may be reused as soon as this call returns
+SeeAlso: AH=03h,INT F1/AL=01h,INT F1/AL=04h
+
+(Table 04073)
+Values for CAPI v2.0 message command/subcommand:
+Cmd/SubCmd	Name			Description
+ 01h/80h    ALERT_REQ		indicate compatibility with incoming calls
+ 01h/81h    ALERT_CONF		confirm receipt of ALERT_REQ
+ 02h/80h    CONNECT_REQ		establish B-channel connection
+ 02h/81h    CONNECT_CONF	confirm start of connection establishment
+ 02h/82h    CONNECT_IND		indication from CAPI of incoming connection
+ 02h/83h    CONNECT_RESP	accept incoming connection
+ 03h/82h    CONNECT_ACTIVE_IND	indication that B-channel connection complete
+ 03h/83h    CONNECT_ACTIVE_RESP	confirm connection-complete indication
+ 04h/80h    DISCONNECT_REQ	request shutdown of B-channel connection
+ 04h/81h    DISCONNECT_CONF	confirm shutdown of B-channel connection
+ 04h/82h    DISCONNECT_IND	indication that B-channel is shutting down
+ 04h/83h    DISCONNECT_RESP	confirm that application knows of shutdown
+ 05h/80h    LISTEN_REQ		enable signalling on incoming events
+ 05h/81h    LISTEN_CONF		confirm enabling of incoming event signalling
+ 08h/80h    INFO_REQ		send protocol information for physical connect
+ 08h/81h    INFO_CONF		confirm INFO_REQ
+ 08h/82h    INFO_IND		indicate event for physical connection
+ 08h/83h    INFO_CONF		confirm receipt of INFO_IND
+ 41h/80h    SELECT_B_PROTOCOL_REQ   change protocol on already-active connect
+ 41h/81h    SELECT_B_PROTOCOL_CONF  confirm receipt of SELECT_B_PROTOCOL_REQ
+ 80h/80h    FACILITY_REQ	control optional facilities
+ 80h/81h    FACILITY_CONF	confirm acceptance of FACILITY_REQ
+ 80h/82h    FACILITY_IND	indicate facility-dependent event
+ 80h/83h    FACILITY_RESP	confirm receipt of FACILITY_IND
+ 82h/80h    CONNECT_B3_REQ	establish Level 3 connection
+ 82h/81h    CONNECT_B3_CONF	confirm start of connection establishment
+ 82h/82h    CONNECT_B3_IND	indication of incoming Level 3 connection
+ 82h/83h    CONNECT_B3_RESP	accept incoming connection
+ 83h/82h    CONNECT_B3_ACTIVE_IND  indication that Level 3 connection complete
+ 83h/83h    CONNECT_B3_ACTIVE_RESP confirm connection-complete indication
+ 84h/80h    DISCONNECT_B3_REQ	request shutdown of Level 3 connection
+ 84h/81h    DISCONNECT_B3_CONF	confirm shutdown of Level 3 connection
+ 84h/82h    DISCONNECT_B3_IND	indication that Level 3 is shutting down
+ 84h/83h    DISCONNECT_B3_RESP	confirm that application knows of shutdown
+ 85h/80h    GET_B3_PARAMS_REQ	request Level 3 parameters
+ 85h/81h    GET_B3_PARAMS_CONF	return Level 3 parameters
+ 86h/80h    DATA_B3_REQ		send data on Level 3
+ 86h/81h    DATA_B3_CONF	confirm sending of Level 3 data
+ 86h/82h    DATA_B3_IND		indication of incoming Level 3 data
+ 86h/83h    DATA_B3_RESP	confirm receipt of Level 3 data
+ 87h/80h    RESET_B3_REQ	request resetting of a logical connection
+ 87h/81h    RESET_B3_CONF	confirm logical connection reset
+ 87h/82h    RESET_B3_IND	indication from CAPI that logical conn. reset
+ 87h/83h    RESET_B3_RESP	confirm receipt of RESET_B3_IND
+ 88h/82h    CONNECT_B3_T90_ACTIVE_IND  indicate switch from T.70 to T.90
+ 88h/83h    CONNECT_B3_T90_ACTIVE_RESP confirm receipt of T90_ACTIVE_IND
+ FFh/80h    MANUFACTURER_REQ	vendor-specific request
+ FFh/81h    MANUFACTURER_CONF	vendor-specific request confirmation
+ FFh/82h    MANUFACTURER_IND	vendor-specific notification
+ FFh/83h    MANUFACTURER_RESP	vendor-specific notification confirmation
+SeeAlso: #04071,#04072
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F104" name="F104"><b>F104</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"
+	AH = 04h
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,1002h,1006h,1007h) (see #04069)
+	ES:BX -&gt; message if successful (see #04071)
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the returned message may be overwritten by the next call to this
+	  function
+SeeAlso: AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--04" name="F1--04"><b>F1--04</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"
+	AL = 04h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,11xxh) (see #04070)
+	ES:BX -&gt; message if successful (see #04071)
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the returned message may be overwritten by the next call to this
+	  function
+SeeAlso: AH=04h,INT F1/AL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F105" name="F105"><b>F105</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING
+	AH = 05h
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; signal handler or 0000h:0000h to disable
+Return: AX = status (0000h,1002h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the signal handler is called as though it were an interrupt, with
+	  interrupts disabled; the handler must preserve all registers and
+	  return with an IRET
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--05" name="F1--05"><b>F1--05</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING
+	AL = 05h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; signal handler or 0000h:0000h to disable
+	SI:DI = parameter to pass to signal handler
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the signal handler is called as though it were an interrupt, with
+	  interrupts disabled and DX,SI,DI set as they were when this function
+	  was called; the handler must preserve all registers and return with
+	  an IRET
+	the signal handler may call CAPI_PUT_MESSAGE, CAPI_GET_MESSAGE, and
+	  CAPI_SET_SIGNAL
+SeeAlso: INT F1/AL=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F106" name="F106"><b>F106</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL
+	AH = 06h
+	BX = force flag
+	    0000h normal uninstall
+	    0001h forced uninstall
+Return: AX = status (0000h,1008h) (see #04069)
+Desc:	reset ISDN controller, close all ISDN Level 1 connections except for
+	  telephone connections
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: INT F1/AL=01h,INT F1/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F0" name="F1F0"><b>F1F0</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"
+	AH = F0h
+	ES:BX -&gt; 64-byte buffer for manufacturer identification information
+Return: ES:BX buffer filled with ASCIZ idnetification string
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F1h,AH=F2h,AH=FFh,INT F1/AL=F0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F0" name="F1--F0"><b>F1--F0</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"
+	AL = F0h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for manufacturer identification information
+Return: ES:BX buffer filled with ASCIZ idnetification string
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F0h,INT F1/AL=01h,INT F1/AL=F1h,INT F1/AL=F2h,INT F1/AL=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F1" name="F1F1"><b>F1F1</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"
+	AH = F1h
+	ES:BX -&gt; 64-byte buffer for CAPI version number
+Return: ES:BX buffer filled with ASCIZ version string
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F2h,AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F1" name="F1--F1"><b>F1--F1</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"
+	AL = F1h
+	AH = CAPI version number * 10 (14h for v2.0)
+Return: AH = CAPI major version number
+	AL = CAPI minor version number
+	DH = vendor-specific major version
+	DL = vendor-specific minor version
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F1h,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F2h,INT F1/AL=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F2" name="F1F2"><b>F1F2</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"
+	AH = F2h
+	ES:BX -&gt; 64-byte buffer for CAPI serial number
+Return: ES:BX buffer filled with ASCIZ serial number (seven digits), empty
+	      string if no serial number
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F1h,AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F2" name="F1--F2"><b>F1--F2</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"
+	AL = F2h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for CAPI serial number
+Return: ES:BX buffer filled with ASCIZ serial number (seven digits), empty
+	      string if no serial number
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F2h,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F1h,INT F1/AL=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F3" name="F1--F3"><b>F1--F3</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES
+	AL = F3h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for CAPI capabilities (see #04074)
+	CX = controller number (01h-06h) or 0000h to get number of controllers
+Return: AX = status (0000h,11xxh) (see #04070)
+	ES:BX buffer filled if successful
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F2h,INT F1/AH=FFh
+
+Format of CAPI v2.0 capabilities:
+Offset	Size	Description	(Table 04074)
+ 00h	WORD	number of installed controllers
+ 02h	WORD	number of supported B channels
+ 04h	DWORD	global options (see #04075)
+ 08h	DWORD	B1 protocol support flags (see #04076)
+ 0Ch	DWORD	B2 protocol support flags (see #04077)
+ 10h	DWORD	B3 protocol support flags (see #04078)
+ 14h 24 BYTEs	reserved for CAPI use
+ 2Ch 20 BYTEs	vendor-specific information
+
+Bitfields for CAPI v2.0 global options:
+Bit(s)	Description	(Table 04075)
+ 0	internal controller supported
+ 1	external controller supported
+ 2	handset supported (only if bit 1 also set)
+ 3	DTMF supported
+ 4-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B1 protocol support:
+Bit(s)	Description	(Table 04076)
+ 0	64k bps with HDLC framing (required, always set)
+ 1	64k bps bit-transparent operation with network byte framing
+ 2	V.110 asynchronous with start/stop byte framing
+ 3	V.110 synchronous with HDLC framing
+ 4	T.30 modem for group 3 FAX
+ 5	64k bps inverted with HDLC framing
+ 6	56k bps bit-transparent operation with network byte framing
+ 7-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B2 protocol support:
+Bit(s)	Description	(Table 04077)
+ 0	ISO 7776 (X.75 SLP) (required, always set)
+ 1	transparent
+ 2	SDLC
+ 3	Q.921 LAPD (D-channel X.25)
+ 4	T.30 for group 3 FAX
+ 5	point-to-point protocol (PPP)
+ 6	transparent (ignoring B1 framing errors)
+ 7-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B3 protocol support:
+Bit(s)	Description	(Table 04078)
+ 0	transparent (required, always set)
+ 1	T.90NL with T.70NL compatibility
+ 2	ISO 8208 (X.25 DTE-DTE)
+ 3	X.25 DCE
+ 4	T.30 for group 3 FAX
+ 5-31	reserved (0)
+SeeAlso: #04074
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1FF" name="F1FF"><b>F1FF</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC
+	AH = FFh
+	other registers vendor-specific
+Return: registers vendor-specific
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F1h,AH=F2h,INT F1/AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--FF" name="F1--FF"><b>F1--FF</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC
+	AL = FFh
+	AH = CAPI version number * 10 (14h for v2.0)
+	other registers vendor-specific
+Return: registers vendor-specific
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=FFh,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F1h,INT F1/AL=F2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F2_2" name="F2_2"><b>F2</b></a> - INT F2 - ICCTSR 1.0 - ImageCapture COLOR Developer's Kit - API<br />
+<pre>
+INT F2 - ICCTSR 1.0 - ImageCapture COLOR Developer's Kit - API
+	AH = function number (see #04079)
+	???
+Return: ???
+Program: ImageCapture is a product of International Computers
+SeeAlso: INT F3"ICCTSR"
+
+(Table 04079)
+Values for ImageCapture function:
+ 01h	power up
+ 02h	power down
+ 03h	set controls
+ 04h	capture image
+ 05h	display image
+ 06h	read file
+ 07h	write file
+ 08h	write array
+ 09h	read pixel
+ 0Ah	write pixel
+ 0Bh	check if VGA present
+ 0Ch	set video mode
+ 0Dh	check for keystroke
+ 0Eh	delay
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F3_1" name="F3_1"><b>F3</b></a> - INT F3 - ICCTSR 1.0 - HANDSHAKE ID VECTOR<br />
+<pre>
+INT F3 - ICCTSR 1.0 - HANDSHAKE ID VECTOR
+Program: ImageCapture is a product of International Computers
+SeeAlso: INT F2"ICCTSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F700" name="F700"><b>F700</b></a> - INT F7 - FSBBS 2.0 - CONFIGURATION RECORD<br />
+<pre>
+INT F7 - FSBBS 2.0 - CONFIGURATION RECORD
+	AH = 00h
+	AL = function
+	    00h get configuration record
+		Return: DS:DX -&gt; configuration record
+	    01h set configuration record
+		Return: nothing
+	    02h get path for option
+		DS:DX -&gt; option name
+		Return: DS:DX -&gt; path
+	    03h determine whether configuration record set
+		Return: AX = status
+			    0000h set
+			    0001h not yet set
+	    04h get link state
+		Return: AX = state
+			    0000h unlinked
+			    0001h linked
+Notes:	this information is preliminary and still subject to change
+	all of the INT F7 calls for FSBBS are used for interprogram
+	  communication between the BBS kernel and the programs it spawns
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F701" name="F701"><b>F701</b></a> - INT F7 - FSBBS 2.0 - USER RECORD<br />
+<pre>
+INT F7 - FSBBS 2.0 - USER RECORD
+	AH = 01h
+	AL = function
+	    00h get user record for user currently online
+		Return: DS:DX -&gt; user record
+	    01h set user record
+		DS:DX -&gt; user record
+		Return: nothing
+SeeAlso: AH=00h,AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F702" name="F702"><b>F702</b></a> - INT F7 - FSBBS 2.0 - GET ACCOUNT NAME<br />
+<pre>
+INT F7 - FSBBS 2.0 - GET ACCOUNT NAME
+	AH = 02h
+Return: DS:DX -&gt; 8-character blank-padded account name
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F703" name="F703"><b>F703</b></a> - INT F7 - FSBBS 2.0 - TERMINAL NUMBER<br />
+<pre>
+INT F7 - FSBBS 2.0 - TERMINAL NUMBER
+	AH = 03h
+	AL = function
+	    00h get terminal index number
+		Return: DX = index number
+	    01h set terminal index number
+		DX = terminal index
+		Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F704" name="F704"><b>F704</b></a> - INT F7 - FSBBS 2.0 - PASSDATA BUFFER<br />
+<pre>
+INT F7 - FSBBS 2.0 - PASSDATA BUFFER
+	AH = 04h
+	AL = function
+	    00h get PassData buffer contents
+		DS:DX -&gt; buffer for PassData contents
+		Return: DS:DX buffer filled
+	    01h set PassData contents
+		DS:DX -&gt; buffer containing new PassData
+		CH = length of data in buffer
+		Return: nothing
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F705" name="F705"><b>F705</b></a> - INT F7 - FSBBS 2.0 - TIMER FUNCTIONS<br />
+<pre>
+INT F7 - FSBBS 2.0 - TIMER FUNCTIONS
+	AH = 05h
+	AL = function
+	    00h get time remaining
+		Return: DX = number of minutes remaining
+	    01h get current time
+		Return: DS:DX -&gt; 8-character time string
+	    02h increment time
+		DX = number of additional minutes
+	    03h decrement time
+		DX = number of minutes
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F706" name="F706"><b>F706</b></a> - INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY<br />
+<pre>
+INT F7 - FSBBS 2.0 - FUNCTION AVAILABILITY
+	AH = 06h
+	AL = function
+	    00h determine whether function is available
+		DX = index of function
+	    01h set function availability
+		DX = index of function
+		???
+Return: nothing
+SeeAlso: AH=05h,AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F707" name="F707"><b>F707</b></a> - INT F7 - FSBBS 2.0 - DUMP FUNCTIONS<br />
+<pre>
+INT F7 - FSBBS 2.0 - DUMP FUNCTIONS
+	AH = 07h
+	AL = function
+	    00h get current dump mode
+		Return: DL = mode
+	    01h set dump mode
+		DL = mode
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FA_2" name="FA_2"><b>FA</b></a> - INT FA P - ASM Edit - INSTALLATION CHECK<br />
+<pre>
+INT FA P - ASM Edit - INSTALLATION CHECK
+Program: ASM Edit is a shareware programmer's editor
+Note:	ASM Edit hooks this vector in protected mode to allow DPMI programs
+	  to detect whether they were run while shelled to DOS from ASM Edit
+
+Format of ASM Edit signature block:
+Offset	Size	Description	(Table 04080)
+ 00h	BYTE	CFh (IRET)
+ 01h  8 BYTEs	signature "ASM Edit" (no trailing NUL)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

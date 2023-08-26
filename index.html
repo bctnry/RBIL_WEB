@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralf Brown's Interrupt List in HTML</title>
+    <style>
+        h2, h3, h4 {
+            margin: 0;
+        }
+        a {
+            color: black;
+        }
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <b>Ralf Brown's Interrupt List in HTML</b><br />
+    <br />
+    <pre>
+(c) <a href="https://sebastian.graphics">Zahktin Lam</a> 2023
+The original files for Ralf Brown's Interrupt List can be found here:
+
+    http://www.cs.cmu.edu/~ralf/files.html
+    </pre>
+    <b>Table of Contents</b><br />
+    <p>
+        <a href="./INTERRUP.1ST.HTML">INTERRUP.1ST</a><br />
+        <a href="./INTERRUP.PRI.HTML">INTERRUP.PRI</a><br />
+        <a href="./OPCODES.LST.HTML">OPCODES.LST</a><br />
+        <a href="./86BUGS.LST.HTML">86BUGS.LST</a><br />
+        <a href="./CMOS.LST.HTML">CMOS.LST</a><br />
+        <a href="./FARCALL.LST.HTML">FARCALL.LST</a><br />
+        <a href="./MEMORY.LST.HTML">MEMORY.LST</a><br />
+        <a href="./I2C.LST.HTML">I2C.LST</a><br />
+        <a href="./MSR.LST.HTML">MSR.LST</a><br />
+        <a href="./OVERVIEW.LST.HTML">OVERVIEW.LST</a><br />
+        <a href="./BIBLIO.LST.HTML">BIBLIO.LST</a><br />
+        <a href="./CATEGORY.KEY.HTML">CATEGORY.KEY</a><br />
+        <b>PORTS</b> - <a href="./PORTS.LST.HTML">(All)</a> <a href="./PORTS.A.HTML">PORTS.A</a> <a href="./PORTS.B.HTML">PORTS.B</a> <a href="./PORTS.C.HTML">PORTS.C</a><br />
+        <b>INTERRUP</b><br />
+        <a href="./INTERRUP.A.HTML">A</a> <a href="./INTERRUP.B.HTML">B</a> <a href="./INTERRUP.C.HTML">C</a> <a href="./INTERRUP.D.HTML">D</a> <a href="./INTERRUP.E.HTML">E</a> <a href="./INTERRUP.F.HTML">F</a> <a href="./INTERRUP.G.HTML">G</a> <a href="./INTERRUP.H.HTML">H</a> <a href="./INTERRUP.I.HTML">I</a> <a href="./INTERRUP.J.HTML">J</a> <a href="./INTERRUP.K.HTML">K</a> <a href="./INTERRUP.L.HTML">L</a> <a href="./INTERRUP.M.HTML">M</a> <a href="./INTERRUP.N.HTML">N</a> <a href="./INTERRUP.O.HTML">O</a> <a href="./INTERRUP.P.HTML">P</a> <a href="./INTERRUP.Q.HTML">Q</a> <a href="./INTERRUP.R.HTML">R</a><br />
+        <a href="./INTERRUP.OUT.HTML">All in one file</a> (very big; ~8.3 MBytes)<br />
+        <a href="./INTERRUP.CAT.HTML">By Category</a> <a href="./INTERRUP.NUM.HTML">By Number</a><br />
+    </p>
+
+    <b>Download</b>: <a href="./RBIL_WEB.ZIP">RBIL_WEB.ZIP</a> (the whole archive. ~10.8 MBytes)<br />
+
+    <br />
+
+    <b>The source code</b><br />
+    <p>Different files have slightly different format, so I have to write different versions of what's roughly the same code for different .LST files. Below are </p>
+    <ul>
+        <li><a href="./lst_convert_opcode.py">lst_convert_opcode.py</a>
+            <ul>
+                <li>OPCODE</li>
+            </ul>
+        </li>
+        <li><a href="./lst_convert_generic.py">lst_convert_generic.py</a> - conversion for single files in the most common format.
+            <ul>
+                <li>CMOS</li>
+                <li>FARCALL</li>
+                <li>MEMORY</li>
+                <li>I2C</li>
+                <li>MSR</li>
+                <li>OVERVIEW</li>
+                <li>BIBLIO</li>
+                <li>Part files (i.e. "PORTS." and "INTERRUP." files)</li>
+            </ul>
+        </li>
+        <li><a href="./lst_convert_ports.py">lst_convert_ports.py</a>
+            <ul>
+                <li>PORTS (requires all three "PORTS." files to work)</li>
+            </ul>
+        </li>
+        <li><a href="./convert_raw.py">convert_raw.py</a> - this one directly converts the file into HTML with zero parsing; used on things similar to README files.
+            <ul>
+                <li>INTERRUP.PRI</li>
+            </ul>
+        </li>
+        <li><a href="./combine.py">combine.py</a> (used to combine ".A" ".B" ".C"... files into one.)
+            <ul>
+                <li>PORTS.</li>
+                <li>INTERRUP.</li>
+            </ul>
+        </li>
+        <li><a href="./lst_convert_interrupt_category.py">lst_convert_interrupt_category.py</a> (used to generate indexes of the interrupt list sorted by category)
+            <ul>
+                <li>INTERRUP.A ~ INTERRUP.R</li>
+            </ul>
+        </li>
+        <li><a href="./lst_convert_interrupt_num.py">lst_convert_interrupt_num.py</a> (used to generate indexes of the interrupt list sorted by interrupt number)
+            <ul>
+                <li>INTERRUP.A ~ INTERRUP.R</li>
+            </ul>
+        </li>
+        <li><a href="./lst_convert_86bugs.py">lst_convert_86bugs.py</a> (used for 86BUGS.LST only)
+        </li>
+    </ul>
+
+    <p>
+        The process goes as follows:
+    </p>
+    <ol>
+        <li>Run lst_convert_opcode.py</li>
+        <li>Run lst_convert_ports.py</li>
+        <li>Run lst_convert_interrupt_category.py</li>
+        <li>Run lst_convert_interrupt_num.py</li>
+        <li>Apply combine.py with cmd arg PORTS and INTERRUP</li>
+        <li>Apply lst_convert_generic.py on:
+            <ul>
+                <li>INTERRUP.1ST</li>
+                <li>INTERRUP.A ~ INTERRUP.R</li>
+                <li>INTERRUP.OUT</li>
+                <li>PORTS.A ~ PORTS.C</li>
+                <li>PORTS.OUT</li>
+                <li>CMOS.LST</li>
+                <li>FARCALL.LST</li>
+                <li>MEMORY.LST</li>
+                <li>I2C.LST</li>
+                <li>MSR.LST</li>
+                <li>OVERVIEW.LST</li>
+                <li>BIBLIO.LST</li>
+            </ul>
+        </li>
+        <li>Apply convert_raw.py on:
+            <ul>
+                <li>INTERRUP.PRI</li>
+                <li>CATEGORY.KEY</li>
+            </ul>
+        </li>
+        <li>Run lst_convert_86bugs.py</li>
+    </ol>
+
+</body>
+</html>

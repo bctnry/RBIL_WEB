@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._x</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category x - non-volatile config storage
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#157000"><b>157000</b> - INT 15 - Tandy 1000SL/TL - READ FROM EEPROM</a><br />
+<a href="#157001"><b>157001</b> - INT 15 - Tandy 1000SL/TL - WRITE TO EEPROM</a><br />
+<a href="#15A100"><b>15A100</b> - INT 15 U - AMI PCI BIOS - SET ??? FLAG</a><br />
+<a href="#2F1684BX0034"><b>2F1684BX0034</b> - INT 2F - Intel Plug-and-Play - CONFIGURATION MANAGER - GET ENTRY POINT</a><br />
+<a href="#2F1684BX304C"><b>2F1684BX304C</b> - INT 2F - Intel Plug-and-Play - CONFIGURATION ACCESS - GET ENTRY POINT</a><br />
+
+<hr />
+
+<a href="#157000" name="157000"><b>157000</b></a> - INT 15 - Tandy 1000SL/TL - READ FROM EEPROM<br />
+<pre>
+INT 15 - Tandy 1000SL/TL - READ FROM EEPROM
+	AX = 7000h
+	BL = number of word to read (00h-3Fh)
+Return: CF clear if function supported
+	    DX = contents of EEPROM word
+Note:	newer Tandy 1000-series machines use EEPROM instead of CMOS RAM in
+	  the clock chip to store system configuration information
+SeeAlso: AX=7001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#157001" name="157001"><b>157001</b></a> - INT 15 - Tandy 1000SL/TL - WRITE TO EEPROM<br />
+<pre>
+INT 15 - Tandy 1000SL/TL - WRITE TO EEPROM
+	AX = 7001h
+	BL = number of word to read (00h-3Fh)
+	DX = new value for EEPROM word
+Return: CF clear if function supported
+Note:	the EEPROMs are normally written only by the system setup program;
+	  changing the values can badly mess up a Tandy
+SeeAlso: AX=7000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15A100" name="15A100"><b>15A100</b></a> - INT 15 U - AMI PCI BIOS - SET ??? FLAG<br />
+<pre>
+INT 15 U - AMI PCI BIOS - SET ??? FLAG
+	AX = A100h
+Return: AX = 0000h
+	CF clear
+	BX,CX,DI may be destroyed
+Desc:	sets bit 7 of CMOS RAM location 37h and updates the CMOS checksum in
+	  locations 3Eh and 3Fh
+Notes:	in the examined version of the BIOS, nonzero values in AL cause it to
+	  drop through to checking the next possible value of AH, i.e. only
+	  subfunction 00h is supported
+	also supported by Dell XPS P90 and IBM PS/PV 6384, which also use
+	  AMI BIOSes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1684BX0034" name="2F1684BX0034"><b>2F1684BX0034</b></a> - INT 2F - Intel Plug-and-Play - CONFIGURATION MANAGER - GET ENTRY POINT<br />
+<pre>
+INT 2F - Intel Plug-and-Play - CONFIGURATION MANAGER - GET ENTRY POINT
+	AX = 1684h
+	BX = 0034h (ID for Configuration Manager) (see #02642)
+	ES:DI = 0000h:0000h
+Return: ES:DI -&gt; API entry point (see #02673)
+		  0000h:0000h if Configuration Manager not loaded
+Note:	this API is often provided by a DOS device driver, in which case it
+	  is available whether or not MSWindows is running
+Index:	installation check;Plug-and-Play Configuration Manager
+SeeAlso: AX=1684h/BX=304Ch
+
+(Table 02673)
+Call Configuration Manager entry point with:
+	AX = function
+	    0000h "CM_GetVersion" get supported DDI version
+		Return: AH = BCD major version
+			AL = BCD minor version
+			BX = number of devices identified by configuration
+		Note:	returns AX = 0000h if no config manager installed
+	    0001h "CM_GetConfig" get device configuration
+		BX = device index
+		ES:DI -&gt; buffer for configuration information (see #02675)
+		Return: AX = status
+			    0000h successful
+				ES:DI buffer filled
+			    other error code (0001h = index out of range)
+	    0002h "CM_LockConfig" lock device configuration
+		ES:DI -&gt; configuration information (see #02675)
+		Return: AX = status
+			    0000h successful
+				ES:DI buffer filled with assigned config
+			    0001h resources conflict
+			    0002h invalid request or configuration info
+	    0003h "CM_UnlockConfig" unlock device configuration
+		ES:DI -&gt; configuration information (see #02675)
+		Return: AX = status
+			    0000h successful
+				ES:DI buffer filled with assigned config
+			    0001h invalid request or configuration info
+	    0004h "CME_QueryResources" get hot-swappable resources
+		ES:DI -&gt; configuration information (see #02675)
+		Return: AX = status (see #02674)
+	    0005h "CME_AllocResources" remove resources from available pool
+		ES:DI -&gt; configuration information (see #02675)
+		Return: AX = status (see #02674)
+	    0006h "CME_DeallocResources" return resources to available pool
+		ES:DI -&gt; configuration information (see #02675)
+		Return: AX = status (see #02674)
+SeeAlso: #01298 at INT 20"Windows",#02672,#02676
+
+(Table 02674)
+Values for Configuration Manager status:
+ 00h	successful
+ 01h	device not found, configuration error
+ 02h	I/O port unavailable
+ 04h	IRQ unavailable
+ 08h	DMA channel unavailable
+ 10h	memory range unavailable
+SeeAlso: #02673
+
+Format of Configuration Information Structure:
+Offset	Size	Description	(Table 02675)
+ 00h	DWORD	bus ID
+ 04h	DWORD	device ID
+ 08h	DWORD	serial number
+ 0Ch	DWORD	logical ID
+ 10h	DWORD	flags
+---ISA bus---
+ 14h	BYTE	Card Select Number
+ 15h	BYTE	logical device number
+ 16h	WORD	Read Data port
+------
+ 18h	WORD	number of memory windows
+ 1Ah  9 DWORDs	physical base addresses of memory windows
+ 3Eh  9 DWORDs	length of memory windows
+ 62h  9 WORDs	memory window attributes
+ 74h	WORD	number of I/O ports
+ 76h 20 WORDs	I/O port base addresses
+ B6h 20 WORDs	lengths of I/O port ranges
+ F6h	WORD	number of IRQs
+ F8h  7 BYTEs	IRQ registers
+ FFh  7 BYTEs	IRQ attributes
+106h	WORD	number of DMA channels
+108h  7 BYTEs	DMA channels used
+10Fh  7 WORDs	DMA channel attributes
+11Dh  3 BYTEs	reserved
+SeeAlso: #02673
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1684BX304C" name="2F1684BX304C"><b>2F1684BX304C</b></a> - INT 2F - Intel Plug-and-Play - CONFIGURATION ACCESS - GET ENTRY POINT<br />
+<pre>
+INT 2F - Intel Plug-and-Play - CONFIGURATION ACCESS - GET ENTRY POINT
+	AX = 1684h
+	BX = 304Ch (ID for Configuration Access) (see #02642)
+	ES:DI = 0000h:0000h
+Return: ES:DI -&gt; API entry point (see #02700)
+		  0000h:0000h if Configuration Access not loaded
+Note:	this API is often provided by a DOS device driver, in which case it
+	  is available whether or not MSWindows is running
+Index:	installation check;Plug-and-Play Configuration Access
+SeeAlso: AX=1684h/BX=0034h
+
+(Table 02700)
+Call Plug-and-Play Configuration Access entry point with:
+	AX = function
+	    0000h "CA_GetVersion"
+		Return: AX = BCD version (AH = major, AL = minor)
+	    0001h "CA_PCI_Read_Config_Byte" (see also INT 1A/AX=B108h)
+	!!!
+	    0002h "CA_PCI_Read_Config_Word" (see also INT 1A/AX=B109h)
+	    0003h "CA_PCI_Read_Config_DWord" (see also INT 1A/AX=B10Ah)
+	    0004h "CA_PCI_Write_Config_Byte" (see also INT 1A/AX=B10Bh)
+	    0005h "CA_PCI_Write_Config_Word" (see also INT 1A/AX=B10Ch)
+	    0006h "CA_PCI_Write_Config_DWord" (see also INT 1A/AX=B10Dh)
+	    0007h "CA_PCI_Generate_Special_Cycle" (see also INT 1A/AX=B106h)
+	    0008h "CA_PCI_Get_Routing_Options" (see also INT 1A/AX=B10Eh)
+	    0009h invalid function
+	    000Ah invalid function
+	    000Bh "CA_PnPISA_Get_Info"
+	    000Ch "CA_PnPISA_Read_Config_Byte"
+	    000Dh "CA_PnPISA_Write_Config_Byte"
+	    000Eh "CA_PnPISA_Get_Resource_Data"
+	    000Fh invalid function
+	    0010h "CA_EISA_Get_Board_ID"
+	    0011h "CA_EISA_Get_Slot_Config"
+	    0012h "CA_EISA_Get_SlotFunc_Config"
+	    0013h "CA_EISA_Clear_NVRAM_Config"
+	    0014h "CA_EISA_Write_Config"
+	    0015h invalid function
+	    0016h "CA_ESCD_Get_Info"
+	    0017h "CA_ESCD_Read_Config"
+	    0018h "CA_ESCD_Write_Config"
+	    0019h invalid function
+	    001Ah "CA_Acfg_PCI_Manage_IRQs"
+		DL = IRQ???
+		ES:DI -&gt; ???
+		Return: AX = status
+	    001Bh "CA_Acfg_PCI_Get_Routing_Options"
+		ES:DI -&gt; IRQ routing table header
+			  (see #01259 at INT 1A/AX=B406h)
+		Return: AX = status
+	    001Ch-001Fh invalid functions
+	    0020h "CA_PnPB_Get_Num_Sys_Dev_Nodes"
+	    0021h "CA_PnPB_Get_Sys_Dev_Node"
+	    0022h "CA_PnPB_Set_Sys_Dev_Node"
+	    0023h "CA_PnPB_Get_Stat_Res_Info"
+	    0024h "CA_PnPB_Set_Stat_Res_Info"
+Return: AX = FFFFh if unsupported function
+SeeAlso: #02701
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._F1</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT F1
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#F1"><b>F1</b> - INT F1 - reserved for user interrupt</a><br />
+<a href="#F1_0"><b>F1</b> - INT F1 - SPEECH.COM - CONVERT TEXT STRING TO SPEECH</a><br />
+<a href="#F1_1"><b>F1</b> - INT F1 - Andy C. McGuire SPEECH.COM/SAY.COM</a><br />
+<a href="#F1_2"><b>F1</b> - INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS</a><br />
+<a href="#F1_3"><b>F1</b> - INT F1 - NetWare Remote Boot - INSTALLATION CHECK (NOT A VECTOR!)</a><br />
+<a href="#F1_4"><b>F1</b> - INT F1 - VIRUS - "Violetta" - ???</a><br />
+<a href="#F101"><b>F101</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI</a><br />
+<a href="#F1--01"><b>F1--01</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI</a><br />
+<a href="#F102"><b>F102</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI</a><br />
+<a href="#F1--02"><b>F1--02</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI</a><br />
+<a href="#F103"><b>F103</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"</a><br />
+<a href="#F1--03"><b>F1--03</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"</a><br />
+<a href="#F104"><b>F104</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"</a><br />
+<a href="#F1--04"><b>F1--04</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"</a><br />
+<a href="#F105"><b>F105</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING</a><br />
+<a href="#F1--05"><b>F1--05</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING</a><br />
+<a href="#F106"><b>F106</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL</a><br />
+<a href="#F1F0"><b>F1F0</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"</a><br />
+<a href="#F1--F0"><b>F1--F0</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"</a><br />
+<a href="#F1F1"><b>F1F1</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"</a><br />
+<a href="#F1--F1"><b>F1--F1</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"</a><br />
+<a href="#F1F2"><b>F1F2</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"</a><br />
+<a href="#F1--F2"><b>F1--F2</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"</a><br />
+<a href="#F1--F3"><b>F1--F3</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES</a><br />
+<a href="#F1FF"><b>F1FF</b> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC</a><br />
+<a href="#F1--FF"><b>F1--FF</b> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC</a><br />
+
+<hr />
+
+<a href="#F1" name="F1"><b>F1</b></a> - INT F1 - reserved for user interrupt<br />
+<pre>
+INT F1 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_0" name="F1_0"><b>F1</b></a> - INT F1 - SPEECH.COM - CONVERT TEXT STRING TO SPEECH<br />
+<pre>
+INT F1 - SPEECH.COM - CONVERT TEXT STRING TO SPEECH
+	DS:BX -&gt; '$'-terminated text string
+Return: nothing
+Program: SPEECH.COM is a resident text-to-speech converter by Douglas Sisco
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_1" name="F1_1"><b>F1</b></a> - INT F1 - Andy C. McGuire SPEECH.COM/SAY.COM<br />
+<pre>
+INT F1 - Andy C. McGuire SPEECH.COM/SAY.COM
+SeeAlso: INT F2"SPEECH"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_2" name="F1_2"><b>F1</b></a> - INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS<br />
+<pre>
+INT F1 - AQUEDUCT, PIPELINE - GET DATA AREA ADDRESS
+Return: AX:BX -&gt; data area
+Program: AQUEDUCT and PIPELINE are TSRs by James W. Birdsall to connect COM1
+	  and COM2 in software
+Note:	The installation check consists of testing for the following signature
+	  immediately preceding the interrupt handler: "JWBtvv" where 't' is
+	  either "A" for AQUEDUCT or "P" for PIPELINE and "vv" is a two-digit
+	  version number
+Index:	installation check;AQUEDUCT|installation check;PIPELINE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_3" name="F1_3"><b>F1</b></a> - INT F1 - NetWare Remote Boot - INSTALLATION CHECK (NOT A VECTOR!)<br />
+<pre>
+INT F1 - NetWare Remote Boot - INSTALLATION CHECK (NOT A VECTOR!)
+Note:	if this vector contains the value 5774654Eh ("NetW"), the remote boot
+	  BIOS extension is active, and access to the floppy disk is redirected
+	  to an image file in the server's SYS:LOGIN directory
+SeeAlso: INT F2"NetWare",INT F3"NetWare",INT F4"NetWare"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1_4" name="F1_4"><b>F1</b></a> - INT F1 - VIRUS - "Violetta" - ???<br />
+<pre>
+INT F1 - VIRUS - "Violetta" - ???
+Note:	used but not chained by virus
+SeeAlso: INT E0"VIRUS",INT FF"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F101" name="F101"><b>F101</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-REGISTER" - INITIALIZE CAPI
+	AH = 01h
+	ES:BX -&gt; buffer for CAPI's use (refer to note below)
+	CX = minimum number of pending messages
+	DX = maximum simultaneous Level 3 connections
+	SI = maximum concurrent received B3 data blocks
+	DI = maximum B3 data block size
+Return: AX = CAPI-assigned application ID
+	    0000h on error
+		BX = error number
+		    1001h registration error
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the CAPI interrupt handler begins with a header which is nearly
+	  identical to the IBM Interrupt Sharing Protocol header
+	  (see #02568 at INT 2D"AMIS"), except that the short jump instruction
+	  to a hardware reset handler at offset 09h is replaced by the
+	  signature bytes "IA"
+	the maximum length of a message is fixed at 180 bytes; the standard
+	  document suggests using CX=10, DI=1, SI=7, and DI=130 for
+	  applications which use only a single connection and standard
+	  protocols
+	the total size of the application-provided buffer must be at least
+	  180*CX + DX*SI*DI bytes
+SeeAlso: AH=02h,INT F1/AL=01h
+Index:	installation check;Common ISDN API
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--01" name="F1--01"><b>F1--01</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_REGISTER" - INITIALIZE CAPI
+	AL = 01h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; buffer for CAPI's use (refer to note below)
+	CX = number of bytes for message buffer
+	DX = maximum simultaneous logical (Level 3) connections
+	SI = maximum concurrent received B3 data blocks (min. 2)
+	DI = maximum B3 data block size (up to 2048 bytes)
+Return: AX = CAPI-assigned application ID
+	    0000h on error
+		BX = error number
+		    1001h registration error
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the CAPI interrupt handler begins with a header (see #04068) which is
+	  nearly identical to the IBM Interrupt Sharing Protocol header
+	  (see #02568 at INT 2D"AMIS"), except that the short jump instruction
+	  to a hardware reset handler at offset 09h is zeroed out and the
+	  entire header is inexplicably shortened by one byte
+	the standard document suggests using 1024 + (1024*DX) bytes for the
+	  message buffer for typical applications
+	the total size of the application-provided buffer must be at least
+	  CX + DX*SI*DI bytes
+SeeAlso: AH=01h,INT F1/AL=02h
+Index:	installation check;Common ISDN API
+
+Format of CAPI v2.0 interrupt handler entry point:
+Offset	Size	Description	(Table 04068)
+ 00h  2 BYTEs	short jump to actual start of interrupt handler, immediately
+		  following this data block (EBh 0Fh)
+ 02h	DWORD	address of next handler in chain
+ 06h	WORD	signature 424Bh
+ 08h	BYTE	EOI flag (80h)
+		80h primary hardware interrupt handler (will issue EOI)
+ 09h  2 BYTEs	reserved (0)
+		(is short jump to hardware reset routine in ISP header)
+ 0Bh  4 BYTEs	signature "CAPI"
+ 0Fh  2 BYTEs	two-digit CAPI version number in ASCII ('20')
+SeeAlso: #02568 at INT 2D
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F102" name="F102"><b>F102</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-RELEASE" - UNREGISTER FROM CAPI
+	AH = 02h
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,1002h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,INT F1/AL=02h
+
+(Table 04069)
+Values for CAPI v1.1 error code:
+ 0000h	successful
+ 1001h	registration error
+ 1002h	invalid application ID
+ 1003h	message too small or incorrectly coded message number
+ 1004h	invalid command or subcommand
+ 1005h	message queue full
+ 1006h	message queue empty
+ 1007h	message(s) lost due to queue overflow
+ 1008h	error uninstalling
+SeeAlso: #04070
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--02" name="F1--02"><b>F1--02</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_RELEASE" - UNREGISTER FROM CAPI
+	AL = 02h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see INT F1/AL=01h)
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=02h,INT F1/AL=01h,INT F1/AL=03h
+
+(Table 04070)
+Values for CAPI v2.0 error code:
+ 0000h	successful
+ 1001h	too many applications
+ 1002h	logical block size too small (must be at least 128 bytes)
+ 1003h	buffer &gt; 64K
+ 1004h	message buffer too small (minimum 1024 bytes)
+ 1005h	too many logical connections requested
+ 1006h	reserved
+ 1007h	could not register because CAPI busy, try again
+ 1008h	OS resource unavailable (out of memory, etc.)
+ 1009h	COMMON-ISDN-API not installed
+ 100Ah	controller does not support external equipment
+ 100Bh	controller supports only external equipment
+ 1101h	invalid application ID
+ 1102h	illegal command or subcommand, or message too short
+ 1103h	message queue full
+ 1104h	queue empty
+ 1105h	queue overflowed (message lost)
+ 1106h	unknown notification parameter
+ 1107h	could not accept message because CAPI busy, try again
+ 1108h	OS resource unavailable (out of memory, etc.)
+ 1109h	COMMON-ISDN-API not installed
+ 110Ah	controller does not support external equipment
+ 110Bh	controller supports only external equipment
+ 2001h	message not supported in current state
+ 2002h	illegal controller/PLCI/NCCI
+ 2003h	out of PLCI
+ 2004h	out of NCCI
+ 2005h	out of LISTEN
+ 2006h	out of FAX resources (T.30 protocol)
+ 2007h	illegal message parameter coding
+ 3001h	unsupported B1 protocol
+ 3002h	unsupported B2 protocol
+ 3003h	unsupported B3 protocol
+ 3004h	unsupported B1 protocol parameter
+ 3005h	unsupported B2 protocol parameter
+ 3006h	unsupported B3 protocol parameter
+ 3007h	unsupported B protocol combination
+ 3008h	NCPI not supported
+ 3009h	unknown CIP value
+ 300Ah	unsupported flags (reserved bits set)
+ 300Bh	unsupported facility
+ 300Ch	data length not supported by current protocol
+ 300Dh	reset procedure not supported by current protocol
+SeeAlso: #04069
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F103" name="F103"><b>F103</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-PUT-MESSAGE"
+	AH = 03h
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; message to be sent (see #04071)
+Return: AX = status (0000h,1002h,1003h,1004h,1005h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the message buffer may be reused as soon as this call returns
+SeeAlso: AH=01h,AH=04h,INT F1/AL=03h
+
+Format of CAPI message:
+Offset	Size	Description	(Table 04071)
+ 00h	WORD	total message length, including header
+ 02h	WORD	application ID (see AH=01h)
+ 04h	BYTE	command (see #04072,#04073)
+ 05h	BYTE	subcommand (see #04072,#04073)
+ 06h	WORD	message sequence number
+		0000h-7FFFh messages from application to CAPI (and replies)
+		8000h-FFFFh messages from CAPI to application (and replies)
+ 08h	var	message data (max 172 bytes for v1.1 only)
+
+(Table 04072)
+Values for CAPI v1.1 message command/subcommand:
+Cmd/SubCmd	Name			Description
+ 01h/00h    RESET-B3-REQ	request resetting of a Level 3 connection
+ 01h/01h    RESET-B3-CONF	confirm Level 3 connection reset
+ 01h/02h    RESET-B3-IND	indication from CAPI that Level 3 conn. reset
+ 01h/03h    RESET-B3-RESP	confirm receipt of RESET-B3-IND
+ 02h/00h    CONNECT-REQ		establish B-channel connection
+ 02h/01h    CONNECT-CONF	confirm start of connection establishment
+ 02h/02h    CONNECT-IND		indication from CAPI of incoming connection
+ 02h/03h    CONNECT-RESP	accept incoming connection
+ 03h/02h    CONNECT-ACTIVE-IND	indication that B-channel connection complete
+ 03h/03h    CONNECT-ACTIVE-RESP	confirm connection-complete indication
+ 04h/00h    DISCONNECT-REQ	request shutdown of B-channel connection
+ 04h/01h    DISCONNECT-CONF	confirm shutdown of B-channel connection
+ 04h/02h    DISCONNECT-IND	indication that B-channel is shutting down
+ 04h/03h    DISCONNECT-RESP	confirm that application knows of shutdown
+ 05h/00h    LISTEN-REQ		enable indication of incoming connections
+ 05h/01h    LISTEN-CONF		confirm enabling of incoming conn. indication
+ 06h/00h    GET-PARAMS-REQ	request B-channel parameters
+ 06h/01h    GET-PARAMS-CONF	return B-channel parameters
+ 07h/00h    INFO-REQ		set B-channel info to be signalled to app
+ 07h/01h    INFO-CONF		confirm B-channel info signalling
+ 07h/02h    INFO-IND		signal B-channel events to application
+ 07h/03h    INFO-CONF		confirm receipt of INFO-IND
+ 08h/00h    DATA-REQ		send D-channel data
+ 08h/01h    DATA-CONF		confirm receipt of DATA-REQ
+ 08h/02h    DATA-IND		receive D-channel data
+ 08h/03h    DATA-RESP		confirm receipt fo DATA-IND
+ 09h/00h    CONNECT-INFO-REQ	request connection information
+ 09h/01h    CONNECT-INFO-CONF	return connection information
+ 40h/00h    SELECT-B2-PROTOCOL-REQ  select Level 2 protocol
+ 40h/01h    SELECT-B2-PROTOCOL-CONF confirm receipt of SELECT-B2-PROTOCOL-REQ
+ 80h/00h    SELECT-B3-PROTOCOL-REQ  select Level 3 protocol
+ 80h/01h    SELECT-B3-PROTOCOL-CONF confirm receipt of SELECT-B3-PROTOCOL-REQ
+ 81h/00h    LISTEN-B3-REQ	enable notification of incoming Level 3 calls
+ 81h/01h    LISTEN-B3-CONF	confirm receipt of LISTEN-B3-REQ
+ 82h/00h    CONNECT-B3-REQ	establish Level 3 connection
+ 82h/01h    CONNECT-B3-CONF	confirm start of connection establishment
+ 82h/02h    CONNECT-B3-IND	indication of incoming Level 3 connection
+ 82h/03h    CONNECT-B3-RESP	accept incoming connection
+ 83h/02h    CONNECT-B3-ACTIVE-IND  indication that Level 3 connection complete
+ 83h/03h    CONNECT-B3-ACTIVE-RESP confirm connection-complete indication
+ 84h/00h    DISCONNECT-B3-REQ	request shutdown of Level 3 connection
+ 84h/01h    DISCONNECT-B3-CONF	confirm shutdown of Level 3 connection
+ 84h/02h    DISCONNECT-B3-IND	indication that Level 3 is shutting down
+ 84h/03h    DISCONNECT-B3-RESP	confirm that application knows of shutdown
+ 85h/00h    GET-B3-PARAMS-REQ	request Level 3 parameters
+ 85h/01h    GET-B3-PARAMS-CONF	return Level 3 parameters
+ 86h/00h    DATA-B3-REQ		send data on Level 3
+ 86h/01h    DATA-B3-CONF	confirm sending of Level 3 data
+ 86h/02h    DATA-B3-IND		indication of incoming Level 3 data
+ 86h/03h    DATA-B3-RESP	confirm receipt of Level 3 data
+ 87h/02h    HANDSET-IND		indication of Handset events
+ 87h/03h    HANDSET-RESP	confirm receipt of Handset event
+ FFh/00h    MANUFACTURER-REQ	vendor-specific request
+ FFh/01h    MANUFACTURER-CONF	vendor-specific request confirmation
+ FFh/02h    MANUFACTURER-IND	vendor-specific notification
+ FFh/03h    MANUFACTURER-RESP	vendor-specific notification confirmation
+SeeAlso: #04071,#04073
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--03" name="F1--03"><b>F1--03</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_PUT_MESSAGE"
+	AL = 03h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see INT F1/AL=01h)
+	ES:BX -&gt; message to be sent (see #04071)
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the message buffer may be reused as soon as this call returns
+SeeAlso: AH=03h,INT F1/AL=01h,INT F1/AL=04h
+
+(Table 04073)
+Values for CAPI v2.0 message command/subcommand:
+Cmd/SubCmd	Name			Description
+ 01h/80h    ALERT_REQ		indicate compatibility with incoming calls
+ 01h/81h    ALERT_CONF		confirm receipt of ALERT_REQ
+ 02h/80h    CONNECT_REQ		establish B-channel connection
+ 02h/81h    CONNECT_CONF	confirm start of connection establishment
+ 02h/82h    CONNECT_IND		indication from CAPI of incoming connection
+ 02h/83h    CONNECT_RESP	accept incoming connection
+ 03h/82h    CONNECT_ACTIVE_IND	indication that B-channel connection complete
+ 03h/83h    CONNECT_ACTIVE_RESP	confirm connection-complete indication
+ 04h/80h    DISCONNECT_REQ	request shutdown of B-channel connection
+ 04h/81h    DISCONNECT_CONF	confirm shutdown of B-channel connection
+ 04h/82h    DISCONNECT_IND	indication that B-channel is shutting down
+ 04h/83h    DISCONNECT_RESP	confirm that application knows of shutdown
+ 05h/80h    LISTEN_REQ		enable signalling on incoming events
+ 05h/81h    LISTEN_CONF		confirm enabling of incoming event signalling
+ 08h/80h    INFO_REQ		send protocol information for physical connect
+ 08h/81h    INFO_CONF		confirm INFO_REQ
+ 08h/82h    INFO_IND		indicate event for physical connection
+ 08h/83h    INFO_CONF		confirm receipt of INFO_IND
+ 41h/80h    SELECT_B_PROTOCOL_REQ   change protocol on already-active connect
+ 41h/81h    SELECT_B_PROTOCOL_CONF  confirm receipt of SELECT_B_PROTOCOL_REQ
+ 80h/80h    FACILITY_REQ	control optional facilities
+ 80h/81h    FACILITY_CONF	confirm acceptance of FACILITY_REQ
+ 80h/82h    FACILITY_IND	indicate facility-dependent event
+ 80h/83h    FACILITY_RESP	confirm receipt of FACILITY_IND
+ 82h/80h    CONNECT_B3_REQ	establish Level 3 connection
+ 82h/81h    CONNECT_B3_CONF	confirm start of connection establishment
+ 82h/82h    CONNECT_B3_IND	indication of incoming Level 3 connection
+ 82h/83h    CONNECT_B3_RESP	accept incoming connection
+ 83h/82h    CONNECT_B3_ACTIVE_IND  indication that Level 3 connection complete
+ 83h/83h    CONNECT_B3_ACTIVE_RESP confirm connection-complete indication
+ 84h/80h    DISCONNECT_B3_REQ	request shutdown of Level 3 connection
+ 84h/81h    DISCONNECT_B3_CONF	confirm shutdown of Level 3 connection
+ 84h/82h    DISCONNECT_B3_IND	indication that Level 3 is shutting down
+ 84h/83h    DISCONNECT_B3_RESP	confirm that application knows of shutdown
+ 85h/80h    GET_B3_PARAMS_REQ	request Level 3 parameters
+ 85h/81h    GET_B3_PARAMS_CONF	return Level 3 parameters
+ 86h/80h    DATA_B3_REQ		send data on Level 3
+ 86h/81h    DATA_B3_CONF	confirm sending of Level 3 data
+ 86h/82h    DATA_B3_IND		indication of incoming Level 3 data
+ 86h/83h    DATA_B3_RESP	confirm receipt of Level 3 data
+ 87h/80h    RESET_B3_REQ	request resetting of a logical connection
+ 87h/81h    RESET_B3_CONF	confirm logical connection reset
+ 87h/82h    RESET_B3_IND	indication from CAPI that logical conn. reset
+ 87h/83h    RESET_B3_RESP	confirm receipt of RESET_B3_IND
+ 88h/82h    CONNECT_B3_T90_ACTIVE_IND  indicate switch from T.70 to T.90
+ 88h/83h    CONNECT_B3_T90_ACTIVE_RESP confirm receipt of T90_ACTIVE_IND
+ FFh/80h    MANUFACTURER_REQ	vendor-specific request
+ FFh/81h    MANUFACTURER_CONF	vendor-specific request confirmation
+ FFh/82h    MANUFACTURER_IND	vendor-specific notification
+ FFh/83h    MANUFACTURER_RESP	vendor-specific notification confirmation
+SeeAlso: #04071,#04072
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F104" name="F104"><b>F104</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MESSAGE"
+	AH = 04h
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,1002h,1006h,1007h) (see #04069)
+	ES:BX -&gt; message if successful (see #04071)
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the returned message may be overwritten by the next call to this
+	  function
+SeeAlso: AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--04" name="F1--04"><b>F1--04</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MESSAGE"
+	AL = 04h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see AH=01h)
+Return: AX = status (0000h,11xxh) (see #04070)
+	ES:BX -&gt; message if successful (see #04071)
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the returned message may be overwritten by the next call to this
+	  function
+SeeAlso: AH=04h,INT F1/AL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F105" name="F105"><b>F105</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-SET-SIGNAL" - SIGNAL HANDLING
+	AH = 05h
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; signal handler or 0000h:0000h to disable
+Return: AX = status (0000h,1002h) (see #04069)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the signal handler is called as though it were an interrupt, with
+	  interrupts disabled; the handler must preserve all registers and
+	  return with an IRET
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--05" name="F1--05"><b>F1--05</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_SET_SIGNAL" - SIGNAL HANDLING
+	AL = 05h
+	AH = CAPI version number * 10 (14h for v2.0)
+	DX = application ID (see AH=01h)
+	ES:BX -&gt; signal handler or 0000h:0000h to disable
+	SI:DI = parameter to pass to signal handler
+Return: AX = status (0000h,11xxh) (see #04070)
+Notes:	the caller is required to provide at least 512 bytes of stack space
+	the signal handler is called as though it were an interrupt, with
+	  interrupts disabled and DX,SI,DI set as they were when this function
+	  was called; the handler must preserve all registers and return with
+	  an IRET
+	the signal handler may call CAPI_PUT_MESSAGE, CAPI_GET_MESSAGE, and
+	  CAPI_SET_SIGNAL
+SeeAlso: INT F1/AL=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F106" name="F106"><b>F106</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-DEINSTALL" - UNINSTALL
+	AH = 06h
+	BX = force flag
+	    0000h normal uninstall
+	    0001h forced uninstall
+Return: AX = status (0000h,1008h) (see #04069)
+Desc:	reset ISDN controller, close all ISDN Level 1 connections except for
+	  telephone connections
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: INT F1/AL=01h,INT F1/AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F0" name="F1F0"><b>F1F0</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-MANUFACTURER"
+	AH = F0h
+	ES:BX -&gt; 64-byte buffer for manufacturer identification information
+Return: ES:BX buffer filled with ASCIZ idnetification string
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F1h,AH=F2h,AH=FFh,INT F1/AL=F0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F0" name="F1--F0"><b>F1--F0</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_MANUFACTURER"
+	AL = F0h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for manufacturer identification information
+Return: ES:BX buffer filled with ASCIZ idnetification string
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F0h,INT F1/AL=01h,INT F1/AL=F1h,INT F1/AL=F2h,INT F1/AL=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F1" name="F1F1"><b>F1F1</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-VERSION"
+	AH = F1h
+	ES:BX -&gt; 64-byte buffer for CAPI version number
+Return: ES:BX buffer filled with ASCIZ version string
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F2h,AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F1" name="F1--F1"><b>F1--F1</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_VERSION"
+	AL = F1h
+	AH = CAPI version number * 10 (14h for v2.0)
+Return: AH = CAPI major version number
+	AL = CAPI minor version number
+	DH = vendor-specific major version
+	DL = vendor-specific minor version
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F1h,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F2h,INT F1/AL=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1F2" name="F1F2"><b>F1F2</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-GET-SERIAL-NUMBER"
+	AH = F2h
+	ES:BX -&gt; 64-byte buffer for CAPI serial number
+Return: ES:BX buffer filled with ASCIZ serial number (seven digits), empty
+	      string if no serial number
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F1h,AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F2" name="F1--F2"><b>F1--F2</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_SERIAL_NUMBER"
+	AL = F2h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for CAPI serial number
+Return: ES:BX buffer filled with ASCIZ serial number (seven digits), empty
+	      string if no serial number
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=F2h,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F1h,INT F1/AL=F3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--F3" name="F1--F3"><b>F1--F3</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_GET_PROFILE" - GET CAPABILITIES
+	AL = F3h
+	AH = CAPI version number * 10 (14h for v2.0)
+	ES:BX -&gt; 64-byte buffer for CAPI capabilities (see #04074)
+	CX = controller number (01h-06h) or 0000h to get number of controllers
+Return: AX = status (0000h,11xxh) (see #04070)
+	ES:BX buffer filled if successful
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F2h,INT F1/AH=FFh
+
+Format of CAPI v2.0 capabilities:
+Offset	Size	Description	(Table 04074)
+ 00h	WORD	number of installed controllers
+ 02h	WORD	number of supported B channels
+ 04h	DWORD	global options (see #04075)
+ 08h	DWORD	B1 protocol support flags (see #04076)
+ 0Ch	DWORD	B2 protocol support flags (see #04077)
+ 10h	DWORD	B3 protocol support flags (see #04078)
+ 14h 24 BYTEs	reserved for CAPI use
+ 2Ch 20 BYTEs	vendor-specific information
+
+Bitfields for CAPI v2.0 global options:
+Bit(s)	Description	(Table 04075)
+ 0	internal controller supported
+ 1	external controller supported
+ 2	handset supported (only if bit 1 also set)
+ 3	DTMF supported
+ 4-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B1 protocol support:
+Bit(s)	Description	(Table 04076)
+ 0	64k bps with HDLC framing (required, always set)
+ 1	64k bps bit-transparent operation with network byte framing
+ 2	V.110 asynchronous with start/stop byte framing
+ 3	V.110 synchronous with HDLC framing
+ 4	T.30 modem for group 3 FAX
+ 5	64k bps inverted with HDLC framing
+ 6	56k bps bit-transparent operation with network byte framing
+ 7-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B2 protocol support:
+Bit(s)	Description	(Table 04077)
+ 0	ISO 7776 (X.75 SLP) (required, always set)
+ 1	transparent
+ 2	SDLC
+ 3	Q.921 LAPD (D-channel X.25)
+ 4	T.30 for group 3 FAX
+ 5	point-to-point protocol (PPP)
+ 6	transparent (ignoring B1 framing errors)
+ 7-31	reserved (0)
+SeeAlso: #04074
+
+Bitfields for CAPI v2.0 B3 protocol support:
+Bit(s)	Description	(Table 04078)
+ 0	transparent (required, always set)
+ 1	T.90NL with T.70NL compatibility
+ 2	ISO 8208 (X.25 DTE-DTE)
+ 3	X.25 DCE
+ 4	T.30 for group 3 FAX
+ 5-31	reserved (0)
+SeeAlso: #04074
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1FF" name="F1FF"><b>F1FF</b></a> - INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v1.1 - "API-MANUFACTURER" - VENDOR-SPECIFIC
+	AH = FFh
+	other registers vendor-specific
+Return: registers vendor-specific
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=01h,AH=F0h,AH=F1h,AH=F2h,INT F1/AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#F1--FF" name="F1--FF"><b>F1--FF</b></a> - INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC<br />
+<pre>
+INT F1 - Common ISDN API (CAPI) v2.0 - "CAPI_MANUFACTURER" - VENDOR-SPECIFIC
+	AL = FFh
+	AH = CAPI version number * 10 (14h for v2.0)
+	other registers vendor-specific
+Return: registers vendor-specific
+Range:	INT 00 to INT FF, selectable by program parameter
+Notes:	the caller is required to provide at least 512 bytes of stack space
+SeeAlso: AH=FFh,INT F1/AL=01h,INT F1/AL=F0h,INT F1/AL=F1h,INT F1/AL=F2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

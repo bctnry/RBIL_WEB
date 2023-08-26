@@ -1,0 +1,1386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._68</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 68
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#68"><b>68</b> - INT 68 - Sangoma CCPOP 3270 resident module</a><br />
+<a href="#68_0"><b>68</b> - INT 68 - Novell NetWare LU6.2</a><br />
+<a href="#68_1"><b>68</b> - INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST</a><br />
+<a href="#6801--SF1B00"><b>6801--SF1B00</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DISPLAY</a><br />
+<a href="#6801--SF2000"><b>6801--SF2000</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH PHYSICAL UNIT</a><br />
+<a href="#6801--SF2100"><b>6801--SF2100</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH LOGICAL UNIT</a><br />
+<a href="#6801--SF2200"><b>6801--SF2200</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH LOGICAL UNIT</a><br />
+<a href="#6801--SF2700"><b>6801--SF2700</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH PHYSICAL UNIT</a><br />
+<a href="#6801--SF2B00"><b>6801--SF2B00</b> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ACTIVATE DLC</a><br />
+<a href="#6802--SF0100"><b>6802--SF0100</b> - INT 68 - APPC/PC - CONNECTION CONTROL - ALLOCATE</a><br />
+<a href="#6802--SF0300"><b>6802--SF0300</b> - INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRM</a><br />
+<a href="#6802--SF0400"><b>6802--SF0400</b> - INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRMED</a><br />
+<a href="#6802--SF0500"><b>6802--SF0500</b> - INT 68 - APPC/PC - CONNECTION CONTROL - DEALLOCATE</a><br />
+<a href="#6802--SF0600"><b>6802--SF0600</b> - INT 68 - APPC/PC - CONNECTION CONTROL - FLUSH</a><br />
+<a href="#6802--SF0700"><b>6802--SF0700</b> - INT 68 - APPC/PC - CONNECTION CONTROL - GET ATTRIBUTES</a><br />
+<a href="#6802--SF0800"><b>6802--SF0800</b> - INT 68 - APPC/PC - CONNECTION CONTROL - GET CONVERSATION TYPE</a><br />
+<a href="#6802--SF0900"><b>6802--SF0900</b> - INT 68 - APPC/PC - CONNECTION CONTROL - POST ON RECEIPT</a><br />
+<a href="#6802--SF0A00"><b>6802--SF0A00</b> - INT 68 - APPC/PC - CONNECTION CONTROL - PREPARE TO RECEIVE</a><br />
+<a href="#6802--SF0B00"><b>6802--SF0B00</b> - INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE AND WAIT</a><br />
+<a href="#6802--SF0C00"><b>6802--SF0C00</b> - INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE IMMEDIATE</a><br />
+<a href="#6802--SF0E00"><b>6802--SF0E00</b> - INT 68 - APPC/PC - CONNECTION CONTROL - REQUEST TO SEND</a><br />
+<a href="#6802--SF0F00"><b>6802--SF0F00</b> - INT 68 - APPC/PC - CONNECTION CONTROL - SEND DATA</a><br />
+<a href="#6802--SF1000"><b>6802--SF1000</b> - INT 68 - APPC/PC - CONNECTION CONTROL - SEND ERROR</a><br />
+<a href="#6802--SF1200"><b>6802--SF1200</b> - INT 68 - APPC/PC - CONNECTION CONTROL - TEST</a><br />
+<a href="#6802--SF1300"><b>6802--SF1300</b> - INT 68 - APPC/PC - CONNECTION CONTROL - WAIT</a><br />
+<a href="#6803--SF2400"><b>6803--SF2400</b> - INT 68 - APPC/PC - TP STARTED</a><br />
+<a href="#6803--SF2800"><b>6803--SF2800</b> - INT 68 - APPC/PC - GET ALLOCATE</a><br />
+<a href="#6803--SF2A00"><b>6803--SF2A00</b> - INT 68 - APPC/PC - CHANGE LOGICAL UNIT</a><br />
+<a href="#6804"><b>6804</b> - INT 68 - APPC/PC - TRANSACTION PROCESSING</a><br />
+<a href="#6805"><b>6805</b> - INT 68 - APPC/PC - TRANSFER MESSAGE DATA</a><br />
+<a href="#6806"><b>6806</b> - INT 68 - APPC/PC - CHANGE NUMBER OF SESSIONS</a><br />
+<a href="#6807"><b>6807</b> - INT 68 - APPC/PC - PASSTHROUGH</a><br />
+<a href="#684300"><b>684300</b> - INT 68 U - ??? - INSTALLATION CHECK???</a><br />
+<a href="#684400"><b>684400</b> - INT 68 U - ???</a><br />
+<a href="#6847"><b>6847</b> - INT 68 - MS Windows debugging kernel - OUTPUT STRING</a><br />
+<a href="#68FA"><b>68FA</b> - INT 68 - APPC/PC - ENABLE/DISABLE APPC</a><br />
+<a href="#68FB"><b>68FB</b> - INT 68 - APPC/PC - CONVERT</a><br />
+<a href="#68FC"><b>68FC</b> - INT 68 - APPC/PC - ENABLE/DISABLE MESSAGE TRACING</a><br />
+<a href="#68FD"><b>68FD</b> - INT 68 - APPC/PC - ENABLE/DISABLE API VERB TRACING</a><br />
+<a href="#68FE"><b>68FE</b> - INT 68 - APPC/PC - SET TRACE DESTINATION</a><br />
+<a href="#68FF"><b>68FF</b> - INT 68 - APPC/PC - SET PASSTHROUGH</a><br />
+
+<hr />
+
+<a href="#68" name="68"><b>68</b></a> - INT 68 - Sangoma CCPOP 3270 resident module<br />
+<pre>
+INT 68 - Sangoma CCPOP 3270 resident module
+SeeAlso: INT 67"Sangoma",INT 92"Sangoma"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68_0" name="68_0"><b>68</b></a> - INT 68 - Novell NetWare LU6.2<br />
+<pre>
+INT 68 - Novell NetWare LU6.2
+InstallCheck:	test for the signature string "APPC/PC" nine bytes before the
+	  interrupt handler
+SeeAlso: AH=01h/SF=1B00h,AH=FAh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68_1" name="68_1"><b>68</b></a> - INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST<br />
+<pre>
+INT 68 C - HP Vectra AT - IRQ16 - 8041 SERVICE REQUEST
+SeeAlso: INT 08"IRQ0",INT 69"HP Vectra",INT 6F/AH=00h"HP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF1B00" name="6801--SF1B00"><b>6801--SF1B00</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DISPLAY<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DISPLAY
+	AH = 01h subfn 1B00h
+	DS:DX -&gt; control block (see #03667)
+Return: control block updated
+SeeAlso: AH=01h/SF=2000h,AH=01h/SF=2B00h,INT 68"Novell"
+
+Format of APPC/PC "DISPLAY" control block:
+Offset	Size	Description	(Table 03667)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1B00h (verb "DISPLAY")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah  8 BYTEs	(big-endian) logical unit ID
+ 22h  8 BYTEs	(big-endian) partner logical unit name
+ 2Ah  8 BYTEs	(big-endian) mode name
+ 32h	BYTE	logical unit session limit
+ 33h	BYTE	partner logical unit session limit
+ 34h	BYTE	node maximum negotiable session limit
+ 35h	BYTE	current session limit
+ 36h	BYTE	minimum negotiated winner limit
+ 37h	BYTE	maximum negotiated loser limit
+ 38h	BYTE	active session count
+ 39h	BYTE	active CONWINNER session count
+ 3Ah	BYTE	active CONLOSER session count
+ 3Bh	BYTE	session termination count
+ 3Ch	BYTE	bit 7: SESSION_TERMINATION_TARGET_DRAIN
+		bit 6: SESSION_TERMINATION_SOURCE_DRAIN
+
+(Table 03668)
+Values for APPC/PC return code:
+ 0000h	successful
+ 0001h	BAD_TP_ID
+ 0002h	BAD_CONV_ID
+ 0003h	bad logical unit ID
+ 0008h	no physical unit attached
+ 0110h	bad state
+ 01B1h	BAD_PART_LUNAME
+ 01B2h	bad mode name
+ 0201h	physical unit already active
+ 0211h	logical unit already active
+ 0212h	BAD_PART_SESS
+ 0213h	BAD_RU_SIZES
+ 0214h	BAD_MODE_SESS
+ 0216h	BAD_PACING_CNT
+ 0219h	EXTREME_RUS
+ 021Ah	SNASVCMG_1
+ 0223h	SSCP_CONNECTED_LU
+ 0230h	invalid change
+ 0243h	too many TPs
+ 0272h	adapter close failure
+ 0281h	GET_ALLOC_BAD_TYPE
+ 0282h	unsuccessful
+ 0283h	DLC failure
+ 0284h	unrecognized DLC
+ 0286h	duplicate DLC
+ 0301h	SSCP_PU_SESSION_NOT_ACTIVE
+ 0302h	data exceeds RU size
+ 0401h	invalid direction
+ 0402h	invalid type
+ 0403h	segment overlap
+ 0404h	invalid first character
+ 0405h	table error
+ 0406h	conversion error
+ F0010000h	APPC disabled
+ F0020000h	APPC busy
+ F0030000h	APPC abended
+ F0040000h	incomplete
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF2000" name="6801--SF2000"><b>6801--SF2000</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH PHYSICAL UNIT<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH PHYSICAL UNIT
+	AH = 01h subfn 2000h
+	DS:DX -&gt; control block (see #03669)
+Return: control block updated
+SeeAlso: AH=01h/SF=2100h,AH=01h/SF=2B00h
+
+Format of APPC/PC "Attach Physical Unit" control block:
+Offset	Size	Description	(Table 03669)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2000h (verb "Attach Physical Unit")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah	BYTE	version
+ 1Bh	BYTE	release
+ 1Ch  8 BYTEs	(big-endian) net name
+ 24h  8 BYTEs	(big-endian) physical unit name
+ 2Ch  8 BYTEs	00h
+ 34h	DWORD	pointer to SYSTEM_LOG_EXIT routine, FFFFFFFFh=don't log errors
+		(see also AH=01h/SF=2100h)
+ 38h	DWORD	00h
+ 3Ch	BYTE	00h RETURN_CONTROL: COMPLETE
+		01h RETURN_CONTROL: INCOMPLETE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF2100" name="6801--SF2100"><b>6801--SF2100</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH LOGICAL UNIT<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ATTACH LOGICAL UNIT
+	AH = 01h subfn 2100h
+	DS:DX -&gt; control block (see #03670)
+Return: control block updated
+SeeAlso: #03673,#03674,#03676,AH=01h/SF=2000h,AH=01h/SF=2200h,AH=01h/SF=2B00h
+
+Format of APPC/PC "Attach Logical Unit" control block:
+Offset	Size	Description	(Table 03670)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2100h (verb "Attach Logical Unit")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	70  offset to partner logical unit record
+ 1Ah  8 BYTEs	(big-endian) logical unit name
+ 22h  8 BYTEs	(big-endian) logical unit ID
+ 2Ah	BYTE	logical unit local address
+ 2Bh	BYTE	logical unit session limit
+ 2Ch	DWORD	pointer to CREATE_TP_EXIT routine,
+		FFFFFFFFh = reject incoming ALLOCATEs
+		00000000h = queue ALLOCATEs
+ 30h	DWORD	00h
+ 34h	DWORD	pointer to SYSTEM_LOG_EXIT routine, FFFFFFFFh=don't log errors
+ 38h	DWORD	00h
+ 3Ch	BYTE	maximum TPs
+ 3Dh	BYTE	queue depth
+ 3Eh	DWORD	pointer to LU_LU_PASSWORD_EXIT routine, FFFFFFFFh=no pswd exit
+ 42h	DWORD	00h
+ 46h	WORD	total length of partner records
+ 48h	var	array of partner logical unit records (see #03671)
+SeeAlso: #03673,#03674,#03676
+
+Format of APPC/PC partner logical unit record:
+Offset	Size	Description	(Table 03671)
+ 00h	WORD	length of this partner logical unit record
+ 02h	WORD	42  offset to mode records
+ 04h  8 BYTEs	(big-endian) partner logical unit name
+ 0Ch	BYTE	partner logical unit security capabilities
+		bit 7: already verified
+		bit 6: conversation level security
+		bit 5: session level security
+ 0Dh	BYTE	partner logical unit session limit
+ 0Eh	WORD	partner logical unit maximum MC_SEND_LL
+ 10h  8 BYTEs	(big-endian) partner logical unit DLC name
+ 18h	BYTE	partner logical unit adapter number
+ 19h 17 BYTEs	(counted string) partner logical unit adapter address
+ 2Ah	WORD	total length of mode records
+ 2Ch 16N BYTEs	array of mode records (see #03672)
+
+Format of mode record:
+Offset	Size	Description	(Table 03672)
+ 00h	WORD	16  length of this mode record
+ 02h  8 BYTEs	(big-endian) mode name
+ 0Ah	WORD	RU_SIZE high bound
+ 0Ch	WORD	RU_SIZE low bound
+ 0Eh	BYTE	mode maximum negotiable session limit
+ 0Fh	BYTE	pacing size for receive
+
+Routines defined by LU_LU_PASSWORD_EXIT, CREATE_TP_EXIT, and SYSTEM_LOG_EXIT
+pointers are called by pushing the DWORD pointer to the verb on the stack and
+then performing a FAR call.
+
+Format of ACCESS_LU_LU_PW verb:
+Offset	Size	Description	(Table 03673)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1900h (verb "ACCESS_LU_LU_PW")
+ 0Eh  8 BYTEs	(big-endian) logical unit ID
+ 16h  8 BYTEs	(big-endian) logical unit name
+ 1Eh  8 BYTEs	(big-endian) partner logical unit name
+ 26h 17 BYTEs	(counted string) partner fully qualified logical unit name
+ 37h	BYTE	password available (0=no, 1=yes)
+ 38h  8 BYTEs	password
+SeeAlso: #03670,#03674,#03676
+
+Format of CREATE_TP verb:
+Offset	Size	Description	(Table 03674)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2300h (verb "CREATE_TP")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) sense code (see #03675)
+ 18h  8 BYTEs	(big-endian) TP ID
+ 20h  8 BYTEs	(big-endian) logical unit ID
+ 28h	DWORD	(big-endian) conversation ID
+ 2Ch	BYTE	0 basic conversation, 1 mapped conversation
+ 2Dh	BYTE	0 no sync level, 1 confirm
+ 2Eh	BYTE	reserved
+ 2Fh 65 BYTEs	(counted string) transaction program name
+ 70h  6 BYTEs	00h
+ 76h	WORD	length of ERROR_LOG_DATA to return
+ 78h	DWORD	pointer to ERROR_LOG_DATA buffer
+ 7Ch  8 BYTEs	(big-endian) partner logical unit name
+ 84h 18 BYTEs	(counted string) partner fully qualified logical unit name
+ 96h  8 BYTEs	(big-endian) mode name
+ 9Eh 12 BYTEs	00h
+ AAh 11 BYTEs	(counted string) password
+ B5h 11 BYTEs	(counted string) user ID
+ C0h	BYTE	0 verification should be performed
+		1 already verified
+SeeAlso: #03673,#03676
+
+(Table 03675)
+Values for APPC/PC sense code:
+ 00000000h	Ok
+ 080F6051h	SECURITY_NOT_VALID
+ 084B6031h	TP_NOT_AVAIL_RETRY
+ 084C0000h	TP_NOT_AVAIL_NO_RETRY
+ 10086021h	TP_NAME_NOT_RECOGNIZED
+ 10086034h	CONVERSATION_TYPE_MISMATCH
+ 10086041h	SYNC_LEVEL_NOT_SUPPORTED
+
+Format of SYSLOG verb:
+Offset	Size	Description	(Table 03676)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2600h (verb "SYSLOG")
+ 0Eh 10 BYTEs	00h
+ 18h	WORD	(big-endian) type
+ 1Ah	DWORD	(big-endian) subtype
+ 1Eh	DWORD	pointer to ADDITIONAL_INFO
+ 22h	DWORD	(big-endian) conversation ID
+ 26h  8 BYTEs	(big-endian) TP ID
+ 2Eh  8 BYTEs	(big-endian) physical unit or logical unit name
+ 36h	WORD	length of data
+ 38h	DWORD	pointer to data
+ 3Ch	BYTE	00h
+SeeAlso: #03673,#03674
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF2200" name="6801--SF2200"><b>6801--SF2200</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH LOGICAL UNIT<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH LOGICAL UNIT
+	AH = 01h subfn 2200h
+	DS:DX -&gt; control block (see #03677)
+Return: control block updated
+SeeAlso: AH=01h/SF=2000h,AH=01h/SF=2100h,AH=01h/SF=2700h
+
+Format of APPC/PC "Detach Logical Unit" control block:
+Offset	Size	Description	(Table 03677)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2200h (verb "Detach Logical Unit")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h  8 BYTEs	(big-endian) logical unit ID
+ 20h	BYTE	00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF2700" name="6801--SF2700"><b>6801--SF2700</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH PHYSICAL UNIT<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - DETACH PHYSICAL UNIT
+	AH = 01h subfn 2700h
+	DS:DX -&gt; control block (see #03678)
+Return: control block updated
+SeeAlso: AH=01h/SF=2000h,AH=01h/SF=2100h,AH=01h/SF=2200h
+
+Format of APPC/PC "Detach Physical Unit" control block:
+Offset	Size	Description	(Table 03678)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2700h (verb "Detach Physical Unit")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	BYTE	00h  type: hard
+		01h  type: soft
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6801--SF2B00" name="6801--SF2B00"><b>6801--SF2B00</b></a> - INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ACTIVATE DLC<br />
+<pre>
+INT 68 - APPC/PC - NETWORK DEVICE CONTROL - ACTIVATE DLC
+	AH = 01h subfn 2B00h
+	DS:DX -&gt; control block (see #03679)
+Return: control block updated
+SeeAlso: AH=01h/SF=1B00h,AH=01h/SF=2000h
+
+Format of APPC/PC "Activate DLC" control block:
+Offset	Size	Description	(Table 03679)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2B00h (verb "Activate DLC")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h  8 BYTEs	(big-endian) DLC name
+ 20h	BYTE	adapter number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0100" name="6802--SF0100"><b>6802--SF0100</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - ALLOCATE<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - ALLOCATE
+	AH = 02h subfn 0100h
+	DS:DX -&gt; control block (see #03680)
+Return: control block updated
+SeeAlso: AH=02h/SF=0500h
+
+Format of APPC/PC "Allocate" control block:
+Offset	Size	Description	(Table 03680)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0100h (verb "Allocate" or "MC_Allocate")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	(MC_Allocate only) conversation type
+		0 basic conversation
+		1 mapped conversation
+ 27h	BYTE	SYNC_LEVEL (00h none, 01h confirm)
+ 28h	WORD	0000h
+ 2Ah	BYTE	RETURN_CONTROL
+		00h when session allocated
+		01h immediate
+		02h when session free
+ 2Bh  8 BYTEs	00h
+ 33h  8 BYTEs	(big-endian) partner logical unit name
+ 3Bh  8 BYTEs	(big-endian) mode name
+ 43h 65 BYTEs	(counted string) TP name
+ 84h	BYTE	security (00h none, 01h same, 02h pgm)
+ 85h 11 BYTEs	00h
+ 90h 11 BYTEs	(counted string) password
+ 9Bh 11 BYTEs	(counted string) user ID
+ A6h	WORD	PIP_DATA length
+ A8h	DWORD	pointer to PIP_DATA
+
+(Table 03681)
+Values for APPC/PC primary return code:
+ 0000h	successful
+ 0001h	parameter check
+ 0002h	state check
+ 0003h	allocation error
+ 0005h	deallocate abended
+ 0006h	deallocate abended program
+ 0007h	deallocate abended SVC
+ 0008h	deallocate abended timer
+ 0009h	deallocate normal return
+ 000Ah	data posting blocked
+ 000Bh	posting not active
+ 000Ch	PROG_ERROR_NO_TRUNC
+ 000Dh	PROG_ERROR_TRUNC
+ 000Eh	PROG_ERROR_PURGING
+ 000Fh	CONV_FAILURE_RETRY
+ 0010h	CONV_FAILURE_NO_RETRY
+ 0011h	SVC_ERROR_NO_TRUNC
+ 0012h	SVC_ERROR_TRUNC
+ 0013h	SVC_ERROR_PURGING
+ 0014h	unsuccessful
+ 0018h	CNOS partner logical unit reject
+ 0019h	conversation type mixed
+ F001h	APPC disabled
+ F002h	APPC busy
+ F003h	APPC abended
+ F004h	incomplete
+
+(Table 03682)
+Values for APPC/PC error code:
+ 0001h	bad TP ID
+ 0002h	bad conversation ID
+ 0004h	allocation error, no retry
+ 0005h	allocation error, retry
+ 0006h	data area crosses segment boundary
+ 0010h	bad TPN length
+ 0011h	bad CONV length
+ 0012h	bad SYNC level
+ 0013h	bad security selection
+ 0014h	bad return control
+ 0015h	SEC_TOKENS too big
+ 0016h	PIP_LEN incorrect
+ 0017h	no use of SNASVCMG
+ 0018h	unknown partner mode
+ 0031h	confirm: SYNC_NONE
+ 0032h	confirm: bad state
+ 0033h	confirm: NOT_LL_BDY
+ 0041h	confirmed: bad state
+ 0051h	deallocate: bad type
+ 0052h	deallocate: flush bad state
+ 0053h	deallocate: confirm bad state
+ 0055h	deallocate: NOT_LL_BDY
+ 0057h	deallocate: log LL_WRONG
+ 0061h	flush: not send state
+ 0091h	post on receipt: invalid length
+ 0092h	post on receipt: not in receive state
+ 0093h	post on receipt: bad fill
+ 00A1h	prepare to receive:invalid type
+ 00A2h	prepare to receive: unfinished LL
+ 00A3h	prepare to receive: not in send state
+ 00B1h	receive and wait: bad state
+ 00B2h	receive and wait: NOT_LL_BDY
+ 00B5h	receive and wait: bad fill
+ 00C1h	receive immediate: not in receive state
+ 00C4h	receive immediate: bad fill
+ 00E1h	request to send: not in receive state
+ 00F1h	send data: bad LL
+ 00F2h	send data: not in send state
+ 0102h	send error: log LL wrong
+ 0103h	send error: bad type
+ 0121h	test: invalid type
+ 0122h	test: not in receive state
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0300" name="6802--SF0300"><b>6802--SF0300</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRM<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRM
+	AH = 02h subfn 0300h
+	DS:DX -&gt; control block (see #03683)
+Return: control block updated
+SeeAlso: AH=02h/SF=0400h
+
+Format of APPC/PC "Confirm" control block:
+Offset	Size	Description	(Table 03683)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0300h (verb "Confirm" or "MC_Confirm")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	request to send received (0=no, 1=yes)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0400" name="6802--SF0400"><b>6802--SF0400</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRMED<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - CONFIRMED
+	AH = 02h subfn 0400h
+	DS:DX -&gt; control block (see #03684)
+Return: control block updated
+SeeAlso: AH=02h/SF=0300h
+
+Format of APPC/PC "Confirmed" control block:
+Offset	Size	Description	(Table 03684)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0400h (verb "Confirmed" or "MC_Confirmed")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0500" name="6802--SF0500"><b>6802--SF0500</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - DEALLOCATE<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - DEALLOCATE
+	AH = 02h subfn 0500h
+	DS:DX -&gt; control block (see #03685)
+Return: control block updated
+SeeAlso: AH=02h/SF=0100h,AH=02h/SF=0300h
+
+Format of APPC/PC "Deallocate" control block:
+Offset	Size	Description	(Table 03685)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0500h (verb "Deallocate" or "MC_Deallocate")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	00h
+ 27h	BYTE	type
+		00h SYNC_LEVEL
+		01h FLUSH
+		02h ABEND_PROC
+		03h ABEND_SVC
+		04h ABEND_TIMER
+		05h ABEND
+ 28h	WORD	(MC_Deallocate only) length of error log data
+ 2Ah	DWORD	(MC_Deallocate only) pointer to error log data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0600" name="6802--SF0600"><b>6802--SF0600</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - FLUSH<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - FLUSH
+	AH = 02h subfn 0600h
+	DS:DX -&gt; control block (see #03686)
+Return: control block updated
+SeeAlso: AH=02h/SF=0300h
+
+Format of APPC/PC "Flush" control block:
+Offset	Size	Description	(Table 03686)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0600h (verb "Flush" or "MC_Flush")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0700" name="6802--SF0700"><b>6802--SF0700</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - GET ATTRIBUTES<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - GET ATTRIBUTES
+	AH = 02h subfn 0700h
+	DS:DX -&gt; control block (see #03687)
+Return: control block updated
+SeeAlso: AH=02h/SF=0300h
+
+Format of APPC/PC "Get_Attributes" control block:
+Offset	Size	Description	(Table 03687)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0700h (verb "Get_Attributes" or "MC_Get_Attributes")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h  8 BYTEs	(big-endian) logical unit ID
+ 2Eh	BYTE	00h
+ 2Fh	BYTE	SYNC_LEVEL (0=none, 1=confirm)
+ 30h  8 BYTEs	(big-endian) mode name
+ 38h  8 BYTEs	(big-endian) own net name
+ 40h  8 BYTEs	(big-endian) own logical unit name
+ 48h  8 BYTEs	(big-endian) partner logical unit name
+ 50h 18 BYTEs	(counted string) partner's fully qualified logical unit name
+ 62h	BYTE	00h
+ 63h 11 BYTEs	(counted string) user ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0800" name="6802--SF0800"><b>6802--SF0800</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - GET CONVERSATION TYPE<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - GET CONVERSATION TYPE
+	AH = 02h subfn 0800h
+	DS:DX -&gt; control block (see #03688)
+Return: control block updated
+SeeAlso: AH=02h/SF=0300h
+
+Format of APPC/PC "Get_Type" control block:
+Offset	Size	Description	(Table 03688)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0800h (verb "Get_Type")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	(ret) type (0=basic conversation, 1=mapped conversation)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0900" name="6802--SF0900"><b>6802--SF0900</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - POST ON RECEIPT<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - POST ON RECEIPT
+	AH = 02h subfn 0900h
+	DS:DX -&gt; control block (see #03689)
+Return: control block updated
+SeeAlso: AH=02h/SF=0A00h
+
+Format of APPC/PC "Post_on_Receipt" control block:
+Offset	Size	Description	(Table 03689)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0900h (verb "Post_on_Receipt")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	WORD	maximum length
+ 28h	BYTE	fill (0=buffer, 1=LL)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0A00" name="6802--SF0A00"><b>6802--SF0A00</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - PREPARE TO RECEIVE<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - PREPARE TO RECEIVE
+	AH = 02h subfn 0A00h
+	DS:DX -&gt; control block (see #03690)
+Return: control block updated
+SeeAlso: AH=02h/SF=0900h,AH=02h/SF=0B00h
+
+Format of APPC/PC "Prepare_to_Receive" control block:
+Offset	Size	Description	(Table 03690)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0A00h (verb "Prepare_to_Receive" or "MC_Prepare_to_Receive")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	type (0=SYNC_LEVEL, 1=FLUSH)
+ 27h	BYTE	locks (0=short, 1=long)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0B00" name="6802--SF0B00"><b>6802--SF0B00</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE AND WAIT<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE AND WAIT
+	AH = 02h subfn 0B00h
+	DS:DX -&gt; control block (see #03691)
+Return: control block updated
+SeeAlso: AH=02h/SF=0C00h,AH=02h/SF=0F00h
+
+Format of APPC/PC "Receive_and_Wait" control block:
+Offset	Size	Description	(Table 03691)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0B00h (verb "Receive_and_Wait" or "MC_Receive_and_Wait")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	type of information received (see #03692)
+ 27h	BYTE	(MC_Receive_and_Wait only) fill (0=buffer, 1=LL)
+ 28h	BYTE	Request_to_Send_Received (0=no, 1=yes)
+ 29h	WORD	maximum length
+ 2Bh	WORD	data length
+ 2Dh	DWORD	pointer to data
+
+(Table 03692)
+Values for type of information received:
+ 00h	data
+ 01h	data complete
+ 02h	data incomplete
+ 03h	confirm
+ 04h	confirm send
+ 05h	confirm deallocate
+ 06h	send
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0C00" name="6802--SF0C00"><b>6802--SF0C00</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE IMMEDIATE<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - RECEIVE IMMEDIATE
+	AH = 02h subfn 0C00h
+	DS:DX -&gt; control block (see #03693)
+Return: control block updated
+SeeAlso: AH=02h/SF=0B00h,AH=02h/SF=0F00h
+
+Format of APPC/PC "Receive_Immediate" control block:
+Offset	Size	Description	(Table 03693)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0C00h (verb "Receive_Immediate" or "MC_Receive_Immediate")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	type of information received (see #03692)
+ 27h	BYTE	(MC_Receive_Immediate only) fill (0=buffer, 1=LL)
+ 28h	BYTE	Request_to_Send_Received (0=no, 1=yes)
+ 29h	WORD	maximum length
+ 2Bh	WORD	data length
+ 2Dh	DWORD	pointer to data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0E00" name="6802--SF0E00"><b>6802--SF0E00</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - REQUEST TO SEND<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - REQUEST TO SEND
+	AH = 02h subfn 0E00h
+	DS:DX -&gt; control block (see #03694)
+Return: control block updated
+SeeAlso: AH=02h/SF=0F00h,AH=02h/SF=1000h
+
+Format of APPC/PC "Request_to_Send" control block:
+Offset	Size	Description	(Table 03694)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0E00h (verb "Request_to_Send" or "MC_Request_to_Send")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF0F00" name="6802--SF0F00"><b>6802--SF0F00</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - SEND DATA<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - SEND DATA
+	AH = 02h subfn 0F00h
+	DS:DX -&gt; control block (see #03695)
+Return: control block updated
+SeeAlso: AH=02h/SF=0E00h,AH=02h/SF=1000h
+
+Format of APPC/PC "Send_Data" control block:
+Offset	Size	Description	(Table 03695)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	0F00h (verb "Send_Data" or "MC_Send_Data")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	request to send received (0=no, 1=yes)
+ 27h	BYTE	00h
+ 28h	WORD	data length
+ 2Ah	DWORD	pointer to data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF1000" name="6802--SF1000"><b>6802--SF1000</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - SEND ERROR<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - SEND ERROR
+	AH = 02h subfn 1000h
+	DS:DX -&gt; control block (see #03696)
+Return: control block updated
+SeeAlso: AH=02h/SF=0F00h
+
+Format of APPC/PC "Send_Error" control block:
+Offset	Size	Description	(Table 03696)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1000h (verb "Send_Error" or "MC_Send_Error")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	request to send received (0=no, 1=yes)
+ 27h	BYTE	type (0=program, 1=SVC)
+ 28h	DWORD	00h
+ 2Ch	WORD	(MC_Send_Error only) LOG_DATA length
+ 2Eh	DWORD	(MC_Send_Error only) pointer to LOG_DATA
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF1200" name="6802--SF1200"><b>6802--SF1200</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - TEST<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - TEST
+	AH = 02h subfn 1200h
+	DS:DX -&gt; control block (see #03697)
+Return: control block updated
+SeeAlso: AH=02h/SF=1300h
+
+Format of APPC/PC "Test" control block:
+Offset	Size	Description	(Table 03697)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1200h (verb "Test" or "MC_Test")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	(MC_Test only) test (0=posted, 1=request_to_send received)
+Note:	error code has different interpretations for:
+	0 posted data
+	1 posted not data (primary return code = 0)
+	1 bad TP_ID (primary return code = 1)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6802--SF1300" name="6802--SF1300"><b>6802--SF1300</b></a> - INT 68 - APPC/PC - CONNECTION CONTROL - WAIT<br />
+<pre>
+INT 68 - APPC/PC - CONNECTION CONTROL - WAIT
+	AH = 02h subfn 1300h
+	DS:DX -&gt; control block (see #03698)
+Return: control block updated
+SeeAlso: AH=02h/SF=1200h
+
+Format of APPC/PC "Wait" control block:
+Offset	Size	Description	(Table 03698)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1300h (verb "Wait")
+ 0Eh	BYTE	1 if MC_ (mapped conversation) form of verb
+		0 if basic verb
+ 0Fh  5 BYTEs	reserved (0)
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) error code (see #03682,#03697)
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	(big-endian) conversation ID
+ 26h	BYTE	number of conversations to wait on
+		Note: error codes have interpretations as for AH=02h/SF=1200h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6803--SF2400" name="6803--SF2400"><b>6803--SF2400</b></a> - INT 68 - APPC/PC - TP STARTED<br />
+<pre>
+INT 68 - APPC/PC - TP STARTED
+	AH = 03h subfn 2400h
+	DS:DX -&gt; control block (see #03699)
+Return: control block updated
+
+Format of APPC/PC "TP Started" control block:
+Offset	Size	Description	(Table 03699)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2400h (verb "TP Started")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah  8 BYTEs	(big-endian) logical unit ID
+ 22h  8 BYTEs	(big-endian) TP ID
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6803--SF2800" name="6803--SF2800"><b>6803--SF2800</b></a> - INT 68 - APPC/PC - GET ALLOCATE<br />
+<pre>
+INT 68 - APPC/PC - GET ALLOCATE
+	AH = 03h subfn 2800h
+	DS:DX -&gt; control block (see #03700)
+Return: control block updated
+
+Format of APPC/PC "Get ALLOCATE" control block:
+Offset	Size	Description	(Table 03700)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2800h (verb "Get ALLOCATE")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah  8 BYTEs	(big-endian) logical unit ID
+ 22h	BYTE	type (00h dequeue, 01h test)
+ 23h	DWORD	pointer to CREATE_TP record
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6803--SF2A00" name="6803--SF2A00"><b>6803--SF2A00</b></a> - INT 68 - APPC/PC - CHANGE LOGICAL UNIT<br />
+<pre>
+INT 68 - APPC/PC - CHANGE LOGICAL UNIT
+	AH = 03h subfn 2A00h
+	DS:DX -&gt; control block (see #03701)
+Return: control block updated
+
+Format of APPC/PC "Change Logical Unit" control block:
+Offset	Size	Description	(Table 03701)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	2A00h (verb "Change Logical Unit")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah  8 BYTEs	(big-endian) logical unit ID
+ 22h	DWORD	pointer to CREATE_TP_EXIT routine
+		00000000h queue ALLOCATEs
+		FFFFFFFFh reject incoming ALLOCATEs
+ 26h	DWORD	00000000h
+ 2Ah	DWORD	pointer to SYSTEM_LOG_EXIT routine, FFFFFFFFh= don't log errors
+ 2Eh	DWORD	00000000h
+ 32h	BYTE	maximum TPs
+ 33h	BYTE	00h stop QUEUE_ALLOCATEs
+		01h resume QUEUE_ALLOCATEs
+ 34h	DWORD	pointer to LU_LU_PASSWORD_EXIT routine, FFFFFFFFh = no exit
+ 38h	DWORD	00000000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6804" name="6804"><b>6804</b></a> - INT 68 - APPC/PC - TRANSACTION PROCESSING<br />
+<pre>
+INT 68 - APPC/PC - TRANSACTION PROCESSING
+	AH = 04h
+	DS:DX -&gt; control block (see #03702)
+Return: control block updated
+
+Format of APPC/PC control block:
+Offset	Size	Description	(Table 03702)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	verb (action)
+		2500h TP_ENDED
+		2900h TP_VALID
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h	WORD	00h
+ 1Ah  8 BYTEs	(big-endian) TP_ID
+ 22h	DWORD	-&gt; CREATE_TP record (only if verb = 2900h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6805" name="6805"><b>6805</b></a> - INT 68 - APPC/PC - TRANSFER MESSAGE DATA<br />
+<pre>
+INT 68 - APPC/PC - TRANSFER MESSAGE DATA
+	AH = 05h
+	DS:DX -&gt; control block (see #03703)
+Return: control block updated
+
+Format of APPC/PC "Transfer Message Data" control block:
+Offset	Size	Description	(Table 03703)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1C00h (verb "Transfer Message Data")
+ 0Eh	BYTE	data type
+		00h user defined
+		01h NMVT
+		02h alert subvectors
+		03h PDSTATS subvectors
+ 0Fh  5 BYTEs	00h
+ 14h	DWORD	(big-endian) return code (see #03668)
+ 18h 12 BYTEs	00h
+ 24h	BYTE	flags (see #03704)
+ 25h	BYTE	00h
+ 26h	WORD	length of data
+ 28h  N BYTEs	data
+
+Bitfields for APPC/PC message transfer flags:
+Bit(s)	Description	(Table 03704)
+ 0	don't add correlation subvector
+ 1	don't add product set ID subvector
+ 2	don't do SYSLOG
+ 3	don't send SSCP_PU_SESSION
+SeeAlso: #03703
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6806" name="6806"><b>6806</b></a> - INT 68 - APPC/PC - CHANGE NUMBER OF SESSIONS<br />
+<pre>
+INT 68 - APPC/PC - CHANGE NUMBER OF SESSIONS
+	AH = 06h
+	DS:DX -&gt; control block (see #03705)
+Return: control block updated
+
+Format of APPC/PC "Change Number of Sessions" control block:
+Offset	Size	Description	(Table 03705)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1500h (verb "Change Number of Sessions")
+ 0Eh  6 BYTEs	00h
+ 14h	WORD	(big-endian) primary return code (see #03681)
+ 16h	DWORD	(big-endian) secondary return code (see #03668,#03706)
+ 1Ah  8 BYTEs	(big-endian) logical unit ID
+ 22h  8 BYTEs	blanks
+ 2Ah  8 BYTEs	(big-endian) partner logical unit name
+ 32h  8 BYTEs	(big-endian) mode name
+ 3Ah	BYTE	bit 7: use MODE_NAME_SELECT_ALL rather than MODE_NAME
+		bit 6: set negotiable values
+ 3Bh	BYTE	partner logical unit mode session limit
+ 3Ch	BYTE	minimum CONWINNERS_SOURCE
+ 3Dh	BYTE	maximum CONWINNERS_TARGET
+ 3Eh	BYTE	automatic activation
+ 3Fh	BYTE	00h
+ 40h	BYTE	flags
+		bit 7: drain target
+		bit 6: drain source
+		bit 5: target responsible, not source
+
+(Table 03706)
+Values for secondary return code (see also AH=01h/SF=1B00h):
+ 0000h	accepted
+ 0001h	negotiated
+ 0003h	bad logical unit ID
+ 0004h	allocation failure, no retry
+ 0005h	allocation failure, retry
+ 0151h	can't raise limits
+ 0153h	all modes must reset
+ 0154h	bad SNASVCMG limits
+ 0155h	minimum greater than total
+ 0156h	mode closed (primary return code = 1)
+	CNOS mode closed (primary return code = 18h)
+ 0157h	bad mode name (primary return code = 1)
+	CNOS bad mode name (primary return code = 18h)
+ 0159h	reset SNA drains
+ 015Ah	single not SRC response
+ 015Bh	bad partner logical unit
+ 015Ch	exceeds maximum allowed
+ 015Dh	change SRC drains
+ 015Eh	logical unit detached
+ 015Fh	CNOS command race reject
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6807" name="6807"><b>6807</b></a> - INT 68 - APPC/PC - PASSTHROUGH<br />
+<pre>
+INT 68 - APPC/PC - PASSTHROUGH
+	AH = 07h
+	DS:DX -&gt; control block (format depends on application subsystem)
+Return: control block updated
+SeeAlso: AH=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#684300" name="684300"><b>684300</b></a> - INT 68 U - ??? - INSTALLATION CHECK???<br />
+<pre>
+INT 68 U - ??? - INSTALLATION CHECK???
+	AX = 4300h
+Return: AX = F386h if ???
+	???
+Note:	called by Novell DOS 7.0 EMM386.EXE
+SeeAlso: AX=4400h,INT 41/AX=004Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#684400" name="684400"><b>684400</b></a> - INT 68 U - ???<br />
+<pre>
+INT 68 U - ???
+	AX = 4400h
+	BX = ???
+	CX = ???
+	DX = ???
+	DS:SI = real-mode address of protected-mode GDT
+	ES:DI = real-mode address of protected-mode IDT
+Return: ???
+Note:	called by Novell DOS 7.0 EMM386.EXE if AX=4300h returns AX=F386h
+SeeAlso: AX=4300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6847" name="6847"><b>6847</b></a> - INT 68 - MS Windows debugging kernel - OUTPUT STRING<br />
+<pre>
+INT 68 - MS Windows debugging kernel - OUTPUT STRING
+	AH = 47h
+	ES:SI -&gt; string
+Notes:	output a string (to inform a debugger of some events)
+	KERNEL outputs "Windows Kernel Entry\r\n" on startup
+SeeAlso: INT 41/AX=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FA" name="68FA"><b>68FA</b></a> - INT 68 - APPC/PC - ENABLE/DISABLE APPC<br />
+<pre>
+INT 68 - APPC/PC - ENABLE/DISABLE APPC
+	AH = FAh
+	AL bit 0 = new state (0 enable, 1 disable)
+SeeAlso: AH=FDh,INT 68"Novell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FB" name="68FB"><b>68FB</b></a> - INT 68 - APPC/PC - CONVERT<br />
+<pre>
+INT 68 - APPC/PC - CONVERT
+	AH = FBh
+	DS:DX -&gt; control block (see #03707)
+Return: control block updated
+
+Format of APPC/PC "CONVERT" control block:
+Offset	Size	Description	(Table 03707)
+ 00h 12 BYTEs	reserved
+ 0Ch	WORD	1A00h (verb "CONVERT")
+ 0Eh  6 BYTEs	00h
+ 14h	DWORD	(big-endian) return code
+ 18h	BYTE	conversion
+		00h ASCII to EBCDIC
+		01h EBCDIC to ASCII
+ 19h	BYTE	character set
+		00h AE
+		01h A
+		02h G
+ 1Ah	WORD	length of string to convert
+ 1Ch	DWORD	pointer to source
+ 20h	DWORD	pointer to target
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FC" name="68FC"><b>68FC</b></a> - INT 68 - APPC/PC - ENABLE/DISABLE MESSAGE TRACING<br />
+<pre>
+INT 68 - APPC/PC - ENABLE/DISABLE MESSAGE TRACING
+	AH = FCh
+	AL = new state
+	    00h disable tracing
+	    01h enable tracing
+		DX = number of bytes to keep (0=all)
+SeeAlso: AH=FDh,AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FD" name="68FD"><b>68FD</b></a> - INT 68 - APPC/PC - ENABLE/DISABLE API VERB TRACING<br />
+<pre>
+INT 68 - APPC/PC - ENABLE/DISABLE API VERB TRACING
+	AH = FDh
+	AL = new tracing state (00h disabled, 01h enabled)
+SeeAlso: AH=FAh,AH=FCh,AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FE" name="68FE"><b>68FE</b></a> - INT 68 - APPC/PC - SET TRACE DESTINATION<br />
+<pre>
+INT 68 - APPC/PC - SET TRACE DESTINATION
+	AH = FEh
+	AL = trace destinations (see #03708)
+	DS:DX -&gt; trace stats record if AL bit 0 set (see #03709)
+SeeAlso: AH=FCh,AH=FDh
+
+Bitfields for trace destinations:
+Bit(s)	Description	(Table 03708)
+ 0	storage (DS:DX -&gt; trace stats record)
+ 1	display
+ 2	file (trace written to file OUTPUT.PC)
+ 3	printer
+
+Format of APPC/PC Trace Statistics Record:
+Offset	Size	Description	(Table 03709)
+ 00h	DWORD	pointer to storage trace buffer
+ 04h	WORD	max number of 80-byte records in trace
+ 06h	WORD	(high-order byte first!) current record number (must init to 0)
+ 08h	DWORD	(high-order byte first!) number of records written (init to 0)
+ 0Ch	DWORD	reserved
+Note:	do not move record while trace is active
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#68FF" name="68FF"><b>68FF</b></a> - INT 68 - APPC/PC - SET PASSTHROUGH<br />
+<pre>
+INT 68 - APPC/PC - SET PASSTHROUGH
+	AH = FFh
+	DS:DX -&gt; passthrough exit routine
+SeeAlso: AH=07h,INT 68"Novell"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._EC</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT EC
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#EC"><b>EC</b> - INT EC - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#EC_0"><b>EC</b> - INT EC - used by Alloy NTNX</a><br />
+<a href="#EC_1"><b>EC</b> - INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR</a><br />
+
+<hr />
+
+<a href="#EC" name="EC"><b>EC</b></a> - INT EC - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT EC - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EC_0" name="EC_0"><b>EC</b></a> - INT EC - used by Alloy NTNX<br />
+<pre>
+INT EC - used by Alloy NTNX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#EC_1" name="EC_1"><b>EC</b></a> - INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR<br />
+<pre>
+INT EC - Exact - RUNTIME INTERFACE MULTIPLEXOR
+	AX = function number (0000h to 0140h)
+	STACK:	DWORD address to return to
+		any arguments required by function
+Return: STACK:	return address popped, but otherwise unchanged
+Desc:	this is the interface from applications to the runtime system by Exact
+	  Automatisering B.V. of the Netherlands.  By using this interrupt,
+	  it can provide DLL-style capabilities under MS-DOS.
+Note:	the interrupt handler removes the return address and flags placed on
+	  the stack by the INT EC, then jumps to the appropriate function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

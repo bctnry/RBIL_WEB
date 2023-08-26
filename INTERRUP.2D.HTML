@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._2D</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 2D
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#2D"><b>2D</b> - INT 2D - DOS 2+ - RESERVED</a><br />
+<a href="#2D_0"><b>2D</b> - INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]</a><br />
+<a href="#2D--00"><b>2D--00</b> - INT 2D - AMIS v3.0+ - INSTALLATION CHECK</a><br />
+<a href="#2D--01"><b>2D--01</b> - INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT</a><br />
+<a href="#2D--02"><b>2D--02</b> - INT 2D - AMIS v3.0+ - UNINSTALL</a><br />
+<a href="#2D--03"><b>2D--03</b> - INT 2D - AMIS v3.0+ - REQUEST POP-UP</a><br />
+<a href="#2D--04"><b>2D--04</b> - INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS</a><br />
+<a href="#2D--05"><b>2D--05</b> - INT 2D - AMIS v3.5+ - GET HOTKEYS</a><br />
+<a href="#2D--06"><b>2D--06</b> - INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION</a><br />
+<a href="#2D--10"><b>2D--10</b> - INT 2D - RATSR 2.0+ - GET STATUS</a><br />
+<a href="#2D--10_0"><b>2D--10</b> - INT 2D - dLite 1.0+ - GET PARAMETER BLOCK ADDRESS</a><br />
+<a href="#2D--10_1"><b>2D--10</b> - INT 2D - Burnout Plus v3.00 - GET STATE/CONTROL INFORMATION</a><br />
+<a href="#2D--10_2"><b>2D--10</b> - INT 2D U - Screen Thief v1.00 - FREE HIGH MEMORY BUFFERS</a><br />
+<a href="#2D--10_3"><b>2D--10</b> - INT 2D U - RAMLIGHT v1.0 - GET MONITORING INFORMATION</a><br />
+<a href="#2D--10_4"><b>2D--10</b> - INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK</a><br />
+<a href="#2D--10_5"><b>2D--10</b> - INT 2D - CDTSR - GET INTERNAL VARIABLE TABLE</a><br />
+<a href="#2D--10_6"><b>2D--10</b> - INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE</a><br />
+<a href="#2D--10_7"><b>2D--10</b> - INT 2D - ALTMENU - GET POINTER TO KEY CODE</a><br />
+<a href="#2D--11"><b>2D--11</b> - INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET ORIGINAL SIZE</a><br />
+<a href="#2D--11_0"><b>2D--11</b> - INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK</a><br />
+<a href="#2D--11_1"><b>2D--11</b> - INT 2D - CDTSR - REPROGRAM CDTSR</a><br />
+<a href="#2D--12"><b>2D--12</b> - INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET COMPRESSED SIZE</a><br />
+<a href="#2D--12_0"><b>2D--12</b> - INT 2D - CDTSR - DISABLE POPUP</a><br />
+<a href="#2D--12_1"><b>2D--12</b> - INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO</a><br />
+<a href="#2D--13"><b>2D--13</b> - INT 2D - CDTSR - ENABLE POPUP</a><br />
+<a href="#2D--13_0"><b>2D--13</b> - INT 2D - FREEVER - SET VERSION NUMBERS</a><br />
+<a href="#2D--14"><b>2D--14</b> - INT 2D - FREEVER - ENABLE TSR</a><br />
+<a href="#2D--15"><b>2D--15</b> - INT 2D - FREEVER - DISABLE TSR</a><br />
+<a href="#2D--16"><b>2D--16</b> - INT 2D - FREEVER - GET TSR STATUS</a><br />
+<a href="#2D--17"><b>2D--17</b> - INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION</a><br />
+<a href="#2D--20"><b>2D--20</b> - INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS</a><br />
+<a href="#2D--21"><b>2D--21</b> - INT 2D - DTown Utilities v1.40+ - POP UP</a><br />
+<a href="#2D--50"><b>2D--50</b> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS</a><br />
+<a href="#2D--51"><b>2D--51</b> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE</a><br />
+<a href="#2D--DC"><b>2D--DC</b> - INT 2D C - DAISY.SYS - BROADCAST: CHAIN RESCANNED</a><br />
+
+<hr />
+
+<a href="#2D" name="2D"><b>2D</b></a> - INT 2D - DOS 2+ - RESERVED<br />
+<pre>
+INT 2D - DOS 2+ - RESERVED
+Note:	this vector is not used in DOS versions &lt;= 6.00, and points at an IRET
+BUG:	RM386 v6.00-6.02 (as distributed with Helix's Netroom v3.x) contains
+	  a stack bug in its protected-mode INT 2D handler which causes a crash
+	  when INT 2D is invoked from V86 mode
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D_0" name="2D_0"><b>2D</b></a> - INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]<br />
+<pre>
+INT 2D - ALTERNATE MULTIPLEX INTERRUPT SPECIFICATION (AMIS) [v3.6]
+	AH = multiplex number
+	AL = function
+	    00h installation check
+	    01h get private entry point
+	    02h uninstall
+	    03h request popup
+	    04h determine chained interrupts
+	    05h get hotkey list
+	    06h get device-driver information
+	    07h-0Fh reserved for future enhancements
+		Return: AL = 00h (not implemented)
+	    other  application-dependent
+	other registers vary by function (also see individual entries below)
+Return: varies by function
+Notes:	programs should not use fixed multiplex numbers; rather, a program
+	  should scan all multiplex numbers from 00h to FFh, remembering the
+	  first unused multiplex in case the program is not yet installed.
+	  For multiplex numbers which are in use, the program should compare
+	  the first 16 bytes of the signature string to determine whether it
+	  is already installed on that multiplex number.  If not previously
+	  installed, it should use the first free multiplex number.
+	functions other than 00h are not valid unless a program is installed
+	  on the selected multiplex number
+	to be considered fully compliant with version 3.6 of the specification,
+	  programs must implement at least functions 00h, 02h (no resident
+	  uninstall code required), and 04h (return value 04h).	 TSRs that
+	  provide hotkeys with which the user can activate them must also
+	  implement function 05h.  TSRs which provide DOS device drivers must
+	  also implement function 06h.	The absolute minimum fully-compliant
+	  implementation has an overhead of 64 bytes (80 bytes with function
+	  05h) plus 22 bytes per hooked interrupt (for the interrupt sharing
+	  protocol header and hook list entry).
+	the signature string and description may be used by memory mappers
+	  to display the installed programs
+	to be considered fully compliant, users of this specification must
+	  adhere to the IBM interrupt sharing protocol (see #02568), which will
+	  permit removal of TSRs in arbitrary order and interrupt handler
+	  reordering.  All TSRs following this specification should be
+	  removable unless they are loaded from CONFIG.SYS, though they need
+	  not keep the code for removing themselves resident; it is acceptable
+	  for a separate program to perform the interrupt unhooking and
+	  memory-freeing steps of removal.
+	A sample public-domain implementation including example TSRs and
+	  utility programs may be found in a separate package distributed as
+	  AMISLnnn.ZIP (AMISL092.ZIP as of this writing).
+	Please let me know if you choose to follow this proposal.  The
+	  signature and a list of the private API calls you use would be
+	  appreciated, as well.
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=05h,INT 2D/AL=06h,INT 2F"NOTES"
+
+Format of interrupt sharing protocol interrupt handler entry point:
+Offset	Size	Description	(Table 02568)
+ 00h  2 BYTEs	short jump to actual start of interrupt handler, immediately
+		  following this data block (EBh 10h)
+ 02h	DWORD	address of next handler in chain
+ 06h	WORD	signature 424Bh
+ 08h	BYTE	EOI flag
+		00h software interrupt or secondary hardware interrupt handler
+		80h primary hardware interrupt handler (will issue EOI to
+		      interrupt controller)
+ 09h  2 BYTEs	short jump to hardware reset routine
+		must point at a valid FAR procedure (may be just RETF)
+ 0Bh  7 BYTEs	reserved (0) by IBM for future expansion
+Note:	when chaining to the prior handler, the interrupt handler must perform
+	  an indirect jump/call using the address at offset 02h in the
+	  ISP header.  This permits another AMIS TSR to hook itself into
+	  the chain at a position other than as the first handler to receive
+	  an interrupt.
+SeeAlso: INT F1/AH=01h"Common ISDN API",INT F1/AH=06h"CAPI",#04068
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--00" name="2D--00"><b>2D--00</b></a> - INT 2D - AMIS v3.0+ - INSTALLATION CHECK<br />
+<pre>
+INT 2D - AMIS v3.0+ - INSTALLATION CHECK
+	AL = 00h
+	AH = multiplex number for program
+Return: AL = 00h if free
+	AL = FFh if multiplex number in use
+	    CX = binary version number (CH = major, CL = minor)
+	    DX:DI -&gt; signature string (see #02569) identifying the program
+		  using the multiplex number
+SeeAlso: INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	installation check;Alternate Multiplex Interrupt Specification
+Index:	installation check;AMIS|installation check;FASTMOUS
+Index:	installation check;SPELLER|installation check;Monitor
+Index:	installation check;NOLPT|installation check;NOTE
+Index:	installation check;RBkeyswp|installation check;SWITCHAR
+Index:	installation check;VGABLANK|installation check;EATMEM
+Index:	installation check;RECALL|installation check;XPTR2
+
+Format of AMIS signature string:
+Offset	Size	Description	(Table 02569)
+ 00h  8 BYTEs	blank-padded manufacturer's name (possibly abbreviated)
+ 08h  8 BYTEs	blank-padded product name
+ 10h 64 BYTEs	ASCIZ product description (optional, may be a single 00h)
+Note:	it is not necessary to reserve a full 64 bytes for the description,
+	  just enough to store the actual ASCIZ string
+SeeAlso: #02570
+
+(Table 02570)
+Values for AMIS signatures known to be in use:
+ 'Byrial J' 'EKLAVO  '	permits keyboard entry of Esperanto accented letters
+ 'CoveSoft' 'Burnout+'	shareware screen saver Burnout Plus
+ 'Crynwr  ' 'SPELLER '	TSR spelling-checker
+ 'CPH1995 ' 'CDTSR   '	resident CD-Audio player
+ 'CPH1996 ' 'DSAPI   '
+ 'CSJewell' 'Modula3L'	Curtis Jewell's Modula-3 compiler (non-TSR)
+ 'Cubbi...' 'ASCII...'	Example ASCII code view/enter TSR by Sergey Zubkov
+ 'Cubbi...' 'ScrnGrab'	Example screen grabber by Sergey Zubkov
+ 'DAISYCHA' 'INDRIVER'	Advanced Parallel Port daisy chain driver (vendor name
+			  in product description field, if desired)
+			(see also INT 2D/AL=DCh)
+ 'DTown SD' 'DTU     '	DTown Software Development's DTown Utilities
+			(see also INT 2D/AL=20h)
+ 'ECLIPSE ' 'PLUMP   '	Eclipse Software's printer and plotter spooler
+ 'GraySoft' 'GIPC    '	GraySoft's Inter-Process Communications driver
+ 'heathh  ' 'Monitor '
+ 'Helge O '		TSRs by Helge Olav Helgesen
+ 'IVALM SK' 'lmkey   '	Russian keyboard driver by Sergey Khabarov
+ 'IVALM SK' 'lmrus   '	Russian screen	 driver by Sergey Khabarov
+ 'J. Berry' 'RATSR   '	RemoteAccess Network Manager workstation module
+ 'JWB	  ' 'RAMLIGHT'	James Birdsall's on-screen RAMdisk activity indicator
+ 'M Better' 'iHPFS   '	Marcus Better's HPFS filesystem driver for DOS
+ 'M. Paul ' 'FREEVER '	DOS version-faking TSR by Matthias Paul
+ 'Nildram ' 'ST	     '	Screen Thief graphics screen grabber
+ 'NoBrain ' 'FlatReal'	Flat real mode monitor by Sergei Shtylyov
+ 'NoBrain ' 'Grabber '	Frame grabber drivers by Sergei Shtylyov
+ 'NoBrain ' 'SqrModes'	TSR providing some non-standard video modes
+			by Sergei Shtylyov
+ 'Pino Nav' 'ALTMENU '	activate any program's menu bar by pressing Alt key
+ 'Pino Nav' 'Keybit  '	Pino Navato's KEYBIT Lite Italian keyboard driver v4+
+ 'PowrQuot' 'CAPRILOG'
+ 'PowrQuot' 'CAPRITSR'
+ 'PowrQuot' 'CAPRIWIN'
+ 'R-Ware  ' 'dLite   '	run-time data decompression TSR
+ 'Ralf B  ' 'disaXXYY'	RBdisabl -- disable key scancode XX w/ shift states YY
+ 'Ralf B  ' 'DUALVGA '	dual-VGA support, screen blanker, and DPMS driver
+ 'Ralf B  ' 'FASTMOUS'	example TSR included with sample AMIS library code
+ 'Ralf B  ' 'NoBreak '	disable Ctrl-@, Ctrl-C, and Ctrl-Break keys
+ 'Ralf B  ' 'NOLPT n '	example TSR -- turn LPTn into bit-bucket
+ 'Ralf B  ' 'NOTE    '	example TSR -- popup note-taker
+ 'Ralf B  ' 'RBclock '	RBclock -- on-screen real-time clock
+ 'Ralf B  ' 'RBclockE'	RBclock -- on-screen elapsed-time clock
+ 'Ralf B  ' 'RBdvorak'	Dvorak keyboard mapping w/ opt Esc/~, LCtrl/CapsLk swap
+ 'Ralf B  ' 'RBkcount'	display count of keystrokes on screen
+ 'Ralf B  ' 'RBkeyswp'	RBkeyswap v3.0+ -- swap Esc/~ and LCtrl/CapsLock keys
+ 'Ralf B  ' 'RBnoboot'	disable Ctrl-Alt-Del key combination
+ 'Ralf B  ' 'ShftCaps'	require Shift-CapsLock to turn on CapsLock
+ 'Ralf B  ' 'ShftNumL'	require Shift-NumLock to turn off NumLock
+ 'Ralf B  ' 'SWITCHAR'	example TSR -- add switchar() support removed from DOS5
+ 'Ralf B  ' 'VGABLANK'	VGA-only screen blanker
+ 'Ralf B  ' 'WINTAME '	yield CPU when program in Win95 DOS box is idle
+ 'Sally IS' 'Mdisk   '	removeable, resizeable RAMdisk
+ 'Sally IS' 'Scr2Tex '	screen dumper with output in (La)Tex format
+ 'SRT	  ' 'STOPBOOT'	reboot preventer by Steve Talbot
+ 'Thaco	  ' 'NEST    '	Eirik Pedersen's programmer's delimiter matcher
+ 'TifaWARE' 'EATMEM  '	George A. Theall's public domain memory restrictor for
+			testing programs (v1.1+)
+ 'TifaWARE' 'RECALL  '	public domain commandline editor and history (v1.2+)
+ 'Todd	  ' 'XPTR2   '	PC-to-Transputer interface by Todd Radel
+ 'WlkngOwl' 'NoiseSYS'	NOISE.SYS random-number generator
+SeeAlso: #02569
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--01" name="2D--01"><b>2D--01</b></a> - INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT<br />
+<pre>
+INT 2D - AMIS v3.0+ - GET PRIVATE ENTRY POINT
+	AL = 01h
+	AH = multiplex number for program
+Return: AL = 00h if all API calls via INT 2D
+	AL = FFh if entry point supported
+	    DX:BX -&gt; entry point for bypassing interrupt chain
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	entry point;Alternate Multiplex Interrupt|entry point;AMIS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--02" name="2D--02"><b>2D--02</b></a> - INT 2D - AMIS v3.0+ - UNINSTALL<br />
+<pre>
+INT 2D - AMIS v3.0+ - UNINSTALL
+	AL = 02h
+	AH = multiplex number for program
+	DX:BX = return address for successful uninstall (may be	ignored by TSR)
+Return: AL = status
+	    00h not implemented (makes TSR non-compliant with specification)
+	    01h unsuccessful
+	    02h can not uninstall yet, will do so when able
+	    03h safe to remove, but no resident uninstaller
+		  (TSR still enabled)
+		BX = segment of memory block with resident code
+	    04h safe to remove, but no resident uninstaller
+		  (TSR now disabled)
+		BX = segment of memory block with resident code
+	    05h not safe to remove now, try again later
+	    06h disabled, but can not be removed from memory
+		  because loaded from CONFIG.SYS
+	    07h safe to remove, but no resident device-driver
+		  uninstaller.	Caller must unlink device
+		  drivers from DOS device chain as well as
+		  unhooking interrupts and freeing memory
+		BX = segment of memory block with resident code
+	    FFh successful
+	return at DX:BX with AX destroyed if successful and TSR honors
+	  specific return address
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=03h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+Index:	uninstall;Alternate Multiplex Interrupt Specification|uninstall;AMIS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--03" name="2D--03"><b>2D--03</b></a> - INT 2D - AMIS v3.0+ - REQUEST POP-UP<br />
+<pre>
+INT 2D - AMIS v3.0+ - REQUEST POP-UP
+	AL = 03h
+	AH = multiplex number for program
+Return: AL = status
+	    00h not implemented or TSR is not a pop-up
+	    01h can not pop up at this time, try again later
+	    02h can not pop up yet, will do so when able
+	    03h already popped up
+	    04h unable to pop up, user intervention required
+		BX = standard reason code
+		    0000h unknown failure
+		    0001h interrupt chain passes through memory
+			  which must be swapped out to pop up
+		    0002h swap-in failed
+		CX = application's reason code if nonzero
+	    FFh TSR popped up and was exited by user
+		BX = return value
+		    0000h no return value
+		    0001h TSR unloaded
+		    0002h-00FFh reserved
+		    0100h-FFFFh application-dependent
+Note:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=04h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--04" name="2D--04"><b>2D--04</b></a> - INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS<br />
+<pre>
+INT 2D - AMIS v3.0+ - DETERMINE CHAINED INTERRUPTS
+	AL = 04h
+	AH = multiplex number for program
+	BL = interrupt number (except 2Dh)
+Return: AL = status
+	    00h not implemented (makes TSR non-compliant with specification)
+	    01h (obsolete) unable to determine
+	    02h (obsolete) interrupt hooked
+	    03h (obsolete) interrupt hooked, address returned
+		DX:BX -&gt; TSR's interrupt BL handler
+	    04h list of hooked interrupts returned
+		DX:BX -&gt; interrupt hook list (see #02571)
+	    FFh interrupt not hooked
+Notes:	BL is ignored if the TSR returns AL=04h; in that case, the caller
+	  needs to scan the return list rather than making additional calls
+	  to this function.  If the return is not 00h or 04h, then the caller
+	  must cycle through the remaining interrupt numbers it wishes to
+	  check.
+	return values 01h through 03h may not be used by AMIS v3.6-compliant
+	  programs; they are included here solely for compatibility with
+	  version 3.3, though they were probably never used in any
+	  implementation
+	for return values 01h through 03h, since INT 2D is known to be hooked,
+	  the resident code need not test for BL=2Dh (to minimize its size),
+	  and the return value is therefore undefined in that case.
+	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=05h
+SeeAlso: INT 2D/AL=06h
+
+Format of AMIS interrupt hook list [array]:
+Offset	Size	Description	(Table 02571)
+ 00h	BYTE	interrupt number (last entry in array is 2Dh)
+ 01h	WORD	offset within hook list's segment of the interrupt handler
+		this will point at the initial short jump of the interrupt
+		  sharing protocol header (see #02568)
+SeeAlso: #02572
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--05" name="2D--05"><b>2D--05</b></a> - INT 2D - AMIS v3.5+ - GET HOTKEYS<br />
+<pre>
+INT 2D - AMIS v3.5+ - GET HOTKEYS
+	AL = 05h
+	AH = multiplex number for program
+Return: AL = status
+	    00h not implemented
+	    FFh supported
+		DX:BX -&gt; hotkey list (see #02572)
+Notes:	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+	programs which provide hotkeys are required to provide this function
+	  to be fully compliant with this specification
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=06h
+
+Format of AMIS hotkey list:
+Offset	Size	Description	(Table 02572)
+ 00h	BYTE	type of hotkey checking (see #02573)
+ 01h	BYTE	number of hotkeys (may be zero if TSR can disable hotkeys)
+ 02h 6N BYTEs	array of hotkey definitions
+		(one per hotkey, first should be primary hotkey)
+		Offset	Size	Description
+		 00h	BYTE	hotkey scan code (00h/80h if shift states only)
+				hotkey triggers on release if bit 7 set
+		 01h	WORD	required shift states (see #02574)
+		 03h	WORD	disallowed shift states (see #02574)
+		 05h	BYTE	hotkey flags (see #02575)
+Notes:	except for bit 7, the shift states correspond exactly to the return
+	  values from INT 16/AH=12h.  A set bit in the required states word
+	  indicates that the corresponding shift state must be active when the
+	  hotkey's scan code is received for the hotkey to be recognized; a
+	  clear bit means that the corresponding state may be ignored.	A set
+	  bit in the disallowed shift states word indicates that the
+	  corresponding shift state must be inactive.
+	for the disallowed-states word, if one of the "either" bits is set,
+	  then both the corresponding left bit and right bit must be set
+	examples:
+		Ctrl-Alt-Del monitoring: 53h 000Ch 0003h 06h
+		Alt-key tap (DESQview):	 B8h 0000h 0007h 08h
+		Shf-Shf-N (NOTE.COM):	 31h 0003h 000Ch 00h
+Index:	hotkeys;AMIS
+SeeAlso: #00006
+
+Bitfields for type of AMIS hotkey checking:
+Bit(s)	Description	(Table 02573)
+ 0	checks before chaining INT 09
+ 1	checks after chaining INT 09
+ 2	checks before chaining INT 15/AH=4Fh
+ 3	checks after chaining INT 15/AH=4Fh
+ 4	checks on INT 16/AH=00h,01h,02h
+ 5	checks on INT 16/AH=10h,11h,12h
+ 6	checks on INT 16/AH=20h,21h,22h
+ 7	reserved (0)
+SeeAlso: #02572
+
+Bitfields for AMIS shift states:
+Bit(s)	Description	(Table 02574)
+ 0	right shift pressed
+ 1	left shift pressed
+ 2	either control key pressed
+ 3	either Alt key pressed
+ 4	ScrollLock active
+ 5	NumLock active
+ 6	CapsLock active
+ 7	either shift key pressed
+ 8	left control key pressed
+ 9	left Alt key pressed
+ 10	right control key pressed
+ 11	right Alt key pressed
+ 12	ScrollLock pressed
+ 13	NumLock pressed
+ 14	CapsLock pressed
+ 15	SysReq key pressed
+Notes:	if bit 2 is set, either control key may be pressed for the hotkey; if
+	  bits 8 and 10 are both set, then both control keys must be pressed.
+	  Similarly for bits 3 and 9/11, as well as 7 and 0/1.
+	the SysReq key is often labeled SysRq
+SeeAlso: #02572,#02575
+
+Bitfields for AMIS hotkey flags:
+Bit(s)	Description	(Table 02575)
+ 0	hotkey chained before processing
+ 1	hotkey chained after processing
+ 2	others should pass through this hotkey so that it can be monitored
+ 3	hotkey will not activate if other keys pressed/released before hotkey
+	  press is completed
+ 4	this key is remapped into some other key
+ 5	this key is conditionally chained (sometimes passed on, sometimes
+	  swallowed)
+ 6-7	reserved (0)
+SeeAlso: #02572,#02574
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--06" name="2D--06"><b>2D--06</b></a> - INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION<br />
+<pre>
+INT 2D - AMIS v3.6 - GET DEVICE-DRIVER INFORMATION
+	AL = 06h
+	AH = multiplex number for program
+Return: AL = number of device driver headers supplied by prog.
+	AH = device-driver flags (see #02576)
+	DX:BX -&gt; first device driver header (see #01646)
+Program: AMIS is the Alternate Multiplex Interrupt Specification promulgated
+	  by Ralf Brown
+Notes:	if AL=00h, AH,BX,DX are meaningless and may be destroyed
+	this function is not valid unless a program is installed on the
+	  specified multiplex number; use INT 2D/AL=00h to check
+	programs which provide device drivers are required to support this
+	  function to be considered fully compliant with v3.6+ of the
+	  specification
+SeeAlso: INT 2D/AL=00h,INT 2D/AL=01h,INT 2D/AL=02h,INT 2D/AL=03h,INT 2D/AL=04h
+SeeAlso: INT 2D/AL=05h
+
+Bitfields for AMIS device-driver information flags:
+Bit(s)	Description	(Table 02576)
+ 0	program loaded from CONFIG.SYS, and thus can not be removed from memory
+	(leave clear if unable to determine)
+ 1	device driver headers have not been linked into DOS device chain
+ 2	reentrant device driver(s)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10" name="2D--10"><b>2D--10</b></a> - INT 2D - RATSR 2.0+ - GET STATUS<br />
+<pre>
+INT 2D - RATSR 2.0+ - GET STATUS
+	AL = 10h
+	AH = AMIS multiplex number for RATSR
+Return: AL = status
+	    01h listening (no connection)
+	    02h receiving	      \
+	    03h sending		       &gt; station being monitored
+	    04h initializing receive  /
+	AH = keyboard lock status (00h unlocked, 01h locked)
+Program: RATSR is a utility by James Berry provided with
+	  RemoteAccess/Professional, a commercial bulletin board system, that
+	  allows remote control of a station over a network
+SeeAlso: INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_0" name="2D--10_0"><b>2D--10</b></a> - INT 2D - dLite 1.0+ - GET PARAMETER BLOCK ADDRESS<br />
+<pre>
+INT 2D - dLite 1.0+ - GET PARAMETER BLOCK ADDRESS
+	AL = 10h
+	AH = AMIS multiplex number for dLite
+Return: CF clear if successful
+	    ES:BX -&gt; parameter block (see #02577)
+	CF set on error
+Program: dLite is a shareware TSR by Rainer Schuetze which transparently
+	  expands compressed files when they are read
+SeeAlso: AL=11h"dLite",AL=12h"dLite",INT 21/AX=FEDCh"PCMANAGE"
+
+Format of dLite parameter block:
+Offset	Size	Description	(Table 02577)
+ 00h	BYTE	TSR flags (see #02578)
+ 01h	WORD	maximum number of programs needing original filesize
+ 03h	WORD	current number of programs needing original filesize
+ 05h	WORD	maximum number of files that can be handled by dLite (should
+		  be the same as FILES= in CONFIG.SYS)
+ 07h	WORD	offset (in the same segment as the parameter block) of the
+		  table of programs needing the original filesize (8 bytes
+		  each,	without path or extension, uppercase, and zero \
+		  terminated if	shorter than 8 bytes)
+
+Bitfields for dLite TSR flags:
+Bit(s)	Description	(Table 02578)
+ 0	deny FCB access
+ 1	dLite sleeping rather than activated
+ 2	always indicate original filesize when reading directory entries,
+	  rather than only for specified programs
+ 3-7	reserved
+SeeAlso: #02577
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_1" name="2D--10_1"><b>2D--10</b></a> - INT 2D - Burnout Plus v3.00 - GET STATE/CONTROL INFORMATION<br />
+<pre>
+INT 2D - Burnout Plus v3.00 - GET STATE/CONTROL INFORMATION
+	AL = 10h
+	AH = AMIS multiplex number for Burnout Plus
+Return: AL = 01h
+	BX = Burnout Plus status (see #02579)
+	CX = record of features loaded (see #02580)
+	ES:DI -&gt; Burnout Plus control structure (see #02581)
+Program: Burnout Plus is a DOS screen saver from Cove Software
+SeeAlso: INT 14/AX=AA01h,INT 2D"AMIS"
+Index:	screen saver;Burnout Plus
+
+Bitfields for Burnout Plus status:
+Bit(s)	Description	(Table 02579)
+ 0	screen is blanked
+ 1	MS Windows is active (Burnout Plus deactivated)
+ 2-15	reserved
+
+Bitfields for Burnout Plus features loaded/features enabled:
+Bit(s)	Description	(Table 02580)
+ 0	mouse activity monitor
+ 1	passkey support
+ 2	password support
+ 3	continuous clear
+ 4	software blanking
+ 5	video activity monitor
+ 6	disk activity monitor
+ 7	activating keystroke suppression
+SeeAlso: #02581
+
+Format of Burnout Plus control structure:
+Offset	Size	Description	(Table 02581)
+ 00h	BYTE	size of structure in bytes
+ 01h	WORD	Burnout Plus version
+ 03h	WORD	screen blanking reset count in clock ticks
+ 05h	WORD	current countdown value in clock ticks
+ 07h	BYTE	type of timeout specification
+ 08h	BYTE	instant-blank hotkey
+ 09h	WORD	extended status information (see #02582)
+		the bits for password, passkey, and software blanking are
+		  ignored and cannot be enabled or disabled externally
+ 0Bh	WORD	features enabled (see #02580)
+Note:	all fields except the first two may be modified by external programs
+	  to affect the operation of Burnout Plus
+Index:	hotkeys;Burnout Plus
+
+Bitfields for extended Burnout Plus status information:
+Bit(s)	Description	(Table 02582)
+ 0	Burnout Plus disabled
+ 1	force screen to blank on next clock tick
+ 2	restore screen if currently blanked
+ 3-15	reserved
+Note:	1 and 2 are automatically cleared by Burnout Plus after blanking
+	  or restoring the screen
+SeeAlso: #02581
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_2" name="2D--10_2"><b>2D--10</b></a> - INT 2D U - Screen Thief v1.00 - FREE HIGH MEMORY BUFFERS<br />
+<pre>
+INT 2D U - Screen Thief v1.00 - FREE HIGH MEMORY BUFFERS
+	AL = 10h
+	AH = AMIS multiplex number for Screen Thief
+Return: nothing
+Program: Screen Thief is a graphics screen grabber
+Note:	releases any code and data stored in EMS, DOS UMBs, or XMS UMBs, but
+	  does not release the low-memory stub; this may be used to effect a
+	  partial uninstall if INT 2D/AL=02h fails
+SeeAlso: INT D8"Screen Thief"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_3" name="2D--10_3"><b>2D--10</b></a> - INT 2D U - RAMLIGHT v1.0 - GET MONITORING INFORMATION<br />
+<pre>
+INT 2D U - RAMLIGHT v1.0 - GET MONITORING INFORMATION
+	AL = 10h
+	AH = AMIS multiplex number for RAMLIGHT
+Return: ES:BX -&gt; array of fake device driver headers used in monitoring
+	CX = number of drives being monitored???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_4" name="2D--10_4"><b>2D--10</b></a> - INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - EXTENDED API INSTALLATION CHECK
+	AL = 10h
+Return: AL = FFh
+	BL = extended API availability (00h no, 01h API is loaded)
+SeeAlso: INT 2D/AL=11h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_5" name="2D--10_5"><b>2D--10</b></a> - INT 2D - CDTSR - GET INTERNAL VARIABLE TABLE<br />
+<pre>
+INT 2D - CDTSR - GET INTERNAL VARIABLE TABLE
+	AL = 10h
+	AH = AMIS multiplex number for CDTSR
+Return: CX:DX -&gt; CDTSR internal variable structure (see #02583)
+Program: CDTSR is a resident audio CD player by Colin Hill
+SeeAlso: INT 2D/AL=11h"CDTSR",INT 2D/AL=12h"CDTSR",INT 2D/AL=13h"CDTSR"
+
+Format of CDTSR internal variable structure:
+Offset	Size	Description	(Table 02583)
+ 00h	BYTE	hotkey scan code (see #00006)
+ 01h	BYTE	hotkey shift states
+ 02h	BYTE	flag: repeat
+ 03h	BYTE	flag: custom repeat
+ 04h	BYTE	flag: background polling
+ 05h	DWORD	(read-only) internal timing variable
+ 09h	DWORD	current track play position, in frames
+ 0Dh	DWORD	current disk play position, in frames
+ 11h	BYTE	number of entries in track program
+ 12h	BYTE	index into track program currently playing (FFh if not playing)
+ 13h 100 BYTEs	track program (each byte contains one track number)
+ 77h	BYTE	saved cursor end scan line
+ 78h	BYTE	saved cursor start scan line
+ 79h	BYTE	currently playing track
+ 7Ah	BYTE	CD driver media-change flag
+ 7Bh	WORD	video base segment during last popup
+ 7Dh	WORD	video page offset during last popup
+ 7Fh	BYTE	currently-selected track
+ 80h	DWORD	begin of custom repeat, in frames
+ 84h	DWORD	end of custom repeat, in frames
+ 88h	WORD	track program index of top list item
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_6" name="2D--10_6"><b>2D--10</b></a> - INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE<br />
+<pre>
+INT 2D - KEYBIT Lite v5+ - GET POINTER TO STATUS BYTE
+	AL = 10h
+	AH = AMIS multiplex number for KEYBIT Lite
+Return: DX:BX -&gt; status byte (see #02584)
+Program: KEYBIT Lite is an enhanced Italian keyboard driver by Pino Navato.
+SeeAlso: INT 2D"AMIS"
+
+Bitfields for KEYBIT Lite status byte:
+Bit(s)	Description	(Table 02584)
+ 7	KEYBIT Lite active
+ 6	E-mail support active
+ 5-0	reserved
+Notes:	E-mail support is one of the original features of KEYBIT Lite.	It is
+	  the automatic conversion of the 8-bits ASCII chars produced by some
+	  keys available on Italian keyboards to couples of 7-bits chars.
+	Message editors should always enable e-mail support, they should also
+	  restore its original status before exiting.
+	The user can change both status bits by hotkeys.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--10_7" name="2D--10_7"><b>2D--10</b></a> - INT 2D - ALTMENU - GET POINTER TO KEY CODE<br />
+<pre>
+INT 2D - ALTMENU - GET POINTER TO KEY CODE
+	AL = 10h
+	AH = AMIS multiplex number for signature 'Pino Nav' 'ALTMENU '
+Return: DX:BX -&gt; WORD key code to insert in keyboard buffer on Alt-key tap
+Program: Pino Navato's freeware ALTMENU permits activating the menu bar of
+	  any program by pressing the Alt key alone.
+Notes:	The value in the key code word will be returned in AX by a call to
+	  INT 16/AH=00h after the Alt key is pressed by itself
+	ALTMENU may be disabled by setting the key code equal to 0000h
+SeeAlso: INT 16/AH=00h,INT 2D"AMIS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--11" name="2D--11"><b>2D--11</b></a> - INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET ORIGINAL SIZE<br />
+<pre>
+INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET ORIGINAL SIZE
+	AL = 11h
+	AH = AMIS multiplex number for dLite
+	BX = file handle
+Return: CF clear if successful
+	    DX:AX = size of uncompressed file
+	CF set on error (not dPressed file)
+SeeAlso: AL=10h"dLite",AL=12h"dLite"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--11_0" name="2D--11_0"><b>2D--11</b></a> - INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - UTILITY INSTALLATION CHECK
+	AL = 11h
+	BL = function
+	    00h get number of installed utilities
+		Return: BL = number of utilities
+	    01h get installed utilities
+		DX:DI -&gt; buffer containing one byte for each utility
+		Return: DX:DI buffer filled with flags (0=no,1=yes) indicating
+			  whether the corresponding utility is loaded
+Return: AL = FFh if supported
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--11_1" name="2D--11_1"><b>2D--11</b></a> - INT 2D - CDTSR - REPROGRAM CDTSR<br />
+<pre>
+INT 2D - CDTSR - REPROGRAM CDTSR
+	AL = 11h
+	AH = AMIS multiplex number for CDTSR
+Return: nothing
+Program: CDTSR is a resident audio CD player by Colin Hill
+Desc:	reprograms CDTSR based on the values in the internal variable
+	  structure (see #02583), which may have been changed by an application
+SeeAlso: INT 2D/AL=10h"CDTSR",INT 2D/AL=12h"CDTSR",INT 2D/AL=13h"CDTSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--12" name="2D--12"><b>2D--12</b></a> - INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET COMPRESSED SIZE<br />
+<pre>
+INT 2D - dLite 1.0+ - CHECK FOR dPressed FILE AND GET COMPRESSED SIZE
+	AL = 12h
+	AH = AMIS multiplex number for dLite
+	BX = file handle
+Return: CF clear if successful
+	    DX:AX = size of compressed file
+	CF set on error (not dPressed file)
+SeeAlso: AL=10h"dLite",AL=11h"dLite"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--12_0" name="2D--12_0"><b>2D--12</b></a> - INT 2D - CDTSR - DISABLE POPUP<br />
+<pre>
+INT 2D - CDTSR - DISABLE POPUP
+	AL = 12h
+	AH = AMIS multiplex number for CDTSR
+Return: nothing
+SeeAlso: INT 2D/AL=10h"CDTSR",INT 2D/AL=11h"CDTSR",INT 2D/AL=13h"CDTSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--12_1" name="2D--12_1"><b>2D--12</b></a> - INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO<br />
+<pre>
+INT 2D - FREEVER - GET ORIGINAL DOS VERSION INFO
+	AL = 12h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BH = major DOS version
+	    BL = minor DOS version
+	    CH = DOS version flag
+	    CL = OEM number
+	    DH = major DR DOS version number (FFh if unknown)
+	    DL = minor DR DOS version number (FFh if unknown)
+Program: FREEVER is an AMIS-conformant freeware DOS version-faking TSR similar
+	  to SETVER for any DOS-compatible OS, written by Matthias Paul
+SeeAlso: INT 2D/AL=13h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--13" name="2D--13"><b>2D--13</b></a> - INT 2D - CDTSR - ENABLE POPUP<br />
+<pre>
+INT 2D - CDTSR - ENABLE POPUP
+	AL = 13h
+	AH = AMIS multiplex number for CDTSR
+Return: nothing
+Program: CDTSR is a resident audio CD player by Colin Hill
+SeeAlso: INT 2D/AL=10h"CDTSR",INT 2D/AL=11h"CDTSR",INT 2D/AL=12h"CDTSR"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--13_0" name="2D--13_0"><b>2D--13</b></a> - INT 2D - FREEVER - SET VERSION NUMBERS<br />
+<pre>
+INT 2D - FREEVER - SET VERSION NUMBERS
+	AL = 13h
+	AH = AMIS multiplex number for FREEVER
+	BH = new major DOS version
+	BL = new minor DOS version
+	CH = new DOS version flag
+	CL = new DOS revision number
+	DH = new OEM number
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--14" name="2D--14"><b>2D--14</b></a> - INT 2D - FREEVER - ENABLE TSR<br />
+<pre>
+INT 2D - FREEVER - ENABLE TSR
+	AL = 14h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--15" name="2D--15"><b>2D--15</b></a> - INT 2D - FREEVER - DISABLE TSR<br />
+<pre>
+INT 2D - FREEVER - DISABLE TSR
+	AL = 15h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--16" name="2D--16"><b>2D--16</b></a> - INT 2D - FREEVER - GET TSR STATUS<br />
+<pre>
+INT 2D - FREEVER - GET TSR STATUS
+	AL = 16h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BL = status
+		01h resident and active
+		02h resident and inactive
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=15h"FREEVER",INT 2D/AL=17h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--17" name="2D--17"><b>2D--17</b></a> - INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION<br />
+<pre>
+INT 2D - FREEVER - GET TaskMAX STATUS AT INSTALLATION
+	AL = 17h
+	AH = AMIS multiplex number for FREEVER
+Return: AL = FFh if successful
+	    BL = status
+		00h if TaskMAX not loaded before SETDRVER
+		FFh if TaskMAX was loaded before SETDRVER
+Program: FREEVER is an AMIS-conformant freeware DOS version-faking TSR similar
+	  to SETVER for any DOS-compatible OS, written by Matthias Paul
+SeeAlso: INT 2D/AL=12h"FREEVER",INT 2D/AL=14h"FREEVER",INT 2D/AL=16h"FREEVER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--20" name="2D--20"><b>2D--20</b></a> - INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - GET POP-UP HANDLER ADDRESS
+	AL = 20h
+Return: AL = FFh if available
+	    DX:DI -&gt; DTU popup-handler
+Program: DTown Utilities is a freeware programmer's utility TSR by Jeroen van
+	  Disseldorp
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=21h,INT 2D/AL=50h,INT 2D/AL=51h
+SeeAlso: INT 03"DTown"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--21" name="2D--21"><b>2D--21</b></a> - INT 2D - DTown Utilities v1.40+ - POP UP<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - POP UP
+	AL = 21h
+	BL = which utility to bring up
+	    00h active utility
+	    01h help screen
+	    0Ah ASCII table
+	    0Bh memory view
+	    0Ch CPU status
+	    0Dh calculator
+	    0Eh miscellaneous
+	    0Fh file viewer
+	    10h disassembler
+Return: AL = status
+	    00h already active
+	    FFh popped up successfully
+	BX = 0000h
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--50" name="2D--50"><b>2D--50</b></a> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET ADDRESS
+	AL = 50h
+	CX:DX = new address for start of memory view utility's display
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+Return: AL = FFh if supported
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=21h,INT 2D/AL=51h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--51" name="2D--51"><b>2D--51</b></a> - INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE<br />
+<pre>
+INT 2D - DTown Utilities v1.40+ - MEMORY VIEW SET REFERENCE
+	AL = 51h
+	BL = reference ("bookmark") number
+	CX:DX = new address for reference
+Return: AL = status
+	    00h invalid index
+	    FFh reference set
+Note:	this function is only available if the extended API has been installed
+	  in the resident portion
+Program: DTown Utilities is a shareware programmer's utility TSR by Jeroen van
+	  Disseldorp
+SeeAlso: INT 2D/AL=10h"DTown",INT 2D/AL=20h,INT 2D/AL=50h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2D--DC" name="2D--DC"><b>2D--DC</b></a> - INT 2D C - DAISY.SYS - BROADCAST: CHAIN RESCANNED<br />
+<pre>
+INT 2D C - DAISY.SYS - BROADCAST: CHAIN RESCANNED
+	AL = DCh
+	AH = AMIS multiplex number for signature 'DAISYCHA' 'INDRIVER'
+	DL = LPT Port Rescanned
+Program: DAISY.SYS is a daisy chain manager for parallel port peripherals
+	  conforming to the IEEE 1284.3 Committee's daisy chain specification.
+Desc:	This Broadcast is sent whenever daisy chain IDs are reassigned to
+	  warn parallel port device drivers that their daisy chain ID may
+	  have been changed.
+Note:	This function is a callout from DAISY.SYS, NOT a call into DAISY.SYS
+SeeAlso: INT 17/AX=0200h"Enhanced Parallel Port",#00633,#02570
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

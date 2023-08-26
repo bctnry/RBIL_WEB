@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._n</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category n - non-traditional input devices,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#15BA10"><b>15BA10</b> - INT 15 - HP OmniShare - Pen Driver - REPORT PEN CONTROL AREA EVENT</a><br />
+<a href="#15BA11"><b>15BA11</b> - INT 15 - HP OmniShare - Pen Driver - SET THE COMMUNICATION LED STATE</a><br />
+<a href="#15BA12"><b>15BA12</b> - INT 15 - HP OmniShare - Pen Driver - STORE PEN BATTERY CHARGE</a><br />
+<a href="#15BA13"><b>15BA13</b> - INT 15 - HP OmniShare - Pen Driver - GET PEN BATTERY CHARGE</a><br />
+<a href="#214402_18"><b>214402</b> - INT 21 U - PenDOS PENDEV.SYS - GET ENTRY POINTS</a><br />
+<a href="#214403_9"><b>214403</b> - INT 21 U - PenDOS PENDEV.SYS - ???</a><br />
+<a href="#6610"><b>6610</b> - INT 66 - PenDOS - TDMOUSE.EXE - GET ???</a><br />
+<a href="#6611"><b>6611</b> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER</a><br />
+<a href="#6612"><b>6612</b> - INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE</a><br />
+<a href="#6613"><b>6613</b> - INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???</a><br />
+<a href="#6614"><b>6614</b> - INT 66 - PenDOS - TDMOUSE.EXE - ???</a><br />
+<a href="#6615"><b>6615</b> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER</a><br />
+<a href="#6616"><b>6616</b> - INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS</a><br />
+<a href="#6621"><b>6621</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6622"><b>6622</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6623"><b>6623</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6624"><b>6624</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6625"><b>6625</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6627"><b>6627</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6628"><b>6628</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#6629"><b>6629</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662A"><b>662A</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662B"><b>662B</b> - INT 66 - PenDOS - PINK - ???</a><br />
+<a href="#662F"><b>662F</b> - INT 66 - PenDOS - PINK - INITIALIZE</a><br />
+<a href="#6640"><b>6640</b> - INT 66 - PenDOS - PKEYUS - GET VERSION</a><br />
+<a href="#6641"><b>6641</b> - INT 66 - PenDOS - PKEYUS - SET ???</a><br />
+<a href="#6642"><b>6642</b> - INT 66 - PenDOS - PKEYUS - ???</a><br />
+<a href="#6643"><b>6643</b> - INT 66 - PenDOS - PKEYUS - ???</a><br />
+<a href="#6644"><b>6644</b> - INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS</a><br />
+<a href="#6650"><b>6650</b> - INT 66 - PenDOS - PMOUSE - SET ???</a><br />
+<a href="#6651"><b>6651</b> - INT 66 - PenDOS - PMOUSE - NOP</a><br />
+<a href="#6652"><b>6652</b> - INT 66 - PenDOS - PMOUSE - ???</a><br />
+<a href="#6653"><b>6653</b> - INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS</a><br />
+<a href="#66_9"><b>66</b> - INT 66 - PenDOS - PMOUSE - ALTERNATE API</a><br />
+<a href="#66C5"><b>66C5</b> - INT 66 - PenDOS - VLOAD - API</a><br />
+
+<hr />
+
+<a href="#15BA10" name="15BA10"><b>15BA10</b></a> - INT 15 - HP OmniShare - Pen Driver - REPORT PEN CONTROL AREA EVENT<br />
+<pre>
+INT 15 - HP OmniShare - Pen Driver - REPORT PEN CONTROL AREA EVENT
+	AX = BA10h
+	BL = event
+	   00h the pen left control areas
+	   01h the pen entered the Brightness- area
+	   02h the pen entered the Brightness+ area
+	   03h the pen entered the Contrast- area
+	   04h the pen entered the Contrast+ area
+Return: CF clear if successfully processed
+	CF set on error (function not supported, ie. not an OmniShare BIOS)
+Note:	The pen driver is responsible for detecting when the pen enters and
+	  leaves control areas of the OmniShare tablet, and notifying the BIOS.
+	The BIOS manages the events, including the autorepetition, and sets
+	  the status LEDs.
+SeeAlso: AX=BA20h,AX=BA13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA11" name="15BA11"><b>15BA11</b></a> - INT 15 - HP OmniShare - Pen Driver - SET THE COMMUNICATION LED STATE<br />
+<pre>
+INT 15 - HP OmniShare - Pen Driver - SET THE COMMUNICATION LED STATE
+	AX = BA11h
+	BL = new LED state (00h steady, 01h flashing)
+Return: CF clear if successful
+	CF set on error
+Note:	this function is for use by communication software to give visual
+	  feedback of active communications even if the display is in standby
+	  mode.
+SeeAlso: AX=BA10h,AX=BA24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA12" name="15BA12"><b>15BA12</b></a> - INT 15 - HP OmniShare - Pen Driver - STORE PEN BATTERY CHARGE<br />
+<pre>
+INT 15 - HP OmniShare - Pen Driver - STORE PEN BATTERY CHARGE
+	AX = BA12h
+	BL = new battery state (00h good, 01h low charge)
+Return: CF set on error
+	CF clear if successfully stored in CMOS
+Note:	The last report will be displayed by the Power-On Self Test the next
+	  time the OmniShare boots.  This allows something meaningful to be
+	  reported even if the pen is not detected during the POST.
+SeeAlso: AX=BA13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#15BA13" name="15BA13"><b>15BA13</b></a> - INT 15 - HP OmniShare - Pen Driver - GET PEN BATTERY CHARGE<br />
+<pre>
+INT 15 - HP OmniShare - Pen Driver - GET PEN BATTERY CHARGE
+	AX = BA13h
+Return: CF clear if successful
+	    BL = pen battery state (00h good, 01h low charge)
+	CF set on error
+Note:	returns the last value set by AX=BA12h.
+SeeAlso: AX=BA12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_18" name="214402_18"><b>214402</b></a> - INT 21 U - PenDOS PENDEV.SYS - GET ENTRY POINTS<br />
+<pre>
+INT 21 U - PenDOS PENDEV.SYS - GET ENTRY POINTS
+	AX = 4402h
+	BX = file handle for device "$$PENDOS" or "$$PD_REG"
+	CX = size of buffer (4 for $$PENDOS and a 4,8,12, or 16 for $$PD_REG)
+	DS:DX -&gt; buffer for entry point record (see #01500)
+Return: CF clear if successful
+	    buffer filled
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Program: A limited version of PenDOS by Communication Intelligence Corporation,
+	  which provides pen capability to keyboard-based programs, is bundled
+	  with IBM DOS 6.1
+SeeAlso: AX=4403h"PENDEV.SYS"
+
+Format of PENDEV.SYS entry point record:
+Offset	Size	Description	(Table 01500)
+ 00h	DWORD	-&gt; array of jumps
+ 04h	WORD	offset of function to retrieve entry point (see #01501)
+ 06h  2 BYTEs	signature "Pe"
+ 08h	WORD	offset of function to set entry point (see #01502)
+ 0Ah  2 BYTEs	signature "nD"
+ 0Ch	WORD	offset of function to clear entry point (see #01503)
+ 0Eh	WORD	signature "OS"
+
+(Table 01501)
+Call PENDEV.SYS function to retrieve entry point with:
+	AX = index of entry point (0-9)
+Return: CF clear if successful
+	    DX:AX -&gt; desired entry point
+	CF set on error (AX out of range)
+
+(Table 01502)
+Call PENDEV.SYS function to set entry point with:
+	AX = index of entry point (0-9)
+	DX:SI -&gt; new handler
+Return: CF clear if successful
+	CF set on error (AX out of range)
+
+(Table 01503)
+Call PENDEV.SYS function to clear entry point with:
+	AX = index of entry point (0-9)
+Return: CF clear if successful
+	CF set on error (AX out of range)
+Note:	resets the jump at the specified entry point to its default target,
+	  which simply returns
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214403_9" name="214403_9"><b>214403</b></a> - INT 21 U - PenDOS PENDEV.SYS - ???<br />
+<pre>
+INT 21 U - PenDOS PENDEV.SYS - ???
+	AX = 4403h
+	BX = file handle for device "$$PENDOS" or "$$PD_REG"
+	CX = size of buffer
+	DS:DX -&gt; buffer containing ???
+Return: CF clear if successful
+	    buffer filled
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Program: A limited version of PenDOS by Communication Intelligence Corporation,
+	  which provides pen capability to keyboard-based programs, is bundled
+	  with IBM DOS 6.1
+Note:	this call sets the WORD at offset 1Ah into the device driver request
+	  header used to call the driver to 0000h.
+SeeAlso: AX=4402h"PENDEV.SYS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6610" name="6610"><b>6610</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - GET ???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - GET ???
+	AH = 10h
+Return: CF clear
+	AX = 0000h
+	BX = ??? (0012h)
+	DX:CX -&gt; TDMOUSE INT 33 handler (IRET to hide mouse from other apps)
+Program: TDMOUSE is a PenDOS hardware driver which allows a mouse to emulate
+	  a touchpad; PenDOS is a set of programs by Communication Intelligence
+	  Corporation which makes applications pen-aware
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6611" name="6611"><b>6611</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER
+	AH = 11h
+	DX:BX -&gt; new handler for ???
+Return: CF clear
+	AX = 0000h
+	DX:BX -&gt; old handler for ??? (points at RETF by default)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6612" name="6612"><b>6612</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - INITIALIZE
+	AH = 12h
+Return: CF clear
+	AX = 0000h
+Note:	this function calls the old mouse handler with functions 0000h, 0002h,
+	  0007h, 0008h, 000Fh, 0004h, and 000Ch (in that order)
+SeeAlso: AH=13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6613" name="6613"><b>6613</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SHUTDOWN???
+	AH = 13h
+Return: CF clear
+	other register as returned by INT 33/AX=0000h
+SeeAlso: AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6614" name="6614"><b>6614</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - ???<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - ???
+	AH = 14h
+	BX = ???
+	CX = ???
+Return: CF clear
+	AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6615" name="6615"><b>6615</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - SET ??? HANDLER
+	AH = 15h
+	DX:BX -&gt; new handler for ???
+Return: CF clear
+	AX = 0000h
+	DX:BX -&gt; old handler (points at RETF by default)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6616" name="6616"><b>6616</b></a> - INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - TDMOUSE.EXE - UNUSED FUNCTIONS
+	AH = 16h to 1Fh
+Return: CF set
+Program: TDMOUSE is a PenDOS hardware driver which allows a mouse to emulate
+	  a touchpad; PenDOS is a set of programs by Communication Intelligence
+	  Corporation which makes applications pen-aware
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6621" name="6621"><b>6621</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 21h
+Return: CF clear if successful
+	CF set on error
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6622" name="6622"><b>6622</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 22h
+	DX:BX -&gt; ???
+	CL = ???
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: AH=24h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6623" name="6623"><b>6623</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 23h
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6624" name="6624"><b>6624</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 24h
+	DX:BX -&gt; ???
+	CL = ???
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: AH=22h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6625" name="6625"><b>6625</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 25h
+	CL = ??? (NOP if 00h)
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6627" name="6627"><b>6627</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 27h
+	BL = ???
+	BH = ???
+	CL = ??? (0-3)
+	DL = ??? (&gt; BL)
+	DH = ??? (&gt; BH)
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6628" name="6628"><b>6628</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 28h
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6629" name="6629"><b>6629</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 29h
+	???
+Return: ???
+Note:	this function sets ??? flag or counter (also set by AH=2Fh) to FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662A" name="662A"><b>662A</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 2Ah
+	DL = ??? (nonzero)
+	DH = ??? (nonzero)
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662B" name="662B"><b>662B</b></a> - INT 66 - PenDOS - PINK - ???<br />
+<pre>
+INT 66 - PenDOS - PINK - ???
+	AH = 2Bh
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#662F" name="662F"><b>662F</b></a> - INT 66 - PenDOS - PINK - INITIALIZE<br />
+<pre>
+INT 66 - PenDOS - PINK - INITIALIZE
+	AH = 2Fh
+	???
+Return: AX = status
+	    0000h failed
+	    FFFFh successful
+	???
+Note:	this function sets ??? flag or counter to FFFFh and hooks INT 1Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6640" name="6640"><b>6640</b></a> - INT 66 - PenDOS - PKEYUS - GET VERSION<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - GET VERSION
+	AH = 40h
+Return: CF clear
+	AX = 0000h
+	BH = major version (02h for version bundled with IBM DOS 6.1)
+	BL = minor version (00h for version bundled with IBM DOS 6.1)
+	DL = ??? (4Eh)
+	DH = ??? (0Eh)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6641" name="6641"><b>6641</b></a> - INT 66 - PenDOS - PKEYUS - SET ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - SET ???
+	AH = 41h
+	BX = ???
+	CL = ??? (08h-20h)
+	DL = screen column??? (&lt;= 50h)
+	DH = screen row???  (&lt;= 3Ch)
+Return: AX = status (0000h successful, 0001h error)
+Note:	this function also sets an internal flag
+SeeAlso: AH=42h,AH=43h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6642" name="6642"><b>6642</b></a> - INT 66 - PenDOS - PKEYUS - ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - ???
+	AH = 42h
+Return: CF clear
+	AX = 0000h
+Note:	this function also clears the flag set by AH=41h
+SeeAlso: AH=41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6643" name="6643"><b>6643</b></a> - INT 66 - PenDOS - PKEYUS - ???<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - ???
+	AH = 43h
+	BX = ???
+	DX = ???
+Return: AX = status
+	    0000h if AH=41h flag set
+	    else
+		AH = ???
+		AL = ???
+		BX = ???
+		DX = ???
+SeeAlso: AH=41h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6644" name="6644"><b>6644</b></a> - INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - PKEYUS - UNUSED FUNCTIONS
+	AH = 44h to 4Fh
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6650" name="6650"><b>6650</b></a> - INT 66 - PenDOS - PMOUSE - SET ???<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - SET ???
+	AH = 50h
+	BX = ???
+	CH = ???
+	DX = ???
+Return: CF clear
+	AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6651" name="6651"><b>6651</b></a> - INT 66 - PenDOS - PMOUSE - NOP<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - NOP
+	AH = 51h
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6652" name="6652"><b>6652</b></a> - INT 66 - PenDOS - PMOUSE - ???<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - ???
+	AH = 52h
+	BX = ???
+	CL = ???
+	DX = ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6653" name="6653"><b>6653</b></a> - INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - UNUSED FUNCTIONS
+	AH = 53h to 57h
+Return: CF set
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66_9" name="66_9"><b>66</b></a> - INT 66 - PenDOS - PMOUSE - ALTERNATE API<br />
+<pre>
+INT 66 - PenDOS - PMOUSE - ALTERNATE API
+	AH = function (58h-5Fh)
+Note:	these functions exactly duplicate AH=50h-57h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#66C5" name="66C5"><b>66C5</b></a> - INT 66 - PenDOS - VLOAD - API<br />
+<pre>
+INT 66 - PenDOS - VLOAD - API
+	AH = C5h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

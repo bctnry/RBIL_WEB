@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._5F</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 5F
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#5F"><b>5F</b> - INT 5F - IRQ15 relocated by DESQview 2.26+</a><br />
+<a href="#5F_0"><b>5F</b> - INT 5F - IRQ7 relocated by DoubleDOS</a><br />
+<a href="#5F_1"><b>5F</b> - INT 5F C - TI Professional PC - KEYBOARD QUEUEING VECTOR</a><br />
+<a href="#5F00"><b>5F00</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET VIDEO MODE</a><br />
+<a href="#5F01"><b>5F01</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET FILL MASK</a><br />
+<a href="#5F02"><b>5F02</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET CURRENT GRAPHICS INFO</a><br />
+<a href="#5F03"><b>5F03</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LOGICAL ORIGIN</a><br />
+<a href="#5F04"><b>5F04</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET CLIP REGION</a><br />
+<a href="#5F05"><b>5F05</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW RECTANGLE</a><br />
+<a href="#5F06"><b>5F06</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW LINE</a><br />
+<a href="#5F07"><b>5F07</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PLOT POINT</a><br />
+<a href="#5F08"><b>5F08</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - MOVE PEN</a><br />
+<a href="#5F09"><b>5F09</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET PEN COLOR</a><br />
+<a href="#5F0A"><b>5F0A</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET REPLACEMENT RULE</a><br />
+<a href="#5F0B"><b>5F0B</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LINE TYPE</a><br />
+<a href="#5F0C"><b>5F0C</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET PIXEL</a><br />
+<a href="#5F0D"><b>5F0D</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET IMAGE</a><br />
+<a href="#5F0E"><b>5F0E</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PUT IMAGE</a><br />
+<a href="#5F0F"><b>5F0F</b> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - WRITE TEXT</a><br />
+<a href="#5F10"><b>5F10</b> - INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - GET FONT POINTER</a><br />
+<a href="#5F11"><b>5F11</b> - INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - SET CURRENT FONT</a><br />
+
+<hr />
+
+<a href="#5F" name="5F"><b>5F</b></a> - INT 5F - IRQ15 relocated by DESQview 2.26+<br />
+<pre>
+INT 5F - IRQ15 relocated by DESQview 2.26+
+Range:	INT 5F to INT FF, selected automatically
+Note:	this is the default, but other INTs may be used (see INT 50"DESQview")
+SeeAlso: INT 50"DESQview",INT 5E"DESQview",INT 77
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F_0" name="5F_0"><b>5F</b></a> - INT 5F - IRQ7 relocated by DoubleDOS<br />
+<pre>
+INT 5F - IRQ7 relocated by DoubleDOS
+SeeAlso: INT 0F,INT 5E"DoubleDOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F_1" name="5F_1"><b>5F</b></a> - INT 5F C - TI Professional PC - KEYBOARD QUEUEING VECTOR<br />
+<pre>
+INT 5F C - TI Professional PC - KEYBOARD QUEUEING VECTOR
+Return: all registers preserved
+Desc:	hook for multitaskers to be informed when a keypress is placed in the
+	  keyboard buffer
+Note:	the default handler is a simple IRET instruction
+SeeAlso: INT 09,INT 4A/AH=00h"TI",INT 59"TI Professional"
+SeeAlso: INT 5B"TI Professional",INT 5C"TI Professional"
+SeeAlso: INT 5D"TI Professional",INT 5E"TI Professional"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F00" name="5F00"><b>5F00</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET VIDEO MODE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET VIDEO MODE
+	AH = 00h
+	AL = video mode
+	    03h text,CGA color (100LX/200LX)
+	    06h 640x200 CGA graphics (100LX/200LX)
+	    07h text, system manager compliant
+	    20h 240x128 mono graphics, system manager compliant
+	    87h text, not system manager compliant
+	    A0h 240x128 mono graphics, not system manager compliant
+Notes:	the defaults after setting the mode to graphics are (0,0) logical
+	  origin, full-screen clip region, (0,0) pen location, pen color 1,
+	  pixel replacement FORCE, line type and fill mask all bits set
+	modes 03h and 06h can also be set with the standard INT 10/AH=00h
+SeeAlso: INT 0F"HP 95LX",INT 10/AH=00h,INT 15/AX=4DD4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F01" name="5F01"><b>5F01</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET FILL MASK<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET FILL MASK
+	AH = 01h
+	ES:DI -&gt; 8-byte fill mask
+Note:	the fill mask represents an 8x8 pixel box and is repeated as necessary
+	  when drawing filled rectangles; it is always aligned with the byte
+	  boundaries of video memory, regardless of the actual boundaries of
+	  the rectangle
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F02" name="5F02"><b>5F02</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET CURRENT GRAPHICS INFO<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET CURRENT GRAPHICS INFO
+	AH = 02h
+	ES:DI -&gt; graphics info record (see #03260)
+Return: DX:AX -&gt; filled graphics info record (for return to high-level langs)
+
+Format of HP 95LX graphics info record:
+Offset	Size	Description	(Table 03260)
+ 00h	BYTE	current video mode
+ 01h	BYTE	default video mode
+ 02h	WORD	display width in pixels
+ 04h	WORD	display height in pixels
+ 06h	WORD	current pen column
+ 08h	WORD	current pen row
+ 0Ah	WORD	current line type
+ 0Ch	WORD	current replacement rule
+ 0Eh	WORD	current pen color
+ 10h	WORD	current leftmost column of clip region
+ 12h	WORD	current rightmost column of clip region
+ 14h	WORD	current topmost row of clip region
+ 16h	WORD	current bottommost row of clip region
+ 18h	WORD	current column of logical origin
+ 1Ah	WORD	current row of logical origin
+ 1Ch  8 BYTEs	current fill mask
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F03" name="5F03"><b>5F03</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LOGICAL ORIGIN<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LOGICAL ORIGIN
+	AH = 03h
+	CX = column
+	DX = row
+SeeAlso: AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F04" name="5F04"><b>5F04</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET CLIP REGION<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET CLIP REGION
+	AH = 04h
+	CX = left-most column
+	DX = top-most row
+	SI = right-most column
+	DI = bottom-most row
+SeeAlso: AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F05" name="5F05"><b>5F05</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW RECTANGLE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW RECTANGLE
+	AH = 05h
+	AL = fill type
+	    00h outline, using current line type and color
+	    01h solid, using current color
+	    02h pattern, using current fill mask and color
+	DX,CX = row,column of other corner of rectangle
+Note:	the rectangle is drawn starting at the current pen position
+SeeAlso: AH=01h,AH=06h,AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F06" name="5F06"><b>5F06</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW LINE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - DRAW LINE
+	AH = 06h
+	DX,CX = row,column of end point
+Note:	the line is drawn starting at the current pen position
+SeeAlso: AH=05h,AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F07" name="5F07"><b>5F07</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PLOT POINT<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PLOT POINT
+	AH = 07h
+	DX,CX = row,column of point
+Note:	also sets pen position to the specified point
+SeeAlso: AH=06h,AH=08h,AH=0Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F08" name="5F08"><b>5F08</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - MOVE PEN<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - MOVE PEN
+	AH = 08h
+	DX,CX = row,column of new pen position
+SeeAlso: AH=07h,AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F09" name="5F09"><b>5F09</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET PEN COLOR<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET PEN COLOR
+	AH = 09h
+	AL = new color (00h = white, 01h = black)
+SeeAlso: AH=08h,AH=0Ah,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0A" name="5F0A"><b>5F0A</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET REPLACEMENT RULE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET REPLACEMENT RULE
+	AH = 0Ah
+	AL = new replacement rule
+	    00h force
+	    01h AND
+	    02h OR
+	    03h XOR
+	    ---100LX/200LX---
+	    04h InvForce
+	    05h InvAND
+	    06h	InvOR
+	    07h InvXOR
+	    08h Txt
+SeeAlso: AH=01h,AH=09h,AH=0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0B" name="5F0B"><b>5F0B</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LINE TYPE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - SET LINE TYPE
+	AH = 0Bh
+	CX = new line type
+Note:	the line type specifies 16 bits which are repeated over and over while
+	  drawing the pixels of a line
+SeeAlso: AH=09h,AH=0Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0C" name="5F0C"><b>5F0C</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET PIXEL<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET PIXEL
+	AH = 0Ch
+	DX,CX = row,column of pixel to read
+Return: AX = pixel color
+SeeAlso: AH=07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0D" name="5F0D"><b>5F0D</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET IMAGE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - GET IMAGE
+	AH = 0Dh
+	DX,CX = row,column of first corner
+	BP,SI = row,column of second corner
+	ES:DI -&gt; image buffer (see #03261)
+Note:	the specified corners are included in the saved image
+SeeAlso: AH=0Eh
+
+Format of HP 95LX image buffer:
+Offset	Size	Description	(Table 03261)
+ 00h	WORD	number of planes (always 01h on HP 95LX)
+ 02h	WORD	number of bits/pixel (always 01h on HP 95LX)
+ 04h	WORD	image width in pixels
+ 06h	WORD	image height in pixels
+ 08h  N BYTEs	image data
+		requires (WIDTH+7)/8 * HEIGHT bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0E" name="5F0E"><b>5F0E</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PUT IMAGE<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - PUT IMAGE
+	AH = 0Eh
+	AL = replacement rule (see #03262)
+	DX,CX = row,column of top left corner
+	ES:DI -&gt; image buffer (see #03261)
+Note:	if the specified image does not fit completely on the screen, this call
+	  does nothing
+SeeAlso: AH=0Dh
+
+Bitfields for replacement rule:
+Bit(s)	Description	(Table 03262)
+ 2	invert image before applying rule
+ 1-0	function (00 force, 01 AND, 10 OR, 11 XOR)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F0F" name="5F0F"><b>5F0F</b></a> - INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - WRITE TEXT<br />
+<pre>
+INT 5F - HP 95LX/100LX/200LX GRAPHICS PRIMITIVES - WRITE TEXT
+	AH = 0Fh
+	AL = rotate flag (if nonzero, rotate 90 degrees counter-clockwise)
+	DX,CX = row,column of first character's top left corner
+	ES:DI -&gt; ASCIZ text
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F10" name="5F10"><b>5F10</b></a> - INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - GET FONT POINTER<br />
+<pre>
+INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - GET FONT POINTER
+	AH = 10h
+	CX = font size of desired font
+	    0808h  8x8	small  (80x25 text)
+	    0A0Bh 11x10 medium (64x18 text)
+	    100Ch 12x16 large  (40x16 text)
+Return: DX:AX -&gt; ptr to font or 0000h:fontID# if built-in font
+SeeAlso: AH=11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#5F11" name="5F11"><b>5F11</b></a> - INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - SET CURRENT FONT<br />
+<pre>
+INT 5F - HP 100LX/200LX GRAPHICS PRIMITIVES - SET CURRENT FONT
+	AH = 11h
+	ES:DI -&gt; ptr to font or 0000h:fontID# for built-in font
+Note:	this function should be called immediately after AH=10h with the
+	  pointer supplied by that call
+SeeAlso: AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

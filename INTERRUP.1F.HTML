@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._1F</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 1F
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#1F"><b>1F</b> - INT 1F - SYSTEM DATA - 8x8 GRAPHICS FONT</a><br />
+<a href="#1F12"><b>1F12</b> - INT 1F U - C&T "SuperState" BIOS - POWER OFF</a><br />
+<a href="#1F17"><b>1F17</b> - INT 1F U - C&T "SuperState" BIOS - EXECUTE FAR PROC ROUTINE ON SuperState</a><br />
+<a href="#1F19"><b>1F19</b> - INT 1F U - C&T "SuperState" BIOS - ENABLE AUTO WAKEUP AND SET TIME AND DATE</a><br />
+<a href="#1F1C"><b>1F1C</b> - INT 1F U - C&T "SuperState" BIOS - SET SUSPEND TIMEOUT</a><br />
+<a href="#1F1D"><b>1F1D</b> - INT 1F U - C&T "SuperState" BIOS - SET SLEEP TIMEOUT</a><br />
+<a href="#1F90"><b>1F90</b> - INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY</a><br />
+<a href="#1FF5--BLFA"><b>1FF5--BLFA</b> - INT 1F U - C&T "SuperState" BIOS - REQUEST PASSWORD INPUT</a><br />
+<a href="#1FF5--BLFD"><b>1FF5--BLFD</b> - INT 1F U - C&T "SuperState" BIOS - ENCRYPT PASSWORD</a><br />
+<a href="#1FF5--BLFE"><b>1FF5--BLFE</b> - INT 1F U - C&T "SuperState" BIOS - SET PASSWORD</a><br />
+<a href="#1FF5--BLFF"><b>1FF5--BLFF</b> - INT 1F U - C&T "SuperState" BIOS - GET ENCRYPTED PASSWORD</a><br />
+<a href="#1FFB"><b>1FFB</b> - INT 1F U - C&T "SuperState" BIOS - GET/SET CPU SPEED</a><br />
+<a href="#1FFC--BL00"><b>1FFC--BL00</b> - INT 1F U - C&T "SuperState" BIOS - GET ALARM STATUS</a><br />
+<a href="#1FFC--BL01"><b>1FFC--BL01</b> - INT 1F U - C&T "SuperState" BIOS - SET ALARM STATUS</a><br />
+<a href="#1FFC--BL02"><b>1FFC--BL02</b> - INT 1F U - C&T "SuperState" BIOS - GET ALARM TIME</a><br />
+<a href="#1FFC--BL03"><b>1FFC--BL03</b> - INT 1F U - C&T "SuperState" BIOS - SET ALARM TIME</a><br />
+<a href="#1FFC--BL04"><b>1FFC--BL04</b> - INT 1F U - C&T "SuperState" BIOS - GET ALARM DATE</a><br />
+<a href="#1FFC--BL05"><b>1FFC--BL05</b> - INT 1F U - C&T "SuperState" BIOS - SET ALARM DATE</a><br />
+<a href="#1FFD--BL00"><b>1FFD--BL00</b> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP STATUS</a><br />
+<a href="#1FFD--BL01"><b>1FFD--BL01</b> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP STATUS</a><br />
+<a href="#1FFD--BL02"><b>1FFD--BL02</b> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP TIME</a><br />
+<a href="#1FFD--BL03"><b>1FFD--BL03</b> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP TIME</a><br />
+<a href="#1FFD--BL04"><b>1FFD--BL04</b> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP DATE</a><br />
+<a href="#1FFD--BL05"><b>1FFD--BL05</b> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP DATE</a><br />
+
+<hr />
+
+<a href="#1F" name="1F"><b>1F</b></a> - INT 1F - SYSTEM DATA - 8x8 GRAPHICS FONT<br />
+<pre>
+INT 1F - SYSTEM DATA - 8x8 GRAPHICS FONT
+Desc:	this vector points at 1024 bytes of graphics data, 8 bytes for each
+	  character 80h-FFh
+Notes:	graphics data for characters 00h-7Fh stored at F000h:FA6Eh in 100%
+	  compatible BIOSes
+	Under PhysTechSoft's PTS ROM-DOS this table is fictitious.
+SeeAlso: INT 10/AX=5000h,INT 43
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F12" name="1F12"><b>1F12</b></a> - INT 1F U - C&T "SuperState" BIOS - POWER OFF<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - POWER OFF
+	AH = 12h
+Return: none
+Note:	POWER OFF
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F17" name="1F17"><b>1F17</b></a> - INT 1F U - C&T "SuperState" BIOS - EXECUTE FAR PROC ROUTINE ON SuperState<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - EXECUTE FAR PROC ROUTINE ON SuperState
+	AH = 17h
+	ES:DI -&gt; far procedure
+Return: all registers except AH,ES,DI
+Note:	You can change the BIOS area (F000h:0000h - F000h:FFFFh) only through
+	  this function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F19" name="1F19"><b>1F19</b></a> - INT 1F U - C&T "SuperState" BIOS - ENABLE AUTO WAKEUP AND SET TIME AND DATE<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - ENABLE AUTO WAKEUP AND SET TIME AND DATE
+	AH = 19h
+	AL = hour in BCD
+	BH = minutes in BCD
+	BL = seconds in BCD
+	CH = year century in BCD (must be 19h)
+	CL = year low in BCD
+	DH = month in BCD
+	DL = date in BCD
+Return: CF clear
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F1C" name="1F1C"><b>1F1C</b></a> - INT 1F U - C&T "SuperState" BIOS - SET SUSPEND TIMEOUT<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET SUSPEND TIMEOUT
+	AH = 1Ch
+	BX = sec until suspend starts
+Return: None
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F1D" name="1F1D"><b>1F1D</b></a> - INT 1F U - C&T "SuperState" BIOS - SET SLEEP TIMEOUT<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET SLEEP TIMEOUT
+	AH = 1Dh
+	BX = sec until sleep starts
+Return: None
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1F90" name="1F90"><b>1F90</b></a> - INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY<br />
+<pre>
+INT 1F - NEC PC-9801 - COPY EXTENDED MEMORY
+	AH = 90h
+	ES:BX -&gt; global descriptor table (see #00499 at INT 15/AH=87h)
+	CX = number of bytes to copy
+	SI = 0000h
+	DI = 0000h
+Return: CF clear if successful
+	CF set on error
+	???
+SeeAlso: INT 15/AH=87h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FF5--BLFA" name="1FF5--BLFA"><b>1FF5--BLFA</b></a> - INT 1F U - C&T "SuperState" BIOS - REQUEST PASSWORD INPUT<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - REQUEST PASSWORD INPUT
+	AH = F5h
+	BL = FAh
+Return: none
+Note:	this function will not return until the correct password is entered
+SeeAlso: AH=F5h/BL=FDh,AH=F5h/BL=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FF5--BLFD" name="1FF5--BLFD"><b>1FF5--BLFD</b></a> - INT 1F U - C&T "SuperState" BIOS - ENCRYPT PASSWORD<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - ENCRYPT PASSWORD
+	AH = F5h
+	BL = FDh
+	CX:SI = input string
+	DX:DI = encrypted string
+	BH = length of input string
+Return: CF set on error
+SeeAlso: AH=F5h/BL=FAh,AH=F5h/BL=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FF5--BLFE" name="1FF5--BLFE"><b>1FF5--BLFE</b></a> - INT 1F U - C&T "SuperState" BIOS - SET PASSWORD<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET PASSWORD
+	AH = F5h
+	BL = FEh
+	CX:SI -&gt; input string
+	BH = length of input string (if BH = 00h, clear password)
+Return: CF set on error
+Note:	the input string must be encrypted by INT 1Fh/AH=F5h/BL=FDh
+SeeAlso: AH=F5h/BL=FDh,AH=F5h/BL=FFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FF5--BLFF" name="1FF5--BLFF"><b>1FF5--BLFF</b></a> - INT 1F U - C&T "SuperState" BIOS - GET ENCRYPTED PASSWORD<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET ENCRYPTED PASSWORD
+	AH = F5h
+	BL = FFh
+	DX:DI = string buffer
+Return: CF set on error
+	CF clear if successful
+	    BH = length of input string (if BH = 00h, password is not valid)
+	    DX:DI -&gt; encrypted password string
+SeeAlso: AH=F5h/BL=FDh,AH=F5h/BL=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFB" name="1FFB"><b>1FFB</b></a> - INT 1F U - C&T "SuperState" BIOS - GET/SET CPU SPEED<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET/SET CPU SPEED
+	AH = FBh
+	BL = function
+	    00h get CPU speed
+		Return: AL = current CPU speed (00h = fast, 01h = slow)
+	    01h set CPU speed
+		AL = new CPU speed (00h = fast, 01h = slow)
+SeeAlso: AH=FCh/BL=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL00" name="1FFC--BL00"><b>1FFC--BL00</b></a> - INT 1F U - C&T "SuperState" BIOS - GET ALARM STATUS<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET ALARM STATUS
+	AH = FCh
+	BL = 00h
+Return: AL = current alarm state (00h = disabled, 01h = enabled)
+SeeAlso: AH=FCh/BL=01h,AH=FCh/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL01" name="1FFC--BL01"><b>1FFC--BL01</b></a> - INT 1F U - C&T "SuperState" BIOS - SET ALARM STATUS<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET ALARM STATUS
+	AH = FCh
+	BL = 01h
+	AL = new alarm state (00h = disabled, 01h = enabled)
+SeeAlso: AH=FCh/BL=00h,AH=FCh/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL02" name="1FFC--BL02"><b>1FFC--BL02</b></a> - INT 1F U - C&T "SuperState" BIOS - GET ALARM TIME<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET ALARM TIME
+	AH = FCh
+	BL = 02h
+Return: CH = hour by BCD
+	CL = min by BCD
+	DH = sec by BCD
+SeeAlso: AH=FCh/BL=00h,AH=FCh/BL=03h,AH=FCh/BL=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL03" name="1FFC--BL03"><b>1FFC--BL03</b></a> - INT 1F U - C&T "SuperState" BIOS - SET ALARM TIME<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET ALARM TIME
+	AH = FCh
+	BL = 03h
+	CH = hour by BCD
+	CL = min by BCD
+	DH = sec by BCD
+Return: CF set on error (incorrect time format or Alarm is not enable)
+SeeAlso: AH=FCh/BL=01h,AH=FCh/BL=02h,AH=FCh/BL=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL04" name="1FFC--BL04"><b>1FFC--BL04</b></a> - INT 1F U - C&T "SuperState" BIOS - GET ALARM DATE<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET ALARM DATE
+	AH = FCh
+	BL = 04h
+Return: CH = year century by BCD
+	CL = year low by BCD
+	DH = month by BCD
+	DL = date by BCD
+SeeAlso: AH=FCh/BL=02h,AH=FCh/BL=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFC--BL05" name="1FFC--BL05"><b>1FFC--BL05</b></a> - INT 1F U - C&T "SuperState" BIOS - SET ALARM DATE<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET ALARM DATE
+	AH = FCh
+	BL = 05h
+	CH = year century by BCD
+	CL = year low by BCD
+	DH = month by BCD
+	DL = date by BCD
+Return: CF set on error (incorrect date format or Alarm is not enable)
+SeeAlso: AH=FCh/BL=03h,AH=FCh/BL=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL00" name="1FFD--BL00"><b>1FFD--BL00</b></a> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP STATUS<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP STATUS
+	AH = FDh
+	BL = 00h
+Return: AL = current wake-up state (00h = disabled, 01h = enabled)
+SeeAlso: AH=FDh/BL=01h,AH=FDh/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL01" name="1FFD--BL01"><b>1FFD--BL01</b></a> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP STATUS<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP STATUS
+	AH = FDh
+	BL = 01h
+	AL = new wake-up state (00h = disabled, 01h = enabled)
+SeeAlso: AH=FDh/BL=00h,AH=FDh/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL02" name="1FFD--BL02"><b>1FFD--BL02</b></a> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP TIME<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP TIME
+	AH = FDh
+	BL = 02h
+Return: CH = hour by BCD
+	CL = min by BCD
+	DH = sec by BCD
+SeeAlso: AH=FDh/BL=00h,AH=FDh/BL=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL03" name="1FFD--BL03"><b>1FFD--BL03</b></a> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP TIME<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP TIME
+       AH = FDh
+       BL = 03h
+       CH = hour by BCD
+       CL = min by BCD
+       DH = sec by BCD
+Return: CF set on error (incorrect Time format or Auto Wake up is not enable)
+SeeAlso: AH=FDh/BL=01h,AH=FDh/BL=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL04" name="1FFD--BL04"><b>1FFD--BL04</b></a> - INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP DATE<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - GET AUTO WAKE UP DATE
+	AH = FDh
+	BL = 04h
+Return: CH = year century in BCD
+	CL = year low in BCD
+	DH = month in BCD
+	DL = date in BCD
+SeeAlso: AH=FDh/BL=02h,AH=FDh/BL=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1FFD--BL05" name="1FFD--BL05"><b>1FFD--BL05</b></a> - INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP DATE<br />
+<pre>
+INT 1F U - C&T "SuperState" BIOS - SET AUTO WAKE UP DATE
+	AH = FDh
+	BL = 05h
+	CH = year century in BCD
+	CL = year low in BCD
+	DH = month in BCD
+	DL = date in BCD
+Return: CF set on error (incorrect date format or Auto Wake up is not enable)
+SeeAlso: AH=FDh/BL=03h"C&T",AH=FDh/BL=04h"C&T"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

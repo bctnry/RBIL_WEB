@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._FF</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT FF
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#FF"><b>FF</b> - INT FF - AT/XT286/PS50+ - destroyed by return from protected mode</a><br />
+<a href="#FF_0"><b>FF</b> - INT FF - Z100 - WARM BOOT</a><br />
+<a href="#FF_1"><b>FF</b> - INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT</a><br />
+<a href="#FF_2"><b>FF</b> - INT FF U - QEMM-386.SYS v6.0+ - internal</a><br />
+<a href="#FF_3"><b>FF</b> - INT FF - VIRUS - "Violetta" - ???</a><br />
+<a href="#FF----BX0000"><b>FF----BX0000</b> - INT FF - PC/FORTH - GRAPHICS API - VIDEO STATUS CHANGE</a><br />
+<a href="#FF_4"><b>FF</b> - INT FF - PC/FORTH - GRAPHICS API</a><br />
+
+<hr />
+
+<a href="#FF" name="FF"><b>FF</b></a> - INT FF - AT/XT286/PS50+ - destroyed by return from protected mode<br />
+<pre>
+INT FF - AT/XT286/PS50+ - destroyed by return from protected mode
+Note:	(see INT FE"XT286")
+SeeAlso: INT FE"XT286"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_0" name="FF_0"><b>FF</b></a> - INT FF - Z100 - WARM BOOT<br />
+<pre>
+INT FF - Z100 - WARM BOOT
+SeeAlso: INT 40"Z100"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_1" name="FF_1"><b>FF</b></a> - INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT<br />
+<pre>
+INT FF - Sanyo MBC-550/555 - IRQ7 - USER INTERRUPT FOR EXTERNAL INTERRUPT
+Note:	normally masked off at the 8259 interrupt controller
+SeeAlso: INT 0F"IRQ7",INT FE"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_2" name="FF_2"><b>FF</b></a> - INT FF U - QEMM-386.SYS v6.0+ - internal<br />
+<pre>
+INT FF U - QEMM-386.SYS v6.0+ - internal
+Notes:	requires that a byte in the conventional-memory stub be set to the
+	  desired function number (00h through 0Ch)
+SeeAlso: #04081
+
+(Table 04081)
+Values for QEMM internal functions:
+ 00h	reflect back to Virtual86-mode interrupt handler (default)
+ 01h	???
+ 02h	access DR7???
+ 03h	QPI upcall (see INT 67/AH=3Fh)
+ 04h	???
+ 05h	???
+ 06h	INT 15/AH=87h
+ 07h	EMS services (see INT 67/AH=40h,INT 67/AH=5Dh)
+ 08h	???
+ 09h	QEMM exception handler
+ 0Ah	XMS services (see INT 2F/AX=4310h"XMS")
+ 0Bh	Virtual DMA Services (see INT 4B/AX=8102h)
+ 0Ch	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_3" name="FF_3"><b>FF</b></a> - INT FF - VIRUS - "Violetta" - ???<br />
+<pre>
+INT FF - VIRUS - "Violetta" - ???
+Note:	used but not chained by virus
+SeeAlso: INT E0"VIRUS",INT F1"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF----BX0000" name="FF----BX0000"><b>FF----BX0000</b></a> - INT FF - PC/FORTH - GRAPHICS API - VIDEO STATUS CHANGE<br />
+<pre>
+INT FF - PC/FORTH - GRAPHICS API - VIDEO STATUS CHANGE
+	BX = 0000h
+	DS:SI -&gt; FORTH program counter
+	SS:BP -&gt; FORTH parameter stack
+	SS:SP -&gt; FORTH return stack
+	DS:DX -&gt; FORTH video parameter area
+Desc:	called to inform graphics driver of any status changes such as video
+	  mode changes, character color changes, graphics XOR mode turned on
+	  or off, etc.; also used as an installation check
+Index:	installation check;PC/FORTH
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FF_4" name="FF_4"><b>FF</b></a> - INT FF - PC/FORTH - GRAPHICS API<br />
+<pre>
+INT FF - PC/FORTH - GRAPHICS API
+	BX = function number
+	    0001h function REDRAW
+	    0002h function !PEL
+	    0003h function @PEL
+	    0004h function LINE
+	    0005h function ARC
+	    0006h function @BLOCK
+	    0007h function !BLOCK
+	    0008h function FLOOD
+	DS:SI -&gt; FORTH program counter
+	SS:BP -&gt; FORTH parameter stack
+	SS:SP -&gt; FORTH return stack
+	details of parameters not available
+Return:	AX,BX,CX,DX,ES,DI may be destroyed
+Note:	these functions all display an error message if the graphics routines
+	  are not resident
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

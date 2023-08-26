@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._8B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 8B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#8B"><b>8B</b> - INT 8B - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#8B_0"><b>8B</b> - INT 8B - APL*PLUS/PC - BEEP</a><br />
+<a href="#8B_1"><b>8B</b> - INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)</a><br />
+
+<hr />
+
+<a href="#8B" name="8B"><b>8B</b></a> - INT 8B - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT 8B - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC, but pointed at IRET by BASIC.COM/BASICA.COM
+	BASIC.COM/BASICA.COM do not restore vector on termination
+SeeAlso: INT 8A"BASIC",INT 8C"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8B_0" name="8B_0"><b>8B</b></a> - INT 8B - APL*PLUS/PC - BEEP<br />
+<pre>
+INT 8B - APL*PLUS/PC - BEEP
+Note:	same as printing a ^G via INT 21/AH=02h
+SeeAlso: INT 21/AH=02h,INT CB"APL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8B_1" name="8B_1"><b>8B</b></a> - INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)<br />
+<pre>
+INT 8B - VIRUS - "ZeroHunt" - INSTALLATION CHECK (NOT A VECTOR!)
+Note:	if the ZeroHunt virus is resident, this vector will contain either
+	  EE83h:019Bh (ZH-411) or EE83h:019Fh (ZH-415)
+SeeAlso: INT 70"VIRUS",INT 87"VIRUS",INT 9C"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,4252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._c</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category c - caches/spoolers,
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#131D"><b>131D</b> - INT 13 - IBMCACHE.SYS - CACHE STATUS</a><br />
+<a href="#1320_1"><b>1320</b> - INT 13 u - QUICKCACHE II v4.20 - DISMOUNT</a><br />
+<a href="#1321_0"><b>1321</b> - INT 13 u - QUICKCACHE II v4.20 - FLUSH CACHE</a><br />
+<a href="#1322_0"><b>1322</b> - INT 13 u - QUICKCACHE II v4.20 - ENABLE/DISABLE CACHE</a><br />
+<a href="#1323_0"><b>1323</b> - INT 13 U - QUICKCACHE II v4.20 - GET ??? ADDRESS</a><br />
+<a href="#1324_0"><b>1324</b> - INT 13 u - QUICKCACHE II v4.20 - SET SECTORS</a><br />
+<a href="#1325_0"><b>1325</b> - INT 13 u - QUICKCACHE II v4.20 - SET FLUSH INTERVAL</a><br />
+<a href="#1326"><b>1326</b> - INT 13 U - QUICKCACHE II v4.20 - UNINSTALL</a><br />
+<a href="#1327--BX0000"><b>1327--BX0000</b> - INT 13 u - QUICKCACHE II v4.20 - INSTALLATION CHECK</a><br />
+<a href="#1328"><b>1328</b> - INT 13 U - QUICKCACHE II v4.20 - SET AUTOMATIC DISMOUNT</a><br />
+<a href="#1329"><b>1329</b> - INT 13 U - QUICKCACHE II v4.20 - NOP</a><br />
+<a href="#132A"><b>132A</b> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFER SIZE</a><br />
+<a href="#132B"><b>132B</b> - INT 13 U - QUICKCACHE II v4.20 - DRIVE ACCESS SOUNDS</a><br />
+<a href="#132C"><b>132C</b> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED WRITES</a><br />
+<a href="#132D"><b>132D</b> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED READ</a><br />
+<a href="#132E"><b>132E</b> - INT 13 u - QUICKCACHE II v4.20 - SET FLUSH COUNT</a><br />
+<a href="#132F"><b>132F</b> - INT 13 - QUICKCACHE II v4.20 - FORCE IMMEDIATE INCREMENTAL FLUSH</a><br />
+<a href="#1330"><b>1330</b> - INT 13 u - QUICKCACHE II v4.20 - GET INFO</a><br />
+<a href="#1331"><b>1331</b> - INT 13 U - QUICKCACHE II v4.20 - RESERVE MEMORY</a><br />
+<a href="#1332"><b>1332</b> - INT 13 U - QUICKCACHE II v4.20 - ENABLE CACHING FOR SPECIFIC DRIVE</a><br />
+<a href="#1333"><b>1333</b> - INT 13 U - QUICKCACHE II v4.20 - DISABLE CACHING FOR SPECIFIC DRIVE</a><br />
+<a href="#1334"><b>1334</b> - INT 13 U - QUICKCACHE II v4.20 - SECTOR LOCKING</a><br />
+<a href="#1335"><b>1335</b> - INT 13 U - QUICKCACHE II v4.20 - SET LOCK POOL SIZE</a><br />
+<a href="#1336"><b>1336</b> - INT 13 U - QUICKCACHE II v4.20 - SET TRACE BUFFER SIZE</a><br />
+<a href="#1337"><b>1337</b> - INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED READS FOR SPECIFIC DRIVE</a><br />
+<a href="#1338"><b>1338</b> - INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED WRITES FOR SPECIFIC DRIVE</a><br />
+<a href="#1339"><b>1339</b> - INT 13 U - QUICKCACHE II v4.20 - SET READ BUFFER SIZE FOR SPECIFIC DRIVE</a><br />
+<a href="#133A"><b>133A</b> - INT 13 U - QUICKCACHE II v4.20 - SET WRITE BUFFER SIZE FOR SPECIFIC DRIVE</a><br />
+<a href="#133B"><b>133B</b> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???</a><br />
+<a href="#133C"><b>133C</b> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???</a><br />
+<a href="#133D"><b>133D</b> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE CYLINDER FLUSH FOR DRIVE</a><br />
+<a href="#133E"><b>133E</b> - INT 13 U - QUICKCACHE II v4.20 - SET SINGLE-SECTOR BONUS</a><br />
+<a href="#133F"><b>133F</b> - INT 13 U - QUICKCACHE II v4.20 - SET BONUS THRESHOLD</a><br />
+<a href="#1340"><b>1340</b> - INT 13 U - QUICKCACHE II v4.20 - SET "sticky_max"</a><br />
+<a href="#1341"><b>1341</b> - INT 13 U - QUICKCACHE II v4.20 - SAVE/RESTORE ???</a><br />
+<a href="#137B00"><b>137B00</b> - INT 13 - NOW! v3.05 - GET INFORMATION</a><br />
+<a href="#137B01"><b>137B01</b> - INT 13 - NOW! v3.05 - ???</a><br />
+<a href="#137B02"><b>137B02</b> - INT 13 - NOW! v3.05 - SET INFORMATION</a><br />
+<a href="#137B03"><b>137B03</b> - INT 13 - NOW! v3.05 - ???</a><br />
+<a href="#137B04"><b>137B04</b> - INT 13 - NOW! v3.05 - ???</a><br />
+<a href="#137B05"><b>137B05</b> - INT 13 - NOW! v3.05 - GET DISK ACCESSES???</a><br />
+<a href="#137B06"><b>137B06</b> - INT 13 - NOW! v3.05 - GET ???</a><br />
+<a href="#137B07"><b>137B07</b> - INT 13 - NOW! v3.05 - GET ???</a><br />
+<a href="#137B08"><b>137B08</b> - INT 13 - NOW! v3.05 - ???</a><br />
+<a href="#1380--CX6572"><b>1380--CX6572</b> - INT 13 - FAST! v4.02+ - API</a><br />
+<a href="#138001CX6572"><b>138001CX6572</b> - INT 13 - FAST! v4.02+ - GET CACHE INFORMATION</a><br />
+<a href="#138006CX6572"><b>138006CX6572</b> - INT 13 - FAST! v4.02+ - INSTALLATION CHECK</a><br />
+<a href="#138007CX6572"><b>138007CX6572</b> - INT 13 - FAST! v4.02+ - UNHOOK INTERRUPTS</a><br />
+<a href="#1381--SI4358"><b>1381--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#1382--SI4358"><b>1382--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#1383--SI4358"><b>1383--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#1384--SI4358"><b>1384--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#1385--SI4358"><b>1385--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#1386--SI4358"><b>1386--SI4358</b> - INT 13 - Super PC-Kwik v4.00+ - ???</a><br />
+<a href="#1387--SI4358"><b>1387--SI4358</b> - INT 13 - Super PC-Kwik v4.00+ - ???</a><br />
+<a href="#1388--SI4358"><b>1388--SI4358</b> - INT 13 - Super PC-Kwik v4.00+ - ???</a><br />
+<a href="#1389--SI4358"><b>1389--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#138A--SI4358"><b>138A--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#138EED"><b>138EED</b> - INT 13 - HyperDisk v4.01+ - ???</a><br />
+<a href="#138EEE"><b>138EEE</b> - INT 13 - HyperDisk v4.01+ - ???</a><br />
+<a href="#138EEF"><b>138EEF</b> - INT 13 - HyperDisk v4.01+ - ???</a><br />
+<a href="#1392--SI4358"><b>1392--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1393--SI4358"><b>1393--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1394--SI4358"><b>1394--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1395--SI4358"><b>1395--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1396--SI4358"><b>1396--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1397--SI4358"><b>1397--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1398--SI4358"><b>1398--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#1399--SI4358"><b>1399--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#139A--SI4358"><b>139A--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#139B--SI4358"><b>139B--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#139C--SI4358"><b>139C--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#139D--SI4358"><b>139D--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#13A0--SI4358"><b>13A0--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - GET RESIDENT CODE SEGMENT</a><br />
+<a href="#13A1--SI4358"><b>13A1--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - FLUSH CACHE</a><br />
+<a href="#13A2--SI4358"><b>13A2--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#13A3--SI4358"><b>13A3--SI4358</b> - INT 13 U - Super PC-Kwik v5.10+ - DISABLE CACHE</a><br />
+<a href="#13A4--SI4358"><b>13A4--SI4358</b> - INT 13 U - Super PC-Kwik v5.10+ - ENABLE CACHE</a><br />
+<a href="#13A5--SI4358"><b>13A5--SI4358</b> - INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM TERMINATION NOTIFICATION</a><br />
+<a href="#13A6--SI4358"><b>13A6--SI4358</b> - INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM LOAD NOTIFICATION</a><br />
+<a href="#13A7--SI4358"><b>13A7--SI4358</b> - INT 13 CU - Super PC-Kwik 5.1 - ???</a><br />
+<a href="#13A8--SI4358"><b>13A8--SI4358</b> - INT 13 CU - Super PC-Kwik 5.1 - ???</a><br />
+<a href="#13A9--SI4358"><b>13A9--SI4358</b> - INT 13 CU - Super PC-Kwik 5.1 - EXITCODE RETRIEVAL NOTIFICATION</a><br />
+<a href="#13AA--SI4358"><b>13AA--SI4358</b> - INT 13 - Super PC-Kwik v4+ - ???</a><br />
+<a href="#13AB--SI4358"><b>13AB--SI4358</b> - INT 13 - Super PC-Kwik v4+ - ???</a><br />
+<a href="#13AC--SI4358"><b>13AC--SI4358</b> - INT 13 - Super PC-Kwik v4+ - ???</a><br />
+<a href="#13AD--SI4358"><b>13AD--SI4358</b> - INT 13 - Super PC-Kwik v4+ - ???</a><br />
+<a href="#13AE--SI4358"><b>13AE--SI4358</b> - INT 13 - Super PC-Kwik v5.10+ - ???</a><br />
+<a href="#13B0--SI4358"><b>13B0--SI4358</b> - INT 13 - Super PC-Kwik v3.20+ - ???</a><br />
+<a href="#13EF"><b>13EF</b> - INT 13 - Ontrack Drive Rocket - SET CYLINDER OFFSET</a><br />
+<a href="#152000"><b>152000</b> - INT 15 U - DOS 3.0+ PRINT.COM - DISABLE CRITICAL REGION FLAG</a><br />
+<a href="#152001"><b>152001</b> - INT 15 U - DOS 3.0+ PRINT.COM - SET CRITICAL REGION FLAG</a><br />
+<a href="#165758BX4858"><b>165758BX4858</b> - INT 16 U - Netroom CACHECLK - INSTALLATION CHECK</a><br />
+<a href="#16FFA5CX1111"><b>16FFA5CX1111</b> - INT 16 - PC-Cache v6+ - INSTALLATION CHECK</a><br />
+<a href="#16FFA5CXAAAA"><b>16FFA5CXAAAA</b> - INT 16 - PC-Cache v6+ - ENABLE DELAYED WRITES</a><br />
+<a href="#16FFA5CXCCCC"><b>16FFA5CXCCCC</b> - INT 16 - PC-Cache v6+ - FLUSH CACHE AND DISABLE DELAYED WRITES</a><br />
+<a href="#16FFA5CXDDDD"><b>16FFA5CXDDDD</b> - INT 16 - PC-Cache v6+ - FLUSH AND DISABLE CACHE</a><br />
+<a href="#16FFA5CXEEEE"><b>16FFA5CXEEEE</b> - INT 16 - PC-Cache v6+ - ENABLE CACHE</a><br />
+<a href="#16FFA5CXFFFF"><b>16FFA5CXFFFF</b> - INT 16 - PC-Cache v6+ - FLUSH CACHE</a><br />
+<a href="#1703_1"><b>1703</b> - INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING</a><br />
+<a href="#1703--BX5A00"><b>1703--BX5A00</b> - INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK</a><br />
+<a href="#17C0"><b>17C0</b> - INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS</a><br />
+<a href="#17C1"><b>17C1</b> - INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD</a><br />
+<a href="#17C2"><b>17C2</b> - INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES</a><br />
+<a href="#17C3"><b>17C3</b> - INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)</a><br />
+<a href="#17C4"><b>17C4</b> - INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE</a><br />
+<a href="#17C5"><b>17C5</b> - INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE</a><br />
+<a href="#17C6"><b>17C6</b> - INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS</a><br />
+<a href="#17C7"><b>17C7</b> - INT 17 - PC Magazine PCSpool - CLOSE QUEUE</a><br />
+<a href="#17FF--BX0000"><b>17FF--BX0000</b> - INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE</a><br />
+<a href="#1AA0"><b>1AA0</b> - INT 1A U - Disk Spool II v2.07+ - INSTALLATION CHECK</a><br />
+<a href="#1AAB"><b>1AAB</b> - INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK</a><br />
+<a href="#1AAC"><b>1AAC</b> - INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK</a><br />
+<a href="#1AAD"><b>1AAD</b> - INT 1A U - Disk Spool II v1.83 - FUNCTION CALLS</a><br />
+<a href="#1AC0"><b>1AC0</b> - INT 1A U - Disk Spool II v2.07+ - ALTERNATE INSTALLATION CHECK</a><br />
+<a href="#1AD0"><b>1AD0</b> - INT 1A U - Disk Spool II v2.07+ - FUNCTION CALLS</a><br />
+<a href="#1AE0"><b>1AE0</b> - INT 1A - Disk Spool II v4.0x - ENABLE/DISABLE</a><br />
+<a href="#1AE1"><b>1AE1</b> - INT 1A - Disk Spool II v4.0x - GET STATUS</a><br />
+<a href="#1AE2"><b>1AE2</b> - INT 1A - Disk Spool II v4.0x - GET SPOOL FILES</a><br />
+<a href="#1AE301"><b>1AE301</b> - INT 1A - Disk Spool II v4.0x - GET SPOOL FILE STATUS</a><br />
+<a href="#1AE302"><b>1AE302</b> - INT 1A - Disk Spool II v4.0x - UPDATE SPOOL FILE</a><br />
+<a href="#1AE401"><b>1AE401</b> - INT 1A - Disk Spool II v4.0x - SPOOL EXISTING FILE</a><br />
+<a href="#1AE402"><b>1AE402</b> - INT 1A U - Disk Spool II v4.0x - SPOOL EXISTING FILE???</a><br />
+<a href="#1AE5"><b>1AE5</b> - INT 1A U - Emulaser ELSPL.COM - ???</a><br />
+<a href="#1AEE"><b>1AEE</b> - INT 1A U - Disk Spool II v4.05 - ???</a><br />
+<a href="#212B--CX4358"><b>212B--CX4358</b> - INT 21 - Super PC-Kwik v3.20+ - INSTALLATION CHECK</a><br />
+<a href="#214402_5"><b>214402</b> - INT 21 - SMARTDRV.SYS v3.x only - IOCTL - GET CACHE STATUS</a><br />
+<a href="#214403_0"><b>214403</b> - INT 21 - SMARTDRV.SYS v3.x only - IOCTL - CACHE CONTROL</a><br />
+<a href="#214404_7"><b>214404</b> - INT 21 - COMBI-disk v1.13 - GET DATA RECORD</a><br />
+<a href="#25--FFSI4358"><b>25--FFSI4358</b> - INT 25 - PC-CACHE.SYS - INSTALLATION CHECK</a><br />
+<a href="#2F00"><b>2F00</b> - INT 2F U - DOS 2.x only PRINT.COM - SUBMIT FILE FOR PRINTING</a><br />
+<a href="#2F0080"><b>2F0080</b> - INT 2F - DOS 3.1+ PRINT - GIVE PRINT A TIME SLICE</a><br />
+<a href="#2F01"><b>2F01</b> - INT 2F U - DOS 2.x only PRINT.COM - REMOVE FILE FROM PRINT QUEUE</a><br />
+<a href="#2F0100"><b>2F0100</b> - INT 2F - DOS 3.0+ PRINT - INSTALLATION CHECK</a><br />
+<a href="#2F0100SI20D6"><b>2F0100SI20D6</b> - INT 2F U - PrintCache 3.1 PRINT.COM - INSTALLATION CHECK</a><br />
+<a href="#2F0101"><b>2F0101</b> - INT 2F - DOS 3.0+ PRINT - SUBMIT FILE FOR PRINTING</a><br />
+<a href="#2F0101SI20D6"><b>2F0101SI20D6</b> - INT 2F U - PrintCache v3.1 PRINT.COM - SUBMIT FILE FOR PRINTING</a><br />
+<a href="#2F0102"><b>2F0102</b> - INT 2F - DOS 3.0+ PRINT - REMOVE FILE FROM PRINT QUEUE</a><br />
+<a href="#2F0103"><b>2F0103</b> - INT 2F - DOS 3.0+ PRINT - CANCEL ALL FILES IN PRINT QUEUE</a><br />
+<a href="#2F0104"><b>2F0104</b> - INT 2F - DOS 3.0+ PRINT - FREEZE PRINT QUEUE TO READ JOB STATUS</a><br />
+<a href="#2F0105"><b>2F0105</b> - INT 2F - DOS 3.0+ PRINT - RESTART PRINT QUEUE AFTER STATUS READ</a><br />
+<a href="#2F0106"><b>2F0106</b> - INT 2F - DOS 3.3+ PRINT - GET PRINTER DEVICE</a><br />
+<a href="#2F0107"><b>2F0107</b> - INT 2F U - PrintCache v3.1 PRINT.COM - SET TRAILING FORM FEEDS</a><br />
+<a href="#2F1500CH90"><b>2F1500CH90</b> - INT 2F U - CDBLITZ v2.11 - INSTALLATION CHECK</a><br />
+<a href="#2F1500CH91"><b>2F1500CH91</b> - INT 2F U - CDBLITZ v2.11 - GET STATISTICS</a><br />
+<a href="#2F1500CH92"><b>2F1500CH92</b> - INT 2F U - CDBLITZ v2.11 - ENABLE CACHE</a><br />
+<a href="#2F1500CH93"><b>2F1500CH93</b> - INT 2F U - CDBLITZ v2.11 - DISABLE CACHE</a><br />
+<a href="#2F1500CH94"><b>2F1500CH94</b> - INT 2F U - CDBLITZ v2.11 - SET 'MAX' MODE (CACHE BOTH DIRECTORIES AND DATA)</a><br />
+<a href="#2F1500CH95"><b>2F1500CH95</b> - INT 2F U - CDBLITZ v2.11 - SET 'MIN' MODE (CACHE ONLY DIRECTORY ENTRIES)</a><br />
+<a href="#2F1500CH96"><b>2F1500CH96</b> - INT 2F U - CDBLITZ v2.11 - FLUSH CACHE</a><br />
+<a href="#2F1500CH97"><b>2F1500CH97</b> - INT 2F U - CDBLITZ v2.11 - GET CACHE STATISTICS</a><br />
+<a href="#2F1500CH99"><b>2F1500CH99</b> - INT 2F U - CDBLITZ v2.11 - UNINSTALL</a><br />
+<a href="#2F4A10BX0000"><b>2F4A10BX0000</b> - INT 2F - SMARTDRV v4.00+ - INSTALLATION CHECK AND HIT RATIOS</a><br />
+<a href="#2F4A10BX0000_0"><b>2F4A10BX0000</b> - INT 2F U - Novell NWCACHE - INSTALLATION CHECK AND STATISTICS</a><br />
+<a href="#2F4A10BX0001"><b>2F4A10BX0001</b> - INT 2F - SMARTDRV v4.00+ - FLUSH BUFFERS (COMMIT CACHE)</a><br />
+<a href="#2F4A10BX0001_0"><b>2F4A10BX0001</b> - INT 2F U - Novell NWCACHE - ???</a><br />
+<a href="#2F4A10BX0002"><b>2F4A10BX0002</b> - INT 2F - SMARTDRV v4.00+ - RESET CACHE</a><br />
+<a href="#2F4A10BX0003"><b>2F4A10BX0003</b> - INT 2F - SMARTDRV v4.00+ - STATUS</a><br />
+<a href="#2F4A10BX0004"><b>2F4A10BX0004</b> - INT 2F - SMARTDRV v4.00+ - GET CACHE SIZE</a><br />
+<a href="#2F4A10BX0005"><b>2F4A10BX0005</b> - INT 2F - SMARTDRV v4.00+ - GET DOUBLE-BUFFER STATUS</a><br />
+<a href="#2F4A10BX0006"><b>2F4A10BX0006</b> - INT 2F CU - SMARTDRV v4.00+ - CHECK IF DRIVE CACHEABLE</a><br />
+<a href="#2F4A10BX0007"><b>2F4A10BX0007</b> - INT 2F - SMARTDRV v4.00+ - GET DEVICE DRIVER FOR DRIVE</a><br />
+<a href="#2F4A10BX0008"><b>2F4A10BX0008</b> - INT 2F - SMARTDRV v4.20+ - GET/SET FLUSH BEFORE PROMPT, CD-ROM SUPPORT</a><br />
+<a href="#2F4A10BX000A"><b>2F4A10BX000A</b> - INT 2F - SMARTDRV v4.00+ - GET ELEMENT STATUS TABLE</a><br />
+<a href="#2F4A10BX1234"><b>2F4A10BX1234</b> - INT 2F - SMARTDRV v4.00+ - SIGNAL SERIOUS ERROR</a><br />
+<a href="#2F5758BX4858"><b>2F5758BX4858</b> - INT 2F U - Helix Multimedia Cloaking - CACHECLK - INSTALLATION CHECK</a><br />
+<a href="#2FC000_10"><b>2FC000</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALLATION CHECK</a><br />
+<a href="#2FC001_1"><b>2FC001</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ENTRY POINTS</a><br />
+<a href="#2FC002_1"><b>2FC002</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET BUFFER SIZE</a><br />
+<a href="#2FC003_1"><b>2FC003</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG</a><br />
+<a href="#2FC004_0"><b>2FC004</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG</a><br />
+<a href="#2FC005_0"><b>2FC005</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC006_0"><b>2FC006</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC007_0"><b>2FC007</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC008_0"><b>2FC008</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG</a><br />
+<a href="#2FC009_0"><b>2FC009</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG</a><br />
+<a href="#2FC00A_0"><b>2FC00A</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC00B_0"><b>2FC00B</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP</a><br />
+<a href="#2FC00C_0"><b>2FC00C</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???</a><br />
+<a href="#2FC00D"><b>2FC00D</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ???</a><br />
+<a href="#2FC00E_0"><b>2FC00E</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALL ???</a><br />
+<a href="#2FC00F_0"><b>2FC00F</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - REMOVE ???</a><br />
+<a href="#2FC010"><b>2FC010</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???</a><br />
+<a href="#2FC011"><b>2FC011</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???</a><br />
+<a href="#2FC012"><b>2FC012</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???</a><br />
+<a href="#2FC013"><b>2FC013</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC014"><b>2FC014</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC015"><b>2FC015</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC016"><b>2FC016</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INCREMENT ???</a><br />
+<a href="#2FC017"><b>2FC017</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - DECREMENT ???</a><br />
+<a href="#2FC018"><b>2FC018</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC019"><b>2FC019</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC01A"><b>2FC01A</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG</a><br />
+<a href="#2FC01B"><b>2FC01B</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG</a><br />
+<a href="#2FC01C"><b>2FC01C</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???</a><br />
+<a href="#2FC01D"><b>2FC01D</b> - INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP</a><br />
+<a href="#2FCC--SI5453"><b>2FCC--SI5453</b> - INT 2F U - PC-Kwik Programs - API</a><br />
+<a href="#2FDF00"><b>2FDF00</b> - INT 2F - HyperWare programs - INSTALLATION CHECK</a><br />
+<a href="#2FDF01BX4448"><b>2FDF01BX4448</b> - INT 2F - HyperDisk v4.50+ - GET CURRENT CACHE STATE</a><br />
+<a href="#2FDF02BX4448"><b>2FDF02BX4448</b> - INT 2F - HyperDisk v4.50+ - SET CACHE STATE</a><br />
+
+<hr />
+
+<a href="#131D" name="131D"><b>131D</b></a> - INT 13 - IBMCACHE.SYS - CACHE STATUS<br />
+<pre>
+INT 13 - IBMCACHE.SYS - CACHE STATUS
+	AH = 1Dh
+	AL = subfunction
+	    01h get status record
+		DL = drive???
+		Return: ES:BX -&gt; status record (see #00263)
+			CF set on error
+			    AH = error code
+	    02h set cache status
+		ES:BX -&gt; status record (see #00263)
+		DL = drive???
+		Return: CF set on error
+
+Format of IBMCACHE.SYS status record:
+Offset	Size	Description	(Table 00263)
+ 00h	DWORD	total number of read requests
+ 04h	DWORD	total number of hits
+ 08h	DWORD	number of physical disk reads
+ 0Ch	DWORD	total number of sectors requested by physical disk reads
+ 10h  6 BYTEs	???
+ 16h	DWORD	pointer to start of error list (see #00264)
+ 1Ah	DWORD	pointer to end of error list
+ 1Eh	WORD	???
+ 20h	BYTE	using extended memory if nonzero
+ 21h	BYTE	???
+ 22h  4 BYTEs	ASCII version number
+ 26h	WORD	cache size in KB
+ 28h	WORD	sectors per page
+
+Format of IBMCACHE.SYS error list:
+Offset	Size	Description	(Table 00264)
+ 00h	DWORD	relative block address of bad page
+ 04h	BYTE	drive
+ 05h	BYTE	sector bit-map
+ 06h	WORD	next error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1320_1" name="1320_1"><b>1320</b></a> - INT 13 u - QUICKCACHE II v4.20 - DISMOUNT<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - DISMOUNT
+	AH = 20h
+	AL = drive (00h = A:, etc. or 7Fh for all removable drives???
+				   or FFh for all drives)
+Return: AX = status (0000h successful)
+Program: QUICKCACHE II is a shareware disk cache by P.R. Glassel and
+	  Associates, Inc.
+Desc:	flush any dirty buffers for the specified drive(s) and then discard
+	  those sector buffers
+SeeAlso: AH=21h"QUICKCACHE",AH=22h"QUICKCACHE",AH=28h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1321_0" name="1321_0"><b>1321</b></a> - INT 13 u - QUICKCACHE II v4.20 - FLUSH CACHE<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - FLUSH CACHE
+	AH = 21h
+Return: AX = status (0000h successful)
+Desc:	immediately write all dirty sectors back to disk
+Note:	this is one out of several cache flush calls issued by the PTS-DOS 6.51
+	  and S/DOS 1.0 kernel before rebooting. It is called with DL=80h and
+	  conflicts with the PS/2 function of the same function number, because
+	  the kernel does not perform Quickcache's installation check first.
+SeeAlso: AH=25h"QUICKCACHE",AH=2Eh,AH=2Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1322_0" name="1322_0"><b>1322</b></a> - INT 13 u - QUICKCACHE II v4.20 - ENABLE/DISABLE CACHE<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - ENABLE/DISABLE CACHE
+	AH = 22h
+	AL = new state (00h disabled, 01h enabled)
+Return: AX = status (0000h successful)
+Note:	enables/disables caching of all drives
+SeeAlso: AH=2Ch,AH=2Dh,AH=32h,AH=33h,AH=A3h,AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1323_0" name="1323_0"><b>1323</b></a> - INT 13 U - QUICKCACHE II v4.20 - GET ??? ADDRESS<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - GET ??? ADDRESS
+	AH = 23h
+Return: AX = status (0000h successful)
+	ES = segment of ??? data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1324_0" name="1324_0"><b>1324</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET SECTORS<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET SECTORS
+	AH = 24h
+	BX = new number of sector buffers in cache
+Return: AX = status
+	    0000h successful
+	    0001h failed--size adjusted
+	    8000h cache cannot be resized while enabled
+SeeAlso: AH=36h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1325_0" name="1325_0"><b>1325</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET FLUSH INTERVAL<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET FLUSH INTERVAL
+	AH = 25h
+	BX = interval
+Return: AX = status (0000h successful)
+Desc:	specify how often the cache should write dirty buffers to disk when
+	  buffered writes are enabled
+SeeAlso: AH=21h"QUICKCACHE",AH=2Ch,AH=2Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1326" name="1326"><b>1326</b></a> - INT 13 U - QUICKCACHE II v4.20 - UNINSTALL<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - UNINSTALL
+	AH = 26h
+Return: AX = status
+	    0000h successful
+	    0001h-00FFh interrupt vector which was hooked by another TSR
+SeeAlso: AH=27h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1327--BX0000" name="1327--BX0000"><b>1327--BX0000</b></a> - INT 13 u - QUICKCACHE II v4.20 - INSTALLATION CHECK<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - INSTALLATION CHECK
+	AH = 27h
+	BX = 0000h
+Return: AX = 0000h if installed
+	BX nonzero if installed
+	    BH = major version
+	    BL = binary minor version
+Program: QUICKCACHE II is a shareware disk cache by P.R. Glassel and
+	  Associates, Inc.
+SeeAlso: AH=26h,AH=A0h,INT 16/AX=FFA5h/CX=1111h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1328" name="1328"><b>1328</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET AUTOMATIC DISMOUNT<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET AUTOMATIC DISMOUNT
+	AH = 28h
+	AL = new state (00h disabled, 01h enabled)
+Return: AX = status (0000h successful)
+SeeAlso: AH=20h"QUICKCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1329" name="1329"><b>1329</b></a> - INT 13 U - QUICKCACHE II v4.20 - NOP<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - NOP
+	AH = 29h
+Return: AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132A" name="132A"><b>132A</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFER SIZE<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET BUFFER SIZE
+	AH = 2Ah
+	AL = buffer size (1-30)
+Return: AX = status (0000h successful)
+Desc:	specify the number of cache sector buffers to dedicate to buffered read
+	  and write operations
+SeeAlso: AH=2Ch,AH=2Dh,AH=39h,AH=3Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132B" name="132B"><b>132B</b></a> - INT 13 U - QUICKCACHE II v4.20 - DRIVE ACCESS SOUNDS<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - DRIVE ACCESS SOUNDS
+	AH = 2Bh
+	AL = new state (00h disabled, 01h enabled)
+Return: AX = status (0000h successful)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132C" name="132C"><b>132C</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED WRITES<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED WRITES
+	AH = 2Ch
+	AL = new state (00h disabled, 01h enabled)
+Return: AX = status (0000h successful)
+Desc:	specify whether the cache should delay disk writes
+Note:	this function enables or disables delayed writes for all drives; use
+	  AH=38h to change a single drive
+SeeAlso: AH=25h"QUICKCACHE",AH=2Dh,AH=2Eh,AH=38h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132D" name="132D"><b>132D</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED READ<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET BUFFERED READ
+	AH = 2Dh
+	AL = new state (00h disabled, 01h enabled)
+Return: AX = status (0000h successful)
+Desc:	specify whether the cache should attempt to read ahead of actual
+	  requests
+Note:	this function enables or disables read-ahead for all drives; use AH=37h
+	  to change a single drive
+SeeAlso: AH=2Ch,AH=37h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132E" name="132E"><b>132E</b></a> - INT 13 u - QUICKCACHE II v4.20 - SET FLUSH COUNT<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - SET FLUSH COUNT
+	AH = 2Eh
+	BX = flush count
+Return: AX = status (0000h successful)
+Desc:	specify how many dirty sectors the cache should write after each flush
+	  interval (see AH=25h"QUICKCACHE") when buffered writes are enabled
+SeeAlso: AH=21h"QUICKCACHE",AH=25h"QUICKCACHE",AH=2Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#132F" name="132F"><b>132F</b></a> - INT 13 - QUICKCACHE II v4.20 - FORCE IMMEDIATE INCREMENTAL FLUSH<br />
+<pre>
+INT 13 - QUICKCACHE II v4.20 - FORCE IMMEDIATE INCREMENTAL FLUSH
+	AH = 2Fh
+Return: AX = status (0000h successful)
+Desc:	immediately flush up to "flushcount" dirty sectors to disk as if the
+	  flush interval had expired
+SeeAlso: AH=21h"QUICKCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1330" name="1330"><b>1330</b></a> - INT 13 u - QUICKCACHE II v4.20 - GET INFO<br />
+<pre>
+INT 13 u - QUICKCACHE II v4.20 - GET INFO
+	AH = 30h
+	AL = what to get
+	    00h system info (see #00269)
+	    01h drive info (see #00270)
+	    02h access frequency (array of 30 words)
+	    03h drive index
+		(array of 32 bytes indicating BIOS drive for DOS drive)
+	DS:DX -&gt; buffer for info
+Return: AX = status (0000h successful, 8000h invalid info specifier)
+Program: QUICKCACHE II is a shareware disk cache by P.R. Glassel and
+	  Associates, Inc.
+
+Format of QUICKCACHE II system info:
+Offset	Size	Description	(Table 00269)
+ 00h	BYTE	flag: cache enabled
+ 01h	BYTE	flag: buffered writes enabled
+ 02h	BYTE	flag: buffered reads enabled
+ 03h	BYTE	flag: sounds enabled
+ 04h	BYTE	flag: autodismount enabled
+ 05h	BYTE	???
+ 06h	BYTE	flag: ???
+ 07h	BYTE	flag: ???
+ 08h	BYTE	flag: "em_assigned"
+ 09h	BYTE	flag: emulated EMS
+ 0Ah	BYTE	single sector bonus
+ 0Bh	BYTE	"sticky_max"
+ 0Ch	BYTE	write sector bonus
+ 0Dh	BYTE	bonus threshold
+ 0Eh	WORD	flush interval
+ 10h	WORD	flush count
+ 12h	WORD	reserve pool size
+ 14h	WORD	remaining space in reserve pool
+ 16h	WORD	required free memory
+ 18h	WORD	total cache sectors
+ 1Ah	WORD	dirty cache sectors
+ 1Ch	BYTE	trace buffer size
+ 1Dh	BYTE	reserved (padding)
+SeeAlso: #00270
+
+Format of QUICKCACHE II drive info [16-element array, one element]:
+Offset	Size	Description	(Table 00270)
+ 00h	BYTE	DOS drive number
+ 01h	BYTE	BIOS drive number
+ 02h	BYTE	maximum sector number
+ 03h	BYTE	maximum head number
+ 04h	BYTE	read buffer size
+ 05h	BYTE	write buffer size
+ 06h	BYTE	last status
+ 07h	BYTE	flag: enabled
+ 08h	BYTE	flag: buffered write enabled
+ 09h	BYTE	flag: buffered read enabled
+ 0Ah	BYTE	flag: in use (drive info is valid)
+ 0Bh	BYTE	flag: cylinder flush
+ 0Ch	BYTE	reserved (padding)
+ 0Dh	BYTE	sectors per track
+ 0Eh	WORD	sector size
+ 10h	WORD	sectors assigned
+ 12h	WORD	dirty sectors
+ 14h	WORD	reserved sectors
+ 16h	WORD	number of read errors
+ 18h	WORD	number of write errors
+ 1Ah	DWORD	"rio_count"
+ 1Eh	DWORD	number of cache misses
+ 22h	DWORD	"wio_count"
+ 26h	DWORD	"dio_count"
+SeeAlso: #00269
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1331" name="1331"><b>1331</b></a> - INT 13 U - QUICKCACHE II v4.20 - RESERVE MEMORY<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - RESERVE MEMORY
+	AH = 31h
+	BX = number of paragraphs of conventional memory to reserve for apps
+Return: AX = status (0000h successful)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1332" name="1332"><b>1332</b></a> - INT 13 U - QUICKCACHE II v4.20 - ENABLE CACHING FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - ENABLE CACHING FOR SPECIFIC DRIVE
+	AH = 32h
+	AL = drive number (00h=A:)
+Return: AX = status (0000h successful)
+SeeAlso: AH=22h"QUICKCACHE",AH=33h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1333" name="1333"><b>1333</b></a> - INT 13 U - QUICKCACHE II v4.20 - DISABLE CACHING FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - DISABLE CACHING FOR SPECIFIC DRIVE
+	AH = 33h
+	AL = drive number (00h=A:)
+Return: AX = status (0000h successful)
+SeeAlso: AH=22h"QUICKCACHE",AH=32h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1334" name="1334"><b>1334</b></a> - INT 13 U - QUICKCACHE II v4.20 - SECTOR LOCKING<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SECTOR LOCKING
+	AH = 34h
+	AL = function
+	    00h end sector locking/unlocking
+	    01h lock all accessed sectors into cache
+	    02h unlock all accessed sectors and discard from cache
+Return: AX = status (0000h successful)
+SeeAlso: AH=20h"QUICKCACHE",AH=35h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1335" name="1335"><b>1335</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET LOCK POOL SIZE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET LOCK POOL SIZE
+	AH = 35h
+	BX = number of sectors in lock pool
+Return: AX = status (0000h successful)
+Desc:	specify the number of cache sector buffers which may be dedicated to
+	  data locked into the cache
+SeeAlso: AH=34h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1336" name="1336"><b>1336</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET TRACE BUFFER SIZE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET TRACE BUFFER SIZE
+	AH = 36h
+	AL = new size of trace buffer
+Return: AX = status (0000h successful)
+Note:	called with AL=05h during an INT 13/AH=24h"QUICKCACHE" call
+SeeAlso: AH=24h"QUICKCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1337" name="1337"><b>1337</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED READS FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED READS FOR SPECIFIC DRIVE
+	AH = 37h
+	AL = new state (00h disabled, else enabled)
+	DL = drive number (00h = A:)
+Return: AX = status (0000h successful)
+SeeAlso: AH=2Dh,AH=38h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1338" name="1338"><b>1338</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED WRITES FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET BUFFERED WRITES FOR SPECIFIC DRIVE
+	AH = 38h
+	AL = new state (00h disabled, else enabled)
+	DL = drive number (00h = A:)
+Return: AX = status (0000h successful)
+SeeAlso: AH=2Ch,AH=37h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1339" name="1339"><b>1339</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET READ BUFFER SIZE FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET READ BUFFER SIZE FOR SPECIFIC DRIVE
+	AH = 39h
+	AL = new size of read buffer
+	DL = drive number (00h = A:)
+Return: AX = status (0000h successful)
+Program: QUICKCACHE II is a shareware disk cache by P.R. Glassel and
+	  Associates, Inc.
+SeeAlso: AH=2Ah,AH=3Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133A" name="133A"><b>133A</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET WRITE BUFFER SIZE FOR SPECIFIC DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET WRITE BUFFER SIZE FOR SPECIFIC DRIVE
+	AH = 3Ah
+	AL = new size of write buffer
+	DL = drive number (00h = A:)
+Return: AX = status (0000h successful)
+SeeAlso: AH=2Ah,AH=39h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133B" name="133B"><b>133B</b></a> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???
+	AH = 3Bh
+	AL = new state of ??? (01h enabled, else disabled)
+Return: AX = status (0000h successful)
+Note:	is affected by the flag reported at offset 05h of the system info
+	  returned by AH=30h, and sets the flag at offset 06h
+SeeAlso: AH=3Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133C" name="133C"><b>133C</b></a> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE ???
+	AH = 3Ch
+	AL = new state of ??? (01h enabled, else disabled)
+Return: AX = status (0000h successful)
+Note:	is affected by the flag reported at offset 05h of the system info
+	  returned by AH=30h, and sets the flag at offset 07h
+SeeAlso: AH=3Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133D" name="133D"><b>133D</b></a> - INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE CYLINDER FLUSH FOR DRIVE<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - ENABLE/DISABLE CYLINDER FLUSH FOR DRIVE
+	AH = 3Dh
+	AL = new state (01h enabled, else disabled)
+	DL = drive number (00h = A:)
+Return: AX = status (0000h successful)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133E" name="133E"><b>133E</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET SINGLE-SECTOR BONUS<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET SINGLE-SECTOR BONUS
+	AH = 3Eh
+	AL = new value for bonus
+Return: AX = status (0000h successful)
+Desc:	specify the bonus score to give to single-sector transfers in order to
+	  keep those sectors in the cache longer
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#133F" name="133F"><b>133F</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET BONUS THRESHOLD<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET BONUS THRESHOLD
+	AH = 3Fh
+	AL = new value for bonus threshold
+Return: AX = status (0000h successful)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1340" name="1340"><b>1340</b></a> - INT 13 U - QUICKCACHE II v4.20 - SET "sticky_max"<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SET "sticky_max"
+	AH = 40h
+	AL = new value for "sticky_max"
+Return: AX = status (0000h successful)
+SeeAlso: AH=41h"QUICKCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1341" name="1341"><b>1341</b></a> - INT 13 U - QUICKCACHE II v4.20 - SAVE/RESTORE ???<br />
+<pre>
+INT 13 U - QUICKCACHE II v4.20 - SAVE/RESTORE ???
+	AH = 41h
+	AL = direction
+	    01h save to file
+	    else restore from file
+	ES:DI -&gt; 1024-byte buffer for ???
+Return: AX = status (0000h successful, 8000h failed)
+Program: QUICKCACHE II is a shareware disk cache by P.R. Glassel and
+	  Associates, Inc.
+SeeAlso: AH=40h"QUICKCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B00" name="137B00"><b>137B00</b></a> - INT 13 - NOW! v3.05 - GET INFORMATION<br />
+<pre>
+INT 13 - NOW! v3.05 - GET INFORMATION
+	AX = 7B00h
+	CX:DX -&gt; 1F8h-byte buffer for information record (see #00288)
+Return: AX = 0000h
+	BX = segment of main resident code
+	ES = ???
+Program: NOW! is a disk cache by Vertisoft Systems, Inc.
+SeeAlso: AX=7B02h,AH=EFh
+
+Format of NOW! information record:
+Offset	Size	Description	(Table 00288)
+ 00h 80 BYTEs	name of directory from which NOW! was started
+ 50h 424 BYTEs	???
+ 81h  ? BYTEs	array of bytes for ???
+ F7h 250 BYTEs	array of 25 entries, one per drive???
+	Offset	Size	Description
+	 00h  2 BYTEs	???
+	 02h	WORD	???
+	 04h	WORD	???
+	 06h  4 BYTEs	???
+1F1h  7 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B01" name="137B01"><b>137B01</b></a> - INT 13 - NOW! v3.05 - ???<br />
+<pre>
+INT 13 - NOW! v3.05 - ???
+	AX = 7B01h
+Return: DX = segment of ???
+SeeAlso: AX=7B00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B02" name="137B02"><b>137B02</b></a> - INT 13 - NOW! v3.05 - SET INFORMATION<br />
+<pre>
+INT 13 - NOW! v3.05 - SET INFORMATION
+	AX = 7B02h
+	BX = segment of ??? (10h above a PSP)
+	CX:DX -&gt; 1F8h-byte information record (see #00288)
+Return: ???
+Program: NOW! is a disk cache by Vertisoft Systems, Inc.
+Note:	NOW! grabs the INT 24h value from the PSP reached via the segment in
+	  BX
+SeeAlso: AX=7B00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B03" name="137B03"><b>137B03</b></a> - INT 13 - NOW! v3.05 - ???<br />
+<pre>
+INT 13 - NOW! v3.05 - ???
+	AX = 7B03h
+	???
+Return: ???
+SeeAlso: AX=7B00h,AX=7B04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B04" name="137B04"><b>137B04</b></a> - INT 13 - NOW! v3.05 - ???<br />
+<pre>
+INT 13 - NOW! v3.05 - ???
+	AX = 7B04h
+	???
+Return: ???
+SeeAlso: AX=7B03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B05" name="137B05"><b>137B05</b></a> - INT 13 - NOW! v3.05 - GET DISK ACCESSES???<br />
+<pre>
+INT 13 - NOW! v3.05 - GET DISK ACCESSES???
+	AX = 7B05h
+Return: BX:AX = number of physical accesses???
+	DX:CX = total disk accesses???
+SeeAlso: AX=7B00h,AX=7B06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B06" name="137B06"><b>137B06</b></a> - INT 13 - NOW! v3.05 - GET ???<br />
+<pre>
+INT 13 - NOW! v3.05 - GET ???
+	AX = 7B06h
+	BX = ???
+Return: AX = 0000h
+	BX = ???
+SeeAlso: AX=7B05h,AX=7B07h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B07" name="137B07"><b>137B07</b></a> - INT 13 - NOW! v3.05 - GET ???<br />
+<pre>
+INT 13 - NOW! v3.05 - GET ???
+	AX = 7B07h
+Return: AX = ???
+	BX = ???
+	CX = ???
+	DX = ???
+SeeAlso: AX=7B06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#137B08" name="137B08"><b>137B08</b></a> - INT 13 - NOW! v3.05 - ???<br />
+<pre>
+INT 13 - NOW! v3.05 - ???
+	AX = 7B08h
+	CX = ??? (default 00h)
+Return: ???
+SeeAlso: AX=7B00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1380--CX6572" name="1380--CX6572"><b>1380--CX6572</b></a> - INT 13 - FAST! v4.02+ - API<br />
+<pre>
+INT 13 - FAST! v4.02+ - API
+	AH = 80h
+	CX = 6572h
+	DX = 1970h
+	ES:BX -&gt; request packet (see #00290)
+	AL = function number (see #00289)
+Return: AH = status (except function 06h)
+	    00h if successful
+	    01h invalid function
+	    05h not supported by the installed variant
+	CF clear if successful
+	CF set on error
+	AL may be destroyed
+Program: FAST! is a disk cache by Future Computing Systems and marketed by
+	  BLOC Publishing Corp.
+SeeAlso: AX=8001h,AX=8006h,AX=8007h
+Index:	hotkeys;FAST!
+
+(Table 00289)
+Values for FAST! function:
+ 01h	get cache information (see AX=8001h)
+ 04h	disable cache
+ 05h	enable cache and reset statistics
+ 06h	installation check (see AX=8006h)
+ 07h	unhook interrupts (see AX=8007h)
+ 09h	flush cache
+ 0Ah	(v4.02+) enable staged writes
+ 0Bh	(v4.02+) disable staged writes
+ 0Ch	(v4.02+) enable beep on flush
+ 0Dh	(v4.02+) disable beep on flush
+ 0Eh	???
+ 0Fh	???
+ 10h	(v4.12+) enable hotkeys
+ 11h	(v4.12+) disable hotkeys
+ 12h	(v4.13+) set idle delay
+ 13h	(v4.13+) set flush dirty percentage
+ 14h	(v5.00+) enable mouse checks
+ 15h	(v5.00+) disable mouse checks
+ 16h	(v5.00d+) reduce cache size to minimum
+ 17h	(v5.00d+) increase cache size to maximum
+
+Format of FAST! request packet:
+Offset	Size	Description	(Table 00290)
+ 00h	DWORD	pointer to 19-byte signature string (see #00291)
+ 04h	DWORD	pointer to buffer for data (if needed by function)
+
+(Table 00291)
+Values for FAST! v4.04-v5.03 signature string:
+ 13h 07h 06h 08h 11h 18h 0Fh 0Eh 02h 18h 13h 08h 0Bh 08h 01h 00h 04h 08h 15h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138001CX6572" name="138001CX6572"><b>138001CX6572</b></a> - INT 13 - FAST! v4.02+ - GET CACHE INFORMATION<br />
+<pre>
+INT 13 - FAST! v4.02+ - GET CACHE INFORMATION
+	AX = 8001h
+	CX = 6572h
+	DX = 1970h
+	ES:BX -&gt; request packet (see #00292)
+Return: AH = 00h if successful
+SeeAlso: AH=80h,AX=8006h
+
+Format of FAST! request packet:
+Offset	Size	Description	(Table 00292)
+ 00h	DWORD	-&gt; 19-byte signature string (see #00291)
+ 04h	DWORD	-&gt; buffer for cache information (see #00293)
+
+Format of FAST! cache information (v5.00-5.03):
+Offset	Size	Description	(Table 00293)
+ 00h	WORD	binary version number of FAST! (v5.00 = 01F4h)
+ 02h	BYTE	revision letter (61h = X.XXa, 62h = X.XXb, etc.)
+ 03h	BYTE	FAST! variant
+		(01h = FASTE, 02h = FASTX BIOS, 04h = FASTC, 20h = FASTX XMS)
+ 04h	DWORD	total number of read requests
+ 08h	DWORD	number of physical disk reads
+ 0Ch	DWORD	grabbed hash buckets
+ 10h	DWORD	"st_386mem"
+ 14h	DWORD	total number of writes (only counted when staging enabled)
+ 18h	DWORD	number of physical disk writes (only when staging enabled)
+ 1Ch	DWORD	number of write errors while flushing cache
+ 20h	WORD	flags1 (see #00294)
+ 22h	WORD	flags
+		bit 0: ???
+		bit 1: staged writes enabled
+ 24h	WORD	???
+ 26h	WORD	maximum cache size in KB
+ 28h	WORD	minimum cache size in KB
+ 2Ah	WORD	segment of first cache buffer (FASTC)
+		segment of EMS page frame (FASTE)
+		XMS handle (FASTX XMS)
+ 2Ch	WORD	number of hash buckets containing no entries
+ 2Eh	WORD	number of hash buckets containing one entry
+ 30h	WORD	number of hash buckets containing two entries
+ 32h	WORD	number of hash buckets containing three entries
+ 34h	WORD	number of hash buckets containing four entries
+ 36h	WORD	number of hash buckets containing five entries
+ 38h	WORD	maximum contiguous sectors
+ 3Ah	WORD	hash factor
+ 3Ch	WORD	number of paragraphs of memory used below 1M
+ 3Eh	WORD	entries per hash bucket
+ 40h	WORD	idle delay in seconds
+ 42h  2 BYTEs	???
+ 44h	WORD	staged write threshold percentage
+ 46h  2 BYTEs	???
+ 48h	WORD	number of dirty sectors
+ 4Ah	WORD	number of staged write buffers
+ 4Ch	WORD	current cache size in KB
+ 4Eh	WORD	beep frequency in Hz
+ 50h	WORD	???
+ 52h	WORD	???
+
+Bitfields for FAST! flags1:
+Bit(s)	Description	(Table 00294)
+ 0	beep on flush
+ 3	hotkeys enabled
+ 4	mouse idle check enabled
+ 8	caching enabled
+ 13	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138006CX6572" name="138006CX6572"><b>138006CX6572</b></a> - INT 13 - FAST! v4.02+ - INSTALLATION CHECK<br />
+<pre>
+INT 13 - FAST! v4.02+ - INSTALLATION CHECK
+	AX = 8006h
+	CX = 6572h
+	DX = 1970h
+	ES:BX -&gt; request packet (see #00295)
+Return: AX = 1965h if installed
+SeeAlso: AH=80h,AX=8001h,AX=8007h
+
+Format of FAST! request packet:
+Offset	Size	Description	(Table 00295)
+ 00h	DWORD	-&gt; 19-byte signature string (see #00291)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138007CX6572" name="138007CX6572"><b>138007CX6572</b></a> - INT 13 - FAST! v4.02+ - UNHOOK INTERRUPTS<br />
+<pre>
+INT 13 - FAST! v4.02+ - UNHOOK INTERRUPTS
+	AX = 8007h
+	CX = 6572h
+	DX = 1970h
+	ES:BX -&gt; request packet (see #00296)
+Return: AX = 1965h if installed
+SeeAlso: AH=80h,AX=8006h
+Index:	uninstall;FAST!
+
+Format of FAST! request packet:
+Offset	Size	Description	(Table 00296)
+ 00h	DWORD	-&gt; 19-byte signature string (see #00291)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1381--SI4358" name="1381--SI4358"><b>1381--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = 81h
+	SI = 4358h
+	???
+Return: ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (PC-Cache v5.1 corresponds
+	  to PC-Kwik v3.20 and PC-Cache v5.5 to PC-Kwik v3.27)
+	returns immediately in PC-Cache v5.x
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1382--SI4358" name="1382--SI4358"><b>1382--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = 82h
+	SI = 4358h
+	???
+Return: AL = ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call
+SeeAlso: AH=84h
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1383--SI4358" name="1383--SI4358"><b>1383--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = 83h
+	SI = 4358h
+	AL = ???
+	ES:BX -&gt; ???
+	???
+Return: ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call
+SeeAlso: AH=85h
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1384--SI4358" name="1384--SI4358"><b>1384--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = 84h
+	SI = 4358h
+	AL = ???
+	???
+Return: AL = ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call
+SeeAlso: AH=82h
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1385--SI4358" name="1385--SI4358"><b>1385--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = 85h
+	SI = 4358h
+	AL = ???
+	DL = ???
+	???
+Return: ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (PC-Cache v5.1 corresponds
+	  to PC-Kwik v3.20)
+SeeAlso: AH=83h
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1386--SI4358" name="1386--SI4358"><b>1386--SI4358</b></a> - INT 13 - Super PC-Kwik v4.00+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4.00+ - ???
+	AH = 86h
+	SI = 4358h
+	???
+Return: ???
+Note:	Qualitas Qcache v4.00 is an OEM version of Super PC-Kwik v4.00, and
+	  thus supports this call
+Index:	Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1387--SI4358" name="1387--SI4358"><b>1387--SI4358</b></a> - INT 13 - Super PC-Kwik v4.00+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4.00+ - ???
+	AH = 87h
+	SI = 4358h
+	???
+Return: AH = status??? (00h)
+	CX = ???
+	DX = ??? (0000h)
+Note:	Qualitas Qcache v4.00 is an OEM version of Super PC-Kwik v4.00, and
+	  thus supports this call
+Index:	Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1388--SI4358" name="1388--SI4358"><b>1388--SI4358</b></a> - INT 13 - Super PC-Kwik v4.00+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4.00+ - ???
+	AH = 88h
+	SI = 4358h
+	???
+Return: AH = status??? (00h)
+	CX = ???
+	DX = ??? (0000h)
+Note:	Qualitas Qcache v4.00 is an OEM version of Super PC-Kwik v4.00, and
+	  thus supports this call
+Index:	Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1389--SI4358" name="1389--SI4358"><b>1389--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 89h
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138A--SI4358" name="138A--SI4358"><b>138A--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 8Ah
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138EED" name="138EED"><b>138EED</b></a> - INT 13 - HyperDisk v4.01+ - ???<br />
+<pre>
+INT 13 - HyperDisk v4.01+ - ???
+	AX = 8EEDh
+	???
+Return: ???
+Program: HyperDisk is a shareware disk cache by HyperWare (Roger Cross)
+SeeAlso: AX=8EEEh,AX=8EEFh,AH=EEh,INT 2F/AX=DF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138EEE" name="138EEE"><b>138EEE</b></a> - INT 13 - HyperDisk v4.01+ - ???<br />
+<pre>
+INT 13 - HyperDisk v4.01+ - ???
+	AX = 8EEEh
+Return: CF set
+	AX = CS of HyperDisk resident code
+	???
+Note:	identical to AX=8EEFh in HYPERDKX v4.21-4.30
+SeeAlso: AX=8EEDh,AX=8EEFh,AH=EEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#138EEF" name="138EEF"><b>138EEF</b></a> - INT 13 - HyperDisk v4.01+ - ???<br />
+<pre>
+INT 13 - HyperDisk v4.01+ - ???
+	AX = 8EEFh
+Return: CF set
+	AX = CS of HyperDisk resident code
+	???
+Note:	identical to AX=8EEEh in HYPERDKX v4.21-4.30
+SeeAlso: AX=8EEDh,AX=8EEEh,AH=EEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1392--SI4358" name="1392--SI4358"><b>1392--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 92h
+	SI = 4358h
+	???
+Return: AH = status??? (00h)
+	DL = ???
+SeeAlso: AH=93h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1393--SI4358" name="1393--SI4358"><b>1393--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 93h
+	SI = 4358h
+	???
+Return: AH = status??? (00h)
+	AL = ???
+SeeAlso: AH=92h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1394--SI4358" name="1394--SI4358"><b>1394--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 94h
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1395--SI4358" name="1395--SI4358"><b>1395--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 95h
+	SI = 4358h
+	???
+Return: AH = status??? (00h)
+	DX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1396--SI4358" name="1396--SI4358"><b>1396--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 96h
+	SI = 4358h
+	AL = ??? (01h)
+	BX = ??? (0790h)
+	DL = ???
+Return: AH = status??? (00h)
+	DX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1397--SI4358" name="1397--SI4358"><b>1397--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 97h
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1398--SI4358" name="1398--SI4358"><b>1398--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 98h
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1399--SI4358" name="1399--SI4358"><b>1399--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 99h
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#139A--SI4358" name="139A--SI4358"><b>139A--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 9Ah
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#139B--SI4358" name="139B--SI4358"><b>139B--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 9Bh
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#139C--SI4358" name="139C--SI4358"><b>139C--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 9Ch
+	SI = 4358h
+	???
+Return: ???
+Note:	functions 9Ch and 9Dh are the only ones which are fully reentrant; all
+	  other PC-Kwik API calls (INT 13/81h-B0h) return AX=0200h and CF clear
+	  if a previous call is still in progress
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#139D--SI4358" name="139D--SI4358"><b>139D--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = 9Dh
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A0--SI4358" name="13A0--SI4358"><b>13A0--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - GET RESIDENT CODE SEGMENT<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - GET RESIDENT CODE SEGMENT
+	AH = A0h
+	SI = 4358h
+Return: AX = segment of resident code
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (note that PC-Cache v5.5
+	  corresponds to PC-Kwik v3.27)
+SeeAlso: INT 16/AX=FFA5h/CX=1111h
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A1--SI4358" name="13A1--SI4358"><b>13A1--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - FLUSH CACHE<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - FLUSH CACHE
+	AH = A1h
+	SI = 4358h
+Return: CF clear
+	AH = 00h (v5.10)
+Notes:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (note that PC-Cache v5.1
+	  corresponds to PC-Kwik v3.20)
+	this function is one out of several cache flush calls issued by the
+	  PTS-DOS 6.51 and S/DOS 1.0 kernel before rebooting.
+SeeAlso: INT 16/AX=FFA5h/CX=FFFFh
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A2--SI4358" name="13A2--SI4358"><b>13A2--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = A2h
+	SI = 4358h
+	???
+Return: ???
+Note:	PC Tools PC-Cache 5.x and Qualitas Qcache 4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (note that PC-Cache v5.1
+	  corresponds to PC-Kwik v3.20)
+Index:	PC-Cache|Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A3--SI4358" name="13A3--SI4358"><b>13A3--SI4358</b></a> - INT 13 U - Super PC-Kwik v5.10+ - DISABLE CACHE<br />
+<pre>
+INT 13 U - Super PC-Kwik v5.10+ - DISABLE CACHE
+	AH = A3h
+	SI = 4358h
+Return: CF clear
+SeeAlso: AH=A4h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A4--SI4358" name="13A4--SI4358"><b>13A4--SI4358</b></a> - INT 13 U - Super PC-Kwik v5.10+ - ENABLE CACHE<br />
+<pre>
+INT 13 U - Super PC-Kwik v5.10+ - ENABLE CACHE
+	AH = A4h
+	SI = 4358h
+Return: CF clear
+SeeAlso: AH=A3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A5--SI4358" name="13A5--SI4358"><b>13A5--SI4358</b></a> - INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM TERMINATION NOTIFICATION<br />
+<pre>
+INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM TERMINATION NOTIFICATION
+	AH = A5h
+	SI = 4358h
+Return: AX = ???
+	SI = ???
+Notes:	called and used internally by Super PC-Kwik when a program terminates
+	  via INT 21/AH=00h, INT 21/AH=31h, or INT 21/AH=4Ch
+	this call is not supported by Qualitas Qcache 4.00
+Index:	PC-Cache
+SeeAlso: AH=A6h,AH=A9h,INT 21/AH=00h,INT 21/AH=31h,INT 21/AH=4Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A6--SI4358" name="13A6--SI4358"><b>13A6--SI4358</b></a> - INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM LOAD NOTIFICATION<br />
+<pre>
+INT 13 CU - Super PC-Kwik v5.10+ - PROGRAM LOAD NOTIFICATION
+	AH = A6h
+	SI = 4358h
+	DS:DX -&gt; ASCIZ program name
+	ES:BX -&gt; EXEC data block (see #01590 at INT 21/AH=4Bh)
+Return: ???
+Note:	called and used internally by Super PC-Kwik when a program is loaded
+	  with INT 21/AX=4B00h
+SeeAlso: AH=A5h,AH=A9h,INT 21/AH=4Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A7--SI4358" name="13A7--SI4358"><b>13A7--SI4358</b></a> - INT 13 CU - Super PC-Kwik 5.1 - ???<br />
+<pre>
+INT 13 CU - Super PC-Kwik 5.1 - ???
+	AH = A7h
+	SI = 4358h
+Return: ???
+Note:	called and used internally by Super PC-Kwik on some INT 21 calls
+SeeAlso: AH=A5h,AH=A6h,AH=A8h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A8--SI4358" name="13A8--SI4358"><b>13A8--SI4358</b></a> - INT 13 CU - Super PC-Kwik 5.1 - ???<br />
+<pre>
+INT 13 CU - Super PC-Kwik 5.1 - ???
+	AH = A8h
+	SI = 4358h
+Return: ???
+Note:	called and used internally by Super PC-Kwik on some INT 21 calls
+SeeAlso: AH=A5h,AH=A6h,AH=A7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13A9--SI4358" name="13A9--SI4358"><b>13A9--SI4358</b></a> - INT 13 CU - Super PC-Kwik 5.1 - EXITCODE RETRIEVAL NOTIFICATION<br />
+<pre>
+INT 13 CU - Super PC-Kwik 5.1 - EXITCODE RETRIEVAL NOTIFICATION
+	AH = A9h
+	SI = 4358h
+Return: ???
+Note:	called and used internally by Super PC-Kwik when an application issues
+	  INT 21/AH=4Dh
+SeeAlso: AH=A5h,AH=A6h,INT 21/AH=4Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13AA--SI4358" name="13AA--SI4358"><b>13AA--SI4358</b></a> - INT 13 - Super PC-Kwik v4+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4+ - ???
+	AH = AAh
+	SI = 4358h
+	???
+Return: ???
+Note:	Qualitas Qcache is an OEM version of Super PC-Kwik, and thus supports
+	  this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13AB--SI4358" name="13AB--SI4358"><b>13AB--SI4358</b></a> - INT 13 - Super PC-Kwik v4+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4+ - ???
+	AH = ABh
+	SI = 4358h
+	???
+Return: ???
+Note:	Qualitas Qcache is an OEM version of Super PC-Kwik, and thus supports
+	  this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13AC--SI4358" name="13AC--SI4358"><b>13AC--SI4358</b></a> - INT 13 - Super PC-Kwik v4+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4+ - ???
+	AH = ACh
+	SI = 4358h
+	???
+Return: ???
+Note:	Qualitas Qcache is an OEM version of Super PC-Kwik, and thus supports
+	  this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13AD--SI4358" name="13AD--SI4358"><b>13AD--SI4358</b></a> - INT 13 - Super PC-Kwik v4+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v4+ - ???
+	AH = ADh
+	SI = 4358h
+	???
+Return: ???
+Note:	Qualitas Qcache is an OEM version of Super PC-Kwik, and thus supports
+	  this call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13AE--SI4358" name="13AE--SI4358"><b>13AE--SI4358</b></a> - INT 13 - Super PC-Kwik v5.10+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v5.10+ - ???
+	AH = AEh
+	SI = 4358h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13B0--SI4358" name="13B0--SI4358"><b>13B0--SI4358</b></a> - INT 13 - Super PC-Kwik v3.20+ - ???<br />
+<pre>
+INT 13 - Super PC-Kwik v3.20+ - ???
+	AH = B0h
+	SI = 4358h
+	???
+Return: ???
+Note:	PC Tools PC-Cache 5.x is an OEM version of Super PC-Kwik, and thus
+	  supports this call; Qualitas Qcache does not support it
+Index:	PC-Cache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#13EF" name="13EF"><b>13EF</b></a> - INT 13 - Ontrack Drive Rocket - SET CYLINDER OFFSET<br />
+<pre>
+INT 13 - Ontrack Drive Rocket - SET CYLINDER OFFSET
+	AH = EFh
+	CX = cylinder offset for next INT 13 call
+	DL = drive number (80h, 81h)
+Return: CF clear
+	    AH = 00h
+Program: Drive Rocket is a drive accelerator by Ontrack Computer Systems for
+	  IDE drives supporting the read multiple and write multiple commands
+Desc:	the following INT 13 call will add the number given by this call to
+	  the specified cylinder to get the actual cylinder number, then reset
+	  the offset to zero
+Note:	this function is also supported by the NOW! disk cache, and presumably
+	  newer versions of SWBIOS and Disk Manager
+	for software which supports this call, AH=EEh is equivalent to calling
+	  this function with CX=0400h
+	the cylinder offset is reset to 0 by all INT 13 called except AH=EEh
+	  and AH=EFh
+SeeAlso: AX=7B00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#152000" name="152000"><b>152000</b></a> - INT 15 U - DOS 3.0+ PRINT.COM - DISABLE CRITICAL REGION FLAG<br />
+<pre>
+INT 15 U - DOS 3.0+ PRINT.COM - DISABLE CRITICAL REGION FLAG
+	AX = 2000h
+Return: nothing
+Desc:	stop setting user flag on entry to PRINT critical region
+Note:	also supported by PC Network v1.00 RECEIVER.COM
+SeeAlso: AX=2001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#152001" name="152001"><b>152001</b></a> - INT 15 U - DOS 3.0+ PRINT.COM - SET CRITICAL REGION FLAG<br />
+<pre>
+INT 15 U - DOS 3.0+ PRINT.COM - SET CRITICAL REGION FLAG
+	AX = 2001h
+	ES:BX -&gt; byte which is to be incremented while in a DOS call
+Return: nothing
+Desc:	specify a user flag which PRINT should set to let an interested
+	  application know it is in a critical region
+Note:	also supported by PC Network v1.00 RECEIVER.COM
+SeeAlso: AX=2000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#165758BX4858" name="165758BX4858"><b>165758BX4858</b></a> - INT 16 U - Netroom CACHECLK - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - Netroom CACHECLK - INSTALLATION CHECK
+	AX = 5758h
+	BX = 4858h ('HX')
+	DX = 4443h ('DC')
+	CX &lt;&gt; 5758h
+Return: BX = 6878h if installed
+	CX = 6463h if installed
+	    AX = code segment of TSR
+	    CX = internal version??? (v3.00 returns 0100h)
+Program: CACHECLK is a "cloaked" disk cache included with Netroom
+Notes:	if CX=5758h on entry, CACHECLK returns with all registers unchanged
+	the cache statistics are located early in the segment pointed at by
+	  AX on return
+SeeAlso: INT 2F/AX=5758h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CX1111" name="16FFA5CX1111"><b>16FFA5CX1111</b></a> - INT 16 - PC-Cache v6+ - INSTALLATION CHECK<br />
+<pre>
+INT 16 - PC-Cache v6+ - INSTALLATION CHECK
+	AX = FFA5h
+	CX = 1111h
+Return: CH = 00h if installed
+	    ES:DI -&gt; internal data (see #00620)
+	    CL = cache state
+		01h enabled
+		02h disabled
+SeeAlso: INT 13/AH=27h,INT 13/AH=A0h,INT 21/AH=2Bh/CX=4358h
+
+Format of PC-Cache internal data:
+Offset	Size	Description	(Table 00620)
+-1Ch 20 BYTEs	cached drive list, one byte per drive A: to T:
+		each byte is either blank (20h) or drive letter (41h-54h)
+ -8	BYTE	???
+ -7	WORD	number of physical transfers (scaled down to 0000h-7FFFh)
+ -5	WORD	number of saved transfers (scaled down to 0000h-7FFFh)
+ -3   3 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CXAAAA" name="16FFA5CXAAAA"><b>16FFA5CXAAAA</b></a> - INT 16 - PC-Cache v6+ - ENABLE DELAYED WRITES<br />
+<pre>
+INT 16 - PC-Cache v6+ - ENABLE DELAYED WRITES
+	AX = FFA5h
+	CX = AAAAh
+Return: AX = ??? (apparently either 0000h or sectors_in_cache - 5)
+SeeAlso: AX=FFA5h/CX=CCCCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CXCCCC" name="16FFA5CXCCCC"><b>16FFA5CXCCCC</b></a> - INT 16 - PC-Cache v6+ - FLUSH CACHE AND DISABLE DELAYED WRITES<br />
+<pre>
+INT 16 - PC-Cache v6+ - FLUSH CACHE AND DISABLE DELAYED WRITES
+	AX = FFA5h
+	CX = CCCCh
+Return: AX = ??? (apparently either 0000h or sectors_in_cache - 5)
+Note:	delayed writes are automatically disabled on EXECing
+	  (see INT 21/AH=4Bh) a program named either WIN.CO? or DV.E??;
+	  however, delayed writes are not automatically reenabled upon the
+	  program's termination in v6.
+SeeAlso: AX=FFA5h/CX=AAAAh,AX=FFA5h/CX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CXDDDD" name="16FFA5CXDDDD"><b>16FFA5CXDDDD</b></a> - INT 16 - PC-Cache v6+ - FLUSH AND DISABLE CACHE<br />
+<pre>
+INT 16 - PC-Cache v6+ - FLUSH AND DISABLE CACHE
+	AX = FFA5h
+	CX = DDDDh
+SeeAlso: AX=FFA5h/CX=EEEEh,AX=FFA5h/CX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CXEEEE" name="16FFA5CXEEEE"><b>16FFA5CXEEEE</b></a> - INT 16 - PC-Cache v6+ - ENABLE CACHE<br />
+<pre>
+INT 16 - PC-Cache v6+ - ENABLE CACHE
+	AX = FFA5h
+	CX = EEEEh
+SeeAlso: AX=FFA5h/CX=DDDDh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA5CXFFFF" name="16FFA5CXFFFF"><b>16FFA5CXFFFF</b></a> - INT 16 - PC-Cache v6+ - FLUSH CACHE<br />
+<pre>
+INT 16 - PC-Cache v6+ - FLUSH CACHE
+	AX = FFA5h
+	CX = FFFFh
+SeeAlso: AX=FFA5h/CX=CCCCh,AX=FFA5h/CX=DDDDh,INT 13/AH=A1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703_1" name="1703_1"><b>1703</b></a> - INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING<br />
+<pre>
+INT 17 - PC-MOS/386 v5.01 - PRINT SPOOLER - PRINT STRING
+	AH = 03h
+	DX = printer port number
+	CX = number of characters to print
+	DS:SI -&gt; string
+Return: AH = printer status (see #00631)
+	CX = number of characters actually printed
+Desc:	send an entire string of chars to the print spooler with a single call
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+SeeAlso: AH=00h,AH=01h,AH=02h,AH=FFh"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1703--BX5A00" name="1703--BX5A00"><b>1703--BX5A00</b></a> - INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK<br />
+<pre>
+INT 17 - DMP Print Spooler v2.03 - INSTALLATION CHECK
+	AH = 03h
+	BX = 5A00h
+Return: AX = 5ACBh
+	DI = 0000h
+	ES = DMP code segment (also data segment)
+Program: DMP is a Printer driver/spooler, by DMP (USA), available on the
+	  PCTODAY disk, volume 10, March 1991
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C0" name="17C0"><b>17C0</b></a> - INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS<br />
+<pre>
+INT 17 - PC Magazine PCSpool - GET CONTROL BLOCK ADDRESS
+	AH = C0h
+	DX = printer port (0-3)
+Return: ES:BX -&gt; control block (see #00646)
+SeeAlso: AH=C1h
+
+Format of PCSpool control block:
+Offset	Size	Description	(Table 00646)
+ 00h	WORD	printer number
+ 02h	WORD	address of printer status port
+ 04h	WORD	number of first record in queue
+ 06h	WORD	number of last record in queue
+ 08h	DWORD	characters already printed
+ 0Ch	DWORD	number of characters remaining
+ 10h	DWORD	pointer to dequeue buffer
+ 14h	DWORD	previous count of characters printed
+ 18h	DWORD	number of clock ticks taken to print them
+ 1Ch	WORD	offset of next character to output
+ 1Eh	WORD	offset of next character to print
+ 20h	WORD	pointer to spooling queue record
+ 22h	BYTE	current spooling status
+ 23h	BYTE	current printer status:
+		00h OK
+		01h not ready
+		02h paused with message
+		03h paused
+		04h initializing
+		FEh non-existent port
+		FFh not spooled
+ 24h	BYTE	current control record type
+ 25h	WORD	observed printer speed
+ 27h	WORD	characters to print per service
+ 29h	BYTE	01h if disk write needed
+ 2Ah	BYTE	01h if queued data should be flushed
+ 2Bh	BYTE	01h to update cps status
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C1" name="17C1"><b>17C1</b></a> - INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD<br />
+<pre>
+INT 17 - PC Magazine PCSpool - BUILD PAUSE CONTROL RECORD
+	AH = C1h
+	DX = printer port (0-3)
+	DS:SI -&gt; ASCIZ string to save for display
+Note:	flushes pending writes
+SeeAlso: AH=C0h,AH=C2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C2" name="17C2"><b>17C2</b></a> - INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES<br />
+<pre>
+INT 17 - PC Magazine PCSpool - FLUSH PENDING WRITES
+	AH = C2h
+	DX = printer port (0-3)
+SeeAlso: AH=C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C3" name="17C3"><b>17C3</b></a> - INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CANCEL PRINTER QUEUE (FLUSH ALL QUEUED OUTPUT)
+	AH = C3h
+	DX = printer port (0-3)
+SeeAlso: AH=C2h,AH=C7h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C4" name="17C4"><b>17C4</b></a> - INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - QUERY SPOOLER ACTIVE
+	AH = C4h
+Return: DI = B0BFh
+	SI = segment
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C5" name="17C5"><b>17C5</b></a> - INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - JOB SKIP PRINTER QUEUE
+	AH = C5h
+	DX = printer port (0-3)
+Note:	cancels up to the pause record
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C6" name="17C6"><b>17C6</b></a> - INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CHECK PRINTER QUEUE STATUS
+	AH = C6h
+	DX = printer port (0-3)
+Return: AX = queue status
+	   0000h printer not active or at pause
+	   0001h printer busy
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17C7" name="17C7"><b>17C7</b></a> - INT 17 - PC Magazine PCSpool - CLOSE QUEUE<br />
+<pre>
+INT 17 - PC Magazine PCSpool - CLOSE QUEUE
+	AH = C7h
+	DX = printer port (0-3)
+SeeAlso: AH=C3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#17FF--BX0000" name="17FF--BX0000"><b>17FF--BX0000</b></a> - INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE<br />
+<pre>
+INT 17 U - PC-MOS/386 v5.01 - PRINT SPOOLER - CLOSE SPOOL FILE
+	AH = FFh
+	BX = 0000h
+	CX = 0000h
+	DX = printer port number
+Return: AH = printer status (see #00631 at AH=00h)
+Program: PC-MOS/386 v5.01 is a multitasking, multiuser MS-DOS 5.0-compatible
+	  operating system by The Software Link, Inc.
+Desc:	close the spool file immediately instead of waiting for the close time
+	  to elapse
+SeeAlso: AH=01h,AH=03h"PC-MOS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AA0" name="1AA0"><b>1AA0</b></a> - INT 1A U - Disk Spool II v2.07+ - INSTALLATION CHECK<br />
+<pre>
+INT 1A U - Disk Spool II v2.07+ - INSTALLATION CHECK
+	AH = A0h
+Return: AH = B0h if installed
+	    AL = pending INT 1A/AH=D0h subfunction if nonzero???
+	    ES = code segment
+	    ES:BX -&gt; name of current spool file
+	    ES:SI -&gt; current despool file
+	    CL = despooler state (00h disabled, 41h enabled)
+	    CH = spooler state (00h disabled, 41h enabled)
+	    DL = despooler activity
+		00h currently active printing a file
+		41h standing by
+	    DH = 00h ???
+	       = 41h ???
+	    DI = 0000h ???
+		 0001h ???
+Program: Disk Spool II is a shareware disk-based print spooler by Budget
+	  Software Company
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=ABh,AH=C0h,AH=D0h,AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AAB" name="1AAB"><b>1AAB</b></a> - INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK<br />
+<pre>
+INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK
+	AH = ABh
+Return: AH = BAh if installed
+	    AL = pending INT 1A/AH=ADh subfunction if nonzero???
+	    ES = code segment
+	    ES:BX -&gt; name of current spool file
+	    ES:SI -&gt; current despool file
+	    CL = despooler state (00h disabled, 41h enabled)
+	    CH = spooler state (00h disabled, 41h enabled)
+	    DL = despooler activity
+		00h currently active printing a file
+		41h standing by
+	    DH = 00h ???
+	       = 41h ???
+	    DI = 0000h ???
+		 0001h ???
+Program: Disk Spool II is a shareware disk-based print spooler by Budget
+	  Software Company
+SeeAlso: AH=A0h,AH=ACh,AH=ADh,AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AAC" name="1AAC"><b>1AAC</b></a> - INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK<br />
+<pre>
+INT 1A U - Disk Spool II v1.83 - INSTALLATION CHECK
+	AH = ACh
+Return: (see AH=ABh)
+Note:	this function is identical to AH=ABh
+SeeAlso: AH=A0h,AH=ABh,AH=ADh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AAD" name="1AAD"><b>1AAD</b></a> - INT 1A U - Disk Spool II v1.83 - FUNCTION CALLS<br />
+<pre>
+INT 1A U - Disk Spool II v1.83 - FUNCTION CALLS
+	AH = ADh
+	AL = function code (see #00697)
+Return: AH = 00h if successful
+SeeAlso: AH=ABh
+
+(Table 00697)
+Values for Disk Spool function code:
+ 02h	enable spooler only
+ 03h	enable the despooler
+ 04h	disable the despooler
+ 08h	inhibit popup menu
+ 09h	enable popup menu
+ 0Ah	???
+ 0Bh	disable the spooler
+ 0Ch	start despooler after last successfully printed document???
+ 0Dh	start despooler at the exact point where it last left off???
+ 0Eh	pop up the menu
+ 0Fh	???
+ 11h	???
+ 14h	???
+ 15h	???
+ 16h	???
+ 17h	???
+ 18h	???
+ 19h	???
+ 20h	clear file pointed to by the despooler???
+ 21h	???
+ 22h	???
+ 23h	???
+ 30h	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AC0" name="1AC0"><b>1AC0</b></a> - INT 1A U - Disk Spool II v2.07+ - ALTERNATE INSTALLATION CHECK<br />
+<pre>
+INT 1A U - Disk Spool II v2.07+ - ALTERNATE INSTALLATION CHECK
+	AH = C0h
+Return: (see AH=A0h)
+Notes:	this call is identical to AH=A0h
+	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=A0h,AH=ABh,AH=D0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AD0" name="1AD0"><b>1AD0</b></a> - INT 1A U - Disk Spool II v2.07+ - FUNCTION CALLS<br />
+<pre>
+INT 1A U - Disk Spool II v2.07+ - FUNCTION CALLS
+	AH = D0h
+	AL = function code
+	    01h enable spooler and despooler
+	    02h enable spooler only
+	    03h enable despooler at beginning of file
+	    04h disable the despooler
+	    05h disable the despooler and spooler
+	    06h clear the spool file
+	    08h inhibit the popup menu
+	    09h enable the popup menu
+	    0Ah ??? (called by Disk Spool's INT 21 handler)
+	    0Bh disable the spooler
+	    0Ch start despooler after last successfully printed document
+	    0Dh start despooler at the exact point where it last left off
+	    0Eh pop up the menu
+	    0Fh ???
+	    11h start new spool file??? (called by Disk Spool's INT 21 handler
+			when a program terminates)
+	    14h ???
+	    15h delete despool file and reset ???
+	    16h ??? (writes something to unknown file)
+	    17h ??? (writes something to despool file, then reads something
+			else and ???)
+	    18h ??? (reads something from despool file, and then ???)
+	    19h ??? (creates/truncates spool file)
+	    20h clear file pointed to by the despooler
+	    21h ??? (writes something to unknown file)
+	    22h ??? (writes something to spool file if spooler/despooler using
+			same file)
+	    23h ??? (opens/creates unknown file, then ???)
+	    30h ???
+	    31h ???
+	    32h beep
+	    33h append CRLF to spool file???
+	    34h ???
+	    35h ???
+	    36h ???
+	    37h append CRLF to spool file and start a new spool file???
+	    38h ???
+	    40h ??? (v4.05)
+	    41h ??? (v4.05)
+	    51h ??? (called by Disk Spool's INT 21 handler)
+	    52h ??? (called by Disk Spool's INT 21 handler)
+	    57h ???
+	    5Ah ??? (v4.05)
+	    5Bh ??? (v4.05)
+	    5Ch ??? (v4.05)
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=A0h,AH=ADh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE0" name="1AE0"><b>1AE0</b></a> - INT 1A - Disk Spool II v4.0x - ENABLE/DISABLE<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - ENABLE/DISABLE
+	AH = E0h
+	AL = subfunction
+	    01h enable spooler
+	    02h disable spooler
+	    03h enable despooler
+	    04h disable despooler
+	CL = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AH = status
+	    00h successful
+	    F0h printer port not managed by Disk Spool II
+	    FFH failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=A0h,AH=E1h,AX=E301h,AX=E401h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE1" name="1AE1"><b>1AE1</b></a> - INT 1A - Disk Spool II v4.0x - GET STATUS<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - GET STATUS
+	AH = E1h
+	CL = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AH = status
+	    00h successful
+		CL = despooler state (00h disabled, 41h enabled)
+		CH = spooler state (00h disabled, 41h enabled)
+		DL = despooler activity (00h standing by, 41h printing)
+		ES:BX -&gt; ASCIZ name of current spool file (or next if AutoSpool
+			or AutoDespool enabled)
+		ES:SI -&gt; ASCIZ name of current despool file
+		ES:DI -&gt; 3-byte file extension used by Disk Spool II
+	    F0h printer port not managed by Disk Spool II
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=A0h,AH=E0h,AH=E2h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE2" name="1AE2"><b>1AE2</b></a> - INT 1A - Disk Spool II v4.0x - GET SPOOL FILES<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - GET SPOOL FILES
+	AH = E2h
+	AL = which
+	    01h first
+	    02h next (can only call after "first")
+	CL = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AH = status
+	    00h successful
+		ES:BX -&gt; ASCIZ filename
+	    F0h no (more) spool files
+	    FFh failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E0h,AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE301" name="1AE301"><b>1AE301</b></a> - INT 1A - Disk Spool II v4.0x - GET SPOOL FILE STATUS<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - GET SPOOL FILE STATUS
+	AX = E301h
+	ES:BX -&gt; ASCIZ filename (max 32 chars)
+Return: AH = status
+	    00h successful
+		ES:SI -&gt; spool file status record (see #01262)
+	    F0h not a spool file
+	    FFh failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E0h,AX=E302h,AX=E401h
+
+Format of Disk Spool II spool file status record:
+Offset	Size	Description	(Table 01262)
+ 00h	BYTE	hour of creation or last update
+ 01h	BYTE	minute of creation or last update
+ 02h	BYTE	year-1980 of creation or last update
+ 03h	BYTE	month of creation or last update
+ 04h	BYTE	day of creation or last update
+ 05h	BYTE	total number of copies to print
+ 06h	BYTE	number of copies already printed
+ 07h	BYTE	printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+ 08h	BYTE	save status (00h delete after printing, 01h save)
+ 09h	BYTE	file status
+		01h done printing, but being saved
+		02h on hold
+		03h queued for printing
+		04h being spooled
+		05h being despooled (i.e. printed)
+ 0Ah 16 BYTEs	ASCIZ description
+ 1Ah  2 WORDs	file size in bytes (high,low)
+ 1Eh  2 WORDs	bytes left to print (high,low)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE302" name="1AE302"><b>1AE302</b></a> - INT 1A - Disk Spool II v4.0x - UPDATE SPOOL FILE<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - UPDATE SPOOL FILE
+	AX = E302h
+	ES:BX -&gt; ASCIZ filename (max 32 chars)
+	ES:SI -&gt; spool file status record (see #01262)
+Return: AH = status
+	    00h successful
+	    F0h not a spool file
+	    FFh failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E0h,AX=E301h,AX=E401h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE401" name="1AE401"><b>1AE401</b></a> - INT 1A - Disk Spool II v4.0x - SPOOL EXISTING FILE<br />
+<pre>
+INT 1A - Disk Spool II v4.0x - SPOOL EXISTING FILE
+	AX = E401h
+	ES:BX -&gt; ASCIZ filename (max 32 chars)
+	CL = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AH = status
+	    00h successful
+	    FFh failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E1h,AX=E302h,AX=E402h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE402" name="1AE402"><b>1AE402</b></a> - INT 1A U - Disk Spool II v4.0x - SPOOL EXISTING FILE???<br />
+<pre>
+INT 1A U - Disk Spool II v4.0x - SPOOL EXISTING FILE???
+	AX = E402h
+	ES:BX -&gt; ASCIZ filename (max 32 chars)
+	CL = printer port (01h COM1, 02h COM2, 05h LPT1, 06h LPT2)
+Return: AH = status
+	    00h successful
+	    FFh failed
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E1h,AX=E302h,AX=E401h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AE5" name="1AE5"><b>1AE5</b></a> - INT 1A U - Emulaser ELSPL.COM - ???<br />
+<pre>
+INT 1A U - Emulaser ELSPL.COM - ???
+	AH = E5h
+	???
+Return: ???
+Program: ELSPL.COM is a licensed version of Disk Spool II which is distributed
+	  as part of Vertisoft's Emulaser PostScript emulator
+SeeAlso: AH=A0h,INT 17/AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1AEE" name="1AEE"><b>1AEE</b></a> - INT 1A U - Disk Spool II v4.05 - ???<br />
+<pre>
+INT 1A U - Disk Spool II v4.05 - ???
+	AH = EEh
+	AL = printer port???
+	???
+Return: ???
+Note:	this function is also supported by Vertisoft's Emulaser utility ELSPL,
+	  as that is a licensed version of Disk Spool II
+SeeAlso: AH=E1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#212B--CX4358" name="212B--CX4358"><b>212B--CX4358</b></a> - INT 21 - Super PC-Kwik v3.20+ - INSTALLATION CHECK<br />
+<pre>
+INT 21 - Super PC-Kwik v3.20+ - INSTALLATION CHECK
+	AH = 2Bh
+	CX = 4358h ('CX')
+Return: AL = FFh if PC-Kwik/PC-Cache not installed
+	AL = 00h if installed
+	    CF clear
+	    CX = 6378h ('cx')
+	    BX = ???
+	    DX = version (DH = major version, DL = binary minor version)
+Note:	PC Tools PC-Cache v5.x and Qualitas Qcache v4.00 are OEM versions of
+	  Super PC-Kwik, and thus support this call (PC-Cache 5.1 corresponds
+	  to PC-Kwik v3.20)
+SeeAlso: INT 13/AH=A0h,INT 13/AH=B0h,INT 16/AX=FFA5h/CX=1111h
+Index:	PC-Cache;installation check|Qualitas Qcache;installation check
+Index:	installation check;PC-Cache 5.x|installation check;Qualitas Qcache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_5" name="214402_5"><b>214402</b></a> - INT 21 - SMARTDRV.SYS v3.x only - IOCTL - GET CACHE STATUS<br />
+<pre>
+INT 21 - SMARTDRV.SYS v3.x only - IOCTL - GET CACHE STATUS
+	AX = 4402h
+	BX = file handle for device "SMARTAAR"
+	CX = number of bytes to read (min 28h)
+	DS:DX -&gt; buffer for status record (see #01447)
+Return: CF clear if successful
+	    AX = number of bytes actually read
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Note:	NCache2 (from the Norton Utilities v8.0) attempts to support this
+	  interface, but does not do so correctly, often hanging the system;
+	  one should use the SmartDrive v4.x or NCache private interfaces
+	  (see INT 2F/AX=4A10h/BX=0000h,INT 2F/AX=FE00h/DI=4E55h)
+SeeAlso: AX=4403h"SMARTDRV",INT 2F/AX=4A10h/BX=0000h
+
+Format of SMARTDRV status record:
+Offset	Size	Description	(Table 01447)
+ 00h	BYTE	write-through flag (always 01h)
+ 01h	BYTE	writes should be buffered (always 00h)
+ 02h	BYTE	cache enabled if 01h
+ 03h	BYTE	driver type (01h extended memory, 02h expanded)
+ 04h	WORD	clock ticks between cache flushes (currently unused)
+ 06h	BYTE	cache contains locked tracks if nonzero
+ 07h	BYTE	flush cache on INT 19 reboot if nonzero
+ 08h	BYTE	cache full track writes if nonzero
+ 09h	BYTE	double buffering (for VDS) state (00h off, 01h on, 02h dynamic)
+ 0Ah	DWORD	original INT 13 vector
+ 0Eh	BYTE	minor version number
+ 0Fh	BYTE	major version number
+ 10h	WORD	unused
+ 12h	WORD	sectors read			\
+ 14h	WORD	sectors already in cache	 &gt; may be scaled rather than
+ 16h	WORD	sectors already in track buffer /  absolute counts
+ 18h	BYTE	cache hit rate in percent
+ 19h	BYTE	track buffer hit rate in percent
+ 1Ah	WORD	total tracks in cache
+ 1Ch	WORD	number of tracks in use
+ 1Eh	WORD	number of locked tracks
+ 20h	WORD	number of dirty tracks
+ 22h	WORD	current cache size in 16K pages
+ 24h	WORD	original (maximum) cache size in 16K pages
+ 26h	WORD	minimum cache size in 16K pages
+ 28h	DWORD	pointer to byte flag to increment for locking cache contents
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214403_0" name="214403_0"><b>214403</b></a> - INT 21 - SMARTDRV.SYS v3.x only - IOCTL - CACHE CONTROL<br />
+<pre>
+INT 21 - SMARTDRV.SYS v3.x only - IOCTL - CACHE CONTROL
+	AX = 4403h
+	BX = handle for device "SMARTAAR"
+	CX = number of bytes to write
+	DS:DX -&gt; SMARTDRV control block (see #01523)
+Return: CF clear if successful
+	    AX = number of bytes actually written
+		0000h if control block too small for given command
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Note:	NCache2 (from the Norton Utilities v8.0) attempts to support this
+	  interface, but does not do so correctly, often hanging the system;
+	  one should use the SmartDrive v4.x or NCache private interfaces
+	  (see INT 2F/AX=4A10h/BX=0000h,INT 2F/AX=FE00h/DI=4E55h)
+SeeAlso: AX=4402h"SMARTDRV",INT 2F/AX=4A10h/BX=0000h
+
+(Table 01522)
+Values for SMARTDRV function code:
+ 00h	flush cache
+ 01h	flush and discard cache
+ 02h	disable caching (flushes and discards cache first)
+ 03h	enable caching
+ 04h	control write caching
+ 05h	set flushing tick count
+ 06h	lock cache contents
+ 07h	unlock cache contents
+ 08h	set flush-on-reboot flag
+ 09h	unused
+ 0Ah	control full-track caching
+ 0Bh	reduce cache size
+ 0Ch	increase cache size
+ 0Dh	set INT 13 chain address
+
+Format of SMARTDRV control block:
+Offset	Size	Description	(Table 01523)
+ 00h	BYTE	function code (see #01522)
+---functions 00h-03h,06h,07h---
+ no additional fields
+---function 04h---
+ 01h	BYTE	write caching control action
+		00h turn off write-through
+		01h turn on write-through
+		02h turn off write buffering (also flushes cache)
+		03h turn on write buffering (also flushes cache)
+---function 05h---
+ 01h	WORD	number of timer ticks between cache flushes
+---function 08h---
+ 01h	BYTE	new flush-on-reboot flag (00h off, 01h on)
+---function 0Ah---
+ 01h	BYTE	full-track writes are
+		00h not cached
+		01h cached
+---functions 0Bh,0Ch---
+ 01h	WORD	number of 16K pages by which to increase/reduce cache size
+---function 0Dh---
+ 01h	DWORD	new address to which to chain on INT 13
+Note:	the previous address is not preserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214404_7" name="214404_7"><b>214404</b></a> - INT 21 - COMBI-disk v1.13 - GET DATA RECORD<br />
+<pre>
+INT 21 - COMBI-disk v1.13 - GET DATA RECORD
+	AX = 4404h
+	BL = drive number (00h = default, 01h = A:, etc)
+	CX = 0032h (length of data packet)
+	DS:DX -&gt; buffer for data packet (see #01535)
+Return: CF clear if successful
+	    AX = number of bytes actually transferred
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+Program: COMBI-disk is a shareware combination cache and RAMdisk sharing a
+	  single pool of memory by Vadim V. Vlasov
+InstallCheck:	scan the valid drives for one which returns a correctly-sized
+	  data packet with the proper signature in the first field
+SeeAlso: AX=4405h"COMBI"
+Index:	installation check;COMBI-disk
+
+Format of COMBI-disk data packet:
+Offset	Size	Description	(Table 01535)
+ 00h  6 BYTEs	ASCIZ signature "COMBI"
+ 06h	WORD	version (high byte = major, low = decimal minor version)
+ 08h	BYTE	current options
+ 09h	BYTE	sectors per allocation block
+ 0Ah	WORD	maximum buffer in KB
+ 0Ch	WORD	current buffer in KB (less than max if XMS memory being lent)
+ 0Eh	WORD	total number of allocation blocks
+ 10h	WORD	current number of allocation blocks
+ 12h	WORD	number of blocks being used by RAM disk
+ 14h	WORD	number of blocks being used by cache or unused
+ 16h	WORD	number of dirty cache blocks
+ 18h	WORD	number of blocks which could not be written out due to errors
+ 1Ah	WORD	total number of read requests
+ 1Ch	WORD	total number of sectors read
+ 1Eh	WORD	number of BIOS read requests (cache misses)
+ 20h	WORD	number of sectors read via BIOS (cache misses)
+ 22h	WORD	total number of write requests
+ 24h	WORD	total number of sectors written
+ 26h	WORD	number of BIOS write requests
+ 28h	WORD	number of sectors written via BIOS
+ 2Ah	WORD	number of RAM disk read requests
+ 2Ch	WORD	number of sectors read from RAM disk
+ 2Eh	WORD	number of RAM disk write requests
+ 30h	WORD	number of sectors written to RAM disk
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#25--FFSI4358" name="25--FFSI4358"><b>25--FFSI4358</b></a> - INT 25 - PC-CACHE.SYS - INSTALLATION CHECK<br />
+<pre>
+INT 25 - PC-CACHE.SYS - INSTALLATION CHECK
+	AL = FFh
+	SI = 4358h
+Return: SI = 6378h if installed
+	    CX = segment of device driver PC-CACHE.SYS
+	    DX = version (major in DH, minor in DL)
+Program: PC-CACHE.SYS is a small device driver used by PC-Cache v5.x to obtain
+	  access to certain disk drivers for devices such as Bernoulli drives
+SeeAlso: INT 13/AH=A0h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F00" name="2F00"><b>2F00</b></a> - INT 2F U - DOS 2.x only PRINT.COM - SUBMIT FILE FOR PRINTING<br />
+<pre>
+INT 2F U - DOS 2.x only PRINT.COM - SUBMIT FILE FOR PRINTING
+	AH = 00h
+	DS:DX -&gt; opened FCB (see #01345 at INT 21/AX=0Fh)
+Return: AH = number of files currently in print queue
+	AL = status
+	    00h file successfully added
+	    01h queue is full
+	ES:BX -&gt; print queue (10 FCBs; first byte of FFh indicates unused)
+	ES:DX -&gt; currently-printing FCB (if DX=FFFFh, none printing)
+Notes:	DOS 2.x PRINT.COM does not chain to previous INT 2F handler
+	values in AH other than 00h or 01h cause PRINT to return the number of
+	  files in the queue in AH
+SeeAlso: AH=01h"PRINT",AX=0102h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0080" name="2F0080"><b>2F0080</b></a> - INT 2F - DOS 3.1+ PRINT - GIVE PRINT A TIME SLICE<br />
+<pre>
+INT 2F - DOS 3.1+ PRINT - GIVE PRINT A TIME SLICE
+	AX = 0080h
+Return: after PRINT executes
+Notes:	PRINT returns AL=01h if AH=00h but AL is not 80h on entry
+	this function is not supported by the Novell DOS 7 PRINT.COM
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F01" name="2F01"><b>2F01</b></a> - INT 2F U - DOS 2.x only PRINT.COM - REMOVE FILE FROM PRINT QUEUE<br />
+<pre>
+INT 2F U - DOS 2.x only PRINT.COM - REMOVE FILE FROM PRINT QUEUE
+	AH = 01h
+	DS:DX -&gt; FCB (see #01345 at INT 21/AH=0Fh) for file to be canceled
+Return: AH = number of files currently in print queue
+	AL = 00h (successful)
+	ES:BX -&gt; print queue (10 FCBs; first byte of FFh indicates unused)
+	ES:DX -&gt; currently-printing FCB (if DX=FFFFh, none printing)
+Notes:	DOS 2.x PRINT.COM does not chain to previous INT 2F handler
+	values in AH other than 00h or 01h cause PRINT to return the number of
+	  files in the queue in AH
+SeeAlso: AH=00h"PRINT.COM",AX=0103h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0100" name="2F0100"><b>2F0100</b></a> - INT 2F - DOS 3.0+ PRINT - INSTALLATION CHECK<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - INSTALLATION CHECK
+	AX = 0100h
+Return: AL = status
+	    00h not installed
+	    01h not installed, but not OK to install
+	    FFh installed
+		AH = 00h (Novell DOS 7)
+SeeAlso: AX=0101h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0100SI20D6" name="2F0100SI20D6"><b>2F0100SI20D6</b></a> - INT 2F U - PrintCache 3.1 PRINT.COM - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - PrintCache 3.1 PRINT.COM - INSTALLATION CHECK
+	AX = 0100h
+	SI = 20D6h
+	DI = 8761h
+Return: AX = 00FFh if installed
+	DI = 0001h if PrintCache's PRINT.COM installed and magic values match
+	    SI = resident code segment
+Program: PrintCache PRINT.COM is a DOS PRINT replacement included in
+	  LaserTools' PrintCache memory/disk-based print spooler package
+Note:	if either of SI or DI differ from the indicated magic values, only AX
+	  will be modified on return, for compatibility with DOS PRINT
+SeeAlso: AX=0101h/SI=20D6h,AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0101" name="2F0101"><b>2F0101</b></a> - INT 2F - DOS 3.0+ PRINT - SUBMIT FILE FOR PRINTING<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - SUBMIT FILE FOR PRINTING
+	AX = 0101h
+	DS:DX -&gt; submit packet (see #02593)
+Return: CF clear if successful
+	    AL = status
+		01h added to queue
+		9Eh now printing
+	CF set on error
+	    AX = error code (see #02594,#01680 at INT 21/AH=59h/BX=0000h)
+SeeAlso: AX=0102h
+
+Format of PRINT submit packet:
+Offset	Size	Description	(Table 02593)
+ 00h	BYTE	level (must be 00h)
+ 01h	DWORD	pointer to ASCIZ filename (no wildcards)
+
+(Table 02594)
+Values for PRINT error code:
+ 0001h	invalid function
+ 0002h	file not found
+ 0003h	path not found
+ 0004h	out of file handles
+ 0005h	access denied
+ 0008h	print queue full
+ 0009h	spooler busy
+ 000Ch	name too long
+ 000Fh	invalid drive
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0101SI20D6" name="2F0101SI20D6"><b>2F0101SI20D6</b></a> - INT 2F U - PrintCache v3.1 PRINT.COM - SUBMIT FILE FOR PRINTING<br />
+<pre>
+INT 2F U - PrintCache v3.1 PRINT.COM - SUBMIT FILE FOR PRINTING
+	AX = 0101h
+	SI = 20D6h
+	DI = 8761h
+	DS:DX -&gt; submit packet (see #02593)
+	CL = print options
+	    bit 4: use default options
+Return: CF clear if successful
+	    AL = status
+		01h added to queue
+		9Eh now printing
+	CF set on error
+	    AX = error code (see #02594)
+Program: PrintCache PRINT.COM is a DOS PRINT replacement included in
+	  LaserTools' PrintCache memory/disk-based print spooler package
+Note:	if either SI or DI differs from the indicated magic values on entry,
+	  PrintCache will use the default print options for the file for
+	  compatibility with DOS PRINT
+SeeAlso: AX=0100h/SI=20D6h,AX=0101h,AH=00h"PRINT",AX=0107h"PrintCache"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0102" name="2F0102"><b>2F0102</b></a> - INT 2F - DOS 3.0+ PRINT - REMOVE FILE FROM PRINT QUEUE<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - REMOVE FILE FROM PRINT QUEUE
+	AX = 0102h
+	DS:DX -&gt; ASCIZ filename (wildcards allowed)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02594)
+SeeAlso: AX=0101h,AX=0103h,AH=01h"PRINT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0103" name="2F0103"><b>2F0103</b></a> - INT 2F - DOS 3.0+ PRINT - CANCEL ALL FILES IN PRINT QUEUE<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - CANCEL ALL FILES IN PRINT QUEUE
+	AX = 0103h
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02594)
+SeeAlso: AX=0102h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0104" name="2F0104"><b>2F0104</b></a> - INT 2F - DOS 3.0+ PRINT - FREEZE PRINT QUEUE TO READ JOB STATUS<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - FREEZE PRINT QUEUE TO READ JOB STATUS
+	AX = 0104h
+Return: CF clear if successful
+	    DX = error count since status last read
+	    DS:SI -&gt; print queue
+	CF set on error
+	    AX = error code (see #02594)
+Desc:	get the list of print jobs, temporarily suspending PRINT's activities
+	  to avoid changing the list while it is being examined
+Notes:	the print queue is an array of 64-byte ASCIZ filenames terminated by
+	  an empty filename; the first name is the file currently being printed
+	printing is stopped until AX=0105h is called to prevent the queue
+	  from changing while the filenames are being read
+SeeAlso: AX=0101h,AX=0105h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0105" name="2F0105"><b>2F0105</b></a> - INT 2F - DOS 3.0+ PRINT - RESTART PRINT QUEUE AFTER STATUS READ<br />
+<pre>
+INT 2F - DOS 3.0+ PRINT - RESTART PRINT QUEUE AFTER STATUS READ
+	AX = 0105h
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02594)
+Desc:	restart PRINT's activities once an application finishes examining the
+	  print queue
+SeeAlso: AX=0104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0106" name="2F0106"><b>2F0106</b></a> - INT 2F - DOS 3.3+ PRINT - GET PRINTER DEVICE<br />
+<pre>
+INT 2F - DOS 3.3+ PRINT - GET PRINTER DEVICE
+	AX = 0106h
+Return: CF set if files in print queue
+	    AX = error code 0008h (queue full)
+	    DS:SI -&gt; device driver header (see #01646)
+	CF clear if print queue empty
+	    AX = 0000h
+Desc:	determine which device, if any, PRINT is currently using for output
+Notes:	undocumented prior to the release of MS-DOS 5.0
+	this function can be used to allow a program to avoid printing to the
+	  printer on which PRINT is currently performing output
+SeeAlso: AX=0104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F0107" name="2F0107"><b>2F0107</b></a> - INT 2F U - PrintCache v3.1 PRINT.COM - SET TRAILING FORM FEEDS<br />
+<pre>
+INT 2F U - PrintCache v3.1 PRINT.COM - SET TRAILING FORM FEEDS
+	AX = 0107h
+	CL bit 0: output form feed between print jobs
+Return: AL destroyed
+SeeAlso: AX=0100h/SI=20D6h,AX=0101h/SI=20D6h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH90" name="2F1500CH90"><b>2F1500CH90</b></a> - INT 2F U - CDBLITZ v2.11 - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - INSTALLATION CHECK
+	AX = 1500h
+	CH = 90h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CX = 1234h if installed
+	    CF clear
+	    DX = BCD version number (DH = major, DL = minor)
+Program: CDBLITZ is a CD-ROM cache by Blitz 'n' Software, Inc.
+SeeAlso: AX=1500h/CH=99h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH91" name="2F1500CH91"><b>2F1500CH91</b></a> - INT 2F U - CDBLITZ v2.11 - GET STATISTICS<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - GET STATISTICS
+	AX = 1500h
+	CH = 91h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+	ES:BX -&gt; statistics record (see #02627)
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=97h
+
+Format of CDBLITZ statistics record:
+Offset	Size	Description	(Table 02627)
+ 00h	WORD	cache mode (see also AX=1500h/CH=94h)
+		0001h 'min', 0002h 'max'
+ 02h	DWORD	number of read calls???
+ 06h	DWORD	total number of sectors read
+ 0Ah	DWORD	unused??? (zero)
+ 0Eh	DWORD	number of cache hit sectors
+ 12h	WORD	cache size in KB
+ 14h	WORD	unused??? (zero)
+ 16h	WORD	cache state (0000h disabled, 0001h enabled)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH92" name="2F1500CH92"><b>2F1500CH92</b></a> - INT 2F U - CDBLITZ v2.11 - ENABLE CACHE<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - ENABLE CACHE
+	AX = 1500h
+	CH = 92h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=93h,AX=1500h/CH=94h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH93" name="2F1500CH93"><b>2F1500CH93</b></a> - INT 2F U - CDBLITZ v2.11 - DISABLE CACHE<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - DISABLE CACHE
+	AX = 1500h
+	CH = 93h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=92h,AX=1500h/CH=95h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH94" name="2F1500CH94"><b>2F1500CH94</b></a> - INT 2F U - CDBLITZ v2.11 - SET 'MAX' MODE (CACHE BOTH DIRECTORIES AND DATA)<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - SET 'MAX' MODE (CACHE BOTH DIRECTORIES AND DATA)
+	AX = 1500h
+	CH = 94h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=92h,AX=1500h/CH=95h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH95" name="2F1500CH95"><b>2F1500CH95</b></a> - INT 2F U - CDBLITZ v2.11 - SET 'MIN' MODE (CACHE ONLY DIRECTORY ENTRIES)<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - SET 'MIN' MODE (CACHE ONLY DIRECTORY ENTRIES)
+	AX = 1500h
+	CH = 95h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=94h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH96" name="2F1500CH96"><b>2F1500CH96</b></a> - INT 2F U - CDBLITZ v2.11 - FLUSH CACHE<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - FLUSH CACHE
+	AX = 1500h
+	CH = 96h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+Note:	this function resets the counts for number of sectors read and number
+	  of cache hits, but no other values in the statistics record
+	  (see #02627)
+SeeAlso: AX=1500h/CH=90h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH97" name="2F1500CH97"><b>2F1500CH97</b></a> - INT 2F U - CDBLITZ v2.11 - GET CACHE STATISTICS<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - GET CACHE STATISTICS
+	AX = 1500h
+	CH = 97h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+	AL = cache mode (01h 'min', 02h 'max') (see also AX=1500h/CH=94h)
+	AH = cache state (00h disabled, 01h enabled)
+	BX = cache size in KB
+	DX:CX = total number of reads
+	DI:SI = number of cache hits
+SeeAlso: AX=1500h/CH=90h,AX=1500h/CH=91h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1500CH99" name="2F1500CH99"><b>2F1500CH99</b></a> - INT 2F U - CDBLITZ v2.11 - UNINSTALL<br />
+<pre>
+INT 2F U - CDBLITZ v2.11 - UNINSTALL
+	AX = 1500h
+	CH = 99h (function number)
+	BX = 1234h (magic value for CDBLITZ)
+Return: CF clear
+	???
+Program: CDBLITZ is a CD-ROM cache by Blitz 'n' Software, Inc.
+SeeAlso: AX=1500h/CH=90h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0000" name="2F4A10BX0000"><b>2F4A10BX0000</b></a> - INT 2F - SMARTDRV v4.00+ - INSTALLATION CHECK AND HIT RATIOS<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - INSTALLATION CHECK AND HIT RATIOS
+	AX = 4A10h
+	BX = 0000h
+	CX = EBABh (v4.1+; see Note), and CX &lt;&gt; 0EDCh
+Return: AX = BABEh if installed
+	    DX:BX = cache hits
+	    DI:SI = cache misses
+	    CX = number of dirty cache elements
+	    BP = version in BCD (4.10 = 0410h)
+		4.0  = 0400h (Windows 3.1)
+		4.01 = 0401h (MS-DOS 6.0, 1992/07/30)
+		4.10 = 0410h (1992/11/11)
+		4.20 = 0420h
+		5.0  = 0500h (MS-DOS 6.2)
+Notes:	most of the SMARTDRV API, including this call, is supported by
+	  PC-Cache v8.0 and recent versions of the Norton Caches
+	the internal name for SMARTDRV is "BAMBI", hence the magic "BABE".
+	if DBLSPACE.BIN is installed but SMARTDRV has not yet been installed,
+	  then calls of this function with CX&lt;&gt;EBABh on entry cause
+	  DBLSPACE.BIN to display the error message
+	  "Cannot run SMARTDrive 4.0 with DoubleSpace" and abort the caller
+	  with INT 21/AX=4C00h
+	Since the Novell DOS 7 - DR-DOS 7.03 NWCACHE supports a similar 
+	  install check at this function, but the returned registers
+	  contain different data, the caller must take the returned AX value
+	  into account to ensure proper interpretation of the returned info.
+	  The caller should ensure CX &lt;&gt; 0EDCh to avoid any interaction
+	  with the NWCACHE and COMMAND.COM special case of CX=0EDCh.
+	  Although this is an install check, NWCACHE always flushes delayed
+	  writes to disk, when calling this function with CX&lt;&gt;0EDCh or while
+	  /FLUSH:ON is active, but this is nothing to rely upon. The reason
+	  for this could be to get more accurate statistics, while SMARTDRV
+	  just takes a on-the-fly snapshot of the statistic vars.
+	The private NWCACHE/NLCACHE install check INT2Fh/D8C0h does not flush
+	  to disk, and therefore can be used by callers that must ensure
+	  the buffers aren't flushed on this function (e.g. alternative
+	  command shells may need this to make their "flush before prompt"
+	  feature configurable).
+	The NWCACHE 0EDCh special case will most probably vanish with
+	  future issues of NWCACHE (2.0+).
+	SMARTDRV v3.x had a completely different API using IOCTL calls, which
+	  was also supported by the Norton Caches
+BUG:	Although DS and ES registers are listed as unmodified, some
+	  releases of SMARTDRV seem to trash the DS register, at least the
+	  MS-DOS 6.2+ KEYB takes care to preserve the DS register when calling
+	  this function.
+SeeAlso: AX=4A10h/BX=0001h,AX=4A10h/BX=0004h,AX=4A10h/BX=0005h
+SeeAlso: AX=4A10h/BX=0007h,AX=4A10h/BX=1234h,AX=4A11h/BX=0000h
+SeeAlso: INT 21/AX=4402h"SMARTDRV",INT 21/AX=4403h"SMARTDRV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0000_0" name="2F4A10BX0000_0"><b>2F4A10BX0000</b></a> - INT 2F U - Novell NWCACHE - INSTALLATION CHECK AND STATISTICS<br />
+<pre>
+INT 2F U - Novell NWCACHE - INSTALLATION CHECK AND STATISTICS
+	AX = 4A10h
+	BX = 0000h
+	CX = magic value
+	    0EDCh flush delayed writes
+		('EDC' = Novell European Development Center)
+	    other (use EBABh to avoid SMARTDRV/DBLSPACE interaction)
+Return: (also refer to notes below)
+	AX = 6756h ('gV') if installed
+	    CF clear
+	    BX = cache memory type
+		01h conventional memory
+		02h extended memory
+		03h EMS
+	    DI:SI = cache misses
+	    CX:DX = segment:offset address of data area containing statistics
+		  (see #04095)
+	    BP = version in BCD 
+		0100h = 1.00
+		0101h = 1.01 & 1.02 (!)
+Notes:	SMARTDRV 4.0+ uses a similar installation check on this function but
+	  returns different data.  To ensure proper interpretation of
+	  the returned values, the caller must check the returned magic
+	  value in AX. Since SMARTDRV may also alter DI:SI (and possibly
+	  DS), the caller should take care of this, too.
+	The Novell DOS / DR-DOS 7.x COMMAND.COM invokes this function with
+	  CX=0EDCh, which causes NWCACHE to flush any delayed writes before
+	  returning the normal register values if it is configured to flush
+	  writes before returning to the DOS prompt (/FLUSH:ON); however, if
+	  /FLUSH:OFF, this function becomes a NOP with CX=0EDCh.
+	Note that for this function the 0EDCh special case may vanish with
+	  future issues of NWCACHE (2.0+), and the function would then always
+	  do the normal install check, and not flush the cache.
+SeeAlso: AX=4A10h/BX=0001h"NWCACHE"
+
+Format of NWCACHE statistics:
+Offset	Size	Description	(Table 04095)
+ 00h	DWORD	number of read requests
+ 04h	DWORD	number of reads performed
+ 08h	DWORD	number of write requests
+ 0Ch	DWORD	number of writes performed
+ 10h	WORD	number of disk errors
+ 12h	WORD	number of cache memory errors
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0001" name="2F4A10BX0001"><b>2F4A10BX0001</b></a> - INT 2F - SMARTDRV v4.00+ - FLUSH BUFFERS (COMMIT CACHE)<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - FLUSH BUFFERS (COMMIT CACHE)
+	AX = 4A10h
+	BX = 0001h
+Note:	this function is also supported by PC-Cache v8.0.
+SeeAlso: AX=4A10h/BX=0000h,AX=4A10h/BX=0002h,INT 21/AH=0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0001_0" name="2F4A10BX0001_0"><b>2F4A10BX0001</b></a> - INT 2F U - Novell NWCACHE - ???<br />
+<pre>
+INT 2F U - Novell NWCACHE - ???
+	AX = 4A10h
+	BX = 0001h
+	CX = 0EDCh ('EDC' = Novell European Development Center)
+Return: ???
+SeeAlso: AX=4A10h/BX=0000h"NWCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0002" name="2F4A10BX0002"><b>2F4A10BX0002</b></a> - INT 2F - SMARTDRV v4.00+ - RESET CACHE<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - RESET CACHE
+	AX = 4A10h
+	BX = 0002h
+Note:	this function is also supported by PC-Cache v8.0.
+SeeAlso: AX=4A10h/BX=0000h,AX=4A10h/BX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0003" name="2F4A10BX0003"><b>2F4A10BX0003</b></a> - INT 2F - SMARTDRV v4.00+ - STATUS<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - STATUS
+	AX = 4A10h
+	BX = 0003h
+	BP = drive number (0=A, 1=B, etc.)
+		FFFFh = all drives (NWCACHE only)
+	DL = subfunction
+	    00h only get information
+	    01h turn on read cache
+	    02h turn off read cache
+	    03h turn on write cache
+	    04h turn off write cache
+	    ---NWCACHE---
+	    05h reduce cache size
+		CX = number of KB to reduce (can't shrink below min size)
+	    06h increase cache size
+		CX = number of KB to increase (can't grow above max size)
+Return: AX = BABEh if OK
+	DL = status (see #02801)
+	DL = FFh if drive does not exist
+Notes:	If the read cache is off, reads will not be cached, but writes will
+	  continue to be cached if the write-cache is enabled.
+	this function is also supported by PC-Cache v8.0.
+	SMARTDRV flushes the cache if sub-functions 02h or 04h have been
+	  called to disable read or write caching.
+	On calling this function, NWCACHE flushes any delayed writes,
+	  but you should not rely on this, since this behavior may vanish
+	  in future versions.
+BUG:	The MS-DOS 6.20+ SCANDISK disables a SMARTDRV 4+ compatible cache
+	  for the drive it is about to process.  However, at least when the
+	  cache loaded is NWCACHE, the cache will still remain disabled for
+	  this drive after SCANDISK has finished.  The reason for this behavior
+	  is not yet known. The workaround is to re-enable with the
+	  NWCACHE d:+ syntax afterwards, where d: is the corresponding
+	  drive letter.
+SeeAlso: AX=4A10h/BX=0000h
+
+Bitfields for SMARTDRV status:
+Bit(s)	Description	(Table 02801)
+ 7	not cached (no read-caching)
+ 6	write-through (not write-cached)
+ 0-5	real drive number (0=A, 1=B...)
+Notes:	the "real" drive number is always set to 00h for RAM disks and to 3Fh
+	  for CD-ROMs; unfortunately, the latter means that an uncached CD-ROM
+	  has status FFh, just as a nonexistent drive does
+	also supported by Novell DOS 7 - Caldera/Lineo DR-DOS 7.03 NWCACHE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0004" name="2F4A10BX0004"><b>2F4A10BX0004</b></a> - INT 2F - SMARTDRV v4.00+ - GET CACHE SIZE<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - GET CACHE SIZE
+	AX = 4A10h
+	BX = 0004h
+Return: AX = size in elements of full-sized cache
+	BX = current size in elements
+	CX = size of one element in bytes
+	DX = number of elements under Windows
+Note:	this function is also supported by PC-Cache v8.0.
+SeeAlso: AX=4A10h/BX=0000h,AX=4A10h/BX=0003h,AX=4A10h/BX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0005" name="2F4A10BX0005"><b>2F4A10BX0005</b></a> - INT 2F - SMARTDRV v4.00+ - GET DOUBLE-BUFFER STATUS<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - GET DOUBLE-BUFFER STATUS
+	AX = 4A10h
+	BX = 0005h
+	BP = drive number (0=A, 1=B...)
+Return: AX = BABEh if double-buffered
+	    ES:DI -&gt; 16-byte array of status bytes for fixed disks (see #02802)
+SeeAlso: AX=4A10h/BX=0000h,AX=4A10h/BX=0003h,AX=4A10h/BX=0006h
+
+(Table 02802)
+Values for SMARTDRV status byte:
+ 00h	state unknown
+ FFh	drive double-buffered
+ else	not double-buffered
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0006" name="2F4A10BX0006"><b>2F4A10BX0006</b></a> - INT 2F CU - SMARTDRV v4.00+ - CHECK IF DRIVE CACHEABLE<br />
+<pre>
+INT 2F CU - SMARTDRV v4.00+ - CHECK IF DRIVE CACHEABLE
+	AX = 4A10h
+	BX = 0006h
+	CL = drive number (01h = A:)
+Return: AX = 0006h if drive should not be cached by SMARTDRV
+Note:	called by SMARTDRV at startup to determine whether it should cache
+	  a particular drive
+SeeAlso: AX=4A10h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0007" name="2F4A10BX0007"><b>2F4A10BX0007</b></a> - INT 2F - SMARTDRV v4.00+ - GET DEVICE DRIVER FOR DRIVE<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - GET DEVICE DRIVER FOR DRIVE
+	AX = 4A10h
+	BX = 0007h
+	BP = drive number (00h=A:)
+Return: DL = unit number within device driver
+	ES:DI -&gt; device driver header for drive (see #01646)
+Note:	this function is also supported by PC-Cache v8.0.
+	this call is reported to always return the driver header of the
+	  standard block driver (A:-C:+) for SmartDrive v5.00 from MS-DOS 6.2
+SeeAlso: AX=4A10h/BX=0000h,AX=4A11h/BX=0003h,AX=4A11h/BX=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX0008" name="2F4A10BX0008"><b>2F4A10BX0008</b></a> - INT 2F - SMARTDRV v4.20+ - GET/SET FLUSH BEFORE PROMPT, CD-ROM SUPPORT<br />
+<pre>
+INT 2F - SMARTDRV v4.20+ - GET/SET FLUSH BEFORE PROMPT, CD-ROM SUPPORT
+	AX = 4A10h
+	BX = 0008h
+	DL = subfunction
+	    00h set
+		DH = new states
+		    bit 0: flush before prompt
+		    bits 1-7 reserved (0)
+	    01h get
+		Return: DH = status flags
+			    bit 0: (v4.2+) flush before prompt
+			    bit 1: (v5.0+) CD-ROM caching support installed
+Note:	v4.2 was an interim release to fix problems in the SMARTDRV included
+	  with MS-DOS 6.00; v5.00 is included with MS-DOS 6.2
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX000A" name="2F4A10BX000A"><b>2F4A10BX000A</b></a> - INT 2F - SMARTDRV v4.00+ - GET ELEMENT STATUS TABLE<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - GET ELEMENT STATUS TABLE
+	AX = 4A10h
+	BX = 000Ah
+Return: ES:BX -&gt; information pointer table (see #02803)
+Note:	this function is also supported by PC-Cache v8.0.
+SeeAlso: AX=4A10h/BX=0000h
+
+Format of SMARTDRV information pointer table:
+Offset	Size	Description	(Table 02803)
+ 00h	WORD	offset of ??? byte/word array (byte if elements &lt; 2000h bytes)
+ 02h	WORD	offset of dirty flag byte/word array (byte if elts &lt; 2000h)
+		each byte/word is a bit string of the dirty sectors in element
+ 04h	WORD	offset of word array containing low halves of unique
+		  identifiers for the corresponding element's contents
+ 06h	WORD	offset of word array containing high halves of unique
+		  identifiers for the corresponding element's contents
+ 08h	WORD	offset of WORD containing current number of elements in cache
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F4A10BX1234" name="2F4A10BX1234"><b>2F4A10BX1234</b></a> - INT 2F - SMARTDRV v4.00+ - SIGNAL SERIOUS ERROR<br />
+<pre>
+INT 2F - SMARTDRV v4.00+ - SIGNAL SERIOUS ERROR
+	AX = 4A10h
+	BX = 1234h
+Desc:	this function pops up a message box saying that a serious error
+	  occurred and to hit R to retry, then waits for the keypress
+Note:	this function is also supported by PC-Cache v8.0.
+SeeAlso: AX=4A10h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F5758BX4858" name="2F5758BX4858"><b>2F5758BX4858</b></a> - INT 2F U - Helix Multimedia Cloaking - CACHECLK - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - Helix Multimedia Cloaking - CACHECLK - INSTALLATION CHECK
+	AX = 5758h
+	BX = 4858h ('HX')
+	DX = 4443h ('DC')
+	CX &lt;&gt; 5758h
+Return: BX = 6878h if installed
+	DX = 6463h if installed
+	   CX = version (CH=major,CL=minor)
+Program: CACHECLK is a 'Cloaked' disk cache by Helix Software
+Note:	returns with registers unchanged if CX=5758h on entry
+SeeAlso: INT 16/AX=5758h/BX=4858h,INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC000_10" name="2FC000_10"><b>2FC000</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALLATION CHECK
+	AX = C000h
+Return: AL = FFh if installed
+	    SI = signature value 20D6h
+	    DI = signature value 8761h
+	    ES:BX -&gt; configuration table (see #03029)
+	    CX = ??? (0300h)
+	    DX = ??? (0020h)
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=0100h/SI=20D6h,AX=C001h"PCACHE"
+
+Format of PrintCache configuration table:
+Offset	Size	Description	(Table 03029)
+ 00h 26 BYTEs	ASCIZ signature string "TORQ Configuration Table: "
+ 1Ah  2 BYTEs	???
+ 1Ch	DWORD	-&gt; data table (see #03030)
+ 20h  4 BYTEs	ASCIZ version string ("3.1" for v3.1)
+ 24h  5 BYTEs	???
+ 29h 12 BYTEs	ASCIZ version date string ("Aug 31 1993" for v3.1)
+ 35h	WORD	buffered port type (01h = LPT, 02h = COM)
+ 37h	WORD	buffered port BIOS port number
+ 39h  5 BYTEs	ASCIZ buffered port name ("LPTn" or "COMn")
+ 3Eh	WORD	physical port type (01h = LPT, 02h = COM)
+ 40h	WORD	physical port BIOS port number
+ 42h  5 BYTEs	ASCIZ physical port name ("LPTn" or "COMn")
+ 47h	BYTE	port driver IRQ
+ 48h 21 BYTEs	???
+ 5Dh	WORD	buffer size in K
+ 5Fh 27 BYTEs	???
+ 7Ah	BYTE	popup hotkey shift states (see #00582 at INT 16/AH=02h)
+ 7Bh	BYTE	popup hotkey scan code (see #00006 at INT 09"IRQ1")
+ 7Ch  4 BYTEs	???
+ 80h 20 BYTEs	ASCIZ printer type name
+	???
+
+Format of PrintCache data table:
+Offset	Size	Description	(Table 03030)
+ 00h  2 BYTEs	???
+ 02h	DWORD	-&gt; ??? entry point
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC001_1" name="2FC001_1"><b>2FC001</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ENTRY POINTS<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ENTRY POINTS
+	AX = C001h
+Return: AL = FFh if installed
+	    ES:BX -&gt; ???
+	    ES:DX -&gt; ???
+	    ES:SI -&gt; ???
+	    ES:DI -&gt; ??? (equivalent to AX=C002h)
+SeeAlso: AX=C000h"PCACHE",AX=C002h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC002_1" name="2FC002_1"><b>2FC002</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET BUFFER SIZE<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET BUFFER SIZE
+	AX = C002h
+Return: AX = ??? in K
+	BX = size of print buffer in K
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC003_1" name="2FC003_1"><b>2FC003</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG
+	AX = C003h
+Return: BX destroyed
+SeeAlso: AX=C004h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC004_0" name="2FC004_0"><b>2FC004</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG
+	AX = C004h
+Return: BX destroyed
+SeeAlso: AX=C003h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC005_0" name="2FC005_0"><b>2FC005</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C005h
+	???
+Return: BX destroyed
+	???
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC006_0" name="2FC006_0"><b>2FC006</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C006h
+	???
+Return: BX destroyed
+	???
+Note:	this function appears to be identical to AX=C007h
+SeeAlso: AX=C000h"PCACHE",AX=C007h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC007_0" name="2FC007_0"><b>2FC007</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C007h
+	???
+Return: BX destroyed
+	???
+Note:	this function appears to be identical to AX=C006h
+SeeAlso: AX=C000h"PCACHE",AX=C006h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC008_0" name="2FC008_0"><b>2FC008</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG
+	AX = C008h
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE",AX=C009h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC009_0" name="2FC009_0"><b>2FC009</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG
+	AX = C009h
+Return: BX destroyed
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=C000h"PCACHE",AX=C008h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00A_0" name="2FC00A_0"><b>2FC00A</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C00Ah
+	???
+Return: AH = bit flags
+	    bit 5: ???
+	AL = bit flags
+	    bit 4: ???
+	    bit 3: ???
+	BX destroyed
+	???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00B_0" name="2FC00B_0"><b>2FC00B</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP
+	AX = C00Bh
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00C_0" name="2FC00C_0"><b>2FC00C</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???
+	AX = C00Ch
+Return: AX = ??? (0000h)
+	BX = ??? (0000h)
+	CX = ??? (0100h)
+	DL = ???
+	DH = ???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00D" name="2FC00D"><b>2FC00D</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ???
+	AX = C00Dh
+	DL = ???
+Return: BX destroyed
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00E_0" name="2FC00E_0"><b>2FC00E</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALL ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - INSTALL ???
+	AX = C00Eh
+	ES:DX -&gt; ???
+Return: BX destroyed
+Note:	ES:DX is stored internally if the variable is currently 0000h:0000h,
+	  but ignored if already set; a counter is incremented
+SeeAlso: AX=C000h"PCACHE",AX=C00Fh"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC00F_0" name="2FC00F_0"><b>2FC00F</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - REMOVE ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - REMOVE ???
+	AX = C00Fh
+Return: BX destroyed
+Note:	this function decrements the counter used by AX=C00Eh, and clears the
+	  internal pointer variable to 0000h:0000h when it reaches zero
+SeeAlso: AX=C000h"PCACHE",AX=C00Eh"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC010" name="2FC010"><b>2FC010</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???
+	AX = C010h
+	CX = index of ??? table (00h-02h, others treated as 00h)
+	SI = offset into data table
+Return: AL = byte at specified offset into table
+	BX destroyed
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC011" name="2FC011"><b>2FC011</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???
+	AX = C011h
+Return: AX = ??? (0007h)
+	BX = ??? (0001h)
+	CH = ???
+	CL = ???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC012" name="2FC012"><b>2FC012</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - GET ???
+	AX = C012h
+Return: AX = ???
+	BX = ???
+	CX = ???
+	DX = ???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC013" name="2FC013"><b>2FC013</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C013h
+	???
+Return: BX destroyed
+	???
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC014" name="2FC014"><b>2FC014</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C014h
+	???
+Return: BX destroyed
+	???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC015" name="2FC015"><b>2FC015</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C015h
+	???
+Return: BX destroyed
+	???
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC016" name="2FC016"><b>2FC016</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - INCREMENT ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - INCREMENT ???
+	AX = C016h
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE",AX=C017h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC017" name="2FC017"><b>2FC017</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - DECREMENT ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - DECREMENT ???
+	AX = C017h
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE",AX=C016h"PCACH"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC018" name="2FC018"><b>2FC018</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C018h
+	???
+Return: BX destroyed
+	???
+Note:	the first instruction of this function is an indirect jump which points
+	  at a RET by default
+SeeAlso: AX=C000h"PCACHE",AX=C019h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC019" name="2FC019"><b>2FC019</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C019h
+	???
+Return: BX destroyed
+	???
+Note:	the first instruction of this function is an indirect jump which points
+	  at a RET by default
+SeeAlso: AX=C000h"PCACHE",AX=C018h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC01A" name="2FC01A"><b>2FC01A</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - CLEAR ??? FLAG
+	AX = C01Ah
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE",AX=C01Bh"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC01B" name="2FC01B"><b>2FC01B</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - SET ??? FLAG
+	AX = C01Bh
+Return: BX destroyed
+SeeAlso: AX=C000h"PCACHE",AX=C01Ah"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC01C" name="2FC01C"><b>2FC01C</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - ???<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - ???
+	AX = C01Ch
+	???
+Return: AX = ???
+	BX destroyed
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FC01D" name="2FC01D"><b>2FC01D</b></a> - INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP<br />
+<pre>
+INT 2F U - PrintCache v3.1 PCACHE.EXE - NOP
+	AX = C01Dh to C01Fh
+Return: BX destroyed
+Program: PCACHE is the resident print spooler portion of PrintCache by
+	  LaserTools; it may use either memory or disk space to spool output
+Range:	AH=C0h to AH=FFh, selected by commandline switch
+SeeAlso: AX=C000h"PCACHE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FCC--SI5453" name="2FCC--SI5453"><b>2FCC--SI5453</b></a> - INT 2F U - PC-Kwik Programs - API<br />
+<pre>
+INT 2F U - PC-Kwik Programs - API
+	AH = CCh
+	SI = 5453h or 7473h
+	AL = function number (at least 00h,01h,04h,05h,07h,80h)
+	DL = program identifier (see #03067)
+Return: SI = 7473h
+	other registers vary by function
+Note:	Qualitas Qcache v4.00 is an OEM version of Super PC-Kwik v4.00, and
+	  thus supports this call
+SeeAlso: INT 21/AH=2Bh/CX=4358h
+
+(Table 03067)
+Values for PC-Kwik program identifier:
+ 00h	all installed PowerPak programs
+ 01h	SUPERPCK/SUPER/QCACHE v4.00+ (disk cache)
+ 02h	PCKSPL (print spooler)
+ 04h	PCKSCRN (screen accelerator)
+ 05h	PCKKEY (keyboard enhancer)
+ 06h	PCKRAMD (RAM disk)
+ 08h	PCKWIK.SYS
+ 10h	PCKCDROM (CD-ROM support for SUPERPCK)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDF00" name="2FDF00"><b>2FDF00</b></a> - INT 2F - HyperWare programs - INSTALLATION CHECK<br />
+<pre>
+INT 2F - HyperWare programs - INSTALLATION CHECK
+	AX = DF00h
+	BX = product code (see #03105)
+	CX = 0000h
+	DX = 0000h
+Return: AL = status
+	    00h not installed
+	    FFh multiplex number in use
+		CX = 5948h ('YH') if selected product installed
+		---HyperDisk---
+		BX = code segment of resident portion
+		DX = HyperDisk local data version
+Program: HyperDisk is a shareware disk cache by HyperWare (Roger Cross)
+Range:	AH=C0h to AH=FFh, selected by scanning AH=DFh, then AH=C0h-FFh
+SeeAlso: INT 13/AX=8EEDh
+Index:	installation check;HyperDisk|installation check;HyperStb
+Index:	installation check;HyperKey|installation check;HyperScreen
+Index:	HyperDisk;installation check|HyperStb;installation check
+Index:	HyperKey;installation check|HyperScreen;installation check
+
+(Table 03105)
+Values for HyperWare product code:
+ 4248h	('BH') HyperStb
+ 4448h	('DH') HyperDisk v4.20+
+ 4B48h	('KH') HyperKey
+ 5348h	('SH') HyperScreen
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDF01BX4448" name="2FDF01BX4448"><b>2FDF01BX4448</b></a> - INT 2F - HyperDisk v4.50+ - GET CURRENT CACHE STATE<br />
+<pre>
+INT 2F - HyperDisk v4.50+ - GET CURRENT CACHE STATE
+	AX = DF01h
+	BX = 4448h ('DH')
+Return: AX = 0000h if function supported
+	    BX = number of cache buffers in use
+	    CX = number of cache buffers which have been modified
+	    DL = caching flags (see #03106)
+Range:	AH=C0h to AH=FFh, selected by scanning AH=DFh, then AH=C0h-FFh
+SeeAlso: AX=DF00h,AX=DF02h
+
+Bitfields for HyperDisk caching flags:
+Bit(s)	Description	(Table 03106)
+ 0	staged writes enabled for floppy disks
+ 1	staged writes enabled for hard disks
+ 2	writes verified on floppy disks
+ 3	writes verified on hard disks
+ 4	reserved (0)
+ 5	reserved (0)
+ 6	floppy caching enabled
+ 7	all caching functions enabled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FDF02BX4448" name="2FDF02BX4448"><b>2FDF02BX4448</b></a> - INT 2F - HyperDisk v4.50+ - SET CACHE STATE<br />
+<pre>
+INT 2F - HyperDisk v4.50+ - SET CACHE STATE
+	AX = DF02h
+	BX = 4448h ('DH')
+	DL = new caching flags (see #03106)
+Return: AX = 0000h if supported
+	    BX = number of cache buffers in use
+	    CX = number of cache buffers which have been modified
+	    DL = previous caching flags (see #03106)
+Program: HyperDisk is a shareware disk cache by HyperWare (Roger Cross)
+Range:	AH=C0h to AH=FFh, selected by scanning AH=DFh, then AH=C0h-FFh
+SeeAlso: AX=DF00h,AX=DF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._63</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 63
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#63"><b>63</b> - INT 63 - reserved for user interrupt</a><br />
+<a href="#63_0"><b>63</b> - INT 63 - Adaptec and OMTI controllers - DRIVE 0 DATA</a><br />
+<a href="#63_1"><b>63</b> - INT 63 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)</a><br />
+<a href="#63_2"><b>63</b> - INT 63 - Oracle SQL Protected Mode Executive - ???</a><br />
+<a href="#63_3"><b>63</b> - INT 63 - 4+Power FLOPPY CONTROLLER - ORIGINAL INT 13/40</a><br />
+<a href="#63_4"><b>63</b> - INT 63 - Kofax KF9X00 image manipulation card interface</a><br />
+<a href="#63_5"><b>63</b> - INT 63 - DESQview/X - SOCKET API</a><br />
+<a href="#6300"><b>6300</b> - INT 63 - HP 100LX - MAP HIGH MEMORY</a><br />
+<a href="#6300_0"><b>6300</b> - INT 63 - BW-TCP - TCPIP.SYS - SET IP ADDRESS???</a><br />
+<a href="#6301"><b>6301</b> - INT 63 - HP 100LX - SAVE/RESTORE MEMORY MAP</a><br />
+<a href="#6301_0"><b>6301</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6302"><b>6302</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6303"><b>6303</b> - INT 63 - BW-TCP - TCPIP.SYS - GET IP ADDRESS</a><br />
+<a href="#6304"><b>6304</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6305"><b>6305</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6306"><b>6306</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6307"><b>6307</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6308"><b>6308</b> - INT 63 - BW-TCP - TCPIP.SYS - SET DEFAULT ??? HANDLER</a><br />
+<a href="#6309"><b>6309</b> - INT 63 - BW-TCP - TCPIP.SYS - INSTALL ??? HANDLERS</a><br />
+<a href="#630A"><b>630A</b> - INT 63 - BW-TCP - TCPIP.SYS - DELETE ??? HANDLERS</a><br />
+<a href="#630B"><b>630B</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#630C"><b>630C</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#630D"><b>630D</b> - INT 63 - BW-TCP - TCPIP.SYS - INSTALL DEFAULT ??? HANDLER</a><br />
+<a href="#630E"><b>630E</b> - INT 63 - BW-TCP - TCPIP.SYS - CLOSE NETWORK DESCRIPTOR</a><br />
+<a href="#630F"><b>630F</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6310"><b>6310</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6311"><b>6311</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6312"><b>6312</b> - INT 63 - BW-TCP - TCPIP.SYS - LISTEN FOR INCOMING CONNECTIONS</a><br />
+<a href="#6313"><b>6313</b> - INT 63 - BW-TCP - TCPIP.SYS - NOP</a><br />
+<a href="#6314"><b>6314</b> - INT 63 - BW-TCP - TCPIP.SYS - OPEN NETWORK CONNECTION</a><br />
+<a href="#6315"><b>6315</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6316"><b>6316</b> - INT 63 - BW-TCP - TCPIP.SYS - RESET NETWORK CONNECTION</a><br />
+<a href="#6317"><b>6317</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6318"><b>6318</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6319"><b>6319</b> - INT 63 - BW-TCP - TCPIP.SYS - WRITE TO THE NETWORK</a><br />
+<a href="#631A"><b>631A</b> - INT 63 - BW-TCP - TCPIP.SYS - READ FROM THE NETWORK</a><br />
+<a href="#631B"><b>631B</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#631C"><b>631C</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#631D"><b>631D</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#631E"><b>631E</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#631F"><b>631F</b> - INT 63 - BW-TCP - TCPIP.SYS - SET SOCKET ??? HANDLER</a><br />
+<a href="#6320"><b>6320</b> - INT 63 - BW-TCP - TCPIP.SYS - REMOVE SOCKET ??? HANDLER</a><br />
+<a href="#6321"><b>6321</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6322"><b>6322</b> - INT 63 - BW-TCP - TCPIP.SYS - REMOVE ??? HANDLER</a><br />
+<a href="#6323"><b>6323</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6324"><b>6324</b> - INT 63 - BW-TCP - TCPIP.SYS - GET SOCKET</a><br />
+<a href="#6325"><b>6325</b> - INT 63 - BW-TCP - TCPIP.SYS - GET INTERNET ADDRESS</a><br />
+<a href="#6326"><b>6326</b> - INT 63 - BW-TCP - TCPIP.SYS - SET INTERNET ADDRESS???</a><br />
+<a href="#6327"><b>6327</b> - INT 63 - BW-TCP - TCPIP.SYS - SET ???</a><br />
+<a href="#6328"><b>6328</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+<a href="#6329"><b>6329</b> - INT 63 - BW-TCP - TCPIP.SYS - ???</a><br />
+
+<hr />
+
+<a href="#63" name="63"><b>63</b></a> - INT 63 - reserved for user interrupt<br />
+<pre>
+INT 63 - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_0" name="63_0"><b>63</b></a> - INT 63 - Adaptec and OMTI controllers - DRIVE 0 DATA<br />
+<pre>
+INT 63 - Adaptec and OMTI controllers - DRIVE 0 DATA
+Desc:	this vector stores the last four bytes of the parameter table for
+	  hard disk 0
+SeeAlso: INT 60"Adaptec",INT 61"Adaptec",INT 62"Adaptec",INT 64"Adaptec"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_1" name="63_1"><b>63</b></a> - INT 63 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)<br />
+<pre>
+INT 63 - TI Professional PC - OPTION ROM DATA AREA POINTER (NOT A VECTOR!)
+Desc:	the low word of this vector contains the segment of the RAM data area
+	  to be used by the expansion ROM at F400h:4000h, and the high word
+	  contains the length of the data area; this segment and size are
+	  both set to 0000h if no ROM is installed at F400h:4000h
+SeeAlso: INT 60"TI Professional PC",INT 62"TI Professional"
+SeeAlso: INT 64"TI Professional PC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_2" name="63_2"><b>63</b></a> - INT 63 - Oracle SQL Protected Mode Executive - ???<br />
+<pre>
+INT 63 - Oracle SQL Protected Mode Executive - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_3" name="63_3"><b>63</b></a> - INT 63 - 4+Power FLOPPY CONTROLLER - ORIGINAL INT 13/40<br />
+<pre>
+INT 63 - 4+Power FLOPPY CONTROLLER - ORIGINAL INT 13/40
+Desc:	the "4+Power" quad floppy controller BIOS hooks INT 13 (or INT 40 if
+	  INT 13 has been moved there) and places the old value here
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_4" name="63_4"><b>63</b></a> - INT 63 - Kofax KF9X00 image manipulation card interface<br />
+<pre>
+INT 63 - Kofax KF9X00 image manipulation card interface
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#63_5" name="63_5"><b>63</b></a> - INT 63 - DESQview/X - SOCKET API<br />
+<pre>
+INT 63 - DESQview/X - SOCKET API
+InstallCheck:	test for the string "dvxunix" (yes, lowercase) at offset 9
+	  from the interrupt handler start (see #03515)
+Notes:	parameters are passed by patching (!) data field immediately following
+	  the entry point, as detailed below (see #03515); the preferred
+	  method for calling the socket API is via INT 15/AX=DE2Eh
+SeeAlso: INT 15/AX=DE2Eh,INT BE"DESQview"
+Index:	installation check;DESQview/X socket interface
+
+Format of DESQview/X socket interrupt handler entry:
+Offset	Size	Description	(Table 03515)
+ 00h  3 BYTEs	near jump or short jump + NOP to actual interrupt handler
+ 03h	WORD	offset from following pointer for initial top of local stack
+ 05h	DWORD	pointer to argument/stack block (see INT 15/AX=DE2Eh)
+ 09h  7 BYTEs	signature "dvxunix"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6300" name="6300"><b>6300</b></a> - INT 63 - HP 100LX - MAP HIGH MEMORY<br />
+<pre>
+INT 63 - HP 100LX - MAP HIGH MEMORY
+	AH = 00h
+	AL = physical page (00h seg C000, 01h seg C400h, ...)
+	BX = zero-based logical page
+	CX = page number
+	DX = device ID (00h system ROM, 05h plugin, etc.)
+Return: ???
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6300_0" name="6300_0"><b>6300</b></a> - INT 63 - BW-TCP - TCPIP.SYS - SET IP ADDRESS???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - SET IP ADDRESS???
+	AH = 00h
+	DS:BX -&gt; DWORD containing IP address (big-endian)
+Return: CF clear if successful
+	CF set on error
+	AX destroyed
+Range:	INT 4D to INT FC, selected by configuration
+Note:	the Beame&Whiteside TCP/IP protocol stack uses two consecutive
+	  interrupts (62h and 63h by default); the BW-NFS client uses a third
+	  consecutive interrupt (64h by default) if it is loaded
+SeeAlso: AH=01h"BW-TCP",AH=02h"BW-TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6301" name="6301"><b>6301</b></a> - INT 63 - HP 100LX - SAVE/RESTORE MEMORY MAP<br />
+<pre>
+INT 63 - HP 100LX - SAVE/RESTORE MEMORY MAP
+	AH = 01h
+	AL = function (00h save, 01h restore)
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6301_0" name="6301_0"><b>6301</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 01h
+	ES:BX -&gt; ???
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+Note:	the Beame&Whiteside TCP/IP protocol stack uses two consecutive
+	  interrupts (62h and 63h by default); the BW-NFS client uses a third
+	  consecutive interrupt (64h by default) if it is loaded
+SeeAlso: AH=00h"BW-TCP",AH=02h"BW-TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6302" name="6302"><b>6302</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 02h
+	???
+Return: ???
+SeeAlso: AH=00h"BW-TCP",AH=01h"BW-TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6303" name="6303"><b>6303</b></a> - INT 63 - BW-TCP - TCPIP.SYS - GET IP ADDRESS<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - GET IP ADDRESS
+	AH = 03h
+	DS:SI -&gt; buffer for DWORD IP address (big-endian)
+Return: AX destroyed
+	CF clear if successful
+	CF set on error
+Note:	this call may use ARP or RARP to determine the address
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6304" name="6304"><b>6304</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 04h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6305" name="6305"><b>6305</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 05h
+	DS:BX -&gt; ???
+	ES:SI -&gt; ???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6306" name="6306"><b>6306</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 06h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6307" name="6307"><b>6307</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 07h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6308" name="6308"><b>6308</b></a> - INT 63 - BW-TCP - TCPIP.SYS - SET DEFAULT ??? HANDLER<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - SET DEFAULT ??? HANDLER
+	AH = 08h
+	DS:BX -&gt; DWORD containing IP address
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6309" name="6309"><b>6309</b></a> - INT 63 - BW-TCP - TCPIP.SYS - INSTALL ??? HANDLERS<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - INSTALL ??? HANDLERS
+	AH = 09h
+	BL = handler type
+	ES:SI -&gt; FAR handler of specified type
+Return: ???
+SeeAlso: AH=0Ah,AH=0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630A" name="630A"><b>630A</b></a> - INT 63 - BW-TCP - TCPIP.SYS - DELETE ??? HANDLERS<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - DELETE ??? HANDLERS
+	AH = 0Ah
+	BL = handler type
+Return: CF clear if successful
+	CF set on error (no handler of specified type installed)
+SeeAlso: AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630B" name="630B"><b>630B</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 0Bh
+	AL = ???
+	DL = ???
+	DS:BX -&gt; ???
+	ES:SI -&gt; ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630C" name="630C"><b>630C</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 0Ch
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630D" name="630D"><b>630D</b></a> - INT 63 - BW-TCP - TCPIP.SYS - INSTALL DEFAULT ??? HANDLER<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - INSTALL DEFAULT ??? HANDLER
+	AH = 0Dh
+	???
+Return: ???
+Note:	if not already installed, installs a type 06h handler with AH=09h
+SeeAlso: AH=09h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630E" name="630E"><b>630E</b></a> - INT 63 - BW-TCP - TCPIP.SYS - CLOSE NETWORK DESCRIPTOR<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - CLOSE NETWORK DESCRIPTOR
+	AH = 0Eh
+	???
+Return: ???
+SeeAlso: INT 61/AH=08h"PC/TCP",INT 61/AH=09h"PC/TCP",INT 61/AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#630F" name="630F"><b>630F</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 0Fh
+	AL = ???
+	SI = ???
+	DS:DI -&gt; ???
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6310" name="6310"><b>6310</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 10h
+	DS:DI -&gt; ???
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6311" name="6311"><b>6311</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 11h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6312" name="6312"><b>6312</b></a> - INT 63 - BW-TCP - TCPIP.SYS - LISTEN FOR INCOMING CONNECTIONS<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - LISTEN FOR INCOMING CONNECTIONS
+	AH = 12h
+	DS:SI -&gt; ???
+	ES:BP -&gt; ???
+Return: ???
+SeeAlso: AH=14h,INT 61/AH=23h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6313" name="6313"><b>6313</b></a> - INT 63 - BW-TCP - TCPIP.SYS - NOP<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - NOP
+	AH = 13h
+Return: nothing
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6314" name="6314"><b>6314</b></a> - INT 63 - BW-TCP - TCPIP.SYS - OPEN NETWORK CONNECTION<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - OPEN NETWORK CONNECTION
+	AH = 14h
+	BX = network descriptor???
+	DS:SI -&gt; ???
+	ES:BP -&gt; ???
+Return: ???
+SeeAlso: AH=12h,AH=16h,AH=19h,INT 61/AH=13h"PC/TCP",INT 62/AH=13h"ETHDEV"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6315" name="6315"><b>6315</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 15h
+	DS:DI -&gt; ???
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6316" name="6316"><b>6316</b></a> - INT 63 - BW-TCP - TCPIP.SYS - RESET NETWORK CONNECTION<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - RESET NETWORK CONNECTION
+	AH = 16h
+	DS:DI -&gt; ???
+Return: ???
+Note:	calls AH=17h after preprocessing
+SeeAlso: AH=17h,INT 61/AH=19h"PC/TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6317" name="6317"><b>6317</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 17h
+	DS:DI -&gt; ???
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+SeeAlso: AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6318" name="6318"><b>6318</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 18h
+	DS:DI -&gt; ???
+	???
+Return: ???
+Note:	same as AH=17h, except performed with interrupts disabled
+SeeAlso: AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6319" name="6319"><b>6319</b></a> - INT 63 - BW-TCP - TCPIP.SYS - WRITE TO THE NETWORK<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - WRITE TO THE NETWORK
+	AH = 19h
+	DS:DI -&gt; ???
+	???
+Return: BX = number of bytes NOT written
+	???
+Range:	INT 4D to INT FC, selected by configuration
+Note:	calls AH=17h with interrupts disabled and ??? set to 01h
+SeeAlso: AH=14h,AH=1Ah,AH=1Bh,INT 61/AH=1Ah"PC/TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631A" name="631A"><b>631A</b></a> - INT 63 - BW-TCP - TCPIP.SYS - READ FROM THE NETWORK<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - READ FROM THE NETWORK
+	AH = 1Ah
+	CX = maximum number of bytes to read
+	ES:BP -&gt; ???
+	???
+Return: CX = number of bytes actually read
+	???
+SeeAlso: AH=12h,AH=14h,AH=19h,INT 61/AH=1Bh"PC/TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631B" name="631B"><b>631B</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 1Bh
+	CX = ???
+	ES:BP -&gt; ???
+Return: DX = ???
+	???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631C" name="631C"><b>631C</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 1Ch
+	DS:DI -&gt; ???
+	???
+Return: ???
+Note:	calls AH=17h with ???
+SeeAlso: AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631D" name="631D"><b>631D</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 1Dh
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631E" name="631E"><b>631E</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 1Eh
+	DS:BX -&gt; DWORD containing IP address (big-endian)
+	???
+Return: CF clear if successful
+	CF set on error
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#631F" name="631F"><b>631F</b></a> - INT 63 - BW-TCP - TCPIP.SYS - SET SOCKET ??? HANDLER<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - SET SOCKET ??? HANDLER
+	AH = 1Fh
+	BX = socket number
+	ES:SI -&gt; FAR function for ???
+Return: CF clear if successful
+	CF set on error (out of slots)
+SeeAlso: AH=20h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6320" name="6320"><b>6320</b></a> - INT 63 - BW-TCP - TCPIP.SYS - REMOVE SOCKET ??? HANDLER<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - REMOVE SOCKET ??? HANDLER
+	AH = 20h
+	BX = socket number
+Return: CF clear if successful
+	CF set on error (not set)
+Range:	INT 4D to INT FC, selected by configuration
+SeeAlso: AH=1Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6321" name="6321"><b>6321</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 21h
+	ES:SI -&gt; ???
+Return: ???
+SeeAlso: INT 61/AH=1Ch"PC/TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6322" name="6322"><b>6322</b></a> - INT 63 - BW-TCP - TCPIP.SYS - REMOVE ??? HANDLER<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - REMOVE ??? HANDLER
+	AH = 22h
+Return: CF clear
+Range:	INT 4D to INT FC, selected by configuration
+Note:	decrements a counter if not already zero, and calls AH=0Ah with BL=11h
+	  if the counter reaches zero
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6323" name="6323"><b>6323</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 23h
+	DS:BX -&gt; ???
+	ES:SI -&gt; 6-byte buffer for ???
+Return: CF clear if successful
+	CF set on error
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6324" name="6324"><b>6324</b></a> - INT 63 - BW-TCP - TCPIP.SYS - GET SOCKET<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - GET SOCKET
+	AH = 24h
+Return: AX = socket number (0400h-FFFFh)
+Range:	INT 4D to INT FC, selected by configuration
+Note:	the Beame&Whiteside TCP/IP protocol stack uses two consecutive
+	  interrupts (62h and 63h by default); the BW-NFS client uses a third
+	  consecutive interrupt (64h by default) if it is loaded
+SeeAlso: AH=12h,AH=14h,INT 62/AH=12h"ETHDEV",INT 64/AH=01h"BW-NFS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6325" name="6325"><b>6325</b></a> - INT 63 - BW-TCP - TCPIP.SYS - GET INTERNET ADDRESS<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - GET INTERNET ADDRESS
+	AH = 25h
+Return: CL:CH:DL:DH = caller's Internet address
+SeeAlso: AH=03h,AH=26h,INT 61/AH=05h"PC/TCP"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6326" name="6326"><b>6326</b></a> - INT 63 - BW-TCP - TCPIP.SYS - SET INTERNET ADDRESS???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - SET INTERNET ADDRESS???
+	AH = 26h
+	CL:CH:DL:DH = Internet address
+Return: nothing
+Range:	INT 4D to INT FC, selected by configuration
+Note:	this function sets a different variable than AH=25h returns
+SeeAlso: AH=03h,AH=25h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6327" name="6327"><b>6327</b></a> - INT 63 - BW-TCP - TCPIP.SYS - SET ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - SET ???
+	AH = 27h
+	BX = ???
+	ES:SI -&gt; ???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6328" name="6328"><b>6328</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 28h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6329" name="6329"><b>6329</b></a> - INT 63 - BW-TCP - TCPIP.SYS - ???<br />
+<pre>
+INT 63 - BW-TCP - TCPIP.SYS - ???
+	AH = 29h
+	???
+Return: ???
+Range:	INT 4D to INT FC, selected by configuration
+Note:	the Beame&Whiteside TCP/IP protocol stack uses two consecutive
+	  interrupts (62h and 63h by default); the BW-NFS client uses a third
+	  consecutive interrupt (64h by default) if it is loaded
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

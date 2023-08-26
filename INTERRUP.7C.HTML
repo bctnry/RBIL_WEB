@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._7C</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 7C
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#7C"><b>7C</b> - INT 7C U - IBM REXX88PC command language</a><br />
+<a href="#7C_0"><b>7C</b> - INT 7C - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ4</a><br />
+<a href="#7C_1"><b>7C</b> - INT 7C - PRINDIR v8.02-8.xx - API</a><br />
+<a href="#7C_2"><b>7C</b> - INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER</a><br />
+<a href="#7C_3"><b>7C</b> - INT 7C - SK-UPPS/SK-PASSPORT Data Link Interface (DLI) API</a><br />
+<a href="#7C0000"><b>7C0000</b> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER VERSION</a><br />
+<a href="#7C0001"><b>7C0001</b> - INT 7C - SK-UPPS Data Link Interface API - DOWN DRIVER</a><br />
+<a href="#7C0002"><b>7C0002</b> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATUS</a><br />
+<a href="#7C0003"><b>7C0003</b> - INT 7C - SK-UPPS Data Link Interface API - CHANGE DRIVER ADDRESS</a><br />
+<a href="#7C0004"><b>7C0004</b> - INT 7C - SK-UPPS Data Link Interface API - REQUEST BUFFER</a><br />
+<a href="#7C0005"><b>7C0005</b> - INT 7C - SK-UPPS Data Link Interface API - RELEASE BUFFER</a><br />
+<a href="#7C0006"><b>7C0006</b> - INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME</a><br />
+<a href="#7C0007"><b>7C0007</b> - INT 7C - SK-UPPS Data Link Interface API - REGISTER PROTOCOL</a><br />
+<a href="#7C0008"><b>7C0008</b> - INT 7C - SK-UPPS Data Link Interface API - DISABLE PROTOCOL</a><br />
+<a href="#7C0009"><b>7C0009</b> - INT 7C - SK-UPPS Data Link Interface API - REGISTER MULTICAST</a><br />
+<a href="#7C000A"><b>7C000A</b> - INT 7C - SK-UPPS Data Link Interface API - DISABLE MULTICAST</a><br />
+<a href="#7C000B"><b>7C000B</b> - INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL LIST</a><br />
+<a href="#7C000C"><b>7C000C</b> - INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL STATUS</a><br />
+<a href="#7C000D"><b>7C000D</b> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATISTICS</a><br />
+<a href="#7C000E"><b>7C000E</b> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.5+ - GET DRIVER INFO</a><br />
+<a href="#7C000F"><b>7C000F</b> - INT 7C - SK-UPPS Data Link Interface API - FEED BACK BUFFER</a><br />
+<a href="#7C0010"><b>7C0010</b> - INT 7C - SK-UPPS Data Link Interface API - CLIENT HOOK</a><br />
+<a href="#7C0011"><b>7C0011</b> - INT 7C - SK-UPPS Data Link Interface API - CLIENT UNHOOK</a><br />
+<a href="#7C0012"><b>7C0012</b> - INT 7C - SK-UPPS Data Link Interface API - SYNC REQUEST BUFFER</a><br />
+<a href="#7C0013"><b>7C0013</b> - INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME RELEASE</a><br />
+<a href="#7C0014"><b>7C0014</b> - INT 7C - SK-UPPS Data Link Interface API - GET MULTICAST LIST</a><br />
+<a href="#7C0015"><b>7C0015</b> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.6+ - GET MEDIA STATISTICS</a><br />
+<a href="#7C0016"><b>7C0016</b> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - DRIVER I/O CONTROL</a><br />
+<a href="#7C0017"><b>7C0017</b> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - INTERRUPT REQUEST</a><br />
+
+<hr />
+
+<a href="#7C" name="7C"><b>7C</b></a> - INT 7C U - IBM REXX88PC command language<br />
+<pre>
+INT 7C U - IBM REXX88PC command language
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_0" name="7C_0"><b>7C</b></a> - INT 7C - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ4<br />
+<pre>
+INT 7C - DJGPP GO32.EXE DOS EXTENDER - RELOCATED IRQ4
+Program: GO32.EXE is a DOS extender included as part of the 80386 port of the
+	  GNU C/C++ compiler by DJ Delorie and distributed as DJGPP
+Notes:	this vector is overwritten when GO32 starts but is not restored by
+	  early versions of the extender
+	the newest versions of GO32 dynamically allocate the vectors used
+	  for the relocated IRQs, much as DESQview does (see INT 50"DESQview")
+SeeAlso: INT 0C,INT 7B"GO32",INT 7D"GO32"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_1" name="7C_1"><b>7C</b></a> - INT 7C - PRINDIR v8.02-8.xx - API<br />
+<pre>
+INT 7C - PRINDIR v8.02-8.xx - API
+	AH = function
+	   00h set output to Invisible mode
+	   01h set output to LPT1
+	   02h set output to LPT2
+	   03h set output to LPT3
+	   04h set output to COM1
+	   05h set output to COM2
+	   06h set output to COM3
+	   07h set output to COM4
+	   08h set output to screen
+	   09h set output to file
+	   0Ah change file path
+	       ES:DI -&gt; new path
+	       CX = length of path (max 41, but not range-checked)
+	   0Bh change file name
+	       ES:DI -&gt; new filename
+	       CX = length of new name (max 41, but not range-checked)
+	   0Ch set redirected device
+		(01h = LPT1 ... 03h = LPT3, 04h = COM1 ... 07h = COM4)
+	   0Dh force buffer dump
+	   0Eh set display color
+	       AL = new color attribute (see #00014 at INT 10/AH=08h)
+	   0Fh set popup hotkey
+	       AL = hotkey scancode
+	   10h toggle byte display
+	       AL = new state (00h off, 01h on)
+	   11h change buffer flush delay
+	       AL = timer ticks before flush
+Return: AX = status
+	    0000h successful
+	    0001h invalid function or nothing in buffer to be dumped
+	    (documented as "nonzero = error")
+Program: PRINDIR is a shareware printer-redirection program by J.M. Allen
+	  Creations
+InstallCheck:	test for the ASCIZ signature "PRINDIR N.NN" (where N.NN is the
+	  version number) two bytes beyond the start of the interrupt handler
+Note:	prior versions of PRINDIR used INT 7A instead of INT 7C
+SeeAlso: INT 7A"PRINDIR",INT 2F/AX=7F00h"PRINDIR"
+Index:	hotkeys;PRINDIR
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_2" name="7C_2"><b>7C</b></a> - INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER<br />
+<pre>
+INT 7C - AutoShade v2 - RENDERING HARDCOPY DRIVER
+Note:	this is the default interrupt vector for rendering hardcopy drivers
+	  instead of INT 7A used by AutoCAD drivers
+SeeAlso: INT 7A/AX=0001h"AutoCAD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C_3" name="7C_3"><b>7C</b></a> - INT 7C - SK-UPPS/SK-PASSPORT Data Link Interface (DLI) API<br />
+<pre>
+INT 7C - SK-UPPS/SK-PASSPORT Data Link Interface (DLI) API
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of it Data Link Interface, allowing the
+	  use of any of several network transport layers; this product is
+	  called SK-PASSPORT in the USA.
+InstallCheck:	test for the ASCII signature string "UPPS_DLI" immediately
+	  preceding the interrupt handler
+Notes:	To find the service interrupt being used by the driver, an application
+	  should scan through the interrupt table until it finds an interrupt
+	  vector with the "UPPS_DLI" string.
+	There may be more than one DLI loaded, each having its own service
+	  interrupt.
+SeeAlso: AX=0000h,AX=0002h,AX=000Fh
+Index:	installation check;SK-UPPS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0000" name="7C0000"><b>7C0000</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER VERSION<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET DRIVER VERSION
+	AX = 0000h
+Return: AH = major DLI version
+	AL = minor DLI version
+	DX = OEM signature (see #03845)
+	CL = DLI 2.8+ topology: 1=Ethernet, 2=FDDI, 3=Token-Ring
+SeeAlso: AX=0002h,AX=000Bh,AX=000Dh,AX=000Eh
+
+(Table 03845)
+Values for SK-UPPS Data Link Interface OEM signature (defined by SK):
+ 0001h		experimental
+ 3343h	('3C')	3COM
+ 4942h	('IB')	IBM
+ 4943h	('IC')	Intellicom
+ 494Eh	('IN')	Intel
+ 4B4Fh	('KO')	Kodiak
+ 4D41h	('MA')	Madge
+ 4E45h	('NE')	Novell
+ 4F43h	('OC')	Olicom
+ 5349h	('SI')	Siemens
+ 534Bh	('SK')	Schneider & Koch (SysKonnect)
+ 5744h	('WD')	Western Digital
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0001" name="7C0001"><b>7C0001</b></a> - INT 7C - SK-UPPS Data Link Interface API - DOWN DRIVER<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DOWN DRIVER
+	AX = 0001h
+Return: AX = completion code (see #03846)
+Note:	the DLI will refuse to unload if there are any protocols
+	  (see AX=0007h) or clients (see AX=0010h) active.
+Index:	uninstall;SK-UPPS Data Link Interface
+
+(Table 03846)
+Values for SK-UPPS completion code:
+ 0000h	SUCCESS
+ 0005h	INVALID_MULTICAST
+ 0006h	BUFFER_TOO_SMALL
+ 0007h	NO_BUFFERS_LEFT
+ 0008h	NO_RESOURCES_LEFT
+ 000Bh	ILLEGAL_PROTOCOL_ID
+ 000Ch	PROTOCOL_IN_USE
+ 000Dh	NO_MULTICAST_ADDRESS
+ 000Fh	PROTOCOLS_ACTIVE
+ 0010h	CLIENTS_ACTIVE
+ 001Bh	INVALID_MODE
+ 001Ch	MODE_NOT_SUPPORTED
+ FFFFh	UNKNOWN_SERVICE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0002" name="7C0002"><b>7C0002</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATUS<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATUS
+	AX = 0002h
+	ES:DI -&gt; Status Information Block (SIB) (see #03858)
+Return: AX = completion code (see #03846)
+Note:	GET DRIVER INFO (AX=000Eh) should be used instead.
+SeeAlso: AX=0000h,AX=000Bh,AX=000Dh,AX=000Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0003" name="7C0003"><b>7C0003</b></a> - INT 7C - SK-UPPS Data Link Interface API - CHANGE DRIVER ADDRESS<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - CHANGE DRIVER ADDRESS
+	AX = 0003h
+	ES:DI -&gt; new node address (6 bytes)
+Return: AX = completion code (see #03846)
+Note:	the DLI will refuse to change the address if any protocols
+	  (see AX=0007h) are active
+SeeAlso: AX=0001h,AX=000Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0004" name="7C0004"><b>7C0004</b></a> - INT 7C - SK-UPPS Data Link Interface API - REQUEST BUFFER<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - REQUEST BUFFER
+	AX = 0004h
+	DX = protocol ID (see AX=0007h,#03849)
+Return: AX = completion code (see also #03846)
+	    0000h successful
+		ES:BX -&gt; Memory Buffer (Mbuf) (see #03847)
+Note:	if the DLI has no free Mbufs, it will set an internal flag for the
+	  protocol and later call the protocol's Event Upcall with
+	  EV_BUFFER_AVAILABLE (see #03853,#03854) as soon as an Mbuf becomes
+	  available.  There will only be one "buffer available" Upcall, even
+	  if this function has been called several times before.
+SeeAlso: AX=0005h,AX=0006h,AX=0012h,AX=0013h
+
+Format of SK-UPPS Memory Buffer (Mbuf):
+Offset	Size	Description	(Table 03847)
+ 00h	DWORD	-&gt; NEXT Mbuf (linked list)
+ 04h	WORD	OFFSET of actual data within DATA area
+ 06h  2 BYTEs	reserved (currently unused)
+ 08h	WORD	LENGTH of actual data found in DATA area starting at OFFSET
+ 0Ah  2 BYTEs	reserved (currently unused)
+ 0Ch	DWORD	-&gt; DATA area (size can be obtained via AX=000Eh call)
+ 10h	WORD	PROTOCOL ID of protocol currently "owning" the Mbuf
+ 12h	BYTE	IN USE flag; nonzero if Mbuf still in use by DLI (see AX=0006h)
+ 13h	BYTE	RECEIVE STATUS (bit 0-7 only; see AX=0007h - Receive Upcall)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0005" name="7C0005"><b>7C0005</b></a> - INT 7C - SK-UPPS Data Link Interface API - RELEASE BUFFER<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - RELEASE BUFFER
+	AX = 0005h
+	ES:BX -&gt; Mbuf (see #03847)
+Return: nothing
+SeeAlso: AX=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0006" name="7C0006"><b>7C0006</b></a> - INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME
+	AX = 0006h
+	ES:BX -&gt; Mbuf (see #03847)
+Return: nothing
+Notes:	The DLI will send LENGTH bytes found in the Mbuf's DATA area starting
+	  at OFFSET. A complete and valid frame must be stored there. The DLI
+	  will only copy the current node address (see AX=0003h) to the
+	  source node field of the frame's MAC header.
+	On Ethernet, the DLI will always send a minimum of 60 bytes, regardless
+	  of the value found in the LENGTH field.
+	This function returns immediately; the DLI will call the protocol's
+	  Transmit Upcall (see #03848) when the frame has been sent.
+	The Mbuf's IN USE field will be non-zero until the DLI calls the
+	  Transmit Upcall.
+SeeAlso: AX=0002h,AX=0004h,AX=0013h
+
+(Table 03848)
+Values SK-UPPS Transmit Upcall is called with:
+	ES:BX -&gt; Mbuf (NEXT field destroyed)
+	interrupts disabled
+Note:	On FDDI the bytes of the source and destination node fields in the MAC
+	  header have been bit-swapped to physical address format.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0007" name="7C0007"><b>7C0007</b></a> - INT 7C - SK-UPPS Data Link Interface API - REGISTER PROTOCOL<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - REGISTER PROTOCOL
+	AX = 0007h
+	ES:BX -&gt; Protocol Control Block (see #03849)
+Return: AX = completion code (see #03846)
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of its Data Link Interface, allowing the
+	  use of any of several network transport layers
+SeeAlso: AX=0008h,AX=000Bh
+
+Format of SK-UPPS Protocol Control Block (PCB):
+Offset	Size	Description	(Table 03849)
+ 00h	WORD	(big-endian) protocol type
+ 02h	WORD	protocol mode (see #03850)
+ 04h	DWORD	-&gt; Receive Upcall routine (see #03851)
+ 08h	DWORD	-&gt; Transmit Upcall routine
+ 0Ch	DWORD	-&gt; Event Upcall routine (see #03853)
+ 10h	DWORD	-&gt; ASCIZ protocol name (zero if none)
+ 14h	WORD	protocol ID will be returned here (always non-zero)
+
+Bitfields for SK-UPPS protocol mode:
+Bit(s)	Description	(Table 03850)
+ 0	promiscuous mode; protocol receives all frames regardless of their
+	  destination (PROTOCOL TYPE must be FFFFh)
+ 1	if set, protocol's Event Upcall will be called on entry and exit of the
+	  DLI's Interrupt Service Routine (see #03854)
+ 2	DLI 2.2+ hook mode; protocol receives all directed frames destined for
+	  this station (PROTOCOL TYPE must be FFFFh)
+ 3	DLI 2.3+ receive error frames (only valid in promiscuous mode (0))
+ 4-5	DLI 2.5+ frame type:
+	00 Ethernet II; specify type code in PROTOCOL TYPE field (high-low)
+	01 IEEE 802.2; specify Service Access Point (SAP) in MSB
+	      (offset 0) of PROCOTOL TYPE field; LSB must be zero
+	10 IEEE 802.2 with SNAP header; specify type code in PROTOCOL TYPE
+	      field (high-low)
+	11 reserved (currently unused)
+ 6	DLI 2.5+ if set, protocol's Event Upcall will be called with event code
+	  EV_BUFFER_WANTED, when DLI runs out of Mbufs
+ 7	DLI 2.7+ chain mode; if set, client allows the specified frame type to
+	  be shared with other clients
+ 8	DLI 2.8+ receive non-LLC frames rather than LLC frames
+ 9	DLI 2.8+ receive all multicast frames (see also AX=0009h)
+ 10-15	reserved (currently unused; must be zero)
+Notes:	If PROTOCOL TYPE is FFFFh and neither the "promiscuous" nor the "hook"
+	  mode is set, the protocol receives all frames that did not match
+	  any registered frame type (demultiplexor mode).
+	Protocols using "promiscuous", "hook" or "chain" mode should always
+	  return from the Receive Upcall with the received Mbuf in ES:BX and
+	  the Carry Flag set. The DLI will then pass the Mbuf to the FEED BACK
+	  BUFFER function (see AX=000Fh).
+	Some DLIs do not support all or even any of the "promiscuous",
+	  "receive non-LLC" and "receive all multicasts" mode bits.
+SeeAlso: #03849
+
+(Table 03851)
+Values SK-UPPS Receive Upcall is called with:
+	ES:BX -&gt; Mbuf
+	AX = receive status (see #03852) (also stored in Mbuf's RECEIVE STATUS field)
+	interrupts disabled
+Return: nothing
+SeeAlso: #03853
+
+Bitfields for SK-UPPS receive status:
+Bit(s)	Description	(Table 03852)
+ 0-2	reserved (0), currently unused
+ 3	frame check sequence (FCS) error
+ 4	overflow (frame too long)
+ 5	framing error
+ 6	reserved (0), currently unused
+ 7	non-LLC frame (see #03850 [bit 8])
+ 8-15	reserved (0), currently unused
+Notes:	The protocol's Receive Upcall routine will be called whenever a frame
+	  matching the specified frame type is received. A received frame is
+	  passed to the protocol in the Mbuf's DATA area at OFFSET and its size
+	  is LENGTH bytes.
+	The receive status passed to the Receive Upcall in register AL is
+	  always zero, except for protocols using "non-LLC" mode (8 of PCB's
+	  protocol mode field) or "promiscuous" mode together with "receive
+	  error frames" (0 & 3).
+	Upcalls are FAR routines and must return with a RET FAR. If the Carry
+	  Flag is set on return from a Receive or Transmit Upcall, then ES:BX
+	  must point to an Mbuf, which the DLI will then pass to the RELEASE
+	  BUFFER function (see AX=0005h). See also notes for PROTOCOL MODE.
+
+(Table 03853)
+Values SK-UPPS Event Upcall is called with:
+	AX = event code (see #03854)
+Return: nothing
+Note:	All Event Upcalls may be ignored by the protocol.
+SeeAlso: #03851
+
+(Table 03854)
+Values for SK-UPPS Event Upcall event code:
+ 00h	EV_BUFFER_AVAILABLE client may now call REQUEST BUFFER (AX=0004h)
+ 01h	EV_ISR_START	    start of Interrupt Service Routine
+ 02h	EV_ISR_END	    end of ISR (see #03850 [bit 1])
+ 03h	EV_BUFFER_WANTED    DLI temporarily out of Mbufs
+ 04h	EV_NETWORK_STATUS   DLI 2.8+ network status -- DX=status (see #03855)
+ 05h	EV_IO_CONTROL	    DLI 2.8+ I/O control -- DX=subfunc (see AX=0016h)
+SeeAlso: #03853
+
+Bitfields for EV_NETWORK_STATUS in register DX:
+Bit(s)	Description	(Table 03855)
+	Token-Ring		FDDI
+ 15	SIGNAL_LOSS		SIGNAL_LOSS
+ 14	HARD_ERROR		HARD_ERROR
+ 13	SOFT_ERROR		SOFT_ERROR
+ 12	TRANSMIT_BEACON		TRANSMIT_BEACON
+ 11	LOBE_WIRE_FAULT		PATH_TEST_FAILED
+ 10	AUTO_REMOVAL		SELF_TEST_REQUIRED
+ 9	reserved		reserved
+ 8	REMOVE_RECEIVED		REMOTE_DISCONNECT
+ 7	COUNTER_OVERFLOW	reserved
+ 6	SINGLE_STATION		DUPLICATE_ADDRESS
+ 5	RING_RECOVERY		NO_RING_OP_STATUS
+ 4	reserved		VERSION_MISMATCH
+ 3	reserved		STUCK_BYPASS
+ 2	reserved		FDDI_EVENT
+ 1	reserved		RING_OP_CHANGE
+ 0	reserved		reserved
+Note:	EV_NETWORK_STATUS is not supported on Ethernet
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0008" name="7C0008"><b>7C0008</b></a> - INT 7C - SK-UPPS Data Link Interface API - DISABLE PROTOCOL<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DISABLE PROTOCOL
+	AX = 0008h
+	BX = protocol ID (see #03849)
+Return: AX = completion code (see #03846)
+Note:	the DLI will handle any Mbufs given to TRANSMIT FRAME (AX=0006h) as if
+	  they had been given to TRANSMIT FRAME RELEASE (AX=0013h).
+	all multicast addresses registered for this protocol will be disabled.
+	after this function returns, the protocol's Upcall routines will no
+	  longer be called.
+SeeAlso: AX=0007h,AX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0009" name="7C0009"><b>7C0009</b></a> - INT 7C - SK-UPPS Data Link Interface API - REGISTER MULTICAST<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - REGISTER MULTICAST
+	AX = 0009h
+	BX = protocol ID (see #03849)
+	ES:DI -&gt; multicast address (6 bytes)
+Return: AX = completion code (see #03846)
+Notes:	The broadcast address is always enabled.
+	Set bit 9 of PCB's protocol mode field in REGISTER PROTOCOL call
+	  (AX=0007h) to receive all multicast frames.
+SeeAlso: AX=000Ah,AX=0014h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000A" name="7C000A"><b>7C000A</b></a> - INT 7C - SK-UPPS Data Link Interface API - DISABLE MULTICAST<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DISABLE MULTICAST
+	AX = 000Ah
+	BX = protocol ID (see #03849)
+	ES:DI -&gt; multicast address (6 bytes)
+Return: AX = completion code (see #03846)
+SeeAlso: AX=0009h,AX=0014h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000B" name="7C000B"><b>7C000B</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL LIST<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL LIST
+	AX = 000Bh
+	ES:DI -&gt; protocol ID buffer
+	CX = number of 2-byte protocol IDs that may be stored in buffer
+Return: AX = completion code (see #03846)
+	CX = number of active protocols (regardless of value returned in AX)
+	protocol ID buffer filled with active protocol IDs
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of its Data Link Interface, allowing the
+	  use of any of several network transport layers
+Note:	If the buffer supplied is too small, CX still contains the total number
+	  of active protocols and the buffer has been filled until full.
+SeeAlso: AX=000Ch,AX=0014h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000C" name="7C000C"><b>7C000C</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL STATUS<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET PROTOCOL STATUS
+	AX = 000Ch
+	BX = protocol ID (see #03849,AX=000Bh)
+	ES:DI -&gt; Protocol Status Block (see #03856)
+Return: AX = completion code (see #03846)
+SeeAlso: AX=000Bh,AX=0014h
+
+Format of SK-UPPS Protocol Status Block (PSB):
+Offset	Size	Description	(Table 03856)
+ 00h	DWORD	-&gt; ASCIZ protocol name
+ 04h	WORD	protocol mode (see #03850)
+ 06h	WORD	protocol type (see AX=0007h)
+ 08h	WORD	number of registered multicasts (see AX=0009h,AX=0014h)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000D" name="7C000D"><b>7C000D</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATISTICS<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET DRIVER STATISTICS
+	AX = 000Dh
+	BX = flag: 0=don't clear statistics, 1=clear statistics
+	ES:DI -&gt; Statistics Data Block (see #03857)
+Return: AX = completion code (see #03846)
+SeeAlso: AX=0002h,AX=0015h
+
+Format of SK-UPPS Statistics Data Block (SDB):
+Offset	Size	Description	(Table 03857)
+ 00h	DWORD	node uptime in ticks (1/18.21 sec.)
+ 04h	DWORD	bytes received
+ 08h	DWORD	bytes transmitted
+ 0Ch	DWORD	frames received
+ 10h	DWORD	frames transmitted
+ 14h	DWORD	multicast bytes received
+ 18h	DWORD	multicast frames received
+ 1Ch	DWORD	unrecognized frames
+ 20h	WORD	missed frames
+ 22h	WORD	frame check sequence (FCS) errors
+ 24h	WORD	framing errors
+ 26h	WORD	babbling errors
+ 28h	WORD	late collision errors
+ 2Ah	WORD	loss of carrier errors
+ 2Ch	WORD	16 retries failed errors
+ 2Eh	WORD	overflow errors
+Note:	fields 26h through 2Ch are always zero, except in some very old
+	  versions of the DLI.	Use GET MEDIA STATISTICS (AX=0015h) to get
+	  more detailed information.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000E" name="7C000E"><b>7C000E</b></a> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.5+ - GET DRIVER INFO<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DLI 2.5+ - GET DRIVER INFO
+	AX = 000Eh
+	ES:DI -&gt; Driver Information Block (see #03858)
+	BX = offset of 1st field within DIB to be returned
+	CX = number of bytes to be returned
+Return: AX = completion code (see #03846)
+	CX = number of bytes copied (regardless of value returned in AX)
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of its Data Link Interface, allowing the
+	  use of any of several network transport layers
+SeeAlso: AX=0000h,AX=0002h,AX=000Bh,AX=000Dh,AX=0015h
+
+Format of SK-UPPS Driver Information Block (DIB):
+Offset	Size	Description	(Table 03858)
+ 00h  6 BYTEs	physical node address (from adapter's ROM)
+ 06h  6 BYTEs	current node address (see AX=0003h)
+ 0Ch	BYTE	adapter id (defined by OEM)
+ 0Dh	BYTE	IRQ line (FFh if none)
+ 0Eh	DWORD	-&gt; shared memory (zero if none)
+ 12h	DWORD	size of shared memory (zero if none)
+ 16h	WORD	base I/O port (zero if none)
+ 18h	BYTE	DMA line (FFh if none)
+ 19h	BYTE	DLI 2.4+ topology (see AX=0000h)
+ 1Ah	WORD	size of an Mbuf's DATA area (see #03847)
+ 1Ch  2 BYTEs	reserved (currently unused)
+ 1Eh	WORD	total number of Mbufs the DLI has
+ 20h	WORD	maximum number of Mbufs that can be allocated via REQUEST
+		  BUFFER (AX=0004h) and SYNC REQUEST BUFFER (AX=0012h)
+ ---- end of Status Information Block returned by GET DRIVER STATUS (AX=0002h)
+ 22h	DWORD	-&gt; ASCIZ adapter name
+ 26h	WORD	number of I/O ports used (zero if none)
+ 28h	DWORD	line speed in bits/sec.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C000F" name="7C000F"><b>7C000F</b></a> - INT 7C - SK-UPPS Data Link Interface API - FEED BACK BUFFER<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - FEED BACK BUFFER
+	AX = 000Fh
+	ES:BX -&gt; Mbuf (see #03847)
+Return: nothing
+Notes:	A protocol may call this function instead of returning the Mbuf
+	  directly from the Receive Upcall if it is running in "promiscuous",
+	  "hook" or "chain" mode.
+SeeAlso: AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0010" name="7C0010"><b>7C0010</b></a> - INT 7C - SK-UPPS Data Link Interface API - CLIENT HOOK<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - CLIENT HOOK
+	AX = 0010h
+Return: nothing
+Notes:	An application having no active protocols may call this function to
+	  prevent the DLI from unloading.
+SeeAlso: AX=0001h,AX=0011h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0011" name="7C0011"><b>7C0011</b></a> - INT 7C - SK-UPPS Data Link Interface API - CLIENT UNHOOK<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - CLIENT UNHOOK
+	AX = 0011h
+Return: nothing
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of its Data Link Interface, allowing the
+	  use of any of several network transport layers
+SeeAlso: AX=0010h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0012" name="7C0012"><b>7C0012</b></a> - INT 7C - SK-UPPS Data Link Interface API - SYNC REQUEST BUFFER<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - SYNC REQUEST BUFFER
+	AX = 0012h
+	DX = protocol ID (see #03849)
+Return: AX = completion code (see #03846)
+	if AX=0000h: ES:BX -&gt; Mbuf (see #03847)
+Note:	If the protocol wants to be informed when an Mbuf becomes available,
+	  REQUEST BUFFER (AX=0004h) should be used instead.
+SeeAlso: AX=0004h,AX=0005h,AX=0006h,AX=0013h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0013" name="7C0013"><b>7C0013</b></a> - INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME RELEASE<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - TRANSMIT FRAME RELEASE
+	AX = 0013h
+	ES:BX -&gt; Mbuf (see #03847)
+Return: nothing
+Notes:	Returns immediately; The protocol's Transmit Upcall will NOT be called.
+	The Mbuf may no more be used by the protocol in any way (i.e. the
+	  Mbuf's IN USE field may not be polled).
+SeeAlso: AX=0004h,AX=0013h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0014" name="7C0014"><b>7C0014</b></a> - INT 7C - SK-UPPS Data Link Interface API - GET MULTICAST LIST<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - GET MULTICAST LIST
+	AX = 0014h
+	BX = protocol ID (see #03849,AX=000Bh)
+	ES:DI -&gt; multicast address buffer
+	CX = number of 6-byte multicast addresses that may be stored in buffer
+Return: AX = completion code (see #03846)
+	CX = number of registered multicast addresses for this protocol
+	  (regardless of value returned in AX)
+	multicast address buffer filled with multicast addresses registered for
+	  this protocol
+Note:	If the buffer supplied is too small, CX still contains the total number
+	  of registered multicast addresses for this protocol and the buffer
+	  has been completely filled
+SeeAlso: AX=000Bh,AX=0009h,AX=000Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0015" name="7C0015"><b>7C0015</b></a> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.6+ - GET MEDIA STATISTICS<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DLI 2.6+ - GET MEDIA STATISTICS
+	AX = 0015h
+	ES:DI -&gt; media-specific statistics buffer (see #03859,#03860,#03861)
+	BX = offset of 1st field within MSS to be returned
+	CX = number of bytes to be returned
+Return: AX = completion code (see #03846)
+	CX = number of bytes copied (regardless of value returned in AX)
+Note:	not supported by all DLIs (will return AX=FFFFh if not supported).
+SeeAlso: AX=0000h,AX=000Dh
+
+Format of SK-UPPS media-specific statistics for Ethernet:
+Offset	Size	Description	(Table 03859)
+ 00h	DWORD	alignment errors
+ 04h	DWORD	frame check sequence (FCS) errors
+ 08h	DWORD	single collision frames
+ 0Ch	DWORD	multiple collision frames
+ 10h	DWORD	signal quality error (SQE) test errors
+ 14h	DWORD	deferred transmissions
+ 18h	DWORD	late collisions
+ 1Ch	DWORD	excessive collisions
+ 20h	DWORD	internal MAC transmit errors
+ 24h	DWORD	carrier sense errors
+ 28h	DWORD	excessive deferrals
+ 2Ch	DWORD	frame too longs
+ 30h	DWORD	in range length errors
+ 34h	DWORD	out of range length fields
+ 38h	DWORD	internal MAC receive errors
+
+Format of SK-UPPS media-specific statistics for FDDI:
+Offset	Size	Description	(Table 03860)
+ 00h	DWORD	SMT operating version id (refer to ANSI 7.1.2.2)
+ 04h	DWORD	SMT CF state: 1=Isolated, 2= Wrap_S, 3=Wrap_A, 4=Wrap_B,
+		  5=Wrap_AB, 6=Thru (refer to ANSI SMT 9.7.4.3)
+ 08h	DWORD	SMT frames sent
+ 0Ch	DWORD	SMT frames received
+ 10h	DWORD	SMT ring up count
+ 14h  6 BYTEs	MAC upstream neighbour
+ 1Ah  6 BYTEs	MAC downstream neighbour
+ 20h	DWORD	MAC frame counter (refer to ANSI MAC 2.2.1)
+ 24h	DWORD	MAC error counter ( " )
+ 28h	DWORD	MAC lost counter ( " )
+ 2Ch	BYTE	port 1 link error estimate (ranges from 10**-4 to 10**-15 and
+		  is reported as the absolute value of the exponent)
+ 2Dh	BYTE	port 2 link error estimate ( " )
+ 2Eh  2 BYTEs	reserved (currently unused)
+ 30h	DWORD	attachment class: 1=single-attachment (S PORT),
+		  2=dual-attachment (A/B PORT pairs), 3=concentrator (M PORTs)
+ 34h	DWORD	attachment optical bypass present: 1=true, 2=false
+
+Format of SK-UPPS media-specific statistics for Token-Ring:
+Offset	Size	Description	(Table 03861)
+ 00h  6 BYTEs	upstream neighbour
+ 06h	WORD	local ring number
+ 08h	DWORD	ring up count
+ 0Ch	DWORD	signal loss errors
+ 10h	DWORD	lobe wire faults
+ 14h	DWORD	ring recovery count
+ 18h	DWORD	line errors
+ 1Ch	DWORD	burst errors
+ 20h	DWORD	ARI/FCI errors
+ 24h	DWORD	lost frame errors
+ 28h	DWORD	receive congestion errors
+ 2Ch	DWORD	frame copied errors
+ 30h	DWORD	token errors
+ 34h	DWORD	DMA bus errors
+ 38h	DWORD	DMA parity errors
+ 3Ch	DWORD	receive overflow errors
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0016" name="7C0016"><b>7C0016</b></a> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - DRIVER I/O CONTROL<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - DRIVER I/O CONTROL
+	AX = 0016h
+	DX = subfunction; bits 14-15 specify direction of I/O:
+		00 no data at all (ES:BX undefined)
+		01 driver -&gt; application (GET)
+		10 application -&gt; driver (SET)
+		11 both directions (GET/SET)
+	ES:BX -&gt; I/O buffer (optional)
+	CX = size of buffer (if ES:BX valid)
+Return: AX = completion code; defined by OEM
+Program: SK-UPPS is the Schneider & Koch Universal Portable Protocol Stack,
+	  which provides an API on top of its Data Link Interface, allowing the
+	  use of any of several network transport layers
+Notes:	not supported by all DLIs (will return AX=FFFFh if not supported)
+	subfunction codes are defined by OEMs
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#7C0017" name="7C0017"><b>7C0017</b></a> - INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - INTERRUPT REQUEST<br />
+<pre>
+INT 7C - SK-UPPS Data Link Interface API - DLI 2.8+ - INTERRUPT REQUEST
+	AX = 0017h
+Return: AX = completion code (see #03846)
+Notes:	not supported by all DLIs (will return AX=FFFFh, if not supported).
+	must be called with interrupts disabled; when the client re-enables
+	  interrupts, an interrupt will be generated and reported to the client
+	  through an Event Upcall (see #03853 [EV_ISR_START/EV_ISR_END])
+SeeAlso: AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._6B</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 6B
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#6B"><b>6B</b> - INT 6B - DECnet DOS - PORT DRIVER</a><br />
+<a href="#6B_0"><b>6B</b> - INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR</a><br />
+<a href="#6B_1"><b>6B</b> - INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT</a><br />
+<a href="#6B0000"><b>6B0000</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE</a><br />
+<a href="#6B0100"><b>6B0100</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ</a><br />
+<a href="#6B02"><b>6B02</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK</a><br />
+<a href="#6B0600"><b>6B0600</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL</a><br />
+<a href="#6B0700"><b>6B0700</b> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS</a><br />
+<a href="#6B08"><b>6B08</b> - INT 6B - TelAPI - CHECK FOR BREAK SIGNAL</a><br />
+<a href="#6B10"><b>6B10</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS</a><br />
+<a href="#6B11--DX0001"><b>6B11--DX0001</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT</a><br />
+<a href="#6B12"><b>6B12</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS</a><br />
+<a href="#6B13"><b>6B13</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME</a><br />
+<a href="#6B14"><b>6B14</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS</a><br />
+<a href="#6B15"><b>6B15</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG</a><br />
+<a href="#6B16"><b>6B16</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT</a><br />
+<a href="#6B17"><b>6B17</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT</a><br />
+<a href="#6B18"><b>6B18</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT</a><br />
+<a href="#6B19"><b>6B19</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT</a><br />
+<a href="#6B1A"><b>6B1A</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS</a><br />
+<a href="#6B1B"><b>6B1B</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS</a><br />
+<a href="#6B1C"><b>6B1C</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER</a><br />
+<a href="#6B1D"><b>6B1D</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL</a><br />
+<a href="#6B1E"><b>6B1E</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST</a><br />
+<a href="#6B1F"><b>6B1F</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS</a><br />
+<a href="#6B20"><b>6B20</b> - INT 6B - Connection Manager CLIENT.EXE - ???</a><br />
+<a href="#6B21"><b>6B21</b> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE</a><br />
+<a href="#6B6B"><b>6B6B</b> - INT 6B - Tandy SCHOOLMATE PLUS - API</a><br />
+
+<hr />
+
+<a href="#6B" name="6B"><b>6B</b></a> - INT 6B - DECnet DOS - PORT DRIVER<br />
+<pre>
+INT 6B - DECnet DOS - PORT DRIVER
+InstallCheck:	test for a signature area (see #03729) immediately preceding
+	  the interrupt handler
+SeeAlso: INT 6A"DECnet",INT 6C"DECnet"
+Index:	installation check;DECnet DOS Port Driver
+
+Format of DECnet DOS signature area:
+Offset	Size	Description	(Table 03729)
+ -5	BYTE	major version number
+ -4	BYTE	minor version number
+ -3   3 BYTEs	signature (ASCII "PDV")
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B_0" name="6B_0"><b>6B</b></a> - INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR<br />
+<pre>
+INT 6B - VIRUS - "Saddam" - ORIGINAL INT 21h VECTOR
+SeeAlso: INT 21/AX=FFFFh,INT 61"VIRUS",INT 70"VIRUS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B_1" name="6B_1"><b>6B</b></a> - INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT<br />
+<pre>
+INT 6B C - HP Vectra AT - IRQ19 - RESERVED HARDWARE INTERRUPT
+SeeAlso: INT 0B"IRQ3",INT 6A"HP Vectra",INT 6C"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0000" name="6B0000"><b>6B0000</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED WRITE
+	AX = 0000h
+	CX = length
+	ES:BX -&gt; buffer
+Return: CX = number of bytes written
+Program: NASI is Novell's NetWare Asynchronous Services Interface (purchased
+	  from Network Products Corp, who call it NCSI) which runs on
+	  workstations; NACS is the NetWare Asynchronous Communications
+	  Services module which runs on servers
+InstallCheck:	test for the signature string "NCSI" three bytes past the
+	  interrupt handler; see also AH=02h.
+	As of version 3.0, Novell's NASI can be distinguished from NPC's
+	  NCSI by the presence of an 'A' immediately following the signature
+Notes:	this function is also supported by TelAPI, NPC NCSI, and Connection
+	  Manager CLIENT.EXE; for TelAPI, nonzero values in AL specify a
+	  connection ID
+	Connection Manager returns CF set/AL=FFh if called while an INT 6B
+	  call is already in progress
+SeeAlso: AX=0100h,AH=18h,INT 14/AH=19h,INT 14/AH=E3h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0100" name="6B0100"><b>6B0100</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - BUFFERED READ
+	AX = 0100h
+	CX = length of buffer
+	ES:BX -&gt; buffer
+Return: CX = number of bytes read
+Note:	also supported by TelAPI and NPC NCSI; for TelAPI, nonzero values in
+	  AL specify a connection ID
+SeeAlso: AX=0000h,AH=19h,INT 14/AH=18h,INT 14/AH=E2h,INT 14/AX=FF02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B02" name="6B02"><b>6B02</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - INSTALL CHECK
+	AH = 02h
+	AL nonzero
+Return: AL = 00h if present and OK
+Note:	this function is also supported by TelAPI and NPC NCSI
+SeeAlso: AX=0700h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0600" name="6B0600"><b>6B0600</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - CONTROL
+	AX = 0600h
+	CX = command
+	    02h send break
+	    04h disconnect
+	    06h hold
+Return: CF clear if successful
+	    AL = 00h
+	CF set on error
+	    AX &lt; 0
+Note:	this function is also supported by TelAPI and NPC NCSI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B0700" name="6B0700"><b>6B0700</b></a> - INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS<br />
+<pre>
+INT 6B - Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O - GET STATUS
+	AX = 0700h
+Return: CH &lt;&gt; 00h if connection active
+Notes:	this function is also supported by TelAPI and NPC NCSI
+	Novell TelAPI returns CX=FF01h and CF clear
+SeeAlso: AH=02h,AH=10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B08" name="6B08"><b>6B08</b></a> - INT 6B - TelAPI - CHECK FOR BREAK SIGNAL<br />
+<pre>
+INT 6B - TelAPI - CHECK FOR BREAK SIGNAL
+	AH = 08h
+	AL = circuit number
+Return: CF clear if no breaks
+	    AL = 00h
+	    CX = 0000h
+	CF set if one or more breaks received
+Note:	this function also clears ??? flag
+SeeAlso: INT 14/AX=FF00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B10" name="6B10"><b>6B10</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - GET STATUS
+	AH = 10h
+	AL = connection ID (Novell TELAPI.EXE)
+	CX = ???
+	ES:BX -&gt; buffer for status (see #03730)
+Return: CF clear if successful
+	    CL = ???
+	    CH = ???
+	CF set on error
+	???
+Notes:	this function is also supported by TelAPI
+	when shelled out to an external protocol from Novell NASI, the circuit
+	  whose status indicates that it is connected is the currently active
+	  circuit
+SeeAlso: AX=0700h,AH=12h,AH=1Fh
+
+Format of NASI status:
+Offset	Size	Description	(Table 03730)
+ 00h	BYTE	number of allocated virtual circuits
+ 01h	BYTE	reserved
+ 02h  9 BYTEs	states of emulated circuits 0-8
+		00h idle
+		01h attached Telnet session, in command state
+		02h attached Telnet session, connected with host
+		03h-06h ??? (not returned by TelAPI)
+Note:	this description is derived from the Novell TelAPI emulation of NASI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B11--DX0001" name="6B11--DX0001"><b>6B11--DX0001</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - ALLOCATE A VIRTUAL CIRCUIT
+	AH = 11h
+	DX = 0001h
+	AL = 00h
+	ES:BX -&gt; service name string (8 characters, blank-padded)
+Return: CF clear if successful
+	    AL = virtual circuit number allocated (01h for Novell TELAPI.EXE)
+	    CL = ??? (01h for Novell TELAPI.EXE)
+	    CH = ??? (01h for Novell TELAPI.EXE)
+	CF set on error
+	    ???
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=12h,AH=15h,AH=16h,AH=17h,AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B12" name="6B12"><b>6B12</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - VIRTUAL CIRCUIT STATUS
+	AH = 12h
+	AL = virtual circuit number (0-8)
+Return: CF clear if successful
+	    AL = virtual circuit number
+	    CL = virtual circuit's state
+		00h idle
+		01h Telnet session, in command state
+		02h Telnet session, connected to host
+		03h-06h ??? (not returned by TelAPI)
+	CF set on error
+	    AL = error code
+		E2h invalid virtual circuit number
+		E4h specified virtual circuit not allocated
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=10h,AH=15h,AH=1Ah,AH=1Bh,AH=1Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B13" name="6B13"><b>6B13</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE REQUEST/REPLY SERVICE NAME
+	AH = 13h
+	AL = virtual circuit number
+	CL = direction (00h get, nonzero set)
+	ES:BX -&gt; buffer for/containing service name
+Return: ???
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=14h,AH=15h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B14" name="6B14"><b>6B14</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE SERVICE ADDRESS
+	AH = 14h
+	AL = virtual circuit number
+	ES:BX -&gt; buffer for/containing service address
+Return: ???
+Note:	this function is also supported by TelAPI, which only supports
+	  retrieving the address
+SeeAlso: AH=13h,AH=15h,AH=21h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B15" name="6B15"><b>6B15</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - SET/RETRIEVE VIRTUAL CIRCUIT CONFIG
+	AH = 15h
+	AL = virtual circuit number
+	CL = direction (00h get, nonzero set)
+	ES:BX -&gt; buffer for/containing virtual circuit config (see #03731)
+Return: ES:BX buffer filled
+Note:	this function is also supported by TelAPI
+SeeAlso: AH=13h"NCSI",AH=14h"NCSI"
+
+Format of virtual circuit configuration:
+Offset	Size	Description	(Table 03731)
+ 00h	WORD	buffer length
+ 02h	WORD	port ID
+ 04h	WORD	receive rate
+ 06h	WORD	receive word length
+ 08h	WORD	receive stop bits
+ 0Ah	WORD	receive parity
+ 0Ch	WORD	transmit rate
+ 0Eh	WORD	transmit word length
+ 10h	WORD	transmit stop bits
+ 12h	WORD	transmit parity
+ 14h	WORD	DTR
+ 16h	WORD	RTS
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B16" name="6B16"><b>6B16</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - LOG AND/OR INITIALIZE VIRTUAL CIRCUIT
+	AH = 16h
+	AL = virtual circuit number
+	CL = ??? switch (00h, ???)
+Return: CF clear if successful
+	    AL = virtual circuit number
+	CF set on error
+	    ???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=00h
+SeeAlso: AH=11h,AH=12h,AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B17" name="6B17"><b>6B17</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - DISCONNECT A VIRTUAL CIRCUIT
+	AH = 17h
+	AL = virtual circuit number
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=00h
+SeeAlso: AH=11h,AH=16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B18" name="6B18"><b>6B18</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - WRITE DATA ON A VIRTUAL CIRCUIT
+	AH = 18h
+	AL = virtual circuit number
+	CX = number of characters to send
+	ES:BX -&gt; buffer containing characters to be sent
+Return: CF clear if successful
+	CF set on error
+	???
+Note:	this function is also supported by TelAPI, which always returns CF
+	  clear and AL=30h
+SeeAlso: AX=0000h,AH=12h,AH=19h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B19" name="6B19"><b>6B19</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - READ DATA ON A VIRTUAL CIRCUIT
+	AH = 19h
+	AL = virtual circuit number
+	CX = number of characters to read
+	ES:BX -&gt; buffer for received characters
+Return: CX = 0000h if failed
+	CX = nonzero (possibly number of characters received) if successful
+Note:	this function is also supported by TelAPI
+SeeAlso: AX=0100h,AH=12h,AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1A" name="6B1A"><b>6B1A</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - RECEIVE STATUS
+	AH = 1Ah
+	???
+Return: ???
+SeeAlso: AH=12h,AH=1Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1B" name="6B1B"><b>6B1B</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT STATUS
+	AH = 1Bh
+	???
+Return: ???
+SeeAlso: AH=12h,AH=1Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1C" name="6B1C"><b>6B1C</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - CLEAR RECEIVE BUFFER
+	AH = 1Ch
+	AL = circuit number
+Return: nothing
+SeeAlso: AH=1Dh"NCSI",AH=1Eh"NCSI"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1D" name="6B1D"><b>6B1D</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - TRANSMIT BUFFER CONTROL
+	AH = 1Dh
+	???
+Return: ???
+SeeAlso: AH=1Ch,AH=1Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1E" name="6B1E"><b>6B1E</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - ISSUE CONTROL REQUEST
+	AH = 1Eh
+	???
+Return: ???
+SeeAlso: AH=1Ch,AH=1Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B1F" name="6B1F"><b>6B1F</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - EXTERNAL STATUS
+	AH = 1Fh
+	???
+Return: ???
+SeeAlso: AH=10h,AH=12h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B20" name="6B20"><b>6B20</b></a> - INT 6B - Connection Manager CLIENT.EXE - ???<br />
+<pre>
+INT 6B - Connection Manager CLIENT.EXE - ???
+	AH = 20h
+	???
+Return: ???
+Program: Connection Manager by Softwarehouse Corp. permits the sharing of
+	  serial ports over an IPX or NetBIOS-based network
+Note:	CLIENT.EXE returns CF set/AL=F9h if AH is not 00h to 21h on entry
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B21" name="6B21"><b>6B21</b></a> - INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE<br />
+<pre>
+INT 6B - NPC NCSI EXTENDED SERIAL I/O - QUERY NAME SERVICE
+	AH = 21h
+	AL = virtual circuit number
+	CL = ??? (00h or 01h)
+	ES:BX -&gt; buffer for service name structure (see #03732)
+Return: CF clear if successful
+	    ES:BX buffer filled
+	CF set on error
+Notes:	a program should call this function after allocating a virtual circuit
+	  and check that the general name matches the requested service
+	prior to version 3.0, Novell's NASI returned the first available port;
+	  v3.0+ returns the first port found--check the returned status to
+	  determine whether the port is available
+SeeAlso: AH=14h"NCSI"
+
+Format of NCSI service name structure:
+Offset	Size	Description	(Table 03732)
+ 00h	WORD	buffer length
+ 02h  8 BYTEs	service name
+ 0Ah  8 BYTEs	general name
+ 12h  8 BYTEs	specific name
+ 1Ah  4 BYTEs	???
+---Novell NASI v3.0+ ---
+ 1Eh	BYTE	port number
+ 1Fh	BYTE	port status
+		00h idle (available)
+		01h allocated (available)
+		02h connected
+		03h on hold
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6B6B" name="6B6B"><b>6B6B</b></a> - INT 6B - Tandy SCHOOLMATE PLUS - API<br />
+<pre>
+INT 6B - Tandy SCHOOLMATE PLUS - API
+	AH = 6Bh
+	AL = E0h to FFh
+Note:	details not yet available
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

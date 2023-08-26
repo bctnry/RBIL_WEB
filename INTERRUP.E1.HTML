@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._E1</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT E1
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#E1"><b>E1</b> - INT E1 - IBM ROM BASIC - used while in interpreter</a><br />
+<a href="#E1_0"><b>E1</b> - INT E1 - PC Cluster Disk Server Information (NOT A VECTOR!)</a><br />
+<a href="#E1_1"><b>E1</b> - INT E1 - MP/M-86, - ALTERNATE CP/M-86 FUNCTION CALLS</a><br />
+<a href="#E1_2"><b>E1</b> - INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)</a><br />
+
+<hr />
+
+<a href="#E1" name="E1"><b>E1</b></a> - INT E1 - IBM ROM BASIC - used while in interpreter<br />
+<pre>
+INT E1 - IBM ROM BASIC - used while in interpreter
+Notes:	called by ROM BASIC
+	BASIC.COM/BASICA.COM do not restore vector on termination
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E1_0" name="E1_0"><b>E1</b></a> - INT E1 - PC Cluster Disk Server Information (NOT A VECTOR!)<br />
+<pre>
+INT E1 - PC Cluster Disk Server Information (NOT A VECTOR!)
+Desc:	points at a data table
+SeeAlso: INT E2
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E1_1" name="E1_1"><b>E1</b></a> - INT E1 - MP/M-86, - ALTERNATE CP/M-86 FUNCTION CALLS<br />
+<pre>
+INT E1 - MP/M-86, - ALTERNATE CP/M-86 FUNCTION CALLS
+	CL = function number (see #04019,#04020)
+	DS,DX = parameters
+Return: as appropriate for function
+	CX is often the error code (see #04021)
+Desc:	used by some applications which alter CP/M functions while running a
+	  child program, to store the original INT E0 vector before
+	  intercepting INT E0
+Notes:	This is the debugger entry to the operating system.
+	This function is also supported by IMS Multiuser DOS and IMS REAL/32.
+SeeAlso: #04019 at INT E0"CP/M"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#E1_2" name="E1_2"><b>E1</b></a> - INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)<br />
+<pre>
+INT E1 - DeskMate (Tandy) - TASK DATA SEGMENTS (NOT A VECTOR!)
+Desc:	used to store data; the	low word of the vector is the data segment for
+	  the first task; the high word is the data segment of the second task
+	  (DeskMate supports 2-way task switching between small- or
+	  medium-model applications)
+Program: DeskMate is a proprietary GUI from Tandy distributed with several
+	  models of the Tandy 1000's, 2500's, 3000's, and laptops.  Retail
+	  and runtime versions also exist.  Some Tandy's are designed to
+	  boot directly into DeskMate.
+SeeAlso: INT E0"DeskMate"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

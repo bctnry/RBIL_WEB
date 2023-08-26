@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._FD</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT FD
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#FD"><b>FD</b> - INT FD - reserved for user interrupt</a><br />
+<a href="#FD_0"><b>FD</b> - INT FD - DoubleDOS - ???</a><br />
+<a href="#FD_1"><b>FD</b> - INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER</a><br />
+<a href="#FD_2"><b>FD</b> - INT FD - TFPCX - INSTALLATION CHECK</a><br />
+<a href="#FD01"><b>FD01</b> - INT FD - TFPCX - TEST FOR CHARACTER WAITING</a><br />
+<a href="#FD02"><b>FD02</b> - INT FD - TFPCX - GET CHARACTER</a><br />
+<a href="#FD03"><b>FD03</b> - INT FD - TFPCX - OUTPUT CHARACTER</a><br />
+<a href="#FDFE"><b>FDFE</b> - INT FD - TFPCX - GET VERSION</a><br />
+
+<hr />
+
+<a href="#FD" name="FD"><b>FD</b></a> - INT FD - reserved for user interrupt<br />
+<pre>
+INT FD - reserved for user interrupt
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_0" name="FD_0"><b>FD</b></a> - INT FD - DoubleDOS - ???<br />
+<pre>
+INT FD - DoubleDOS - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_1" name="FD_1"><b>FD</b></a> - INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER<br />
+<pre>
+INT FD - Sanyo MBC-550/555 - IRQ5 - FLOPPY DISK CONTROLLER
+SeeAlso: INT 0D"IRQ5",INT FC"Sanyo",INT FE"Sanyo"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD_2" name="FD_2"><b>FD</b></a> - INT FD - TFPCX - INSTALLATION CHECK<br />
+<pre>
+INT FD - TFPCX - INSTALLATION CHECK
+	AH = function (also see separate entries below)
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+InstallCheck:	test for the string "N5NX" three bytes beyond the interrupt
+	  handler
+Range:	INT FD is the default, but may be changed, so the full installation
+	 check consists of scanning for the signature
+Note:	TFPCX returns AX=FFFFh on any unsupported function call
+SeeAlso: AH=01h,AH=03h,AH=FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD01" name="FD01"><b>FD01</b></a> - INT FD - TFPCX - TEST FOR CHARACTER WAITING<br />
+<pre>
+INT FD - TFPCX - TEST FOR CHARACTER WAITING
+	AH = 01h
+Return: AX = status
+	    0000h no characters waiting
+	    0001h character available for input
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD02" name="FD02"><b>FD02</b></a> - INT FD - TFPCX - GET CHARACTER<br />
+<pre>
+INT FD - TFPCX - GET CHARACTER
+	AH = 02h
+Return: AL = character
+Notes:	this call is only allowed if AH=01h indicated that a character is
+	  available
+	all available characters should be read before sending any additional
+	  characters
+SeeAlso: AH=01h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FD03" name="FD03"><b>FD03</b></a> - INT FD - TFPCX - OUTPUT CHARACTER<br />
+<pre>
+INT FD - TFPCX - OUTPUT CHARACTER
+	AH = 03h
+	AL = character to send
+Return: nothing
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#FDFE" name="FDFE"><b>FDFE</b></a> - INT FD - TFPCX - GET VERSION<br />
+<pre>
+INT FD - TFPCX - GET VERSION
+	AH = FEh
+Return: AH = major version
+	AL = minor version
+Program: TFPCX is an interface between modem and terminal program for packet-
+	  radio communications
+SeeAlso: AH=01h,AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._80</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 80
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#80"><b>80</b> - INT 80 - Q-PRO4 - ???</a><br />
+<a href="#80_0"><b>80</b> - INT 80 - reserved for BASIC</a><br />
+<a href="#80_1"><b>80</b> - INT 80 - Phar Lap 386|DOS-Extender - RELOCATED PRINT-SCREEN</a><br />
+<a href="#80_2"><b>80</b> - INT 80 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)</a><br />
+<a href="#80_3"><b>80</b> - INT 80 - Linux - SYSTEM CALLS</a><br />
+<a href="#80_4"><b>80</b> - INT 80 - FreeBSD - SYSTEM CALLS</a><br />
+<a href="#80_5"><b>80</b> - INT 80 U - AMI BIOS v1.00.12.AX1T - internal - BIOS SUBSYSTEM SELECTION</a><br />
+<a href="#80----BL00"><b>80----BL00</b> - INT 80 - SBSIM - "STARTSND" - START SOUND ON SPECIFIED DRIVER</a><br />
+<a href="#80----BL01"><b>80----BL01</b> - INT 80 - SBSIM - "PLAYSND" - PLAY MUSIC/VOICE ON SELECTED DRIVER</a><br />
+<a href="#80----BL02"><b>80----BL02</b> - INT 80 - SBSIM - "STOPSND" - STOP MUSIC/VOICE ON SELECTED DRIVER</a><br />
+<a href="#80----BL03"><b>80----BL03</b> - INT 80 - SBSIM - "PAUSESND" - TEMPORARILY PAUSE PLAYBACK ON SELECTED DRIVER</a><br />
+<a href="#80----BL04"><b>80----BL04</b> - INT 80 - SBSIM - "RESUMESND" - RESTART PLAYBACK ON SELECTED DRIVER</a><br />
+<a href="#80----BL05"><b>80----BL05</b> - INT 80 - SBSIM - "GETSNDSTAT" - GET DRIVER'S STATUS</a><br />
+<a href="#80----BX0000"><b>80----BX0000</b> - INT 80 - SoundBlaster SBFM driver - GET VERSION</a><br />
+<a href="#80----BX0000_0"><b>80----BX0000</b> - INT 80 - SBSIM - "QUERYVERSION" - GET VERSION</a><br />
+<a href="#80----BX0001"><b>80----BX0001</b> - INT 80 - SoundBlaster SBFM driver - SET MUSIC STATUS BYTE ADDRESS</a><br />
+<a href="#80----BX0001_0"><b>80----BX0001</b> - INT 80 - SBSIM - "QUERYDRIVERS" - CHECK DRIVERS INSTALLED</a><br />
+<a href="#80----BX0002"><b>80----BX0002</b> - INT 80 - SoundBlaster SBFM driver - SET INSTRUMENT TABLE</a><br />
+<a href="#80----BX0002_0"><b>80----BX0002</b> - INT 80 - SBSIM - GETADDRESS" - GET SELECTED DRIVER'S ENTRY POINT</a><br />
+<a href="#80----BX0003"><b>80----BX0003</b> - INT 80 - SoundBlaster SBFM driver - SET SYSTEM CLOCK RATE</a><br />
+<a href="#80----BX0004"><b>80----BX0004</b> - INT 80 - SoundBlaster SBFM driver - SET DRIVER CLOCK RATE</a><br />
+<a href="#80----BX0005"><b>80----BX0005</b> - INT 80 - SoundBlaster SBFM driver - TRANSPOSE MUSIC</a><br />
+<a href="#80----BX0005_0"><b>80----BX0005</b> - INT 80 - SBSIM - "GETBUFFERINFO" - GET DRIVER'S BUFFER ADDRESS</a><br />
+<a href="#80----BX0006"><b>80----BX0006</b> - INT 80 - SoundBlaster SBFM driver - PLAY MUSIC</a><br />
+<a href="#80----BX0007"><b>80----BX0007</b> - INT 80 - SoundBlaster SBFM driver - STOP MUSIC</a><br />
+<a href="#80----BX0008"><b>80----BX0008</b> - INT 80 - SoundBlaster SBFM driver - RESET DRIVER</a><br />
+<a href="#80----BX0009"><b>80----BX0009</b> - INT 80 - SoundBlaster SBFM driver - PAUSE MUSIC</a><br />
+<a href="#80----BX000A"><b>80----BX000A</b> - INT 80 - SoundBlaster SBFM driver - RESUME MUSIC</a><br />
+<a href="#80----BX000B"><b>80----BX000B</b> - INT 80 - SoundBlaster SBFM driver - SET USER-DEF TRAP FOR SYSTEM-EXCLUSIVE CMDS</a><br />
+<a href="#80----BX0400"><b>80----BX0400</b> - INT 80 - SBSIM - "GETVOLUME" - GET SOURCE'S VOLUME</a><br />
+<a href="#80----BX0401"><b>80----BX0401</b> - INT 80 - SBSIM - "SETVOLUME" - SET SOURCE'S VOLUME</a><br />
+<a href="#8001"><b>8001</b> - INT 80 - QPC Software PKTINT.COM - INITIALIZE</a><br />
+<a href="#8002"><b>8002</b> - INT 80 - QPC Software PKTINT.COM - GET BUFFER ADDRESSES</a><br />
+<a href="#8003"><b>8003</b> - INT 80 - QPC Software PKTINT.COM - GET ENTRY POINT</a><br />
+<a href="#8004"><b>8004</b> - INT 80 - QPC Software PKTINT.COM - ENABLE???</a><br />
+<a href="#8005"><b>8005</b> - INT 80 - QPC Software PKTINT.COM - GET RECEIVE STATISTICS</a><br />
+<a href="#8006"><b>8006</b> - INT 80 - QPC Software PKTINT.COM - REMOVE RECEIVED PACKET</a><br />
+
+<hr />
+
+<a href="#80" name="80"><b>80</b></a> - INT 80 - Q-PRO4 - ???<br />
+<pre>
+INT 80 - Q-PRO4 - ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_0" name="80_0"><b>80</b></a> - INT 80 - reserved for BASIC<br />
+<pre>
+INT 80 - reserved for BASIC
+Note:	this vector and INT 81 through INT ED are modified but not restored by
+	  Direct Access v4.0, and may be left dangling by other programs
+	  written with the same version of compiled BASIC
+SeeAlso: INT 81"BASIC",INT 86"BASIC",INT EF"BASIC"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_1" name="80_1"><b>80</b></a> - INT 80 - Phar Lap 386|DOS-Extender - RELOCATED PRINT-SCREEN<br />
+<pre>
+INT 80 - Phar Lap 386|DOS-Extender - RELOCATED PRINT-SCREEN
+Note:	the extender relocates INT 05 to here by default, but can be told to
+	  leave INT 05 alone with the commandline (or DOSX= environment
+	  variable) flag -PRIVEC 5
+SeeAlso: INT 05"PRINT SCREEN"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_2" name="80_2"><b>80</b></a> - INT 80 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)<br />
+<pre>
+INT 80 - BusLogic BT-946C PCI SCSI Adapter - SCRATCHPAD RAM (NOT A VECTOR!)
+Note:	the factory-default location for the eight bytes of scratchpad RAM
+	  needed by the SCSI adapter is 0000h:0200h, which is interrupt
+	  vectors 80h and 81h
+SeeAlso: INT 81"BusLogic"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_3" name="80_3"><b>80</b></a> - INT 80 - Linux - SYSTEM CALLS<br />
+<pre>
+INT 80 - Linux - SYSTEM CALLS
+	parameters in registers
+
+(Table 04086)
+Values for system call number:
+ 00h	???
+ 01h	exit
+ 02h	fork
+ 03h	read
+ 04h	write
+ 05h	open
+ 06h	close
+ 07h	waitpid
+ 08h	creat
+ 09h	link
+ 0Ah	unlink
+ 0Bh	execve
+ 0Ch	chdir
+ 0Dh	time
+ 0Eh	mknod
+ 0Fh	chmod
+ 10h	lchown
+ 11h	break
+ 12h	oldstat (obsolete)
+ 13h	lseek
+ 14h	getpid
+ 15h	mount
+ 16h	umount
+ 17h	setuid
+ 18h	getuid
+ 19h	stime
+ 1Ah	ptrace
+ 1Bh	alarm
+ 1Ch	oldfstat
+ 1Dh	pause
+ 1Eh	utime
+ 1Fh	stty
+ 20h	gtty
+ 21h	access
+ 22h	nice
+ 23h	ftime
+ 24h	sync
+ 25h	kill
+ 26h	rename
+ 27h	mkdir
+ 28h	rmdir
+ 29h	dup
+ 2Ah	pipe
+ 2Bh	times
+ 2Ch	prof
+ 2Dh	brk
+ 2Eh	setgid
+ 2Fh	getgid
+ 30h	signal
+ 31h	geteuid
+ 32h	getegid
+ 33h	acct
+ 34h	umount2
+ 35h	lock
+ 36h	ioctl
+ 37h	fcntl
+ 38h	mpx
+ 39h	setpgid
+ 3Ah	ulimit
+ 3Bh	oldolduname (obsolete)
+ 3Ch	umask
+ 3Dh	chroot
+ 3Eh	ustat
+ 3Fh	dup2
+ 40h	getppid
+ 41h	getpgrp
+ 42h	setsid
+ 43h	sigaction
+ 44h	sgetmask
+ 45h	ssetmask
+ 46h	setreuid
+ 47h	setregid
+ 48h	sigsuspend
+ 49h	sigpending
+ 4Ah	sethostname
+ 4Bh	setrlimit
+ 4Ch	getrlimit
+ 4Dh	getrusage
+ 4Eh	gettimeofday
+ 4Fh	settimeofday
+ 50h	getgroups
+ 51h	setgroups
+ 52h	select
+ 53h	symlink
+ 54h	oldlstat (obsolete)
+ 55h	readlink
+ 56h	uselib
+ 57h	swapon
+ 58h	reboot
+ 59h	readdir
+ 5Ah	mmap
+ 5Bh	munmap
+ 5Ch	truncate
+ 5Dh	ftruncate
+ 5Eh	fchmod
+ 5Fh	fchown
+ 60h	getpriority
+ 61h	setpriority
+ 62h	profil
+ 63h	statfs
+ 64h	fstatfs
+ 65h	ioperm
+ 66h	socketcall
+ 67h	syslog
+ 68h	setitimer
+ 69h	getitimer
+ 6Ah	stat
+ 6Bh	lstat
+ 6Ch	fstat
+ 6Dh	olduname (obsolete)
+ 6Eh	iopl
+ 6Fh	vhangup
+ 70h	idle
+ 71h	vm86old
+ 72h	wait4
+ 73h	swapoff
+ 74h	sysinfo
+ 75h	ipc
+ 76h	fsunc
+ 77h	sigreturn
+ 78h	clone
+ 79h	setdomainname
+ 7Ah	uname
+ 7Bh	modify_ldt
+ 7Ch	adjtimex
+ 7Dh	mprotect
+ 7Eh	sigprocmask
+ 7Fh	create_module
+ 80h	init_module
+ 81h	delete_module
+ 82h	get_kernel_syms
+ 83h	quotactl
+ 84h	getpgid
+ 85h	fchdir
+ 86h	bdflush
+ 87h	sysfs
+ 88h	personality
+ 89h	afs_syscall
+ 8Ah	setfsuid
+ 8Bh	setfsgid
+ 8Ch	llseek
+ 8Dh	getdents
+ 8Eh	newselect
+ 8Fh	flock
+ 90h	msync
+ 91h	readv
+ 92h	writev
+ 93h	getsid
+ 94h	fdatasync
+ 95h	sysctl
+ 96h	mlock
+ 97h	munlock
+ 98h	mlockall
+ 99h	munlockall
+!!! http://home.snafu.de/phpr/lhpsysc0.html
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_4" name="80_4"><b>80</b></a> - INT 80 - FreeBSD - SYSTEM CALLS<br />
+<pre>
+INT 80 - FreeBSD - SYSTEM CALLS
+	parameters on stack
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80_5" name="80_5"><b>80</b></a> - INT 80 U - AMI BIOS v1.00.12.AX1T - internal - BIOS SUBSYSTEM SELECTION<br />
+<pre>
+INT 80 U - AMI BIOS v1.00.12.AX1T - internal - BIOS SUBSYSTEM SELECTION
+	AH = function
+	    00h install and initialize BIOS subsystem
+		AL = ??? (00h,01h,03h)
+		CX:BX = subsystem ID (see #03971)
+		ESI = address from which to load, or 00000000h for default for
+			subsystem
+		EDI = physical address at which to install, or 0 for default
+		Note:	if CX=0000h on entry, this call is applied to all
+			  subsystems whose ID has low word BX
+	    01h get BIOS subsystem information
+		CX:BX = subsystem ID (see #03971)
+		Return: AL = ???
+			AH = ???
+			EDX = uncompressed size of subsystem in bytes
+			SI = offset within subsystem of initialization
+				routine, or FFFFh if none
+			EDI = physical address of default location or 0
+	    02h get matching subsystem identifier
+		AL = index into subsystem list (return ALth occurrence
+		      matching BX)
+		BX = low word of subsystem identifier
+			(0001h,0002h,0004h,0005h,000Bh,FFFFh)
+		Return: CF clear if successful
+			    CX = high word of ALth matching subsystem
+			CF set on error
+		Note:	the system is halted if AL=00h on entry
+	    03h set up "big real" mode (4G segment limits)
+	    04h turn off "big real" mode (restore 64K segment limits)
+	    05h remove BIOS subsystem
+		CX:BX = subsystem ID to leave out
+		Note:	the system is halted if an invalid (not installed)
+			  subsystem ID is specified
+	    06h get installed subsystem info
+		CX:BX = subsystem ID (see #03971)
+		Return:	CF clear
+			EDX = length of ???
+			EDI = linear address of start of ???
+		Note:	the system is halted if an invalid (not installed)
+			  subsystem ID is specified
+Return: CF clear if successful
+	CF set on non-fatal error
+Note:	this interrupt vector is cleared to 0000h:0000h near the end of the
+	  BIOS startup sequence
+
+(Table 03971)
+Values for AMI BIOS subsystem ID:
+ 00010001h	ROM BIOS @F000-FFFF
+ 00010002h	setup??? (loaded @6000-68FF)
+ 00010005h	APM code
+ 0001000Bh	language-specific error message set (English)
+ 00020002h	PnP/PCI ACFG code (loaded @F000-F1FF)
+ 0001FFFFh
+ 0002FFFFh	recovery code
+ 00030004h
+ 0003FFFFh	BIOS decompression code
+ 0004000Bh
+ 00060004h
+ 0100FFFFh	ACFG data
+ 10000000h	ROM @C000 (64K)
+ 10000001h	HMA (48K)
+ 10000002h	RAM @7A00 (24K)
+ 10000003h	RAM @8000-BFFF
+ 10000004h
+ 10000005h	real-mode address space (0-1M)
+ 1000000Bh	installed language-specific message set???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL00" name="80----BL00"><b>80----BL00</b></a> - INT 80 - SBSIM - "STARTSND" - START SOUND ON SPECIFIED DRIVER<br />
+<pre>
+INT 80 - SBSIM - "STARTSND" - START SOUND ON SPECIFIED DRIVER
+	BL = 00h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: AX = initialization result (see #03972)
+Program: SBSIM is Creative Labs' SoundBlaster Simplified Interface Module,
+	  which provides access to multiple drivers for the SoundBlaster
+	  board through a single interface
+Range:	INT 80h to INT BFh, selected automatically
+Note:	the SBSIM installation check consists of testing for the signature
+	  "SBSIM" at offset 103h in the interrupt handler's segment.
+SeeAlso: INT 80/BL=01h"SBSIM",INT 80/BL=02h"SBSIM",INT 80/BL=03h"SBSIM"
+SeeAlso: INT 80/BX=0000h"SBSIM"
+
+(Table 03972)
+Values for SBSIM error code:
+ 01h	busy--currently in use
+ 02h	bad driver specified
+ 03h	invalid function
+ 04h	voice process already active
+ 05h	couldn't start CT-VOICE
+ 06h	couldn't start CTVDSK
+ 07h	invalid SBSIM handle
+ 08h	buffer not initialized yet
+ 09h	bad filename
+ 0Ah	bad file handle
+ 0Bh	driver not started yet
+ 0Ch	XMS driver not installed
+ 0Dh	no free SBSIM handles
+ 0Eh	bad file type
+ 0Fh	couldn't free XMS block
+ 10h	invalid source selected
+ 11h	get pan position failed
+ 12h	set pan position failed
+ 13h	set volume failed
+ 14h	couldn't start fade/pan
+ 15h	couldn't stop fade/pan
+ 16h	couldn't pause fade/pan
+ 17h	not a fade/pan operation
+ 18h	bad mode for fade/pan
+ 19h	couldn't start fade/pan
+ 1Ah	source not fading/panning
+ 1Bh	FM or MIDI already playing
+ 1Ch	bad MIDI mapper format
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL01" name="80----BL01"><b>80----BL01</b></a> - INT 80 - SBSIM - "PLAYSND" - PLAY MUSIC/VOICE ON SELECTED DRIVER<br />
+<pre>
+INT 80 - SBSIM - "PLAYSND" - PLAY MUSIC/VOICE ON SELECTED DRIVER
+	BL = 01h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: AX = result (see #03972)
+SeeAlso: INT 80/BL=00h"SBSIM",INT 80/BL=02h"SBSIM",INT 80/BL=04h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL02" name="80----BL02"><b>80----BL02</b></a> - INT 80 - SBSIM - "STOPSND" - STOP MUSIC/VOICE ON SELECTED DRIVER<br />
+<pre>
+INT 80 - SBSIM - "STOPSND" - STOP MUSIC/VOICE ON SELECTED DRIVER
+	BL = 02h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: nothing
+SeeAlso: INT 80/BL=00h"SBSIM",INT 80/BL=01h"SBSIM",INT 80/BL=03h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL03" name="80----BL03"><b>80----BL03</b></a> - INT 80 - SBSIM - "PAUSESND" - TEMPORARILY PAUSE PLAYBACK ON SELECTED DRIVER<br />
+<pre>
+INT 80 - SBSIM - "PAUSESND" - TEMPORARILY PAUSE PLAYBACK ON SELECTED DRIVER
+	BL = 03h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: nothing
+SeeAlso: INT 80/BL=00h"SBSIM",INT 80/BL=02h"SBSIM",INT 80/BL=04h"SBSIM"
+SeeAlso: INT 80/BL=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL04" name="80----BL04"><b>80----BL04</b></a> - INT 80 - SBSIM - "RESUMESND" - RESTART PLAYBACK ON SELECTED DRIVER<br />
+<pre>
+INT 80 - SBSIM - "RESUMESND" - RESTART PLAYBACK ON SELECTED DRIVER
+	BL = 04h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: nothing
+SeeAlso: INT 80/BL=00h"SBSIM",INT 80/BL=03h"SBSIM",INT 80/BL=05h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BL05" name="80----BL05"><b>80----BL05</b></a> - INT 80 - SBSIM - "GETSNDSTAT" - GET DRIVER'S STATUS<br />
+<pre>
+INT 80 - SBSIM - "GETSNDSTAT" - GET DRIVER'S STATUS
+	BL = 05h
+	BH = driver number (01h = FM, 02h=DDBV, 03h=memvoice, 05h=MIDI)
+Return: AX = status
+SeeAlso: INT 80/BL=00h"SBSIM",INT 80/BL=01h"SBSIM",INT 80/BL=03h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0000" name="80----BX0000"><b>80----BX0000</b></a> - INT 80 - SoundBlaster SBFM driver - GET VERSION<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - GET VERSION
+	BX = 0000h
+Return: ???
+Note:	SBFM installs at a free interrupt in the range 80h through BFh
+SeeAlso: BX=0008h"SBFM",INT 2F/AX=FBFBh/ES=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0000_0" name="80----BX0000_0"><b>80----BX0000</b></a> - INT 80 - SBSIM - "QUERYVERSION" - GET VERSION<br />
+<pre>
+INT 80 - SBSIM - "QUERYVERSION" - GET VERSION
+	BX = 0000h
+Return: AX = version (AH = major, AL = minor)
+Program: SBSIM is Creative Labs' SoundBlaster Simplified Interface Module,
+	  which provides access to multiple drivers for the SoundBlaster
+	  board through a single interface
+Range:	INT 80h to INT BFh, selected automatically
+Note:	the SBSIM installation check consists of testing for the signature
+	  "SBSIM" at offset 103h in the interrupt handler's segment.
+SeeAlso: BX=0001h"SBSIM",BX=0005h"SBSIM",INT 21/AX=4402h"CTMMSYS"
+SeeAlso: INT 80/BL=00h"SBSIM"
+Index:	installation check;SBSIM|installation check;SoundBlaster
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0001" name="80----BX0001"><b>80----BX0001</b></a> - INT 80 - SoundBlaster SBFM driver - SET MUSIC STATUS BYTE ADDRESS<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - SET MUSIC STATUS BYTE ADDRESS
+	BX = 0001h
+	DX:AX -&gt; music status byte
+SeeAlso: BX=0000h"SBFM",BX=0002h"SBFM",BX=0003h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0001_0" name="80----BX0001_0"><b>80----BX0001</b></a> - INT 80 - SBSIM - "QUERYDRIVERS" - CHECK DRIVERS INSTALLED<br />
+<pre>
+INT 80 - SBSIM - "QUERYDRIVERS" - CHECK DRIVERS INSTALLED
+	BX = 0001h
+Return: AX = bit flags for loaded drivers (see #03973)
+SeeAlso: BX=0000h"SBSIM",BX=0002h"SBSIM",BX=0005h"SBSIM",INT 80/BL=00h"SBSIM"
+
+Bitfields for SBSIM loaded drivers:
+Bit(s)	Description	(Table 03973)
+ 0	FM
+ 1	double disk-buffered voice driver (DDBV)
+ 2	memory voice driver
+ 3	auxiliary driver (mixer)
+ 4	MIDI
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0002" name="80----BX0002"><b>80----BX0002</b></a> - INT 80 - SoundBlaster SBFM driver - SET INSTRUMENT TABLE<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - SET INSTRUMENT TABLE
+	BX = 0002h
+	CX = number of instruments
+	DX:AX -&gt; instrument table
+SeeAlso: BX=0000h"SBFM",BX=0001h"SBFM",BX=0005h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0002_0" name="80----BX0002_0"><b>80----BX0002</b></a> - INT 80 - SBSIM - GETADDRESS" - GET SELECTED DRIVER'S ENTRY POINT<br />
+<pre>
+INT 80 - SBSIM - GETADDRESS" - GET SELECTED DRIVER'S ENTRY POINT
+	BX = 0002h
+	AX = driver (00h = FM,01h = DDBV,02h = memvoice,03h = mixer,04h = MIDI)
+Return: CF clear if successful
+	    DX:AX -&gt; entry point
+	CF set on error
+SeeAlso: BX=0000h"SBSIM",BX=0001h"SBSIM",BX=0005h"SBSIM",INT 80/BL=00h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0003" name="80----BX0003"><b>80----BX0003</b></a> - INT 80 - SoundBlaster SBFM driver - SET SYSTEM CLOCK RATE<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - SET SYSTEM CLOCK RATE
+	BX = 0003h
+	AX = clock rate divisor (1193180 / desired frequency in Hertz)
+	    FFFFh to restore to 18.2 Hz
+SeeAlso: BX=0000h"SBFM",BX=0001h"SBFM",BX=0004h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0004" name="80----BX0004"><b>80----BX0004</b></a> - INT 80 - SoundBlaster SBFM driver - SET DRIVER CLOCK RATE<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - SET DRIVER CLOCK RATE
+	BX = 0004h
+	AX = driver clock rate divisor (1193180 / frequency in Hertz)
+Note:	default frequency is 96 Hz
+SeeAlso: BX=0000h"SBFM",BX=0003h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0005" name="80----BX0005"><b>80----BX0005</b></a> - INT 80 - SoundBlaster SBFM driver - TRANSPOSE MUSIC<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - TRANSPOSE MUSIC
+	BX = 0005h
+	AX = semi-tone offset
+SeeAlso: BX=0000h"SBFM",BX=0002h"SBFM",BX=0006h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0005_0" name="80----BX0005_0"><b>80----BX0005</b></a> - INT 80 - SBSIM - "GETBUFFERINFO" - GET DRIVER'S BUFFER ADDRESS<br />
+<pre>
+INT 80 - SBSIM - "GETBUFFERINFO" - GET DRIVER'S BUFFER ADDRESS
+	BX = 0005h
+	AX = driver (00h = FM, 01h = DDB Voice, 04h = MIDI)
+Return: CF clear if successful
+	    DX:AX -&gt; buffer
+	    CX = buffer size in K
+	CF set on error
+Program: SBSIM is Creative Labs' SoundBlaster Simplified Interface Module,
+	  which provides access to multiple drivers for the SoundBlaster
+	  board through a single interface
+Range:	INT 80h to INT BFh, selected automatically
+Note:	the SBSIM installation check consists of testing for the signature
+	  "SBSIM" at offset 103h in the interrupt handler's segment.
+SeeAlso: BX=0000h"SBSIM",BX=0001h"SBSIM",BX=0002h"SBSIM",INT 80/BL=00h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0006" name="80----BX0006"><b>80----BX0006</b></a> - INT 80 - SoundBlaster SBFM driver - PLAY MUSIC<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - PLAY MUSIC
+	BX = 0006h
+	DX:AX -&gt; music block
+Return: AX = status
+	    0000h successful
+	    0001h music already active
+SeeAlso: BX=0000h"SBFM",BX=0007h"SBFM",BX=000Ah"SBFM",INT 1A/AX=FF04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0007" name="80----BX0007"><b>80----BX0007</b></a> - INT 80 - SoundBlaster SBFM driver - STOP MUSIC<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - STOP MUSIC
+	BX = 0007h
+Return: AX = status
+	    0000h successful
+	    0001h music not active
+SeeAlso: BX=0000h"SBFM",BX=0006h"SBFM",BX=0009h"SBFM",INT 1A/AX=FF05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0008" name="80----BX0008"><b>80----BX0008</b></a> - INT 80 - SoundBlaster SBFM driver - RESET DRIVER<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - RESET DRIVER
+	BX = 0008h
+Return: AX = status
+	    0000h successful
+	    0001h music is active
+SeeAlso: BX=0000h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0009" name="80----BX0009"><b>80----BX0009</b></a> - INT 80 - SoundBlaster SBFM driver - PAUSE MUSIC<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - PAUSE MUSIC
+	BX = 0009h
+Return: AX = status
+	    0000h successful
+	    0001h no music active
+SeeAlso: BX=0000h"SBFM",BX=0007h"SBFM",BX=000Ah"SBFM",INT 1A/AX=FF01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX000A" name="80----BX000A"><b>80----BX000A</b></a> - INT 80 - SoundBlaster SBFM driver - RESUME MUSIC<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - RESUME MUSIC
+	BX = 000Ah
+Return: AX = status
+	    0000h successful
+	    0001h no music paused
+SeeAlso: BX=0000h"SBFM",BX=0006h"SBFM",BX=0009h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX000B" name="80----BX000B"><b>80----BX000B</b></a> - INT 80 - SoundBlaster SBFM driver - SET USER-DEF TRAP FOR SYSTEM-EXCLUSIVE CMDS<br />
+<pre>
+INT 80 - SoundBlaster SBFM driver - SET USER-DEF TRAP FOR SYSTEM-EXCLUSIVE CMDS
+	BX = 000Bh
+	DX:AX -&gt; trap routine
+SeeAlso: BX=0000h"SBFM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0400" name="80----BX0400"><b>80----BX0400</b></a> - INT 80 - SBSIM - "GETVOLUME" - GET SOURCE'S VOLUME<br />
+<pre>
+INT 80 - SBSIM - "GETVOLUME" - GET SOURCE'S VOLUME
+	BX = 0400h
+	AX = sound source (see #03974)
+Return: CF clear if successful
+	    AX = volume
+	CF set on error
+	    AX = error code (see #03972 at INT 80/BL=00h)
+SeeAlso: BX=0401h"SBSIM"
+
+(Table 03974)
+Values for SBSIM sound source:
+ 00h	master volume
+ 01h	voice
+ 02h	FM
+ 03h	CD
+ 04h	line in
+ 05h	microphone
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#80----BX0401" name="80----BX0401"><b>80----BX0401</b></a> - INT 80 - SBSIM - "SETVOLUME" - SET SOURCE'S VOLUME<br />
+<pre>
+INT 80 - SBSIM - "SETVOLUME" - SET SOURCE'S VOLUME
+	BX = 0401h
+	AX = sound source (see #03974)
+	DX = new volume
+Return: AX = result (0000h = success) (see also INT 80/BL=00h)
+SeeAlso: BX=0400h"SBSIM"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8001" name="8001"><b>8001</b></a> - INT 80 - QPC Software PKTINT.COM - INITIALIZE<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - INITIALIZE
+	AH = 01h
+Return: AX = 0000h
+	CX = FFFFh
+	DX = FFFFh
+Notes:	this interrupt is the WinQVTNet protected mode interface to Windows 3.0
+	all buffer pointers are reset back to 0
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8002" name="8002"><b>8002</b></a> - INT 80 - QPC Software PKTINT.COM - GET BUFFER ADDRESSES<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - GET BUFFER ADDRESSES
+	AH = 02h
+	BX = extra bytes to allocate per packet
+Return: AX = segment address of 10K buffer (for receives???)
+	BX = segment address of 2K buffer (for sends???)
+SeeAlso: AH=05h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8003" name="8003"><b>8003</b></a> - INT 80 - QPC Software PKTINT.COM - GET ENTRY POINT<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - GET ENTRY POINT
+	AH = 03h
+Return: CX:DX -&gt; receive call address
+Note:	the returned address can be used in the packet driver calls since it
+	  will be a valid address in all DOS boxes
+SeeAlso: AH=06h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8004" name="8004"><b>8004</b></a> - INT 80 - QPC Software PKTINT.COM - ENABLE???<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - ENABLE???
+	AH = 04h
+	BX = ???
+Return: ???
+SeeAlso: AH=01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8005" name="8005"><b>8005</b></a> - INT 80 - QPC Software PKTINT.COM - GET RECEIVE STATISTICS<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - GET RECEIVE STATISTICS
+	AH = 05h
+Return: AX = amount of buffer currently in use
+	BX = current offset in buffer
+	CX = number of times receive has been called
+SeeAlso: AH=02h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#8006" name="8006"><b>8006</b></a> - INT 80 - QPC Software PKTINT.COM - REMOVE RECEIVED PACKET<br />
+<pre>
+INT 80 - QPC Software PKTINT.COM - REMOVE RECEIVED PACKET
+	AH = 06h
+Return: BX = next packet offset
+	CX = number of bytes still buffered
+	DX = size of packet released back into buffer pool
+SeeAlso: AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

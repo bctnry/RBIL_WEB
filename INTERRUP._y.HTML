@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._y</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category y - security
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#130800DLF0"><b>130800DLF0</b> - INT 13 - SecureDrive - INSTALLATION CHECK</a><br />
+<a href="#16FFA3BX0000"><b>16FFA3BX0000</b> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - INSTALLATION CHECK</a><br />
+<a href="#16FFA3BX0001"><b>16FFA3BX0001</b> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???</a><br />
+<a href="#16FFA3BX0002"><b>16FFA3BX0002</b> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???</a><br />
+<a href="#16FFA3BX0003"><b>16FFA3BX0003</b> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???</a><br />
+<a href="#16FFA3BX0004"><b>16FFA3BX0004</b> - INT 16 U - PC Tools v7+ DATAMON - SET ??? FLAG</a><br />
+<a href="#16FFA3BX0005"><b>16FFA3BX0005</b> - INT 16 U - PC Tools v7+ DATAMON - CLEAR ??? FLAG</a><br />
+<a href="#16FFA3BX0006"><b>16FFA3BX0006</b> - INT 16 U - PC Tools v7+ DATAMON - SET PSP SEGMENT ???</a><br />
+<a href="#213F_4"><b>213F</b> - INT 21 - Trusted Access - NB.SYS - GET STATE</a><br />
+<a href="#2140_2"><b>2140</b> - INT 21 U - Trusted Access - NB.SYS - SET STATE</a><br />
+<a href="#214101DXFFFE"><b>214101DXFFFE</b> - INT 21 - SoftLogic Data Guardian - ???</a><br />
+<a href="#214402_20"><b>214402</b> - INT 21 U - PC Tools 9 CPRLOW.EXE - GET CODE AND DATA ADDRESSES</a><br />
+<a href="#21440DCXEDC1"><b>21440DCXEDC1</b> - INT 21 - DR PalmDOS - GENERIC IOCTL - LOGIN SECURITY</a><br />
+<a href="#2F1020"><b>2F1020</b> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CREATE PASSWORD ENTRY</a><br />
+<a href="#2F1021"><b>2F1021</b> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHANGE PASSWORD ENTRY</a><br />
+<a href="#2F1022"><b>2F1022</b> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHECK PASSWORD ENTRY</a><br />
+<a href="#2FE200"><b>2FE200</b> - INT 2F - SecureDevice - LOGIN TO DRIVE</a><br />
+<a href="#2FE201"><b>2FE201</b> - INT 2F - SecureDevice - GET INFORMATION</a><br />
+<a href="#2FE203"><b>2FE203</b> - INT 2F - SecureDevice - DESTROY PASSWORD (LOGOUT FROM DRIVE)</a><br />
+<a href="#2FE209DX0000"><b>2FE209DX0000</b> - INT 2F - SecureDevice - INSTALLATION CHECK</a><br />
+<a href="#2FEE00"><b>2FEE00</b> - INT 2F - GRIDLOC.EXE - INSTALLATION CHECK</a><br />
+<a href="#326E"><b>326E</b> - INT 32 - NOISE.SYS 0.53 - API</a><br />
+<a href="#326E00"><b>326E00</b> - INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK</a><br />
+<a href="#326E01"><b>326E01</b> - INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT</a><br />
+<a href="#326E10"><b>326E10</b> - INT 32 - NOISE.SYS v0.53+ - STATUS CHECK</a><br />
+<a href="#326E11"><b>326E11</b> - INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE</a><br />
+<a href="#326E12"><b>326E12</b> - INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER</a><br />
+<a href="#326E13"><b>326E13</b> - INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL</a><br />
+<a href="#326E14"><b>326E14</b> - INT 32 - NOISE.SYS v0.53+ - GET FLAGS</a><br />
+<a href="#326E15"><b>326E15</b> - INT 32 - NOISE.SYS v0.53+ - SET FLAGS</a><br />
+<a href="#326E16"><b>326E16</b> - INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES</a><br />
+<a href="#326E17"><b>326E17</b> - INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES</a><br />
+<a href="#B6_0"><b>B6</b> - INT B6 - (NOT A VECTOR!) - USED BY TBFENCE</a><br />
+<a href="#B7_0"><b>B7</b> - INT B7 - TBFENCE - ???</a><br />
+
+<hr />
+
+<a href="#130800DLF0" name="130800DLF0"><b>130800DLF0</b></a> - INT 13 - SecureDrive - INSTALLATION CHECK<br />
+<pre>
+INT 13 - SecureDrive - INSTALLATION CHECK
+	AX = 08000h
+	DL = F0h
+Return: AX = EDCBh for version 1.0-1.2
+	AX = EDCCh for version 1.3
+	CX = code segment
+	DX = data address within code segment
+Program: SecureDrive by Mike Ingle &lt;mikeingle@delphi.com&gt; allows you to create
+	  an encrypted partition on your harddisk.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0000" name="16FFA3BX0000"><b>16FFA3BX0000</b></a> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - INSTALLATION CHECK<br />
+<pre>
+INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - INSTALLATION CHECK
+	AX = FFA3h
+	BX = 0000h
+	CX = 0000h
+Return: AX = segment of resident code
+	BX = 5555h
+	CX = 5555h
+Note:	also supported by DOS 6 UNDELETE which is licensed from PC Tools
+SeeAlso: INT 21/AH=3Fh"NB.SYS",INT 21/AX=4101h,INT 2F/AX=6284h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0001" name="16FFA3BX0001"><b>16FFA3BX0001</b></a> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???<br />
+<pre>
+INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???
+	AX = FFA3h
+	BX = 0001h
+	CX = 0001h
+Return: AX:BX -&gt; ???
+	CX = BX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0002" name="16FFA3BX0002"><b>16FFA3BX0002</b></a> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???<br />
+<pre>
+INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???
+	AX = FFA3h
+	BX = 0002h
+	CX = 0002h
+Return: AX = ??? (0 or 1)
+	CX = BX = AX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0003" name="16FFA3BX0003"><b>16FFA3BX0003</b></a> - INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???<br />
+<pre>
+INT 16 U - PC Tools v7-8 DATAMON, v9+ DPROTECT - GET ???
+	AX = FFA3h
+	BX = 0003h
+	CX = 0003h
+Return: AX = ??? (0 or 1)
+	CX = BX = AX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0004" name="16FFA3BX0004"><b>16FFA3BX0004</b></a> - INT 16 U - PC Tools v7+ DATAMON - SET ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v7+ DATAMON - SET ??? FLAG
+	AX = FFA3h
+	BX = 0004h
+	CX = 0004h
+SeeAlso: AX=FFA3h/BX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0005" name="16FFA3BX0005"><b>16FFA3BX0005</b></a> - INT 16 U - PC Tools v7+ DATAMON - CLEAR ??? FLAG<br />
+<pre>
+INT 16 U - PC Tools v7+ DATAMON - CLEAR ??? FLAG
+	AX = FFA3h
+	BX = 0005h
+	CX = 0005h
+SeeAlso: AX=FFA3h/BX=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#16FFA3BX0006" name="16FFA3BX0006"><b>16FFA3BX0006</b></a> - INT 16 U - PC Tools v7+ DATAMON - SET PSP SEGMENT ???<br />
+<pre>
+INT 16 U - PC Tools v7+ DATAMON - SET PSP SEGMENT ???
+	AX = FFA3h
+	BX = 0006h
+	CX = 0006h
+	DX = current PSP segment as known to DOS??? or 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#213F_4" name="213F_4"><b>213F</b></a> - INT 21 - Trusted Access - NB.SYS - GET STATE<br />
+<pre>
+INT 21 - Trusted Access - NB.SYS - GET STATE
+	AH = 3Fh
+	BX = file handle for device "$$NB$$NB"
+	CX = 0002h (size of state)
+	DS:DX -&gt; buffer for state record (see #01414)
+Return: CF clear if successful
+	    AX = number of bytes actually read (0 if at EOF before call)
+	CF set on error
+	    AX = error code (05h,06h) (see #01680 at AH=59h/BX=0000h)
+Program: Trusted Access is a security and access-control package by Lassen
+	  Software, Inc.; NB.SYS is a device driver to prevent the user from
+	  terminating CONFIG.SYS or AUTOEXEC.BAT with Ctrl-Break
+SeeAlso: AH=40h"NB.SYS",AX=4101h
+
+Format of Trusted Access state record:
+Offset	Size	Description	(Table 01414)
+ 00h	BYTE	00h off, 01h on
+ 01h	BYTE	keys being disabled
+		bit 0: Ctrl-Break
+		bit 1: SysReq
+		bit 2: Ctrl and Alt
+		bit 3: Ctrl-Alt-Del
+		bit 7: all keys (overrides other bits)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2140_2" name="2140_2"><b>2140</b></a> - INT 21 U - Trusted Access - NB.SYS - SET STATE<br />
+<pre>
+INT 21 U - Trusted Access - NB.SYS - SET STATE
+	AH = 40h
+	BX = handle for character device "$$NB$$NB"
+	DS:DX -&gt; state record (see #01414)
+	CX ignored
+Return: CF clear if successful
+	    AX = number of bytes actually written
+	CF set on error
+	    AX = error code (05h,06h) (see #01680 at AH=59h/BX=0000h)
+Program: Trusted Access is a security and access-control package by Lassen
+	  Software, Inc.; NB.SYS is a device driver to prevent the user from
+	  terminating CONFIG.SYS or AUTOEXEC.BAT with Ctrl-Break
+SeeAlso: AH=3Fh"NB.SYS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214101DXFFFE" name="214101DXFFFE"><b>214101DXFFFE</b></a> - INT 21 - SoftLogic Data Guardian - ???<br />
+<pre>
+INT 21 - SoftLogic Data Guardian - ???
+	AX = 4101h
+	DX = FFFEh
+Return: AX = 0000h if installed
+Note:	resident code sets several internal variables on this call
+SeeAlso: AH=3Fh"NB.SYS",INT 16/AX=FFA3h/BX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#214402_20" name="214402_20"><b>214402</b></a> - INT 21 U - PC Tools 9 CPRLOW.EXE - GET CODE AND DATA ADDRESSES<br />
+<pre>
+INT 21 U - PC Tools 9 CPRLOW.EXE - GET CODE AND DATA ADDRESSES
+	AX = 4402h
+	BX = file handle referencing device "RECLOWLD"
+	DS:DX -&gt; buffer for address list (see #01505)
+	CX ignored
+Return: CF clear if successful
+	    buffer filled
+	CF set on error
+	    AX = error code (01h,05h,06h,0Dh) (see #01680 at AH=59h/BX=0000h)
+
+Format of CPRLOW address list:
+Offset	Size	Description	(Table 01505)
+ 00h	WORD	segment of CPRLOW code
+ 02h	WORD	offset in code segment of ??? entry point
+		(switches into protected mode)
+ 04h	WORD	offset in code segment of jump array (see #01506)
+ 06h	WORD	segment of copy of interrupt vector table at CPRLOW load time
+Note:	neither the entry point nor the jump array is valid until after a
+	  CPR /LOAD, because CPR.EXE installs the code into CPRLOW at runtime.
+
+Format of CPRLOW jump array:
+Offset	Size	Description	(Table 01506)
+ 00h  3 BYTEs	initialize CPRLOW interrupt hooks
+ 03h  3 BYTEs	reset timers and enable CPR (hotkey enable)
+ 06h  3 BYTEs	disable CPR (hotkey disable)
+ 09h  3 BYTEs	clear ??? flag, hotkey disable, and ???
+ 0Ch  3 BYTEs	initialize delay loop counter (destroys AX,BX,CX,DX)
+ 0Fh  3 BYTEs	disable CPR completely (commandline /DISABLE)
+ 12h  3 BYTEs	enable ??? if CPR enabled by both cmdline and hotkey
+ 15h  3 BYTEs	enable CPR (commandline /ENABLE)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#21440DCXEDC1" name="21440DCXEDC1"><b>21440DCXEDC1</b></a> - INT 21 - DR PalmDOS - GENERIC IOCTL - LOGIN SECURITY<br />
+<pre>
+INT 21 - DR PalmDOS - GENERIC IOCTL - LOGIN SECURITY
+	AX = 440Dh
+	CX = EDC1h (category code EDh, minor code C1h)
+	BL = boot drive number (01h=A:,02h=B:,etc)
+Return: AL = 0 if already logged in
+	AL &lt;&gt; 0 if system is still secured (not logged in)
+	ES:DI -&gt; ???
+Notes:	This function is called by DR PalmDOS IBMBIO.COM after CONFIG.SYS
+	  processing has finished and it has launched the LOGIN.SYS utility
+	  (if this is not in the root of the boot drive, the undocumented
+	  CONFIG.SYS LOGIN directive can be used to change the path and the
+	  moment when the login prompt will be displayed).
+	If security is active and the user has still not logged in,
+	  IBMBIO.COM will display an error message and halt the system.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1020" name="2F1020"><b>2F1020</b></a> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CREATE PASSWORD ENTRY<br />
+<pre>
+INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CREATE PASSWORD ENTRY
+	AX = 1020h
+	???
+Return: ???
+Notes:	This private function is called internally by the OS kernel to an
+	  optional SECURITY TSR.  By using the INT 2F/AX=1001h FDOS hook, it
+	  can be intercepted by external system components such as
+	  Multiuser SECURITY, bundled with DR DOS "Panther" Beta 1.
+	This function must under no circumstances be called by applications!
+SeeAlso: INT 2F/AX=1001h,AX=1021h,AX=1022h,AX=10FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1021" name="2F1021"><b>2F1021</b></a> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHANGE PASSWORD ENTRY<br />
+<pre>
+INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHANGE PASSWORD ENTRY
+	AX = 1021h
+	CL &gt; 05h ???
+	BX -&gt; matching directory entry???
+	AL = directory attributes???
+Return: ???
+	CF set on error (password change not allowed)
+Notes:	This private function is called internally by the OS kernel to an
+	  optional SECURITY TSR.  By using the INT 2F/AX=1001h FDOS hook, it
+	  can be intercepted by external system components such as
+	  Multiuser SECURITY, bundled with DR DOS "Panther" Beta 1.
+	This function must under no circumstances be called by applications!
+SeeAlso: INT 2F/AX=1001h,AX=1020h,AX=1022h,AX=10FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2F1022" name="2F1022"><b>2F1022</b></a> - INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHECK PASSWORD ENTRY<br />
+<pre>
+INT 2F CU - Novell DOS 7+ FDOS EXTENSIONS - CHECK PASSWORD ENTRY
+	AX = 1022h
+	???
+Return: ???
+Notes:	This private function is called internally by the OS kernel to an
+	  optional SECURITY TSR.  By using the INT 2F/AX=1001h FDOS hook, it
+	  can be intercepted by external system components such as
+	  Multiuser SECURITY, bundled with DR DOS "Panther" Beta 1.
+	This function must under no circumstances be called by applications!
+SeeAlso: INT 2F/AX=1001h,AX=1020h,AX=1021h,AX=10FEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE200" name="2FE200"><b>2FE200</b></a> - INT 2F - SecureDevice - LOGIN TO DRIVE<br />
+<pre>
+INT 2F - SecureDevice - LOGIN TO DRIVE
+	AX = E200h
+	DL = drive number (0 = A:)
+	DS:SI -&gt; 104-byte key
+Return: AL = status
+	    00h unable to determine key's validity
+	    01h key is valid
+	    FFh key is invalid
+Program: SecureDevice is a copylefted device driver by Max Loewenthal and
+	  Arthur Helwig which turns one or more disk files into encrypted
+	  logical drives
+SeeAlso: AX=E201h,AX=E203h,AX=E209h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE201" name="2FE201"><b>2FE201</b></a> - INT 2F - SecureDevice - GET INFORMATION<br />
+<pre>
+INT 2F - SecureDevice - GET INFORMATION
+	AX = E201h
+	DX = driver index (0000h = first loaded)
+Return: AL = number of volumes handled by driver
+	DL = drive number of first volume (00h = A:)
+SeeAlso: AX=E200h,AX=E203h,AX=E209h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE203" name="2FE203"><b>2FE203</b></a> - INT 2F - SecureDevice - DESTROY PASSWORD (LOGOUT FROM DRIVE)<br />
+<pre>
+INT 2F - SecureDevice - DESTROY PASSWORD (LOGOUT FROM DRIVE)
+	AX = E203h
+	DL = drive number (00h = A:) or FFh for all drives
+Return: nothing
+SeeAlso: AX=E200h,AX=E209h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FE209DX0000" name="2FE209DX0000"><b>2FE209DX0000</b></a> - INT 2F - SecureDevice - INSTALLATION CHECK<br />
+<pre>
+INT 2F - SecureDevice - INSTALLATION CHECK
+	AX = E209h
+	DX = 0000h
+Return: AX = 1DEAh if installed
+	    DX = number of drivers installed
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FEE00" name="2FEE00"><b>2FEE00</b></a> - INT 2F - GRIDLOC.EXE - INSTALLATION CHECK<br />
+<pre>
+INT 2F - GRIDLOC.EXE - INSTALLATION CHECK
+	AX = EE00h
+Return: AL = FFh if installed
+Program: GRIDLOC is a PC security program by Intelligent Security Systems, Inc.
+SeeAlso: INT 21/AH=40h"NB.SYS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E" name="326E"><b>326E</b></a> - INT 32 - NOISE.SYS 0.53 - API<br />
+<pre>
+INT 32 - NOISE.SYS 0.53 - API
+	AH = 6Eh (function ID)
+	AL = subfunction (see INT 32/AX=6E00h)
+Return: CF set on error
+	    AL = error code (see #03166)
+	CF clear if successful
+Notes:	INT 32 is only a proposed interface for NOISE.SYS. Use the IOCTL READ
+	  from the RANDOM device to determine the interrupt and function ID
+	  used by the driver, since future versions may use the Alternate
+	  Multiplex Interrupt (AMIS) at INT 2Dh.
+	the beta v0.51 had a substantially different API on INT 32/AH=6Eh
+
+(Table 03166)
+Values for NOISE.SYS error codes:
+ 00h	subfunction not supported
+ FBh	random pool is empty
+ FCh	quality of sample is too low
+ FDh	too many processes using the API or driver
+ FEh	subfunction is disabled in the current build
+ FFh	successful
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E00" name="326E00"><b>326E00</b></a> - INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - INSTALLATION CHECK
+	AX = 6E00h
+Return: AL = installation status
+	    00h not installed
+	    FFh installed
+		CX = version (ie, 0123h = Version 1.2.3)
+		DX:DI -&gt; signature string
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E01" name="326E01"><b>326E01</b></a> - INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET ENTRY POINT
+	AX = 6E01h
+Return: AL = FFh
+	DX:DI -&gt; far call hook
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E10" name="326E10"><b>326E10</b></a> - INT 32 - NOISE.SYS v0.53+ - STATUS CHECK<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - STATUS CHECK
+	AX = 6E10h
+Return: CF set on error
+	    AL = error code (FDh) (see #03166)
+	CF clear if successful
+	    AL = status
+		FFh successful
+	    BH = number of processes using the API
+	    CX = number of random bytes waiting
+	    DX = maximum possible bytes waiting
+		(if CX=DX, the pool is full)
+Note:	this subfunction is a convenient way to check the driver if any
+	  fresh bytes are waiting in the output pool.
+SeeAlso: INT 32/AH=6Eh,AX=6E00h,AX=6E11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E11" name="326E11"><b>326E11</b></a> - INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET ENTROPY ESTIMATE
+	AX = 6E11h
+Return: CF set on error
+	    AL = error code (00h,FDh,FEh) (see #03166)
+	CF clear if successful
+	    EBX = estimated bit count (refer to note below)
+	    CL = FRACBITS (number of fractional bits)
+	    EDX = low 32-bits of total number of samples added
+Note:  the estimated number of fresh random bits is equal to
+	  (EAX &gt;&gt; FRACBITS) + ((EAX & ((1 &lt;&lt; FRACBITS)-1) / (1 &lt;&lt; FRACBITS))
+SeeAlso: AH=6Eh,AX=6E00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E12" name="326E12"><b>326E12</b></a> - INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - ADD SAMPLE FROM FAST TIMER
+	AX = 6E12h
+Return: CF set on error
+	    AL = error code (FCh,FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes waiting
+Note:	subfunctions 12h and 13h are meant for applications or devices
+	  which are able to gather entropy from other sources which are
+	  not polled by NOISE.SYS (for example, a communications driver
+	  could use this call to sample packet arrival times).
+SeeAlso: AX=6E00h,AX=6E10h,AX=6E13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E13" name="326E13"><b>326E13</b></a> - INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - ADD 16-BIT SAMPLE TO RANDOM POOL
+	AX = 6E13h
+	DX = sample
+Return: CF set on error
+	    AL = error code (FCh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes waiting
+SeeAlso: AX=6E00h,AX=6E11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E14" name="326E14"><b>326E14</b></a> - INT 32 - NOISE.SYS v0.53+ - GET FLAGS<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - GET FLAGS
+	AX = 6E14h
+Return: BX = flags (see #03167)
+	CX = mask of settable flags in BX
+SeeAlso: AX=6E00h,AX=6E15h
+
+Bitfields for NOISE.SYS flags:
+Bit(s)	Description	(Table 03167)
+ 0	MS Windows active
+ 1-5	reserved
+ 6	clock drift sampling
+ 7	video retrace drift sampling
+ 8	network access sampling (not implemented yet in 0.53)
+ 9	CD-ROM access sampling (not implemented yet in 0.53)
+ 10	DOS spinner
+ 11	DOS process start/end and miscellaneous process activity sampling
+ 12	mouse movement/button sampling
+ 13	disk sampling (INT 13)
+ 14	keystroke timings
+ 15	reserved for hardware RNG
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E15" name="326E15"><b>326E15</b></a> - INT 32 - NOISE.SYS v0.53+ - SET FLAGS<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - SET FLAGS
+	AX = 6E15h
+	BX = flags (see #03167)
+Return: BX = new flags
+Note:	flags which AX=6E14h indicates are not settable should be masked off
+	  by ANDing with the CX returned by AX=6E14h
+SeeAlso: AX=6E00h,AX=6E14h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E16" name="326E16"><b>326E16</b></a> - INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - READ URANDOM BYTES
+	AX = 6E16h
+	CX = number of bytes
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AL = error code (FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes read
+SeeAlso: AX=6E00h,AX=6E12h,AX=6E17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#326E17" name="326E17"><b>326E17</b></a> - INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES<br />
+<pre>
+INT 32 - NOISE.SYS v0.53+ - READ RANDOM BYTES
+	AX = 6E17h
+	CX = number of bytes
+	ES:DI -&gt; buffer
+Return: CF set on error
+	    AL = error code (FBh,FDh,FEh) (see #03166)
+	CF clear if successful
+	    CX = number of random bytes read
+SeeAlso: AX=6E00h,AX=6E16h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B6_0" name="B6_0"><b>B6</b></a> - INT B6 - (NOT A VECTOR!) - USED BY TBFENCE<br />
+<pre>
+INT B6 - (NOT A VECTOR!) - USED BY TBFENCE
+Program: TBFence is a security program by ESaSS B.V. which transparently
+	  encrypts floppies and optionally allows only encrypted diskettes to
+	  be accessed
+Note:	the low word of this vector (0000h:02D8h) contains the segment of the
+	  TBFence INT 13h code, which starts with the signature word E487h;
+	  this forms the installation check
+	the highest byte of this vector contains the start of a FAR JMP
+	  instruction to ???
+SeeAlso: INT B7"TBFENCE"
+Index:	installation check;TBFence
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#B7_0" name="B7_0"><b>B7</b></a> - INT B7 - TBFENCE - ???<br />
+<pre>
+INT B7 - TBFENCE - ???
+SeeAlso: INT B6"TBFENCE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

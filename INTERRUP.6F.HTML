@@ -1,0 +1,4016 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._6F</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 6F
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#6F"><b>6F</b> - INT 6F - Novell NetWare - PCOX API (3270 PC terminal interface)</a><br />
+<a href="#6F00"><b>6F00</b> - INT 6F - 10NET - LOGIN</a><br />
+<a href="#6F00_0"><b>6F00</b> - INT 6F - HP Vectra EX-BIOS - "F_ISR" (internal) - RESPOND TO LOGICAL ISR</a><br />
+<a href="#6F01"><b>6F01</b> - INT 6F - 10NET - LOGOFF</a><br />
+<a href="#6F02"><b>6F02</b> - INT 6F - 10NET - STATUS OF NODE</a><br />
+<a href="#6F0200"><b>6F0200</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INIT" - START INITIALIZING DRIVER</a><br />
+<a href="#6F0202"><b>6F0202</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_START" - COMPLETE DRIVER INITIALIZ.</a><br />
+<a href="#6F0204"><b>6F0204</b> - INT 6F C - MS Windows 3.0 - DOS APPLICATION SWITCH HOOK</a><br />
+<a href="#6F0204_0"><b>6F0204</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_REPORT_STATE" - GET DRIVER STATE</a><br />
+<a href="#6F0206"><b>6F0206</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_VERSION_DESC" - GET DRIVER VERSION</a><br />
+<a href="#6F0208"><b>6F0208</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_DEF_ATTR" - RESET TO DEFAULT ATTR</a><br />
+<a href="#6F020A"><b>6F020A</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_GET_ATTR" - GET CURRENT ATTRIBUTES</a><br />
+<a href="#6F020C"><b>6F020C</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_SET_ATTR" - SET DEVICE ATTRIBUTES</a><br />
+<a href="#6F020E"><b>6F020E</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_OPEN" - RESERVE DRIVER FOR ACCESS</a><br />
+<a href="#6F0210"><b>6F0210</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_CLOSE" - RELEASE DRIVER</a><br />
+<a href="#6F0212"><b>6F0212</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TIMEOUT" - REPORT REQUESTED TIMEOUT</a><br />
+<a href="#6F0214"><b>6F0214</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INTERVAL" - 60 HZ INTERVAL EXPIRED</a><br />
+<a href="#6F0216"><b>6F0216</b> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TEST" - PERFORM HARDWARE TEST</a><br />
+<a href="#6F03"><b>6F03</b> - INT 6F - 10NET - GET ADDRESS OF CONFIGURATION TABLE</a><br />
+<a href="#6F04"><b>6F04</b> - INT 6F - 10NET - SEND</a><br />
+<a href="#6F04--BP0012"><b>6F04--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_BASEHPVT" - GET HP_VECTOR_TABLE ADDRESS</a><br />
+<a href="#6F04--BP005A"><b>6F04--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_INIT" - RESET TRACKING DRIVER TO DEFAULTS</a><br />
+<a href="#6F0400"><b>6F0400</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_LOCK" - RESERVE SUB-ADDRESSES</a><br />
+<a href="#6F0400BP001E"><b>6F0400BP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_SVC" - UNMASK 8041 SVC INT</a><br />
+<a href="#6F0400BP002A"><b>6F0400BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DEF_LINKS" - SET DEFAULT PARENTS</a><br />
+<a href="#6F0400BP0054"><b>6F0400BP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_ID_HP" - INSTALLATION CHECK</a><br />
+<a href="#6F0400BP00CC"><b>6F0400BP00CC</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - INIT INT 33 HANDLER</a><br />
+<a href="#6F0402"><b>6F0402</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_UNLOCK" - RELEASE SUB-ADDRESSES</a><br />
+<a href="#6F0402BP001E"><b>6F0402BP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_SVC" - MASK 8041 SVC INT</a><br />
+<a href="#6F0402BP002A"><b>6F0402BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_GET_LINKS" - GET DRIVER LINK FIELDS</a><br />
+<a href="#6F0402BP0054"><b>6F0402BP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_INFO" - GET DISPLAY INFO</a><br />
+<a href="#6F0402BP00CC"><b>6F0402BP00CC</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - FORCE INT 33 INIT</a><br />
+<a href="#6F0404"><b>6F0404</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_ON" - GRAPHICS CURSOR ON</a><br />
+<a href="#6F0404BP001E"><b>6F0404BP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_KBD" - UNMASK 8041 OBF INT</a><br />
+<a href="#6F0404BP002A"><b>6F0404BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_LINKS" - SET DRIVER LINK FIELDS</a><br />
+<a href="#6F0404BP0054"><b>6F0404BP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_INFO" - SET EXT-CTRL INFO</a><br />
+<a href="#6F0406"><b>6F0406</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_OFF" - GRAPHICS CURSOR OFF</a><br />
+<a href="#6F0406BP001E"><b>6F0406BP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_KBD" - MASK 8041 OBF INT</a><br />
+<a href="#6F0406BP0054"><b>6F0406BP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_MOD_INFO" - SET EXT-CTRL REG</a><br />
+<a href="#6F0406BP0114"><b>6F0406BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_RECONFIGURE" - RECONFIG LINK</a><br />
+<a href="#6F0408"><b>6F0408</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_EVENT" - SET EVENT HANDLER</a><br />
+<a href="#6F0408BP001E"><b>6F0408BP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_HPHIL" - UNMASK HP-HIL INT</a><br />
+<a href="#6F0408BP0054"><b>6F0408BP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_RES" - GET VIDMODE RESOLUTN</a><br />
+<a href="#6F0408BP0114"><b>6F0408BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_PROMPTS" - WRITE PROMPT</a><br />
+<a href="#6F040A"><b>6F040A</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_ON" - ENABLE EVENT HANDLER</a><br />
+<a href="#6F040ABP001E"><b>6F040ABP001E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_HPHIL" - MASK HP-HIL INT</a><br />
+<a href="#6F040ABP0054"><b>6F040ABP0054</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_MODE" - SET VIDEO MODE</a><br />
+<a href="#6F040ABP00AE"><b>6F040ABP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_INTR" - CREATE INTERVAL ENTRY</a><br />
+<a href="#6F040ABP0114"><b>6F040ABP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_ACK" - ACKNOWLEDGE DEVICE</a><br />
+<a href="#6F040C"><b>6F040C</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_OFF" - DISABLE EVENT HANDLER</a><br />
+<a href="#6F040CBP00AE"><b>6F040CBP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DELET_INTR" - DELETE INTERVAL ENTRY</a><br />
+<a href="#6F040CBP0114"><b>6F040CBP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPEAT" - SET KEY REPEAT RATE</a><br />
+<a href="#6F040E"><b>6F040E</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_ON" - ENABLE CLIPPING</a><br />
+<a href="#6F040EBP00AE"><b>6F040EBP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABL_INTR" - START INTERRUPT SRVICE</a><br />
+<a href="#6F040EBP0114"><b>6F040EBP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_DISABLE_REPEAT" - KEY REPT OFF</a><br />
+<a href="#6F0410"><b>6F0410</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_OFF" - DISABLE CLIPPING</a><br />
+<a href="#6F0410BP00AE"><b>6F0410BP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISBL_INTR" - END INTERRUPT SERVICE</a><br />
+<a href="#6F0410BP0114"><b>6F0410BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_SELF_TEST" - PERFORM SELFTEST</a><br />
+<a href="#6F0412BP00AE"><b>6F0412BP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_RAMSW" - SET RAM SWITCH IN 8041</a><br />
+<a href="#6F0412BP0114"><b>6F0412BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_STATUS" - GET DEVSTATUS</a><br />
+<a href="#6F0414BP00AE"><b>6F0414BP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_RAMSW" - CLEAR 8041 RAM SWITCH</a><br />
+<a href="#6F0414BP0114"><b>6F0414BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_NAME" - GET DEV NAME</a><br />
+<a href="#6F0416BP00AE"><b>6F0416BP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_CRTSW" - SET CRT TO MULTIMODE</a><br />
+<a href="#6F0416BP0114"><b>6F0416BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_REPEAT" - SET TYPEMATIC</a><br />
+<a href="#6F0418BP00AE"><b>6F0418BP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_CRTSW" - SET CRT TO MONOCHROME</a><br />
+<a href="#6F0418BP0114"><b>6F0418BP0114</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_LED" - SET KEYBOARD LEDS</a><br />
+<a href="#6F041ABP00AE"><b>6F041ABP00AE</b> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_PASS_THRU" - SEND DATA BYTE TO 8041</a><br />
+<a href="#6F05"><b>6F05</b> - INT 6F - 10NET - RECEIVE</a><br />
+<a href="#6F06"><b>6F06</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BYTE" - WRITE A BYTE OF DATA TO DEVICE</a><br />
+<a href="#6F06_0"><b>6F06</b> - INT 6F - HP Vectra EX-BIOS - "F_SAMPLE" - POLL CURRENT ABSOLUTE POSITION</a><br />
+<a href="#6F06--BP0012"><b>6F06--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFIX" - EXCH VALUES WITH FIXED VECTOR</a><br />
+<a href="#6F06--BP002A"><b>6F06--BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE" - GET DRIVER PHYSICAL DESCRIBE RECORD</a><br />
+<a href="#6F06--BP005A"><b>6F06--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_ON" - ENABLE CURSOR TRACKING</a><br />
+<a href="#6F07"><b>6F07</b> - INT 6F - 10NET - LOCK HANDLE</a><br />
+<a href="#6F08"><b>6F08</b> - INT 6F - 10NET - UNLOCK HANDLE</a><br />
+<a href="#6F08_0"><b>6F08</b> - INT 6F - HP Vectra EX-BIOS - "F_GET_BYTE" - READ A BYTE OF DATA FROM DEVICE</a><br />
+<a href="#6F08--BP0012"><b>6F08--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGRSVD" - EXCH VALUES WITH RESRVED VECTOR</a><br />
+<a href="#6F08--BP002A"><b>6F08--BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ALL" - GET DRIVER STATUS TABLE</a><br />
+<a href="#6F08--BP005A"><b>6F08--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_OFF" - DISABLE CURSOR TRACKING</a><br />
+<a href="#6F09"><b>6F09</b> - INT 6F - 10NET - SUBMIT</a><br />
+<a href="#6F0A"><b>6F0A</b> - INT 6F - 10NET - CHAT</a><br />
+<a href="#6F0A_0"><b>6F0A</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BUFFER" - WRITE A BUFFER TO DEVICE</a><br />
+<a href="#6F0A_1"><b>6F0A</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BLOCK" - WRITE BLOCKS TO DEVICE</a><br />
+<a href="#6F0A--BP0012"><b>6F0A--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFREE" - EXCH VALUES WITH FREE VECTOR</a><br />
+<a href="#6F0A--BP002A"><b>6F0A--BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_FIRST" - GET PHYSICAL DRIVER VECTOR</a><br />
+<a href="#6F0A--BP005A"><b>6F0A--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_DEF_MASKS" - DEFINE GRAPHICS CURSOR MASKS</a><br />
+<a href="#6F0B"><b>6F0B</b> - INT 6F - 10NET - LOCK SEMAPHORE, RETURN IMMEDIATELY</a><br />
+<a href="#6F0C"><b>6F0C</b> - INT 6F - 10NET - UNLOCK SEMAPHORE</a><br />
+<a href="#6F0C_0"><b>6F0C</b> - INT 6F - HP Vectra EX-BIOS - "F_GET_BUFFER" - READ A BUFFER OF DATA FROM DEVICE</a><br />
+<a href="#6F0C_1"><b>6F0C</b> - INT 6F - HP Vectra EX-BIOS - "F_GET_BLOCK" - READ BLOCKS OF DATA FROM DEVICE</a><br />
+<a href="#6F0C--BP0012"><b>6F0C--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXOWNDS" - INSTALL VALUES IN FIXED VECTOR</a><br />
+<a href="#6F0C--BP002A"><b>6F0C--BP002A</b> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ENTRY" - GET GID DRIVER ENTRY POINT</a><br />
+<a href="#6F0C--BP005A"><b>6F0C--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_X" - SET HORIZONTAL TRACKING LIMITS</a><br />
+<a href="#6F0D"><b>6F0D</b> - INT 6F - 10NET - "WHO" - ENUMERATE USERS ON NETWORK</a><br />
+<a href="#6F0E"><b>6F0E</b> - INT 6F - 10NET - SPOOL/PRINT</a><br />
+<a href="#6F0E_0"><b>6F0E</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE WORD OF DATA TO DEVICE</a><br />
+<a href="#6F0E_1"><b>6F0E</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE A WORD OF DATA</a><br />
+<a href="#6F0E--BP0012"><b>6F0E--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGETDS" - INSTALL VALUES IN FIXED VECTOR</a><br />
+<a href="#6F0E--BP005A"><b>6F0E--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_Y" - SET VERTICAL TRACKING LIMITS</a><br />
+<a href="#6F0F"><b>6F0F</b> - INT 6F - 10NET v5.0 - "RM LOCK" - ???</a><br />
+<a href="#6F10"><b>6F10</b> - INT 6F - 10NET - ATTACH/DETACH PRINTER</a><br />
+<a href="#6F10_0"><b>6F10</b> - INT 6F - HP Vectra EX-BIOS - "F_GET_WORD" - READ WORD OF DATA FROM DEVICE</a><br />
+<a href="#6F10--BP0012"><b>6F10--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGLBDS" - INSTALL VALUES IN FIXED VECTOR</a><br />
+<a href="#6F10--BP005A"><b>6F10--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_PUT_SPRITE" - DISPLAY GRAPHICS CURSOR SPRITE</a><br />
+<a href="#6F11"><b>6F11</b> - INT 6F - 10NET - LOCK FCB</a><br />
+<a href="#6F12"><b>6F12</b> - INT 6F - 10NET - UNLOCK FCB</a><br />
+<a href="#6F12--BP0012"><b>6F12--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEOWNDS" - INSTALL VALUES IN FREE VECTOR</a><br />
+<a href="#6F12--BP005A"><b>6F12--BP005A</b> - INT 6F - HP Vectra EX-BIOS - "F_REMOVE_SPRITE" - REMOVE GRAPHICS CURSOR SPRITE</a><br />
+<a href="#6F13"><b>6F13</b> - INT 6F - 10NET v3.3+ - GET REMOTE CONFIGURATION TABLE ADDRESS</a><br />
+<a href="#6F14"><b>6F14</b> - INT 6F - 10NET v3.3+ - GET REMOTE MEMORY</a><br />
+<a href="#6F14--BP0012"><b>6F14--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGETDS" - INSTALL VALUES IN FREE VECTOR</a><br />
+<a href="#6F1501"><b>6F1501</b> - INT 6F - 10NET v3.3+ - GET SHARED DEVICE ENTRY</a><br />
+<a href="#6F1502"><b>6F1502</b> - INT 6F - 10NET v3.3+ - SET SHARED DEVICE ENTRY</a><br />
+<a href="#6F1503"><b>6F1503</b> - INT 6F - 10NET v3.3+ - DELETE SHARED DEVICE ENTRY</a><br />
+<a href="#6F16"><b>6F16</b> - INT 6F - 10NET v5.0 - "GL WHO" - ???</a><br />
+<a href="#6F16--BP0012"><b>6F16--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGLBDS" - INSTALL VALUES IN FREE VECTOR</a><br />
+<a href="#6F17"><b>6F17</b> - INT 6F - 10NET v3.3+ - MOUNT</a><br />
+<a href="#6F18"><b>6F18</b> - INT 6F - 10NET v3.3+ - UNMOUNT</a><br />
+<a href="#6F18--BP0012"><b>6F18--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIND" - FIND DRIVER BY ATTRIBUTES</a><br />
+<a href="#6F19"><b>6F19</b> - INT 6F U - 10NET v5.0 - AUDIT</a><br />
+<a href="#6F1A"><b>6F1A</b> - INT 6F U - 10NET v5.0 - "BULL" - ???</a><br />
+<a href="#6F1B"><b>6F1B</b> - INT 6F U - 10NET v5.0 - "GMOUNT" - ???</a><br />
+<a href="#6F1C"><b>6F1C</b> - INT 6F U - 10NET v5.0 - "GLOGIN" - GET LOGIN LIST</a><br />
+<a href="#6F1D"><b>6F1D</b> - INT 6F U - 10NET v5.0 - "TABDATA" - ???</a><br />
+<a href="#6F1E"><b>6F1E</b> - INT 6F U - 10NET v5.0 - "SCHED" - ???</a><br />
+<a href="#6F1E--BP0012"><b>6F1E--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_RAM_GET" - GET EX-BIOS FREE RAM AREA</a><br />
+<a href="#6F1F"><b>6F1F</b> - INT 6F U - 10NET v5.0 - "WHOAMI" - ???</a><br />
+<a href="#6F20"><b>6F20</b> - INT 6F U - 10NET v5.0 - ???</a><br />
+<a href="#6F20--BP0012"><b>6F20--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_RAM_RET" - RESERVE EX-BIOS MEMORY</a><br />
+<a href="#6F21"><b>6F21</b> - INT 6F U - 10NET v5.0 - ???</a><br />
+<a href="#6F22"><b>6F22</b> - INT 6F U - 10NET v5.0 - ???</a><br />
+<a href="#6F22--BP0012"><b>6F22--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_CMOS_GET" - READ CMOS MEMORY</a><br />
+<a href="#6F24--BP0012"><b>6F24--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_CMOS_RET" - WRITE CMOS MEMORY</a><br />
+<a href="#6F2A--BP0012"><b>6F2A--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_YIELD" - GIVE UP CPU TO OTHER TASKS</a><br />
+<a href="#6F30--BP0012"><b>6F30--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_ENABLE" - TURN ON KEYCLICKS</a><br />
+<a href="#6F32--BP0012"><b>6F32--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_DISABLE" - TURN OFF KEYCLICKS</a><br />
+<a href="#6F34--BP0012"><b>6F34--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK" - GENERATE KEYCLICK</a><br />
+<a href="#6F36--BP0012"><b>6F36--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_ENABLE" - ENABLE BEEPS</a><br />
+<a href="#6F38--BP0012"><b>6F38--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_DISABLE" - DISABLE BEEPS</a><br />
+<a href="#6F3A--BP0012"><b>6F3A--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP" - SOUND BEEP WITH CURRENT VALUES</a><br />
+<a href="#6F3C--BP0012"><b>6F3C--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_SET_BEEP" - SET BEEP FREQUENCY AND DURATION</a><br />
+<a href="#6F3E--BP0012"><b>6F3E--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_SND_TONE" - SOUND TONE WITH FREQ AND DURATION</a><br />
+<a href="#6F40--BP0012"><b>6F40--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_FREE_INDEX" - FIND FREE STRING INDEX</a><br />
+<a href="#6F42--BP0012"><b>6F42--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_STR_DEL_BUCKET" - DEL HEADER FROM BUCKET LIST</a><br />
+<a href="#6F44--BP0012"><b>6F44--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_STR_PUT_BUCKET" - ADD HEADER TO BUCKET HDR LIST</a><br />
+<a href="#6F46--BP0012"><b>6F46--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_STRING" - FIND STRING IN BUCKET LIST</a><br />
+<a href="#6F48--BP0012"><b>6F48--BP0012</b> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_INDEX" - GET INDEX FOR STRING</a><br />
+<a href="#6F636FBX6D70"><b>6F636FBX6D70</b> - INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK</a><br />
+<a href="#6F636FBX6D70_0"><b>6F636FBX6D70</b> - INT 6F - Clara Empricost - TSR Version - UNINSTALL</a><br />
+<a href="#6F80"><b>6F80</b> - INT 6F - 10NET v5.0 - LOGIN</a><br />
+<a href="#6F81"><b>6F81</b> - INT 6F - 10NET v5.0 - LOGOUT</a><br />
+<a href="#6F8A"><b>6F8A</b> - INT 6F - 10NET v5.0 - CHAT</a><br />
+<a href="#6F8D"><b>6F8D</b> - INT 6F - 10NET v5.0 - "WHO" - ENUMERATE USERS ON NETWORK</a><br />
+<a href="#6F9501"><b>6F9501</b> - INT 6F - 10NET v5.0 - GET SHARED DEVICE ENTRY</a><br />
+<a href="#6F9502"><b>6F9502</b> - INT 6F - 10NET v5.0 - SET SHARED DEVICE ENTRY</a><br />
+<a href="#6F9503"><b>6F9503</b> - INT 6F - 10NET v5.0 - DELETE SHARED DEVICE</a><br />
+<a href="#6F9504"><b>6F9504</b> - INT 6F - 10NET v5.0 - ENUMERATE USERS OF SHARED DEVICE</a><br />
+<a href="#6F99"><b>6F99</b> - INT 6F - 10NET v5.0 - AUDIT</a><br />
+<a href="#6F9C"><b>6F9C</b> - INT 6F - 10NET v5.0 - GET LOGIN LIST</a><br />
+
+<hr />
+
+<a href="#6F" name="6F"><b>6F</b></a> - INT 6F - Novell NetWare - PCOX API (3270 PC terminal interface)<br />
+<pre>
+INT 6F - Novell NetWare - PCOX API (3270 PC terminal interface)
+	AX = function
+	    0000h enter terminal mode
+		Return: AX = status
+			    0000h no action requested
+			    0001h screen save
+	    0001h reset interface and set configuration parameters
+		DX = bitfields
+		    bits 2-0: model number
+		    bits 4-3: I/O address
+		    bits 6-5: DMA channel
+		Return: nothing
+	    0002h set display parameters
+		DX = bitfields
+		    bits 1-0: OIA mode
+		    bits 4-2: monitor support
+		Return: nothing
+	    0003h read status
+		Return: AX = status word (see #03738)
+	    0004h read cursor position
+		Return: AX = cursor position
+	    0005h get character from device buffer
+		DX = cursor position
+		Return: AH = type (00h data, 01h attribute)
+			AL = data or attribute character
+	    0006h send character
+		DH = type (00h ASCII, 01h extended code)
+		DL = ASCII character or extended code
+		Return: nothing
+	    0007h set timeout
+		DX = timeout in seconds
+		Return: nothing
+	    0008h wait for location to be modified
+		DX = cursor position
+		Return: AX = status (0000h modified, nonzero timeout)
+	    0009h NOP
+	    000Ah restore display
+		Return: nothing
+	    000Bh update device buffer
+		Return: AX = cursor positoin
+	    000Ch write string to add information area
+		DS:DX -&gt; string
+		Return: nothing
+	    000Dh maintenance operations
+		DX = maintenance operation code
+		Return: AX = operation status
+	    000Eh get control program version
+		Return: AH = release number (major version)
+			AL = level number (minor version)
+	    000Fh get microcode version
+		Return: AH = release number (major version)
+			AL = level number (minor version)
+	    0010h save or display graphics
+		BX = length of data buffer
+		CX = subfunction request code
+		DS:DX -&gt; data buffer
+		Return: AX = return code
+			CX = length of PIF data
+	    0011h perform structured field operation
+		CX = request number
+		DS:DX -&gt; parameter list
+		Return: AX = status word (see #03738)
+			CX = error number
+	    0012h set cursor position for direct write buffer
+		DX = new cursor position
+		Return: AX = status word (see #03738)
+	    0013h write direct to buffer
+		DL = character to be written
+		DH = translation option
+		Return: AX = status word (see #03738)
+	    0014h write direct to buffer without echo
+		DL = character to be written
+		DH = translation option
+		Return: AX = status word (see #03738)
+	    0015h set direct write string length
+		DX = string value
+		Return: nothing
+	    0016h write string direct to buffer
+		DS:DX -&gt; string
+		Return: AX = status word (see #03738)
+	    0017h write string direct to buffer, untranslated
+		DS:DX -&gt; string
+		Return: AX = status word (see #03738)
+	    0018h get direct-write cursor position
+		Return: AX = cursor position
+	    0019h convert row/column to cursor position
+		DH = display row (1-43)
+		DL = display column (1-132)
+		Return: AX = cursor position
+	    001Ah convert cursor position to row/column
+		DX = cursor position
+		Return: AH = display row
+			AL = display column
+	    001Bh find next field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    001Ch find previous field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    001Dh find next unprotected field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    001Eh find previous unprotected field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    001Fh find next protected field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    0020h find previous protected field
+		DX = initial cursor position
+		Return: AX = field cursor position
+	    0021h masked search forward
+		DH = mask
+		DL = search pattern
+		Return: AX = cursor position or 0000h
+	    0022h masked search backward
+		DH = mask
+		DL = search pattern
+		Return: AX = cursor position or 0FFFh
+	    0023h find field length
+		DX = cursor position
+		Return: AX = field length
+	    0024h read field
+		DS:DX -&gt; buffer for field contents
+		Return: AX = status word (see #03738)
+	    0025h read screen
+		DS:DX -&gt; buffer for screen contents
+		Return: AX = status word (see #03738)
+	    0026h read buffer untranslated
+		DX = cursor position
+		Return: AX = buffer code
+			CX:BX -&gt; 3278/79 device buffer image
+	    0027h enable/disable keyboard
+		DL = new state of keyboard breaks (00h enabled, 01h disabled)
+		Return: nothing
+	    0028h select host session
+		DL = session short name
+		Return: AX = session information
+	    0029h retrieve host session name
+		AX = short name (DFT) or 0000h (not available, CUT mode)
+	    002Ah get current device buffer size
+		Return: AX = device buffer size
+			CX = segment of EAB
+	    002Bh arm modified location trigger
+		DX = cursor position
+		Return: AX = status (0000h not available, 0001h successful)
+
+Bitfields for PCOX status word:
+Bit(s)	Description	(Table 03738)
+ 0,1	cursor type
+ 2	cursor inhibited
+ 3	display inhibited
+ 4	feature step inhibited
+ 5	480-character format code
+ 6,7	unused
+ 8-10	model number (2-5)
+ 11	unit has been reset by controller (cleared after status returned)
+ 12	buffer has been written into (cleared after status returned)
+ 13	alarm has been sounded (cleared after status returned)
+ 14-15	monitor type (01 mono, 10 color, 11 hybrid)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F00" name="6F00"><b>6F00</b></a> - INT 6F - 10NET - LOGIN<br />
+<pre>
+INT 6F - 10NET - LOGIN
+	AH = 00h
+	DS:DX -&gt; login record (see #03739)
+Return: CL = security level
+	AX = status (see #03740)
+SeeAlso: AH=01h,AH=80h,INT 21/AX=4402h"10MEMMGR"
+
+Format of 10NET login record:
+Offset	Size	Description	(Table 03739)
+ 00h  8 BYTEs	user name
+ 08h  8 BYTEs	password
+ 10h 12 BYTEs	name of SuperStation
+
+(Table 03740)
+Values for 10NET status:
+ 0000h	successful
+ 01FFh	"RTO_NERR" transmit interrupt lost (time out on response)
+ 02FFh	"NET_NERR" network (hardware) error
+ 03FFh	"PAS_NERR" invalid password
+ 04FFh	"LRN_NERR" local resource not available
+ 05FFh	"SRN_NERR" server resource not available
+ 06FFh	"LNM_NERR" already logged in under different name
+ 07FFh	"LSF_NERR" login security failure (node)
+ 08FFh	"NLI_NERR" not logged in
+ 09FFh	"DIVZ_NERR" position calc error
+ 0AFFh	"NT1_NERR" receive subfunction not = send subfunction (i.e. read,write)
+ 0BFFh	"RFNC_NERR" request function not in range
+ 0CFFh	"NSFH_NERR" no more server file handle entries left
+ 0DFFh	"NFTAB_NERR" no more shared file table entries left
+ 0EFFh	"NUFH_NERR" no more user file handle entries left
+ 0FFFh	"CHAT_NERR" chat permit not on
+ 10FFh	"NSRV_NERR" not a server on request
+ 11FFh	"NOBD_NERR" no transporter board error
+ 12FFh	"STO_NERR" time out on send
+ 13FFh	"INF_NERR" item not found (spool item not on queue)
+ 14FFh	"DACS_NERR" DOS access incompatible
+ 15FFh	"RLOCK_NERR" record already locked
+ 16FFh	"IVP_NERR" invalid parameter
+ 17FFh	"RLTO_NERR" record lock time out error
+ 18FFh	"CSPL_NERR" currently spooling to named device
+ 19FFh	"DRP_NERR" dropped receive message (throttle)
+ 1AFFh	"SOPV_NERR" open sharing violation
+ 1BFFh	"NTUF_NERR" no more tuf entries left
+ 1CFFh	"NOWN_NERR" not file owner on open
+ 1DFFh	"RSEC_NERR" read security not passed
+ 1EFFh	"WSEC_NERR" write security not passed
+ 1FFFh	"GSEC_NERR" group security not passed
+ 20FFh	"SEC1_NERR" security file failure
+ 21FFh	"ACT1_NERR" activity file failure
+ 22FFh	"SPL1_NERR" spool control file failure
+ 23FFh	"NMT_NERR" device not mounted (spooling)
+ 24FFh	"RSPL_NERR" spool file has not been terminated
+ 25FFh	"DNSH_NERR" device not mounted or is not being shared
+ 26FFh	"DUP_NERR" duplicate node ID
+ 27FFh	"FNF_NERR" file not found error
+ 28FFh	"NMF_NERR" no more files
+ 29FFh	"UN_NERR" unknown internal system error
+ 2AFFh	"QCP_NERR" print queue is full or corrupted
+ 2BFFh	"IFNC_NERR" invalid function
+ 2CFFh	"IVH_NERR" invalid handle
+ 2DFFh	"TOF_NERR" too many files opened
+ 2EFFh	"PNF_NERR" path not found
+ 2FFFh	"SACT_NERR" named file is active
+---10NET v5.0+ ---
+ 30FFh	"NAK_NERR" received NAK on send (destination out of buffers)
+ 31FFh	"RENT_NERR" reentrancy in driver F_SEND
+ 32FFh	"RECV_NERR" driver could not be put in receive mode
+ 33FFh	"NRLT_NERR" no more RLTAB entries left
+ 34FFh	"DIAL_NERR" function requires an unsupported dialect
+ 35FFh	"IVD_NERR" invalid device
+ 36FFh	"NALV_NERR" netname access level violated
+ 37FFh	"NPIDNF_NERR" network path not found
+ 38FFh	"SP_NERR" server is paused
+ 39FFh	"TMNM_NERR" too many remote user names
+ 3AFFh	"DUPD_NERR" duplicate network device
+ 3BFFh	"DIU_NERR" shared device in use, can't delete
+ 3CFFh	"NNWD_NERR" network name was deleted
+ 3DFFh	"NPFS_NERR" not enough space for print file
+ 3EFFh	"NNNF_NERR" network name not found (can't find the call name)
+ 3FFFh	"NB_NERR" network busy
+ 40FFh	"NDNLE_NERR" network device no longer exists
+ 41FFh	"NBCLE_NERR" NetBIOS command limit exceeded
+ 42FFh	"FINT24_NERR" Fail on INT 24h
+ 43FFh	"PEXP_NERR" password expired
+ 44FFh	"NPUP_NERR" new password error
+ 45FFh	"MAXS_NERR" maximum allowed disk space exceeded
+ 46FFh	"TDOW_NERR" time-of-day/day-of-week error
+SeeAlso: #03767
+Index:	error codes;10Net|10Net;error codes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F00_0" name="6F00_0"><b>6F00</b></a> - INT 6F - HP Vectra EX-BIOS - "F_ISR" (internal) - RESPOND TO LOGICAL ISR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_ISR" (internal) - RESPOND TO LOGICAL ISR
+	AH = 00h
+	BP = ID for driver (see #03741)
+	DH = data type (see #03742)
+	DL = physical device driver's index (driver ID / 6)
+	BX,CX = data
+	ES:0000h -&gt; physical device's Describe Record (see #03749)
+	---keypress event data---
+	    BH = keyboard state (only if bit 5 of DH set) (see #03743)
+	    BL = scancode (if bit 4 of DH clear)
+	    CX = number of scancodes in list (if bit 4 of DH set)
+	    ES:SI -&gt; scancode list (if bit 4 of DH set)
+	---motion event data---
+	    BX = new X position (abs device) or X increment (relative device)
+	    CX = new Y position (abs device) or Y increment (relative device)
+	---button event data
+	    BL = button information
+		bits 15-8 reserved
+		bit 7: button state (0 = down, 1 = up)
+		bits 6-0: button number (0-7)
+	    BH = reserved
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	---if device is keyboard translator---
+	    BL = translated scancode
+	    BH = new keyboard state (if DH bit 5 set) (see #03743)
+	    DH = new scancode type (see #03742)
+Notes:	INT 6F corresponds to IRQ23 on the original HP Vectra AT, which is
+	  unavailable because of its use as a BIOS extension software interrupt
+	the INT 6F handler consists of an instruction to load DS with the
+	  driver's data segment followed by an indexed far jump using BP to
+	  select the destination vector; since the interrupt handler is
+	  located immediately following the dispatch table, the HP_VECTOR_TABLE
+	  may be found by looking at offset 0000h in the INT 6F segment, and
+	  its size is equal to the offset of the interrupt handler
+	each entry in the HP_VECTOR table consists of a DWORD for the driver's
+	  entry point address and a WORD for the driver's data segment
+	this function is not user-callable, as it is a response to a physical
+	  event, and assumes that the caller has already handled the physical
+	  interrupt and updated the Describe Record (see #03749) to reflect
+	  the event
+SeeAlso: INT 6C"HP Vectra",INT 6F/AX=0200h"HP Vectra"
+
+(Table 03741)
+Values for HP Vectra EX-BIOS driver ID:
+ 0000h	V_SCOPY (null driver, but DS value points at system copyright string)
+ 0006h	V_DOLITTLE (null driver)
+ 000Ch	V_PNULL (null driver)
+ 0012h	V_SYSTEM
+ 0018h	reserved
+ 001Eh	V_S8259
+ 0024h	reserved
+ 002Ah	V_SINPUT
+ 0030h	reserved
+ 0036h	V_QWERTY (keyboard translator)
+ 003Ch	V_SOFTKEY (keyboard translator)
+ 0042h	V_FUNCTION (keyboard translator)
+ 0048h	V_NUMPAD (keyboard translator)
+ 004Eh	V_CCP (keyboard translator)
+ 0054h	V_SVIDEO
+ 005Ah	V_STRACK
+ 0060h	V_EVENT_TOUCH
+ 0066h	V_EVENT_TABLET
+ 006Ch	V_EVENT_POINTER
+ 0072h	reserved
+ 0078h	reserved
+ 007Eh	reserved
+ 0084h	reserved
+ 008Ah	V_CCPCUR (keyboard translator)
+ 0090h	V_RAW (keyboard translator)
+ 0096h	V_CCPNUM (keyboard translator)
+ 009Ch	V_OFF (keyboard translator)
+ 00A2h	V_CCPGID (translator: cursor control pad keys to GID data)
+ 00A8h	V_SKEY2FKEY (keyboard translator)
+ 00AEh	V_8041
+ 00B4h	V_PGID_CCP
+ 00BAh	C_LTABLET
+ 00C0h	V_LPOINTER (pointing device: mouse, etc.)
+ 00C6h	V_LTOUCH (touch screen)
+ 00CCh	V_LHPMOUSE
+ 00D2h	???
+ ...
+ 0102h	???
+ 0108h	V_LNULL
+ 010Eh	reserved
+ 0114h	V_HPHIL
+ 011Ah-01C2h reserved
+ 016Eh	V_SCANDOOR (scancode management chip driver) (ES/QS/RS only)
+ 01C8h-0228h available
+
+(Table 03742)
+Values for HP Vectra EX-BIOS ISR data type:
+ 00h	reserved "T_KC_R0"
+ 01h	reserved "T_KC_R1"
+ 02h	ASCII data
+ 03h	reserved "T_KC_R3"
+ 04h	HP150 keyboard (ITF) scancode
+ 05h	reserved "T_KC_R5"
+ 06h	device-definable type
+ 07h	HP Vectra keyboard set
+ 08h	IBM AT scancode set
+ 09h	button data
+ 0Ah	IBM PC scancode set
+ 0Bh	Softkey keypad (F1-F8)
+ 0Ch	function key keypad (F1-F10)
+ 0Dh	HP Cursor Control Pad keypad
+ 0Eh	Qwerty keypad
+ 0Fh	Numeric keypad
+ 1xh	bit 4 set: string of CX scancode of type 0xh at ES:SI
+ 2xh	bit 5 set: BH contains current keyboard state
+ 40h	signed 8-bit relative data
+ 41h	signed 16-bit relative data
+ 42h	unsigned 8-bit absolute data
+ 43h	unsigned 16-bit absolute data
+ 45h	specially-formed data (80x25) generated by V_LTOUCH
+ 46h	specially-formed data (640x200) generated by V_LTABLET
+ 47h	specially-formed data (640x200) generated by V_LPOINTER
+
+Bitfields for HP Vectra EX-BIOS keyboard state:
+Bit(s)	Description	(Table 03743)
+ 0	Alt pressed
+ 1	Left Shift pressed
+ 2	Right Shift pressed
+ 3	Ctrl pressed
+ 4	CapsLock active
+ 5	NumLock active
+ 6	Right unlabeled key pressed (some international keyboards)
+ 7	Left unlabeled key pressed (some international keyboards)
+SeeAlso: #00582
+
+(Table 03744)
+Values for HP Vectra EX-BIOS status:
+ 00h	successful
+ 02h	unsupported function
+ 04h	not serviced
+ 06h	done (no further processing should be performed on the ISR event)
+ F2h	device is out of paper
+ F4h	device is offline
+ F6h	no more space for more drivers
+ F8h	driver is busy
+ FAh	bad parameter
+ FEh	operation failed
+Note:	status codes are always even; negative values (&gt;= 80h) indicate errors
+	  while positive values indicate exceptional conditions
+
+Format of HP EX-BIOS driver header data:
+Offset	Size	Description	(Table 03745)
+ 00h	WORD	driver attributes (see #03746)
+ 02h	WORD	string index of driver's name
+ 04h	WORD	driver's default logical device vector (see #03741)
+ 06h	WORD	driver's parent class (bitset) (see #03747)
+ 08h	WORD	driver's child class (bitset)
+ 0Ah	WORD	driver's parent vector
+ 0Ch	WORD	driver's child vector
+ 0Eh	BYTE	major subaddress
+ 0Fh	BYTE	minor subaddress
+Notes:	this structure is located at offset 0 in the driver's data segment,
+	  which in turn may be read from the HP_VECTOR_TABLE (refer to note in
+	  main entry)
+	only the first WORD is required, and everything from offset 6 onward
+	  is only required if the device wishes to perform device mapping
+SeeAlso: #03748,#03749
+
+Bitfields for HP EX-BIOS driver header attributes:
+Bit(s)	Description	(Table 03746)
+ 15	this is a complete driver header
+ 14	"ATR_DEVCFG" reserved
+ 13	driver can be mapped with the parent vector at offset 0Ah
+ 12	driver can be mapped with the child vector at offset 0Ch
+ 11-9	driver type
+	000 reserved vector
+	001 free vector
+	010 EX-BIOS service
+	011 logical driver (mapped from parent to child)
+	100 mappable driver (cannot be last in driver chain)
+	101 mappable driver that is last in driver chain
+	110 input driver (mappable)
+	111 reserved
+ 8	"ATR_STRING" reserved
+ 7	call SF_START whenever driver is remapped
+ 6-5	addressing requirements
+	00 no subaddresses required
+	01 requires major address be stored at offset 0Eh
+	10 requires minor address be stored at offset 0Fh
+	11 required major,minor, and mid addresses (minor in low nybble of
+	      offset 0Fh, mid address in high nybble of 0Fh)
+ 4	driver can be shared between several parent drivers
+ 3	driver can be shared between several child drivers
+ 2	this driver header is in ROM
+ 1	"ATR_YIELD" reserved
+ 0	reserved
+SeeAlso: #03745,#03747
+
+Bitfields for HP EX-BIOS driver class:
+Bit(s)	Description	(Table 03747)
+ 15	maps F1 to F8 softkeys
+ 14	keyboard
+ 13	cursor pad
+ 12	console device
+ 11	serial output device (may be capable of limited input)
+ 10	"CL_COMM" reserved
+ 9	interfaces multiple resources transparent to operating system
+ 8	serial output device filter (can be mapped between logical and physical
+	  driver to perform translations)
+ 7	addressed block device
+ 6	priority boot device
+ 5	logical graphics input device
+ 4	physical graphics input device (can map to child of another driver)
+ 3	"CL_GID" can map to an event
+ 2	physical touch device
+ 1	reserved
+ 0	class extension bit
+Note:	special values: FFFFh maps to all other devices (V_PNULL), and 0000h
+	  maps to no other driver
+SeeAlso: #03745
+
+Format of HP EX-BIOS global data area:
+Offset	Size	Description	(Table 03748)
+ 00h 20 BYTEs	reserved
+ 14h	BYTE	sound driver status
+ 15h	BYTE	number of pending key clicks (max 4) (see AH=34h/BP=0012h)
+ 16h	BYTE	current tick duration scaling factor
+ 17h	BYTE	current key click volume
+ 18h	WORD	current beep period (10 us increments) (see AH=3Ch/BP=0012h)
+ 1Ah	WORD	current beep duration (10 us increments)
+ 1Ch	BYTE	number of pending beep functions (max 4) (see AH=3Ah/BP=0012h)
+ 1Dh	BYTE	reserved
+ 1Eh	WORD	next unused string index number
+ 20h	...	reserved
+SeeAlso: #03745
+
+Format of HP EX-BIOS Driver Describe Record:
+Offset	Size	Description	(Table 03749)
+ 00h 16 BYTEs	EX-BIOS driver header data (see #03745)
+ 10h	BYTE	device GID type
+		bits 7-4: device type
+		bits 3-0: physical device link address
+ 11h	BYTE	physical device ID (see #03751)
+ 12h	WORD	logical device status bits (see #03750)
+ 14h	BYTE	physical device vector number (driver ID / 6)
+ 15h	BYTE	maximum number of axes reported (0-2)
+ 16h	BYTE	device class
+		bits 7-4: current class
+		bits 3-0: default class
+ 17h	BYTE	number of buttons/prompts
+		bits 7-4: number of prompts
+		bits 3-0: number of buttons
+ 18h	BYTE	reserved
+ 19h	BYTE	(physical devices only) maximum output burst length
+ 1Ah	BYTE	(physical devices only) number of write registers
+ 1Bh	BYTE	(physical devices only) number of read registers
+ 1Ch	BYTE	button transition flags (bit 0 = button0, etc.)
+ 1Dh	BYTE	current button states (bit 0 = button0, etc.)
+ 1Eh	WORD	device resolution
+ 20h	WORD	maximum x-axis count
+ 22h	WORD	maximum y-axis count
+ 24h	WORD	X position data for absolute devices
+ 26h	WORD	Y position data for absolute devices
+ 28h	WORD	X delta for relative devices
+ 2Ah	WORD	Y delta for relative devices
+ 2Ch	WORD	(logical devices only) X-axis scaling accumulator
+		(fraction of one logical unit)
+ 2Eh	WORD	(logical devices only) Y-axis scaling accumulator
+		(fraction of one logical unit)
+
+Bitfields for HP logical device status flags:
+Bit(s)	Description	(Table 03750)
+ 15-5	reserved
+ 4	event enabled
+ 3	tracking enabled
+ 2	clipping enabled
+ 1	button error occurred
+ 0	interrupt in progress
+SeeAlso: #03749
+
+(Table 03751)
+Values for HP-HIL device ID:
+ 00h-02h reserved
+ 03h	Swiss-French keyboard
+ 04h-06h reserved
+ 07h	Canadian-English keyboard
+ 08h-0Ah reserved
+ 0Bh	Italian keyboard
+ 0Ch	reserved
+ 0Dh	Dutch keyboard
+ 0Eh	Swedish keyboard
+ 0Fh	German keyboard
+ 10h-12h reserved
+ 13h	Spanish keyboard
+ 14h	reserved
+ 15h	Belgian (Flemish) keyboard
+ 16h	Finnish keyboard
+ 17h	UK keyboard
+ 18h	French-Canadian keyboard
+ 19h	Swiss-German keyboard
+ 1Ah	Nerwegian keyboard
+ 1Bh	Frensh keyboard
+ 1Ch	Danish keyboard
+ 1Dh	Katakana keyboard
+ 1Eh	Latin American-Spanish keyboard
+ 1Fh	US-American keyboard
+ 20h-2Bh reserved
+ 2Ch-2Fh tone generator
+ 30h-3Fh reserved
+ 40h-5Bh reserved (character entry)
+ 5Ch-5Fh barcode reader
+ 60h-67h reserved (relative positions)
+ 68h-6Bh mouse
+ 6Ch-6Fh trackball
+ 70h-7Fh reserved (relative positions)
+ 80h-87h reserved (absolute positions)
+ 88h-8Bh touchpad
+ 8Ch-8Fh touch screen
+ 90h-97h graphics tablet
+ 98h-9Fh reserved (absolute positions)
+ A0h-BFh compressed keyboard (91-93 keys)
+ C0h-DFh extended keyboard (107-109 keys)
+ E0h-FFh standard keyboard (85-87 keys)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F01" name="6F01"><b>6F01</b></a> - INT 6F - 10NET - LOGOFF<br />
+<pre>
+INT 6F - 10NET - LOGOFF
+	AH = 01h
+	DS:DX -&gt; superstation ID or nulls (12 bytes)
+Return: CX = number of files closed
+	AX = status (see also #03740)
+	    08FFh superstation ID not already logged in
+SeeAlso: AH=00h"10NET",AH=81h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F02" name="6F02"><b>6F02</b></a> - INT 6F - 10NET - STATUS OF NODE<br />
+<pre>
+INT 6F - 10NET - STATUS OF NODE
+	AH = 02h
+	DS:DX -&gt; 512-byte status record (see #03753)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: INT 21/AX=5E01h"10NET"
+
+(Table 03752)
+Values for 10NET station type:
+ 00h	workstation
+ 01h	superstation
+ 02h	gateway station
+ 03h	gateway active
+ 04h	logged into multiple superstations
+ 05h	reserved
+
+Format of 10NET node status record:
+Offset	Size	Description	(Table 03753)
+ 00h  8 BYTEs	user name (0 if none)
+ 08h	BYTE	station type (see #03752)
+ 09h 24 BYTEs	list of superstations logged into more than one superstation
+ 21h 12 BYTEs	node ID
+ 2Dh	WORD	message count for this station (send for user node, receive for
+		  superstations)
+---for superstations only---
+ 2Fh	WORD	drives allocated (bit 0=A:, bit 1=B:,...)
+ 31h	BYTE	user service flags (see #03754)
+ 32h	BYTE	printers allocated (bit 0=LPT1,...)
+ 33h	BYTE	number of unprinted spool files
+ 34h	BYTE	number of opened files
+ 35h	BYTE	number of logged on nodes
+ 36h	BYTE	primary drive (1=A:)
+ 37h	BYTE	reserved
+ 38h  N BYTEs	list of logged on node IDs (each 12 bytes, max 37 IDs)
+1F4h  3 BYTEs	time: sec/min/hrs
+1F7h  3 BYTEs	date: day/mon/year-1980
+
+Bitfields for 10NET user service flags:
+Bit(s)	Description	(Table 03754)
+ 7	gate
+ 6	print permit on
+ 4	SUBMIT is on
+ 3	mail waiting for node
+ 2	calendar waiting for you
+ 1	news waiting for you
+ 0	mail waiting for you
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0200" name="6F0200"><b>6F0200</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INIT" - START INITIALIZING DRIVER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INIT" - START INITIALIZING DRIVER
+	AX = 0200h
+	BP = driver ID (see #03741)
+	BX = "last-used DS" value from HP global data area (see #03748)
+Return: AH = status (see #03744)
+	BX = new "last-used DS" value
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0202h,AH=0Ch"F_INS_FIXOWNDS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0202" name="6F0202"><b>6F0202</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_START" - COMPLETE DRIVER INITIALIZ.<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_START" - COMPLETE DRIVER INITIALIZ.
+	AX = 0202h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0204h"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0204" name="6F0204"><b>6F0204</b></a> - INT 6F C - MS Windows 3.0 - DOS APPLICATION SWITCH HOOK<br />
+<pre>
+INT 6F C - MS Windows 3.0 - DOS APPLICATION SWITCH HOOK
+	AX = 0204h
+Return: AX = status
+	    0000h switch is allowed
+	    other switch not allowed
+Note:	intercepting this call will allow a DOS application to ensure that
+	  Windows will not switch away from it.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0204_0" name="6F0204_0"><b>6F0204</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_REPORT_STATE" - GET DRIVER STATE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_REPORT_STATE" - GET DRIVER STATE
+	AX = 0204h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	DX = device state from Logical Describe Record (see #03749,#03755)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0206h"HP Vectra"
+
+Bitfields for HP Vectra V_HPHIL driver state:
+Bit(s)	Description	(Table 03755)
+ 0	link configuration in progress
+ 1	reserved
+ 2	no devices attached
+ 3	general failure
+ 4,5	reserved
+ 6	HP-HIL driver open
+ 7	reserved
+ 8	link has been reconfigured
+ 9	error during output request
+ 10	reserved
+ 11	output request complete
+ 12	timeout
+ 13-15	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0206" name="6F0206"><b>6F0206</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_VERSION_DESC" - GET DRIVER VERSION<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_VERSION_DESC" - GET DRIVER VERSION
+	AX = 0206h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BX = driver release date code
+	    (BL = BCD years since 1960, BH = BCD week number within year)
+	CX = length of version string
+	ES:DI -&gt; version string
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0204h"HP Vectra",AX=0208h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0208" name="6F0208"><b>6F0208</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_DEF_ATTR" - RESET TO DEFAULT ATTR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_DEF_ATTR" - RESET TO DEFAULT ATTR
+	AX = 0208h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=020Ah,AX=020Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F020A" name="6F020A"><b>6F020A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_GET_ATTR" - GET CURRENT ATTRIBUTES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_GET_ATTR" - GET CURRENT ATTRIBUTES
+	AX = 020Ah
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BX,CX = current attributes
+	BP,DS destroyed
+	---for V_LTOUCH, V_LPOINTER---
+	    BX = logical width
+	    CX = logical height
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F020C" name="6F020C"><b>6F020C</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_SET_ATTR" - SET DEVICE ATTRIBUTES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_SET_ATTR" - SET DEVICE ATTRIBUTES
+	AX = 020Ch
+	BP = driver ID (see #03741)
+	BX,CX = new attributes
+	---for V_LTOUCH, V_LPOINTER---
+	    BX = new logical width
+	    CX = new logical height
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F020E" name="6F020E"><b>6F020E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_OPEN" - RESERVE DRIVER FOR ACCESS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_OPEN" - RESERVE DRIVER FOR ACCESS
+	AX = 020Eh
+	BP = driver ID (see #03741) for V_HPHIL, others
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	place device in open state, which allows output to the device
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=0210h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0210" name="6F0210"><b>6F0210</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_CLOSE" - RELEASE DRIVER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_CLOSE" - RELEASE DRIVER
+	AX = 0210h
+	BP = driver ID (see #03741) for V_HPHIL, others
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	place device in closed state, which disallows output to the device
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0212" name="6F0212"><b>6F0212</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TIMEOUT" - REPORT REQUESTED TIMEOUT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TIMEOUT" - REPORT REQUESTED TIMEOUT
+	AX = 0212h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	report to driver that a previously-requested timeout interval has
+	  expired
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Eh,AX=0214h,AX=0216h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0214" name="6F0214"><b>6F0214</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INTERVAL" - 60 HZ INTERVAL EXPIRED<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_INTERVAL" - 60 HZ INTERVAL EXPIRED
+	AX = 0214h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	report to driver that a previously-requested 60 Hz interval has
+	  expired
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Eh,AX=0212h,AX=0216h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0216" name="6F0216"><b>6F0216</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TEST" - PERFORM HARDWARE TEST<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SYSTEM SF_TEST" - PERFORM HARDWARE TEST
+	AX = 0216h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	---on failure---
+	CX = length of reason string
+	ES:DI -&gt; string describing error
+SeeAlso: AH=00h"HP Vectra",AX=0200h,AX=0208h,AX=020Eh,AX=0212h,AX=0214h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F03" name="6F03"><b>6F03</b></a> - INT 6F - 10NET - GET ADDRESS OF CONFIGURATION TABLE<br />
+<pre>
+INT 6F - 10NET - GET ADDRESS OF CONFIGURATION TABLE
+	AH = 03h
+	DS:DI -&gt; node ID (optional)
+Return: ES:BX -&gt; configuration table (see #03756)
+SeeAlso: AH=13h,INT 21/AX=5E01h"10NET"
+
+Format of 10NET configuration table:
+Offset	Size	Description	(Table 03756)
+-41	WORD	local device table address
+-39	WORD	extended network error mapping table address
+-37	WORD	shared device table address
+-35	WORD	mounted device table address
+-33	BYTE	receive buffer counter
+-32	BYTE	collect buffer counter
+-31	WORD	TUF address
+-29	BYTE	enable flag
+-28	BYTE	FCB keep flag
+-27	WORD	reserved
+---up to here, 10NET v3.3---
+-25	WORD	count of dropped Send6F
+-23	WORD	buffer start address
+-21	WORD	comm driver base address
+-19	WORD	send/receive retry count
+-17	BYTE	number of 550ms loops before timeout
+-16	WORD	UFH address
+-14	WORD	CDIR address
+-12	WORD	LTAB address
+-10	WORD	SFH address
+-8	WORD	FTAB address
+-6	WORD	RLTAB address
+-4	WORD	SMI address
+-2	WORD	NTAB address
+ 00h	WORD	address of first CT_DRV
+ 02h	BYTE	number of DRV entries
+ 03h  8 BYTEs	login name
+ 0Bh 12 BYTEs	node ID (blank-padded)
+ 17h  6 BYTEs	node address
+ 1Dh	BYTE	flag
+ 1Eh	BYTE	CT_CFLG (chat permit)
+		bit 1: sound bell
+		bit 0: CHAT permit
+ 1Fh	BYTE	CT_PSFLG (see #03757)
+ 20h	BYTE	in 10Net flag
+ 21h	WORD	receive message count
+ 23h	WORD	send message count
+ 25h	WORD	retry count
+ 27h	WORD	failed count
+ 29h	WORD	driver errors
+ 2Bh	WORD	dropped responses/CHATs
+ 2Dh  9 BYTEs	LIST ID/NTAB address (3 entries--LPT1-3)
+ 36h  6 BYTEs	AUX ID/NTAB address (2 entries--COM1-2)
+ 3Ch	BYTE	active CB channel
+ 3Dh	BYTE	received 6F messages on queue
+ 3Eh  9 BYTEs	activity counters for channels 1-9
+---beyond here, 10NET v3.3---
+ 47h	BYTE	bit 0: RS232 gate
+		bit 1: Send6F gate (user set)
+ 48h	DWORD	pointer into gate (user set)
+ 4Ch	DWORD	pointer into 10Net send
+ 50h  N WORDs	addresses of timer blocks
+
+Bitfields for CT_PSFLG:
+Bit(s)	Description	(Table 03757)
+ 5	PRINT permit
+ 4	KB initiated
+ 3	CHAT called FOXPTRM
+ 2	SUBMIT active
+ 1	SUBMIT received
+ 0	SUBMIT permit
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F04" name="6F04"><b>6F04</b></a> - INT 6F - 10NET - SEND<br />
+<pre>
+INT 6F - 10NET - SEND
+	AH = 04h
+	DS:BX -&gt; send record (see #03758)
+	DS:DX -&gt; data (max 1024 bytes)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AH=05h"10NET",AH=09h"10NET",AH=0Ah"10NET"
+
+Format of 10NET send record:
+Offset	Size	Description	(Table 03758)
+ 00h 12 BYTEs	receiving node's ID
+		if first byte has high-order bit set, message is directed to
+		  the CT_RGATE vector at the receiver
+		if second byte is 00h, first byte is taken as a CB
+		  channel number and delivered to all nodes on same channel
+ 0Ch	WORD	 length of data at DX
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F04--BP0012" name="6F04--BP0012"><b>6F04--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_BASEHPVT" - GET HP_VECTOR_TABLE ADDRESS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_BASEHPVT" - GET HP_VECTOR_TABLE ADDRESS
+	AH = 04h
+	BP = 0012h (driver ID for V_SYSTEM)
+Return: AH = status (see #03744)
+	ES = segment of HP_VECTOR_TABLE (see also AH=00h"HP Vectra")
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=06h"F_INS_XCHGFIX",AH=08h"F_INS_XCHGRSVD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F04--BP005A" name="6F04--BP005A"><b>6F04--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_INIT" - RESET TRACKING DRIVER TO DEFAULTS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_TRACK_INIT" - RESET TRACKING DRIVER TO DEFAULTS
+	AH = 04h
+	BP = 005Ah (driver ID for V_STRACK)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=06h"F_TRACK_ON",AH=08h"F_TRACK_OFF"
+SeeAlso: AH=0Ah"F_DEF_MASKS",AH=0Ch"F_SET_LIMITS_X"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0400" name="6F0400"><b>6F0400</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_LOCK" - RESERVE SUB-ADDRESSES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_LOCK" - RESERVE SUB-ADDRESSES
+	AX = 0400h
+	BP = driver ID (see #03741)
+	DH,DL = major,minor address (optional)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	reserve specified sub-addresses on an already-allocated driver for
+	  exclusive access
+Note:	this function is documented as present but unsupported in the drivers
+	  V_LTABLET, V_LPOINTER, and V_LTOUCH
+SeeAlso: AX=0200h"HP Vectra",AX=0402h"SF_UNLOCK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0400BP001E" name="6F0400BP001E"><b>6F0400BP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_SVC" - UNMASK 8041 SVC INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_SVC" - UNMASK 8041 SVC INT
+	AX = 0400h
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0402h"SF_DISABLE_SVC",AX=0404h"SF_ENABLE_KBD"
+SeeAlso: AX=0408h"SF_ENABLE_HPHIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0400BP002A" name="6F0400BP002A"><b>6F0400BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DEF_LINKS" - SET DEFAULT PARENTS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DEF_LINKS" - SET DEFAULT PARENTS
+	AX = 0400h
+	BP = 002Ah (driver ID for V_SINPUT)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	set the parent vectors in the physical device driver headers to their
+	  system defaults
+SeeAlso: AH=00h"HP Vectra",AX=0402h/BP=002Ah,AX=0404h/BP=002Ah
+SeeAlso: AH=06h"F_INQUIRE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0400BP0054" name="6F0400BP0054"><b>6F0400BP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_ID_HP" - INSTALLATION CHECK<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_ID_HP" - INSTALLATION CHECK
+	AX = 0400h
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BX = 4850h ('BP')
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0402h/BP=0054h,AX=0404h/BP=0054h,AX=0406h/BP=0054h
+SeeAlso: AX=0408h/BP=0054h,AX=040Ah/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0400BP00CC" name="6F0400BP00CC"><b>6F0400BP00CC</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - INIT INT 33 HANDLER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - INIT INT 33 HANDLER
+	AX = 0400h
+	BP = 00CCh (driver ID for V_LHPMOUSE)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0402h/BP=00CCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0402" name="6F0402"><b>6F0402</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_UNLOCK" - RELEASE SUB-ADDRESSES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_UNLOCK" - RELEASE SUB-ADDRESSES
+	AX = 0402h
+	BP = driver ID (see #03741)
+	DH,DL = major,minor address (optional)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	release specified sub-addresses from exclusive access
+Note:	this function is documented as present but unsupported in the drivers
+	  V_LTABLET, V_LPOINTER, and VLTOUCH
+SeeAlso: AX=0200h"HP Vectra",AX=0400h"SF_LOCK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0402BP001E" name="6F0402BP001E"><b>6F0402BP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_SVC" - MASK 8041 SVC INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_SVC" - MASK 8041 SVC INT
+	AX = 0402h
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=001Eh,AX=0406h/BP=001Eh
+SeeAlso: AX=040Ah/BP=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0402BP002A" name="6F0402BP002A"><b>6F0402BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_GET_LINKS" - GET DRIVER LINK FIELDS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_GET_LINKS" - GET DRIVER LINK FIELDS
+	AX = 0402h
+	BP = 002Ah (driver ID for V_SINPUT)
+	ES:SI -&gt; buffer for link table (see #03759)
+Return: AH = status (see #03744)
+	ES:SI buffer filled
+	BP,DS destroyed
+Desc:	get the parent and child vectors for the seven supported physical
+	  device drivers
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_DEF_LINKS",AX=0404h"SF_SET_LINKS"
+SeeAlso: AH=06h"F_INQUIRE"
+
+Format of HP Vectra EX-BIOS driver link table:
+Offset	Size	Description	(Table 03759)
+ 00h	BYTE	vector number of HP-HIL device #1's child
+ 01h	BYTE	vector number of HP-HIL device #1's parent
+	...
+ 0Ch	BYTE	vector number of HP-HIL device #7's child
+ 0Dh	BYTE	vector number of HP-HIL device #7's parent
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0402BP0054" name="6F0402BP0054"><b>6F0402BP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_INFO" - GET DISPLAY INFO<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_INFO" - GET DISPLAY INFO
+	AX = 0402h
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0400h/BP=0054h,AX=0404h/BP=0054h,AX=0406h/BP=0054h
+SeeAlso: AX=0408h/BP=0054h,AX=040Ah/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0402BP00CC" name="6F0402BP00CC"><b>6F0402BP00CC</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - FORCE INT 33 INIT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_MOUSE_COM" - FORCE INT 33 INIT
+	AX = 0402h
+	BP = 00CCh (driver ID for V_LHPMOUSE)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	set up INT 33 even if no mouse is installed
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=00CCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0404" name="6F0404"><b>6F0404</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_ON" - GRAPHICS CURSOR ON<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_ON" - GRAPHICS CURSOR ON
+	AX = 0404h
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	enables graphics cursor tracking of the logical device's movement
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_LOCK",AX=0406h"SF_TRACK_OFF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0404BP001E" name="6F0404BP001E"><b>6F0404BP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_KBD" - UNMASK 8041 OBF INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_KBD" - UNMASK 8041 OBF INT
+	AX = 0404h
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_ENABLE_SVC",AX=0406h"SF_DISABLE_KBD"
+SeeAlso: AX=0408h"SF_ENABLE_HPHIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0404BP002A" name="6F0404BP002A"><b>6F0404BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_LINKS" - SET DRIVER LINK FIELDS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_LINKS" - SET DRIVER LINK FIELDS
+	AX = 0404h
+	BP = 002Ah (driver ID for V_SINPUT)
+	ES:SI -&gt; buffer containing link table (see #03759)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	specify the parent and child vectors for the seven supported physical
+	  device drivers
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_DEF_LINKS",AX=0402h"SF_GET_LINKS"
+SeeAlso: AH=06h"F_INQUIRE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0404BP0054" name="6F0404BP0054"><b>6F0404BP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_INFO" - SET EXT-CTRL INFO<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_INFO" - SET EXT-CTRL INFO
+	AX = 0404h
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0400h/BP=0054h,AX=0402h/BP=0054h,AX=0406h/BP=0054h
+SeeAlso: AX=0408h/BP=0054h,AX=040Ah/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0406" name="6F0406"><b>6F0406</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_OFF" - GRAPHICS CURSOR OFF<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_TRACK_OFF" - GRAPHICS CURSOR OFF
+	AX = 0406h
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	disables graphics cursor tracking of the logical device's movement
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_LOCK",AX=0404h"SF_TRACK_ON"
+SeeAlso: AX=0408h"SF_CREATE_EVENT"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0406BP001E" name="6F0406BP001E"><b>6F0406BP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_KBD" - MASK 8041 OBF INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_KBD" - MASK 8041 OBF INT
+	AX = 0406h
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0402h"SF_DISABLE_SVC",AX=0404h"SF_ENABLE_KBD"
+SeeAlso: AX=040Ah"SF_DISABLE_HPHIL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0406BP0054" name="6F0406BP0054"><b>6F0406BP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_MOD_INFO" - SET EXT-CTRL REG<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_MOD_INFO" - SET EXT-CTRL REG
+	AX = 0406h
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0400h/BP=0054h,AX=0402h/BP=0054h,AX=0404h/BP=0054h
+SeeAlso: AX=0408h/BP=0054h,AX=040Ah/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0406BP0114" name="6F0406BP0114"><b>6F0406BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_RECONFIGURE" - RECONFIG LINK<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_RECONFIGURE" - RECONFIG LINK
+	AX = 0406h
+	BP = 0114h (driver ID for V_HPHIL)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=020Eh,AX=0408h"SF_CRV_WR_PROMPTS"
+SeeAlso: AX=0410h"SF_CRV_SELF_TEST"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0408" name="6F0408"><b>6F0408</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_EVENT" - SET EVENT HANDLER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_EVENT" - SET EVENT HANDLER
+	AX = 0408h
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+	ES:SI -&gt; new event handler (see AH=00h"HP Vectra")
+	DX = new handler's DS
+Return: AH = status (see #03744)
+	ES:SI -&gt; old event handler
+	DX = old handler's DS
+	BP,DS destroyed
+Desc:	specify routine to be called on logical device events
+Note:	when events occur, the event handler is called with the same registers
+	  as the "F_ISR" function on AH=00h"HP Vectra"
+SeeAlso: AH=00h"HP Vectra",AX=0400h"SF_LOCK",AX=0406h"SF_TRACK_OFF"
+SeeAlso: AX=040Ah"SF_EVENT_ON",AX=040Ch"SF_EVENT_OFF",AH=06h"F_SAMPLE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0408BP001E" name="6F0408BP001E"><b>6F0408BP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_HPHIL" - UNMASK HP-HIL INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABLE_HPHIL" - UNMASK HP-HIL INT
+	AX = 0408h
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=001Eh,AX=0404h/BP=001Eh
+SeeAlso: AX=040Ah/BP=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0408BP0054" name="6F0408BP0054"><b>6F0408BP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_RES" - GET VIDMODE RESOLUTN<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_GET_RES" - GET VIDMODE RESOLUTN
+	AX = 0408h
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0400h/BP=0054h,AX=0402h/BP=0054h,AX=0404h/BP=0054h
+SeeAlso: AX=0406h/BP=0054h,AX=040Ah/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0408BP0114" name="6F0408BP0114"><b>6F0408BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_PROMPTS" - WRITE PROMPT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_PROMPTS" - WRITE PROMPT
+	AX = 0408h
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = prompt number
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=020Eh,AX=0406h/BP=0114h,AX=040Ah/BP=0114h
+
+Bitfields for HP Vectra V_HPHIL device address indicator:
+Bit(s)	Description	(Table 03760)
+ 15-14	reserved
+ 13	address in DH is valid (must be set, clear is reserved)
+ 12	valid value in DL
+ 11-0	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040A" name="6F040A"><b>6F040A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_ON" - ENABLE EVENT HANDLER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_ON" - ENABLE EVENT HANDLER
+	AX = 040Ah
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0408h"SF_CREATE_EVENT",AX=040Ch"SF_EVENT_OFF"
+SeeAlso: AX=040Eh"SF_CLIPPING_ON"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040ABP001E" name="6F040ABP001E"><b>6F040ABP001E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_HPHIL" - MASK HP-HIL INT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISABLE_HPHIL" - MASK HP-HIL INT
+	AX = 040Ah
+	BP = 001Eh (driver ID for V_S8259)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0402h/BP=001Eh,AX=0406h/BP=001Eh
+SeeAlso: AX=0408h/BP=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040ABP0054" name="6F040ABP0054"><b>6F040ABP0054</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_MODE" - SET VIDEO MODE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_VID_SET_MODE" - SET VIDEO MODE
+	AX = 040Ah
+	BP = 0054h (driver ID for V_SVIDEO)
+	???
+Return: AH = status (see #03744)
+	BP,DS destroyed
+	???
+Note:	only partially documented
+SeeAlso: AX=0400h/BP=0054h,AX=0402h/BP=0054h,AX=0404h/BP=0054h
+SeeAlso: AX=0406h/BP=0054h,AX=0408h/BP=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040ABP00AE" name="6F040ABP00AE"><b>6F040ABP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_INTR" - CREATE INTERVAL ENTRY<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CREATE_INTR" - CREATE INTERVAL ENTRY
+	AX = 040Ah
+	BP = 00AEh (driver ID for V_8041)
+	BH = vector number of driver to be called regularly (vector addr / 6)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	add a driver to the list (max eight) of drivers which will be called
+	  by the HP's 8041 at 60 Hz
+Note:	the newly added entry will not be called until enabled with
+	  AX=040Eh/BP=00AEh
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040ABP0114" name="6F040ABP0114"><b>6F040ABP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_ACK" - ACKNOWLEDGE DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_WR_ACK" - ACKNOWLEDGE DEVICE
+	AX = 040Ah
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = acknowledge number (specific if 01h-07h, generic otherwise)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0406h/BP=0114h,AX=040Ch/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040C" name="6F040C"><b>6F040C</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_OFF" - DISABLE EVENT HANDLER<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_EVENT_OFF" - DISABLE EVENT HANDLER
+	AX = 040Ch
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0408h"SF_CREATE_EVENT",AX=040Ah"SF_EVENT_ON"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040CBP00AE" name="6F040CBP00AE"><b>6F040CBP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DELET_INTR" - DELETE INTERVAL ENTRY<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DELET_INTR" - DELETE INTERVAL ENTRY
+	AX = 040Ch
+	BP = 00AEh (driver ID for V_8041)
+	BH = vector number of driver to be removed (vector addr / 6)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	remove a driver to the list (max eight) of drivers which will be called
+	  by the HP's 8041 at 60 Hz
+SeeAlso: AH=00h"HP Vectra",AX=040Ah/BP=00AEh,AX=0410h/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040CBP0114" name="6F040CBP0114"><b>6F040CBP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPEAT" - SET KEY REPEAT RATE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPEAT" - SET KEY REPEAT RATE
+	AX = 040Ch
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = repeat rate (00h = 30 Hz, 01h = 60 Hz)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=00h"HP Vectra",AX=040Ah/BP=0114h,AX=040Eh/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040E" name="6F040E"><b>6F040E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_ON" - ENABLE CLIPPING<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_ON" - ENABLE CLIPPING
+	AX = 040Eh
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	causes the physical device's motion to be clipped to prevent overflow
+	  or underflow of the logical position
+SeeAlso: AH=00h"HP Vectra",AX=040Ah"SF_EVENT_ON",AX=0410h"SF_CLIPPING_OFF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040EBP00AE" name="6F040EBP00AE"><b>6F040EBP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABL_INTR" - START INTERRUPT SRVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_ENABL_INTR" - START INTERRUPT SRVICE
+	AX = 040Eh
+	BP = 00AEh (driver ID for V_8041)
+	BH = vector number of driver to be called regularly (vector addr / 6)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	enable 60 Hz calling of a driver previously added to the list of
+	  drivers to be called by the HP's 8041
+SeeAlso: AH=00h"HP Vectra",AX=040Ah/BP=00AEh,AX=0410h/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F040EBP0114" name="6F040EBP0114"><b>6F040EBP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_DISABLE_REPEAT" - KEY REPT OFF<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_DISABLE_REPEAT" - KEY REPT OFF
+	AX = 040Eh
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=0114h,AX=0410h/BP=0114h
+SeeAlso: AX=0416h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0410" name="6F0410"><b>6F0410</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_OFF" - DISABLE CLIPPING<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLIPPING_OFF" - DISABLE CLIPPING
+	AX = 0410h
+	BP = driver ID (see #03741) for V_LPOINTER, V_LTOUCH, V_LTABLET
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	disables clipping of the physical device's motion, which may cause
+	  overflow or underflow of the logical position
+SeeAlso: AH=00h"HP Vectra",AX=040Ah"SF_EVENT_ON",AX=040Eh"SF_CLIPPING_ON"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0410BP00AE" name="6F0410BP00AE"><b>6F0410BP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISBL_INTR" - END INTERRUPT SERVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_DISBL_INTR" - END INTERRUPT SERVICE
+	AX = 0410h
+	BP = 00AEh (driver ID for V_8041)
+	BH = vector number of driver (vector addr / 6)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	disable 60 Hz interval calls to the specified driver
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0410BP0114" name="6F0410BP0114"><b>6F0410BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_SELF_TEST" - PERFORM SELFTEST<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_SELF_TEST" - PERFORM SELFTEST
+	AX = 0410h
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	ES:SI -&gt; buffer for result
+Return: AH = status (see #03744)
+	CX = number of bytes in buffer
+	BP,DS destroyed
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=0114h,AX=0412h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0412BP00AE" name="6F0412BP00AE"><b>6F0412BP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_RAMSW" - SET RAM SWITCH IN 8041<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_RAMSW" - SET RAM SWITCH IN 8041
+	AX = 0412h
+	BP = 00AEh (driver ID for V_8041)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	sets a flag in the 8041 indicating that a second 256K bank of RAM
+	  on the motherboard is enabled
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0414h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0412BP0114" name="6F0412BP0114"><b>6F0412BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_STATUS" - GET DEVSTATUS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_STATUS" - GET DEVSTATUS
+	AX = 0412h
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	ES:SI -&gt; 15-byte buffer for status
+Return: AH = status (see #03744)
+	CX = number of bytes returned in buffer
+	BP,DS destroyed
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=00h"HP Vectra",AX=0410h/BP=0114h,AX=0414h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0414BP00AE" name="6F0414BP00AE"><b>6F0414BP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_RAMSW" - CLEAR 8041 RAM SWITCH<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_RAMSW" - CLEAR 8041 RAM SWITCH
+	AX = 0414h
+	BP = 00AEh (driver ID for V_8041)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	clears a flag in the 8041 indicating that a second 256K bank of RAM
+	  on the motherboard is enabled, causing the second bank to be disabled
+Note:	this function should normally never be called
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0418h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0414BP0114" name="6F0414BP0114"><b>6F0414BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_NAME" - GET DEV NAME<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CRV_REPORT_NAME" - GET DEV NAME
+	AX = 0414h
+	BP = 0114h (driver ID for V_HPHIL)
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	ES:SI -&gt; 15-byte buffer for name
+Return: AH = status (see #03744)
+	CX = number of bytes returned in buffer
+	BP,DS destroyed
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=00h"HP Vectra",AX=0412h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0416BP00AE" name="6F0416BP00AE"><b>6F0416BP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_CRTSW" - SET CRT TO MULTIMODE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_SET_CRTSW" - SET CRT TO MULTIMODE
+	AX = 0416h
+	BP = 00AEh (driver ID for V_8041)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	sets a flag in the 8041 indicating that the primary display is the
+	  Multimode graphics adapter (default)
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0412h/BP=00AEh,AX=0418h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0416BP0114" name="6F0416BP0114"><b>6F0416BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_REPEAT" - SET TYPEMATIC<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_REPEAT" - SET TYPEMATIC
+	AX = 0416h
+	BP = 0114h (driver ID for V_HPHIL)
+	BH = what to set (00h typematic rate, 01h delay, 02h both)
+	BL = flag (00h = non-CCP keypad, 01h = Cursor Control Pad only)
+	DL = rate
+	    bits 7-4: delay value
+	    bits 3-0: typematic rate
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=040Eh/BP=0114h,AX=0418h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0418BP00AE" name="6F0418BP00AE"><b>6F0418BP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_CRTSW" - SET CRT TO MONOCHROME<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_CLR_CRTSW" - SET CRT TO MONOCHROME
+	AX = 0418h
+	BP = 00AEh (driver ID for V_8041)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	clears a flag in the 8041, indicating that the primary display is the
+	  monochrome adapter
+SeeAlso: AH=00h"HP Vectra",AX=040Ch/BP=00AEh,AX=040Eh/BP=00AEh
+SeeAlso: AX=0414h/BP=00AEh,AX=0416h/BP=00AEh,AX=041Ah/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0418BP0114" name="6F0418BP0114"><b>6F0418BP0114</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_LED" - SET KEYBOARD LEDS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_KEYBOARD_LED" - SET KEYBOARD LEDS
+	AX = 0418h
+	BP = 0114h (driver ID for V_HPHIL)
+	BL = new LED states
+	    bit 0: scroll lock
+	    bit 1: NumLock
+	    bit 2: CapsLock
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=040Eh/BP=0114h,AX=0416h/BP=0114h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F041ABP00AE" name="6F041ABP00AE"><b>6F041ABP00AE</b></a> - INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_PASS_THRU" - SEND DATA BYTE TO 8041<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_IO_CTRL SF_PASS_THRU" - SEND DATA BYTE TO 8041
+	AX = 041Ah
+	BP = 00AEh (driver ID for V_8041)
+	BL = byte to send to 8041
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=040Ah/BP=00AEh,AX=040Eh/BP=00AEh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F05" name="6F05"><b>6F05</b></a> - INT 6F - 10NET - RECEIVE<br />
+<pre>
+INT 6F - 10NET - RECEIVE
+	AH = 05h
+	CX = number of seconds before timeout
+	DS:DX -&gt; receive buffer (see #03761)
+Return: CF clear if successful
+	    AH = FEh if dequeued message is a CB message
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AH=04h"10NET"
+
+Format of 10NET receive buffer:
+Offset	Size	Description	(Table 03761)
+ 00h 12 BYTEs	sending node's ID
+ 0Ch	WORD	length of message
+ 0Eh  N BYTEs	message (maximum 1024 bytes)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F06" name="6F06"><b>6F06</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BYTE" - WRITE A BYTE OF DATA TO DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_BYTE" - WRITE A BYTE OF DATA TO DEVICE
+	AH = 06h
+	BP = driver ID (see #03741) for V_HPHIL, others
+	AL = value to output
+	---if driver is V_HPHIL---
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = HP-HIL device register (00h-7Fh)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	output a byte to a specific HP-HIL device register
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=04h"HP Vectra",AH=08h"F_GET_BYTE",AH=0Ah"F_PUT_BUFFER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F06_0" name="6F06_0"><b>6F06</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SAMPLE" - POLL CURRENT ABSOLUTE POSITION<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SAMPLE" - POLL CURRENT ABSOLUTE POSITION
+	AH = 06h
+	BP = driver ID (see #03741) for V_LTOUCH, V_LPOINTER, V_LTABLET, etc.
+Return: AH = status (see #03744)
+	BX = current logical X position
+	CX = current logical Y position
+	DL = button transitions (bit N = button N state has changed)
+	DH = current button states (bit N = current button N state)
+	ES:0000h -&gt; logical device's Describe Record (see #03749)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=040Ah"SF_EVENT_ON",AX=040Eh"SF_CLIPPING_ON"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F06--BP0012" name="6F06--BP0012"><b>6F06--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFIX" - EXCH VALUES WITH FIXED VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFIX" - EXCH VALUES WITH FIXED VECTOR
+	AH = 06h
+	BP = 0012h (driver ID for V_SYSTEM)
+	BX = vector address
+	DX = new value for DS
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (see #03744)
+	DX = old value for DS
+	ES:DI -&gt; old CS:IP entry point
+	BP,DS destroyed
+Desc:	replace an existing EX-BIOS driver at a fixed HPVT location without
+	  initialization
+SeeAlso: AH=00h"HP Vectra",AH=04h"F_INS_BASEHPVT",AH=08h"F_INS_XCHGRSVD"
+SeeAlso: AH=0Ah"F_INS_XCHGFREE",AH=0Ch"F_INS_FIXOWNDS"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F06--BP002A" name="6F06--BP002A"><b>6F06--BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE" - GET DRIVER PHYSICAL DESCRIBE RECORD<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INQUIRE" - GET DRIVER PHYSICAL DESCRIBE RECORD
+	AH = 06h
+	BP = 002Ah (driver ID for V_SINPUT)
+	AL = HP-HIL physical device number (01h-07h)
+Return: AH = status (see #03744)
+	ES:SI -&gt; physical describe record for driver
+	BP,DS destroyed
+Note:	the returned physical describe record must not be modified
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=002Ah,AH=08h/BP=002Ah,AH=0Ah/BP=002Ah
+SeeAlso: AH=0Ch/BP=002Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F06--BP005A" name="6F06--BP005A"><b>6F06--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_ON" - ENABLE CURSOR TRACKING<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_TRACK_ON" - ENABLE CURSOR TRACKING
+	AH = 06h
+	BP = 005Ah (driver ID for V_STRACK)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=04h"F_TRACK_INIT",AH=08h"F_TRACK_OFF"
+SeeAlso: AH=0Ah"F_DEF_MASKS",AH=0Ch"F_SET_LIMITS_X"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F07" name="6F07"><b>6F07</b></a> - INT 6F - 10NET - LOCK HANDLE<br />
+<pre>
+INT 6F - 10NET - LOCK HANDLE
+	AH = 07h
+	BX = file handle
+	CX:DX = starting offset in file
+	SI = record length
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also AH=00h)
+		0002h file not found
+SeeAlso: AH=08h"10NET",AH=0Fh,INT 21/AH=5Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F08" name="6F08"><b>6F08</b></a> - INT 6F - 10NET - UNLOCK HANDLE<br />
+<pre>
+INT 6F - 10NET - UNLOCK HANDLE
+	AH = 08h
+	BX = file handle
+	AL = mode
+	    00h unlock all
+	    01h unlock record at CX:DX
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also AH=00h)
+		0002h file not found
+SeeAlso: AH=07h,AH=0Fh,INT 21/AH=5Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F08_0" name="6F08_0"><b>6F08</b></a> - INT 6F - HP Vectra EX-BIOS - "F_GET_BYTE" - READ A BYTE OF DATA FROM DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_GET_BYTE" - READ A BYTE OF DATA FROM DEVICE
+	AH = 08h
+	BP = driver ID (see #03741) for V_HPHIL (0114h), others
+	---if device is V_HPHIL---
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = HP-HIL device register (00h-7Fh)
+Return: AH = status (see #03744)
+	AL = value read from device
+	BP,DS destroyed
+Desc:	generic read-byte function; for driver V_HPHIL, retrieves the value
+	  of a specific HP-HIL device register
+Note:	this function is only available if the driver is in the open state
+	  (see AX=020Eh"SF_OPEN")
+SeeAlso: AH=06h"F_PUT_BYTE",AH=0Ah"F_PUT_BUFFER",AH=0Ch"F_GET_BUFFER"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F08--BP0012" name="6F08--BP0012"><b>6F08--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGRSVD" - EXCH VALUES WITH RESRVED VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGRSVD" - EXCH VALUES WITH RESRVED VECTOR
+	AH = 08h
+	BP = 0012h (driver ID for V_SYSTEM)
+	DX = new value for DS
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h,F6h) (see also #03744)
+	    00h successful
+		BX = vector address used
+		DX = old value for DS
+		ES:DI -&gt; old CS:IP entry point
+	BP,DS destroyed
+Desc:	exchange the supplied entry point and DS with the values in the next
+	  reserved entry in the HP_VECTOR_TABLE
+Note:	returns AH=F6h if no more reserved vectors are available
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=06h/BP=0012h,AH=0Ah/BP=0012h
+SeeAlso: AH=0Ch/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F08--BP002A" name="6F08--BP002A"><b>6F08--BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ALL" - GET DRIVER STATUS TABLE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ALL" - GET DRIVER STATUS TABLE
+	AH = 08h
+	BP = 002Ah (driver ID for V_SINPUT)
+	ES:SI -&gt; buffer for device status table (see #03762)
+Return: AH = status (see #03744)
+	ES:SI buffer filled
+	BP,DS destroyed
+Note:	the returned physical describe record must not be modified
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=002Ah,AH=06h/BP=002Ah,AH=0Ah/BP=002Ah
+SeeAlso: AH=0Ch/BP=002Ah
+
+Format of HP Vectra HP-HIL physical device status table:
+Offset	Size	Description	(Table 03762)
+ 00h	BYTE	status for HP-HIL device #1
+		bit 0: device present
+		bits 7-2 reserved
+ 01h	BYTE	device ID for HP-HIL device #1
+	...
+ 0Ch	BYTE	status for HP-HIL device #7
+ 0Dh	BYTE	device ID for HP-HIL device #7
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F08--BP005A" name="6F08--BP005A"><b>6F08--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_TRACK_OFF" - DISABLE CURSOR TRACKING<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_TRACK_OFF" - DISABLE CURSOR TRACKING
+	AH = 08h
+	BP = 005Ah (driver ID for V_STRACK)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	also removes the graphics cursor sprite from the screen
+SeeAlso: AH=00h"HP Vectra",AH=04h"F_TRACK_INIT",AH=06h"F_TRACK_ON"
+SeeAlso: AH=0Ah"F_DEF_MASKS",AH=0Ch"F_SET_LIMITS_X"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F09" name="6F09"><b>6F09</b></a> - INT 6F - 10NET - SUBMIT<br />
+<pre>
+INT 6F - 10NET - SUBMIT
+	AH = 09h
+	DS:BX -&gt; submit record (see #03763)
+SeeAlso: AH=04h"10NET"
+
+Format of 10NET submit record:
+Offset	Size	Description	(Table 03763)
+ 00h 12 BYTEs	destination node ID (must be logged in)
+ 0Ch	WORD	length+2 of following 'command line' text
+ 0Eh  N BYTEs	command line text (&lt;=100 bytes), system adds CR
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A" name="6F0A"><b>6F0A</b></a> - INT 6F - 10NET - CHAT<br />
+<pre>
+INT 6F - 10NET - CHAT
+	AH = 0Ah
+	DS:BX -&gt; control parameters (see #03764)
+	DS:DX -&gt; chat message (see #03765)
+SeeAlso: AH=04h"10NET",AH=8Ah
+
+Format of 10NET chat control parameters:
+Offset	Size	Description	(Table 03764)
+ 00h  8 BYTEs	sender ID, defaults to node's userID if nulls
+ 08h  8 BYTEs	destination user ID, 'EVERYONE' may be used
+ 10h 12 BYTEs	destination node ID
+
+Format of 10NET chat message:
+Offset	Size	Description	(Table 03765)
+ 00h	WORD	length+2 of following text
+ 02h  N BYTEs	text, max 101 bytes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A_0" name="6F0A_0"><b>6F0A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BUFFER" - WRITE A BUFFER TO DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_BUFFER" - WRITE A BUFFER TO DEVICE
+	AH = 0Ah
+	BP = driver ID (see #03741) for V_HPHIL (0114h), others
+	CX = number of bytes to write
+	ES:DI -&gt; buffer containing data
+	---if driver is V_HPHIL---
+	BX = device address indicator (see #03760)
+	DH = HP HIL device major address
+	DL = HP-HIL device register (00h-7Fh)
+Return: AH = status (see #03744)
+	CX = number of unwritten bytes left in buffer
+	BP,DS destroyed
+SeeAlso: AH=06h"F_PUT_BYTE",AH=0Ah"F_PUT_BLOCK",AH=0Ch"F_GET_BUFFER"
+SeeAlso: AH=0Eh"F_PUT_WORD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A_1" name="6F0A_1"><b>6F0A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_BLOCK" - WRITE BLOCKS TO DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_BLOCK" - WRITE BLOCKS TO DEVICE
+	AH = 0Ah
+	BP = driver ID (see #03741) for block device
+	DH = device major number
+	DL = device minor number
+	ES:DI -&gt; command block (see #03766)
+Return: AH = status (see #03744)
+	BX = operation status
+	BP,DS destroyed
+SeeAlso: AH=06h"F_PUT_BYTE",AH=0Ah"F_PUT_BUFFER",AH=0Ch"F_GET_BUFFER"
+SeeAlso: AH=0Eh"F_PUT_WORD"
+
+Format of HP Vectra F_PUT_BLOCK/F_GET_BLOCK command block:
+Offset	Size	Description	(Table 03766)
+ 00h	DWORD	data transfer address
+ 04h	WORD	number of blocks
+ 06h	DWORD	block address (some devices only use low word)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A--BP0012" name="6F0A--BP0012"><b>6F0A--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFREE" - EXCH VALUES WITH FREE VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_XCHGFREE" - EXCH VALUES WITH FREE VECTOR
+	AH = 0Ah
+	BP = 0012h (driver ID for V_SYSTEM)
+	DX = new value for DS
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h,F6h) (see also #03744)
+	    00h successful
+		BX = vector address used
+		DX = old value for DS
+		ES:DI -&gt; old CS:IP entry point
+	BP,DS destroyed
+Desc:	exchange the supplied entry point and DS with the values in the next
+	  free entry in the HP_VECTOR_TABLE
+Note:	returns AH=F6h if no more reserved vectors are available
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=06h/BP=0012h,AH=08h/BP=0012h
+SeeAlso: AH=0Ch/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A--BP002A" name="6F0A--BP002A"><b>6F0A--BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_FIRST" - GET PHYSICAL DRIVER VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_FIRST" - GET PHYSICAL DRIVER VECTOR
+	AH = 0Ah
+	BP = 002Ah (driver ID for V_SINPUT)
+Return: AH = status (see #03744)
+	BX = vector address for first HP-HIL device
+	BP,DS destroyed
+Note:	all seven HP-HIL devices use consecutive vectors in the
+	  HP_VECTOR_TABLE
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=002Ah,AH=06h/BP=002Ah,AH=08h/BP=002Ah
+SeeAlso: AH=0Ch/BP=002Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0A--BP005A" name="6F0A--BP005A"><b>6F0A--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_DEF_MASKS" - DEFINE GRAPHICS CURSOR MASKS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_DEF_MASKS" - DEFINE GRAPHICS CURSOR MASKS
+	AH = 0Ah
+	BP = 005Ah (driver ID for V_STRACK)
+	BH = width of save area in bytes
+	BL = hot-spot X coordinate
+	CH = height in scan lines
+	CL = hot-spot Y coordinate
+	ES:SI -&gt; sprite mask (screen mask followed by XOR sprite mask)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	the save area is one byte wider than the actual sprite mask; the total
+	  size of the sprite is at most 144 bytes
+SeeAlso: AH=00h"HP Vectra",AH=04h"F_TRACK_INIT",AH=08h"F_TRACK_OFF"
+SeeAlso: AH=0Ch"F_SET_LIMITS_X",AH=10h"F_PUT_SPRITE",AH=12h"F_REMOVE_SPRITE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0B" name="6F0B"><b>6F0B</b></a> - INT 6F - 10NET - LOCK SEMAPHORE, RETURN IMMEDIATELY<br />
+<pre>
+INT 6F - 10NET - LOCK SEMAPHORE, RETURN IMMEDIATELY
+	AH = 0Bh
+	AL = drive number or 0
+	ES:SI = Ethernet address or 0
+	DS:BX -&gt; 31-byte ASCIZ semaphore name
+Return: AL = status (see #03767)
+Note:	same as INT 60/AH=12h
+SeeAlso: AH=0Ch"10NET",INT 60/AH=12h
+
+(Table 03767)
+Values for 10NET status:
+ 00h	successful
+ 01h	semaphore currently locked
+ 02h	server not responding
+ 03h	invalid semaphore name
+ 04h	semaphore list is full
+ 05h	invalid drive ID
+ 06h	invalid Ethernet address
+ 07h	not logged in
+ 08h	write to network failed
+ 09h	semaphore already logged in this CPU
+SeeAlso: #03740
+Index:	error codes;10-Net|10-Net;error codes
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C" name="6F0C"><b>6F0C</b></a> - INT 6F - 10NET - UNLOCK SEMAPHORE<br />
+<pre>
+INT 6F - 10NET - UNLOCK SEMAPHORE
+	AH = 0Ch
+	AL = drive number or 0
+	ES:SI = Ethernet address or 0
+	DS:BX -&gt; 31-byte ASCIZ semaphore name
+Return: AL = status (see also #03767)
+	    01h semaphore not locked
+Note:	same as INT 60/AH=13h
+SeeAlso: AH=0Bh,INT 60/AH=13h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C_0" name="6F0C_0"><b>6F0C</b></a> - INT 6F - HP Vectra EX-BIOS - "F_GET_BUFFER" - READ A BUFFER OF DATA FROM DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_GET_BUFFER" - READ A BUFFER OF DATA FROM DEVICE
+	AH = 0Ch
+	BP = driver ID (see #03741) for V_HPHIL (0114h), others
+	CX = number of bytes or blocks to read
+	DS:SI -&gt; buffer for received data
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+SeeAlso: AH=08h"F_GET_BYTE",AH=0Ah"F_PUT_BUFFER",AH=0Ch"F_GET_BLOCK"
+SeeAlso: AH=10h"F_GET_WORD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C_1" name="6F0C_1"><b>6F0C</b></a> - INT 6F - HP Vectra EX-BIOS - "F_GET_BLOCK" - READ BLOCKS OF DATA FROM DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_GET_BLOCK" - READ BLOCKS OF DATA FROM DEVICE
+	AH = 0Ch
+	BP = driver ID (see #03741)
+	DH = device major number
+	DL = device minor number
+	ES:DI -&gt; command block (see #03766)
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BX = operation status
+	BP,DS destroyed
+SeeAlso: AH=08h"F_GET_BYTE",AH=0Ah"F_PUT_BLOCK",AH=0Ch"F_GET_BUFFER"
+SeeAlso: AH=10h"F_GET_WORD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C--BP0012" name="6F0C--BP0012"><b>6F0C--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXOWNDS" - INSTALL VALUES IN FIXED VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FIXOWNDS" - INSTALL VALUES IN FIXED VECTOR
+	AH = 0Ch
+	BP = 0012h (driver ID for V_SYSTEM)
+	BX = vector address used
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), which should return the routine's DS
+	  in BX.  If the SF_INIT call returns with error code FEh, the power-on
+	  self-test sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=06h/BP=0012h,AH=08h/BP=0012h
+SeeAlso: AH=0Eh/BP=0012h,AH=12h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C--BP002A" name="6F0C--BP002A"><b>6F0C--BP002A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ENTRY" - GET GID DRIVER ENTRY POINT<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INQUIRE_ENTRY" - GET GID DRIVER ENTRY POINT
+	AH = 0Ch
+	BP = 002Ah (driver ID for V_SINPUT)
+Return: AH = status (see #03744)
+	ES:BX -&gt; physical GID driver CS:IP
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AX=0400h/BP=002Ah,AH=06h/BP=002Ah,AH=08h/BP=002Ah
+SeeAlso: AH=0Ah/BP=002Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0C--BP005A" name="6F0C--BP005A"><b>6F0C--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_X" - SET HORIZONTAL TRACKING LIMITS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_X" - SET HORIZONTAL TRACKING LIMITS
+	AH = 0Ch
+	BP = 005Ah (driver ID for V_STRACK)
+	CX = minimum X coordinate
+	DX = maximum X coordinate
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=005Ah,AH=08h/BP=005Ah,AH=0Eh/BP=005Ah
+SeeAlso: AH=10h/BP=005Ah,AH=12h/BP=005Ah,INT 33/AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0D" name="6F0D"><b>6F0D</b></a> - INT 6F - 10NET - "WHO" - ENUMERATE USERS ON NETWORK<br />
+<pre>
+INT 6F - 10NET - "WHO" - ENUMERATE USERS ON NETWORK
+	AH = 0Dh
+	AL = type code
+	    01h return superstations only
+	    02h return non-superstations only
+	    otherwise return all
+	CX = length of data buffer
+	DS:DX -&gt; array of records to be filled (see #03768)
+Return: CL = number of records returned (responding stations)
+SeeAlso: AH=16h,AH=8Dh
+
+Format of station record:
+Offset	Size	Description	(Table 03768)
+ 00h 12 BYTEs	node ID
+ 0Ch	BYTE	station flags (see #03769)
+---if AL = 01h---
+ 0Dh	BYTE	version number
+ 0Eh	WORD	level number of 10Net software in responding node
+---if AL = 02h---
+ 0Dh  8 BYTEs	user ID
+ 15h	BYTE	version number
+ 16h	WORD	level number
+
+Bitfields for station flags:
+Bit(s)	Description	(Table 03769)
+ 1	workstation
+ 2	superstation
+ 3	xgate
+ 4	active gate
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0E" name="6F0E"><b>6F0E</b></a> - INT 6F - 10NET - SPOOL/PRINT<br />
+<pre>
+INT 6F - 10NET - SPOOL/PRINT
+	AH = 0Eh
+	DS:DX -&gt; spool/print record (see #03771)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also #03740)
+		17FFh device not mounted
+		18FFh already spooling to named device
+
+(Table 03770)
+Values for 10NET spooler operation code:
+ 0000h	initiate spool
+ 0001h	abort print
+ 0002h	close spool
+ 0003h	delete spool
+ 0004h	print
+ 0005h	get report info
+ 0006h	set chat template
+ 0007h	queue
+ 0008h	return queue
+ 0009h	queue non-spooled file for printing
+
+Format of 10NET Spool/Print record:
+Offset	Size	Description	(Table 03771)
+ 00h	WORD	operation code (see #03770)
+ 02h 11 BYTEs	file name in FCB format
+---if operation code = 00h or 06h---
+ 0Dh	BYTE	notification flags (see #03772)
+ 0Eh	BYTE	days to keep (FFh=forever)
+ 0Fh	BYTE	bits 0,1: device (1=LPT1)
+		bits 4-7: remote drive to store spool file (1=A,...)
+ 10h	WORD	length of following data area
+ 12h  N BYTEs	up to 64 bytes of description
+---if operation code = 03h---
+ 0Dh  8 BYTEs	user ID to associate with filename
+---if operation code = 04h---
+ 0Dh	WORD	block number
+ 0Fh  8 BYTEs	user ID to associate with filename
+---if operation code = 05h---
+ 0Dh	BYTE	RRN to start retrieve
+ 0Eh	BYTE	bits 0,1: local print device (LPTx)
+		bit 3: if set, return entries for all users
+ 0Fh	WORD	length of following area
+ 11h  N BYTEs	up to 1500 bytes to receive $SCNTL records returned
+---if operation code = 07h---
+ 0Dh	BYTE	queue number
+ 0Eh	BYTE	bits 0,1: local print device (LPTx)
+ 0Fh	WORD	number of bytes of test print to be done
+ 11h	BYTE	code:
+		01h print device
+		02h test print count
+		03h prn
+---if operation code = 08h---
+ 0Dh	BYTE	queue location or $SCNTL location to start access
+		returns next item for access:
+		    00h-7Fh queued items
+		    80h-FEh non-queued, non-printed items
+		    FFh	no more items
+ 0Eh	WORD	unused
+ 10h	WORD	length of following area
+ 12h  N BYTEs	up to 64 bytes to receive $SCNTL records (see #03773)
+---if operation code = 09h---
+ 0Dh  3 BYTEs	unused
+ 10h  N BYTEs	path to non-spooled file to be queued for printing
+
+Bitfields for notification flags:
+Bit(s)	Description	(Table 03772)
+ 7	queue to top
+ 6	do ID page
+ 5	no form feed
+ 4	reserved
+ 3	explicit queuing only
+ 2	notify at print completion
+ 1	notify server operator, with reply
+ 0	notify at print start
+
+Format of 10NET $SCNTL record:
+Offset	Size	Description	(Table 03773)
+ 00h  8 BYTEs	user ID
+ 08h 11 BYTEs	filename in FCB format
+ 13h  6 BYTEs	node ID
+ 19h  3 BYTEs	creation date
+ 1Ch	BYTE	notification flags (see #03772)
+ 1Dh	BYTE	retention time in days
+ 1Eh	BYTE	printing device (LPTx)
+ 1Fh  3 BYTEs	date last printed (0 = never)
+ 22h	BYTE	device containing spoolfile
+ 23h	WORD	bytes to print for test print
+ 25h	WORD	block number to start print
+ 27h	BYTE	reserved
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0E_0" name="6F0E_0"><b>6F0E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE WORD OF DATA TO DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE WORD OF DATA TO DEVICE
+	AH = 0Eh
+	BP = driver ID (see #03741)
+	DX = data word
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+SeeAlso: AH=06h"F_PUT_BYTE",AH=0Ah"F_PUT_BUFFER",AH=10h"F_GET_WORD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0E_1" name="6F0E_1"><b>6F0E</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE A WORD OF DATA<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_WORD" - WRITE A WORD OF DATA
+	AH = 0Eh
+	BP = driver ID (see #03741)
+	??? details not yet available
+Return: ???
+SeeAlso: AH=06h"HP Vectra",AH=0Ah"HP Vectra",AH=10h"HP Vectra"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0E--BP0012" name="6F0E--BP0012"><b>6F0E--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGETDS" - INSTALL VALUES IN FIXED VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGETDS" - INSTALL VALUES IN FIXED VECTOR
+	AH = 0Eh
+	BP = 0012h (driver ID for V_SYSTEM)
+	BX = vector address used
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), with the "last used DS" value in BX;
+	  the routine should adjust BX and return the new value.  If the
+	  SF_INIT call returns with error code FEh, the power-on self-test
+	  sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=06h/BP=0012h,AH=0Ch/BP=0012h
+SeeAlso: AH=10h/BP=0012h,AH=14h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0E--BP005A" name="6F0E--BP005A"><b>6F0E--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_Y" - SET VERTICAL TRACKING LIMITS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SET_LIMITS_Y" - SET VERTICAL TRACKING LIMITS
+	AH = 0Eh
+	BP = 005Ah (driver ID for V_STRACK)
+	CX = minimum Y coordinate
+	DX = maximum Y coordinate
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=005Ah,AH=08h/BP=005Ah,AH=0Ch/BP=005Ah
+SeeAlso: AH=10h/BP=005Ah,AH=12h/BP=005Ah,INT 33/AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F0F" name="6F0F"><b>6F0F</b></a> - INT 6F - 10NET v5.0 - "RM LOCK" - ???<br />
+<pre>
+INT 6F - 10NET v5.0 - "RM LOCK" - ???
+	AH = 0Fh
+	???
+Return: ???
+SeeAlso: AH=07h,AH=08h"10NET"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F10" name="6F10"><b>6F10</b></a> - INT 6F - 10NET - ATTACH/DETACH PRINTER<br />
+<pre>
+INT 6F - 10NET - ATTACH/DETACH PRINTER
+	AH = 10h
+	AL = subfunction
+	    00h initiate spooling if LPT1 is mounted
+	    01h terminate spooling if LPT1 is mounted
+SeeAlso: INT 21/AX=5D08h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F10_0" name="6F10_0"><b>6F10</b></a> - INT 6F - HP Vectra EX-BIOS - "F_GET_WORD" - READ WORD OF DATA FROM DEVICE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_GET_WORD" - READ WORD OF DATA FROM DEVICE
+	AH = 10h
+	BP = driver ID (see #03741)
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	DX = data word
+	BP,DS destroyed
+SeeAlso: AH=08h"F_GET_BYTE",AH=0Ch"F_GET_BUFFER",AH=0Eh"F_PUT_WORD"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F10--BP0012" name="6F10--BP0012"><b>6F10--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGLBDS" - INSTALL VALUES IN FIXED VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FIXGLBDS" - INSTALL VALUES IN FIXED VECTOR
+	AH = 10h
+	BP = 0012h (driver ID for V_SYSTEM)
+	BX = vector address used
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), with BX set to the EX-BIOS global
+	  data area. If the SF_INIT call returns with error code FEh, the
+	  power-on self-test sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=06h/BP=0012h
+SeeAlso: AH=0Ch/BP=0012h,AH=0Eh/BP=0012h,AH=12h/BP=0012h,AH=16h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F10--BP005A" name="6F10--BP005A"><b>6F10--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_PUT_SPRITE" - DISPLAY GRAPHICS CURSOR SPRITE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_PUT_SPRITE" - DISPLAY GRAPHICS CURSOR SPRITE
+	AH = 10h
+	BP = 005Ah (driver ID for V_STRACK)
+	BX = X coordinate
+	CX = Y coordinate
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=04h"F_TRACK_INIT",AH=08h"F_TRACK_OFF"
+SeeAlso: AH=12h"F_REMOVE_SPRITE",INT 33/AX=0004h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F11" name="6F11"><b>6F11</b></a> - INT 6F - 10NET - LOCK FCB<br />
+<pre>
+INT 6F - 10NET - LOCK FCB
+	AH = 11h
+	AL = mode
+	    01h sequential
+	    02h random
+	    03h random block
+		CX = number of records
+	DS:DX -&gt; FCB (see #01345 at INT 21/AH=0Fh)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also #03740)
+		0002h file not found
+SeeAlso: AH=12h,INT 21/AH=0Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F12" name="6F12"><b>6F12</b></a> - INT 6F - 10NET - UNLOCK FCB<br />
+<pre>
+INT 6F - 10NET - UNLOCK FCB
+	AH = 12h
+	AL = mode
+	    00h sequential
+	    01h random
+	    02h random block
+		CX = number of records
+	DS:DX -&gt; FCB (see #01345 at INT 21/AH=0Fh)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see also #03740)
+		0002h file not found
+SeeAlso: AH=11h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F12--BP0012" name="6F12--BP0012"><b>6F12--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEOWNDS" - INSTALL VALUES IN FREE VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FREEOWNDS" - INSTALL VALUES IN FREE VECTOR
+	AH = 12h
+	BP = 0012h (driver ID for V_SYSTEM)
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), which should return the routine's DS
+	  in BX.  If the SF_INIT call returns with error code FEh, the power-on
+	  self-test sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=0Ch/BP=0012h,AH=14h/BP=0012h
+SeeAlso: AH=16h/BP=0012h,AH=18h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F12--BP005A" name="6F12--BP005A"><b>6F12--BP005A</b></a> - INT 6F - HP Vectra EX-BIOS - "F_REMOVE_SPRITE" - REMOVE GRAPHICS CURSOR SPRITE<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_REMOVE_SPRITE" - REMOVE GRAPHICS CURSOR SPRITE
+	AH = 12h
+	BP = 005Ah (driver ID for V_STRACK)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=06h"F_TRACK_ON",AH=10h"F_PUT_SPRITE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F13" name="6F13"><b>6F13</b></a> - INT 6F - 10NET v3.3+ - GET REMOTE CONFIGURATION TABLE ADDRESS<br />
+<pre>
+INT 6F - 10NET v3.3+ - GET REMOTE CONFIGURATION TABLE ADDRESS
+	AH = 13h
+	DS:DX -&gt; node ID, 12 bytes blank-padded
+Return: CF clear if successful
+	    ES:BX = configuration table address on given machine
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AH=03h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F14" name="6F14"><b>6F14</b></a> - INT 6F - 10NET v3.3+ - GET REMOTE MEMORY<br />
+<pre>
+INT 6F - 10NET v3.3+ - GET REMOTE MEMORY
+	AH = 14h
+	BX:SI = address of remote memory
+	CX = length (&lt;=1024 bytes)
+	DS:DX -&gt; node ID, 12 bytes blank-padded
+	DS:DI -&gt; area to receive remote memory image
+Return: CF clear if successful
+	    CX = amount of memory copied to DS:SI
+	CF set on error
+	    AX = error code (see #03740)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F14--BP0012" name="6F14--BP0012"><b>6F14--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGETDS" - INSTALL VALUES IN FREE VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGETDS" - INSTALL VALUES IN FREE VECTOR
+	AH = 14h
+	BP = 0012h (driver ID for V_SYSTEM)
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), with the "last used DS" value in BX;
+	  the routine should adjust BX and return the new value.  If the
+	  SF_INIT call returns with error code FEh, the power-on self-test
+	  sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=0Eh/BP=0012h,AH=12h/BP=0012h
+SeeAlso: AH=16h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1501" name="6F1501"><b>6F1501</b></a> - INT 6F - 10NET v3.3+ - GET SHARED DEVICE ENTRY<br />
+<pre>
+INT 6F - 10NET v3.3+ - GET SHARED DEVICE ENTRY
+	AX = 1501h
+	BX = zero-based index
+	DS:SI -&gt; node ID, 12 bytes blank-padded
+	ES:DI -&gt; 85-byte buffer for shared device table entry (see #03774)
+Return: CF clear if successful
+	    ES:DI buffer contains shared device table entry of BXth device
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AX=1502h,AX=1503h,AX=9501h
+
+Format of 10NET shared device table entry:
+Offset	Size	Description	(Table 03774)
+ 00h  8 BYTEs	device
+ 08h  8 BYTEs	alias
+ 10h 64 BYTEs	path
+ 50h  8 BYTEs	password
+ 58h	BYTE	access
+ 59h  4 BYTEs	mask
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1502" name="6F1502"><b>6F1502</b></a> - INT 6F - 10NET v3.3+ - SET SHARED DEVICE ENTRY<br />
+<pre>
+INT 6F - 10NET v3.3+ - SET SHARED DEVICE ENTRY
+	AX = 1502h
+	DS:SI -&gt; node ID, 12 bytes blank-padded
+	ES:DI -&gt; valid shared device table entry
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AX=1501h,AX=1503h,AX=9502h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1503" name="6F1503"><b>6F1503</b></a> - INT 6F - 10NET v3.3+ - DELETE SHARED DEVICE ENTRY<br />
+<pre>
+INT 6F - 10NET v3.3+ - DELETE SHARED DEVICE ENTRY
+	AX = 1503h
+	BX = zero-based index
+	DS:SI -&gt; node ID, 12 bytes blank-padded
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AX=1501h,AX=1502h,AX=9503h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F16" name="6F16"><b>6F16</b></a> - INT 6F - 10NET v5.0 - "GL WHO" - ???<br />
+<pre>
+INT 6F - 10NET v5.0 - "GL WHO" - ???
+	AH = 16h
+	???
+Return: ???
+SeeAlso: AH=0Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F16--BP0012" name="6F16--BP0012"><b>6F16--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGLBDS" - INSTALL VALUES IN FREE VECTOR<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FREEGLBDS" - INSTALL VALUES IN FREE VECTOR
+	AH = 16h
+	BP = 0012h (driver ID for V_SYSTEM)
+	ES:DI -&gt; new CS:IP entry point
+Return: AH = status (00h) (see #03744 at INT 6F/AH=00h"HP Vectra")
+	BP,DS destroyed
+Note:	on installation, the given entry point will be invoked with an SF_INIT
+	  call (see AX=0200h"SF_INIT"), with BX set to the EX-BIOS global
+	  data area.  If the SF_INIT call returns with error code FEh, the
+	  power-on self-test sequence will be called.
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=10h/BP=0012h,AH=12h/BP=0012h
+SeeAlso: AH=14h/BP=0012h,AH=18h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F17" name="6F17"><b>6F17</b></a> - INT 6F - 10NET v3.3+ - MOUNT<br />
+<pre>
+INT 6F - 10NET v3.3+ - MOUNT
+	AH = 17h
+	AL = local drive number (0=A:)
+	BL = remote drive letter or '1'..'3' for LPTn or '4' or '5' for COMx
+	DS:DX -&gt; node ID, 12 bytes blank-padded
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AH=18h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F18" name="6F18"><b>6F18</b></a> - INT 6F - 10NET v3.3+ - UNMOUNT<br />
+<pre>
+INT 6F - 10NET v3.3+ - UNMOUNT
+	AH = 18h
+	AL = local drive number (0=A:)
+	BL = type
+	    00h	    disk
+	    01h-03h LPTn
+	    04h,05h COMx
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #03740)
+SeeAlso: AH=17h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F18--BP0012" name="6F18--BP0012"><b>6F18--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_INS_FIND" - FIND DRIVER BY ATTRIBUTES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_INS_FIND" - FIND DRIVER BY ATTRIBUTES
+	AH = 18h
+	BP = 0012h (driver ID for V_SYSTEM)
+	AL = sense of test (00h equal, 02h non-equal)
+	BX = AND mask
+	DX = pattern
+	SI = first vector address to search
+	DI = offset in HP header of field to test
+Return: AH = status (00h,FEh) (see #03744 at INT 6F/AH=00h"HP Vectra")
+	BP,DS destroyed
+	---if AH=00h---
+	SI = first matching vector address
+Desc:	compare successive drivers' header fields starting at address SI
+	  until the header field AND BX is either equal or non-equal to DX
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=0Ch/BP=0012h,AH=10h/BP=0012h
+SeeAlso: AH=12h/BP=0012h,AH=16h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F19" name="6F19"><b>6F19</b></a> - INT 6F U - 10NET v5.0 - AUDIT<br />
+<pre>
+INT 6F U - 10NET v5.0 - AUDIT
+	AH = 19h
+	???
+Return: ???
+SeeAlso: AH=99h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1A" name="6F1A"><b>6F1A</b></a> - INT 6F U - 10NET v5.0 - "BULL" - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - "BULL" - ???
+	AH = 1Ah
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1B" name="6F1B"><b>6F1B</b></a> - INT 6F U - 10NET v5.0 - "GMOUNT" - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - "GMOUNT" - ???
+	AH = 1Bh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1C" name="6F1C"><b>6F1C</b></a> - INT 6F U - 10NET v5.0 - "GLOGIN" - GET LOGIN LIST<br />
+<pre>
+INT 6F U - 10NET v5.0 - "GLOGIN" - GET LOGIN LIST
+	AH = 1Ch
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1D" name="6F1D"><b>6F1D</b></a> - INT 6F U - 10NET v5.0 - "TABDATA" - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - "TABDATA" - ???
+	AH = 1Dh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1E" name="6F1E"><b>6F1E</b></a> - INT 6F U - 10NET v5.0 - "SCHED" - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - "SCHED" - ???
+	AH = 1Eh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1E--BP0012" name="6F1E--BP0012"><b>6F1E--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_RAM_GET" - GET EX-BIOS FREE RAM AREA<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_RAM_GET" - GET EX-BIOS FREE RAM AREA
+	AH = 1Eh
+	BP = 0012h (driver ID for V_SYSTEM)
+Return: AH = status (00h) (see #03744 at INT 6F/AH=00h"HP Vectra")
+	BX = last-used DS
+	DX = maximum DS
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=04h/BP=0012h,AH=20h/BP=0012h,AH=22h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F1F" name="6F1F"><b>6F1F</b></a> - INT 6F U - 10NET v5.0 - "WHOAMI" - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - "WHOAMI" - ???
+	AH = 1Fh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F20" name="6F20"><b>6F20</b></a> - INT 6F U - 10NET v5.0 - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - ???
+	AH = 20h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F20--BP0012" name="6F20--BP0012"><b>6F20--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_RAM_RET" - RESERVE EX-BIOS MEMORY<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_RAM_RET" - RESERVE EX-BIOS MEMORY
+	AH = 20h
+	BP = 0012h (driver ID for V_SYSTEM)
+	BX = new value for "last-used DS"
+	DX = new value for "maximum DS"
+Return: AH = status (00h) (see #03744 at INT 6F/AH=00h"HP Vectra")
+	BP,DS destroyed
+Note:	the F_INS_FIXGETDS and F_INS_FREEGETDS functions
+	  (see AH=0Eh/BP=0012h,AH=14h/BP=0012h) also modify the values returned
+	  by this call, requiring care if both methods are used to allocate
+	  memory
+SeeAlso: AH=00h"HP Vectra",AH=0Eh/BP=0012h,AH=14h/BP=0012h,AH=1Eh/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F21" name="6F21"><b>6F21</b></a> - INT 6F U - 10NET v5.0 - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - ???
+	AH = 21h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F22" name="6F22"><b>6F22</b></a> - INT 6F U - 10NET v5.0 - ???<br />
+<pre>
+INT 6F U - 10NET v5.0 - ???
+	AH = 22h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F22--BP0012" name="6F22--BP0012"><b>6F22--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_CMOS_GET" - READ CMOS MEMORY<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_CMOS_GET" - READ CMOS MEMORY
+	AH = 22h
+	BP = 0012h (driver ID of V_SYSTEM)
+	BL = address of CMOS byte to read
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	AL = byte read
+	BP,DS destroyed
+Note:	supported by ES, QS, and RS series HP Vectras
+SeeAlso: AH=00h"HP Vectra",AH=1Eh/BP=0012h,AH=24h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F24--BP0012" name="6F24--BP0012"><b>6F24--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_CMOS_RET" - WRITE CMOS MEMORY<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_CMOS_RET" - WRITE CMOS MEMORY
+	AH = 24h
+	BP = 0012h (driver ID of V_SYSTEM)
+	BL = address of CMOS byte to write
+	AL = new value
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	updates the CMOS checksum fields (both IBM-standard and HP checksums)
+SeeAlso: AH=00h"HP Vectra",AH=22h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F2A--BP0012" name="6F2A--BP0012"><b>6F2A--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_YIELD" - GIVE UP CPU TO OTHER TASKS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_YIELD" - GIVE UP CPU TO OTHER TASKS
+	AH = 2Ah
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Note:	this is a hook for multitasking systems
+SeeAlso: AH=00h"HP Vectra",INT 15/AX=1000h,INT 2F/AX=1680h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F30--BP0012" name="6F30--BP0012"><b>6F30--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_ENABLE" - TURN ON KEYCLICKS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_ENABLE" - TURN ON KEYCLICKS
+	AH = 30h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+Desc:	enables keyclicks and flushes any pending keyclicks
+SeeAlso: AH=32h/BP=0012h,AH=34h/BP=0012h,AH=36h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F32--BP0012" name="6F32--BP0012"><b>6F32--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_DISABLE" - TURN OFF KEYCLICKS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK_DISABLE" - TURN OFF KEYCLICKS
+	AH = 32h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	disables keyclicks and flushes any pending keyclicks
+SeeAlso: AH=00h"HP Vectra",AH=30h/BP=0012h,AH=38h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F34--BP0012" name="6F34--BP0012"><b>6F34--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK" - GENERATE KEYCLICK<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_CLICK" - GENERATE KEYCLICK
+	AH = 34h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+Desc:	generate a keyclick if fewer than four clicks are already pending
+Note:	if keyclicks are already pending, the remaining click count is
+	  incremented and the function returns immediately
+SeeAlso: AH=00h"HP Vectra",AH=30h/BP=0012h,AH=36h/BP=0012h,AH=3Ah/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F36--BP0012" name="6F36--BP0012"><b>6F36--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_ENABLE" - ENABLE BEEPS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_ENABLE" - ENABLE BEEPS
+	AH = 36h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=30h/BP=0012h,AH=34h/BP=0012h,AH=38h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F38--BP0012" name="6F38--BP0012"><b>6F38--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_DISABLE" - DISABLE BEEPS<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP_DISABLE" - DISABLE BEEPS
+	AH = 38h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=32h/BP=0012h,AH=36h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F3A--BP0012" name="6F3A--BP0012"><b>6F3A--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP" - SOUND BEEP WITH CURRENT VALUES<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_BEEP" - SOUND BEEP WITH CURRENT VALUES
+	AH = 3Ah
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+Desc:	make a sound of the frequency and duration defined in the EX-BIOS
+	  global data area (see #03748)
+SeeAlso: AH=00h"HP Vectra",AH=34h/BP=0012h,AH=36h/BP=0012h,AH=38h/BP=0012h
+SeeAlso: AH=3Ch/BP=0012h,AH=3Eh/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F3C--BP0012" name="6F3C--BP0012"><b>6F3C--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_SET_BEEP" - SET BEEP FREQUENCY AND DURATION<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_SET_BEEP" - SET BEEP FREQUENCY AND DURATION
+	AH = 3Ch
+	BP = 0012h (driver ID of V_SYSTEM)
+	BX = frequency in Hz (1-25000, 0 = off)
+	DX = duration in 10-microsecond increments
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=3Ah/BP=0012h,AH=3Eh/BP=0012h,#03748
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F3E--BP0012" name="6F3E--BP0012"><b>6F3E--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_SND_TONE" - SOUND TONE WITH FREQ AND DURATION<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_SND_TONE" - SOUND TONE WITH FREQ AND DURATION
+	AH = 3Eh
+	BP = 0012h (driver ID of V_SYSTEM)
+	BX = frequency in Hz (1-25000, 0 = off)
+	DX = duration in 10-microsecond increments
+Return: AH = status (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=3Ah/BP=0012h,AH=3Ch/BP=0012h,AH=40h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F40--BP0012" name="6F40--BP0012"><b>6F40--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_FREE_INDEX" - FIND FREE STRING INDEX<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_STR_GET_FREE_INDEX" - FIND FREE STRING INDEX
+	AH = 40h
+	BP = 0012h (driver ID of V_SYSTEM)
+Return: AH = status (see #03744)
+	BX = next free string index
+	BP,DS destroyed
+Desc:	get the next string index available to user programs
+SeeAlso: AH=00h"HP Vectra",AH=42h/BP=0012h,AH=44h/BP=0012h,AH=46h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F42--BP0012" name="6F42--BP0012"><b>6F42--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_STR_DEL_BUCKET" - DEL HEADER FROM BUCKET LIST<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_STR_DEL_BUCKET" - DEL HEADER FROM BUCKET LIST
+	AH = 42h
+	BP = 0012h (driver ID of V_SYSTEM)
+	ES:DI -&gt; bucket header (see #03775)
+Return: AH = status (00h,FEh) (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=40h/BP=0012h,AH=44h/BP=0012h
+
+Format of HP Vectra EX-BIOS bucket header:
+Offset	Size	Description	(Table 03775)
+ 00h	DWORD	pointer to next bucket header (FFFFh:FFFFh if last)
+ 04h	WORD	upper bound on string index
+ 06h	WORD	lower bound on string index
+ 08h	DWORD	pointer to array of string offset pointers
+ 0Ch	WORD	segment of strings
+Note:	the strings pointed at by the offset pointers are byte-counted ASCIZ
+	  strings
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F44--BP0012" name="6F44--BP0012"><b>6F44--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_STR_PUT_BUCKET" - ADD HEADER TO BUCKET HDR LIST<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_STR_PUT_BUCKET" - ADD HEADER TO BUCKET HDR LIST
+	AH = 44h
+	BP = 0012h (driver ID of V_SYSTEM)
+	ES:DI -&gt; bucket header (see #03775)
+Return: AH = status (00h) (see #03744)
+	BP,DS destroyed
+SeeAlso: AH=00h"HP Vectra",AH=42h/BP=0012h,AH=46h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F46--BP0012" name="6F46--BP0012"><b>6F46--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_STRING" - FIND STRING IN BUCKET LIST<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_STR_GET_STRING" - FIND STRING IN BUCKET LIST
+	AH = 46h
+	BP = 0012h (driver ID of V_SYSTEM)
+	BX = string index
+Return: AH = status (00h,other) (see #03744)
+	BP,DS destroyed
+	---if successful---
+	CX = length of string (excluding count byte and terminating NUL)
+	DS:SI -&gt; header for string
+	ES:DI -&gt; found string
+SeeAlso: AH=00h"HP Vectra",AH=44h/BP=0012h,AH=48h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F48--BP0012" name="6F48--BP0012"><b>6F48--BP0012</b></a> - INT 6F - HP Vectra EX-BIOS - "F_STR_GET_INDEX" - GET INDEX FOR STRING<br />
+<pre>
+INT 6F - HP Vectra EX-BIOS - "F_STR_GET_INDEX" - GET INDEX FOR STRING
+	AH = 48h
+	BP = 0012h (driver ID of V_SYSTEM)
+	ES:DI -&gt; ASCIZ string
+Return: AH = status (00h,other) (see #03744 at AH=00h"HP Vectra")
+	BP,DS destroyed
+	---if successful---
+	BX = index for the given string
+SeeAlso: AH=00h"HP Vectra",AH=40h/BP=0012h,AH=46h/BP=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F636FBX6D70" name="6F636FBX6D70"><b>6F636FBX6D70</b></a> - INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK<br />
+<pre>
+INT 6F - Clara Empricost - TSR Version - INSTALLATION CHECK
+	AX = 636Fh ('co')
+	BX = 6D70h ('mp')
+	CX = 696Eh ('in')
+	SS:DX -&gt; WORD to set if installed
+Return: SS:DX word set to 636Fh if installed
+Program: Condition List Action Rejection Algorithm for the Evaluation
+	  of Music at Pseudo-Random Idea COnstruction STage
+	  (CLARA EMPRICOST) is an experimental program by Silas Brown
+SeeAlso: AX=636Fh/BX=6D70h"UNINSTALL"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F636FBX6D70_0" name="6F636FBX6D70_0"><b>6F636FBX6D70</b></a> - INT 6F - Clara Empricost - TSR Version - UNINSTALL<br />
+<pre>
+INT 6F - Clara Empricost - TSR Version - UNINSTALL
+	AX = 636Fh ('co')
+	BX = 6D70h ('mp')
+	CX = 6F73h ('os')
+Return: nothing -- call installation check to determine whether successful
+Program: Condition List Action Rejection Algorithm for the Evaluation
+	  of Music at Pseudo-Random Idea COnstruction STage
+	  (CLARA EMPRICOST) is an experimental program by Silas Brown
+Notes:	 Saves any unfinished task and prevents processing of
+	   new tasks, even if can't uninstall
+	 If INT 28h or INT 6Fh have been chained since installation,
+	   returns without changing interrupts or freeing memory
+	 do not call while DOS is active (i.e. InDOS flag is nonzero or INT 28
+	   is active and InDOS &gt; 1)
+SeeAlso: AX=636Fh/BX=6D70h"INSTALLATION CHECK"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F80" name="6F80"><b>6F80</b></a> - INT 6F - 10NET v5.0 - LOGIN<br />
+<pre>
+INT 6F - 10NET v5.0 - LOGIN
+	AH = 80h
+	DS:DX -&gt; login record (see #03776)
+Return: CF clear if successful
+	    BL = number of days until password expires (00h = never)
+	    CL = security level
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AH=00h,AH=81h
+
+Format of 10NET login record:
+Offset	Size	Description	(Table 03776)
+ 00h  8 BYTEs	user name
+ 08h  8 BYTEs	password
+ 10h 15 BYTEs	server node ID
+ 1Fh  8 BYTEs	new password
+ 27h	BYTE	invoke mode (00h command line, 01h interactive)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F81" name="6F81"><b>6F81</b></a> - INT 6F - 10NET v5.0 - LOGOUT<br />
+<pre>
+INT 6F - 10NET v5.0 - LOGOUT
+	AH = 81h
+	DS:DX -&gt; server node ID (DX=0000h for universal logout)
+Return: AX = status (see #03740)
+SeeAlso: AH=01h,AH=80h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F8A" name="6F8A"><b>6F8A</b></a> - INT 6F - 10NET v5.0 - CHAT<br />
+<pre>
+INT 6F - 10NET v5.0 - CHAT
+	AH = 8Ah
+	DS:BX -&gt; chat parameters (see #03777)
+	DS:DX -&gt; chat message (see #03778)
+Return: CF clear if successful
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AH=0Ah"10NET"
+
+Format of 10NET chat parameters:
+Offset	Size	Description	(Table 03777)
+ 00h  8 BYTEs	sender's user name
+ 08h  8 BYTEs	destination user name
+ 10h 15 BYTEs	destination node (0 if broadcast-style chat)
+
+Format of 10NET chat message:
+Offset	Size	Description	(Table 03778)
+ 00h	WORD	message length
+ 02h  N BYTEs	chat message contents
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F8D" name="6F8D"><b>6F8D</b></a> - INT 6F - 10NET v5.0 - "WHO" - ENUMERATE USERS ON NETWORK<br />
+<pre>
+INT 6F - 10NET v5.0 - "WHO" - ENUMERATE USERS ON NETWORK
+	AH = 8Dh
+	BX = service mask (see #03779)
+	CX = length of buffer
+	DS:DX -&gt; buffer for array of Who data structures (see #03780)
+Return: CF clear if successful
+	    CX = number of nodes matching service mask
+	    DS:DX buffer filled
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AH=0Dh
+
+Bitfields for 10NET service mask:
+Bit(s)	Description	(Table 03779)
+ 0	workstation
+ 1	file server
+ 2	print server
+ 3	de-spool server
+
+Format of 10NET Who data structure:
+Offset	Size	Description	(Table 03780)
+ 00h  8 BYTEs	user name
+ 08h 15 BYTEs	node ID
+ 17h  3 BYTEs	unique portion of Ethernet address
+ 1Ah	BYTE	Who group number
+ 1Bh	WORD	service mask (see #03779)
+ 1Dh	DWORD	serial number
+ 21h	BYTE	maximum concurrent users with same serial number allowed on net
+ 22h	BYTE	chat mask (see #03781)
+ 23h	BYTE	internal system bits (see #03782)
+ 24h  9 BYTEs	version number in format MM.mm.xxx
+ 2Dh	BYTE	number of shared directories
+ 2Eh	BYTE	number of shared printer queues
+
+Bitfields for 10NET chat mask:
+Bit(s)	Description	(Table 03781)
+ 0	chat permitted
+ 1	bell enabled
+ 2	chat keyboard initiated
+ 3	in INT 16 handler
+ 4	in Get Input
+ 5	display has timed out
+ 6	chat is idle
+
+Bitfields for 10NET internal system bits:
+Bit(s)	Description	(Table 03782)
+ 0	submit permitted
+ 1	submit initiated
+ 2	submit executing
+ 3	internal client call/chat/spool/autospool
+ 4	in spool termination
+ 5	print permitted
+ 6	waiting for keyboard input
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F9501" name="6F9501"><b>6F9501</b></a> - INT 6F - 10NET v5.0 - GET SHARED DEVICE ENTRY<br />
+<pre>
+INT 6F - 10NET v5.0 - GET SHARED DEVICE ENTRY
+	AX = 9501h
+	BX = zero-based index
+	DS:SI -&gt; server's node ID
+	ES:DI -&gt; buffer for shared device structure (see #03783)
+Return: CF clear if successful
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AX=1501h,AX=9502h,AX=9503h,AX=9504h
+
+Format of 10NET shared device structure:
+Offset	Size	Description	(Table 03783)
+ 00h  8 BYTEs	alias
+ 08h	BYTE	type (02h modem, 03h print queue, 04h directory)
+ 09h	BYTE	access rights
+		bit 0: read
+		bit 1: write
+		bit 2: create
+ 0Ah  8 BYTEs	password
+ 12h 32 BYTEs	comment
+---directory---
+ 32h 64 BYTEs	pathname of shared directory
+---print queue---
+ 32h	BYTE	notification bit mask (see #03784)
+ 33h	BYTE	job control bit mask (see #03785)
+ 34h	WORD	number of days to retain file
+ 36h	WORD	test print length
+ 38h	BYTE	number of copies to print
+ 39h	BYTE	compression algorithm
+ 3Ah	BYTE	tab width (00h = don't expand)
+ 3Bh	BYTE	priority
+ 3Ch	WORD	time to open queue (FFFFh = always)
+ 3Eh	WORD	time to close queue
+ 40h	WORD	pause following queue switch, in clock ticks
+ 42h	WORD	pause between print jobs, in clock ticks
+ 44h	BYTE	associate queue file existence mask
+		bit 0: queue switch file exists
+		bit 1: initiate file exists
+		bit 2: abort file exists
+ 45h  6 BYTEs	character sequence for page eject
+ 4Bh	BYTE	status of print queue
+		bit 0: queue is closed
+ 4Ch	WORD	number of jobs on queue
+ 4Eh	WORD	offset of next print job to be dispatched (FFFFh = none)
+ 50h	BYTE	number of print devices in printer pool
+ 51h	WORD	offset of first print device structure (FFFFh if empty)
+
+Bitfields for notification flags:
+Bit(s)	Description	(Table 03784)
+ 0	user at print start
+ 1	operator at start, with reply
+ 2	user at print completion
+ 3	operator at completion, with reply
+ 4	user on queue switch
+ 5	operator on queue switch, with reply
+ 6	user on print error
+
+Bitfields for 10NET job control mask:
+Bit(s)	Description	(Table 03785)
+ 0	print banner page
+ 1	eject page at end of job
+ 2	mark as "held" (queue but don't print)
+ 3	rush job (queue at top)
+ 4	overwrite file with zeros before deletion
+ 5	hyperspool if possible
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F9502" name="6F9502"><b>6F9502</b></a> - INT 6F - 10NET v5.0 - SET SHARED DEVICE ENTRY<br />
+<pre>
+INT 6F - 10NET v5.0 - SET SHARED DEVICE ENTRY
+	AX = 9502h
+	DS:SI -&gt; server's node ID
+	ES:DI -&gt; shared device structure (see #03783)
+Return: CF clear if successful
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AX=1502h,AX=9501h,AX=9503h,AX=9504h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F9503" name="6F9503"><b>6F9503</b></a> - INT 6F - 10NET v5.0 - DELETE SHARED DEVICE<br />
+<pre>
+INT 6F - 10NET v5.0 - DELETE SHARED DEVICE
+	AX = 9503h
+	BX = zero-based index
+	DS:SI -&gt; server's node ID
+Return: CF clear if successful
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AX=1503h,AX=9501h,AX=9502h,AX=9504h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F9504" name="6F9504"><b>6F9504</b></a> - INT 6F - 10NET v5.0 - ENUMERATE USERS OF SHARED DEVICE<br />
+<pre>
+INT 6F - 10NET v5.0 - ENUMERATE USERS OF SHARED DEVICE
+	AX = 9504h
+	BX = zero-based shared device index
+	CX = zero-based user index
+	DS:SI -&gt; server's node ID
+Return: CF clear if successful
+	    ES:DI -&gt; node ID of the CX'th user of the BX'th device
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AX=9501h,AX=9502h,AX=9503h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F99" name="6F99"><b>6F99</b></a> - INT 6F - 10NET v5.0 - AUDIT<br />
+<pre>
+INT 6F - 10NET v5.0 - AUDIT
+	AH = 99h
+	DS:SI -&gt; server's node ID
+	ES:DI -&gt; data to be appended to audit trail file (max 106 bytes)
+Return: CF clear if successful
+	CF set on error
+	    AX = status (see #03740)
+SeeAlso: AH=19h,AH=9Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#6F9C" name="6F9C"><b>6F9C</b></a> - INT 6F - 10NET v5.0 - GET LOGIN LIST<br />
+<pre>
+INT 6F - 10NET v5.0 - GET LOGIN LIST
+	AH = 9Ch
+	BX = zero-based index
+Return: CF clear if successful
+	    DS:DI -&gt; BX'th node ID that caller's machine is logged into
+	CF set on error
+	    AX = status (see #03740)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

@@ -1,0 +1,2991 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._33</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 33
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#330000"><b>330000</b> - INT 33 - MS MOUSE - RESET DRIVER AND READ STATUS</a><br />
+<a href="#330001"><b>330001</b> - INT 33 - MS MOUSE v1.0+ - SHOW MOUSE CURSOR</a><br />
+<a href="#330002"><b>330002</b> - INT 33 - MS MOUSE v1.0+ - HIDE MOUSE CURSOR</a><br />
+<a href="#330003"><b>330003</b> - INT 33 - MS MOUSE v1.0+ - RETURN POSITION AND BUTTON STATUS</a><br />
+<a href="#330004"><b>330004</b> - INT 33 - MS MOUSE v1.0+ - POSITION MOUSE CURSOR</a><br />
+<a href="#330005"><b>330005</b> - INT 33 - MS MOUSE v1.0+ - RETURN BUTTON PRESS DATA</a><br />
+<a href="#330006"><b>330006</b> - INT 33 - MS MOUSE v1.0+ - RETURN BUTTON RELEASE DATA</a><br />
+<a href="#330007"><b>330007</b> - INT 33 - MS MOUSE v1.0+ - DEFINE HORIZONTAL CURSOR RANGE</a><br />
+<a href="#330008"><b>330008</b> - INT 33 - MS MOUSE v1.0+ - DEFINE VERTICAL CURSOR RANGE</a><br />
+<a href="#330009"><b>330009</b> - INT 33 - MS MOUSE v3.0+ - DEFINE GRAPHICS CURSOR</a><br />
+<a href="#33000A"><b>33000A</b> - INT 33 - MS MOUSE v3.0+ - DEFINE TEXT CURSOR</a><br />
+<a href="#33000B"><b>33000B</b> - INT 33 - MS MOUSE v1.0+ - READ MOTION COUNTERS</a><br />
+<a href="#33000C"><b>33000C</b> - INT 33 - MS MOUSE v1.0+ - DEFINE INTERRUPT SUBROUTINE PARAMETERS</a><br />
+<a href="#33000D"><b>33000D</b> - INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION ON</a><br />
+<a href="#33000E"><b>33000E</b> - INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION OFF</a><br />
+<a href="#33000F"><b>33000F</b> - INT 33 - MS MOUSE v1.0+ - DEFINE MICKEY/PIXEL RATIO</a><br />
+<a href="#330010"><b>330010</b> - INT 33 - MS MOUSE v1.0+ - DEFINE SCREEN REGION FOR UPDATING</a><br />
+<a href="#330010_0"><b>330010</b> - INT 33 - Genius MOUSE - DEFINE SCREEN REGION FOR UPDATING</a><br />
+<a href="#330011"><b>330011</b> - INT 33 - Genius Mouse 9.06 - GET NUMBER OF BUTTONS</a><br />
+<a href="#330012"><b>330012</b> - INT 33 - MS MOUSE - SET LARGE GRAPHICS CURSOR BLOCK</a><br />
+<a href="#330013"><b>330013</b> - INT 33 - MS MOUSE v5.0+ - DEFINE DOUBLE-SPEED THRESHOLD</a><br />
+<a href="#330014"><b>330014</b> - INT 33 - MS MOUSE v3.0+ - EXCHANGE INTERRUPT SUBROUTINES</a><br />
+<a href="#330015"><b>330015</b> - INT 33 - MS MOUSE v6.0+ - RETURN DRIVER STORAGE REQUIREMENTS</a><br />
+<a href="#330016"><b>330016</b> - INT 33 - MS MOUSE v6.0+ - SAVE DRIVER STATE</a><br />
+<a href="#330017"><b>330017</b> - INT 33 - MS MOUSE v6.0+ - RESTORE DRIVER STATE</a><br />
+<a href="#330018"><b>330018</b> - INT 33 - MS MOUSE v6.0+ - SET ALTERNATE MOUSE USER HANDLER</a><br />
+<a href="#330019"><b>330019</b> - INT 33 - MS MOUSE v6.0+ - RETURN USER ALTERNATE INTERRUPT VECTOR</a><br />
+<a href="#33001A"><b>33001A</b> - INT 33 - MS MOUSE v6.0+ - SET MOUSE SENSITIVITY</a><br />
+<a href="#33001B"><b>33001B</b> - INT 33 - MS MOUSE v6.0+ - RETURN MOUSE SENSITIVITY</a><br />
+<a href="#33001C"><b>33001C</b> - INT 33 - MS MOUSE v6.0+ - SET INTERRUPT RATE</a><br />
+<a href="#33001D"><b>33001D</b> - INT 33 - MS MOUSE v6.0+ - DEFINE DISPLAY PAGE NUMBER</a><br />
+<a href="#33001E"><b>33001E</b> - INT 33 - MS MOUSE v6.0+ - RETURN DISPLAY PAGE NUMBER</a><br />
+<a href="#33001F"><b>33001F</b> - INT 33 - MS MOUSE v6.0+ - DISABLE MOUSE DRIVER</a><br />
+<a href="#330020"><b>330020</b> - INT 33 - MS MOUSE v6.0+ - ENABLE MOUSE DRIVER</a><br />
+<a href="#330021"><b>330021</b> - INT 33 - MS MOUSE v6.0+ - SOFTWARE RESET</a><br />
+<a href="#330022"><b>330022</b> - INT 33 - MS MOUSE v6.0+ - SET LANGUAGE FOR MESSAGES</a><br />
+<a href="#330023"><b>330023</b> - INT 33 - MS MOUSE v6.0+ - GET LANGUAGE FOR MESSAGES</a><br />
+<a href="#330024BX0000"><b>330024BX0000</b> - INT 33 - MS MOUSE v6.26+ - GET SOFTWARE VERSION, MOUSE TYPE, AND IRQ NUMBER</a><br />
+<a href="#330025"><b>330025</b> - INT 33 - MS MOUSE v6.26+ - GET GENERAL DRIVER INFORMATION</a><br />
+<a href="#330026"><b>330026</b> - INT 33 - MS MOUSE v6.26+ - GET MAXIMUM VIRTUAL COORDINATES</a><br />
+<a href="#330026_0"><b>330026</b> - INT 33 - Genius Mouse 9.06 - ???</a><br />
+<a href="#330027"><b>330027</b> - INT 33 - MS MOUSE v7.01+ - GET SCREEN/CURSOR MASKS AND MICKEY COUNTS</a><br />
+<a href="#330028"><b>330028</b> - INT 33 - MS MOUSE v7.0+ - SET VIDEO MODE</a><br />
+<a href="#330029"><b>330029</b> - INT 33 - MS MOUSE v7.0+ - ENUMERATE VIDEO MODES</a><br />
+<a href="#33002A"><b>33002A</b> - INT 33 - MS MOUSE v7.02+ - GET CURSOR HOT SPOT</a><br />
+<a href="#33002B"><b>33002B</b> - INT 33 - MS MOUSE v7.0+ - LOAD ACCELERATION PROFILES</a><br />
+<a href="#33002C"><b>33002C</b> - INT 33 - MS MOUSE v7.0+ - GET ACCELERATION PROFILES</a><br />
+<a href="#33002D"><b>33002D</b> - INT 33 - MS MOUSE v7.0+ - SELECT ACCELERATION PROFILE</a><br />
+<a href="#33002E"><b>33002E</b> - INT 33 - MS MOUSE v8.10+ - SET ACCELERATION PROFILE NAMES</a><br />
+<a href="#33002F"><b>33002F</b> - INT 33 - MS MOUSE v7.02+ - MOUSE HARDWARE RESET</a><br />
+<a href="#330030"><b>330030</b> - INT 33 - MS MOUSE v7.04+ - GET/SET BallPoint INFORMATION</a><br />
+<a href="#330031"><b>330031</b> - INT 33 - MS MOUSE v7.05+ - GET CURRENT MINIMUM/MAXIMUM VIRTUAL COORDINATES</a><br />
+<a href="#330032"><b>330032</b> - INT 33 - MS MOUSE v7.05+ - GET ACTIVE ADVANCED FUNCTIONS</a><br />
+<a href="#330033"><b>330033</b> - INT 33 - MS MOUSE v7.05+ - GET SWITCH SETTINGS AND ACCELERATION PROFILE DATA</a><br />
+<a href="#330034"><b>330034</b> - INT 33 - MS MOUSE v8.0+ - GET INITIALIZATION FILE</a><br />
+<a href="#330035"><b>330035</b> - INT 33 - MS MOUSE v8.10+ - LCD SCREEN LARGE POINTER SUPPORT</a><br />
+<a href="#330042"><b>330042</b> - INT 33 - PCMOUSE - GET MSMOUSE STORAGE REQUIREMENTS</a><br />
+<a href="#330043"><b>330043</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CONFIGURE MOUSE???</a><br />
+<a href="#330044CXCDEF"><b>330044CXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE IGNORE ACCELERATION CMDS</a><br />
+<a href="#330045CXCDEF"><b>330045CXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE RESOLUTION DOUBLING</a><br />
+<a href="#330047"><b>330047</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET BUTTON ASSIGNMENTS</a><br />
+<a href="#330048BXCDEF"><b>330048BXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET ???</a><br />
+<a href="#33004B"><b>33004B</b> - INT 33 - LCS/Telegraphics MOUSE DRIVERS - INSTALLATION CHECK / GET VERSION</a><br />
+<a href="#33004CBXCDEF"><b>33004CBXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ??? FLAG</a><br />
+<a href="#33004D"><b>33004D</b> - INT 33 - MS MOUSE - RETURN POINTER TO COPYRIGHT STRING</a><br />
+<a href="#33004F"><b>33004F</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ENABLE MOUSE</a><br />
+<a href="#330050"><b>330050</b> - INT 33 - PCMOUSE - SAVE MSMOUSE STATE</a><br />
+<a href="#330052"><b>330052</b> - INT 33 - PCMOUSE - RESTORE MSMOUSE STATE</a><br />
+<a href="#330053"><b>330053</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - DISABLE MOUSE</a><br />
+<a href="#330054CXCDEF"><b>330054CXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SELECT ULTRARES ACCELERATION LEVEL</a><br />
+<a href="#330055"><b>330055</b> - INT 33 - Kraft Mouse - GET ???</a><br />
+<a href="#330058"><b>330058</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???</a><br />
+<a href="#33005A"><b>33005A</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ULTRARES ACCELERATIONS</a><br />
+<a href="#330061BXCDEF"><b>330061BXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???</a><br />
+<a href="#330067"><b>330067</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET MOUSE BUTTONS???</a><br />
+<a href="#33006A"><b>33006A</b> - INT 33 U - ATI Mouse - INSTALLATION CHECK</a><br />
+<a href="#33006C"><b>33006C</b> - INT 33 U - TRUEDOX Mouse driver v4.01 - GET/SET HARDWARE PARAMETERS</a><br />
+<a href="#33006CBXCDEF"><b>33006CBXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CLEAR ??? FLAG</a><br />
+<a href="#33006D"><b>33006D</b> - INT 33 - MS MOUSE - GET VERSION STRING</a><br />
+<a href="#330070BXABCD"><b>330070BXABCD</b> - INT 33 - Mouse Systems MOUSE DRIVER - POPUP.COM - INSTALLATION CHECK</a><br />
+<a href="#330072BXABCD"><b>330072BXABCD</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???</a><br />
+<a href="#330073BXCDEF"><b>330073BXCDEF</b> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET BUTTON ASSIGNMENTS</a><br />
+<a href="#3300A0"><b>3300A0</b> - INT 33 U - TRUEDOX Mouse driver - SET HARDWARE PC MODE (3 button)</a><br />
+<a href="#3300A1"><b>3300A1</b> - INT 33 U - TRUEDOX Mouse driver - SET HARDWARE MS MODE (2 button)</a><br />
+<a href="#3300A6"><b>3300A6</b> - INT 33 U - TRUEDOX Mouse driver - SET RESOLUTION</a><br />
+<a href="#3300B0"><b>3300B0</b> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???</a><br />
+<a href="#3300D6"><b>3300D6</b> - INT 33 - Twiddler TWMOUSE - GET BUTTON/TILT STATE</a><br />
+<a href="#3300F0"><b>3300F0</b> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???</a><br />
+<a href="#3300F1"><b>3300F1</b> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???</a><br />
+<a href="#3300F2"><b>3300F2</b> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???</a><br />
+<a href="#3300F3"><b>3300F3</b> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???</a><br />
+<a href="#330100CX4752"><b>330100CX4752</b> - INT 33 - GRTMOUSE v1.00+ - INSTALLATION CHECK</a><br />
+<a href="#330101"><b>330101</b> - INT 33 - GRTMOUSE v1.00+ - SET MOUSE CURSOR SHAPE</a><br />
+<a href="#330102"><b>330102</b> - INT 33 - GRTMOUSE v1.00+ - GET MOUSE CURSOR SHAPE</a><br />
+<a href="#330103"><b>330103</b> - INT 33 - GRTMOUSE v1.00+ - SET ACTIVE CHARACTERS</a><br />
+<a href="#330104"><b>330104</b> - INT 33 - GRTMOUSE v1.00+ - GET ACTIVE CHARACTERS</a><br />
+<a href="#33012E"><b>33012E</b> - INT 33 - MS MOUSE v8.10+ - ???</a><br />
+<a href="#33022E"><b>33022E</b> - INT 33 - MS MOUSE v8.10+ - ???</a><br />
+<a href="#330666"><b>330666</b> - INT 33 U - TRUEDOX Mouse driver v4.01 - GET COPYRIGHT STRING</a><br />
+<a href="#33136C"><b>33136C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#33146C"><b>33146C</b> - INT 33 - LOGITECH MOUSE v6.10+ - GET/SET ???</a><br />
+<a href="#33156C"><b>33156C</b> - INT 33 - LOGITECH MOUSE v6.10+ - GET SIGNATURE AND VERSION STRINGS</a><br />
+<a href="#33166C"><b>33166C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#33176C"><b>33176C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#33186C"><b>33186C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#33196C"><b>33196C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#331A6C"><b>331A6C</b> - INT 33 - LOGITECH MOUSE v6.10+ - GET ???</a><br />
+<a href="#331B6C"><b>331B6C</b> - INT 33 - LOGITECH MOUSE v6.10+ - SET ???</a><br />
+<a href="#331C6C"><b>331C6C</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#331D6C"><b>331D6C</b> - INT 33 - LOGITECH MOUSE - GET COMPASS PARAMETER</a><br />
+<a href="#331E6C"><b>331E6C</b> - INT 33 - LOGITECH MOUSE - SET COMPASS PARAMETER</a><br />
+<a href="#331F6C"><b>331F6C</b> - INT 33 - LOGITECH MOUSE - GET BALLISTICS INFORMATION</a><br />
+<a href="#33206C"><b>33206C</b> - INT 33 - LOGITECH MOUSE - SET LEFT OR RIGHT PARAMETER</a><br />
+<a href="#33216C"><b>33216C</b> - INT 33 - LOGITECH MOUSE - GET LEFT OR RIGHT PARAMETER</a><br />
+<a href="#33226C"><b>33226C</b> - INT 33 - LOGITECH MOUSE - REMOVE DRIVER FROM MEMORY</a><br />
+<a href="#33236C"><b>33236C</b> - INT 33 - LOGITECH MOUSE - SET BALLISTICS INFORMATION</a><br />
+<a href="#33246C"><b>33246C</b> - INT 33 - LOGITECH MOUSE - GET PARAMETERS AND RESET SERIAL MOUSE</a><br />
+<a href="#33256CBX0000"><b>33256CBX0000</b> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET BAUD RATE (SERIAL MOUSE ONLY)</a><br />
+<a href="#33256CBX0001"><b>33256CBX0001</b> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET EMULATION (SERIAL MOUSE ONLY)</a><br />
+<a href="#33256CBX0002"><b>33256CBX0002</b> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET REPORT RATE (SERIAL MOUSE ONLY)</a><br />
+<a href="#33256CBX0003"><b>33256CBX0003</b> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE PORT (SERIAL MOUSE ONLY)</a><br />
+<a href="#33256CBX0004"><b>33256CBX0004</b> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE LOGICAL BUTTONS</a><br />
+<a href="#33266C"><b>33266C</b> - INT 33 - LOGITECH MOUSE - GET VERSION???</a><br />
+<a href="#33276C"><b>33276C</b> - INT 33 - LOGITECH MOUSE - ??? Tries MMSeries, Baud 2400</a><br />
+<a href="#333000"><b>333000</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - INSTALLATION CHECK</a><br />
+<a href="#333001"><b>333001</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - ENABLE SMOOTH MOUSE</a><br />
+<a href="#333002"><b>333002</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - DISABLE SMOOTH MOUSE</a><br />
+<a href="#333003"><b>333003</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - GET INFORMATION</a><br />
+<a href="#333004"><b>333004</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION</a><br />
+<a href="#333005"><b>333005</b> - INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION</a><br />
+<a href="#334F00"><b>334F00</b> - INT 33 - LOGITECH MOUSE v6.10+ - GET ???</a><br />
+<a href="#334F01"><b>334F01</b> - INT 33 - LOGITECH MOUSE v6.10+ - ???</a><br />
+<a href="#336F00"><b>336F00</b> - INT 33 - Hewlett Packard - HP MOUSE DRIVER INSTALLATION CHECK</a><br />
+<a href="#338800"><b>338800</b> - INT 33 U - InfoTrack IMOUSE.COM - UNHOOK MOUSE IRQ</a><br />
+<a href="#338800BXFFFF"><b>338800BXFFFF</b> - INT 33 U - InfoTrack IMOUSE.COM - GET ACTIVE IRQ</a><br />
+<a href="#33FFE6"><b>33FFE6</b> - INT 33 - Switch-It v3.23 - GET ??? PROGRAM</a><br />
+<a href="#33FFE7"><b>33FFE7</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFE8"><b>33FFE8</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+<a href="#33FFE9"><b>33FFE9</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFEA"><b>33FFEA</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFEB"><b>33FFEB</b> - INT 33 - Switch-It v3.23 - SET ??? FLAG</a><br />
+<a href="#33FFEC"><b>33FFEC</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFED"><b>33FFED</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFEE"><b>33FFEE</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFEF"><b>33FFEF</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF0"><b>33FFF0</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFF1"><b>33FFF1</b> - INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE</a><br />
+<a href="#33FFF2"><b>33FFF2</b> - INT 33 - Switch-It v3.23 - SET ??? FLAG</a><br />
+<a href="#33FFF3"><b>33FFF3</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF4"><b>33FFF4</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFF5"><b>33FFF5</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF6"><b>33FFF6</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF7"><b>33FFF7</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFF8"><b>33FFF8</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+<a href="#33FFF9"><b>33FFF9</b> - INT 33 - Switch-It v3.23 - NOP</a><br />
+<a href="#33FFFA"><b>33FFFA</b> - INT 33 - Switch-It v3.23 - SET ???</a><br />
+<a href="#33FFFB"><b>33FFFB</b> - INT 33 - Switch-It v3.23 - GET ???</a><br />
+<a href="#33FFFC"><b>33FFFC</b> - INT 33 - Switch-It v3.23 - CLEAR ???</a><br />
+<a href="#33FFFD"><b>33FFFD</b> - INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???</a><br />
+<a href="#33FFFE"><b>33FFFE</b> - INT 33 - Switch-It v3.23 - INSTALLATION CHECK</a><br />
+<a href="#33FFFF"><b>33FFFF</b> - INT 33 - Switch-It v3.23 - ???</a><br />
+
+<hr />
+
+<a href="#330000" name="330000"><b>330000</b></a> - INT 33 - MS MOUSE - RESET DRIVER AND READ STATUS<br />
+<pre>
+INT 33 - MS MOUSE - RESET DRIVER AND READ STATUS
+	AX = 0000h
+Return: AX = status
+	    0000h hardware/driver not installed
+	    FFFFh hardware/driver installed
+	BX = number of buttons
+	    0000h other than two
+	    0002h two buttons (many drivers)
+	    0003h Mouse Systems/Logitech three-button mouse
+	    FFFFh two buttons
+Notes:	since INT 33 might be uninitialized on old machines, the caller
+	  should first check that INT 33 is neither 0000h:0000h nor points at
+	  an IRET instruction (BYTE CFh) before calling this API
+	to use mouse on a Hercules-compatible monographics card in graphics
+	  mode, you must first set 0040h:0049h to 6 for page 0 or 5 for page 1,
+	  and then call this function.	Logitech drivers v5.01 and v6.00
+	  reportedly do not correctly use Hercules graphics in dual-monitor
+	  systems, while version 4.10 does.
+	the Logitech mouse driver contains the signature string "LOGITECH"
+	  three bytes past the interrupt handler; many of the Logitech mouse
+	  utilities check for this signature.
+	Logitech MouseWare v6.30 reportedly does not support CGA video modes
+	  if no CGA is present when it is started and the video board is
+	  later switched into CGA emulation
+SeeAlso: AX=0011h,AX=0021h,AX=002Fh,INT 62/AX=007Ah,INT 74
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330001" name="330001"><b>330001</b></a> - INT 33 - MS MOUSE v1.0+ - SHOW MOUSE CURSOR<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - SHOW MOUSE CURSOR
+	AX = 0001h
+SeeAlso: AX=0002h,INT 16/AX=FFFEh,INT 62/AX=007Bh,INT 6F/AH=06h"F_TRACK_ON"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330002" name="330002"><b>330002</b></a> - INT 33 - MS MOUSE v1.0+ - HIDE MOUSE CURSOR<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - HIDE MOUSE CURSOR
+	AX = 0002h
+Note:	multiple calls to hide the cursor will require multiple calls to
+	  function 01h to unhide it.
+SeeAlso: AX=0001h,AX=0010h,INT 16/AX=FFFFh,INT 62/AX=007Bh
+SeeAlso: INT 6F/AH=08h"F_TRACK_OFF"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330003" name="330003"><b>330003</b></a> - INT 33 - MS MOUSE v1.0+ - RETURN POSITION AND BUTTON STATUS<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - RETURN POSITION AND BUTTON STATUS
+	AX = 0003h
+Return: BX = button status (see #03168)
+	CX = column
+	DX = row
+Note:	in text modes, all coordinates are specified as multiples of the cell
+	  size, typically 8x8 pixels
+SeeAlso: AX=0004h,AX=000Bh,INT 2F/AX=D000h"ZWmous"
+
+Bitfields for mouse button status:
+Bit(s)	Description	(Table 03168)
+ 0	left button pressed if 1
+ 1	right button pressed if 1
+ 2	middle button pressed if 1 (Mouse Systems/Logitech/Genius)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330004" name="330004"><b>330004</b></a> - INT 33 - MS MOUSE v1.0+ - POSITION MOUSE CURSOR<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - POSITION MOUSE CURSOR
+	AX = 0004h
+	CX = column
+	DX = row
+Note:	the row and column are truncated to the next lower multiple of the cell
+	  size (typically 8x8 in text modes); however, some versions of the
+	  Microsoft documentation incorrectly state that the coordinates are
+	  rounded
+SeeAlso: AX=0003h,INT 62/AX=0081h,INT 6F/AH=10h"F_PUT_SPRITE"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330005" name="330005"><b>330005</b></a> - INT 33 - MS MOUSE v1.0+ - RETURN BUTTON PRESS DATA<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - RETURN BUTTON PRESS DATA
+	AX = 0005h
+	BX = button number (see #03169)
+Return: AX = button states (see #03168)
+	BX = number of times specified button has been pressed since last call
+	CX = column at time specified button was last pressed
+	DX = row at time specified button was last pressed
+Note:	at least for the Genius mouse driver, the number of button presses
+	  returned is limited to 7FFFh
+SeeAlso: AX=0006h,INT 62/AX=007Ch
+
+(Table 03169)
+Values for mouse button number:
+ 0000h	left
+ 0001h	right
+ 0002h	middle (Mouse Systems/Logitech/Genius mouse)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330006" name="330006"><b>330006</b></a> - INT 33 - MS MOUSE v1.0+ - RETURN BUTTON RELEASE DATA<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - RETURN BUTTON RELEASE DATA
+	AX = 0006h
+	BX = button number (see #03169)
+Return: AX = button states (see #03168)
+	BX = number of times specified button has been released since last call
+	CX = column at time specified button was last released
+	DX = row at time specified button was last released
+Note:	at least for the Genius mouse driver, the number of button releases
+	  returned is limited to 7FFFh
+SeeAlso: AX=0005h,INT 62/AX=007Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330007" name="330007"><b>330007</b></a> - INT 33 - MS MOUSE v1.0+ - DEFINE HORIZONTAL CURSOR RANGE<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - DEFINE HORIZONTAL CURSOR RANGE
+	AX = 0007h
+	CX = minimum column
+	DX = maximum column
+Note:	in text modes, the minimum and maximum columns are truncated to the
+	  next lower multiple of the cell size, typically 8x8 pixels
+SeeAlso: AX=0008h,AX=0010h,AX=0031h,INT 62/AX=0080h
+SeeAlso: INT 6F/AH=0Ch"F_SET_LIMITS_X"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330008" name="330008"><b>330008</b></a> - INT 33 - MS MOUSE v1.0+ - DEFINE VERTICAL CURSOR RANGE<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - DEFINE VERTICAL CURSOR RANGE
+	AX = 0008h
+	CX = minimum row
+	DX = maximum row
+Note:	in text modes, the minimum and maximum rows are truncated to the
+	  next lower multiple of the cell size, typically 8x8 pixels
+SeeAlso: AX=0007h,AX=0010h,AX=0031h,INT 62/AX=0080h
+SeeAlso: INT 6F/AH=0Eh"F_SET_LIMITS_Y"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330009" name="330009"><b>330009</b></a> - INT 33 - MS MOUSE v3.0+ - DEFINE GRAPHICS CURSOR<br />
+<pre>
+INT 33 - MS MOUSE v3.0+ - DEFINE GRAPHICS CURSOR
+	AX = 0009h
+	BX = column of cursor hot spot in bitmap (-16 to 16)
+	CX = row of cursor hot spot (-16 to 16)
+	ES:DX -&gt; mask bitmap (see #03170)
+Notes:	in graphics modes, the screen contents around the current mouse cursor
+	  position are ANDed with the screen mask and then XORed with the
+	  cursor mask
+	the Microsoft mouse driver v7.04 and v8.20 uses only BL and CL, so the
+	  hot spot row/column should be limited to -128..127
+	Microsoft KnowledgeBase article Q19850 states that the high bit is
+	  right-most, but that statement is contradicted by all other available
+	  documentation
+SeeAlso: AX=000Ah,AX=0012h,AX=002Ah,INT 62/AX=007Fh,INT 6F/AH=0Ah"F_DEF_MASKS"
+
+Format of mouse mask bitmap:
+Offset	Size	Description	(Table 03170)
+ 00h 16 WORDs	screen mask
+ 10h 16 WORDs	cursor mask
+Note:	each word defines the sixteen pixels of a row, low bit rightmost
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000A" name="33000A"><b>33000A</b></a> - INT 33 - MS MOUSE v3.0+ - DEFINE TEXT CURSOR<br />
+<pre>
+INT 33 - MS MOUSE v3.0+ - DEFINE TEXT CURSOR
+	AX = 000Ah
+	BX = hardware/software text cursor
+	    0000h software
+		CX = screen mask
+		DX = cursor mask
+	    0001h hardware
+		CX = start scan line
+		DX = end scan line
+Note:	when the software cursor is selected, the character/attribute data at
+	  the current screen position is ANDed with the screen mask and then
+	  XORed with the cursor mask
+SeeAlso: AX=0009h,INT 62/AX=007Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000B" name="33000B"><b>33000B</b></a> - INT 33 - MS MOUSE v1.0+ - READ MOTION COUNTERS<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - READ MOTION COUNTERS
+	AX = 000Bh
+Return: CX = number of mickeys mouse moved horizontally since last call
+	DX = number of mickeys mouse moved vertically
+Notes:	a mickey is the smallest increment the mouse can sense
+	positive values indicate down/right
+SeeAlso: AX=0003h,AX=001Bh,AX=0027h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000C" name="33000C"><b>33000C</b></a> - INT 33 - MS MOUSE v1.0+ - DEFINE INTERRUPT SUBROUTINE PARAMETERS<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - DEFINE INTERRUPT SUBROUTINE PARAMETERS
+	AX = 000Ch
+	CX = call mask (see #03171)
+	ES:DX -&gt; FAR routine (see #03172)
+SeeAlso: AX=0018h
+
+Bitfields for mouse call mask:
+Bit(s)	Description	(Table 03171)
+ 0	call if mouse moves
+ 1	call if left button pressed
+ 2	call if left button released
+ 3	call if right button pressed
+ 4	call if right button released
+ 5	call if middle button pressed (Mouse Systems/Logitech/Genius mouse)
+ 6	call if middle button released (Mouse Systems/Logitech/Genius mouse)
+ 7-15	unused
+Note:	some versions of the Microsoft documentation incorrectly state that CX
+	  bit 0 means call if mouse cursor moves
+
+(Table 03172)
+Values interrupt routine is called with:
+	AX = condition mask (same bit assignments as call mask)
+	BX = button state
+	CX = cursor column
+	DX = cursor row
+	SI = horizontal mickey count
+	DI = vertical mickey count
+Notes:	some versions of the Microsoft documentation erroneously swap the
+	  meanings of SI and DI
+	in text modes, the row and column will be reported as a multiple of
+	  the character cell size, typically 8x8 pixels
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000D" name="33000D"><b>33000D</b></a> - INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION ON<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION ON
+	AX = 000Dh
+SeeAlso: AX=000Eh,INT 10/AH=04h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000E" name="33000E"><b>33000E</b></a> - INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION OFF<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - LIGHT PEN EMULATION OFF
+	AX = 000Eh
+SeeAlso: AX=000Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33000F" name="33000F"><b>33000F</b></a> - INT 33 - MS MOUSE v1.0+ - DEFINE MICKEY/PIXEL RATIO<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - DEFINE MICKEY/PIXEL RATIO
+	AX = 000Fh
+	CX = number of mickeys per 8 pixels horizontally (default 8)
+	DX = number of mickeys per 8 pixels vertically (default 16)
+SeeAlso: AX=0013h,AX=001Ah,INT 62/AX=0082h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330010" name="330010"><b>330010</b></a> - INT 33 - MS MOUSE v1.0+ - DEFINE SCREEN REGION FOR UPDATING<br />
+<pre>
+INT 33 - MS MOUSE v1.0+ - DEFINE SCREEN REGION FOR UPDATING
+	AX = 0010h
+	CX,DX = X,Y coordinates of upper left corner
+	SI,DI = X,Y coordinates of lower right corner
+Note:	mouse cursor is hidden in the specified region, and needs to be
+	  explicitly turned on again
+SeeAlso: AX=0001h,AX=0002h,AX=0007h,AX=0010h"Genius MOUSE",AX=0031h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330010_0" name="330010_0"><b>330010</b></a> - INT 33 - Genius MOUSE - DEFINE SCREEN REGION FOR UPDATING<br />
+<pre>
+INT 33 - Genius MOUSE - DEFINE SCREEN REGION FOR UPDATING
+	AX = 0010h
+	ES:DX -&gt; update region list (see #03173)
+Notes:	mouse cursor is hidden in the specified region, and needs to be
+	  explicitly turned on again
+	this version of the call is described in an August 1988 version of the
+	  Genius Mouse programmer's reference; it has been changed to conform
+	  to the Microsoft version shown above by version 9.06 (and possibly
+	  earlier versions)
+SeeAlso: AX=0001h,AX=0002h,AX=0007h,AX=0010h"MS MOUSE"
+
+Format of Genius Mouse update region list:
+Offset	Size	Description	(Table 03173)
+ 00h	WORD	left-most column
+ 02h	WORD	top-most row
+ 04h	WORD	right-most column
+ 06h	WORD	bottom-most row
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330011" name="330011"><b>330011</b></a> - INT 33 - Genius Mouse 9.06 - GET NUMBER OF BUTTONS<br />
+<pre>
+INT 33 - Genius Mouse 9.06 - GET NUMBER OF BUTTONS
+	AX = 0011h
+Return: AX = FFFFh
+	BX = number of buttons
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330012" name="330012"><b>330012</b></a> - INT 33 - MS MOUSE - SET LARGE GRAPHICS CURSOR BLOCK<br />
+<pre>
+INT 33 - MS MOUSE - SET LARGE GRAPHICS CURSOR BLOCK
+	AX = 0012h
+	BH = cursor width in words
+	CH = rows in cursor
+	BL = horizontal hot spot (-16 to 16)
+	CL = vertical hot spot (-16 to 16)
+	ES:DX -&gt; bit map of screen and cursor maps
+Return: AX = FFFFh if successful
+SeeAlso: AX=0009h,AX=002Ah,AX=0035h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330013" name="330013"><b>330013</b></a> - INT 33 - MS MOUSE v5.0+ - DEFINE DOUBLE-SPEED THRESHOLD<br />
+<pre>
+INT 33 - MS MOUSE v5.0+ - DEFINE DOUBLE-SPEED THRESHOLD
+	AX = 0013h
+	DX = threshold speed in mickeys/second, 0000h = default of 64/second
+Note:	if speed exceeds threshold, the cursor's on-screen motion is doubled
+SeeAlso: AX=000Fh,AX=001Bh,AX=002Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330014" name="330014"><b>330014</b></a> - INT 33 - MS MOUSE v3.0+ - EXCHANGE INTERRUPT SUBROUTINES<br />
+<pre>
+INT 33 - MS MOUSE v3.0+ - EXCHANGE INTERRUPT SUBROUTINES
+	AX = 0014h
+	CX = call mask (see #03171)
+	ES:DX -&gt; FAR routine
+Return: CX = call mask of previous interrupt routine
+	ES:DX = FAR address of previous interrupt routine
+SeeAlso: AX=000Ch,AX=0018h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330015" name="330015"><b>330015</b></a> - INT 33 - MS MOUSE v6.0+ - RETURN DRIVER STORAGE REQUIREMENTS<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - RETURN DRIVER STORAGE REQUIREMENTS
+	AX = 0015h
+Return: BX = size of buffer needed to store driver state
+SeeAlso: AX=0016h,AX=0017h,AX=0042h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330016" name="330016"><b>330016</b></a> - INT 33 - MS MOUSE v6.0+ - SAVE DRIVER STATE<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SAVE DRIVER STATE
+	AX = 0016h
+	BX = size of buffer (see AX=0015h)
+	ES:DX -&gt; buffer for driver state
+Note:	although not documented (since the Microsoft driver does not use it),
+	  many drivers appear to require BX on input
+SeeAlso: AX=0015h,AX=0017h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330017" name="330017"><b>330017</b></a> - INT 33 - MS MOUSE v6.0+ - RESTORE DRIVER STATE<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - RESTORE DRIVER STATE
+	AX = 0017h
+	BX = size of buffer (see AX=0015h)
+	ES:DX -&gt; buffer containing saved state
+Notes:	although not documented (since the Microsoft driver does not use it),
+	  many drivers appear to require BX on input
+	some mouse drivers range-check the values in the saved state based on
+	  the current video mode; thus, the video mode should be restored
+	  before the mouse driver's state is restored
+SeeAlso: AX=0015h,AX=0016h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330018" name="330018"><b>330018</b></a> - INT 33 - MS MOUSE v6.0+ - SET ALTERNATE MOUSE USER HANDLER<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SET ALTERNATE MOUSE USER HANDLER
+	AX = 0018h
+	CX = call mask (see #03174)
+	ES:DX -&gt; FAR routine to be invoked on mouse events (see #03175)
+Return: AX = status
+	    0018h if successful
+	    FFFFh on error
+Notes:	up to three handlers can be defined by separate calls to this function,
+	  each with a different combination of shift states in the call mask;
+	  calling this function again with a call mask of 0000h undefines the
+	  specified handler (official documentation); specifying the same
+	  call mask and an address of 0000h:0000h undefines the handler (real
+	  life)
+	some versions of the documentation erroneously reverse the order of
+	  the bits in the call mask
+SeeAlso: AX=000Ch,AX=0014h,AX=0019h
+
+Bitfields for mouse call mask:
+Bit(s)	Description	(Table 03174)
+ 0	call if mouse moves
+ 1	call if left button pressed
+ 2	call if left button released
+ 3	call if right button pressed
+ 4	call if right button released
+ 5	call if shift button pressed during event
+ 6	call if ctrl key pressed during event
+ 7	call if alt key pressed during event
+Note:	at least one of 5-7 must be set
+
+(Table 03175)
+Values user handler is called with:
+	AX = condition mask (same bit assignments as call mask)
+	BX = button state
+	CX = cursor column
+	DX = cursor row
+	SI = horizontal mickey count
+	DI = vertical mickey count
+Return: registers preserved
+Note:	in text modes, the row and column will be reported as a multiple of
+	  the cell size, typically 8x8 pixels
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330019" name="330019"><b>330019</b></a> - INT 33 - MS MOUSE v6.0+ - RETURN USER ALTERNATE INTERRUPT VECTOR<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - RETURN USER ALTERNATE INTERRUPT VECTOR
+	AX = 0019h
+	CX = call mask (see #03174)
+Return: BX:DX = user interrupt vector
+	CX = call mask (0000h if not found)
+Note:	attempts to find a user event handler (defined by function 18h)
+	  whose call mask matches CX
+SeeAlso: AX=0018h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001A" name="33001A"><b>33001A</b></a> - INT 33 - MS MOUSE v6.0+ - SET MOUSE SENSITIVITY<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SET MOUSE SENSITIVITY
+	AX = 001Ah
+	BX = horizontal speed \
+	CX = vertical speed   / (see AX=000Fh)
+	DX = double speed threshold (see AX=0013h)
+SeeAlso: AX=0013h,AX=001Bh,INT 62/AX=0082h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001B" name="33001B"><b>33001B</b></a> - INT 33 - MS MOUSE v6.0+ - RETURN MOUSE SENSITIVITY<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - RETURN MOUSE SENSITIVITY
+	AX = 001Bh
+Return: BX = horizontal speed
+	CX = vertical speed
+	DX = double speed threshold
+SeeAlso: AX=000Bh,AX=001Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001C" name="33001C"><b>33001C</b></a> - INT 33 - MS MOUSE v6.0+ - SET INTERRUPT RATE<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SET INTERRUPT RATE
+	AX = 001Ch
+	BX = rate (see #03176)
+Notes:	only available on InPort mouse
+	values greater than 4 may cause unpredictable driver behavior
+
+(Table 03176)
+Values for mouse interrupt rate:
+ 00h	no interrupts allowed
+ 01h	30 per second
+ 02h	50 per second
+ 03h	100 per second
+ 04h	200 per second
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001D" name="33001D"><b>33001D</b></a> - INT 33 - MS MOUSE v6.0+ - DEFINE DISPLAY PAGE NUMBER<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - DEFINE DISPLAY PAGE NUMBER
+	AX = 001Dh
+	BX = display page number
+Note:	the cursor will be displayed on the specified page
+SeeAlso: AX=001Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001E" name="33001E"><b>33001E</b></a> - INT 33 - MS MOUSE v6.0+ - RETURN DISPLAY PAGE NUMBER<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - RETURN DISPLAY PAGE NUMBER
+	AX = 001Eh
+Return: BX = display page number
+SeeAlso: AX=001Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33001F" name="33001F"><b>33001F</b></a> - INT 33 - MS MOUSE v6.0+ - DISABLE MOUSE DRIVER<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - DISABLE MOUSE DRIVER
+	AX = 001Fh
+Return: AX = status
+	    001Fh successful
+		ES:BX = INT 33 vector before mouse driver was first installed
+	    FFFFh unsuccessful
+Notes:	restores vectors for INT 10 and INT 71 (8086) or INT 74 (286/386)
+	if you restore INT 33 to ES:BX, driver will be completely disabled
+	many drivers return AX=001Fh even though the driver has been disabled
+SeeAlso: AX=0020h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330020" name="330020"><b>330020</b></a> - INT 33 - MS MOUSE v6.0+ - ENABLE MOUSE DRIVER<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - ENABLE MOUSE DRIVER
+	AX = 0020h
+Return: AX = status
+	    0020h successful
+	    FFFFh unsuccessful
+Notes:	restores vectors for INT 10h and INT 71h (8086) or INT 74h (286/386)
+	  which were removed by function 1Fh
+	Microsoft's documentation states that no value is returned
+SeeAlso: AX=001Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330021" name="330021"><b>330021</b></a> - INT 33 - MS MOUSE v6.0+ - SOFTWARE RESET<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SOFTWARE RESET
+	AX = 0021h
+Return: AX = status
+	    FFFFh if mouse driver installed
+		BX = number of buttons (FFFFh = two buttons)
+	    0021h if mouse driver not installed
+Note:	this call is identical to funtion 00h, but does not reset the mouse
+SeeAlso: AX=0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330022" name="330022"><b>330022</b></a> - INT 33 - MS MOUSE v6.0+ - SET LANGUAGE FOR MESSAGES<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - SET LANGUAGE FOR MESSAGES
+	AX = 0022h
+	BX = language (see #03177)
+Note:	only available on international versions of the driver; US versions
+	  ignore this call
+SeeAlso: AX=0023h
+
+(Table 03177)
+Values for mouse driver language:
+ 00h	English
+ 01h	French
+ 02h	Dutch
+ 03h	German
+ 04h	Swedish
+ 05h	Finnish
+ 06h	Spanish
+ 07h	Portugese
+ 08h	Italian
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330023" name="330023"><b>330023</b></a> - INT 33 - MS MOUSE v6.0+ - GET LANGUAGE FOR MESSAGES<br />
+<pre>
+INT 33 - MS MOUSE v6.0+ - GET LANGUAGE FOR MESSAGES
+	AX = 0023h
+Return: BX = language (see #03177)
+Note:	the US version of the driver always returns zero
+SeeAlso: AX=0022h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330024BX0000" name="330024BX0000"><b>330024BX0000</b></a> - INT 33 - MS MOUSE v6.26+ - GET SOFTWARE VERSION, MOUSE TYPE, AND IRQ NUMBER<br />
+<pre>
+INT 33 - MS MOUSE v6.26+ - GET SOFTWARE VERSION, MOUSE TYPE, AND IRQ NUMBER
+	AX = 0024h
+	BX = 0000h to check for function's existence
+Return: AX = FFFFh on error
+	otherwise,
+	    BH = major version
+	    BL = minor version
+	    CH = type (1=bus, 2=serial, 3=InPort, 4=PS/2, 5=HP)
+	    CL = interrupt (0=PS/2, 2=IRQ2, 3=IRQ3,...,7=IRQ7,...,0Fh=IRQ15)
+Note:	although current Microsoft documentation states that this function was
+	  introduced in v6.26, it appears to have been present as early as
+	  v6.02 (for earlier versions, use INT 33/AX=006Dh)
+SeeAlso: AX=004Dh,AX=006Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330025" name="330025"><b>330025</b></a> - INT 33 - MS MOUSE v6.26+ - GET GENERAL DRIVER INFORMATION<br />
+<pre>
+INT 33 - MS MOUSE v6.26+ - GET GENERAL DRIVER INFORMATION
+	AX = 0025h
+Return: AX = general information (see #03178)
+	BX = cursor lock flag for OS/2 to prevent reentrancy problems
+	CX = mouse code active flag (for OS/2)
+	DX = mouse driver busy flag (for OS/2)
+
+Bitfields for general mouse driver information:
+Bit(s)	Description	(Table 03178)
+ 15	driver loaded as device driver rather than TSR
+ 14	driver is newer integrated type
+ 13,12	current cursor type
+	00 software text cursor
+	01 hardware text cursor (CRT Controller's cursor)
+	1X graphics cursor
+ 11-8	interrupt rate (see #03176)
+ 7-0	count of currently-active Mouse Display Drivers (MDD), the newer
+	  integrated driver type
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330026" name="330026"><b>330026</b></a> - INT 33 - MS MOUSE v6.26+ - GET MAXIMUM VIRTUAL COORDINATES<br />
+<pre>
+INT 33 - MS MOUSE v6.26+ - GET MAXIMUM VIRTUAL COORDINATES
+	AX = 0026h
+Return: BX = mouse-disabled flag (0000h mouse enabled, nonzero disabled)
+	CX = maximum virtual X (for current video mode)
+	DX = maximum virtual Y
+Note:	for driver versions before 7.05, this call returns the currently-set
+	  maximum coordinates; v7.05+ returns the absolute maximum coordinates
+SeeAlso: AX=0031h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330026_0" name="330026_0"><b>330026</b></a> - INT 33 - Genius Mouse 9.06 - ???<br />
+<pre>
+INT 33 - Genius Mouse 9.06 - ???
+	AX = 0026h
+Return: CX = 0204h if CX was 0105h on entry, else unchanged
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330027" name="330027"><b>330027</b></a> - INT 33 - MS MOUSE v7.01+ - GET SCREEN/CURSOR MASKS AND MICKEY COUNTS<br />
+<pre>
+INT 33 - MS MOUSE v7.01+ - GET SCREEN/CURSOR MASKS AND MICKEY COUNTS
+	AX = 0027h
+Return: AX = screen-mask value (or hardware cursor scan-line start for v7.02+)
+	BX = cursor-mask value (or hardware cursor scan-line stop for v7.02+)
+	CX = horizontal mickeys moved since last call
+	DX = vertical mickeys moved since last call
+SeeAlso: AX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330028" name="330028"><b>330028</b></a> - INT 33 - MS MOUSE v7.0+ - SET VIDEO MODE<br />
+<pre>
+INT 33 - MS MOUSE v7.0+ - SET VIDEO MODE
+	AX = 0028h
+	CX = new video mode (call is NOP if 0000h)
+	DH = Y font size (00h = default)
+	DL = X font size (00h = default)
+Return: CL = status (00h = successful)
+Notes:	DX is ignored unless the selected video mode supports font size control
+	when CX=0000h, an internal flag that had been set by a previous call
+	  is cleared; this is required before a mouse reset
+SeeAlso: AX=0029h,INT 10/AH=00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330029" name="330029"><b>330029</b></a> - INT 33 - MS MOUSE v7.0+ - ENUMERATE VIDEO MODES<br />
+<pre>
+INT 33 - MS MOUSE v7.0+ - ENUMERATE VIDEO MODES
+	AX = 0029h
+	CX = previous video mode
+	    0000h get first supported video mode
+	    other get next supported mode after mode CX
+Return: CX = first/next video mode (0000h = no more video modes)
+	DS:DX -&gt; description of video mode or 0000h:0000h if none
+Notes:	the enumerated video modes may be in any order and may repeat
+	the description string (if available) is terminated by '$' followed by
+	  a NUL byte
+SeeAlso: AX=0028h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002A" name="33002A"><b>33002A</b></a> - INT 33 - MS MOUSE v7.02+ - GET CURSOR HOT SPOT<br />
+<pre>
+INT 33 - MS MOUSE v7.02+ - GET CURSOR HOT SPOT
+	AX = 002Ah
+Return: AX = internal counter controlling cursor visibility
+	BX = cursor hot spot column
+	CX = cursor hot spot row
+	DX = mouse type (see #03179)
+Note:	the hot spot location is relative to the upper left corner of the
+	  cursor block and may range from -128 to +127 both horizontally and
+	  vertically
+SeeAlso: AX=0009h,AX=0012h,AX=0035h
+
+(Table 03179)
+Values for mouse type:
+ 00h	none
+ 01h	bus
+ 02h	serial
+ 03h	InPort
+ 04h	IBM
+ 05h	Hewlett-Packard
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002B" name="33002B"><b>33002B</b></a> - INT 33 - MS MOUSE v7.0+ - LOAD ACCELERATION PROFILES<br />
+<pre>
+INT 33 - MS MOUSE v7.0+ - LOAD ACCELERATION PROFILES
+	AX = 002Bh
+	BX = active acceleration profile
+	    0001h-0004h or FFFFh to restore default curves
+	ES:SI -&gt; buffer containing acceleration profile data (see #03180)
+Return: AX = success flag
+SeeAlso: AX=002Ch,AX=002Dh,AX=0033h
+
+Format of acceleration profile data:
+Offset	Size	Description	(Table 03180)
+ 00h	BYTE	length of acceleration profile 1
+ 01h	BYTE	length of acceleration profile 2
+ 02h	BYTE	length of acceleration profile 3
+ 03h	BYTE	length of acceleration profile 4
+ 04h 32 BYTEs	threshold speeds for acceleration profile 1
+ 24h 32 BYTEs	threshold speeds for acceleration profile 2
+ 44h 32 BYTEs	threshold speeds for acceleration profile 3
+ 64h 32 BYTEs	threshold speeds for acceleration profile 4
+ 84h 32 BYTEs	speedup factor for acceleration profile 1
+		(10h = 1.0, 14h = 1.25, 20h = 2.0, etc)
+ A4h 32 BYTEs	speedup factor for acceleration profile 2
+		(10h = 1.0, 14h = 1.25, 20h = 2.0, etc)
+ C4h 32 BYTEs	speedup factor for acceleration profile 3
+		(10h = 1.0, 14h = 1.25, 20h = 2.0, etc)
+ E4h 32 BYTEs	speedup factor for acceleration profile 4
+		(10h = 1.0, 14h = 1.25, 20h = 2.0, etc)
+104h 16 BYTEs	name of acceleration profile 1 (blank-padded)
+114h 16 BYTEs	name of acceleration profile 2 (blank-padded)
+124h 16 BYTEs	name of acceleration profile 3 (blank-padded)
+134h 16 BYTEs	name of acceleration profile 4 (blank-padded)
+Note:	unused bytes in the threshold speed fields are filled with 7Fh and
+	  unused bytes in the speedup factor fields are filled with 10h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002C" name="33002C"><b>33002C</b></a> - INT 33 - MS MOUSE v7.0+ - GET ACCELERATION PROFILES<br />
+<pre>
+INT 33 - MS MOUSE v7.0+ - GET ACCELERATION PROFILES
+	AX = 002Ch
+Return: AX = status (0000h success)
+	BX = currently-active acceleration profile
+	ES:SI -&gt; acceleration profile data (see #03180)
+SeeAlso: AX=002Bh,AX=002Dh,AX=0033h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002D" name="33002D"><b>33002D</b></a> - INT 33 - MS MOUSE v7.0+ - SELECT ACCELERATION PROFILE<br />
+<pre>
+INT 33 - MS MOUSE v7.0+ - SELECT ACCELERATION PROFILE
+	AX = 002Dh
+	BX = acceleration level
+	    0001h-0004h to set profile, or FFFFh to get current profile
+Return: AX = status
+	    0000h successful
+		ES:SI -&gt; 16-byte blank-padded name of acceleration profile
+	    FFFEh invalid acceleration curve number
+		ES:SI destroyed
+	BX = active acceleration curve number
+SeeAlso: AX=0013h,AX=002Bh,AX=002Ch,AX=002Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002E" name="33002E"><b>33002E</b></a> - INT 33 - MS MOUSE v8.10+ - SET ACCELERATION PROFILE NAMES<br />
+<pre>
+INT 33 - MS MOUSE v8.10+ - SET ACCELERATION PROFILE NAMES
+	AX = 002Eh
+	BL = flag (if nonzero, fill ES:SI buffer with default names on return)
+	ES:SI -&gt; 64-byte buffer containing profile names (16 bytes per name)
+Return: AX = status (0000h success)
+	    FFFEh error for ATI Mouse driver
+	ES:SI buffer filled with default names if BL nonzero on entry
+Notes:	not supported by Logitech driver v6.10
+	supported by ATI Mouse driver v7.04
+SeeAlso: AX=002Ch,AX=002Dh,AX=012Eh,AX=022Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33002F" name="33002F"><b>33002F</b></a> - INT 33 - MS MOUSE v7.02+ - MOUSE HARDWARE RESET<br />
+<pre>
+INT 33 - MS MOUSE v7.02+ - MOUSE HARDWARE RESET
+	AX = 002Fh
+Return: AX = status
+Note:	invoked by mouse driver v8.20 on being called with INT 2F/AX=530Bh
+SeeAlso: INT 2F/AH=53h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330030" name="330030"><b>330030</b></a> - INT 33 - MS MOUSE v7.04+ - GET/SET BallPoint INFORMATION<br />
+<pre>
+INT 33 - MS MOUSE v7.04+ - GET/SET BallPoint INFORMATION
+	AX = 0030h
+	CX = command
+	    0000h get status of BallPoint device
+	    other set rotation angle and masks
+		BX = rotation angle (-32768 to 32767 degrees)
+		CH = primary button mask
+		CL = secondary button mask
+Return: AX = button status (FFFFh if no BallPoint) (see #03181)
+	BX = rotation angle (0-360 degrees)
+	CH = primary button mask
+	CL = secondary button mask
+Note:	not supported by the ATI Mouse driver which calls itself v7.04
+
+Bitfields for BallPoint mouse button status:
+Bit(s)	Description	(Table 03181)
+ 5	button 1
+ 4	button 2
+ 3	button 3
+ 2	button 4
+ other	zero
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330031" name="330031"><b>330031</b></a> - INT 33 - MS MOUSE v7.05+ - GET CURRENT MINIMUM/MAXIMUM VIRTUAL COORDINATES<br />
+<pre>
+INT 33 - MS MOUSE v7.05+ - GET CURRENT MINIMUM/MAXIMUM VIRTUAL COORDINATES
+	AX = 0031h
+Return: AX = virtual X minimum
+	BX = virtual Y minimum
+	CX = virtual X maximum
+	DX = virtual Y maximum
+Note:	the minimum and maximum values are those set by AX=0007h and AX=0008h;
+	  the default is minimum = 0 and maximum = absolute maximum
+	  (see AX=0026h)
+SeeAlso: AX=0007h,AX=0008h,AX=0010h,AX=0026h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330032" name="330032"><b>330032</b></a> - INT 33 - MS MOUSE v7.05+ - GET ACTIVE ADVANCED FUNCTIONS<br />
+<pre>
+INT 33 - MS MOUSE v7.05+ - GET ACTIVE ADVANCED FUNCTIONS
+	AX = 0032h
+Return: AX = active function flags (FFFFh for v8.10)
+	    bit 15: function 0025h supported
+	    bit 14: function 0026h supported
+	    ...
+	    bit 0:  function 0034h supported
+	BX = ??? (0000h) officially unused
+	CX = ??? (E000h) officially unused
+	DX = ??? (0000h) officially unused
+Note:	the Italian version of MS MOUSE v8.20 reportedly indicates that
+	  functions 0033h and 0034h are not supported even though they are
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330033" name="330033"><b>330033</b></a> - INT 33 - MS MOUSE v7.05+ - GET SWITCH SETTINGS AND ACCELERATION PROFILE DATA<br />
+<pre>
+INT 33 - MS MOUSE v7.05+ - GET SWITCH SETTINGS AND ACCELERATION PROFILE DATA
+	AX = 0033h
+	CX = size of buffer
+	    0000h get required buffer size
+		Return: AX = 0000h
+			CX = required size (0154h for Logitech v6.10, 0159h
+				for MS v8.10-8.20)
+	    other
+		ES:DX -&gt; buffer of CX bytes for mouse settings
+		Return: AX = 0000h
+			CX = number of bytes returned
+			ES:DX buffer filled (see #03182)
+SeeAlso: AX=002Bh
+
+Format of mouse settings data buffer:
+Offset	Size	Description	(Table 03182)
+ 00h	BYTE	mouse type
+ 01h	BYTE	current language
+ 02h	BYTE	horizontal sensitivity (00h-64h)
+ 03h	BYTE	vertical sensitivity (00h-64h)
+ 04h	BYTE	double-speed threshold (00h-64h)
+ 05h	BYTE	ballistic curve (01h-04h)
+ 06h	BYTE	interrupt rate (01h-04h)
+ 07h	BYTE	cursor override mask
+ 08h	BYTE	laptop adjustment
+ 09h	BYTE	memory type (00h-02h)
+ 0Ah	BYTE	SuperVGA support (00h,01h)
+ 0Bh	BYTE	rotation angle
+ 0Ch	BYTE	???
+ 0Dh	BYTE	primary button (01h-04h)
+ 0Eh	BYTE	secondary button (01h-04h)
+ 0Fh	BYTE	click lock enabled (00h,01h)
+ 10h 324 BYTEs	acceleration profile data (see #03180)
+154h  5 BYTEs	??? (Microsoft driver, but not Logitech)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330034" name="330034"><b>330034</b></a> - INT 33 - MS MOUSE v8.0+ - GET INITIALIZATION FILE<br />
+<pre>
+INT 33 - MS MOUSE v8.0+ - GET INITIALIZATION FILE
+	AX = 0034h
+Return: AX = status (0000h successful)
+	ES:DX -&gt; ASCIZ initialization (.INI) file name
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330035" name="330035"><b>330035</b></a> - INT 33 - MS MOUSE v8.10+ - LCD SCREEN LARGE POINTER SUPPORT<br />
+<pre>
+INT 33 - MS MOUSE v8.10+ - LCD SCREEN LARGE POINTER SUPPORT
+	AX = 0035h
+	BX = function
+	    FFFFh get current settings
+		Return: AX = 0000h
+			BH = style (see #03183)
+			BL = size (see #03184)
+			CH = threshold (00h-64h)
+			CL = active flag (00h disabled, 01h enabled)
+			DX = delay
+	    other
+		BH = pointer style (see #03183)
+		BL = size (see #03184)
+		CH = threshold (00h-64h)
+		CL = active flag (00h disable size change, 01h enable)
+		DX = delay (0000h-0064h)
+		Return: AX = 0000h
+Note:	not supported by Logitech driver v6.10
+SeeAlso: AX=0012h,AX=002Ah
+
+(Table 03183)
+Values for pointer style:
+ 00h	normal
+ 01h	reverse
+ 02h	transparent
+SeeAlso: #03184
+
+(Table 03184)
+Values for pointer size:
+ 00h	small ("1")
+ 01h	medium ("1.5")
+ 02h	large ("2")
+SeeAlso: #03183
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330042" name="330042"><b>330042</b></a> - INT 33 - PCMOUSE - GET MSMOUSE STORAGE REQUIREMENTS<br />
+<pre>
+INT 33 - PCMOUSE - GET MSMOUSE STORAGE REQUIREMENTS
+	AX = 0042h
+Return: AX = status
+	    0000h MSMOUSE not installed
+	    0042h functions 42h, 50h, and 52h not supported
+	    FFFFh successful
+		BX = buffer size in bytes for functions 50h and 52h
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+SeeAlso: AX=0015h,AX=0050h,AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330043" name="330043"><b>330043</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CONFIGURE MOUSE???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CONFIGURE MOUSE???
+	AX = 0043h
+	CX:BX -&gt; configuration buffer (see #03185)
+	DL = ???
+Return: ???
+Notes:	also calls routines for INT 33/AX=0053h and INT 33/AX=004Fh
+	this function is also supported by the Genius Mouse 9.06 driver
+
+Format of Mouse Systems configuration buffer:
+Offset	Size	Description	(Table 03185)
+ 00h	WORD	I/O port address
+ 02h	BYTE	???
+ 03h	BYTE	interrupt number
+ 04h	BYTE	interrupt mask for interrupt controller
+ 05h  5 BYTEs	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330044CXCDEF" name="330044CXCDEF"><b>330044CXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE IGNORE ACCELERATION CMDS<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE IGNORE ACCELERATION CMDS
+	AX = 0044h
+	CX = CDEFh
+Return: AX = new state of "Ignore Application Acceleration Commands" flag
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+SeeAlso: AX=0045h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330045CXCDEF" name="330045CXCDEF"><b>330045CXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE RESOLUTION DOUBLING<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - TOGGLE RESOLUTION DOUBLING
+	AX = 0045h
+	CX = CDEFh
+Return: AX = new state of resolution doubling flag
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+SeeAlso: AX=0044h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330047" name="330047"><b>330047</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET BUTTON ASSIGNMENTS<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET BUTTON ASSIGNMENTS
+	AX = 0047h
+	ES:BX -&gt; button assignments (3 bytes, combinations of "L", "M", "R")
+Return: ???
+Note:	also supported by Genius Mouse 9.06 driver
+SeeAlso: AX=0067h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330048BXCDEF" name="330048BXCDEF"><b>330048BXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET ???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET ???
+	AX = 0048h
+	BX = CDEFh
+Return: CX = ???
+	BH = ???
+	BL = ??? (if 50h, driver is using PS/2 pointing device BIOS interface)
+Note:	also supported by Genius Mouse 9.06 driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33004B" name="33004B"><b>33004B</b></a> - INT 33 - LCS/Telegraphics MOUSE DRIVERS - INSTALLATION CHECK / GET VERSION<br />
+<pre>
+INT 33 - LCS/Telegraphics MOUSE DRIVERS - INSTALLATION CHECK / GET VERSION
+	AX = 004Bh
+Return: ES:DI -&gt; ASCIZ signature/description string if installed (see #03186)
+
+(Table 03186)
+Values for LCS/Telegraphics mouse driver OEM signature/description string:
+ "Primax Generic;Universal Mouse Driver;IMOUSE;v8.20i"
+ "Synaptics;TouchPad Driver;SYNTOUCH;v2.26"
+ "Z-NIX;BUS,AUX,Serial 3-byte and 5-byte Mouse Driver;ZMOUSE;v7.04d"
+Note:	the string consists of OEM, driver description, driver name, and
+	  version number
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33004CBXCDEF" name="33004CBXCDEF"><b>33004CBXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ??? FLAG<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ??? FLAG
+	AX = 004Ch
+	BX = CDEFh
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=006Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33004D" name="33004D"><b>33004D</b></a> - INT 33 - MS MOUSE - RETURN POINTER TO COPYRIGHT STRING<br />
+<pre>
+INT 33 - MS MOUSE - RETURN POINTER TO COPYRIGHT STRING
+	AX = 004Dh
+Return: ES:DI -&gt; copyright message "*** This is Copyright 1983 Microsoft" or
+		"Copyright 19XX...."
+Notes:	also supported by Logitech, Kraft, Genius Mouse, and Mouse Systems
+	  mouse drivers
+	in the Genius Mouse 9.06 driver, the ASCIZ signature "KYE" immediately
+	  follows the above copyright message (KYE Corp. manufactures the
+	  driver)
+SeeAlso: AX=0024h,AX=006Dh,AX=0666h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33004F" name="33004F"><b>33004F</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ENABLE MOUSE<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ENABLE MOUSE
+	AX = 004Fh
+Return: nothing
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=0043h,AX=0053h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330050" name="330050"><b>330050</b></a> - INT 33 - PCMOUSE - SAVE MSMOUSE STATE<br />
+<pre>
+INT 33 - PCMOUSE - SAVE MSMOUSE STATE
+	AX = 0050h
+	BX = buffer size (ignored by some driver versions)
+	ES:DX -&gt; buffer
+Return: AX = FFFFh if successful
+Notes:	the buffer must be large enough to hold the entire state, or following
+	  data will be overwritten by state data in versions which ignore BX;
+	  use INT 33/AX=0042h to get the required size
+	this function is also supported by the Genius Mouse 9.06 driver
+SeeAlso: AX=0042h,AX=0052h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330052" name="330052"><b>330052</b></a> - INT 33 - PCMOUSE - RESTORE MSMOUSE STATE<br />
+<pre>
+INT 33 - PCMOUSE - RESTORE MSMOUSE STATE
+	AX = 0052h
+	BX = buffer size (ignored by some driver versions)
+	ES:DX -&gt; buffer
+Return: AX = FFFFh if successful
+Note:	also supported by Genius Mouse 9.06 driver
+SeeAlso: AX=0050h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330053" name="330053"><b>330053</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - DISABLE MOUSE<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - DISABLE MOUSE
+	AX = 0053h
+Return: nothing
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=0043h,AX=004Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330054CXCDEF" name="330054CXCDEF"><b>330054CXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SELECT ULTRARES ACCELERATION LEVEL<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SELECT ULTRARES ACCELERATION LEVEL
+	AX = 0054h
+	CX = CDEFh
+	BX = new acceleration level (0-9)
+Return: ???
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+SeeAlso: AX=005Ah
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330055" name="330055"><b>330055</b></a> - INT 33 - Kraft Mouse - GET ???<br />
+<pre>
+INT 33 - Kraft Mouse - GET ???
+	AX = 0055h
+Return: CX = ???
+	DX = ???
+	ES = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330058" name="330058"><b>330058</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???
+	AX = 0058h
+Return: AX = CS of driver
+	CX:BX = original INT 33 vector
+	DX = ???
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33005A" name="33005A"><b>33005A</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ULTRARES ACCELERATIONS<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - SET ULTRARES ACCELERATIONS
+	AX = 005Ah
+	CX = number of WORDs to copy (max 0014h, but not range-checked)
+	DX:SI -&gt; buffer containing thresholds??? (CX words)
+	DX:BX -&gt; buffer containing acceleration values???
+		(9*14h words, only first CX of each 14h used)
+	???
+Return: CF clear
+	???
+Note:	this function is also supported by Genius Mouse 9.06
+SeeAlso: AX=0054h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330061BXCDEF" name="330061BXCDEF"><b>330061BXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???
+	AX = 0061h
+	BX = CDEFh
+Return: CX = ???
+Note:	also supported by Genius Mouse 9.06
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330067" name="330067"><b>330067</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET MOUSE BUTTONS???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET MOUSE BUTTONS???
+	AX = 0067h
+Return: BL = number of buttons???
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=0047h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33006A" name="33006A"><b>33006A</b></a> - INT 33 U - ATI Mouse - INSTALLATION CHECK<br />
+<pre>
+INT 33 U - ATI Mouse - INSTALLATION CHECK
+	AX = 006Ah
+Return: AL = AAh
+	AH = ???
+	BH = ???
+	BL = ???
+	CL = ???
+	CH = ???
+Program: ATI's MOUSE.COM and MOUSE.SYS are drivers for the mouse port found on
+	  some of ATI's video adapters
+SeeAlso: AX=006Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33006C" name="33006C"><b>33006C</b></a> - INT 33 U - TRUEDOX Mouse driver v4.01 - GET/SET HARDWARE PARAMETERS<br />
+<pre>
+INT 33 U - TRUEDOX Mouse driver v4.01 - GET/SET HARDWARE PARAMETERS
+	AX = 006Ch
+	BX = new IRQ (0003h or 0004h), or 0000h to get current values only
+	CL = new IRQmask (sent to 8259)
+	DX = new base I/O port
+Return: BX = current IRQ
+	DX = light pen state???
+Note:	this is the mouse driver for the Dell Dimension series of computers, by
+	  TRUEDOX Technology Corporation
+SeeAlso: AX=00A1h,AX=0666h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33006CBXCDEF" name="33006CBXCDEF"><b>33006CBXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CLEAR ??? FLAG<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - CLEAR ??? FLAG
+	AX = 006Ch
+	BX = CDEFh
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=004Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33006D" name="33006D"><b>33006D</b></a> - INT 33 - MS MOUSE - GET VERSION STRING<br />
+<pre>
+INT 33 - MS MOUSE - GET VERSION STRING
+	AX = 006Dh 'm'
+Return: ES:DI -&gt; Microsoft version number of resident driver (see #03187)
+Notes:	also supported by Logitech, Mouse Systems, Kraft, and Genius mouse
+	  drivers
+	the Mouse Systems 7.01 and Genius Mouse 9.06 drivers report their
+	  Microsoft version as 7.00 even though they do not support any of the
+	  functions from 0025h through 002Dh supported by the MS 7.00 driver
+	  (the Genius Mouse driver supports function 0026h, but it differs
+	  from the Microsoft function)
+	the TRUEDOX 4.01 driver reports its version as 6.26 through this call,
+	  but as 6.24 through AX=0024h
+	There seems to be no reliable method to distinguish MS MOUSE before
+	  3.00 from mouse drivers of other vendors.
+	Some releases of the MS MOUSE 6.00 erroneously return 6.01 instead of
+	  their true version number.  In this case, a DI value of 01ABh can
+	  be used to still detect a 6.00 driver.
+	For returned versions 6.02+, INT 33/AX=0024h should be used to retrieve
+	  more accurate version data. 
+	True MS MOUSE drivers can also be identified by magic numbers in
+	  their copyright message, stored in the driver's segment (ES).
+	  These can be found by scanning the first 2 Kb of the mouse 
+	  driver's segment for a string like: [new since 7.00+] 
+	  "** This is Copyright 1983[-19xx] Microsoft ***" with the
+	  magic number stored one byte after the signature string.
+SeeAlso: AX=0024h,AX=004Dh,AX=006Ah,AX=266Ch
+
+Format of Microsoft version number:
+Offset	Size	Description	(Table 03187)
+ 00h	BYTE	major version
+ 01h	BYTE	minor version (BCD)
+
+(Table 04087)
+Values for Microsoft MOUSE copyright string magic numbers:
+ 5564h	version 3.00..6.00	(for reported versions up to 5.03, and 6.00)
+ 557Ch	version 6.01Z..6.24	(for reported versions 6.01..6.24)
+ E806h	version 6.25		(for reported version 6.25)
+ EB02h	version 6.26..7.04	(for reported version 6.26..7.04)
+ 0800h	Integrated driver 1.0+	(for reported version 9.x+)
+Note:	Versions above 7.04 (except for integrated mouse drivers) have a magic
+	  number representing their version number, e.g. 0507h for version 7.05
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330070BXABCD" name="330070BXABCD"><b>330070BXABCD</b></a> - INT 33 - Mouse Systems MOUSE DRIVER - POPUP.COM - INSTALLATION CHECK<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER - POPUP.COM - INSTALLATION CHECK
+	AX = 0070h
+	BX = ABCDh
+Return: AX = ABCDh if installed
+	    BX:CX -&gt; data structure (see #03188)
+Notes:	this function is also supported by the Genius Mouse 9.06 driver
+	the v7.01 POPUP.COM and menu drivers also check for the signature
+	  CDh ABh BAh DCh at offset -2Ch from the interrupt handler
+	if POPUP is not loaded, the returned data structure contains the proper
+	  signature at offset 00h, but not at offset 08h
+
+Format of Mouse Systems POPUP.COM data structure:
+Offset	Size	Description	(Table 03188)
+ 00h	WORD	signature ABCDh
+ 02h	DWORD	pointer to info structure??? (see #03189)
+ 06h  2 BYTEs	???
+ 08h	WORD	signature ABCDh
+
+Format of Mouse Systems POPUP.COM info structure:
+Offset	Size	Description	(Table 03189)
+ 00h	WORD	driver version
+ 02h  8 BYTEs	???
+ 0Ah	WORD	segment of ???
+	???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330072BXABCD" name="330072BXABCD"><b>330072BXABCD</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - ???
+	AX = 0072h
+	BX = ABCDh
+Return: ???
+Note:	this function is also supported by the Genius Mouse 9.06 driver
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330073BXCDEF" name="330073BXCDEF"><b>330073BXCDEF</b></a> - INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET BUTTON ASSIGNMENTS<br />
+<pre>
+INT 33 - Mouse Systems MOUSE DRIVER v7.01+ - GET BUTTON ASSIGNMENTS
+	AX = 0073h
+	BX = CDEFh
+	ES:DX -&gt; 3-byte buffer for button assignments
+Return: CX = number of buttons???
+	ES:DX buffer filled (default is "LMR")
+Note:	also supported by Genius Mouse 9.06
+SeeAlso: AX=0067h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300A0" name="3300A0"><b>3300A0</b></a> - INT 33 U - TRUEDOX Mouse driver - SET HARDWARE PC MODE (3 button)<br />
+<pre>
+INT 33 U - TRUEDOX Mouse driver - SET HARDWARE PC MODE (3 button)
+	AX = 00A0h
+Return: nothing
+Note:	this function is only available if the mouse mode is switchable
+	  through the power pins
+SeeAlso: AX=006Ch"TRUEDOX",AX=00A1h"TRUEDOX"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300A1" name="3300A1"><b>3300A1</b></a> - INT 33 U - TRUEDOX Mouse driver - SET HARDWARE MS MODE (2 button)<br />
+<pre>
+INT 33 U - TRUEDOX Mouse driver - SET HARDWARE MS MODE (2 button)
+	AX = 00A1h
+Return: nothing
+Notes:	this function is only available if the mouse mode is switchable
+	  through the power pins
+	this is the mouse driver for the Dell Dimension series of computers, by
+	  TRUEDOX Technology Corporation
+SeeAlso: AX=006Ch"TRUEDOX",AX=00A0h"TRUEDOX",AX=00A6h,AX=0666h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300A6" name="3300A6"><b>3300A6</b></a> - INT 33 U - TRUEDOX Mouse driver - SET RESOLUTION<br />
+<pre>
+INT 33 U - TRUEDOX Mouse driver - SET RESOLUTION
+	AX = 00A6h
+	BX = new software resolution
+	    0001h 50-200 dpi
+	    0002h 200-400 dpi
+	    0003h 400-800 dpi
+Note:	this is the mouse driver for the Dell Dimension series of computers, by
+	  TRUEDOX Technology Corporation
+SeeAlso: AX=00A0h,AX=00A1h,AX=0666h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300B0" name="3300B0"><b>3300B0</b></a> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???<br />
+<pre>
+INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???
+	AX = 00B0h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300D6" name="3300D6"><b>3300D6</b></a> - INT 33 - Twiddler TWMOUSE - GET BUTTON/TILT STATE<br />
+<pre>
+INT 33 - Twiddler TWMOUSE - GET BUTTON/TILT STATE
+	AX = 00D6h
+Return: AX = current button bitmap
+	BX = current X tilt (approximately -200..+200 = -90degrees..+90deg.)
+	CX = current Y tilt
+Program: the Twiddler is a chording keyboard/mouse combination by Handykey
+	  Corporation
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300F0" name="3300F0"><b>3300F0</b></a> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???<br />
+<pre>
+INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???
+	AX = 00F0h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300F1" name="3300F1"><b>3300F1</b></a> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???<br />
+<pre>
+INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???
+	AX = 00F1h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300F2" name="3300F2"><b>3300F2</b></a> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???<br />
+<pre>
+INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???
+	AX = 00F2h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#3300F3" name="3300F3"><b>3300F3</b></a> - INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???<br />
+<pre>
+INT 33 U - LCS/Telegraphics MOUSE DRIVERS - ???
+	AX = 00F3h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330100CX4752" name="330100CX4752"><b>330100CX4752</b></a> - INT 33 - GRTMOUSE v1.00+ - INSTALLATION CHECK<br />
+<pre>
+INT 33 - GRTMOUSE v1.00+ - INSTALLATION CHECK
+	AX = 0100h
+	CX = 4752h ('GR')
+	DX = 544Dh ('TM')
+Return: AX = 474Dh ('GM') if installed
+	    CX = version number (CH = major, CL = minor)
+Program: GRTMOUSE is a graphical-cursor driver for textmode by Tommer Leyvand
+SeeAlso: AX=0101h,AX=0102h,AX=0103h,AX=0104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330101" name="330101"><b>330101</b></a> - INT 33 - GRTMOUSE v1.00+ - SET MOUSE CURSOR SHAPE<br />
+<pre>
+INT 33 - GRTMOUSE v1.00+ - SET MOUSE CURSOR SHAPE
+	AX = 0101h
+	DS:SI -&gt; 16-byte cursor pattern
+Return: CF clear if successful
+SeeAlso: AX=0100h,AX=0102h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330102" name="330102"><b>330102</b></a> - INT 33 - GRTMOUSE v1.00+ - GET MOUSE CURSOR SHAPE<br />
+<pre>
+INT 33 - GRTMOUSE v1.00+ - GET MOUSE CURSOR SHAPE
+	AX = 0102h
+	ES:DI -&gt; 16-byte buffer for cursor pattern
+SeeAlso: AX=0100h,AX=0101h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330103" name="330103"><b>330103</b></a> - INT 33 - GRTMOUSE v1.00+ - SET ACTIVE CHARACTERS<br />
+<pre>
+INT 33 - GRTMOUSE v1.00+ - SET ACTIVE CHARACTERS
+	AX = 0103h
+	CH,CL,DH,DL = ASCII codes to be remapped to display mouse pointer
+Note:	the default active characters are D0h,D1h,D6h,D8h; the active
+	 characters should be in the range C0h to DFh
+SeeAlso: AX=0100h,AX=0104h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330104" name="330104"><b>330104</b></a> - INT 33 - GRTMOUSE v1.00+ - GET ACTIVE CHARACTERS<br />
+<pre>
+INT 33 - GRTMOUSE v1.00+ - GET ACTIVE CHARACTERS
+	AX = 0104h
+Return: CH,CL,DH,DL = ASCII codes for the active characters
+SeeAlso: AX=0100h,AX=0103h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33012E" name="33012E"><b>33012E</b></a> - INT 33 - MS MOUSE v8.10+ - ???<br />
+<pre>
+INT 33 - MS MOUSE v8.10+ - ???
+	AX = 012Eh
+	BL = ???
+Return: AX = 0000h (MS)
+	AX = FFFFh (ATI Mouse v7.04)
+Note:	not supported by Logitech driver v6.10
+SeeAlso: AX=002Eh,AX=022Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33022E" name="33022E"><b>33022E</b></a> - INT 33 - MS MOUSE v8.10+ - ???<br />
+<pre>
+INT 33 - MS MOUSE v8.10+ - ???
+	AX = 022Eh
+	BL = ???
+Return: AX = 0000h (MS)
+	AX = FFFFh (ATI Mouse v7.04)
+Note:	not supported by Logitech driver v6.10
+SeeAlso: AX=002Eh,AX=012Eh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#330666" name="330666"><b>330666</b></a> - INT 33 U - TRUEDOX Mouse driver v4.01 - GET COPYRIGHT STRING<br />
+<pre>
+INT 33 U - TRUEDOX Mouse driver v4.01 - GET COPYRIGHT STRING
+	AX = 0666h
+Return: DX:AX -&gt; ASCII "Copyright 1987-1992 TRUEDOX Technology Corporation"
+Note:	this is the mouse driver for the Dell Dimension series of computers,
+	  by TRUEDOX Technology Corporation
+SeeAlso: AX=004Dh,AX=00A6h,AX=0666h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33136C" name="33136C"><b>33136C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 136Ch
+	BX = ???
+Return: AX = ???
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33146C" name="33146C"><b>33146C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - GET/SET ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - GET/SET ???
+	AX = 146Ch
+	BL = function
+	    00h set ???
+		BH = new value (zero/nonzero to clear/set)
+	    else get ???
+		Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33156C" name="33156C"><b>33156C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - GET SIGNATURE AND VERSION STRINGS<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - GET SIGNATURE AND VERSION STRINGS
+	AX = 156Ch
+Return: ES:DI -&gt; signature "LOGITECH MOUSE DRIVER"
+	ES:SI -&gt; version string, terminated with CRLF
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33166C" name="33166C"><b>33166C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 166Ch
+	BL = ???
+	    00h ???
+	    01h ???
+	    other ???
+		BH = new value of ???
+		Return: AX = FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33176C" name="33176C"><b>33176C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 176Ch
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33186C" name="33186C"><b>33186C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 186Ch
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33196C" name="33196C"><b>33196C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 196Ch
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331A6C" name="331A6C"><b>331A6C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - GET ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - GET ???
+	AX = 1A6Ch
+Return: AX = FFFFh
+	BX = ???
+	CX = ???
+SeeAlso: AX=1B6Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331B6C" name="331B6C"><b>331B6C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - SET ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - SET ???
+	AX = 1B6Ch
+	BX = new value for ??? (0000h-0003h)
+Return: AX = FFFFh
+SeeAlso: AX=1A6Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331C6C" name="331C6C"><b>331C6C</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 1C6Ch
+	BX = ???
+	    &lt;42h ???
+	    =42h ???
+	    &gt;42h ???
+		ES:DI -&gt; ???
+		Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331D6C" name="331D6C"><b>331D6C</b></a> - INT 33 - LOGITECH MOUSE - GET COMPASS PARAMETER<br />
+<pre>
+INT 33 - LOGITECH MOUSE - GET COMPASS PARAMETER
+	AX = 1D6Ch
+Return: BX = direction (0=north, 1=south, 2=east, 3=west)
+SeeAlso: AX=1E6Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331E6C" name="331E6C"><b>331E6C</b></a> - INT 33 - LOGITECH MOUSE - SET COMPASS PARAMETER<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET COMPASS PARAMETER
+	AX = 1E6Ch
+	BX = direction (0=north, 1=south, 2=east, 3=west)
+SeeAlso: AX=1D6Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#331F6C" name="331F6C"><b>331F6C</b></a> - INT 33 - LOGITECH MOUSE - GET BALLISTICS INFORMATION<br />
+<pre>
+INT 33 - LOGITECH MOUSE - GET BALLISTICS INFORMATION
+	AX = 1F6Ch
+Return: BX = 0=off, 1=on
+	CX = 1=low, 2=high
+SeeAlso: AX=002Ch,AX=236Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33206C" name="33206C"><b>33206C</b></a> - INT 33 - LOGITECH MOUSE - SET LEFT OR RIGHT PARAMETER<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET LEFT OR RIGHT PARAMETER
+	AX = 206Ch
+	BX = parameter (00h = right, FFh = left)
+SeeAlso: AX=216Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33216C" name="33216C"><b>33216C</b></a> - INT 33 - LOGITECH MOUSE - GET LEFT OR RIGHT PARAMETER<br />
+<pre>
+INT 33 - LOGITECH MOUSE - GET LEFT OR RIGHT PARAMETER
+	AX = 216Ch
+Return: BX = parameter (00h = right, FFh = left)
+SeeAlso: AX=206Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33226C" name="33226C"><b>33226C</b></a> - INT 33 - LOGITECH MOUSE - REMOVE DRIVER FROM MEMORY<br />
+<pre>
+INT 33 - LOGITECH MOUSE - REMOVE DRIVER FROM MEMORY
+	AX = 226Ch
+Note:	this only frees memory; does not restore hooked interrupts
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33236C" name="33236C"><b>33236C</b></a> - INT 33 - LOGITECH MOUSE - SET BALLISTICS INFORMATION<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET BALLISTICS INFORMATION
+	AX = 236Ch
+	BX = 0=off, 1=on
+	CX = 1=low, 2=high
+SeeAlso: AX=002Ch,AX=1F6Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33246C" name="33246C"><b>33246C</b></a> - INT 33 - LOGITECH MOUSE - GET PARAMETERS AND RESET SERIAL MOUSE<br />
+<pre>
+INT 33 - LOGITECH MOUSE - GET PARAMETERS AND RESET SERIAL MOUSE
+	AX = 246Ch
+	ES:DX -&gt; parameter table buffer (see #03190)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=0000h,AX=256Ch/BX=0000h,AX=256Ch/BX=0001h,AX=256Ch/BX=0003h
+
+Format of Logitech Mouse parameter table:
+Offset	Size	Description	(Table 03190)
+ 00h	WORD	baud rate divided by 100  (serial mouse only)
+ 02h	WORD	emulation		  (serial mouse only)
+ 04h	WORD	report rate		  (serial mouse only)
+ 06h	WORD	firmware revision	  (serial mouse only)
+ 08h	WORD	00h			  (serial mouse only)
+ 0Ah	WORD	port			  (serial mouse only)
+ 0Ch	WORD	physical buttons
+ 0Eh	WORD	logical buttons
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33256CBX0000" name="33256CBX0000"><b>33256CBX0000</b></a> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET BAUD RATE (SERIAL MOUSE ONLY)<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET BAUD RATE (SERIAL MOUSE ONLY)
+	AX = 256Ch
+	BX = 0000h
+	CX = rate (0=1200, 1=2400, 2=4800, 3=9600)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=246Ch,AX=256Ch/BX=0001h,AX=256Ch/BX=0002h,AX=276Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33256CBX0001" name="33256CBX0001"><b>33256CBX0001</b></a> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET EMULATION (SERIAL MOUSE ONLY)<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET EMULATION (SERIAL MOUSE ONLY)
+	AX = 256Ch
+	BX = 0001h
+	CX = emulation type (see #03191)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=246Ch,AX=256Ch/BX=0000h,AX=256Ch/BX=0003h,AX=276Ch
+
+(Table 03191)
+Values for Logitech mouse emulation type:
+ 00h	5 byte packed binary
+ 01h	3 byte packed binary
+ 02h	hexadecimal
+ 03h	relative bit pad
+ 04h	not supported
+ 05h	MM Series
+ 06h	not supported
+ 07h	Microsoft
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33256CBX0002" name="33256CBX0002"><b>33256CBX0002</b></a> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET REPORT RATE (SERIAL MOUSE ONLY)<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET REPORT RATE (SERIAL MOUSE ONLY)
+	AX = 256Ch
+	BX = 0002h
+	CX = rate (0=10, 1=20, 2=35, 3=50, 4=70, 5=100, 6=150)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=246Ch,AX=256Ch/BX=0001h,AX=256Ch/BX=0003h,AX=276Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33256CBX0003" name="33256CBX0003"><b>33256CBX0003</b></a> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE PORT (SERIAL MOUSE ONLY)<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE PORT (SERIAL MOUSE ONLY)
+	AX = 256Ch
+	BX = 0003h
+	CX = port (1, 2)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=246Ch,AX=256Ch/BX=0000h,AX=256Ch/BX=0004h,AX=276Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33256CBX0004" name="33256CBX0004"><b>33256CBX0004</b></a> - INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE LOGICAL BUTTONS<br />
+<pre>
+INT 33 - LOGITECH MOUSE - SET PARAMETERS - SET MOUSE LOGICAL BUTTONS
+	AX = 256Ch
+	BX = 0004h
+	CX = buttons (2, 3)
+Return: AX = FFFFh if driver installed for serial mouse
+SeeAlso: AX=246Ch,AX=276Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33266C" name="33266C"><b>33266C</b></a> - INT 33 - LOGITECH MOUSE - GET VERSION???<br />
+<pre>
+INT 33 - LOGITECH MOUSE - GET VERSION???
+	AX = 266Ch
+Return: BX = 'SS'
+	CH = '4'  major version number
+	CL = '1'  minor version number
+SeeAlso: AX=006Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33276C" name="33276C"><b>33276C</b></a> - INT 33 - LOGITECH MOUSE - ??? Tries MMSeries, Baud 2400<br />
+<pre>
+INT 33 - LOGITECH MOUSE - ??? Tries MMSeries, Baud 2400
+	AX = 276Ch
+SeeAlso: AX=256Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333000" name="333000"><b>333000</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - INSTALLATION CHECK<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - INSTALLATION CHECK
+	AX = 3000h
+Return: AX = FFFFh if installed
+	    BX = version number (BH = major, BL = minor)
+Program: SMD is a programmer's library by Andy Hakim which provides a
+	  graphics-style mouse cursor in text mode.  PrecisePoint is an
+	  SMD-based TSR which replaces the block mouse cursor in text
+	  applications.
+SeeAlso: AX=0000h,AX=3001h,AX=3003h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333001" name="333001"><b>333001</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - ENABLE SMOOTH MOUSE<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - ENABLE SMOOTH MOUSE
+	AX = 3001h
+Return: AX = status (0000h = disabled, 0001h = enabled)
+Note:	SMD remains disabled if running under Desqview or in graphics mode
+SeeAlso: AX=0001h,AX=0002h,AX=3002h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333002" name="333002"><b>333002</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - DISABLE SMOOTH MOUSE<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - DISABLE SMOOTH MOUSE
+	AX = 3002h
+Return: AX = status (0000h = disabled, 0001h = enabled)
+SeeAlso: AX=0001h,AX=0002h,AX=3000h,AX=3001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333003" name="333003"><b>333003</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - GET INFORMATION<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - GET INFORMATION
+	AX = 3003h
+	BL = data structure selector
+	    00h Primary Bitmap (used for 25 line mode) (see #03192)
+	    01h Secondary Bitmap (used for 43/50 line modes) (see #03192)
+	    02h Sacrifice Character Map (see #03193)
+	    03h Program Information (see #03194)
+Return: ES:DX -&gt; selected data structure
+SeeAlso: AX=3000h
+
+Format of Primary/Secondary Bitmap [SMD_BITMAP_STRUCT]:
+Offset	Size	Description	(Table 03192)
+ 00h	BYTE	vertical size of bitmap (00h - 10h)
+ 01h	BYTE	horizontal size of bitmap (00h - 10h)
+ 02h	BYTE	vertical hotspot position (00h - 10h)
+ 03h	BYTE	horizontal hotspot position (00h - 10h)
+ 04h 16 WORDs	cursor bitmap data
+ 14h 16 WORDs	screen bitmap data
+
+Format of Sacrifice Character Map [SMD_SMAP_STRUCT]:
+Offset	Size	Description	(Table 03193)
+ 00h	BYTE	bytes are character values (00h-FFh) used in place of the
+ 01h	BYTE	actual character for the corresponding position on the screen
+ 02h	BYTE	     +--------------+	  occupied by part or all of the mouse
+ 03h	BYTE	     | 0h | 1h | 2h |	  cursor
+ 04h	BYTE	     |----+----+----|
+ 05h	BYTE	     | 3h | 4h | 5h |
+ 06h	BYTE	     |----+----+----|
+ 07h	BYTE	     | 6h | 7h | 8h |
+ 08h	BYTE	     +--------------+
+
+Format of Program Information [SMD_INFO_STRUCT]:
+Offset	Size	Description	(Table 03194)
+ 00h	WORD	segment of old interrupt 33h handler
+ 02h	WORD	offset of old interrupt 33h handler
+ 04h	WORD	PSP of SMD
+ 06h	BYTE	ENABLE/DISABLE manual setting status
+ 07h	BYTE	ENABLE/DISABLE internal usage status
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333004" name="333004"><b>333004</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION
+	AX = 3004h
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#333005" name="333005"><b>333005</b></a> - INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION<br />
+<pre>
+INT 33 - Smooth Mouse Driver, PrecisePoint - RESERVED FUTURE EXPANSION
+	AX = 3005h
+SeeAlso: AX=3000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#334F00" name="334F00"><b>334F00</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - GET ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - GET ???
+	AX = 4F00h
+Return: AX = 004Fh if supported
+	BX = ???
+	ES:DI -&gt; ???
+SeeAlso: AX=4F01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#334F01" name="334F01"><b>334F01</b></a> - INT 33 - LOGITECH MOUSE v6.10+ - ???<br />
+<pre>
+INT 33 - LOGITECH MOUSE v6.10+ - ???
+	AX = 4F01h
+	ES = ???
+Return: AX = 004Fh if supported
+	ES:DI -&gt; ???
+SeeAlso: AX=4F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#336F00" name="336F00"><b>336F00</b></a> - INT 33 - Hewlett Packard - HP MOUSE DRIVER INSTALLATION CHECK<br />
+<pre>
+INT 33 - Hewlett Packard - HP MOUSE DRIVER INSTALLATION CHECK
+	AX = 6F00h
+	BX &lt;&gt; 4850h
+Return: BX = 4850h ('HP') if mouse driver written by Hewlett Packard
+SeeAlso: INT 10/AX=6F00h,INT 14/AX=6F00h,INT 16/AX=6F00h,INT 17/AX=6F00h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#338800" name="338800"><b>338800</b></a> - INT 33 U - InfoTrack IMOUSE.COM - UNHOOK MOUSE IRQ<br />
+<pre>
+INT 33 U - InfoTrack IMOUSE.COM - UNHOOK MOUSE IRQ
+	AX = 8800h
+	BX &lt;&gt; FFFFh
+Note:	the code is written to expect a subfunction number in AL, but only
+	  function 00h has been implemented
+SeeAlso: AX=8800h/BX=FFFFh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#338800BXFFFF" name="338800BXFFFF"><b>338800BXFFFF</b></a> - INT 33 U - InfoTrack IMOUSE.COM - GET ACTIVE IRQ<br />
+<pre>
+INT 33 U - InfoTrack IMOUSE.COM - GET ACTIVE IRQ
+	AX = 8800h
+	BX = FFFFh
+Return: BL = number of IRQ being used by the mouse
+SeeAlso: AX=8800h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE6" name="33FFE6"><b>33FFE6</b></a> - INT 33 - Switch-It v3.23 - GET ??? PROGRAM<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ??? PROGRAM
+	AX = FFE6h
+	CX = length of buffer
+	ES:DI -&gt; buffer for program name
+Return: ES:DI buffer filled
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE7" name="33FFE7"><b>33FFE7</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFE7h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE8" name="33FFE8"><b>33FFE8</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFE8h
+	CX = length of name including terminating NUL
+	DS:SI -&gt; ASCIZ program pathname
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFE9" name="33FFE9"><b>33FFE9</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFE9h
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEA" name="33FFEA"><b>33FFEA</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFEAh
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEB" name="33FFEB"><b>33FFEB</b></a> - INT 33 - Switch-It v3.23 - SET ??? FLAG<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ??? FLAG
+	AX = FFEBh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEC" name="33FFEC"><b>33FFEC</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFECh
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFED" name="33FFED"><b>33FFED</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEDh
+Return: AX = ??? (0001h)
+	BX = ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEE" name="33FFEE"><b>33FFEE</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEEh
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFEF" name="33FFEF"><b>33FFEF</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFEFh
+Return: BX:AX -&gt; ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF0" name="33FFF0"><b>33FFF0</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFF0h
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF1" name="33FFF1"><b>33FFF1</b></a> - INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET CONFIGURATION FILE
+	AX = FFF1h
+Return: BX:AX -&gt; ASCIZ pathname of configuration file
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF2" name="33FFF2"><b>33FFF2</b></a> - INT 33 - Switch-It v3.23 - SET ??? FLAG<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ??? FLAG
+	AX = FFF2h
+Return: AL = 01h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF3" name="33FFF3"><b>33FFF3</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF3h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF4" name="33FFF4"><b>33FFF4</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFF4h
+	BX = ???
+	CX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF5" name="33FFF5"><b>33FFF5</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF5h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF6" name="33FFF6"><b>33FFF6</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF6h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF7" name="33FFF7"><b>33FFF7</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFF7h
+	BX = index of ???
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF8" name="33FFF8"><b>33FFF8</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFF8h
+	BX = ???
+	CX = length of program name, including terminating NUL
+	DS:SI -&gt; ASCIZ program pathname
+Return: ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFF9" name="33FFF9"><b>33FFF9</b></a> - INT 33 - Switch-It v3.23 - NOP<br />
+<pre>
+INT 33 - Switch-It v3.23 - NOP
+	AX = FFF9h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFA" name="33FFFA"><b>33FFFA</b></a> - INT 33 - Switch-It v3.23 - SET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - SET ???
+	AX = FFFAh
+	BX = index of program
+SeeAlso: AX=FFFBh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFB" name="33FFFB"><b>33FFFB</b></a> - INT 33 - Switch-It v3.23 - GET ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET ???
+	AX = FFFBh
+	BX = index of program
+Return: AX = ??? (0000h or 0001h)
+SeeAlso: AX=FFFAh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFC" name="33FFFC"><b>33FFFC</b></a> - INT 33 - Switch-It v3.23 - CLEAR ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - CLEAR ???
+	AX = FFFCh
+	BX = index of program
+SeeAlso: AX=FFFAh,AX=FFFCh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFD" name="33FFFD"><b>33FFFD</b></a> - INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???<br />
+<pre>
+INT 33 - Switch-It v3.23 - GET MEMORY ADDRESSES???
+	AX = FFFDh
+Return: AX = first available segment???
+	BX = paragraph of top of conventional memory
+	DX = PSP segment of SI.EXE
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFE" name="33FFFE"><b>33FFFE</b></a> - INT 33 - Switch-It v3.23 - INSTALLATION CHECK<br />
+<pre>
+INT 33 - Switch-It v3.23 - INSTALLATION CHECK
+	AX = FFFEh
+Return: BX = ???
+	DX = 5349h ("SI")
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#33FFFF" name="33FFFF"><b>33FFFF</b></a> - INT 33 - Switch-It v3.23 - ???<br />
+<pre>
+INT 33 - Switch-It v3.23 - ???
+	AX = FFFFh
+	BX = ???
+Program: Switch-It is a task switcher supporting up to 100 programs
+	  simultaneously by Better Software Technology, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

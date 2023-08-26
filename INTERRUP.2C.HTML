@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._2C</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for interrupt INT 2C
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#2C"><b>2C</b> - INT 2C - DOS 2+ - RESERVED</a><br />
+<a href="#2C_0"><b>2C</b> - INT 2C - STARLITE architecture - KERNEL API</a><br />
+<a href="#2C_1"><b>2C</b> - INT 2C R - Cloaking - CALL PROTECTED-MODE PASSALONG CHAIN</a><br />
+<a href="#2C0000"><b>2C0000</b> - INT 2C P - Cloaking - ALLOCATE GDT SELECTOR</a><br />
+<a href="#2C0001"><b>2C0001</b> - INT 2C P - Cloaking - FREE GDT SELECTOR</a><br />
+<a href="#2C0002"><b>2C0002</b> - INT 2C P - Cloaking - SET SEGMENT BASE ADDRESS</a><br />
+<a href="#2C0003"><b>2C0003</b> - INT 2C P - Cloaking - SET SEGMENT LIMIT</a><br />
+<a href="#2C0004"><b>2C0004</b> - INT 2C P - Cloaking - SET SEGMENT ACCESS MODE</a><br />
+<a href="#2C0005"><b>2C0005</b> - INT 2C P - Cloaking - SET SEGMENT EXTENDED ACCESS MODE</a><br />
+<a href="#2C0006"><b>2C0006</b> - INT 2C P - Cloaking - GET PROTECTED-MODE INTERRUPT VECTOR</a><br />
+<a href="#2C0007"><b>2C0007</b> - INT 2C P - Cloaking - SET PROTECTED-MODE INTERRUPT VECTOR</a><br />
+<a href="#2C0008"><b>2C0008</b> - INT 2C P - Cloaking - GET PASSALONG ADDRESS</a><br />
+<a href="#2C0009"><b>2C0009</b> - INT 2C P - Cloaking - SET PASSALONG ADDRESS</a><br />
+<a href="#2C000A"><b>2C000A</b> - INT 2C P - Cloaking - GET BASE ADDRESS OF GDT SELECTOR</a><br />
+<a href="#2C000B"><b>2C000B</b> - INT 2C P - Cloaking - GET SELECTOR LIMIT</a><br />
+<a href="#2C_2"><b>2C</b> - INT 2C P - RM386 v6.00 - CLOAKING - RESERVED FOR CLOAKED BIOS USE UNDER WINDOWS</a><br />
+<a href="#2C000F"><b>2C000F</b> - INT 2C P - Cloaking v1.01 - "Simulate_Shell_Event"</a><br />
+<a href="#2C0011"><b>2C0011</b> - INT 2C P - Cloaking v1.01 - "Switch_VMs_and_Call_back"</a><br />
+<a href="#2C0012"><b>2C0012</b> - INT 2C P - Cloaking v1.01 - "Query_Current_VM"</a><br />
+<a href="#2C0013"><b>2C0013</b> - INT 2C P - Cloaking v1.01 - "Issue_System_Modal_Message"</a><br />
+<a href="#2C001D"><b>2C001D</b> - INT 2C P - Cloaking v1.01 - GET INT 2C API HANDLER ENTRY POINT</a><br />
+<a href="#2C001E"><b>2C001E</b> - INT 2C P - Cloaking v1.01 - CLEAR CRITICAL SECTION</a><br />
+<a href="#2C001F"><b>2C001F</b> - INT 2C P - Cloaking v1.01 - SET CRITICAL SECTION</a><br />
+<a href="#2C0020"><b>2C0020</b> - INT 2C P - Cloaking - GET SIZE OF PROTECTED-MODE STATE</a><br />
+<a href="#2C0021"><b>2C0021</b> - INT 2C P - Cloaking - SAVE PROTECTED-MODE STATE</a><br />
+<a href="#2C0022"><b>2C0022</b> - INT 2C P - Cloaking - RESTORE PROTECTED-MODE STATE</a><br />
+<a href="#2C0023"><b>2C0023</b> - INT 2C P - Cloaking - ISSUE PROTECTED-MODE XMS CALL</a><br />
+<a href="#2C0024"><b>2C0024</b> - INT 2C P - Cloaking - SET V86-MODE STACK</a><br />
+<a href="#2C0025"><b>2C0025</b> - INT 2C P - Cloaking - CALL V86-MODE PROCEDURE</a><br />
+<a href="#2C0026"><b>2C0026</b> - INT 2C P - Cloaking - CALL V86-MODE INTERRUPT HANDLER</a><br />
+<a href="#2C0027"><b>2C0027</b> - INT 2C P - Cloaking - CHAIN TO V86-MODE INTERRUPT HANDLER</a><br />
+<a href="#2C0028"><b>2C0028</b> - INT 2C P - Cloaking - GET ESP0 FROM TSS</a><br />
+<a href="#2C0029"><b>2C0029</b> - INT 2C P - Cloaking - SET SECONDARY STACK</a><br />
+<a href="#2C002A"><b>2C002A</b> - INT 2C P - Cloaking - SET 8259 IRQ BASE VECTORS</a><br />
+<a href="#2C002BCH81"><b>2C002BCH81</b> - INT 2C P - Cloaking - PROTECTED-MODE VIRTUAL DMA SERVICES</a><br />
+<a href="#2C002C"><b>2C002C</b> - INT 2C P - Cloaking - GET PORT-TRAPPING PASSALONG</a><br />
+<a href="#2C002D"><b>2C002D</b> - INT 2C P - Cloaking - SET PORT-TRAPPING PASSALONG</a><br />
+<a href="#2C002E"><b>2C002E</b> - INT 2C P - Cloaking - TRAP I/O PORT</a><br />
+<a href="#2C002F"><b>2C002F</b> - INT 2C PU - Cloaking - UNTRAP I/O PORT</a><br />
+<a href="#2C0030"><b>2C0030</b> - INT 2C PU - Cloaking - GET TRAPPING STATE OF SPECIFIED PORT</a><br />
+<a href="#2C0031"><b>2C0031</b> - INT 2C PU - RM386 v6.00 - BUG</a><br />
+<a href="#2C0031_0"><b>2C0031</b> - INT 2C P - Cloaking v1.01 - ALLOCATE V86 CALLBACK</a><br />
+<a href="#2C0032"><b>2C0032</b> - INT 2C P - Cloaking v1.01 - FREE V86 CALLBACK</a><br />
+<a href="#2C0033"><b>2C0033</b> - INT 2C P - Cloaking v1.01 - REGISTER CLOAKING CLIENT</a><br />
+<a href="#2C0034"><b>2C0034</b> - INT 2C P - Cloaking v1.01 - UNREGISTER CLOAKING CLIENT</a><br />
+
+<hr />
+
+<a href="#2C" name="2C"><b>2C</b></a> - INT 2C - DOS 2+ - RESERVED<br />
+<pre>
+INT 2C - DOS 2+ - RESERVED
+Note:	this vector is not used in DOS versions &lt;= 6.00, and points at an IRET
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C_0" name="2C_0"><b>2C</b></a> - INT 2C - STARLITE architecture - KERNEL API<br />
+<pre>
+INT 2C - STARLITE architecture - KERNEL API
+Note:	STARLITE is an architecture by General Software for a series of MS-DOS
+	  compatible operating systems (OEM DOS, NETWORK DOS, and SMP DOS) to
+	  be released in 1991.	The interrupt number is subject to change
+	  before the actual release.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C_1" name="2C_1"><b>2C</b></a> - INT 2C R - Cloaking - CALL PROTECTED-MODE PASSALONG CHAIN<br />
+<pre>
+INT 2C R - Cloaking - CALL PROTECTED-MODE PASSALONG CHAIN
+Notes:	when this interrupt is invoked in V86 mode, RM386 will invoke the first
+	  in a chain of protected-mode handlers, and will only pass execution
+	  to the V86-mode INT 2C handler if none of the handlers in the
+	  passalong chain handle the call instead.  This is the method by which
+	  the real-mode stub of a cloaked application communicates with the
+	  protected-mode portion.
+	the cloaking host calls the passalong chain with EAX=58494E33h ('WIN3')
+	  when MS Windows starts up and with EAX=334E4958h ('3NIW') when
+	  Windows shuts down; between these two broadcasts, the additional
+	  Windows-only Cloaking services are available
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00, the
+	  memory manager included in Helix Software's Netroom
+SeeAlso: INT 2C/AX=0009h,INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0000" name="2C0000"><b>2C0000</b></a> - INT 2C P - Cloaking - ALLOCATE GDT SELECTOR<br />
+<pre>
+INT 2C P - Cloaking - ALLOCATE GDT SELECTOR
+	AX = 0000h
+	EBX = base address
+	CL = access mode byte
+	CH = extended access mode byte (omit limit field)
+	EDX = segment limit
+Return: CF clear if successful
+	    AX = selector
+	CF set on error
+	    AX = error code (see #02556)
+Notes:	this INT 2C interface is used by Netroom's DPMI.EXE v3.00
+	to access extended memory, set the base address to the desired
+	  physical address plus 400000h (4M)
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00, the
+	  memory manager included in Helix Software's Netroom
+SeeAlso: AX=0001h,AX=0002h,AX=0003h,AX=0004h,AX=0005h,INT 31/AH=57h,#00501
+
+(Table 02556)
+Values for Cloaking error code:
+ 0001h	no more selectors
+ 0002h	not a GDT ring 0 selector
+ 0003h	invalid selector (out of range, not user selector)
+ 0004h	selector not allocated
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0001" name="2C0001"><b>2C0001</b></a> - INT 2C P - Cloaking - FREE GDT SELECTOR<br />
+<pre>
+INT 2C P - Cloaking - FREE GDT SELECTOR
+	AX = 0001h
+	SI = selector
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0000h,INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0002" name="2C0002"><b>2C0002</b></a> - INT 2C P - Cloaking - SET SEGMENT BASE ADDRESS<br />
+<pre>
+INT 2C P - Cloaking - SET SEGMENT BASE ADDRESS
+	AX = 0002h
+	SI = selector
+	EBX = new physical base addres
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0000h,AX=0003h,AX=0004h,INT 31/AX=0007h,#00501
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0003" name="2C0003"><b>2C0003</b></a> - INT 2C P - Cloaking - SET SEGMENT LIMIT<br />
+<pre>
+INT 2C P - Cloaking - SET SEGMENT LIMIT
+	AX = 0003h
+	SI = selector
+	EBX = new limit
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0000h,AX=0002h,AX=0004h,INT 31/AX=0008h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0004" name="2C0004"><b>2C0004</b></a> - INT 2C P - Cloaking - SET SEGMENT ACCESS MODE<br />
+<pre>
+INT 2C P - Cloaking - SET SEGMENT ACCESS MODE
+	AX = 0004h
+	SI = selector
+	CL = new access mode byte (see #00502)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0000h,AX=0002h,AX=0003h,AX=0005h,INT 31/AX=0009h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0005" name="2C0005"><b>2C0005</b></a> - INT 2C P - Cloaking - SET SEGMENT EXTENDED ACCESS MODE<br />
+<pre>
+INT 2C P - Cloaking - SET SEGMENT EXTENDED ACCESS MODE
+	AX = 0005h
+	SI = selector
+	CL = new extended access mode byte (limit field ignored) (see #02557)
+Return: CF clear if successful
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0000h,AX=0002h,AX=0003h,AX=0004h,INT 31/AX=0009h
+
+Bitfields for extended access mode byte:
+Bit(s)	Description	(Table 02557)
+ 7	4K granularity instead of byte granularity
+ 6	32-bit code segment
+ 5	reserved (0)
+ 4	segment available to system
+SeeAlso: #00505
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0006" name="2C0006"><b>2C0006</b></a> - INT 2C P - Cloaking - GET PROTECTED-MODE INTERRUPT VECTOR<br />
+<pre>
+INT 2C P - Cloaking - GET PROTECTED-MODE INTERRUPT VECTOR
+	AX = 0006h
+	CL = vector (00h-7Fh)
+Return: CF clear
+	DX:EBX -&gt; current interrupt handler
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0007h,INT 31/AX=0204h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0007" name="2C0007"><b>2C0007</b></a> - INT 2C P - Cloaking - SET PROTECTED-MODE INTERRUPT VECTOR<br />
+<pre>
+INT 2C P - Cloaking - SET PROTECTED-MODE INTERRUPT VECTOR
+	AX = 0007h
+	CL = vector (00h-7Fh)
+	DX:EBX -&gt; interrupt handler
+Return: CF clear
+Notes:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+	the IDT entry's type remains unchanged
+SeeAlso: AX=0006h,INT 31/AX=0205h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0008" name="2C0008"><b>2C0008</b></a> - INT 2C P - Cloaking - GET PASSALONG ADDRESS<br />
+<pre>
+INT 2C P - Cloaking - GET PASSALONG ADDRESS
+	AX = 0008h
+Return: CF clear
+	DX:EBX = current passalong address
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0009h,AX=002Ch,INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0009" name="2C0009"><b>2C0009</b></a> - INT 2C P - Cloaking - SET PASSALONG ADDRESS<br />
+<pre>
+INT 2C P - Cloaking - SET PASSALONG ADDRESS
+	AX = 0009h
+	DX:EBX = new value for passalong address (see #02558)
+Return: CF clear
+Notes:	when an INT 2C instruction is executed in V86 mode, the Cloaking host
+	  calls the passalong address.	The handler should check whether the
+	  upcall is of interest to it, and if not it should jump to the old
+	  passalong address (retrieved with AX=0008h before the handler was
+	  installed).  The final handler should return with CF clear to cause
+	  the interrupt to be reflected back to V86 mode if none of the
+	  passalong handlers is triggered
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0008h,AX=002Dh,INT 2C"PASSALONG CHAIN"
+
+(Table 02558)
+Values Cloaking passalong address is called with:
+	EAX = CS:IP of byte following INT 2C instruction invoking passalong
+	SS:EBX -&gt; caller registers (see #02559)
+	CF clear
+	others undefined
+Return: CF clear: pass along to V86-mode INT 2C handler
+	CF set: return immediately to V86 mode
+
+Format of Cloaking caller registers:
+Offset	Size	Description	(Table 02559)
+ 00h	DWORD	EDI
+ 04h	DWORD	ESI
+ 08h	DWORD	EBP
+ 0Ch	DWORD	reserved (ESP from PUSHAD instruction)
+ 10h	DWORD	EBX
+ 14h	DWORD	EDX
+ 18h	DWORD	ECX
+ 1Ch	DWORD	EAX
+ 20h	DWORD	error code
+ 24h	DWORD	EIP
+ 28h	WORD	CS
+ 2Ah	WORD	padding
+ 2Ch	DWORD	EFLAGS
+ 30h	DWORD	ESP
+ 34h	WORD	SS
+ 36h	WORD	padding
+--remainder not available if protected-mode ring3 trap---
+ 38h	WORD	ES
+ 3Ah	WORD	padding
+ 3Ch	WORD	DS
+ 3Eh	WORD	padding
+ 40h	WORD	FS
+ 42h	WORD	padding
+ 44h	WORD	GS
+ 46h	WORD	padding
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C000A" name="2C000A"><b>2C000A</b></a> - INT 2C P - Cloaking - GET BASE ADDRESS OF GDT SELECTOR<br />
+<pre>
+INT 2C P - Cloaking - GET BASE ADDRESS OF GDT SELECTOR
+	AX = 000Ah
+	SI = selector
+Return: CF clear if successful
+	    EBX = segment base address
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00, the
+	  memory manager included in Helix Software's Netroom
+SeeAlso: AX=0000h,AX=0002h,AX=000Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C000B" name="2C000B"><b>2C000B</b></a> - INT 2C P - Cloaking - GET SELECTOR LIMIT<br />
+<pre>
+INT 2C P - Cloaking - GET SELECTOR LIMIT
+	AX = 000Bh
+	SI = selector
+Return: CF clear if successful
+	    EBX = segment base address
+	CF set on error
+	    AX = error code (see #02556)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=000Ah,INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C_2" name="2C_2"><b>2C</b></a> - INT 2C P - RM386 v6.00 - CLOAKING - RESERVED FOR CLOAKED BIOS USE UNDER WINDOWS<br />
+<pre>
+INT 2C P - RM386 v6.00 - CLOAKING - RESERVED FOR CLOAKED BIOS USE UNDER WINDOWS
+	AX = function (000Ch-001Fh)
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C000F" name="2C000F"><b>2C000F</b></a> - INT 2C P - Cloaking v1.01 - "Simulate_Shell_Event"<br />
+<pre>
+INT 2C P - Cloaking v1.01 - "Simulate_Shell_Event"
+	AX = 000Fh
+	ECX = event code (see #02560)
+	DX = subfunction for event
+	EDX high word = boost value (see #02561)
+	SI:EDI -&gt; completion procedure
+Return: CF clear if successful (event scheduled)
+	CF set on error
+Note:	this function is only available while MS Windows is running
+SeeAlso: AX=0011h,AX=0012h,INT 2F/AX=1605h,INT 2F/AX=4310h"Cloaking"
+
+(Table 02560)
+Values for Cloaking shell event code:
+ 0414h	Hot key event
+	subevent 0000h: Alt-Space
+	subevent 0001h: Alt-Enter
+	subevent 0002h: Dir-VM
+ 0415h	Switch context
+	subevent 0000h for DOS VM context, nonzero for System VM context
+ 0416h	Clipboard event
+ 0417h	Termination event
+	subevent 0000h for normal termination, nonzero for error
+ 0418h	Display message
+	subevent 0000h for normal message, nonzero for system model ASAP
+ 0419h	Crash
+ 041Ah	Paste complete
+	subevent 0000h: normal
+	subevent 0001h: cancelled by user
+	subevent 0002h: cancelled
+ 041Bh	Contention event
+ 041Ch	Screen switch
+	subevent 0000h: forward
+	subevent 0001h: back
+ 041Dh	Filesystem change
+ 041Eh	Check Focus
+ 041Fh	Panic
+
+Bitfields for boost value:
+Bit(s)	Description	(Table 02561)
+ 0	boost system VM until focus changes
+ 1	boost system VM on Switcher screen
+ 2	boost system VM until response
+ 3	boost system VM during clipboard activity
+ 4	boost system VM during print screen
+ 5	boost system VM during update
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0011" name="2C0011"><b>2C0011</b></a> - INT 2C P - Cloaking v1.01 - "Switch_VMs_and_Call_back"<br />
+<pre>
+INT 2C P - Cloaking v1.01 - "Switch_VMs_and_Call_back"
+	AX = 0011h
+	EBX = handle of VM to be made active
+	SI:EDI -&gt; 32-bit FAR completion procedure
+Return: CF clear if successful (scheduled)
+	CF set on error
+Notes:	this function is only available while MS Windows is running
+	the completion procedure is called with CF clear if the specified
+	  VM has been made active, or with CF set on error
+SeeAlso: AX=000Fh,AX=0012h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0012" name="2C0012"><b>2C0012</b></a> - INT 2C P - Cloaking v1.01 - "Query_Current_VM"<br />
+<pre>
+INT 2C P - Cloaking v1.01 - "Query_Current_VM"
+	AX = 0012h
+Return: CF clear
+	EBX = handle of active VM
+	ESI = handle of system VM
+	ECX = VM status flags (see #02562)
+	EDX = shell flags (see #02563)
+Note:	this function is only available while MS Windows is running in enhanced
+	  mode
+SeeAlso: AX=000Fh,AX=0011h,AX=0013h
+
+Bitfields for VM status flags:
+Bit(s)	Description	(Table 02562)
+ 0	in exclusive mode
+ 1	runs in background
+ 2	being created
+ 3	suspended
+ 4	not executable
+ 5	executing in protected mode
+ 6	contains PM application
+ 7	32-bit PM application
+ 8	called from VxD
+ 9	high priority background
+ 10	blocked on semaphore
+ 11	awakening
+ 12	has pageable V86
+ 13	has locked V86
+ 14	is scheduled
+ 15	idle
+ 16	closing
+
+Bitfields for shell flags:
+Bit(s)	Description	(Table 02563)
+ 2	windowed
+ 5	Alt-Tab reserved
+ 6	Alt-Esc reserved
+ 7	Alt-Space reserved
+ 8	Alt-PrtSc reserved
+ 9	Alt-Enter reserved
+ 10	Alt-PrtSc reserved
+ 11	PrtSc reserved
+ 12	polling enabled
+ 13	no HMA
+ 14	has shortcut key
+ 15	locked EMS handles
+ 16	locked XMS handles
+ 17	fast paste enabled
+ 18	locked V86 memory
+ 30	close-on-exit enabled
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0013" name="2C0013"><b>2C0013</b></a> - INT 2C P - Cloaking v1.01 - "Issue_System_Modal_Message"<br />
+<pre>
+INT 2C P - Cloaking v1.01 - "Issue_System_Modal_Message"
+	AX = 0013h
+	EDX = message box flags (see #02564)
+	DS:ECX -&gt; ASCIZ message text
+	DS:EDI -&gt; ASCIZ caption
+Return: CF clear
+	EAX = response code
+Note:	this function is only available while MS Windows is running in enhanced
+	  mode
+SeeAlso: AX=000Fh,AX=0012h
+
+Bitfields for message box flags:
+Bit(s)	Description	(Table 02564)
+ 3-0	response codes (see #02565)
+ 7-4	icon codes
+	1 = Warning hand
+	2 = exclamation mark
+	4 = asterisk
+ 9-8	default response (0 = first button, 1 = second, 2 = third)
+ 12	message is system model
+ 15	don't change focus
+ 29	hang with interrupts enabled
+ 30	do not window
+ 31	execute ASAP
+
+(Table 02565)
+Values for response codes:
+ 00h	OK
+ 01h	OK, Cancel
+ 02h	Abort, Retry, Ignore
+ 03h	Yes, No, Cancel
+ 04h	Yes, No
+ 05h	Retry, Cancel
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C001D" name="2C001D"><b>2C001D</b></a> - INT 2C P - Cloaking v1.01 - GET INT 2C API HANDLER ENTRY POINT<br />
+<pre>
+INT 2C P - Cloaking v1.01 - GET INT 2C API HANDLER ENTRY POINT
+	AX = 001Dh
+Return: CF clear
+	DX:EBX = selector:offset of Cloaking host INT 2C handler
+Desc:	get the Cloaking host's entry point to bypass any other programs
+	  which may have hooked INT 2C in protected mode
+Note:	the returned entry point must be called with a simulated INT, i.e.
+	  a PUSHD must precede the far call to the handler
+SeeAlso: INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C001E" name="2C001E"><b>2C001E</b></a> - INT 2C P - Cloaking v1.01 - CLEAR CRITICAL SECTION<br />
+<pre>
+INT 2C P - Cloaking v1.01 - CLEAR CRITICAL SECTION
+	AX = 001Eh
+Return: CF clear
+Desc:	allow MS Windows to switch to another VM after having prevented it
+	  by invoking a critical section
+SeeAlso: AX=001Fh,INT 15/AX=101Ch,INT 2F/AX=1682h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C001F" name="2C001F"><b>2C001F</b></a> - INT 2C P - Cloaking v1.01 - SET CRITICAL SECTION<br />
+<pre>
+INT 2C P - Cloaking v1.01 - SET CRITICAL SECTION
+	AX = 001Fh
+Return: CF clear
+Desc:	prevent MS Windows from switching to another VM
+SeeAlso: AX=001Eh,INT 15/AX=101Bh,INT 2F/AX=1681h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0020" name="2C0020"><b>2C0020</b></a> - INT 2C P - Cloaking - GET SIZE OF PROTECTED-MODE STATE<br />
+<pre>
+INT 2C P - Cloaking - GET SIZE OF PROTECTED-MODE STATE
+	AX = 0020h
+Return: EAX = number of bytes required for storing state
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0021h,AX=0022h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0021" name="2C0021"><b>2C0021</b></a> - INT 2C P - Cloaking - SAVE PROTECTED-MODE STATE<br />
+<pre>
+INT 2C P - Cloaking - SAVE PROTECTED-MODE STATE
+	AX = 0021h
+	ES:EDI -&gt; buffer for protected-mode state
+Return: CF clear
+	buffer filled
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0020h,AX=0022h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0022" name="2C0022"><b>2C0022</b></a> - INT 2C P - Cloaking - RESTORE PROTECTED-MODE STATE<br />
+<pre>
+INT 2C P - Cloaking - RESTORE PROTECTED-MODE STATE
+	AX = 0022h
+	DS:ESI -&gt; buffer containing previously-saved protected-mode state
+Return: CF clear if successful
+	    state restored
+	CF set on error (invalid buffer contents)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0020h,AX=0021h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0023" name="2C0023"><b>2C0023</b></a> - INT 2C P - Cloaking - ISSUE PROTECTED-MODE XMS CALL<br />
+<pre>
+INT 2C P - Cloaking - ISSUE PROTECTED-MODE XMS CALL
+	AX = 0023h
+Notes:	not currently implemented--NOP in RM386 v6.00
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0024" name="2C0024"><b>2C0024</b></a> - INT 2C P - Cloaking - SET V86-MODE STACK<br />
+<pre>
+INT 2C P - Cloaking - SET V86-MODE STACK
+	AX = 0024h
+	DX:EBX = new value for V86-mode SS:ESP
+Return: nothing
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0025" name="2C0025"><b>2C0025</b></a> - INT 2C P - Cloaking - CALL V86-MODE PROCEDURE<br />
+<pre>
+INT 2C P - Cloaking - CALL V86-MODE PROCEDURE
+	AX = 0025h
+	DS:EBX -&gt; client register structure (see #02559)
+Return: CF clear if successful
+	    client register structure updated
+	CF set if no more nested procedure call space available
+Notes:	this call uses the V86-mode stack supplied in the client structure, and
+	  calls the routine specified by CS:IP in the client structure
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0026h,AX=0027h,INT 31/AX=0301h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0026" name="2C0026"><b>2C0026</b></a> - INT 2C P - Cloaking - CALL V86-MODE INTERRUPT HANDLER<br />
+<pre>
+INT 2C P - Cloaking - CALL V86-MODE INTERRUPT HANDLER
+	AX = 0026h
+	DS:EBX -&gt; client register structure (see #02559)
+	CX = interrupt number
+Return: CF clear if successful
+	    client register structure updated
+	CF set if no more nested procedure call space available
+Notes:	this call uses the V86-mode stack supplied in the client structure
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0025h,AX=0027h,INT 31/AX=0300h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0027" name="2C0027"><b>2C0027</b></a> - INT 2C P - Cloaking - CHAIN TO V86-MODE INTERRUPT HANDLER<br />
+<pre>
+INT 2C P - Cloaking - CHAIN TO V86-MODE INTERRUPT HANDLER
+	AX = 0027h
+	DS:EBX -&gt; client register structure (see #02559)
+Return: CF clear if successful
+	    client register structure updated
+	CF set if no more nested procedure call space available
+Notes:	this call uses the V86-mode stack supplied in the client structure,
+	  and jumps to the address specified by CS:IP in the client structure
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0025h,AX=0026h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0028" name="2C0028"><b>2C0028</b></a> - INT 2C P - Cloaking - GET ESP0 FROM TSS<br />
+<pre>
+INT 2C P - Cloaking - GET ESP0 FROM TSS
+	AX = 0028h
+Return: CF clear
+	EAX = TSS's ESP0
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00, the
+	  memory manager included in Helix Software's Netroom
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0029" name="2C0029"><b>2C0029</b></a> - INT 2C P - Cloaking - SET SECONDARY STACK<br />
+<pre>
+INT 2C P - Cloaking - SET SECONDARY STACK
+	AX = 0029h
+	DX:EBX = new value for SS:ESP of ring 3 secondary stack
+Return: CF clear
+Desc:	inform RM386 of the ring 3 interrupt stack location
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002A" name="2C002A"><b>2C002A</b></a> - INT 2C P - Cloaking - SET 8259 IRQ BASE VECTORS<br />
+<pre>
+INT 2C P - Cloaking - SET 8259 IRQ BASE VECTORS
+	AX = 002Ah
+	BL = base vector of master interrupt controller
+	CL = base vector of slave interrupt controller
+Notes:	this call merely informs RM386 that the caller has changed the
+	  interrupt mappings
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: INT 67/AX=DE0Bh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002BCH81" name="2C002BCH81"><b>2C002BCH81</b></a> - INT 2C P - Cloaking - PROTECTED-MODE VIRTUAL DMA SERVICES<br />
+<pre>
+INT 2C P - Cloaking - PROTECTED-MODE VIRTUAL DMA SERVICES
+	AX = 002Bh
+	CH = 81h
+	CL = subfunction (02h-0Ch)
+	other registers as appropriate for subfunction
+Return: varies by function
+	CF set on error
+Notes:	these functions are equivalent to the INT 4B/AX=81xxh subfunctions
+	  with the same numbers
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: INT 4B/AX=8102h,INT 4B/AX=810Ch
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002C" name="2C002C"><b>2C002C</b></a> - INT 2C P - Cloaking - GET PORT-TRAPPING PASSALONG<br />
+<pre>
+INT 2C P - Cloaking - GET PORT-TRAPPING PASSALONG
+	AX = 002Ch
+Return: CF clear
+	DX:EBX = current I/O trapping passalong address
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0008h,AX=002Dh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002D" name="2C002D"><b>2C002D</b></a> - INT 2C P - Cloaking - SET PORT-TRAPPING PASSALONG<br />
+<pre>
+INT 2C P - Cloaking - SET PORT-TRAPPING PASSALONG
+	AX = 002Dh
+	DX:EBX = new I/O trapping passalong address (see #02566)
+Return: CF clear
+Notes:	RM386 calls the passalong address whenever an access to a monitored
+	  I/O port is attempted; the handler should check whether it is a port
+	  that it is interested in, and if not call the previous passalong
+	  address (which was retrieved with AX=002Ch before installing the
+	  new handler)
+	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=0009h,AX=002Ch,INT 67/AX=5DEAh
+
+(Table 02566)
+Values Cloaking port-trapping passalong address is called with:
+	EAX = CS:IP of faulting instruction (unless executing in protected-mode
+		ring 3)
+	SS:EBX -&gt; caller register structure (see #02559)
+		check EFLAGS V86-mode bit for type
+	CX = first two bytes of I/O instruction which was trapped
+	DX = port to which I/O is being performed
+	CF clear
+Return: CF clear if RM386 should perform I/O operation
+	CF set if I/O should be skipped
+Note:	RM386 skips the trapped I/O instruction, so the passalong handler
+	  should not modify the client CS:EIP
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002E" name="2C002E"><b>2C002E</b></a> - INT 2C P - Cloaking - TRAP I/O PORT<br />
+<pre>
+INT 2C P - Cloaking - TRAP I/O PORT
+	AX = 002Eh
+	DX = port number to trap
+Return: CF clear if successful
+	CF set on error (port out of range or reserved)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=002Fh,AX=0030h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C002F" name="2C002F"><b>2C002F</b></a> - INT 2C PU - Cloaking - UNTRAP I/O PORT<br />
+<pre>
+INT 2C PU - Cloaking - UNTRAP I/O PORT
+	AX = 002Fh
+	DX = port number for which to cancel trapping
+Return: CF clear if successful
+	CF set on error (port out of range or reserved)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=002Eh,AX=0030h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0030" name="2C0030"><b>2C0030</b></a> - INT 2C PU - Cloaking - GET TRAPPING STATE OF SPECIFIED PORT<br />
+<pre>
+INT 2C PU - Cloaking - GET TRAPPING STATE OF SPECIFIED PORT
+	AX = 0030h
+	DX = port number
+Return: CF clear if successful
+	   BX = current state (0000h not trapped, 0001h trapped)
+	CF set on error (port out of range or reserved)
+Note:	this function was first introduced with RM386 (RAM-MAN/386) v6.00
+SeeAlso: AX=002Eh,AX=002Fh
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0031" name="2C0031"><b>2C0031</b></a> - INT 2C PU - RM386 v6.00 - BUG<br />
+<pre>
+INT 2C PU - RM386 v6.00 - BUG
+	AX = 0031h
+Program: RM386 (RAM-MAN/386) is the memory manager included in Helix
+	  Software's Netroom
+Note:	due to a fencepost error, RM386 v6.00 will branch unpredictably if
+	  invoked with this function
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0031_0" name="2C0031_0"><b>2C0031</b></a> - INT 2C P - Cloaking v1.01 - ALLOCATE V86 CALLBACK<br />
+<pre>
+INT 2C P - Cloaking v1.01 - ALLOCATE V86 CALLBACK
+	AX = 0031h
+	DX:EBX = CS:EIP of protected-mode routine to be invoked by callback
+Return: CF clear if successful
+	    EBX = CS:IP of V86-mode callback handler
+	CF set on error
+SeeAlso: AX=0032h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0032" name="2C0032"><b>2C0032</b></a> - INT 2C P - Cloaking v1.01 - FREE V86 CALLBACK<br />
+<pre>
+INT 2C P - Cloaking v1.01 - FREE V86 CALLBACK
+	AX = 0032h
+	EBX = CS:IP of V86-mode callback handler
+Return: CF clear if successful
+	CF set on error
+	    AX = error code
+		0005h invalid callback address
+		0006h callback already free
+SeeAlso: AX=0032h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0033" name="2C0033"><b>2C0033</b></a> - INT 2C P - Cloaking v1.01 - REGISTER CLOAKING CLIENT<br />
+<pre>
+INT 2C P - Cloaking v1.01 - REGISTER CLOAKING CLIENT
+	AX = 0033h
+	DS:EDX -&gt; client registration structure (see #02567)
+Return: CF clear if successful
+	CF set on error (linked list corrupt)
+SeeAlso: AX=0034h,#02778 at INT 2F/AX=4310h"Cloaking"
+
+Format of client registration structure:
+Offset	Size	Description	(Table 02567)
+ 00h	PWORD	link to next structure
+ 06h	PWORD	link to previous structure
+ 0Ch  2 BYTEs	client version (major, minor)
+ 0Eh 20 BYTEs	client name
+ 22h	DWORD	physical address of client start
+ 26h	DWORD	client's total size in bytes
+Note:	the link area should not be modified once the structure has been
+	  used for the registration call
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2C0034" name="2C0034"><b>2C0034</b></a> - INT 2C P - Cloaking v1.01 - UNREGISTER CLOAKING CLIENT<br />
+<pre>
+INT 2C P - Cloaking v1.01 - UNREGISTER CLOAKING CLIENT
+	AX = 0034h
+	DS:EDX -&gt; client registration structure (see #02567)
+Return: CF clear if successful
+	CF set on error (linked list corrupt)
+Note:	the client must unregister before freeing the XMS block containing
+	  its registration structure(s)
+SeeAlso: AX=0033h,#02778 at INT 2F/AX=4310h"Cloaking"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by Number</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>

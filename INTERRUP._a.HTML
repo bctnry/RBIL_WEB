@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERRUP._a</title>
+    <style>
+        body {
+            font-variant-ligatures: none;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: black;
+        }
+        .bottom-nav {
+            position: sticky;
+            bottom: 0px;
+            background-color: white;
+            text-align: right;
+        }
+        h3, h4 {
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+
+<b>Interrupt List Release 61 Last change 16jul00</b><br />
+<b>Copyright (c) 1989-1999,2000 Ralf Brown</b><br />
+<pre>
+Index for category a - access software (screen readers, etc)
+</pre>
+
+<p>
+<a name="__toc"><b>Table of Contents by Order</b></a><br />
+
+<a href="#103800"><b>103800</b> - INT 10 - Tinytalk Personal v1.09f+ - GET CONFIGURATION INFO</a><br />
+<a href="#103801"><b>103801</b> - INT 10 - Tinytalk Personal v1.10 - ???</a><br />
+<a href="#103802"><b>103802</b> - INT 10 - Tinytalk Personal v1.10 - ???</a><br />
+<a href="#103803"><b>103803</b> - INT 10 - Tinytalk Personal v1.10 - GET ???</a><br />
+<a href="#103804"><b>103804</b> - INT 10 - Tinytalk Personal v1.10 - GET ???</a><br />
+<a href="#103805"><b>103805</b> - INT 10 - Tinytalk Personal v1.10 - GET ???</a><br />
+<a href="#103806"><b>103806</b> - INT 10 - Tinytalk Personal v1.10 - ???</a><br />
+<a href="#1039"><b>1039</b> - INT 10 - Tinytalk Personal v1.10 - ???</a><br />
+<a href="#14F0F0"><b>14F0F0</b> - INT 14 - ASAP v1.0 - ???</a><br />
+<a href="#14F0F1DX0000"><b>14F0F1DX0000</b> - INT 14 - ASAP v1.0 - INSTALLATION CHECK</a><br />
+<a href="#2FFB00"><b>2FFB00</b> - INT 2F U - AutoBraille v1.1A - INSTALLATION CHECK</a><br />
+<a href="#2FFB01"><b>2FFB01</b> - INT 2F U - AutoBraille v1.1A - ???</a><br />
+<a href="#2FFB02"><b>2FFB02</b> - INT 2F U - AutoBraille v1.1A - ???</a><br />
+<a href="#2FFB03"><b>2FFB03</b> - INT 2F U - AutoBraille v1.1A - GET NEXT ???</a><br />
+<a href="#2FFB_1"><b>2FFB</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB_2"><b>2FFB</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB_3"><b>2FFB</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB20"><b>2FFB20</b> - INT 2F U - AutoBraille v1.1A - SET ??? FLAGS</a><br />
+<a href="#2FFB21"><b>2FFB21</b> - INT 2F U - AutoBraille v1.1A - CLEAR ??? FLAGS</a><br />
+<a href="#2FFB22"><b>2FFB22</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB28"><b>2FFB28</b> - INT 2F U - AutoBraille v1.1A - ???</a><br />
+<a href="#2FFB29"><b>2FFB29</b> - INT 2F U - AutoBraille v1.1A - ???</a><br />
+<a href="#2FFB_4"><b>2FFB</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB35"><b>2FFB35</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB36"><b>2FFB36</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB37"><b>2FFB37</b> - INT 2F U - AutoBraille v1.1A - SET ???</a><br />
+<a href="#2FFB64"><b>2FFB64</b> - INT 2F U - AutoBraille v1.1A - GET ???</a><br />
+<a href="#490001"><b>490001</b> - INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION</a><br />
+<a href="#490002"><b>490002</b> - INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION</a><br />
+<a href="#490003"><b>490003</b> - INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION</a><br />
+<a href="#490004"><b>490004</b> - INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW</a><br />
+<a href="#490005"><b>490005</b> - INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW</a><br />
+<a href="#490006"><b>490006</b> - INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN</a><br />
+<a href="#490007"><b>490007</b> - INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW</a><br />
+<a href="#490008"><b>490008</b> - INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE</a><br />
+<a href="#60AD"><b>60AD</b> - INT 60 - AccessDOS - API</a><br />
+
+<hr />
+
+<a href="#103800" name="103800"><b>103800</b></a> - INT 10 - Tinytalk Personal v1.09f+ - GET CONFIGURATION INFO<br />
+<pre>
+INT 10 - Tinytalk Personal v1.09f+ - GET CONFIGURATION INFO
+	AX = 3800h
+Return: ES:DI -&gt; configuration info (see #00066)
+Program: Tinytalk is a shareware screen reader by OMS Development/Eric Bohlman
+Notes:	this call is also used as the installation check by verifying that the
+	  returned ES:DI points at valid configuration info
+	Tinytalk v1.09f ignores AL and always returns the configuration info;
+	  v1.10 adds several subfunctions selected with AL
+SeeAlso: AX=3801h,AX=3803h,AX=3806h,AH=39h,INT 14/AX=F0F1h
+SeeAlso: INT 2F/AX=FB00h"AutoBraille"
+Index:	installation check;Tinytalk Personal
+
+Format of Tinytalk Personal configuration info:
+Offset	Size	Description	(Table 00066)
+ 00h  8 BYTEs	signature "TTCONFIG"
+ 08h	WORD	size of configuration data, not counting signature, this WORD,
+		  or the following byte
+ 0Ah	BYTE	???
+ 0Bh	???	configuration data
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103801" name="103801"><b>103801</b></a> - INT 10 - Tinytalk Personal v1.10 - ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - ???
+	AX = 3801h
+	DL = ???
+Return: ???
+SeeAlso: AX=3800h,AX=3802h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103802" name="103802"><b>103802</b></a> - INT 10 - Tinytalk Personal v1.10 - ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - ???
+	AX = 3802h
+	DL = ???
+Return: ???
+SeeAlso: AX=3800h,AX=3801h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103803" name="103803"><b>103803</b></a> - INT 10 - Tinytalk Personal v1.10 - GET ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - GET ???
+	AX = 3803h
+Return: AL = ???
+SeeAlso: AX=3800h,AX=3804h,AX=3805h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103804" name="103804"><b>103804</b></a> - INT 10 - Tinytalk Personal v1.10 - GET ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - GET ???
+	AX = 3804h
+Return: AX = ???
+SeeAlso: AX=3800h,AX=3803h,AX=3805h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103805" name="103805"><b>103805</b></a> - INT 10 - Tinytalk Personal v1.10 - GET ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - GET ???
+	AX = 3805h
+Return: AL = ???
+SeeAlso: AX=3800h,AX=3803h,AX=3804h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#103806" name="103806"><b>103806</b></a> - INT 10 - Tinytalk Personal v1.10 - ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - ???
+	AX = 3806h
+	ES:DX -&gt; ASCIZ ???
+Return: ???
+SeeAlso: AX=3800h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#1039" name="1039"><b>1039</b></a> - INT 10 - Tinytalk Personal v1.10 - ???<br />
+<pre>
+INT 10 - Tinytalk Personal v1.10 - ???
+	AH = 39h
+Program: Tinytalk is a shareware screen reader by OMS Development/Eric Bohlman
+Note:	this function was a NOP in TTDEMO.EXE, but may be implemented in other
+	  variants of Tinytalk
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14F0F0" name="14F0F0"><b>14F0F0</b></a> - INT 14 - ASAP v1.0 - ???<br />
+<pre>
+INT 14 - ASAP v1.0 - ???
+	AX = F0F0h
+	DX = ???
+	???
+Return: ???
+Program: ASAP (Automatic Screen Access Program) is a shareware screen reader
+	  by MicroTalk
+SeeAlso: AX=F0F1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#14F0F1DX0000" name="14F0F1DX0000"><b>14F0F1DX0000</b></a> - INT 14 - ASAP v1.0 - INSTALLATION CHECK<br />
+<pre>
+INT 14 - ASAP v1.0 - INSTALLATION CHECK
+	AX = F0F1h
+	DX = 0000h
+Return: DX = segment of resident code
+	    0000h if not installed
+Program: ASAP (Automatic Screen Access Program) is a shareware screen reader
+	  by MicroTalk
+SeeAlso: AX=F0F0h,INT 10/AX=3800h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB00" name="2FFB00"><b>2FFB00</b></a> - INT 2F U - AutoBraille v1.1A - INSTALLATION CHECK<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - INSTALLATION CHECK
+	AX = FB00h
+Return: AX = 00FFh if installed
+Program: AutoBraille is a shareware text-to-braille converter by KANSYS, Inc.
+SeeAlso: INT 10/AX=3800h,INT 14/AX=F0F1h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB01" name="2FFB01"><b>2FFB01</b></a> - INT 2F U - AutoBraille v1.1A - ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - ???
+	AX = FB01h
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB02" name="2FFB02"><b>2FFB02</b></a> - INT 2F U - AutoBraille v1.1A - ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - ???
+	AX = FB02h
+Return: AH = ???
+	AL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB03" name="2FFB03"><b>2FFB03</b></a> - INT 2F U - AutoBraille v1.1A - GET NEXT ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - GET NEXT ???
+	AX = FB03h
+Return: AX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB_1" name="2FFB_1"><b>2FFB</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AH = FBh
+	AL = 04h-08h
+Return: AX = 0000h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB_2" name="2FFB_2"><b>2FFB</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AH = FBh
+	AL = 09h-0Fh (???, 0Eh = COM1, 0Fh = COM2)
+Return: ???
+Program: AutoBraille is a shareware text-to-braille converter by KANSYS, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB_3" name="2FFB_3"><b>2FFB</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AH = FBh
+	AL = 10h-1Fh
+	???
+Return: ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB20" name="2FFB20"><b>2FFB20</b></a> - INT 2F U - AutoBraille v1.1A - SET ??? FLAGS<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ??? FLAGS
+	AX = FB20h
+	BL = flags to set
+SeeAlso: AX=FB21h"AutoBraille"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB21" name="2FFB21"><b>2FFB21</b></a> - INT 2F U - AutoBraille v1.1A - CLEAR ??? FLAGS<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - CLEAR ??? FLAGS
+	AX = FB21h
+	BL = flags to clear
+SeeAlso: AX=FB20h"AutoBraille"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB22" name="2FFB22"><b>2FFB22</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AX = FB22h
+	BL = ???
+Program: AutoBraille is a shareware text-to-braille converter by KANSYS, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB28" name="2FFB28"><b>2FFB28</b></a> - INT 2F U - AutoBraille v1.1A - ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - ???
+	AX = FB28h
+	BX = ???
+	???
+Return: ???
+SeeAlso: AX=FB29h"AutoBraille"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB29" name="2FFB29"><b>2FFB29</b></a> - INT 2F U - AutoBraille v1.1A - ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - ???
+	AX = FB29h
+	BX = ???
+	???
+Return: ???
+SeeAlso: AX=FB28h"AutoBraille"
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB_4" name="2FFB_4"><b>2FFB</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AH = FBh
+	AL = 2Bh-34h
+	BX = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB35" name="2FFB35"><b>2FFB35</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AX = FB35h
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB36" name="2FFB36"><b>2FFB36</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AX = FB36h
+	BL = ???
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB37" name="2FFB37"><b>2FFB37</b></a> - INT 2F U - AutoBraille v1.1A - SET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - SET ???
+	AX = FB37h
+	BL = ???
+Program: AutoBraille is a shareware text-to-braille converter by KANSYS, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#2FFB64" name="2FFB64"><b>2FFB64</b></a> - INT 2F U - AutoBraille v1.1A - GET ???<br />
+<pre>
+INT 2F U - AutoBraille v1.1A - GET ???
+	AX = FB64h
+Return: AX = ??? (0006h seen)
+Program: AutoBraille is a shareware text-to-braille converter by KANSYS, Inc.
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490001" name="490001"><b>490001</b></a> - INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - TURN ON MAGNIFICATION
+	AX = 0001h
+Return: AX = status (see #03209)
+	BX,CX,DX destroyed
+Program: MAGic (MAGnification In Color) is a TSR by Microsystems Software, Inc.
+	  providing 2x2 text and graphics magnification on VGA, XGA, and SVGA
+Note:	INT 49 is the default, but may be overridden on the commandline.  The
+	  actual interrupt in use may be found by searching for the signature
+	  "MAGic" or "xMAGic" (for the deluxe version) immediately preceding
+	  the interrupt handler (this is also the installation check).	MAGic
+	  uses CodeRunneR, which places the signature "RT" at offset 0000h in
+	  the interrupt handler's segment, followed by MAGic's TSR ID of
+	  "VMAG".
+SeeAlso: AX=0002h,AX=0003h,AX=0004h,AX=0008h
+Index:	installation check;MAGic
+
+(Table 03209)
+Values for MAGic status:
+ 0000h	cannot magnify current video mode
+ 0002h	magnified (text mode)
+ 0003h	magnified (graphics mode)
+ FFFDh	function works only in magnified mode
+ FFFFh	MAGic busy, retry later
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490002" name="490002"><b>490002</b></a> - INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - TURN OFF MAGNIFICATION
+	AX = 0002h
+Return: AX = status (see #03209)
+	BX,CX,DX destroyed
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490003" name="490003"><b>490003</b></a> - INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION<br />
+<pre>
+INT 49 - MAGic v1.16+ - SHIFT MAGNIFIED WINDOW TO INCLUDE SPECIFIED LOCATION
+	AX = 0003h
+	BX = vertical position (character row [text] or pixel row [graphics])
+	DX = horizontal position (char column [text] or 8-pixel units [gr])
+Return: AX = status
+	    0000h successful
+	    FFFFh MAGic busy, retry later
+	BX,CX,DX destroyed
+Note:	window is not moved if the position is inside the current window
+SeeAlso: AX=0001h,AX=0004h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490004" name="490004"><b>490004</b></a> - INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - REPOSITION MAGNIFIED WINDOW
+	AX = 0004h
+	BX = vertical position of upper left corner
+	DX = horizontal position
+Return: AX = status (see AX=0003h)
+	BX,CX,DX destroyed
+SeeAlso: AX=0001h,AX=0003h,AX=0005h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490005" name="490005"><b>490005</b></a> - INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET POSITION OF MAGNIFIED WINDOW
+	AX = 0005h
+Return: AX = status
+	    0000h successful
+		BX = vertical position (char row or pixel row)
+		DX = horizontal position (char column or 8-pixel units)
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+SeeAlso: AX=0001h,AX=0003h,AX=0004h,AX=0006h,AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490006" name="490006"><b>490006</b></a> - INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET SIZE OF FULL SCREEN
+	AX = 0006h
+Return: AX = status
+	    0000h successful
+		BX = vertical size (char rows or pixel rows)
+		DX = horizontal size (char cols or 8-pixel units)
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+SeeAlso: AX=0001h,AX=0005h,AX=0007h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490007" name="490007"><b>490007</b></a> - INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW<br />
+<pre>
+INT 49 - MAGic v1.16+ - GET SIZE OF MAGNIFICATION WINDOW
+	AX = 0007h
+Return: AX = status
+	    0000h successful
+		BX = vertical size (char rows or pixel rows)
+		DX = horizontal size (char cols or 8-pixel units)
+	    FFFEh invalid function
+	    FFFFh MAGic busy, retry later
+		BX,DX destroyed
+	CX destroyed
+BUG:	in v1.16 and v1.17, this function is not recognized as valid, but
+	  AX=0000h is accepted and will branch into hyperspace
+SeeAlso: AX=0001h,AX=0006h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#490008" name="490008"><b>490008</b></a> - INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE<br />
+<pre>
+INT 49 - MAGic v1.23+ - SET TEXT MODE MAGNIFICATION SIZE
+	AX = 0008h
+	BX = scaling factor (01h=1.4 times, 02h, 04h, 06h, 08h, 09h=12 times)
+Return: AX = status
+	    0000h successful
+	    FFFBh scaling factor only available in MAGic Deluxe
+	    FFFCh already in magnified state, can't set size
+Notes:	this call specifies the amount a subsequent call to AX=0001h should
+	  magnify the display
+	scaling factors greater than 2 are only available in MAGic Deluxe
+SeeAlso: AX=0001h
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<a href="#60AD" name="60AD"><b>60AD</b></a> - INT 60 - AccessDOS - API<br />
+<pre>
+INT 60 - AccessDOS - API
+	AH = ADh
+	AL = function
+	    E1h ???
+		Return: AX = ???
+	    E2h get configuration
+		Return: BX:AX -&gt; configuration data
+Program: AccessDOS is a public domain TSR developed at The Trace Research and
+	  Development Center which provides extensions for keyboard, mouse,
+	  and sound access by the visually, hearing, or motor-control
+	  impaired.
+InstallCheck:	test for the signature "ACCESSv1.00" beginning three bytes
+	  past the start of the interrupt handler (this same signature is also
+	  present in v1.10)
+Range:	INT 60 to INT 66, selected by scanning for 0000h:0000h vector
+
+</pre>
+
+<span style="font-size:80%"><a href="#__toc">Top</a></span>
+
+<hr />
+
+<div class="bottom-nav"><b><a href="./index.html">Home</a></b> <b>Interrupt Index</b>: <a href="./INTERRUP.CAT.HTML">by Category</a> <a href="./INTERRUP.NUM.HTML">by ID</a> <b>TOC</b>: <a href="#__toc">by Order</a> <b><a href="#top">Top</a></b></div>
+
+</body>
+</html>
