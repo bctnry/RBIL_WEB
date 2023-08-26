@@ -71,7 +71,6 @@ with open('86BUGS.LST.HTML', 'w') as f:
 
     for i, section in enumerate(sections):
         if not section: continue
-        print(section)
         f.write(f'<h2><a name="__sec{i}">{sanitize(section[0])}</a></h2>')
         f.write('\n<pre>\n')
         for line in section[2:]:
